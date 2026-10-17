@@ -11,6 +11,8 @@
 #include "EngineUtils.h"
 #include "World/RiderStation.h"
 #include "Vehicles/RiderRecoveryComponent.h"
+#include "Ambient/AmbientTrafficManager.h"
+#include "Ambient/CourierAudioComponent.h"
 
 ACourierGameMode::ACourierGameMode()
 {
@@ -21,6 +23,8 @@ void ACourierGameMode::StartPlay()
 {
     Super::StartPlay();
     auto* City = LoadObject<UCityDefinition>(nullptr,TEXT("/Game/CityCourier/Data/DA_CityDefinition.DA_CityDefinition"));
+    auto* Traffic=GetWorld()->SpawnActor<AAmbientTrafficManager>();Traffic->Configure(City);
+    auto* Audio=NewObject<UCourierAudioComponent>(this);AddInstanceComponent(Audio);Audio->RegisterComponent();
     for (TActorIterator<AScooterPawn> It(GetWorld()); It; ++It)
     {
         GetWorld()->GetSubsystem<UDeliverySubsystem>()->Configure(City,GetGameInstance()->GetSubsystem<UProfileSubsystem>(),*It);

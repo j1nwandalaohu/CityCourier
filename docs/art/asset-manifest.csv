@@ -41,3 +41,12 @@ sm_sign_14,AssetsSource/CityCourier/Exports/SM_Sign_14.fbx,/Game/CityCourier/Art
 sm_sign_15,AssetsSource/CityCourier/Exports/SM_Sign_15.fbx,/Game/CityCourier/Art/StreetProps/SM_Sign_15,CityCourier project,,Original project artwork,false
 sm_sign_16,AssetsSource/CityCourier/Exports/SM_Sign_16.fbx,/Game/CityCourier/Art/StreetProps/SM_Sign_16,CityCourier project,,Original project artwork,false
 sm_sign_17,AssetsSource/CityCourier/Exports/SM_Sign_17.fbx,/Game/CityCourier/Art/StreetProps/SM_Sign_17,CityCourier project,,Original project artwork,false
+ambient_car,AssetsSource/CityCourier/Ambient/Exports/SM_CityCar.fbx,/Game/CityCourier/Art/Ambient/SM_CityCar,CityCourier project,,Original project asset,false
+ambient_citizen,AssetsSource/CityCourier/Ambient/Exports/SK_Citizen.fbx,/Game/CityCourier/Art/Ambient/SK_Citizen,CityCourier project,,Original project asset,false
+s_accepted,AssetsSource/CityCourier/Ambient/Audio/S_Accepted.wav,/Game/CityCourier/Audio/S_Accepted,CityCourier project,,Original project asset,false
+s_brake,AssetsSource/CityCourier/Ambient/Audio/S_Brake.wav,/Game/CityCourier/Audio/S_Brake,CityCourier project,,Original project asset,false
+s_city,AssetsSource/CityCourier/Ambient/Audio/S_City.wav,/Game/CityCourier/Audio/S_City,CityCourier project,,Original project asset,false
+s_delivered,AssetsSource/CityCourier/Ambient/Audio/S_Delivered.wav,/Game/CityCourier/Audio/S_Delivered,CityCourier project,,Original project asset,false
+s_failed,AssetsSource/CityCourier/Ambient/Audio/S_Failed.wav,/Game/CityCourier/Audio/S_Failed,CityCourier project,,Original project asset,false
+s_motor,AssetsSource/CityCourier/Ambient/Audio/S_Motor.wav,/Game/CityCourier/Audio/S_Motor,CityCourier project,,Original project asset,false
+s_pickedup,AssetsSource/CityCourier/Ambient/Audio/S_PickedUp.wav,/Game/CityCourier/Audio/S_PickedUp,CityCourier project,,Original project asset,false

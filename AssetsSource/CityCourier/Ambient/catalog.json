@@ -1,0 +1,65 @@
+[
+  {
+    "asset_id": "ambient_car",
+    "name": "SM_CityCar",
+    "kind": "static",
+    "source_path": "AssetsSource/CityCourier/Ambient/Exports/SM_CityCar.fbx",
+    "ue_path": "/Game/CityCourier/Art/Ambient/SM_CityCar"
+  },
+  {
+    "asset_id": "ambient_citizen",
+    "name": "SK_Citizen",
+    "kind": "skeletal",
+    "source_path": "AssetsSource/CityCourier/Ambient/Exports/SK_Citizen.fbx",
+    "ue_path": "/Game/CityCourier/Art/Ambient/SK_Citizen"
+  },
+  {
+    "asset_id": "s_accepted",
+    "name": "S_Accepted",
+    "kind": "audio",
+    "source_path": "AssetsSource/CityCourier/Ambient/Audio/S_Accepted.wav",
+    "ue_path": "/Game/CityCourier/Audio/S_Accepted"
+  },
+  {
+    "asset_id": "s_brake",
+    "name": "S_Brake",
+    "kind": "audio",
+    "source_path": "AssetsSource/CityCourier/Ambient/Audio/S_Brake.wav",
+    "ue_path": "/Game/CityCourier/Audio/S_Brake"
+  },
+  {
+    "asset_id": "s_city",
+    "name": "S_City",
+    "kind": "audio",
+    "source_path": "AssetsSource/CityCourier/Ambient/Audio/S_City.wav",
+    "ue_path": "/Game/CityCourier/Audio/S_City"
+  },
+  {
+    "asset_id": "s_delivered",
+    "name": "S_Delivered",
+    "kind": "audio",
+    "source_path": "AssetsSource/CityCourier/Ambient/Audio/S_Delivered.wav",
+    "ue_path": "/Game/CityCourier/Audio/S_Delivered"
+  },
+  {
+    "asset_id": "s_failed",
+    "name": "S_Failed",
+    "kind": "audio",
+    "source_path": "AssetsSource/CityCourier/Ambient/Audio/S_Failed.wav",
+    "ue_path": "/Game/CityCourier/Audio/S_Failed"
+  },
+  {
+    "asset_id": "s_motor",
+    "name": "S_Motor",
+    "kind": "audio",
+    "source_path": "AssetsSource/CityCourier/Ambient/Audio/S_Motor.wav",
+    "ue_path": "/Game/CityCourier/Audio/S_Motor"
+  },
+  {
+    "asset_id": "s_pickedup",
+    "name": "S_PickedUp",
+    "kind": "audio",
+    "source_path": "AssetsSource/CityCourier/Ambient/Audio/S_PickedUp.wav",
+    "ue_path": "/Game/CityCourier/Audio/S_PickedUp"
+  }
+]
