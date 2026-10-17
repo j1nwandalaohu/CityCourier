@@ -19,6 +19,6 @@ try {
 } finally { $ErrorActionPreference = $previousPreference }
 Get-Content -LiteralPath (Join-Path $logDirectory 'package.log') -Tail 25
 if ($code -ne 0) { throw "UE packaging failed ($code). Full log: $logDirectory" }
-$game = Join-Path $archive 'Windows/CityCourier.exe'
+$game = Join-Path $archive 'CityCourier.exe'
 if (-not (Test-Path -LiteralPath $game)) { throw "UAT reported success but expected executable is missing: $game" }
 Write-Host "Windows package created: $game"

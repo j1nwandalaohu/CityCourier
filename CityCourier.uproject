@@ -7,6 +7,7 @@
     { "Name": "CityCourier", "Type": "Runtime", "LoadingPhase": "Default" }
   ],
   "Plugins": [
+    { "Name": "AndroidFileServer", "Enabled": false },
     { "Name": "EnhancedInput", "Enabled": true },
     { "Name": "PythonScriptPlugin", "Enabled": true, "TargetAllowList": ["Editor"] },
     { "Name": "EditorScriptingUtilities", "Enabled": true, "TargetAllowList": ["Editor"] }

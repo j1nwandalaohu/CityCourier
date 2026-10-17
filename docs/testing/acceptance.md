@@ -11,12 +11,15 @@
 
 ## 尚未执行
 
-- [ ] UE5.6 实际编译编辑器目标。
-- [ ] 在真实 UE 编辑器中运行 bootstrap_project.py 生成启动地图。
-- [ ] CityCourier.Smoke.StartupMap 自动化测试。
-- [ ] 对不存在的 UE 测试过滤器验证 runner 失败退出。
-- [ ] Windows Development 打包。
-- [ ] 关闭编辑器后实际启动 exe，观察画面与输入。
+- [x] UE5.6.1 实际编译编辑器目标。`Build-Editor-20261017-183312-c3e4a115/build.log` Result: Succeeded；修复测试代码中TObjectPtr需显式Get的编译错误后通过。
+- [x] 在真实 UE 编辑器中运行 bootstrap_project.py 生成启动地图。`EditorScript-20261017-184705-9f747821`退出0，生成18221字节umap。
+- [x] CityCourier.Smoke.StartupMap 自动化测试。先在缺地图时失败（`Automation-20261017-184607-75e4971b`），生成后1/1通过（`Automation-20261017-184719-299f5670/Report/index.json`）。日志位于Saved/Validation。
+- [x] 不存在的CityCourier.MissingFilter使runner退出1，证据 `Automation-20261017-184744-5a5bc1e2`。
+- [x] Windows Development打包。实际归档直接位于 `Artifacts/Windows/Development/CityCourier.exe`，修正脚本多余Windows子目录后，`Package-Development-20261017-185952-680840ee`完成且入口检查通过。
+- [x] 关闭编辑器后实际启动exe。地面、天空与光照可见；W按住1.5秒使玩家X从-500变为1210.11厘米，Z保持150。截图 `Saved/Validation/Task1-Visual/before.png`、`after.png`。ShowDebug为此次验证临时启动参数，绿色线是调试HUD；正常启动不启用。
+- [x] 首次图形验证发现未构建静态光照提示；新增动态灯光检查先失败（`Automation-20261017-185817-a258790a`），设置太阳/天空光为Movable后通过（`Automation-20261017-185854-dc61b72d`），重新打包画面无未构建光照提示。
 - [ ] 任务2–12的玩法、美术、性能和最终验收。
 
 PowerShell工具测试不能证明UE工程可编译、游戏可运行或画面符合设计。
+
+任务1仅证明空白验证场景可以编译、加载、打包和接受输入。尚无城市、骑手、电动车或配送循环，不代表首版游戏完成。

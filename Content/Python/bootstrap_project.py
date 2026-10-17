@@ -51,10 +51,13 @@ def main():
     sun = ensure_actor(unreal.DirectionalLight, "CC_BootstrapSun",
                        unreal.Vector(0, 0, 1500), unreal.Rotator(-35, -35, 0))
     sun.light_component.set_editor_property("intensity", 4.0)
+    sun.light_component.set_mobility(unreal.ComponentMobility.MOVABLE)
     sun.light_component.set_editor_property("atmosphere_sun_light", True)
     skylight = ensure_actor(unreal.SkyLight, "CC_BootstrapSkyLight",
                             unreal.Vector(0, 0, 1000))
     skylight.light_component.set_editor_property("intensity", 1.0)
+    skylight.light_component.set_mobility(unreal.ComponentMobility.MOVABLE)
+    skylight.light_component.set_editor_property("real_time_capture", True)
     ensure_actor(unreal.SkyAtmosphere, "CC_BootstrapAtmosphere",
                  unreal.Vector(0, 0, 0))
     if not levels.save_current_level():

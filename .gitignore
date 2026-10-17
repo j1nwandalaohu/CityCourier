@@ -6,6 +6,7 @@ DerivedDataCache/
 Intermediate/
 Saved/
 Artifacts/
+Build/*/FileOpenOrder/
 .vs/
 *.sln
 *.VC.db

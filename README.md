@@ -2,16 +2,17 @@
 
 Windows + UE5.6，中国城市外卖员游戏。
 
-**当前状态：开发环境与工程准备，尚不可玩。** 目前已创建原生UE工程、构建/测试/打包脚本和最小启动场景制作脚本；UE5.6尚未安装，未编译、未生成地图、未打包。后续驾驶、配送和城市美术仍按已批准计划开发。
+**当前状态：最小工程验证完成，配送玩法尚未实现。** UE5.6.1编辑器编译、启动地图测试、Windows Development打包和实际画面/移动输入验证已通过；目前是地面和天空组成的验证场景。后续驾驶、配送和城市美术按已批准计划开发。
 
 开发目录：`D:\eleme\.worktrees\city-courier`，分支：`feat/city-courier`。
 
 ## 安装引擎后启动开发
 
-在Epic Games Launcher中安装UE5.6正式版，然后在开发目录打开PowerShell。
+在开发目录打开PowerShell；本机引擎路径为 `D:\sdk\UE_5.6`。
 如自动探测不到安装目录，给以下脚本传入 `-EngineRoot '实际引擎目录'`。
 
 ```powershell
+$env:CITYCOURIER_UE_ROOT = 'D:\sdk\UE_5.6'
 .\scripts\Check-Environment.ps1
 .\scripts\Build.ps1 -Target Editor
 .\scripts\Run-EditorScript.ps1 -Script Content/Python/bootstrap_project.py
@@ -19,9 +20,9 @@ Windows + UE5.6，中国城市外卖员游戏。
 .\scripts\Package.ps1 -Configuration Development
 ```
 
-这些是待执行的操作步骤，不是已经通过的验证记录。首次构建会生成缓存；生成的最小地图仅供确认引擎、光照、出生点和打包流程，完整街区在后续任务制作。
+实际验证结果见验证记录。首次构建会生成缓存；生成的最小地图仅供确认引擎、光照、出生点和打包流程，完整街区在后续任务制作。
 
-任务1打包成功后的预期入口：`Artifacts\Windows\Development\Windows\CityCourier.exe`。需要保留整个打包目录，不能只复制exe。当前不存在该交付物。
+最小验证场景的打包入口：`Artifacts\Windows\Development\CityCourier.exe`。需要保留整个打包目录，不能只复制exe；此版本尚无配送玩法。
 
 ## 不依赖UE的工具验证
 

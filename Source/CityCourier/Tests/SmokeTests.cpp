@@ -1,6 +1,7 @@
 #if WITH_DEV_AUTOMATION_TESTS && WITH_EDITOR
 
 #include "Misc/AutomationTest.h"
+#include "Components/SceneComponent.h"
 #include "Engine/Level.h"
 #include "Engine/StaticMeshActor.h"
 #include "Engine/World.h"
@@ -20,7 +21,7 @@ bool FCourierStartupMapTest::RunTest(const FString& Parameters)
     {
         return false;
     }
-    if (!TestNotNull(TEXT("Startup map contains a persistent level"), World->PersistentLevel))
+    if (!TestNotNull(TEXT("Startup map contains a persistent level"), World->PersistentLevel.Get()))
     {
         return false;
     }
@@ -31,6 +32,11 @@ bool FCourierStartupMapTest::RunTest(const FString& Parameters)
     {
         if (!IsValid(Actor)) { continue; }
         if (Actor->IsA<APlayerStart>()) { ++PlayerStarts; }
+        if (Actor->ActorHasTag(TEXT("CC_BootstrapSun")) || Actor->ActorHasTag(TEXT("CC_BootstrapSkyLight")))
+        {
+            TestTrue(TEXT("Dynamic scene lights do not require an unbuilt lightmap"),
+                Actor->GetRootComponent() && Actor->GetRootComponent()->Mobility == EComponentMobility::Movable);
+        }
         if (Actor->IsA<AStaticMeshActor>() && Actor->ActorHasTag(TEXT("CC_BootstrapGround")))
         {
             ++GroundActors;
