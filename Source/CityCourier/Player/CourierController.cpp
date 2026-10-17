@@ -46,7 +46,7 @@ UProfileSubsystem* ACourierController::GetProfileSystem() const
 { return GetGameInstance()?GetGameInstance()->GetSubsystem<UProfileSubsystem>():nullptr; }
 void ACourierController::TogglePhone() { SetInterfaceMode(InterfaceMode==ECourierInterfaceMode::Phone?ECourierInterfaceMode::Gameplay:ECourierInterfaceMode::Phone); }
 void ACourierController::ToggleMap() { SetInterfaceMode(InterfaceMode==ECourierInterfaceMode::Map?ECourierInterfaceMode::Gameplay:ECourierInterfaceMode::Map); }
-void ACourierController::TogglePauseMenu() { SetInterfaceMode(InterfaceMode==ECourierInterfaceMode::Gameplay?ECourierInterfaceMode::Pause:ECourierInterfaceMode::Gameplay); }
+void ACourierController::TogglePauseMenu() { SetInterfaceMode(InterfaceMode==ECourierInterfaceMode::Pause?ECourierInterfaceMode::Gameplay:ECourierInterfaceMode::Pause); }
 
 void ACourierController::BeginPlay()
 {
