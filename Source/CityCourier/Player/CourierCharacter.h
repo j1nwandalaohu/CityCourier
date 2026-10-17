@@ -9,6 +9,7 @@ class CITYCOURIER_API ACourierCharacter : public ACharacter
     GENERATED_BODY()
 public:
     ACourierCharacter();
+    virtual void BeginPlay() override;
     virtual void Tick(float DeltaSeconds) override;
     virtual void SetupPlayerInputComponent(UInputComponent* Input) override;
     UFUNCTION(BlueprintCallable) bool TryInteract();

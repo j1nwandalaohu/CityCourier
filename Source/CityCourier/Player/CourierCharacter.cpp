@@ -9,6 +9,7 @@
 #include "GameFramework/SpringArmComponent.h"
 #include "InputAction.h"
 #include "UObject/ConstructorHelpers.h"
+#include "Components/SkeletalMeshComponent.h"
 
 ACourierCharacter::ACourierCharacter()
 {
@@ -34,6 +35,16 @@ ACourierCharacter::ACourierCharacter()
         Part->SetupAttachment(RootComponent); Part->SetStaticMesh(I == 1 ? Sphere.Object : Cube.Object);
         Part->SetRelativeLocation(Positions[I]); Part->SetRelativeScale3D(Scales[I]);
         Part->SetCollisionEnabled(ECollisionEnabled::NoCollision); PrototypeParts.Add(Part);
+    }
+}
+void ACourierCharacter::BeginPlay()
+{
+    Super::BeginPlay();
+    if(auto* RiderAsset=LoadObject<USkeletalMesh>(nullptr,TEXT("/Game/CityCourier/Art/Characters/SK_Courier.SK_Courier")))
+    {
+        GetMesh()->SetSkeletalMesh(RiderAsset); GetMesh()->SetRelativeLocation(FVector(0,0,-88));
+        GetMesh()->SetAnimInstanceClass(LoadClass<UAnimInstance>(nullptr,TEXT("/Game/CityCourier/Blueprints/ABP_Courier.ABP_Courier_C")));
+        for(UStaticMeshComponent* Part:PrototypeParts) Part->SetVisibility(false);
     }
 }
 void ACourierCharacter::Tick(float DeltaSeconds)

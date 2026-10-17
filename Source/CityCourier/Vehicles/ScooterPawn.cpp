@@ -19,6 +19,11 @@ AScooterPawn::AScooterPawn()
     Collision = CreateDefaultSubobject<UBoxComponent>(TEXT("Collision")); RootComponent = Collision;
     Collision->SetBoxExtent(FVector(80,36,50)); Collision->SetCollisionProfileName(TEXT("Pawn"));
     VisualRoot = CreateDefaultSubobject<USceneComponent>(TEXT("VisualRoot")); VisualRoot->SetupAttachment(RootComponent);
+    BodyMesh=CreateDefaultSubobject<UStaticMeshComponent>(TEXT("BodyMesh")); BodyMesh->SetupAttachment(VisualRoot);
+    BodyMesh->SetRelativeLocation(FVector(0,0,-52)); BodyMesh->SetCollisionEnabled(ECollisionEnabled::NoCollision);
+    auto Anchor=[this](const TCHAR* Name,FVector Position) { auto* C=CreateDefaultSubobject<USceneComponent>(Name); C->SetupAttachment(VisualRoot); C->SetRelativeLocation(Position); return C; };
+    RiderSeat=Anchor(TEXT("RiderSeat"),FVector(-16,0,27)); LeftGrip=Anchor(TEXT("LeftGrip"),FVector(35,-30,59)); RightGrip=Anchor(TEXT("RightGrip"),FVector(35,30,59));
+    LeftPedal=Anchor(TEXT("LeftPedal"),FVector(10,-20,-7)); RightPedal=Anchor(TEXT("RightPedal"),FVector(10,20,-7));
     Movement = CreateDefaultSubobject<UScooterMovementComponent>(TEXT("ScooterMovement")); Movement->SetUpdatedComponent(RootComponent);
     CameraBoom = CreateDefaultSubobject<USpringArmComponent>(TEXT("CameraBoom")); CameraBoom->SetupAttachment(RootComponent);
     CameraBoom->TargetArmLength = 520; CameraBoom->SocketOffset = FVector(0,30,170); CameraBoom->bUsePawnControlRotation = true;
@@ -37,6 +42,12 @@ AScooterPawn::AScooterPawn()
         if (I == 4 || I == 5) Part->SetRelativeRotation(FRotator(0,0,90));
         Part->SetCollisionEnabled(ECollisionEnabled::NoCollision); PrototypeParts.Add(Part);
     }
+}
+void AScooterPawn::BeginPlay()
+{
+    Super::BeginPlay();
+    if(auto* Mesh=LoadObject<UStaticMesh>(nullptr,TEXT("/Game/CityCourier/Art/Scooter/SM_Scooter.SM_Scooter")))
+    { BodyMesh->SetStaticMesh(Mesh); for(UStaticMeshComponent* Part:PrototypeParts) Part->SetVisibility(false); }
 }
 UPawnMovementComponent* AScooterPawn::GetMovementComponent() const { return Movement; }
 float AScooterPawn::GetSpeedKmh() const { return Movement->Velocity.Size2D() * .036f; }
@@ -74,7 +85,7 @@ bool AScooterPawn::TryMount(ACourierCharacter* Courier)
     AController* RiderController = Courier->GetController();
     Rider = Courier; Courier->SetMounted(true); Courier->GetCharacterMovement()->DisableMovement();
     Courier->SetActorEnableCollision(false); Courier->AttachToComponent(VisualRoot, FAttachmentTransformRules::SnapToTargetNotIncludingScale);
-    Courier->SetActorRelativeLocation(FVector(-10,0,95));
+    Courier->SetActorRelativeLocation(RiderSeat->GetRelativeLocation()+FVector(0,0,9));
     RiderController->Possess(this); RiderController->SetControlRotation(FRotator(-12,GetActorRotation().Yaw,0));
     DriveAxis = FVector2D::ZeroVector; bBrakeHeld = false; SetDriveInput(0,0,true); return true;
 }

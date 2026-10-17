@@ -1,0 +1,243 @@
+{
+  "assets": [
+    {
+      "name": "SK_Courier",
+      "category": "Characters",
+      "kind": "skeletal",
+      "asset_id": "courier_rider"
+    },
+    {
+      "name": "A_Idle",
+      "category": "Characters",
+      "kind": "animation",
+      "asset_id": "courier_idle"
+    },
+    {
+      "name": "A_Walk",
+      "category": "Characters",
+      "kind": "animation",
+      "asset_id": "courier_walk"
+    },
+    {
+      "name": "A_Run",
+      "category": "Characters",
+      "kind": "animation",
+      "asset_id": "courier_run"
+    },
+    {
+      "name": "A_Ride",
+      "category": "Characters",
+      "kind": "animation",
+      "asset_id": "courier_ride"
+    },
+    {
+      "name": "SM_Scooter",
+      "category": "Scooter",
+      "kind": "static",
+      "asset_id": "courier_scooter"
+    },
+    {
+      "name": "SM_Residential",
+      "category": "Architecture",
+      "kind": "static",
+      "asset_id": "courier_residential"
+    },
+    {
+      "name": "SM_ShopHouse",
+      "category": "Architecture",
+      "kind": "static",
+      "asset_id": "courier_shophouse"
+    },
+    {
+      "name": "SM_Shop",
+      "category": "Architecture",
+      "kind": "static",
+      "asset_id": "courier_shop"
+    },
+    {
+      "name": "SM_Gate",
+      "category": "Architecture",
+      "kind": "static",
+      "asset_id": "courier_gate"
+    },
+    {
+      "name": "SM_Wall",
+      "category": "Architecture",
+      "kind": "static",
+      "asset_id": "sm_wall"
+    },
+    {
+      "name": "SM_Stall",
+      "category": "StreetProps",
+      "kind": "static",
+      "asset_id": "sm_stall"
+    },
+    {
+      "name": "SM_StreetLamp",
+      "category": "StreetProps",
+      "kind": "static",
+      "asset_id": "sm_streetlamp"
+    },
+    {
+      "name": "SM_Planter",
+      "category": "StreetProps",
+      "kind": "static",
+      "asset_id": "sm_planter"
+    },
+    {
+      "name": "SM_Bench",
+      "category": "StreetProps",
+      "kind": "static",
+      "asset_id": "sm_bench"
+    },
+    {
+      "name": "SM_AirConditioner",
+      "category": "StreetProps",
+      "kind": "static",
+      "asset_id": "sm_airconditioner"
+    },
+    {
+      "name": "SM_Bin",
+      "category": "StreetProps",
+      "kind": "static",
+      "asset_id": "sm_bin"
+    },
+    {
+      "name": "SM_Bollard",
+      "category": "StreetProps",
+      "kind": "static",
+      "asset_id": "sm_bollard"
+    },
+    {
+      "name": "SM_Sign_00",
+      "category": "StreetProps",
+      "kind": "static",
+      "asset_id": "sm_sign_00"
+    },
+    {
+      "name": "SM_Sign_01",
+      "category": "StreetProps",
+      "kind": "static",
+      "asset_id": "sm_sign_01"
+    },
+    {
+      "name": "SM_Sign_02",
+      "category": "StreetProps",
+      "kind": "static",
+      "asset_id": "sm_sign_02"
+    },
+    {
+      "name": "SM_Sign_03",
+      "category": "StreetProps",
+      "kind": "static",
+      "asset_id": "sm_sign_03"
+    },
+    {
+      "name": "SM_Sign_04",
+      "category": "StreetProps",
+      "kind": "static",
+      "asset_id": "sm_sign_04"
+    },
+    {
+      "name": "SM_Sign_05",
+      "category": "StreetProps",
+      "kind": "static",
+      "asset_id": "sm_sign_05"
+    },
+    {
+      "name": "SM_Sign_06",
+      "category": "StreetProps",
+      "kind": "static",
+      "asset_id": "sm_sign_06"
+    },
+    {
+      "name": "SM_Sign_07",
+      "category": "StreetProps",
+      "kind": "static",
+      "asset_id": "sm_sign_07"
+    },
+    {
+      "name": "SM_Sign_08",
+      "category": "StreetProps",
+      "kind": "static",
+      "asset_id": "sm_sign_08"
+    },
+    {
+      "name": "SM_Sign_09",
+      "category": "StreetProps",
+      "kind": "static",
+      "asset_id": "sm_sign_09"
+    },
+    {
+      "name": "SM_Sign_10",
+      "category": "StreetProps",
+      "kind": "static",
+      "asset_id": "sm_sign_10"
+    },
+    {
+      "name": "SM_Sign_11",
+      "category": "StreetProps",
+      "kind": "static",
+      "asset_id": "sm_sign_11"
+    },
+    {
+      "name": "SM_Sign_12",
+      "category": "StreetProps",
+      "kind": "static",
+      "asset_id": "sm_sign_12"
+    },
+    {
+      "name": "SM_Sign_13",
+      "category": "StreetProps",
+      "kind": "static",
+      "asset_id": "sm_sign_13"
+    },
+    {
+      "name": "SM_Sign_14",
+      "category": "StreetProps",
+      "kind": "static",
+      "asset_id": "sm_sign_14"
+    },
+    {
+      "name": "SM_Sign_15",
+      "category": "StreetProps",
+      "kind": "static",
+      "asset_id": "sm_sign_15"
+    },
+    {
+      "name": "SM_Sign_16",
+      "category": "StreetProps",
+      "kind": "static",
+      "asset_id": "sm_sign_16"
+    },
+    {
+      "name": "SM_Sign_17",
+      "category": "StreetProps",
+      "kind": "static",
+      "asset_id": "sm_sign_17"
+    }
+  ],
+  "signs": [
+    "阿荣面馆",
+    "巷口烧腊饭",
+    "青禾茶铺",
+    "邻里小厨",
+    "骑手驿站",
+    "西苑小区",
+    "东里公寓",
+    "南街写字楼",
+    "北岸工作室",
+    "桂花里",
+    "梧桐苑",
+    "中心便利店",
+    "南风设计社",
+    "老街理发",
+    "南城五金",
+    "兴记修车",
+    "巷口夜市",
+    "南城 · 慢行"
+  ],
+  "units": "centimeters",
+  "author": "CityCourier project",
+  "license": "Original project artwork"
+}

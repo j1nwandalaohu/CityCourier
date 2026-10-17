@@ -9,6 +9,7 @@ public class CityCourier : ModuleRules
         PublicDependencyModuleNames.AddRange(new string[] {
             "Core", "CoreUObject", "Engine", "InputCore", "EnhancedInput", "UMG", "Slate", "SlateCore"
         });
-        if (Target.bBuildEditor) PrivateDependencyModuleNames.Add("UnrealEd");
+        if (Target.bBuildEditor) PrivateDependencyModuleNames.AddRange(new string[] { "UnrealEd", "AnimGraph", "BlueprintGraph", "KismetCompiler" });
+        PublicDependencyModuleNames.Add("AnimGraphRuntime");
     }
 }

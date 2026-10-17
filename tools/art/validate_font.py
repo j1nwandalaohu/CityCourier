@@ -6,7 +6,7 @@ root = Path(__file__).resolve().parents[2]
 font_path = root / 'AssetsSource/CityCourier/Fonts/NotoSansCJKsc-Regular.otf'
 font = TTFont(font_path)
 characters = set()
-for directory in [root / 'Source/CityCourier', root / 'Content/Python']:
+for directory in [root / 'Source/CityCourier', root / 'Content/Python', root / 'tools/art']:
     for path in directory.rglob('*'):
         if path.suffix in {'.h', '.cpp', '.py'}:
             characters.update(c for c in path.read_text(encoding='utf-8-sig') if '\u2e80' <= c <= '\u9fff' or '\uff00' <= c <= '\uffef')
