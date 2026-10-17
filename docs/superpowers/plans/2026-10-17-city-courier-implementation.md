@@ -1,4 +1,4 @@
-﻿# CityCourier Implementation Plan
+# CityCourier Implementation Plan
 
 > **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
 
@@ -10,7 +10,7 @@
 
 **Spec:** [已获用户确认的首版设计](../specs/2026-10-17-city-courier-design.md)。执行者先读设计，再读本计划；本计划不扩大已确认范围。
 
-**Status:** 用户于2026-10-17回复“1”，确认计划并选择主代理在当前会话顺序实施。任务1–5已通过实际UE编译与测试，任务6电动车正在完成实机回归；尚未达到完整游戏交付标准。
+**Status:** 用户于2026-10-17回复“1”，确认计划并选择主代理在当前会话顺序实施。任务1–8已通过实际UE编译与测试，任务9休息站与救援开始实施；尚未达到完整游戏交付标准。
 
 ## Global Constraints
 

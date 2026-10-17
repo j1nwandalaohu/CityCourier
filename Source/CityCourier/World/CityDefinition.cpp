@@ -26,9 +26,29 @@ FRouteResult UCityDefinition::FindRouteBetween(const FCourierLocationDefinition&
 FRouteResult UCityDefinition::FindRouteFrom(FVector Position, FName Destination) const
 {
     const auto* To = FindLocation(Destination);
-    if (!To) return {};
-    FCourierLocationDefinition From; From.Position = Position; From.EntranceNode = Roads.FindNearestNode(Position);
-    return FindRouteBetween(From, *To);
+    if (!To || Position.ContainsNaN()) return {};
+    FRouteResult Best; double Closest=MAX_dbl;
+    for (const auto& Edge : Roads.Edges)
+    {
+        const auto* A=Roads.FindNode(Edge.From); const auto* B=Roads.FindNode(Edge.To);
+        if (!A || !B || Edge.LengthMeters<=0) continue;
+        const FVector Projection=FMath::ClosestPointOnSegment(Position,A->Position,B->Position);
+        const double Offset=FVector::DistSquared2D(Position,Projection);
+        if (Offset>Closest+1) continue;
+        if (Offset<Closest-1) { Best={}; Closest=Offset; }
+        const double Fraction=FVector::Distance(A->Position,Projection)/FMath::Max(1.0,FVector::Distance(A->Position,B->Position));
+        for(int32 Side=0;Side<2;++Side)
+        {
+            if (Side==0 && !Edge.bBidirectional) continue;
+            auto Route=Roads.FindRoute(Side==0?Edge.From:Edge.To,To->EntranceNode);
+            if (!Route.bReachable) continue;
+            Route.LengthMeters+=FRoadGraph::DistanceMeters(Position,Projection)+Edge.LengthMeters*(Side==0?Fraction:1-Fraction)
+                +FRoadGraph::DistanceMeters(Route.Points.Last(),To->Position);
+            Route.Points.Insert(Projection,0); Route.Points.Insert(Position,0); Route.Points.Add(To->Position);
+            if (!Best.bReachable || Route.LengthMeters<Best.LengthMeters) Best=MoveTemp(Route);
+        }
+    }
+    return Best;
 }
 bool UCityDefinition::Validate(TArray<FString>& Errors) const
 {

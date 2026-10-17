@@ -22,6 +22,7 @@ public:
     UFUNCTION(BlueprintCallable) bool TryMount(ACourierCharacter* Courier);
     UFUNCTION(BlueprintCallable) bool TryDismount();
     UFUNCTION(BlueprintCallable) void SetDriveInput(float Throttle, float Steering, bool bBrake);
+    void ClearDriveInput();
     UFUNCTION(BlueprintPure) float GetSpeedKmh() const;
     UFUNCTION(BlueprintPure) float GetBatteryFraction() const { return BatteryFraction; }
     void SetBatteryFraction(float Fraction);
@@ -33,7 +34,7 @@ public:
     virtual bool Interact(ACourierCharacter* Courier) override { return TryMount(Courier); }
     virtual int32 GetInteractionPriority() const override { return 10; }
     virtual FVector GetInteractionLocation() const override { return GetActorLocation(); }
-    virtual FText GetInteractionText() const override { return FText::FromString(TEXT("E  Ride scooter")); }
+    virtual FText GetInteractionText() const override { return FText::FromString(TEXT("E  骑上电动车")); }
     FOnScooterImpact OnEffectiveImpact;
     FOnScooterLowBattery OnLowBattery;
     UPROPERTY(VisibleAnywhere, BlueprintReadOnly) TObjectPtr<class UBoxComponent> Collision;

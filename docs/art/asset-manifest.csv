@@ -4,3 +4,4 @@ prototype_sphere,Engine/BasicShapes/Sphere,/Engine/BasicShapes/Sphere,Epic Games
 prototype_cylinder,Engine/BasicShapes/Cylinder,/Engine/BasicShapes/Cylinder,Epic Games,https://www.unrealengine.com/eula/unreal,Unreal Engine bundled content,true
 graybox_materials,Content/Python/build_city.py,/Game/CityCourier/Materials,CityCourier project,,Original project material,true
 prototype_rider,Source/CityCourier/Player/CourierCharacter.cpp,/Game/CityCourier/Blueprints/BP_CourierCharacter,CityCourier project,,Original arrangement of Unreal Engine basic shapes,true
+courier_chinese_font,AssetsSource/CityCourier/Fonts/NotoSansCJKsc-Regular.otf,/Game/CityCourier/UI/Fonts/F_CourierChinese,Noto/Adobe,https://github.com/notofonts/noto-cjk/tree/main/Sans/OTF/SimplifiedChinese,SIL Open Font License 1.1,false

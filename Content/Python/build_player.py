@@ -21,9 +21,12 @@ def data_factory(cls):
 
 for name, value_type in [("Move", unreal.InputActionValueType.AXIS2D), ("Look", unreal.InputActionValueType.AXIS2D),
                          ("Sprint", unreal.InputActionValueType.BOOLEAN), ("Interact", unreal.InputActionValueType.BOOLEAN),
-                         ("Brake", unreal.InputActionValueType.BOOLEAN)]:
+                         ("Brake", unreal.InputActionValueType.BOOLEAN), ("Phone", unreal.InputActionValueType.BOOLEAN),
+                         ("Map", unreal.InputActionValueType.BOOLEAN), ("Pause", unreal.InputActionValueType.BOOLEAN)]:
     action = asset("IA_" + name, "Input", unreal.InputAction, data_factory(unreal.InputAction))
     action.set_editor_property("value_type", value_type)
+    if name in ["Phone", "Map", "Pause"]:
+        action.set_editor_property("trigger_when_paused", True)
     assets.save_loaded_asset(action)
     actions[name] = action
 
@@ -32,7 +35,8 @@ mappings = []
 for name, key, swizzle, negate in [("Move", "W", True, False), ("Move", "S", True, True),
         ("Move", "D", False, False), ("Move", "A", False, True),
         ("Look", "MouseX", False, False), ("Look", "MouseY", True, True),
-        ("Sprint", "LeftShift", False, False), ("Interact", "E", False, False), ("Brake", "SpaceBar", False, False)]:
+        ("Sprint", "LeftShift", False, False), ("Interact", "E", False, False), ("Brake", "SpaceBar", False, False),
+        ("Phone", "Tab", False, False), ("Map", "M", False, False), ("Pause", "Escape", False, False)]:
     modifiers = []
     if negate:
         modifiers.append(unreal.new_object(unreal.InputModifierNegate, context))

@@ -42,8 +42,11 @@ UPawnMovementComponent* AScooterPawn::GetMovementComponent() const { return Move
 float AScooterPawn::GetSpeedKmh() const { return Movement->Velocity.Size2D() * .036f; }
 void AScooterPawn::SetDriveInput(float Throttle, float Steering, bool bBrake)
 {
+    if (const auto* PC=Cast<ACourierController>(Controller))
+        if (PC->GetInterfaceMode()!=ECourierInterfaceMode::Gameplay) { Throttle=0; Steering=0; bBrake=true; }
     Movement->SetDriveInput(Rider.IsValid() ? Throttle : 0, Rider.IsValid() ? Steering : 0, bBrake || !Rider.IsValid());
 }
+void AScooterPawn::ClearDriveInput() { DriveAxis=FVector2D::ZeroVector; bBrakeHeld=false; SetDriveInput(0,0,true); }
 void AScooterPawn::SetBatteryFraction(float Fraction)
 {
     if (FMath::IsFinite(Fraction)) BatteryFraction = FMath::Clamp(Fraction,0.f,1.f);

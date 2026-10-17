@@ -6,16 +6,21 @@
 #include "InputMappingContext.h"
 #include "GameFramework/PlayerInput.h"
 #include "Delivery/DeliverySubsystem.h"
+#include "Profile/ProfileSubsystem.h"
+#include "UI/CourierHUDWidget.h"
+#include "UI/CourierSettings.h"
+#include "Engine/GameInstance.h"
+#include "EnhancedInputComponent.h"
+#include "InputAction.h"
 
 void ACourierController::SetupInputComponent()
 {
     Super::SetupInputComponent();
-#if !UE_BUILD_SHIPPING
-    InputComponent->BindKey(EKeys::F1,IE_Pressed,this,&ACourierController::DevFirst);
-    InputComponent->BindKey(EKeys::F2,IE_Pressed,this,&ACourierController::DevSecond);
-    InputComponent->BindKey(EKeys::F3,IE_Pressed,this,&ACourierController::DevThird);
-    InputComponent->BindKey(EKeys::F4,IE_Pressed,this,&ACourierController::DevCancel);
-#endif
+    auto* E=Cast<UEnhancedInputComponent>(InputComponent); if(!E) return;
+    auto Action=[&](const TCHAR* Name) { auto* A=LoadObject<UInputAction>(nullptr,*FString::Printf(TEXT("/Game/CityCourier/Input/IA_%s.IA_%s"),Name,Name)); if(A) InterfaceActions.Add(A); return A; };
+    if(auto* A=Action(TEXT("Phone"))) E->BindAction(A,ETriggerEvent::Started,this,&ACourierController::TogglePhone);
+    if(auto* A=Action(TEXT("Map"))) E->BindAction(A,ETriggerEvent::Started,this,&ACourierController::ToggleMap);
+    if(auto* A=Action(TEXT("Pause"))) E->BindAction(A,ETriggerEvent::Started,this,&ACourierController::TogglePauseMenu);
 }
 bool ACourierController::CourierOrder(int32 Number)
 {
@@ -24,10 +29,11 @@ bool ACourierController::CourierOrder(int32 Number)
 }
 UDeliverySubsystem* ACourierController::GetDeliverySystem() const
 { return GetWorld()->GetSubsystem<UDeliverySubsystem>(); }
-void ACourierController::DevCancel()
-{
-    if (auto* D = GetWorld()->GetSubsystem<UDeliverySubsystem>()) D->TryCancel(EDeliveryFailure::Cancelled);
-}
+UProfileSubsystem* ACourierController::GetProfileSystem() const
+{ return GetGameInstance()?GetGameInstance()->GetSubsystem<UProfileSubsystem>():nullptr; }
+void ACourierController::TogglePhone() { SetInterfaceMode(InterfaceMode==ECourierInterfaceMode::Phone?ECourierInterfaceMode::Gameplay:ECourierInterfaceMode::Phone); }
+void ACourierController::ToggleMap() { SetInterfaceMode(InterfaceMode==ECourierInterfaceMode::Map?ECourierInterfaceMode::Gameplay:ECourierInterfaceMode::Map); }
+void ACourierController::TogglePauseMenu() { SetInterfaceMode(InterfaceMode==ECourierInterfaceMode::Gameplay?ECourierInterfaceMode::Pause:ECourierInterfaceMode::Gameplay); }
 
 void ACourierController::BeginPlay()
 {
@@ -37,6 +43,14 @@ void ACourierController::BeginPlay()
         if (auto* Inputs = Local->GetSubsystem<UEnhancedInputLocalPlayerSubsystem>())
             if (Mapping) Inputs->AddMappingContext(Mapping, 0);
     SetControlRotation(FRotator(-12, 0, 0)); SetInterfaceMode(ECourierInterfaceMode::Gameplay);
+    if(GetLocalPlayer())
+    {
+        auto* Class=LoadClass<UCourierHUDWidget>(nullptr,TEXT("/Game/CityCourier/UI/WBP_CourierHUD.WBP_CourierHUD_C"));
+        CourierHUD=CreateWidget<UCourierHUDWidget>(this,Class?Class:UCourierHUDWidget::StaticClass()); CourierHUD->AddToViewport();
+        auto* Profile=GetGameInstance()->GetSubsystem<UProfileSubsystem>(); UCourierSettings::Apply(Profile->GetProfile());
+        GetDeliverySystem()->OnDeliveryFinished.AddWeakLambda(this,[this](const FSettlement&) { SetInterfaceMode(ECourierInterfaceMode::Settlement); });
+        if(Profile->NeedsReset()) SetInterfaceMode(ECourierInterfaceMode::Pause);
+    }
 }
 void ACourierController::OnPossess(APawn* NewPawn)
 {
@@ -45,13 +59,25 @@ void ACourierController::OnPossess(APawn* NewPawn)
 }
 void ACourierController::SetInterfaceMode(ECourierInterfaceMode Mode)
 {
+    if(GetGameInstance()) if(const auto* P=GetGameInstance()->GetSubsystem<UProfileSubsystem>())
+        if(P->NeedsReset()) Mode=ECourierInterfaceMode::Pause;
     if (PlayerInput) PlayerInput->FlushPressedKeys();
     InterfaceMode = Mode;
-    if (auto* Scooter = Cast<AScooterPawn>(GetPawn())) Scooter->SetDriveInput(0,0,true);
+    if (auto* Scooter = Cast<AScooterPawn>(GetPawn())) Scooter->ClearDriveInput();
+    if (auto* Local=GetLocalPlayer()) if (auto* Inputs=Local->GetSubsystem<UEnhancedInputLocalPlayerSubsystem>())
+    {
+        FModifyContextOptions Options; Options.bIgnoreAllPressedKeysUntilRelease=true;
+        Inputs->RequestRebuildControlMappings(Options,EInputMappingRebuildType::RebuildWithFlush);
+    }
     if (Courier.IsValid()) Courier->SetInputSuppressed(Mode != ECourierInterfaceMode::Gameplay);
     SetPause(Mode == ECourierInterfaceMode::Pause);
     bShowMouseCursor = Mode != ECourierInterfaceMode::Gameplay;
     ResetIgnoreLookInput(); ResetIgnoreMoveInput();
     if (Mode == ECourierInterfaceMode::Gameplay) SetInputMode(FInputModeGameOnly());
-    else { SetIgnoreLookInput(true); SetIgnoreMoveInput(true); SetInputMode(FInputModeGameAndUI().SetHideCursorDuringCapture(false)); }
+    else
+    {
+        SetIgnoreLookInput(true); SetIgnoreMoveInput(true);
+        FInputModeGameAndUI InputMode; InputMode.SetHideCursorDuringCapture(false); if(CourierHUD) InputMode.SetWidgetToFocus(CourierHUD->TakeWidget()); SetInputMode(InputMode);
+    }
+    if(CourierHUD) CourierHUD->ShowMode(Mode);
 }

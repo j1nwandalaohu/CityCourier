@@ -14,6 +14,8 @@ public:
     virtual bool Interact(ACourierCharacter* Courier) override;
     virtual int32 GetInteractionPriority() const override { return bActiveOrderTarget ? 100 : (LocationKind == EDeliveryLocationKind::Station ? 20 : 0); }
     virtual FVector GetInteractionLocation() const override;
+    virtual FText GetInteractionText() const override
+    { return FText::FromString(LocationKind==EDeliveryLocationKind::Station?TEXT("E  休息站"):bActiveOrderTarget?(LocationKind==EDeliveryLocationKind::Merchant?TEXT("E  取餐"):TEXT("E  交付外卖")):TEXT("配送地点")); }
     DECLARE_DELEGATE_RetVal_OneParam(bool, FOnLocationInteraction, ACourierCharacter*);
     FOnLocationInteraction OnInteraction;
     bool bActiveOrderTarget = false;

@@ -17,12 +17,13 @@ public:
     bool ResetProfileAfterConfirmation();
     bool ApplySettlement(const FSettlement& Settlement);
     bool TryPurchase(EUpgradeKind Kind);
-    bool SaveProfile();
+    UFUNCTION(BlueprintCallable) bool SaveProfile();
     bool UpdateSettings(float Volume, int32 Quality);
     const FPlayerProfile& GetProfile() const { return Profile; }
     const FString& GetLastError() const { return LastError; }
-    bool HasUnsavedChanges() const { return bDirty; }
+    UFUNCTION(BlueprintPure) bool HasUnsavedChanges() const { return bDirty; }
     bool NeedsReset() const { return bNeedsReset; }
+    EProfileLoadResult GetLoadResult() const { return LoadResult; }
     FOnProfileChanged OnProfileChanged;
     FOnProfileSaveFailed OnSaveFailed;
 #if WITH_DEV_AUTOMATION_TESTS

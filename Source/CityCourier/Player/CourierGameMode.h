@@ -4,13 +4,6 @@
 #include "CourierGameMode.generated.h"
 
 UCLASS()
-class CITYCOURIER_API ACourierPrototypeHUD : public AHUD
-{
-    GENERATED_BODY()
-public:
-    virtual void DrawHUD() override;
-};
-UCLASS()
 class CITYCOURIER_API ACourierGameMode : public AGameModeBase
 {
     GENERATED_BODY()
