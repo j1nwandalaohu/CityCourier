@@ -1,11 +1,11 @@
 # 首版发行检查
 
-独立打包、连续配送、性能和重启检查已通过；最后一次全套自动回归及独立代码审查正在收尾。证据摘要保存在 [evidence/task12](evidence/task12)，原始日志、逐帧数据、截图和录音保存在 `Saved/Validation`。
+独立打包、连续配送、性能和重启检查已通过；最终36项自动回归已通过，独立代码审查正在收尾。证据摘要保存在 [evidence/task12](evidence/task12)，原始日志、逐帧数据、截图和录音保存在 `Saved/Validation`。
 
 | 项目 | 状态 / 证据 |
 | --- | --- |
 | UE5.6.1 编辑器编译 | 通过，Build-Editor-20261018-023559-d5c7d375 |
-| UE 自动化回归 | 36/36，Automation-20261018-015144-d7474290；最终检查脚本新增后待补跑 |
+| UE 自动化回归 | 最终36/36，Automation-20261018-023708-516dbe48；13项PowerShell工具测试及性能统计/拒绝用例均通过 |
 | 中档软件 Lumen | QualityPresets 红灯到绿灯，Automation-20261018-013514-042c1931 |
 | 计算工具 | tests/Performance.Tests.ps1：均值、最慢1%、不达标拒绝、编辑器数据拒绝、非法帧拒绝通过 |
 | Development 完整打包 | Package-Development-20261018-015705-05119429，退出0 |
