@@ -9,5 +9,6 @@ public class CityCourier : ModuleRules
         PublicDependencyModuleNames.AddRange(new string[] {
             "Core", "CoreUObject", "Engine", "InputCore", "EnhancedInput"
         });
+        if (Target.bBuildEditor) PrivateDependencyModuleNames.Add("UnrealEd");
     }
 }

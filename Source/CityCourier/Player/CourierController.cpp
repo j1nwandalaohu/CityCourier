@@ -1,5 +1,6 @@
 #include "Player/CourierController.h"
 #include "Player/CourierCharacter.h"
+#include "Vehicles/ScooterPawn.h"
 #include "Engine/LocalPlayer.h"
 #include "EnhancedInputSubsystems.h"
 #include "InputMappingContext.h"
@@ -23,6 +24,7 @@ void ACourierController::SetInterfaceMode(ECourierInterfaceMode Mode)
 {
     if (PlayerInput) PlayerInput->FlushPressedKeys();
     InterfaceMode = Mode;
+    if (auto* Scooter = Cast<AScooterPawn>(GetPawn())) Scooter->SetDriveInput(0,0,true);
     if (Courier.IsValid()) Courier->SetInputSuppressed(Mode != ECourierInterfaceMode::Gameplay);
     SetPause(Mode == ECourierInterfaceMode::Pause);
     bShowMouseCursor = Mode != ECourierInterfaceMode::Gameplay;
