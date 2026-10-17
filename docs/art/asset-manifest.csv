@@ -1,2 +1,6 @@
 asset_id,source_path,ue_path,author,source_url,license,is_placeholder
 bootstrap_cube,Engine/BasicShapes/Cube,/Engine/BasicShapes/Cube,Epic Games,https://www.unrealengine.com/eula/unreal,Unreal Engine bundled content,true
+prototype_sphere,Engine/BasicShapes/Sphere,/Engine/BasicShapes/Sphere,Epic Games,https://www.unrealengine.com/eula/unreal,Unreal Engine bundled content,true
+prototype_cylinder,Engine/BasicShapes/Cylinder,/Engine/BasicShapes/Cylinder,Epic Games,https://www.unrealengine.com/eula/unreal,Unreal Engine bundled content,true
+graybox_materials,Content/Python/build_city.py,/Game/CityCourier/Materials,CityCourier project,,Original project material,true
+prototype_rider,Source/CityCourier/Player/CourierCharacter.cpp,/Game/CityCourier/Blueprints/BP_CourierCharacter,CityCourier project,,Original arrangement of Unreal Engine basic shapes,true
