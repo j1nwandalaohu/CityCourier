@@ -133,7 +133,8 @@ def location(identifier, name, x, y, kind):
     # Entry on the inner sidewalk, outside both intersecting traffic lanes.
     definition = unreal.CourierLocationDefinition(location_id=unreal.Name(identifier), display_name=name,
         position=unreal.Vector(x + 800, y + 650, 20), entrance_node=index[(x, y)], kind=kind)
-    actor = ensure(unreal.DeliveryLocation, "CC_City_Location_" + identifier, (x + 800, y + 650, 20))
+    cls = unreal.RiderStation if kind == unreal.DeliveryLocationKind.STATION else unreal.DeliveryLocation
+    actor = ensure(cls, "CC_City_Location_" + identifier, (x + 800, y + 650, 20))
     actor.set_editor_property("location_id", unreal.Name(identifier))
     actor.set_editor_property("location_kind", kind)
     actor.set_editor_property("city_definition", city)

@@ -25,7 +25,7 @@ public:
     void ClearDriveInput();
     UFUNCTION(BlueprintPure) float GetSpeedKmh() const;
     UFUNCTION(BlueprintPure) float GetBatteryFraction() const { return BatteryFraction; }
-    void SetBatteryFraction(float Fraction);
+    UFUNCTION(BlueprintCallable) void SetBatteryFraction(float Fraction);
     void ApplyUpgrades(const FPlayerProfile& Profile);
     ACourierCharacter* GetRider() const { return Rider.Get(); }
     void ConsumeTravel(double DistanceMeters);

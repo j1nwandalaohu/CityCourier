@@ -13,6 +13,7 @@
 #include "World/CityDefinition.h"
 #include "Engine/GameInstance.h"
 #include "EngineUtils.h"
+#include "Vehicles/RiderRecoveryComponent.h"
 void UCourierHUDWidget::NativeOnInitialized()
 {
     Super::NativeOnInitialized(); SetIsFocusable(true);
@@ -31,7 +32,7 @@ void UCourierHUDWidget::NativeOnInitialized()
     Place(Prompt,FVector2D(.5,1),FVector2D(.5,1),FVector2D(0,-145),FVector2D(700,45));
     SaveWarning=CourierUI::Text(WidgetTree,TEXT(""),22,CourierUI::Accent); SaveWarning->SetJustification(ETextJustify::Center);
     Place(SaveWarning,FVector2D(.5,0),FVector2D(.5,0),FVector2D(0,235),FVector2D(900,65));
-    Controls=CourierUI::Text(WidgetTree,TEXT("WASD 移动 / 骑行    Shift 奔跑    E 交互 / 上下车    空格 刹车    Tab 手机    M 地图    Esc 暂停"),20);
+    Controls=CourierUI::Text(WidgetTree,TEXT("WASD 移动 / 骑行  Shift 奔跑  E 交互 / 上下车  空格 刹车  长按 R 脱困  Tab 手机  M 地图  Esc 暂停"),20);
     Place(Controls,FVector2D(.5,1),FVector2D(.5,1),FVector2D(0,-22),FVector2D(1540,32));
     MiniMap=CreateWidget<UCourierMapWidget>(GetOwningPlayer(),UCourierMapWidget::StaticClass()); MiniMap->bMini=true;
     Place(MiniMap,FVector2D(0,1),FVector2D(0,1),FVector2D(32,-72),FVector2D(340,340));
@@ -85,8 +86,10 @@ void UCourierHUDWidget::RefreshFromState()
     }
     Objective->SetText(FText::FromString(Goal)); Time->SetText(FText::FromString(Clock));
     AScooterPawn* Bike=nullptr; for(TActorIterator<AScooterPawn> It(GetWorld());It;++It) { Bike=*It; break; }
-    Vehicle->SetText(FText::FromString(Bike?FString::Printf(TEXT("%.0f km/h\n电量 %.0f%% %s"),Bike->GetSpeedKmh(),Bike->GetBatteryFraction()*100,Bike->GetBatteryFraction()<.2?TEXT("· 请充电"):TEXT("")):TEXT("步行")));
+    Vehicle->SetText(FText::FromString(Bike?FString::Printf(TEXT("%.0f km/h\n电量 %.0f%% %s"),Bike->GetSpeedKmh(),Bike->GetBatteryFraction()*100,Bike->GetBatteryFraction()<.2?TEXT("· 低"):TEXT("")):TEXT("步行")));
     Prompt->SetText(PC->GetCourier()?(PC->GetCourier()->IsMounted()?FText::FromString(TEXT("E 下车（速度不高于 3 km/h）")):PC->GetCourier()->GetInteractionPrompt()):FText::GetEmpty());
+    if(PC->GetRecovery() && PC->GetRecovery()->GetHoldProgress()>0)
+        Prompt->SetText(FText::FromString(FString::Printf(TEXT("保持按住 R · 脱困 %.0f%%（订单耗时 +5秒）"),PC->GetRecovery()->GetHoldProgress()*100)));
     SaveWarning->SetText(FText::FromString(P->NeedsReset()?TEXT("存档无法读取，请在暂停菜单选择恢复方式。"):P->HasUnsavedChanges()?TEXT("本次进度未保存 · 按 Esc 重试保存"):P->GetLoadResult()==EProfileLoadResult::RecoveredBackup?TEXT("已从备份恢复进度"):TEXT("")));
     if(Phone && Phone->IsVisible()) Phone->RefreshFromState(); if(Menu && Menu->IsVisible()) Menu->RefreshFromState();
 }

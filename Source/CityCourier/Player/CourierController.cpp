@@ -12,6 +12,13 @@
 #include "Engine/GameInstance.h"
 #include "EnhancedInputComponent.h"
 #include "InputAction.h"
+#include "World/RiderStation.h"
+#include "Vehicles/RiderRecoveryComponent.h"
+
+ACourierController::ACourierController() { Recovery=CreateDefaultSubobject<URiderRecoveryComponent>(TEXT("Recovery")); }
+void ACourierController::RecoverStarted() { if(InterfaceMode==ECourierInterfaceMode::Gameplay) Recovery->SetRecoverHeld(true); }
+void ACourierController::RecoverReleased() { Recovery->SetRecoverHeld(false); }
+void ACourierController::OpenStation(ARiderStation* Station) { ActiveStation=Station; SetInterfaceMode(ECourierInterfaceMode::Station); }
 
 void ACourierController::SetupInputComponent()
 {
@@ -21,6 +28,12 @@ void ACourierController::SetupInputComponent()
     if(auto* A=Action(TEXT("Phone"))) E->BindAction(A,ETriggerEvent::Started,this,&ACourierController::TogglePhone);
     if(auto* A=Action(TEXT("Map"))) E->BindAction(A,ETriggerEvent::Started,this,&ACourierController::ToggleMap);
     if(auto* A=Action(TEXT("Pause"))) E->BindAction(A,ETriggerEvent::Started,this,&ACourierController::TogglePauseMenu);
+    if(auto* A=Action(TEXT("Recover")))
+    {
+        E->BindAction(A,ETriggerEvent::Started,this,&ACourierController::RecoverStarted);
+        E->BindAction(A,ETriggerEvent::Completed,this,&ACourierController::RecoverReleased);
+        E->BindAction(A,ETriggerEvent::Canceled,this,&ACourierController::RecoverReleased);
+    }
 }
 bool ACourierController::CourierOrder(int32 Number)
 {
@@ -62,6 +75,8 @@ void ACourierController::SetInterfaceMode(ECourierInterfaceMode Mode)
     if(GetGameInstance()) if(const auto* P=GetGameInstance()->GetSubsystem<UProfileSubsystem>())
         if(P->NeedsReset()) Mode=ECourierInterfaceMode::Pause;
     if (PlayerInput) PlayerInput->FlushPressedKeys();
+    if(ActiveStation.IsValid() && Mode!=ECourierInterfaceMode::Station) { ActiveStation->CancelCharge(); ActiveStation.Reset(); }
+    if(Recovery) Recovery->SetRecoverHeld(false);
     InterfaceMode = Mode;
     if (auto* Scooter = Cast<AScooterPawn>(GetPawn())) Scooter->ClearDriveInput();
     if (auto* Local=GetLocalPlayer()) if (auto* Inputs=Local->GetSubsystem<UEnhancedInputLocalPlayerSubsystem>())

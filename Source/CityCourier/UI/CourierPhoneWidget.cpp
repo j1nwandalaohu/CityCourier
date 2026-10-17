@@ -3,10 +3,12 @@
 #include "Player/CourierController.h"
 #include "Delivery/DeliverySubsystem.h"
 #include "World/CityDefinition.h"
+#include "Vehicles/RiderRecoveryComponent.h"
+#include "Components/ScrollBox.h"
 void UCourierPhoneWidget::NativeOnInitialized()
 {
     Super::NativeOnInitialized();
-    auto* Column=WidgetTree->ConstructWidget<UVerticalBox>(); WidgetTree->RootWidget=CourierUI::Panel(WidgetTree,Column);
+    auto* Column=WidgetTree->ConstructWidget<UVerticalBox>(); auto* Scroll=WidgetTree->ConstructWidget<UScrollBox>(); Scroll->AddChild(Column); WidgetTree->RootWidget=CourierUI::Panel(WidgetTree,Scroll);
     CourierUI::Add(Column,CourierUI::Text(WidgetTree,TEXT("骑手工作台"),38,CourierUI::Accent),4);
     CourierUI::Add(Column,CourierUI::Text(WidgetTree,TEXT("街头骑手  /  同时配送一单"),20,CourierUI::Muted),4);
     Status=CourierUI::Text(WidgetTree,TEXT("")); CourierUI::Add(Column,Status,4);
@@ -21,6 +23,8 @@ void UCourierPhoneWidget::NativeOnInitialized()
     }
     UTextBlock* Label=nullptr; CancelButton=CourierUI::Button(WidgetTree,TEXT("取消当前订单"),&Label); CancelText=Label;
     CancelButton->OnClicked.AddDynamic(this,&UCourierPhoneWidget::CancelOrder); CourierUI::Add(Column,CancelButton);
+    RescueButton=CourierUI::Button(WidgetTree,TEXT("呼叫救援"),&Label); RescueText=Label;
+    RescueButton->OnClicked.AddDynamic(this,&UCourierPhoneWidget::Rescue); CourierUI::Add(Column,RescueButton);
     CourierUI::Add(Column,CourierUI::Text(WidgetTree,TEXT("Tab 收起  ·  M 地图\n手机打开时仍会计时，车辆自动刹停。"),20,CourierUI::Muted),4); RefreshFromState();
 }
 void UCourierPhoneWidget::RefreshFromState()
@@ -36,6 +40,10 @@ void UCourierPhoneWidget::RefreshFromState()
     CancelButton->SetVisibility(S.IsActive()?ESlateVisibility::Visible:ESlateVisibility::Collapsed);
     if(!S.IsActive()) bConfirmCancel=false;
     CancelText->SetText(FText::FromString(bConfirmCancel?TEXT("确认取消：本单无收入"):TEXT("取消当前订单")));
+    const bool RescueAvailable=PC->GetRecovery() && PC->GetRecovery()->CanRescue();
+    RescueButton->SetVisibility(RescueAvailable?ESlateVisibility::Visible:ESlateVisibility::Collapsed);
+    if(!RescueAvailable) bConfirmRescue=false;
+    RescueText->SetText(FText::FromString(bConfirmRescue?TEXT("确认救援（活动单失败）"):TEXT("呼叫救援 · 免费回站充电")));
 }
 void UCourierPhoneWidget::Accept(int32 Index)
 {
@@ -50,5 +58,13 @@ void UCourierPhoneWidget::CancelOrder()
 {
     if(!bConfirmCancel) { bConfirmCancel=true; RefreshFromState(); return; }
     if(auto* PC=Cast<ACourierController>(GetOwningPlayer())) PC->GetDeliverySystem()->TryCancel(EDeliveryFailure::Cancelled);
+}
+void UCourierPhoneWidget::Rescue()
+{
+    if(!bConfirmRescue) { bConfirmRescue=true; RefreshFromState(); return; }
+    if(auto* PC=Cast<ACourierController>(GetOwningPlayer()))
+        if(PC->GetRecovery()->TryRescue() && !PC->GetDeliverySystem()->GetState().IsActive() && PC->GetInterfaceMode()!=ECourierInterfaceMode::Settlement)
+            PC->SetInterfaceMode(ECourierInterfaceMode::Gameplay);
+    bConfirmRescue=false; RefreshFromState();
 }
 

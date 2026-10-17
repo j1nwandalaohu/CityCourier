@@ -83,10 +83,10 @@ void ACourierCharacter::ClearMovementInput()
 {
     ConsumeMovementInputVector(); GetCharacterMovement()->StopMovementImmediately(); SetSprinting(false);
 }
-bool ACourierCharacter::CanReachInteraction(const AActor* Target, FVector Point, FText& Reason) const
+bool ACourierCharacter::CanReachInteraction(const AActor* Target, FVector Point, FText& Reason, bool bAllowSuppressed) const
 {
     Reason = FText::GetEmpty();
-    if (!IsValid(Target) || bMounted || bInputSuppressed) { Reason = FText::FromString(TEXT("请先下车并关闭界面")); return false; }
+    if (!IsValid(Target) || bMounted || (bInputSuppressed && !bAllowSuppressed)) { Reason = FText::FromString(TEXT("请先下车并关闭界面")); return false; }
     if (FVector::DistSquared(GetActorLocation(), Point) > 200.0 * 200.0) { Reason = FText::FromString(TEXT("请靠近至2米内")); return false; }
     FHitResult Hit; FCollisionQueryParams Params(SCENE_QUERY_STAT(CourierInteraction), false, this);
     const bool bHit = GetWorld()->LineTraceSingleByChannel(Hit, GetPawnViewLocation(), Point + FVector(0,0,50), ECC_Visibility, Params);

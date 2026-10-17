@@ -10,6 +10,7 @@ class CITYCOURIER_API ACourierController : public APlayerController
 {
     GENERATED_BODY()
 public:
+    ACourierController();
     virtual void BeginPlay() override;
     virtual void OnPossess(APawn* NewPawn) override;
     virtual void SetupInputComponent() override;
@@ -22,7 +23,14 @@ public:
     UFUNCTION(BlueprintCallable) void ToggleMap();
     UFUNCTION(BlueprintCallable) void TogglePauseMenu();
     ECourierInterfaceMode GetInterfaceMode() const { return InterfaceMode; }
+    void OpenStation(class ARiderStation* Station);
+    class ARiderStation* GetStation() const { return ActiveStation.Get(); }
+    UFUNCTION(BlueprintPure) class URiderRecoveryComponent* GetRecovery() const { return Recovery; }
 private:
+    void RecoverStarted();
+    void RecoverReleased();
+    UPROPERTY(VisibleAnywhere) TObjectPtr<class URiderRecoveryComponent> Recovery;
+    TWeakObjectPtr<class ARiderStation> ActiveStation;
     UPROPERTY() TObjectPtr<class UCourierHUDWidget> CourierHUD;
     UPROPERTY() TArray<TObjectPtr<class UInputAction>> InterfaceActions;
     UPROPERTY() TObjectPtr<class UInputMappingContext> Mapping;

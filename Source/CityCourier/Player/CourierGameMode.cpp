@@ -9,6 +9,8 @@
 #include "World/CityDefinition.h"
 #include "Engine/GameInstance.h"
 #include "EngineUtils.h"
+#include "World/RiderStation.h"
+#include "Vehicles/RiderRecoveryComponent.h"
 
 ACourierGameMode::ACourierGameMode()
 {
@@ -23,6 +25,13 @@ void ACourierGameMode::StartPlay()
     {
         GetWorld()->GetSubsystem<UDeliverySubsystem>()->Configure(City,GetGameInstance()->GetSubsystem<UProfileSubsystem>(),*It);
         GetWorld()->GetSubsystem<UDeliveryNavigationSubsystem>()->Configure(GetWorld()->GetSubsystem<UDeliverySubsystem>());
+        for(TActorIterator<ARiderStation> Station(GetWorld());Station;++Station)
+        {
+            Station->Configure(GetGameInstance()->GetSubsystem<UProfileSubsystem>(),*It);
+            if(auto* PC=Cast<ACourierController>(GetWorld()->GetFirstPlayerController()))
+                PC->GetRecovery()->Configure(City,*It,PC->GetCourier(),GetWorld()->GetSubsystem<UDeliverySubsystem>(),*Station);
+            break;
+        }
         break;
     }
 }

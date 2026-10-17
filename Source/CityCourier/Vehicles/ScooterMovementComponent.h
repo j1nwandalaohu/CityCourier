@@ -9,6 +9,7 @@ class CITYCOURIER_API UScooterMovementComponent : public UPawnMovementComponent
 public:
     virtual void TickComponent(float DeltaSeconds, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction) override;
     void SetDriveInput(float Throttle, float Steering, bool bBrake);
+    void ResetAfterTeleport() { StopMovementImmediately(); FallingSpeed=0; SetDriveInput(0,0,true); }
     float MaxForwardSpeedCm = 1000;
     float HandlingMultiplier = 1;
 private:

@@ -11,9 +11,9 @@ public:
     ACourierCharacter();
     virtual void Tick(float DeltaSeconds) override;
     virtual void SetupPlayerInputComponent(UInputComponent* Input) override;
-    bool TryInteract();
+    UFUNCTION(BlueprintCallable) bool TryInteract();
     void RefreshInteraction();
-    bool CanReachInteraction(const AActor* Target, FVector Point, FText& Reason) const;
+    bool CanReachInteraction(const AActor* Target, FVector Point, FText& Reason, bool bAllowSuppressed=false) const;
     AActor* GetInteractionTarget() const { return InteractionTarget.Get(); }
     const FText& GetInteractionPrompt() const { return InteractionPrompt; }
     bool IsMounted() const { return bMounted; }
