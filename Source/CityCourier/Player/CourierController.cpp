@@ -5,6 +5,29 @@
 #include "EnhancedInputSubsystems.h"
 #include "InputMappingContext.h"
 #include "GameFramework/PlayerInput.h"
+#include "Delivery/DeliverySubsystem.h"
+
+void ACourierController::SetupInputComponent()
+{
+    Super::SetupInputComponent();
+#if !UE_BUILD_SHIPPING
+    InputComponent->BindKey(EKeys::F1,IE_Pressed,this,&ACourierController::DevFirst);
+    InputComponent->BindKey(EKeys::F2,IE_Pressed,this,&ACourierController::DevSecond);
+    InputComponent->BindKey(EKeys::F3,IE_Pressed,this,&ACourierController::DevThird);
+    InputComponent->BindKey(EKeys::F4,IE_Pressed,this,&ACourierController::DevCancel);
+#endif
+}
+bool ACourierController::CourierOrder(int32 Number)
+{
+    auto* D = GetWorld()->GetSubsystem<UDeliverySubsystem>();
+    return D && D->GetOffers().IsValidIndex(Number-1) && D->TryAccept(D->GetOffers()[Number-1].InstanceId);
+}
+UDeliverySubsystem* ACourierController::GetDeliverySystem() const
+{ return GetWorld()->GetSubsystem<UDeliverySubsystem>(); }
+void ACourierController::DevCancel()
+{
+    if (auto* D = GetWorld()->GetSubsystem<UDeliverySubsystem>()) D->TryCancel(EDeliveryFailure::Cancelled);
+}
 
 void ACourierController::BeginPlay()
 {

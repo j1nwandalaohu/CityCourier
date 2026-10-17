@@ -16,4 +16,5 @@ class CITYCOURIER_API ACourierGameMode : public AGameModeBase
     GENERATED_BODY()
 public:
     ACourierGameMode();
+    virtual void StartPlay() override;
 };
