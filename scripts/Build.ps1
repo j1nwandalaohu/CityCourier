@@ -11,7 +11,8 @@ Write-Host "Building $targetName. Log: $logDirectory/build.log"
 $previousPreference = $ErrorActionPreference
 try {
     $ErrorActionPreference = 'Continue'
-    & $batch $targetName Win64 Development "-Project=$project" -WaitMutex -NoHotReloadFromIDE 2>&1 | Out-File -LiteralPath (Join-Path $logDirectory 'build.log') -Encoding UTF8
+    # Discover new source files on every scripted build; cached UBT makefiles can miss them.
+    & $batch $targetName Win64 Development "-Project=$project" -WaitMutex -NoHotReloadFromIDE -NoUBTMakefiles 2>&1 | Out-File -LiteralPath (Join-Path $logDirectory 'build.log') -Encoding UTF8
     $code = $LASTEXITCODE
 } finally { $ErrorActionPreference = $previousPreference }
 Get-Content -LiteralPath (Join-Path $logDirectory 'build.log') -Tail 25
