@@ -1,10 +1,11 @@
 # 本机开发环境
 
-检查日期：2026-10-17。
+检查日期：2026-10-17；制作工具和运行硬件于2026-10-18更新。
 
 | 项目 | 观察结果 |
 | --- | --- |
 | GPU | NVIDIA GeForce RTX 3060 Ti，8192 MiB显存 |
+| CPU | Intel Core i5-13400F，来自实际打包进程的硬件报告 |
 | 内存 | 约15.8 GiB |
 | Visual Studio Build Tools | 2022 / 17.14.29 |
 | 已有MSVC | 工具目录14.44.35207，编译器14.44.35225；编辑器目标实际构建成功，UBT提示非首选版本（首选14.38.33130） |
@@ -12,7 +13,7 @@
 | Epic Games Launcher | 已通过winget安装，安装程序哈希校验通过 |
 | Launcher可执行文件 | `C:\Program Files\Epic Games\Launcher\Portal\Binaries\Win64\EpicGamesLauncher.exe` |
 | UE5.6 | 已安装5.6.1，路径 `D:\sdk\UE_5.6`，Changelist 44394996；编辑器目标编译通过 |
-| Blender | 发现 `D:\tools\Blender Foundation\Blender 4.0` 残留目录，未发现blender.exe，不能视为可用 |
+| Blender | 4.0.2，`D:\sdk\Blender_4.0\Blender Foundation\Blender 4.0\blender.exe`；从已有、签名有效的安装包提取，已实际生成模型和动画 |
 | 安装后空闲磁盘 | D约29.2 GiB（编译缓存生成前）；以实际磁盘查询为准，沙盒下Get-PSDrive可能无法读取空间 |
 
 通过 `scripts/Check-Environment.ps1 -EngineRoot 'D:\sdk\UE_5.6'` 检查。

@@ -13,6 +13,11 @@
 #include "Vehicles/RiderRecoveryComponent.h"
 #include "Ambient/AmbientTrafficManager.h"
 #include "Ambient/CourierAudioComponent.h"
+#if !UE_BUILD_SHIPPING
+#include "Validation/PackagedValidationDriver.h"
+#include "Misc/CommandLine.h"
+#include "Misc/Parse.h"
+#endif
 
 ACourierGameMode::ACourierGameMode()
 {
@@ -38,4 +43,7 @@ void ACourierGameMode::StartPlay()
         }
         break;
     }
+#if !UE_BUILD_SHIPPING
+    if(FParse::Param(FCommandLine::Get(),TEXT("CourierValidation")))GetWorld()->SpawnActor<APackagedValidationDriver>();
+#endif
 }

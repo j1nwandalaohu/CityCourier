@@ -1,0 +1,9 @@
+{
+  "duration_seconds": 1331.422553,
+  "frames": 211403,
+  "process_peak_working_set_mb": 1654.73,
+  "rhi_peak_texture_memory_mb": 773.68,
+  "device_vram_peak_mib": 3332.0,
+  "gpu_utilization_peak_percent": 94.0,
+  "device_vram_note": "nvidia-smi whole-device usage, includes desktop and other applications; not per-process VRAM"
+}

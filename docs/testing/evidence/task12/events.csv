@@ -1,0 +1,17 @@
+ElapsedSeconds,Event,Merchant,Destination,PayoutCents,BalanceCents
+273.069,accepted,merchant_noodle,home_west,0,0
+310.463,delivered,merchant_noodle,home_west,1600,1600
+313.844,accepted,merchant_rice,home_east,0,1600
+382.252,delivered,merchant_rice,home_east,3200,4800
+386.440,accepted,merchant_tea,office_south,0,4800
+512.910,delivered,merchant_tea,office_south,3000,7800
+593.355,accepted,merchant_market,office_north,0,7800
+658.758,delivered,merchant_market,office_north,2800,10600
+662.895,accepted,merchant_noodle,home_northwest,0,10600
+796.831,delivered,merchant_noodle,home_northwest,2200,12800
+873.920,accepted,merchant_rice,home_northeast,0,12800
+940.841,delivered,merchant_rice,home_northeast,2000,14800
+944.898,accepted,merchant_tea,shop_center,0,14800
+1031.145,delivered,merchant_tea,shop_center,1800,16600
+1034.708,accepted,merchant_market,studio_south,0,16600
+1119.258,delivered,merchant_market,studio_south,1600,18200

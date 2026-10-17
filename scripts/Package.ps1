@@ -1,4 +1,4 @@
-[CmdletBinding()]
+﻿[CmdletBinding()]
 param([ValidateSet('Development','Shipping')][string]$Configuration='Development', [string]$EngineRoot)
 $ErrorActionPreference = 'Stop'
 Import-Module (Join-Path $PSScriptRoot 'Courier.Tools.psm1') -Force
@@ -21,4 +21,8 @@ Get-Content -LiteralPath (Join-Path $logDirectory 'package.log') -Tail 25
 if ($code -ne 0) { throw "UE packaging failed ($code). Full log: $logDirectory" }
 $game = Join-Path $archive 'CityCourier.exe'
 if (-not (Test-Path -LiteralPath $game)) { throw "UAT reported success but expected executable is missing: $game" }
+$licenseDirectory = Join-Path $archive 'ThirdPartyLicenses/NotoCJK'
+New-Item -ItemType Directory -Path $licenseDirectory -Force | Out-Null
+Copy-Item -LiteralPath (Join-Path $projectRoot 'AssetsSource/CityCourier/Fonts/OFL.txt'), (Join-Path $projectRoot 'AssetsSource/CityCourier/Fonts/NOTICE.txt') -Destination $licenseDirectory -Force
+Copy-Item -LiteralPath (Join-Path $projectRoot 'docs/playing.txt') -Destination (Join-Path $archive '开始游戏.txt') -Force
 Write-Host "Windows package created: $game"

@@ -1,0 +1,30 @@
+﻿{
+    "capture_source":  "PackagedGame",
+    "metadata":  {
+                     "capture_source":  "PackagedGame",
+                     "cpu":  "13th Gen Intel(R) Core(TM) i5-13400F",
+                     "gpu":  "NVIDIA GeForce RTX 3060 Ti",
+                     "ram_mb":  16194,
+                     "rhi":  "D3D12",
+                     "width":  1920,
+                     "height":  1080,
+                     "quality":  1,
+                     "lumen_gi":  1,
+                     "lumen_reflections":  1,
+                     "hardware_raytracing":  0,
+                     "screen_percentage":  83.00,
+                     "warmup_seconds":  30,
+                     "performance_seconds":  180
+                 },
+    "frames":  28446,
+    "duration_seconds":  180.00454189799999,
+    "average_fps":  158.02934544612046,
+    "one_percent_low_fps":  98.247742718036235,
+    "meets_target":  true,
+    "game_thread_mean_ms":  2.7720897560289797,
+    "render_thread_mean_ms":  6.3079085776558452,
+    "gpu_mean_ms":  5.4499434366870405,
+    "process_peak_working_set_mb":  1425.55,
+    "rhi_peak_texture_memory_mb":  773.68,
+    "memory_note":  "Process working set from FPlatformMemory; RHI texture allocations exclude non-texture VRAM. GPU duration from RHI timestamp queries; zero means unavailable."
+}

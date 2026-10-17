@@ -86,12 +86,12 @@
 
 **Interfaces:** `Build.ps1 -Target Editor|Game`；`Test.ps1 -Filter <prefix> [-Headless]`；`Run-EditorScript.ps1 -Script <relative-path>`；`Package.ps1 -Configuration Development|Shipping`。内部统一解析绝对路径，避免空格路径参数损坏。
 
-- [ ] **1.1 核验环境并建立引擎。** 检查 UE 5.6 正式版本、MSVC、SDK、.NET、剩余空间及实际安装组件大小；本次只读检查发现 MSVC 14.44.35207、SDK 10.0.22621.0，未找到 UE。使用 Epic 官方安装渠道，仅选 Windows 所需组件；记录最终补丁、编译器、SDK 与安装目录。账户登录由用户操作，磁盘不足时只请求必要目录选择，不能自行删文件或把未安装状态写成完成。
-- [ ] **1.2 创建原生最小工程。** 配置 UE 5.6 和 Runtime 模块，启用 Enhanced Input、Python Editor Script Plugin（仅制作期），写 PowerShell 入口与忽略规则。`Build.ps1 -Target Editor` 必须得到真实构建成功；UBT 拒绝编译器时按其诊断安装匹配组件，不压制兼容性错误。
-- [ ] **1.3 创建并保存启动关卡。** `bootstrap_project.py` 在 UE 编辑器中创建地面、光照、PlayerStart 和 `L_CourierCity`，配置默认启动地图；再次运行不得删除已有游戏资产或复制重复 Actor。通过运行脚本检查 `.umap` 确实生成并能载入。
-- [ ] **1.4 加入必要的 smoke 测试并运行。** `CityCourier.Smoke.StartupMap` 断言 `/Game/CityCourier/Maps/L_CourierCity` 能加载，且包含有效 PlayerStart；故意指定不存在的测试过滤器时 runner 必须报失败。执行统一入口的 smoke 命令，输出至少 1 项成功测试且无失败。
-- [ ] **1.5 打包并启动最小游戏。** 执行 `Package.ps1 -Configuration Development`；实际启动打包 exe，确认地面、光照、输入响应可见。无图形验证条件时记录阻碍，不能把打包成功视为已观察到画面。
-- [ ] **1.6 提交。** `git add -- CityCourier.uproject Source Config scripts Content/Python Content/CityCourier/Maps .gitignore docs/environment.md docs/testing/acceptance.md docs/art/asset-manifest.csv`；`git commit -m "build: establish runnable UE5 Windows project"`。
+- [x] **1.1 核验环境并建立引擎。** 检查 UE 5.6 正式版本、MSVC、SDK、.NET、剩余空间及实际安装组件大小；本次只读检查发现 MSVC 14.44.35207、SDK 10.0.22621.0，未找到 UE。使用 Epic 官方安装渠道，仅选 Windows 所需组件；记录最终补丁、编译器、SDK 与安装目录。账户登录由用户操作，磁盘不足时只请求必要目录选择，不能自行删文件或把未安装状态写成完成。
+- [x] **1.2 创建原生最小工程。** 配置 UE 5.6 和 Runtime 模块，启用 Enhanced Input、Python Editor Script Plugin（仅制作期），写 PowerShell 入口与忽略规则。`Build.ps1 -Target Editor` 必须得到真实构建成功；UBT 拒绝编译器时按其诊断安装匹配组件，不压制兼容性错误。
+- [x] **1.3 创建并保存启动关卡。** `bootstrap_project.py` 在 UE 编辑器中创建地面、光照、PlayerStart 和 `L_CourierCity`，配置默认启动地图；再次运行不得删除已有游戏资产或复制重复 Actor。通过运行脚本检查 `.umap` 确实生成并能载入。
+- [x] **1.4 加入必要的 smoke 测试并运行。** `CityCourier.Smoke.StartupMap` 断言 `/Game/CityCourier/Maps/L_CourierCity` 能加载，且包含有效 PlayerStart；故意指定不存在的测试过滤器时 runner 必须报失败。执行统一入口的 smoke 命令，输出至少 1 项成功测试且无失败。
+- [x] **1.5 打包并启动最小游戏。** 执行 `Package.ps1 -Configuration Development`；实际启动打包 exe，确认地面、光照、输入响应可见。无图形验证条件时记录阻碍，不能把打包成功视为已观察到画面。
+- [x] **1.6 提交。** `git add -- CityCourier.uproject Source Config scripts Content/Python Content/CityCourier/Maps .gitignore docs/environment.md docs/testing/acceptance.md docs/art/asset-manifest.csv`；`git commit -m "build: establish runnable UE5 Windows project"`。
 
 ## Task 2：可独立验证的订单状态与收益规则
 
@@ -99,7 +99,7 @@
 
 **Interfaces:** `EDeliveryStatus {Idle,AwaitingPickup,Delivering,Completed,Failed}`；`EDeliveryFailure {None,Expired,Damaged,Cancelled,Rescue}`；`FDeliveryOffer {FGuid InstanceId; FName MerchantId,DestinationId; int64 BaseFeeCents; double DeadlineSeconds;}`；`FDeliveryState` 包含 Offer、Status、Failure、ElapsedSeconds、IntegrityPercent、LastDamageElapsedSeconds。`FDeliveryRules` 静态接口：`Accept(State&, const Offer&) -> bool`、`Pickup(State&, FName) -> bool`、`Advance(State&, double DeltaSeconds) -> void`、`ApplyImpact(State&, double SpeedKmh) -> void`、`Deliver(State&, FName, int64& OutPayoutCents) -> bool`、`Cancel(State&, EDeliveryFailure) -> bool`、`CalculateDeadline(double RouteMeters) -> double`；实际使用以上完整类型名。
 
-- [ ] **2.1 先写行为测试。** 测试辅助 `MakeOffer(double DeadlineSeconds=120, int64 BaseFeeCents=2000)` 创建全新 ID、固定 merchant/destination。核心断言写为：
+- [x] **2.1 先写行为测试。** 测试辅助 `MakeOffer(double DeadlineSeconds=120, int64 BaseFeeCents=2000)` 创建全新 ID、固定 merchant/destination。核心断言写为：
 
 ```cpp
 // CityCourier.DeliveryRules.Boundaries（各断言使用独立订单实例）
@@ -122,10 +122,10 @@ TestFalse(TEXT("不可重复交付"), FDeliveryRules::Deliver(State, Offer.Desti
 // 7.99km/h 无损；8km/h 扣1；28km/h 扣30；1秒内第二次撞击不扣。
 ```
 
-- [ ] **2.2 验证失败。** 执行 `Build.ps1 -Target Editor` 和 `Test.ps1 -Filter CityCourier.DeliveryRules -Headless`；缺失实现导致的编译失败可作为首次红灯，但需记录真实原因，随后测试必须能执行。
-- [ ] **2.3 实现规则。** 每个动作先验证状态与目标；所有时间判断使用同一已用时间；负数或非有限 DeltaSeconds 不改变状态，非法路线距离的 CalculateDeadline 返回 -1，调用者据此拒绝候选；过期先于交付。金额用 int64 中间乘积，`BaseFeeCents * IntegrityPercent * (Late ? 60 : 100) / 10000`，只做一次整数截断；拒绝超出1600–3200分、时限不在120–300秒或无效ID的 Offer。LastDamageElapsedSeconds 初始化为负无穷，确保第一次撞击立即生效。
-- [ ] **2.4 运行并补充边界证据。** 相同过滤器全部成功，加入恰好 1 秒伤害冷却、完整度归零、连续多次终结、负数/NaN 时间输入和非法基础金额；验证有效金额 1601 分、99% 完整度、超时得到 950 分。
-- [ ] **2.5 提交。** `git add -- Source/CityCourier/Core Source/CityCourier/Tests`；`git commit -m "feat: implement delivery rules and settlement boundaries"`。
+- [x] **2.2 验证失败。** 执行 `Build.ps1 -Target Editor` 和 `Test.ps1 -Filter CityCourier.DeliveryRules -Headless`；缺失实现导致的编译失败可作为首次红灯，但需记录真实原因，随后测试必须能执行。
+- [x] **2.3 实现规则。** 每个动作先验证状态与目标；所有时间判断使用同一已用时间；负数或非有限 DeltaSeconds 不改变状态，非法路线距离的 CalculateDeadline 返回 -1，调用者据此拒绝候选；过期先于交付。金额用 int64 中间乘积，`BaseFeeCents * IntegrityPercent * (Late ? 60 : 100) / 10000`，只做一次整数截断；拒绝超出1600–3200分、时限不在120–300秒或无效ID的 Offer。LastDamageElapsedSeconds 初始化为负无穷，确保第一次撞击立即生效。
+- [x] **2.4 运行并补充边界证据。** 相同过滤器全部成功，加入恰好 1 秒伤害冷却、完整度归零、连续多次终结、负数/NaN 时间输入和非法基础金额；验证有效金额 1601 分、99% 完整度、超时得到 950 分。
+- [x] **2.5 提交。** `git add -- Source/CityCourier/Core Source/CityCourier/Tests`；`git commit -m "feat: implement delivery rules and settlement boundaries"`。
 
 ## Task 3：玩家经济、升级交易与可靠存档
 
@@ -135,12 +135,12 @@ TestFalse(TEXT("不可重复交付"), FDeliveryRules::Deliver(State, Offer.Desti
 
 `FProfileRepository::Load(FPlayerProfile&, FString& OutError) -> EProfileLoadResult`、`Save(const FPlayerProfile&, FString& OutError) -> bool`。在 `ProfileRepository.h` 定义可注入 `IProfileStorage`：`Read(const FString& Name,TArray<uint8>& Bytes) -> bool`、`Exists(const FString& Name) const -> bool`、`WriteAtomic(const FString& Name,const TArray<uint8>& Bytes) -> bool`、`Preserve(const FString& Name) -> bool`。生产实现仅操作固定存档目录，WriteAtomic负责临时文件与替换；测试实现模拟读、写、替换失败。Preserve将不兼容原文件保留为带时间和唯一后缀的文件。
 
-- [ ] **3.1 写失败测试。** `CityCourier.Profile` 验证初始0分、一次完成加2000分、同实例重复结算无效、失败只加失败数；余额不足6000分不能买动力1级，6000分恰好买到且余额0；第二级12000分，满级不可再扣款；操控4000/8000、电池5000/10000分分别验证。
-- [ ] **3.2 写存档故障测试并运行红灯。** `CityCourier.ProfileStorage` 对比完整往返、主档损坏回退备份、两个文件都损坏、Version=2、非法余额/等级、写临时文件失败、替换主档失败；`Test.ps1 -Filter CityCourier.Profile -Headless` 必须观察到失败。
-- [ ] **3.3 实现资料与交易。** 新资料的金额、计数、等级均为0，音量0.8、画质1；结算实例防重在会话内保存；重启不恢复订单，避免恢复已结算实例。升级与设置通过统一接口验证后修改并保存，失败保存仍保留有效内存资料；重试保存不得重放交易。设置限制音量0–1、质量0–2；非法数据保持原值。
-- [ ] **3.4 实现版本1快照与故障处理。** 存档在用户 Saved/SaveGames 下；使用 SaveGame 序列化内存数据，文件层写临时文件、验证可读、保留有效备份后替换主档。只保留已验证有效的备份；未知版本或损坏原文件先重命名保留，用户选择新档时才建立默认档。迁移不是本任务需求。
-- [ ] **3.5 运行绿灯。** 重跑 Profile 过滤器，断言每种失败都返回错误且主档或备份仍可恢复；测试临时目录必须在项目 Saved/Tests 内，不触碰玩家正式进度。
-- [ ] **3.6 提交。** `git add -- Source/CityCourier/Profile Source/CityCourier/Tests`；`git commit -m "feat: persist rider profile and validate upgrade transactions"`。
+- [x] **3.1 写失败测试。** `CityCourier.Profile` 验证初始0分、一次完成加2000分、同实例重复结算无效、失败只加失败数；余额不足6000分不能买动力1级，6000分恰好买到且余额0；第二级12000分，满级不可再扣款；操控4000/8000、电池5000/10000分分别验证。
+- [x] **3.2 写存档故障测试并运行红灯。** `CityCourier.ProfileStorage` 对比完整往返、主档损坏回退备份、两个文件都损坏、Version=2、非法余额/等级、写临时文件失败、替换主档失败；`Test.ps1 -Filter CityCourier.Profile -Headless` 必须观察到失败。
+- [x] **3.3 实现资料与交易。** 新资料的金额、计数、等级均为0，音量0.8、画质1；结算实例防重在会话内保存；重启不恢复订单，避免恢复已结算实例。升级与设置通过统一接口验证后修改并保存，失败保存仍保留有效内存资料；重试保存不得重放交易。设置限制音量0–1、质量0–2；非法数据保持原值。
+- [x] **3.4 实现版本1快照与故障处理。** 存档在用户 Saved/SaveGames 下；使用 SaveGame 序列化内存数据，文件层写临时文件、验证可读、保留有效备份后替换主档。只保留已验证有效的备份；未知版本或损坏原文件先重命名保留，用户选择新档时才建立默认档。迁移不是本任务需求。
+- [x] **3.5 运行绿灯。** 重跑 Profile 过滤器，断言每种失败都返回错误且主档或备份仍可恢复；测试临时目录必须在项目 Saved/Tests 内，不触碰玩家正式进度。
+- [x] **3.6 提交。** `git add -- Source/CityCourier/Profile Source/CityCourier/Tests`；`git commit -m "feat: persist rider profile and validate upgrade transactions"`。
 
 ## Task 4：连通的中国街区灰盒与地点数据
 
@@ -148,12 +148,12 @@ TestFalse(TEXT("不可重复交付"), FDeliveryRules::Deliver(State, Offer.Desti
 
 **Interfaces:** `FRoadNode {int32 Id; FVector Position;}`、`FRoadEdge {int32 From,To; double LengthMeters; bool bBidirectional;}`、`FRouteResult {bool bReachable; double LengthMeters; TArray<FVector> Points;}`；`FRoadGraph::FindRoute(int32 From,int32 To) const -> FRouteResult`、`FindNearestNode(FVector) const -> int32`、`Validate(TArray<FString>& Errors) const -> bool`。`UCityDefinition` 存储道路、4商户、8收餐点、各地点入口节点、32个组合的费用和休息站数据；`ADeliveryLocation` 暴露 LocationId、LocationKind、InteractionPoint。地点坐标为 UE 厘米，进入计时公式前换算米。
 
-- [ ] **4.1 写失败测试。** `CityCourier.Roads` 验证单向、双向、断路、同点、不同权重最短路、重复节点、无效边、负长度；10000厘米应为100米。`CityCourier.CityData` 验证4个商户、8个收餐点、唯一ID、费用1600–3200分，32个商户/目的地组合全部可达。
-- [ ] **4.2 运行红灯。** 构建并运行 `Test.ps1 -Filter CityCourier.Roads -Headless`，随后 CityData 过滤器，保存失败原因。
-- [ ] **4.3 实现道路图和资源校验。** 使用 Dijkstra 按非负道路长度寻路；位置到道路入口的连接长度计入总长；任一无效关键数据给出地点ID和原因，不生成无效候选订单。
-- [ ] **4.4 制作灰盒关卡。** 编辑器脚本在约600 × 600米的区域内建立环路、支路、两条可骑行近路、四区域、休息站和地点标记；采用真实尺度碰撞体，数据和场景Actor共用稳定ID；多次制作只更新带项目制作标签的生成内容，保护人工资产。
-- [ ] **4.5 验证。** 运行 Roads / CityData 测试，编辑器中检查地图尺度、12个地点落地、道路不穿建筑；可达性数学测试不能代替之后任务6的实际骑行检查。
-- [ ] **4.6 提交。** `git add -- Source/CityCourier/World Source/CityCourier/Tests Content/Python/build_city.py Content/CityCourier/Data Content/CityCourier/Maps`；`git commit -m "feat: build connected courier district and delivery locations"`。
+- [x] **4.1 写失败测试。** `CityCourier.Roads` 验证单向、双向、断路、同点、不同权重最短路、重复节点、无效边、负长度；10000厘米应为100米。`CityCourier.CityData` 验证4个商户、8个收餐点、唯一ID、费用1600–3200分，32个商户/目的地组合全部可达。
+- [x] **4.2 运行红灯。** 构建并运行 `Test.ps1 -Filter CityCourier.Roads -Headless`，随后 CityData 过滤器，保存失败原因。
+- [x] **4.3 实现道路图和资源校验。** 使用 Dijkstra 按非负道路长度寻路；位置到道路入口的连接长度计入总长；任一无效关键数据给出地点ID和原因，不生成无效候选订单。
+- [x] **4.4 制作灰盒关卡。** 编辑器脚本在约600 × 600米的区域内建立环路、支路、两条可骑行近路、四区域、休息站和地点标记；采用真实尺度碰撞体，数据和场景Actor共用稳定ID；多次制作只更新带项目制作标签的生成内容，保护人工资产。
+- [x] **4.5 验证。** 运行 Roads / CityData 测试，编辑器中检查地图尺度、12个地点落地、道路不穿建筑；可达性数学测试不能代替之后任务6的实际骑行检查。
+- [x] **4.6 提交。** `git add -- Source/CityCourier/World Source/CityCourier/Tests Content/Python/build_city.py Content/CityCourier/Data Content/CityCourier/Maps`；`git commit -m "feat: build connected courier district and delivery locations"`。
 
 ## Task 5：第三人称步行、相机与交互协议
 
@@ -161,11 +161,11 @@ TestFalse(TEXT("不可重复交付"), FDeliveryRules::Deliver(State, Offer.Desti
 
 **Interfaces:** `ICourierInteractable::CanInteract(ACourierCharacter*, FText& OutReason) const -> bool`、`Interact(ACourierCharacter*) -> bool`、`GetInteractionPriority() const -> int32`。`ACourierCharacter::TryInteract() -> bool`；`ACourierController::GetCourier() const -> ACourierCharacter*`、`SetInterfaceMode(ECourierInterfaceMode) -> void`，枚举含 Gameplay / Phone / Map / Pause / Station / Settlement。
 
-- [ ] **5.1 建立功能用例。** `CityCourier.Interaction` 创建近/远交互对象，199cm可交互、201cm拒绝、被墙遮挡拒绝；当前订单对应地点优先于休息站、车辆和其他地点，同优先级取最近对象；无目标不显示过期提示。
-- [ ] **5.2 运行红灯。** `Test.ps1 -Filter CityCourier.Interaction`；需真实测试世界，不能用空测试替代角色位置和碰撞。
-- [ ] **5.3 实现步行与相机。** CharacterMovement 管理走/跑，SpringArm 管理第三人称镜头碰撞，Enhanced Input绑定WASD/鼠标/Shift/E；设置界面切换的输入清空接口供任务8使用。Manny可作为本阶段有明确标记的临时资产，填入已有素材清单并标记占位。
-- [ ] **5.4 验证。** 自动用例通过，在 `L_MovementTest` 检查窄巷相机、门口交互提示、碰撞和奔跑；记录人工观察。
-- [ ] **5.5 提交。** `git add -- Source/CityCourier/Player Source/CityCourier/Tests Source/CityCourier/CityCourier.Build.cs Content/CityCourier/Input Content/CityCourier/Blueprints Content/CityCourier/Maps Config docs/art/asset-manifest.csv`；`git commit -m "feat: add courier movement camera and validated interactions"`。
+- [x] **5.1 建立功能用例。** `CityCourier.Interaction` 创建近/远交互对象，199cm可交互、201cm拒绝、被墙遮挡拒绝；当前订单对应地点优先于休息站、车辆和其他地点，同优先级取最近对象；无目标不显示过期提示。
+- [x] **5.2 运行红灯。** `Test.ps1 -Filter CityCourier.Interaction`；需真实测试世界，不能用空测试替代角色位置和碰撞。
+- [x] **5.3 实现步行与相机。** CharacterMovement 管理走/跑，SpringArm 管理第三人称镜头碰撞，Enhanced Input绑定WASD/鼠标/Shift/E；设置界面切换的输入清空接口供任务8使用。Manny可作为本阶段有明确标记的临时资产，填入已有素材清单并标记占位。
+- [x] **5.4 验证。** 自动用例通过，在 `L_MovementTest` 检查窄巷相机、门口交互提示、碰撞和奔跑；记录人工观察。
+- [x] **5.5 提交。** `git add -- Source/CityCourier/Player Source/CityCourier/Tests Source/CityCourier/CityCourier.Build.cs Content/CityCourier/Input Content/CityCourier/Blueprints Content/CityCourier/Maps Config docs/art/asset-manifest.csv`；`git commit -m "feat: add courier movement camera and validated interactions"`。
 
 ## Task 6：电动车驾驶、上下车和电量基础
 
@@ -173,12 +173,12 @@ TestFalse(TEXT("不可重复交付"), FDeliveryRules::Deliver(State, Offer.Desti
 
 **Interfaces:** `AScooterPawn::TryMount(ACourierCharacter*) -> bool`、`TryDismount() -> bool`、`SetDriveInput(float Throttle,float Steering,bool bBrake) -> void`、`GetSpeedKmh() const -> float`、`GetBatteryFraction() const -> float`、`ApplyUpgrades(const FPlayerProfile&) -> void`、`SetBatteryFraction(float) -> void`；事件 `OnEffectiveImpact(float NormalClosingSpeedKmh)`。`FVehicleRules::ConsumeDistance(float Fraction,double DistanceMeters,int32 BatteryLevel) -> float`、`GetMaxSpeedKmh(int32 PowerLevel) -> float`、`GetRangeMeters(int32 BatteryLevel) -> double`。
 
-- [ ] **6.1 写规则与场景测试。** `CityCourier.VehicleRules`：3000/4000/5000米耗尽对应满电，倒车距离同样扣电，0电不驱动，动力上限36/42/48；非法等级查询回退等级0并记录错误，持久化层仍拒绝该数据。`CityCourier.Scooter`：速度3可下车、3.01拒绝，左右堵住拒绝，单侧安全使用该侧。
-- [ ] **6.2 运行红灯。** 分别运行 VehicleRules（Headless）与 Scooter（有测试世界），记录预期失败。
-- [ ] **6.3 实现街机车辆与控制切换。** 使用 PawnMovementComponent 的有扫掠移动和滑动响应，按秒计算加速度及速度相关转向；前进制动到低速后S倒车，上限6km/h；Space强制动。上车附着骑手并关闭冲突碰撞，下车先探测落点再解除附着；失败不改变控制权。
-- [ ] **6.4 实现电量与镜头。** 实际物理位移计里程，瞬移标记排除；低于20%提示事件在跨阈值时发出；车体视觉侧倾不改变稳定碰撞体，相机防穿墙并自动回正。有效撞击速度来自法向接近速度。
-- [ ] **6.5 验证。** 自动用例成功；手动以30与60FPS上限分别骑同一路段，比较加速与里程无明显帧率依赖；骑遍两条近路与所有地点，测试正撞、擦墙、倒车、下车和高速镜头。
-- [ ] **6.6 提交。** `git add -- Source/CityCourier/Vehicles Source/CityCourier/Player Source/CityCourier/Tests Content/CityCourier/Blueprints Content/CityCourier/Input Content/CityCourier/Maps`；`git commit -m "feat: add scooter driving possession and battery rules"`。
+- [x] **6.1 写规则与场景测试。** `CityCourier.VehicleRules`：3000/4000/5000米耗尽对应满电，倒车距离同样扣电，0电不驱动，动力上限36/42/48；非法等级查询回退等级0并记录错误，持久化层仍拒绝该数据。`CityCourier.Scooter`：速度3可下车、3.01拒绝，左右堵住拒绝，单侧安全使用该侧。
+- [x] **6.2 运行红灯。** 分别运行 VehicleRules（Headless）与 Scooter（有测试世界），记录预期失败。
+- [x] **6.3 实现街机车辆与控制切换。** 使用 PawnMovementComponent 的有扫掠移动和滑动响应，按秒计算加速度及速度相关转向；前进制动到低速后S倒车，上限6km/h；Space强制动。上车附着骑手并关闭冲突碰撞，下车先探测落点再解除附着；失败不改变控制权。
+- [x] **6.4 实现电量与镜头。** 实际物理位移计里程，瞬移标记排除；低于20%提示事件在跨阈值时发出；车体视觉侧倾不改变稳定碰撞体，相机防穿墙并自动回正。有效撞击速度来自法向接近速度。
+- [x] **6.5 验证。** 自动用例成功；手动以30与60FPS上限分别骑同一路段，比较加速与里程无明显帧率依赖；骑遍两条近路与所有地点，测试正撞、擦墙、倒车、下车和高速镜头。
+- [x] **6.6 提交。** `git add -- Source/CityCourier/Vehicles Source/CityCourier/Player Source/CityCourier/Tests Content/CityCourier/Blueprints Content/CityCourier/Input Content/CityCourier/Maps`；`git commit -m "feat: add scooter driving possession and battery rules"`。
 
 ## Task 7：把接单、取餐、配送与结算接入世界
 
@@ -186,11 +186,11 @@ TestFalse(TEXT("不可重复交付"), FDeliveryRules::Deliver(State, Offer.Desti
 
 **Interfaces:** `UDeliverySubsystem : UTickableWorldSubsystem` 提供 `RefreshOffers(FVector RiderLocation) -> bool`、`GetOffers() const -> const TArray<FDeliveryOffer>&`、`TryAccept(FGuid) -> bool`、`TryPickup(FName,ACourierCharacter*) -> bool`、`TryDeliver(FName,ACourierCharacter*) -> bool`、`TryCancel(EDeliveryFailure) -> bool`、`ApplyRecoveryPenalty() -> void`、`GetState() const -> const FDeliveryState&`；广播 `OnDeliveryChanged` 与 `OnDeliveryFinished(const FSettlement&)`。世界层持有统一、暂停感知的时钟，每次事件先同步ElapsedSeconds再调用规则；不将Tick与交互事件分别累加计时。
 
-- [ ] **7.1 写端到端失败用例。** `CityCourier.DeliveryWorld` 验证3个有效候选、一次仅接1单、真实步行距离/对应商户检查、取餐后目标切换、交付一次加钱并刷新候选；撞击只有骑乘且已取餐才损餐。使用可控时钟验证截止时刻先交互后Tick和先Tick后交互结果一致。
-- [ ] **7.2 运行红灯。** `Test.ps1 -Filter CityCourier.DeliveryWorld`；报告必须实际执行世界用例。
-- [ ] **7.3 实现生成和状态编排。** 候选从32个有效组合中随机抽取3个不同组合，实例ID全新；时限按玩家到商户再到目的地路线计算。统一转发结果给 ProfileSubsystem，成功/失败终结仅一次，保存失败不重发结算；允许人工取消和救援原因。
-- [ ] **7.4 验证配送闭环。** 自动用例成功；使用暂时的开发交互面板完成至少1单准时、1单宽限期、1单失败，检查Profile变化；该临时面板在任务8中移除。
-- [ ] **7.5 提交。** `git add -- Source/CityCourier/Delivery Source/CityCourier/World Source/CityCourier/Player Source/CityCourier/Profile Source/CityCourier/Vehicles Source/CityCourier/Tests`；`git commit -m "feat: connect delivery loop to city interactions and profile"`。
+- [x] **7.1 写端到端失败用例。** `CityCourier.DeliveryWorld` 验证3个有效候选、一次仅接1单、真实步行距离/对应商户检查、取餐后目标切换、交付一次加钱并刷新候选；撞击只有骑乘且已取餐才损餐。使用可控时钟验证截止时刻先交互后Tick和先Tick后交互结果一致。
+- [x] **7.2 运行红灯。** `Test.ps1 -Filter CityCourier.DeliveryWorld`；报告必须实际执行世界用例。
+- [x] **7.3 实现生成和状态编排。** 候选从32个有效组合中随机抽取3个不同组合，实例ID全新；时限按玩家到商户再到目的地路线计算。统一转发结果给 ProfileSubsystem，成功/失败终结仅一次，保存失败不重发结算；允许人工取消和救援原因。
+- [x] **7.4 验证配送闭环。** 自动用例成功；使用暂时的开发交互面板完成至少1单准时、1单宽限期、1单失败，检查Profile变化；该临时面板在任务8中移除。
+- [x] **7.5 提交。** `git add -- Source/CityCourier/Delivery Source/CityCourier/World Source/CityCourier/Player Source/CityCourier/Profile Source/CityCourier/Vehicles Source/CityCourier/Tests`；`git commit -m "feat: connect delivery loop to city interactions and profile"`。
 
 ## Task 8：中文 HUD、手机、导航、暂停与存档提示
 
@@ -198,12 +198,12 @@ TestFalse(TEXT("不可重复交付"), FDeliveryRules::Deliver(State, Offer.Desti
 
 **Interfaces:** `UDeliveryNavigationSubsystem::GetActiveRoute() const -> const FRouteResult&`、`RefreshRoute(FVector RiderLocation) -> bool`；0.5秒检查一次偏航，距离路径超过15米或目标变化时重新计算。`UCourierHUDWidget::RefreshFromState() -> void` 等界面仅读取系统状态；菜单把交易和订单操作交回既有接口。`UCourierSettings::Apply(const FPlayerProfile&) -> void` 应用音量和UE画质档。
 
-- [ ] **8.1 写导航与输入失败测试。** `CityCourier.Navigation` 验证取餐前导航到商户、取餐后到顾客、不可达无穿墙路线、偏航重算。`CityCourier.InputModes` 验证驾驶→手机→地图→暂停→游戏交错：油门归零，手机/地图保持时间推进，Pause暂停，恢复后需新输入才加速。
-- [ ] **8.2 运行红灯。** 使用 Navigation 和 InputModes 过滤器，验证真实计时与控制输入。
-- [ ] **8.3 制作中文界面。** HUD包含目标、计时/宽限期、完整度、余额、速度、电量；手机3个候选和活动单操作；地图绘制道路/导航线/地点；结算逐项展示基础收入、损餐、超时和实际收入。嵌入有明确许可且覆盖所用汉字的字体，记录来源，字号按1080p可读制作。
-- [ ] **8.4 完成暂停、设置和存档恢复交互。** Esc暂停及继续；音量0–1、画质低中高通过Profile保存；退出明确提示进行中的订单将丢弃。根据 EProfileLoadResult 提示恢复结果，NeedsReset 时经用户选择调用 ResetProfileAfterConfirmation；保存失败显示“本次进度未保存”并提供重试。初次运行 NewProfile 直接默认资料，不显示错误。
-- [ ] **8.5 验证。** 自动用例成功；在1280×720和1920×1080查看无文字裁剪，手动检查保存错误/重试；测试商户后导航切换与离路重算，移除临时开发面板。
-- [ ] **8.6 提交。** `git add -- Source/CityCourier/UI Source/CityCourier/Delivery Source/CityCourier/Player Source/CityCourier/Profile Source/CityCourier/Tests Content/CityCourier/UI Content/CityCourier/Input docs/art/asset-manifest.csv`；`git commit -m "feat: add Chinese courier UI navigation and pause flow"`。
+- [x] **8.1 写导航与输入失败测试。** `CityCourier.Navigation` 验证取餐前导航到商户、取餐后到顾客、不可达无穿墙路线、偏航重算。`CityCourier.InputModes` 验证驾驶→手机→地图→暂停→游戏交错：油门归零，手机/地图保持时间推进，Pause暂停，恢复后需新输入才加速。
+- [x] **8.2 运行红灯。** 使用 Navigation 和 InputModes 过滤器，验证真实计时与控制输入。
+- [x] **8.3 制作中文界面。** HUD包含目标、计时/宽限期、完整度、余额、速度、电量；手机3个候选和活动单操作；地图绘制道路/导航线/地点；结算逐项展示基础收入、损餐、超时和实际收入。嵌入有明确许可且覆盖所用汉字的字体，记录来源，字号按1080p可读制作。
+- [x] **8.4 完成暂停、设置和存档恢复交互。** Esc暂停及继续；音量0–1、画质低中高通过Profile保存；退出明确提示进行中的订单将丢弃。根据 EProfileLoadResult 提示恢复结果，NeedsReset 时经用户选择调用 ResetProfileAfterConfirmation；保存失败显示“本次进度未保存”并提供重试。初次运行 NewProfile 直接默认资料，不显示错误。
+- [x] **8.5 验证。** 自动用例成功；在1280×720和1920×1080查看无文字裁剪，手动检查保存错误/重试；测试商户后导航切换与离路重算，移除临时开发面板。
+- [x] **8.6 提交。** `git add -- Source/CityCourier/UI Source/CityCourier/Delivery Source/CityCourier/Player Source/CityCourier/Profile Source/CityCourier/Tests Content/CityCourier/UI Content/CityCourier/Input docs/art/asset-manifest.csv`；`git commit -m "feat: add Chinese courier UI navigation and pause flow"`。
 
 ## Task 9：休息站升级、充电与安全恢复
 
@@ -211,11 +211,11 @@ TestFalse(TEXT("不可重复交付"), FDeliveryRules::Deliver(State, Offer.Desti
 
 **Interfaces:** `ARiderStation::BeginCharge(ACourierCharacter*) -> bool`、`CancelCharge() -> void`、`TryPurchase(EUpgradeKind,ACourierCharacter*) -> bool`；`URiderRecoveryComponent::RecordSafeLocation(const FTransform&) -> void`、`TryRecover() -> bool`、`TryRescue() -> bool`。安全点采样检测地面、车体空间和道路邻近，恢复失败候选回退到休息站安全出生点。
 
-- [ ] **9.1 写失败测试。** `CityCourier.Station`：充电4.99秒仍未满、5秒满；取消不充电；离开2米范围取消；升级电池保持百分比。`CityCourier.Recovery`：长按不足2秒无动作；恢复增加5秒且可能立即失败，不修复完整度、不增减电量；过期安全点回退；没电且离站超过20米才可救援，救援有活动单失败一次、无活动单不增失败数。
-- [ ] **9.2 运行红灯。** 分别运行 Station / Recovery 世界测试。
-- [ ] **9.3 实现交互与恢复。** 升级菜单调用Profile交易并立即将等级应用到车辆；充电期间要求步行持续有效且车辆静止，展示5秒进度。恢复和救援用碰撞检测定位，保持骑乘状态或安全步行状态，清空旧速度和输入；救援取消订单、回站、充满。
-- [ ] **9.4 验证。** 自动用例成功；手动把车卡在窄巷、角色放到地图下方、耗尽电量后检查可恢复。购买三类升级观察速度、转向、续航变化，退出重启仍有效。
-- [ ] **9.5 提交。** `git add -- Source/CityCourier/World Source/CityCourier/Vehicles Source/CityCourier/Player Source/CityCourier/UI Source/CityCourier/Tests Content/CityCourier/Input Content/CityCourier/Maps`；`git commit -m "feat: add rider station upgrades charging and recovery"`。
+- [x] **9.1 写失败测试。** `CityCourier.Station`：充电4.99秒仍未满、5秒满；取消不充电；离开2米范围取消；升级电池保持百分比。`CityCourier.Recovery`：长按不足2秒无动作；恢复增加5秒且可能立即失败，不修复完整度、不增减电量；过期安全点回退；没电且离站超过20米才可救援，救援有活动单失败一次、无活动单不增失败数。
+- [x] **9.2 运行红灯。** 分别运行 Station / Recovery 世界测试。
+- [x] **9.3 实现交互与恢复。** 升级菜单调用Profile交易并立即将等级应用到车辆；充电期间要求步行持续有效且车辆静止，展示5秒进度。恢复和救援用碰撞检测定位，保持骑乘状态或安全步行状态，清空旧速度和输入；救援取消订单、回站、充满。
+- [x] **9.4 验证。** 自动用例成功；手动把车卡在窄巷、角色放到地图下方、耗尽电量后检查可恢复。购买三类升级观察速度、转向、续航变化，退出重启仍有效。
+- [x] **9.5 提交。** `git add -- Source/CityCourier/World Source/CityCourier/Vehicles Source/CityCourier/Player Source/CityCourier/UI Source/CityCourier/Tests Content/CityCourier/Input Content/CityCourier/Maps`；`git commit -m "feat: add rider station upgrades charging and recovery"`。
 
 ## Task 10：原创骑手、电动车与中国街区美术
 
@@ -223,11 +223,11 @@ TestFalse(TEXT("不可重复交付"), FDeliveryRules::Deliver(State, Offer.Desti
 
 **Interfaces:** `import_art.py` 读取资产清单并导入稳定目标路径，不更名运行时引用；骑手动画状态使用 `GroundSpeed`、`bRiding`、`SteeringAmount`，车辆座位和手脚定位使用明确命名的 RiderSeat / LeftGrip / RightGrip / LeftPedal / RightPedal 锚点。清单列为 asset_id,source_path,ue_path,author,source_url,license,is_placeholder。
 
-- [ ] **10.1 建立美术验收和资产验证。** `CityCourier.ArtAssets` 检查关键角色、车体、动画、材质、字体和地图软引用均可加载，关键资产清单 is_placeholder=false；先对当前占位资产运行并确认失败。截图验收角度固定为骑手近景、骑行背面、商业街远景、夜市和小区入口。
-- [ ] **10.2 制作原创角色和车辆。** 准备Blender环境并用保留源文件的制作流程建模：有明确人体比例的骑手、头盔/工作服/餐箱、电动车车架/车轮/灯具；制作站立、行走、跑步、骑行骨架动画，导入UE并配置Animation Blueprint。资产必须实际查看，不以脚本执行成功代替美术质量判断。
-- [ ] **10.3 制作并布置模块化街区。** 原创商铺门面、居民楼、围墙、招牌、摊位、空调、道路边缘与杂物；以约150米商业街为重点打磨，其他区域保持同样材质和比例。中文招牌使用原创名称，固定傍晚光照；资产与源码一并记录，使用外部素材时先核对许可并填清单。
-- [ ] **10.4 导入与验证。** 编辑器脚本可重复执行且不破坏手工场景；自动资产测试通过，生成固定角度截图并逐一检查材质、缩放、穿模和中文。步行与骑行跑过所有配送入口，确保装饰没有堵路；主要资产仍明显占位时本任务不通过。
-- [ ] **10.5 提交。** `git add -- tools/art AssetsSource Content/Python/import_art.py Content/CityCourier/Art Content/CityCourier/Blueprints Content/CityCourier/Maps docs/art Source/CityCourier/Tests`；`git commit -m "art: create courier scooter and Chinese district assets"`。
+- [x] **10.1 建立美术验收和资产验证。** `CityCourier.ArtAssets` 检查关键角色、车体、动画、材质、字体和地图软引用均可加载，关键资产清单 is_placeholder=false；先对当前占位资产运行并确认失败。截图验收角度固定为骑手近景、骑行背面、商业街远景、夜市和小区入口。
+- [x] **10.2 制作原创角色和车辆。** 准备Blender环境并用保留源文件的制作流程建模：有明确人体比例的骑手、头盔/工作服/餐箱、电动车车架/车轮/灯具；制作站立、行走、跑步、骑行骨架动画，导入UE并配置Animation Blueprint。资产必须实际查看，不以脚本执行成功代替美术质量判断。
+- [x] **10.3 制作并布置模块化街区。** 原创商铺门面、居民楼、围墙、招牌、摊位、空调、道路边缘与杂物；以约150米商业街为重点打磨，其他区域保持同样材质和比例。中文招牌使用原创名称，固定傍晚光照；资产与源码一并记录，使用外部素材时先核对许可并填清单。
+- [x] **10.4 导入与验证。** 编辑器脚本可重复执行且不破坏手工场景；自动资产测试通过，生成固定角度截图并逐一检查材质、缩放、穿模和中文。步行与骑行跑过所有配送入口，确保装饰没有堵路；主要资产仍明显占位时本任务不通过。
+- [x] **10.5 提交。** `git add -- tools/art AssetsSource Content/Python/import_art.py Content/CityCourier/Art Content/CityCourier/Blueprints Content/CityCourier/Maps docs/art Source/CityCourier/Tests`；`git commit -m "art: create courier scooter and Chinese district assets"`。
 
 ## Task 11：有限人车、环境音与反馈音效
 
@@ -235,11 +235,11 @@ TestFalse(TEXT("不可重复交付"), FDeliveryRules::Deliver(State, Offer.Desti
 
 **Interfaces:** `AAmbientTrafficManager::UpdatePopulation(FVector RiderLocation) -> void`；背景车沿独立车道点巡行，行人沿人行道点巡行，不占用订单道路节点身份。`UCourierAudioComponent::PlayDeliveryCue(ECourierAudioCue) -> void`，枚举 Accepted/PickedUp/Delivered/Failed；`SetVehicleSpeed(float) -> void`控制车辆循环音频，音量由统一设置应用。
 
-- [ ] **11.1 写失败用例。** `CityCourier.Ambient` 验证同屏不超过6车/12人，远距实体停用不持续堆积；前方玩家或车辆阻挡时停车，移开可恢复，连续5分钟无成倍生成；不存在订单/资料修改副作用。
-- [ ] **11.2 运行红灯并实现背景逻辑。** 管理器复用有限实体；探测制动距离按车速变化；行人遇障停下或换下一段，不穿建筑，不引入受伤/死亡系统。用制作脚本生成原创低复杂度背景轿车，行人复用任务10骨架及步行动画并制作普通服装变体；源资产放入 AssetsSource/CityCourier 并更新清单。
-- [ ] **11.3 制作并接入声音。** 添加有明确来源的城市底噪、电动车行驶、制动与四种配送提示音；原创录制或合成音源保留制作说明，外部音源进入清单。事件只触发一次，菜单暂停时停止对应世界声音，恢复后平顺继续。
-- [ ] **11.4 验证。** Ambient测试通过；实机站在车道、窄巷和商户入口检查避障，走完配送路线监听音量与重复提醒；背景人车不阻断全部配送入口。
-- [ ] **11.5 提交。** `git add -- Source/CityCourier/Ambient Source/CityCourier/Tests Content/CityCourier/Audio Content/CityCourier/Art/Ambient Content/CityCourier/Blueprints Content/CityCourier/Maps tools/art/build_ambient_assets.py AssetsSource docs/art`；`git commit -m "feat: add bounded street traffic pedestrians and audio"`。
+- [x] **11.1 写失败用例。** `CityCourier.Ambient` 验证同屏不超过6车/12人，远距实体停用不持续堆积；前方玩家或车辆阻挡时停车，移开可恢复，连续5分钟无成倍生成；不存在订单/资料修改副作用。
+- [x] **11.2 运行红灯并实现背景逻辑。** 管理器复用有限实体；探测制动距离按车速变化；行人遇障停下或换下一段，不穿建筑，不引入受伤/死亡系统。用制作脚本生成原创低复杂度背景轿车，行人复用任务10骨架及步行动画并制作普通服装变体；源资产放入 AssetsSource/CityCourier 并更新清单。
+- [x] **11.3 制作并接入声音。** 添加有明确来源的城市底噪、电动车行驶、制动与四种配送提示音；原创录制或合成音源保留制作说明，外部音源进入清单。事件只触发一次，菜单暂停时停止对应世界声音，恢复后平顺继续。
+- [x] **11.4 验证。** Ambient测试通过；实机站在车道、窄巷和商户入口检查避障，走完配送路线监听音量与重复提醒；背景人车不阻断全部配送入口。
+- [x] **11.5 提交。** `git add -- Source/CityCourier/Ambient Source/CityCourier/Tests Content/CityCourier/Audio Content/CityCourier/Art/Ambient Content/CityCourier/Blueprints Content/CityCourier/Maps tools/art/build_ambient_assets.py AssetsSource docs/art`；`git commit -m "feat: add bounded street traffic pedestrians and audio"`。
 
 ## Task 12：画质、性能、完整回归与 Windows 交付
 
@@ -268,7 +268,7 @@ TestFalse(TEXT("不可重复交付"), FDeliveryRules::Deliver(State, Offer.Desti
 | 人车与音效 | 11 |
 | 画质、性能、全流程验收、发行资料 | 12 |
 
-计划自审检查：范围映射完整；金额为分、距离为米/UE厘米的边界明确；任务接口采用同一命名；关键事件使用暂停感知的同一时钟；五项Review Focus均有对应验证。外部前提是能安装和运行UE、足够磁盘以及能够制作和检查真实资产；这些尚未完成，任务复选框均保持未勾选。
+计划自审检查：范围映射完整；金额为分、距离为米/UE厘米的边界明确；任务接口采用同一命名；关键事件使用暂停感知的同一时钟；五项Review Focus均有对应验证。外部前提是能安装和运行UE、足够磁盘以及能够制作和检查真实资产；已完成步骤依据实际提交和验证记录勾选，任务12的最终结果见发行检查表。
 
 参考：Epic 的 [自动化测试运行](https://dev.epicgames.com/documentation/unreal-engine/run-automation-tests-in-unreal-engine)、[测试报告](https://dev.epicgames.com/documentation/unreal-engine/review-test-results-in-unreal-engine)、[BuildCookRun 打包](https://dev.epicgames.com/documentation/unreal-engine/build-operations-cooking-packaging-deploying-and-running-projects-in-unreal-engine)、[Python编辑器脚本](https://dev.epicgames.com/documentation/en-us/unreal-engine/scripting-the-editor-using-python)；实施时以所安装UE5.6的命令和API实际验证为准。
 

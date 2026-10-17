@@ -11,5 +11,8 @@ public class CityCourier : ModuleRules
         });
         if (Target.bBuildEditor) PrivateDependencyModuleNames.AddRange(new string[] { "UnrealEd", "AnimGraph", "BlueprintGraph", "KismetCompiler" });
         PublicDependencyModuleNames.Add("AnimGraphRuntime");
+        PrivateDependencyModuleNames.Add("RHI");
+        PrivateDependencyModuleNames.Add("RenderCore");
+        PrivateDependencyModuleNames.Add("AudioMixer");
     }
 }
