@@ -14,6 +14,8 @@
 
 ## Global Constraints
 
+2026-10-18 工作区分工：本会话的美术工作在 `D:/eleme/.worktrees/city-courier-art`、分支 `feat/city-courier-art` 进行，基于任务8提交 `2395e0d`。另一个 Codex 在 `D:/eleme/.worktrees/city-courier` 实现玩法代码。本工作区聚焦任务10及其资产、制作脚本和美术文档；仅在本工作区修改和生成文件，不共享原工作区的地图、Blueprint、构建输出或缓存。涉及相同地图、Blueprint 或运行时接口的改动，在集成时核对双方修改，不能直接覆盖另一方版本。
+
 - 基线采用 UE 5.6，Windows x64；首版单人离线游戏，键鼠输入，固定傍晚与晴朗天气。
 - 地图可游玩区域约 600 × 600 米；4 家商户、8 个收餐点、至少两条可骑行近路；首版至少打磨一段约 150 米长的商业街。
 - 同屏上限初设为 6 辆背景车和 12 名行人；不模拟完整城市交通系统。
@@ -218,6 +220,8 @@ TestFalse(TEXT("不可重复交付"), FDeliveryRules::Deliver(State, Offer.Desti
 - [ ] **9.5 提交。** `git add -- Source/CityCourier/World Source/CityCourier/Vehicles Source/CityCourier/Player Source/CityCourier/UI Source/CityCourier/Tests Content/CityCourier/Input Content/CityCourier/Maps`；`git commit -m "feat: add rider station upgrades charging and recovery"`。
 
 ## Task 10：原创骑手、电动车与中国街区美术
+
+2026-10-18 用户确认的美术约束：素材预算 ¥0，只用免费且许可适用的外部资产或自行制作的资产；沿用中国南方城市街区、晴朗傍晚、写实风格。免费外部资产可作为人物、服装、建筑和材质的制作基础，逐项保存来源和许可；不以必须全手工原创限制素材选择，也不以简单几何体组合替代写实验收。先制作一名骑手、一辆电动车及 50–100 米样板街段，检查实际步行、骑行画面与性能，再扩展至原定约 150 米商业街。该样板不替代任务10的最终验收。
 
 **Files:** 创建 `tools/art/build_courier_assets.py`、`AssetsSource/CityCourier/` 内的 `.blend` 与导出文件、`Content/Python/import_art.py`、`Content/CityCourier/Art/{Characters,Scooter,Architecture,StreetProps,Materials}/`、`Blueprints/ABP_Courier.uasset`、`Tests/ArtAssetTests.cpp`；更新 `docs/art/asset-manifest.csv`、地图和角色/车辆Blueprint。
 

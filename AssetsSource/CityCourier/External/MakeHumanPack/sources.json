@@ -1,0 +1,62 @@
+[
+  {
+    "path": "skins/young_asian_male/young_asian_male.mhmat",
+    "source": "https://files.makehumancommunity.org/asset_packs/makehuman_system_assets/makehuman_system_assets_cc0.zip",
+    "license": "CC0-1.0",
+    "sha256": "9fdfc9863cd15d1359311435f2da7de3906f81d6eea549fba6bf14cd82ceb6a0"
+  },
+  {
+    "path": "skins/young_asian_male/young_asian_male.thumb",
+    "source": "https://files.makehumancommunity.org/asset_packs/makehuman_system_assets/makehuman_system_assets_cc0.zip",
+    "license": "CC0-1.0",
+    "sha256": "21245c121a4efc96d18cb64a2fc7d95bfcc768f7b333d59b7a471708551ed13d"
+  },
+  {
+    "path": "skins/young_asian_male/young_lightskinned_male_diffuse3.png",
+    "source": "https://files.makehumancommunity.org/asset_packs/makehuman_system_assets/makehuman_system_assets_cc0.zip",
+    "license": "CC0-1.0",
+    "sha256": "f50016a5507fc687dc8df06599c8ea48de950cd185de33a71cafc1319ddab4d5"
+  },
+  {
+    "path": "clothes/male_casualsuit04/male_casualsuit04_normal.png",
+    "source": "https://files.makehumancommunity.org/asset_packs/makehuman_system_assets/makehuman_system_assets_cc0.zip",
+    "license": "CC0-1.0",
+    "sha256": "006c0c0dfecaeda1a749f737ac15bfc228ebb76dbbcbf9871993e267a545ca69"
+  },
+  {
+    "path": "clothes/male_casualsuit04/male_casualsuit04.thumb",
+    "source": "https://files.makehumancommunity.org/asset_packs/makehuman_system_assets/makehuman_system_assets_cc0.zip",
+    "license": "CC0-1.0",
+    "sha256": "1424bac2dc95c2d6906bc0435b8de77ce71c25a35c97eece9c6c589944a2c683"
+  },
+  {
+    "path": "clothes/male_casualsuit04/male_casualsuit04.obj",
+    "source": "https://files.makehumancommunity.org/asset_packs/makehuman_system_assets/makehuman_system_assets_cc0.zip",
+    "license": "CC0-1.0",
+    "sha256": "9a56b7b1cb27589233dc048e8ccf1fd93d03f3a5c01a668f0e8a189ebdea7a34"
+  },
+  {
+    "path": "clothes/male_casualsuit04/male_casualsuit04_diffuse.png",
+    "source": "https://files.makehumancommunity.org/asset_packs/makehuman_system_assets/makehuman_system_assets_cc0.zip",
+    "license": "CC0-1.0",
+    "sha256": "eb33337f43b006159773ab2fdff1293f51f72c3d0d24c132c2272b4deff9bcbe"
+  },
+  {
+    "path": "clothes/male_casualsuit04/male_casualsuit04.mhclo",
+    "source": "https://files.makehumancommunity.org/asset_packs/makehuman_system_assets/makehuman_system_assets_cc0.zip",
+    "license": "CC0-1.0",
+    "sha256": "8c1a2d3272cd51ba03f0840d593eddc6325d3d2c4c8529f8203d2c2cad3d0cef"
+  },
+  {
+    "path": "clothes/male_casualsuit04/male_casualsuit04_ao.png",
+    "source": "https://files.makehumancommunity.org/asset_packs/makehuman_system_assets/makehuman_system_assets_cc0.zip",
+    "license": "CC0-1.0",
+    "sha256": "0776e137bc8f37647c949b12384067d311df5fc7504d15af736e0647713c2754"
+  },
+  {
+    "path": "clothes/male_casualsuit04/male_casualsuit04.mhmat",
+    "source": "https://files.makehumancommunity.org/asset_packs/makehuman_system_assets/makehuman_system_assets_cc0.zip",
+    "license": "CC0-1.0",
+    "sha256": "0408dea995c10e078ab79a3b68fa3092bdf18d3241b74fa35d48fe5397b42430"
+  }
+]

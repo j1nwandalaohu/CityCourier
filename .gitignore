@@ -1,5 +1,8 @@
 .worktrees/
 .superpowers/
+__pycache__/
+*.blend1
+*.blend2
 .dependencies/
 Binaries/
 DerivedDataCache/

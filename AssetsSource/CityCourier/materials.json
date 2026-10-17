@@ -1,0 +1,383 @@
+[
+  {
+    "name": "M_Aluminum",
+    "color": [
+      0.44999998807907104,
+      0.47999998927116394,
+      0.46000000834465027
+    ],
+    "roughness": 0.30000001192092896,
+    "metallic": 0.8199999928474426,
+    "emission": 0.0,
+    "textures": []
+  },
+  {
+    "name": "M_Asphalt",
+    "color": [
+      0.09000000357627869,
+      0.09000000357627869,
+      0.08500000089406967
+    ],
+    "roughness": 0.6499999761581421,
+    "metallic": 0.0,
+    "emission": 0.0,
+    "textures": [
+      "asphalt_02_diff_2k.jpg",
+      "asphalt_02_rough_2k.jpg",
+      "asphalt_02_nor_gl_2k.jpg"
+    ]
+  },
+  {
+    "name": "M_Brick",
+    "color": [
+      0.44999998807907104,
+      0.20999999344348907,
+      0.11999999731779099
+    ],
+    "roughness": 0.6499999761581421,
+    "metallic": 0.0,
+    "emission": 0.0,
+    "textures": [
+      "red_brick_03_diff_2k.jpg",
+      "red_brick_03_rough_2k.jpg",
+      "red_brick_03_nor_gl_2k.jpg"
+    ]
+  },
+  {
+    "name": "M_Concrete",
+    "color": [
+      0.49000000953674316,
+      0.47999998927116394,
+      0.4399999976158142
+    ],
+    "roughness": 0.6499999761581421,
+    "metallic": 0.0,
+    "emission": 0.0,
+    "textures": [
+      "concrete_wall_008_diff_2k.jpg",
+      "concrete_wall_008_rough_2k.jpg",
+      "concrete_wall_008_nor_gl_2k.jpg"
+    ]
+  },
+  {
+    "name": "M_CourierGold",
+    "color": [
+      0.949999988079071,
+      0.47999998927116394,
+      0.04500000178813934
+    ],
+    "roughness": 0.5,
+    "metallic": 0.0,
+    "emission": 0.0,
+    "textures": []
+  },
+  {
+    "name": "M_CreamPaint",
+    "color": [
+      0.7200000286102295,
+      0.6899999976158142,
+      0.5799999833106995
+    ],
+    "roughness": 0.75,
+    "metallic": 0.0,
+    "emission": 0.0,
+    "textures": []
+  },
+  {
+    "name": "M_EyeWhite",
+    "color": [
+      0.6700000166893005,
+      0.6499999761581421,
+      0.5799999833106995
+    ],
+    "roughness": 0.25,
+    "metallic": 0.0,
+    "emission": 0.0,
+    "textures": []
+  },
+  {
+    "name": "M_Headlight",
+    "color": [
+      0.8799999952316284,
+      0.8899999856948853,
+      0.75
+    ],
+    "roughness": 0.17000000178813934,
+    "metallic": 0.0,
+    "emission": 2.0,
+    "textures": []
+  },
+  {
+    "name": "M_Helmet",
+    "color": [
+      0.9200000166893005,
+      0.5600000023841858,
+      0.07999999821186066
+    ],
+    "roughness": 0.30000001192092896,
+    "metallic": 0.0,
+    "emission": 0.0,
+    "textures": []
+  },
+  {
+    "name": "M_Iris",
+    "color": [
+      0.02800000086426735,
+      0.01600000075995922,
+      0.00800000037997961
+    ],
+    "roughness": 0.2199999988079071,
+    "metallic": 0.0,
+    "emission": 0.0,
+    "textures": []
+  },
+  {
+    "name": "M_Leaf",
+    "color": [
+      0.054999999701976776,
+      0.11999999731779099,
+      0.03500000014901161
+    ],
+    "roughness": 0.8500000238418579,
+    "metallic": 0.0,
+    "emission": 0.0,
+    "textures": []
+  },
+  {
+    "name": "M_LetterWhite",
+    "color": [
+      0.8500000238418579,
+      0.8100000023841858,
+      0.6800000071525574
+    ],
+    "roughness": 0.5,
+    "metallic": 0.0,
+    "emission": 0.4000000059604645,
+    "textures": []
+  },
+  {
+    "name": "M_PaintedMetal",
+    "color": [
+      0.07500000298023224,
+      0.10999999940395355,
+      0.10999999940395355
+    ],
+    "roughness": 0.3799999952316284,
+    "metallic": 0.6499999761581421,
+    "emission": 0.0,
+    "textures": []
+  },
+  {
+    "name": "M_Plaster",
+    "color": [
+      0.6299999952316284,
+      0.6000000238418579,
+      0.5099999904632568
+    ],
+    "roughness": 0.6499999761581421,
+    "metallic": 0.0,
+    "emission": 0.0,
+    "textures": [
+      "painted_plaster_wall_diff_2k.jpg",
+      "painted_plaster_wall_rough_2k.jpg",
+      "painted_plaster_wall_nor_gl_2k.jpg"
+    ]
+  },
+  {
+    "name": "M_Recess",
+    "color": [
+      0.02500000037252903,
+      0.029999999329447746,
+      0.028999999165534973
+    ],
+    "roughness": 0.9200000166893005,
+    "metallic": 0.0,
+    "emission": 0.0,
+    "textures": []
+  },
+  {
+    "name": "M_ReflectiveStrip",
+    "color": [
+      0.699999988079071,
+      0.7300000190734863,
+      0.6499999761581421
+    ],
+    "roughness": 0.33000001311302185,
+    "metallic": 0.4000000059604645,
+    "emission": 0.0,
+    "textures": []
+  },
+  {
+    "name": "M_Rubber",
+    "color": [
+      0.02500000037252903,
+      0.027000000700354576,
+      0.02500000037252903
+    ],
+    "roughness": 0.949999988079071,
+    "metallic": 0.0,
+    "emission": 0.0,
+    "textures": []
+  },
+  {
+    "name": "M_ScooterPaint",
+    "color": [
+      0.02500000037252903,
+      0.23999999463558197,
+      0.30000001192092896
+    ],
+    "roughness": 0.2800000011920929,
+    "metallic": 0.44999998807907104,
+    "emission": 0.0,
+    "textures": []
+  },
+  {
+    "name": "M_Seat",
+    "color": [
+      0.04500000178813934,
+      0.04800000041723251,
+      0.04600000008940697
+    ],
+    "roughness": 0.7200000286102295,
+    "metallic": 0.0,
+    "emission": 0.0,
+    "textures": []
+  },
+  {
+    "name": "M_SignGold",
+    "color": [
+      0.8299999833106995,
+      0.6499999761581421,
+      0.3199999928474426
+    ],
+    "roughness": 0.44999998807907104,
+    "metallic": 0.0,
+    "emission": 0.20000000298023224,
+    "textures": []
+  },
+  {
+    "name": "M_SignGreen",
+    "color": [
+      0.03500000014901161,
+      0.1599999964237213,
+      0.11999999731779099
+    ],
+    "roughness": 0.6000000238418579,
+    "metallic": 0.0,
+    "emission": 0.0,
+    "textures": []
+  },
+  {
+    "name": "M_SignRed",
+    "color": [
+      0.23999999463558197,
+      0.03500000014901161,
+      0.02500000037252903
+    ],
+    "roughness": 0.550000011920929,
+    "metallic": 0.0,
+    "emission": 0.0,
+    "textures": []
+  },
+  {
+    "name": "M_Skin",
+    "color": [
+      0.47999998927116394,
+      0.2849999964237213,
+      0.18000000715255737
+    ],
+    "roughness": 0.6499999761581421,
+    "metallic": 0.0,
+    "emission": 0.0,
+    "textures": [
+      "young_lightskinned_male_diffuse3.png"
+    ]
+  },
+  {
+    "name": "M_Steel",
+    "color": [
+      0.20000000298023224,
+      0.2199999988079071,
+      0.23000000417232513
+    ],
+    "roughness": 0.23999999463558197,
+    "metallic": 0.8500000238418579,
+    "emission": 0.0,
+    "textures": []
+  },
+  {
+    "name": "M_Taillight",
+    "color": [
+      0.550000011920929,
+      0.00800000037997961,
+      0.004000000189989805
+    ],
+    "roughness": 0.2199999988079071,
+    "metallic": 0.0,
+    "emission": 0.800000011920929,
+    "textures": []
+  },
+  {
+    "name": "M_WindowGlass",
+    "color": [
+      0.05999999865889549,
+      0.10499999672174454,
+      0.11999999731779099
+    ],
+    "roughness": 0.18000000715255737,
+    "metallic": 0.44999998807907104,
+    "emission": 0.0,
+    "textures": []
+  },
+  {
+    "name": "M_WindowWarm",
+    "color": [
+      0.6399999856948853,
+      0.3799999952316284,
+      0.1599999964237213
+    ],
+    "roughness": 0.6000000238418579,
+    "metallic": 0.0,
+    "emission": 0.6499999761581421,
+    "textures": []
+  },
+  {
+    "name": "M_Wood",
+    "color": [
+      0.18000000715255737,
+      0.10000000149011612,
+      0.05000000074505806
+    ],
+    "roughness": 0.800000011920929,
+    "metallic": 0.0,
+    "emission": 0.0,
+    "textures": []
+  },
+  {
+    "name": "M_WorkClothes",
+    "color": [
+      0.15000000596046448,
+      0.25,
+      0.3499999940395355
+    ],
+    "roughness": 0.8999999761581421,
+    "metallic": 0.0,
+    "emission": 0.0,
+    "textures": [
+      "male_casualsuit04_diffuse.png",
+      "male_casualsuit04_normal.png"
+    ]
+  },
+  {
+    "name": "Material",
+    "color": [
+      0.800000011920929,
+      0.800000011920929,
+      0.800000011920929
+    ],
+    "roughness": 0.5,
+    "metallic": 0.0,
+    "emission": 0.0,
+    "textures": []
+  }
+]
