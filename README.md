@@ -2,9 +2,13 @@
 
 Windows 单人 3D 外卖配送游戏，基于 Unreal Engine 5.6.1。首版街区约 600×600 米，包含 4 家商户、8 个收餐点、两条近路和骑手驿站。
 
+![实际打包版游戏画面](docs/testing/evidence/task12/gameplay.png)
+
 ## 启动
 
 正式版本入口：`Artifacts/Windows/Shipping/CityCourier.exe`。保留整个 Shipping 文件夹及其中的 `CityCourier`、`Engine` 目录，不能单独复制根目录的小型启动 exe。
+
+本机也可双击 `D:\eleme\街头骑手.lnk`。工程与完整包保存在 `D:\eleme\.worktrees\city-courier`；移动工程后需重新创建该快捷方式。Shipping 完整目录约671 MiB，附带 `开始游戏.txt` 和字体许可。
 
 开发版本位于 `Artifacts/Windows/Development/CityCourier.exe`。打开工程使用 `CityCourier.uproject`，本机引擎位于 `D:\sdk\UE_5.6`。
 

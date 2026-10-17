@@ -1,0 +1,24 @@
+﻿[
+    {
+        "Configuration":  "Development",
+        "Directory":  "D:\\eleme\\.worktrees\\city-courier\\Artifacts\\Windows\\Development",
+        "FileCount":  57,
+        "Bytes":  1049489304,
+        "RuntimeExecutable":  "D:\\eleme\\.worktrees\\city-courier\\Artifacts\\Windows\\Development\\CityCourier\\Binaries\\Win64\\CityCourier.exe",
+        "RuntimeSHA256":  "F55D670513BA1C715B554F6EE8CBB9E71F90FEB642D9B7F8CC82E6B1CBC2007A",
+        "RuntimeSourceCommit":  "176e80d",
+        "Guide":  "开始游戏.txt",
+        "FontLicense":  "ThirdPartyLicenses/NotoCJK/OFL.txt"
+    },
+    {
+        "Configuration":  "Shipping",
+        "Directory":  "D:\\eleme\\.worktrees\\city-courier\\Artifacts\\Windows\\Shipping",
+        "FileCount":  34,
+        "Bytes":  703399310,
+        "RuntimeExecutable":  "D:\\eleme\\.worktrees\\city-courier\\Artifacts\\Windows\\Shipping\\CityCourier\\Binaries\\Win64\\CityCourier-Win64-Shipping.exe",
+        "RuntimeSHA256":  "2AA00872792F938C8B3BBA86242FFD9D34C8CE1A6ECAF5577B8BB38ABEEA2355",
+        "RuntimeSourceCommit":  "176e80d",
+        "Guide":  "开始游戏.txt",
+        "FontLicense":  "ThirdPartyLicenses/NotoCJK/OFL.txt"
+    }
+]

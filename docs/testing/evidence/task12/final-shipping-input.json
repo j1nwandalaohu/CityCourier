@@ -1,0 +1,22 @@
+﻿{
+    "Error":  "",
+    "RuntimeSourceCommit":  "176e80d",
+    "MapPauseCheck":  {
+                          "OrderTimerBefore":  "04:01",
+                          "WallTimeSeconds":  22,
+                          "Note":  "About 2 seconds of unpaused input transitions; remaining wall time paused.",
+                          "OrderTimerAfter":  "03:59"
+                      },
+    "ActualKeys":  [
+                       "Tab: phone",
+                       "Mouse: accept offer",
+                       "Esc from Phone: Pause",
+                       "M: map",
+                       "Esc from Map: Pause",
+                       "D then E: station",
+                       "Esc from Station: Pause"
+                   ],
+    "Quit":  "Two physical mouse clicks, confirmation then normal exit",
+    "Package":  "Package-Shipping-20261018-024722-a6c34abf",
+    "ScreenshotDirectory":  "Saved/Validation/Task12-FinalShipping"
+}

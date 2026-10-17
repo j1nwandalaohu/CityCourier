@@ -10,7 +10,7 @@
 
 **Spec:** [已获用户确认的首版设计](../specs/2026-10-17-city-courier-design.md)。执行者先读设计，再读本计划；本计划不扩大已确认范围。
 
-**Status:** 用户于2026-10-17回复“1”，确认计划并选择主代理在当前会话顺序实施。任务1–12实施及实际Windows打包验收已完成，最终36项自动回归通过；等待整条分支的独立审查和必要修复。
+**Status:** 用户于2026-10-17回复“1”，确认计划并选择主代理在当前会话顺序实施。任务1–12、独立整条分支审查及必修修复已完成，最终37项自动回归通过，Windows Development/Shipping完整包已交付本地。
 
 ## Global Constraints
 
@@ -252,7 +252,7 @@ TestFalse(TEXT("不可重复交付"), FDeliveryRules::Deliver(State, Offer.Desti
 - [x] **12.3 打包并验证。** 分别 `Package.ps1 -Configuration Development` 与 Shipping；关闭编辑器，从打包目录启动。连续至少5单覆盖4家商户，访问全部8点，验证收入/升级重启保留、当前订单丢弃、中文字体、音效、画质、救援、退出确认和保存错误提示；连续游玩20分钟无崩溃或流程卡死。
 - [x] **12.4 测量并优化。** 固定1080p中档、同一3分钟路线，在目标RTX3060 Ti机器实测；首次shader加载与稳定段区分记录。平均FPS≥30、1% low≥24；不达标先分析CPU/GPU瓶颈，再调整实例化、阴影、纹理、实体更新和Lumen质量，保持已确认玩法。优化后重测相同路线，保留真实数值。
 - [x] **12.5 完成发行资料。** README包含启动exe位置、完整键鼠操作、存档位置/备份/重置、设置、当前限制；素材清单与对应许可文件完整；release-checklist每项附证据。交付工程源码、资产、Windows完整目录与报告，不能只交付exe或未编译源码。
-- [ ] **12.6 审查与提交。** 按已选执行流程做最终审查；所有必修问题修复并验证后，`git add -- Config scripts/Measure-Performance.ps1 docs/testing README.md`，另行精确暂存本任务实际改动的源码和资产；`git commit -m "release: validate and package first courier gameplay slice"`。不执行远程发布或上传。
+- [x] **12.6 审查与提交。** 按已选执行流程做最终审查；所有必修问题修复并验证后，`git add -- Config scripts/Measure-Performance.ps1 docs/testing README.md`，另行精确暂存本任务实际改动的源码和资产；`git commit -m "release: validate and package first courier gameplay slice"`。不执行远程发布或上传。
 
 ## 覆盖自审与交接
 
