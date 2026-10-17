@@ -1,0 +1,2 @@
+asset_id,source_path,ue_path,author,source_url,license,is_placeholder
+bootstrap_cube,Engine/BasicShapes/Cube,/Engine/BasicShapes/Cube,Epic Games,https://www.unrealengine.com/eula/unreal,Unreal Engine bundled content,true

@@ -10,7 +10,7 @@
 
 **Spec:** [已获用户确认的首版设计](../specs/2026-10-17-city-courier-design.md)。执行者先读设计，再读本计划；本计划不扩大已确认范围。
 
-**Status:** 实施计划供审阅，尚未执行任何开发任务。建议由主代理在当前会话顺序实施；用户尚未选择执行方式。
+**Status:** 用户于2026-10-17回复“1”，确认计划并选择主代理在当前会话顺序实施。任务1进行中，其余任务尚未开始。
 
 ## Global Constraints
 
@@ -272,4 +272,4 @@ TestFalse(TEXT("不可重复交付"), FDeliveryRules::Deliver(State, Offer.Desti
 
 参考：Epic 的 [自动化测试运行](https://dev.epicgames.com/documentation/unreal-engine/run-automation-tests-in-unreal-engine)、[测试报告](https://dev.epicgames.com/documentation/unreal-engine/review-test-results-in-unreal-engine)、[BuildCookRun 打包](https://dev.epicgames.com/documentation/unreal-engine/build-operations-cooking-packaging-deploying-and-running-projects-in-unreal-engine)、[Python编辑器脚本](https://dev.epicgames.com/documentation/en-us/unreal-engine/scripting-the-editor-using-python)；实施时以所安装UE5.6的命令和API实际验证为准。
 
-**待用户审阅：** 计划是否准确覆盖目标；执行方式选择“当前会话顺序实施”或“子代理分任务实施并逐项独立审查”。推荐当前会话顺序实施，因为只有一个新工程，多个任务依赖角色、订单、资料和地图的共享接口，环境与资产制作也需要连续操作；该方式在最终阶段集中独立审查。
+**执行方式已确认：** 当前会话顺序实施，最终阶段集中独立审查。用户于2026-10-17回复“1”。
