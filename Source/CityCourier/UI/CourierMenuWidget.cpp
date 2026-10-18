@@ -51,16 +51,14 @@ void UCourierMenuWidget::RefreshFromState()
     FString Description=TEXT("游戏已暂停。返回街区后继续计时。");
     if(Settlement)
     {
-        const auto& S=PC->GetDeliverySystem()->GetState(); const auto& Result=PC->GetDeliverySystem()->GetLastSettlement();
-        const int64 IntegrityFee=S.Offer.BaseFeeCents*S.IntegrityPercent/100;
-        const bool Late=S.ElapsedSeconds>=S.Offer.DeadlineSeconds;
-        Description=FString::Printf(TEXT("%s\n基础配送费      %s\n餐品完整度      %d%%（折减 %s）\n时间调整         %s\n实际收入         %s"),Result.bCompleted?TEXT("送达成功，辛苦了！"):TEXT("本单未完成"),*CourierUI::Money(S.Offer.BaseFeeCents),S.IntegrityPercent,*CourierUI::Money(S.Offer.BaseFeeCents-IntegrityFee),Late?TEXT("超时，收入按六折计算"):TEXT("准时，无折减"),*CourierUI::Money(Result.PayoutCents));
-        if(!Result.bCompleted) Description+=TEXT("\n失败订单不扣余额；可以接下一单。");
+        const auto& Result=PC->GetDeliverySystem()->GetLastSettlement();
+        Description=FOrderHistoryRules::DescribeIncome(Result.History).ToString()+TEXT("\n可在手机的订单历史中再次查看。");
     }
     if(Station)
     {
-        Description=TEXT("停车后可充电和升级，订单仍在计时。\n充电需留在站点2米内，离开或关闭即取消。");
-        if(!ServiceMessage.IsEmpty()) Description+=TEXT("\n")+ServiceMessage;
+        Description=TEXT("车辆停在入口12米内，停车后可充电和升级。\n玩家需留在站点2米内；订单仍在计时。");
+        const FString CurrentMessage=Station->GetServiceMessage().IsEmpty()?ServiceMessage:Station->GetServiceMessage().ToString();
+        if(!CurrentMessage.IsEmpty()) Description+=TEXT("\n")+CurrentMessage;
         ChargeText->SetText(FText::FromString(Station->IsCharging()?FString::Printf(TEXT("充电 %.0f%% · 点击取消"),Station->GetChargeProgress()*100):TEXT("免费充电 · 5秒")));
         const int32 Levels[]={P->GetProfile().PowerLevel,P->GetProfile().HandlingLevel,P->GetProfile().BatteryLevel};
         const TCHAR* Names[]={TEXT("动力"),TEXT("操控"),TEXT("电池")};
@@ -71,7 +69,7 @@ void UCourierMenuWidget::RefreshFromState()
             UpgradeTexts[I]->SetText(FText::FromString(Label));
         }
     }
-    if(P->NeedsReset()) Description=TEXT("主存档和备份都无法读取。\n损坏文件已保留，请选择创建新进度或退出。\n创建新进度后，余额与升级将从零开始。");
+    if(P->NeedsReset()) Description=P->GetLastError()+TEXT("\n创建新进度需要确认，余额与升级将从零开始。");
     if(bConfirmQuit) Description=TEXT("确认退出游戏？\n进行中的订单将被丢弃，重启回到休息站。\n已保存的收入和升级会保留。")+(bExitWarned?FString(TEXT("\n本次进度仍未保存，继续退出会丢失未保存内容。")):FString());
     Body->SetText(FText::FromString(Description));
     SaveMessage->SetText(FText::FromString(P->HasUnsavedChanges()?TEXT("本次进度未保存，请重试。"):P->GetLoadResult()==EProfileLoadResult::RecoveredBackup?TEXT("已从备份恢复进度。"):FString::Printf(TEXT("余额 %s  ·  当前画质：%s"),*CourierUI::Money(P->GetProfile().BalanceCents),P->GetProfile().QualityLevel==0?TEXT("低"):P->GetProfile().QualityLevel==1?TEXT("中"):TEXT("高"))));
@@ -113,7 +111,7 @@ void UCourierMenuWidget::Charge()
     {
         PendingUpgrade=-1;
         if(S->IsCharging()) { S->CancelCharge(); ServiceMessage=TEXT("已取消充电，电量保持不变。"); }
-        else ServiceMessage=S->BeginCharge(PC->GetCourier())?TEXT("充电需5秒，完成后电量为100%。"):TEXT("请下车靠近驿站，并将车辆停稳。");
+        else { const auto R=S->BeginChargeWithFeedback(PC->GetCourier()); ServiceMessage=R.bSucceeded?TEXT("充电需5秒，完成后电量为100%。"):R.Reason.ToString(); }
     }
     RefreshFromState();
 }
@@ -122,7 +120,7 @@ void UCourierMenuWidget::Purchase(int32 Kind)
     if(PendingUpgrade!=Kind) { PendingUpgrade=Kind; RefreshFromState(); return; }
     PendingUpgrade=-1;
     if(auto* PC=Cast<ACourierController>(GetOwningPlayer())) if(auto* S=PC->GetStation())
-        ServiceMessage=S->TryPurchase(static_cast<EUpgradeKind>(Kind),PC->GetCourier())?TEXT("升级成功，车辆性能已更新。"):TEXT("暂时无法购买：检查余额、等级、距离和充电状态。");
+    { const auto R=S->TryPurchaseWithFeedback(static_cast<EUpgradeKind>(Kind),PC->GetCourier()); ServiceMessage=R.bSucceeded?TEXT("升级成功，车辆性能已更新。"):R.Reason.ToString(); }
     RefreshFromState();
 }
 void UCourierMenuWidget::UpgradePower(){ Purchase(0); }

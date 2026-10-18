@@ -10,6 +10,7 @@
 #include "Vehicles/ScooterPawn.h"
 #include "Player/CourierCharacter.h"
 #include "Engine/GameInstance.h"
+#include "Ambient/AmbientVehicle.h"
 
 IMPLEMENT_SIMPLE_AUTOMATION_TEST(FCourierNavigationTest,"CityCourier.Navigation.TargetAndOffRoute",
     EAutomationTestFlags::EditorContext | EAutomationTestFlags::EngineFilter)
@@ -57,6 +58,9 @@ bool FCourierRoadProjectionTest::RunTest(const FString& Parameters)
     auto* Nav=NewObject<UDeliveryNavigationSubsystem>(F.World);
     TestFalse(TEXT("Never draws through a solid building"),Nav->IsRouteClear({FVector(0,0,0),FVector(1000,0,0)}));
     TestTrue(TEXT("Clear street segment accepted"),Nav->IsRouteClear({FVector(0,500,0),FVector(1000,500,0)}));
+    F.World->SpawnActor<AAmbientVehicle>(FVector(500,500,100),FRotator::ZeroRotator);
+    TestTrue(TEXT("Passing traffic does not invalidate road estimates"),Nav->IsRouteClear({FVector(0,500,0),FVector(1000,500,0)}));
+    TestFalse(TEXT("Static building remains blocked with traffic present"),Nav->IsRouteClear({FVector(0,0,0),FVector(1000,0,0)}));
     return true;
 }
 #endif

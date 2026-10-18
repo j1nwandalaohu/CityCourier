@@ -30,7 +30,7 @@ bool FProfileRepositoryTest::RunTest(const FString& Parameters)
     {
         auto BadStorage = MakeShared<FTestProfileStorage>(); FProfileRepository BadRepo(BadStorage);
         FPlayerProfile Bad;
-        if (BadCase == 0) Bad.Version = 2;
+        if (BadCase == 0) Bad.Version = 999;
         if (BadCase == 1) Bad.BalanceCents = -1;
         if (BadCase == 2) Bad.BatteryLevel = 3;
         TArray<uint8> Bytes; UProfileSaveGame::Encode(Bad, Bytes);
@@ -39,7 +39,8 @@ bool FProfileRepositoryTest::RunTest(const FString& Parameters)
         BadStorage->Files.Add(FProfileRepository::BackupName, TArray<uint8>{7, 6});
         TestTrue(TEXT("No valid snapshot requires reset"), BadRepo.Load(Loaded, Error) == EProfileLoadResult::NeedsReset);
         TestFalse(TEXT("Error explains reset"), Error.IsEmpty());
-        TestEqual(TEXT("Both bad originals preserved"), BadStorage->Preserved.Num(), 2);
+        if(BadCase==0) TestTrue(TEXT("Future-version originals untouched"),BadStorage->Files[FProfileRepository::PrimaryName]==Bytes && BadStorage->Files.Contains(FProfileRepository::BackupName));
+        else TestEqual(TEXT("Both bad originals preserved"), BadStorage->Preserved.Num(), 2);
         FProfileRepository Restart(BadStorage);
         TestTrue(TEXT("Restart must not silently bypass reset choice"), Restart.Load(Loaded, Error) == EProfileLoadResult::NeedsReset);
     }

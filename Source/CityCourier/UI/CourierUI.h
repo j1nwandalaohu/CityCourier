@@ -31,5 +31,6 @@ inline UButton* Button(UWidgetTree* Tree,const FString& Label,UTextBlock** OutLa
     B->SetContent(T); if(OutLabel) *OutLabel=T; return B;
 }
 inline FString Money(int64 Cents) { return FString::Printf(TEXT("¥ %lld.%02lld"),Cents/100,FMath::Abs(Cents%100)); }
+inline FString Distance(double Meters) { return Meters<1000?FString::Printf(TEXT("%.0f米"),Meters):FString::Printf(TEXT("%.1f公里"),Meters/1000); }
 }
 

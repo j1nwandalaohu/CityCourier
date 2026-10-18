@@ -12,7 +12,7 @@ public:
     virtual void BeginPlay()override;
     virtual void Tick(float DeltaSeconds)override;
 private:
-    enum class EStage:uint8 { Warmup,Performance,Drive,Walk,ReturnBike,Charging,Cruise,FinishWait,Reload };
+    enum class EStage:uint8 { Warmup,Performance,Drive,Walk,ReturnBike,Charging,Cruise,FinishWait,Reload,Preview };
     void BeginTrip(FName Location);
     bool FollowRoad(float DeltaSeconds);
     bool WalkTo(FVector Target);
@@ -21,6 +21,9 @@ private:
     void WriteStatus(const FString& Filename,const FString& Error=FString());
     void Capture(const FString& Name);
     void RunInterfaceChecks(double Now);
+    void RunFeatureChecks(double Now);
+    void RunCharacterActionChecks(double Now);
+    double FeatureWorldTime=0,FeatureWaitStart=0;
     UPROPERTY() TObjectPtr<class ACourierController> PC;
     UPROPERTY() TObjectPtr<class ACourierCharacter> Rider;
     UPROPERTY() TObjectPtr<class AScooterPawn> Bike;

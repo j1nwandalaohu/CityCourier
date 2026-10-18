@@ -2,6 +2,7 @@
 #if WITH_DEV_AUTOMATION_TESTS
 #include "Tests/WorldTestSupport.h"
 #include "Tests/ProfileTestStorage.h"
+#include "Tests/HistoryTestSupport.h"
 #include "World/RiderStation.h"
 #include "Vehicles/RiderRecoveryComponent.h"
 #include "Vehicles/ScooterPawn.h"
@@ -37,6 +38,6 @@ struct FStationFixture : FTestCourierWorld
         Recovery=NewObject<URiderRecoveryComponent>(Controller); Recovery->RegisterComponent(); Recovery->Configure(City,Bike,Rider,Delivery,Station);
     }
     void Hold(float Seconds) { Recovery->SetRecoverHeld(true); Recovery->TickComponent(Seconds,LEVELTICK_All,nullptr); }
-    void Credit(int32 Count=20) { for(int32 I=0;I<Count;++I) Profile->ApplySettlement({FGuid::NewGuid(),true,3200}); }
+    void Credit(int32 Count=20) { for(int32 I=0;I<Count;++I) Profile->ApplySettlement(MakeTestSettlement(FGuid::NewGuid(),true,3200)); }
 };
 #endif

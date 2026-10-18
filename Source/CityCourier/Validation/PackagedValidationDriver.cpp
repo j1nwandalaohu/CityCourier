@@ -7,6 +7,7 @@
 #include "World/RiderStation.h"
 #include "World/CityDefinition.h"
 #include "Delivery/DeliverySubsystem.h"
+#include "Delivery/DeliveryNavigationSubsystem.h"
 #include "Profile/ProfileSubsystem.h"
 #include "UI/CourierSettings.h"
 #include "Ambient/AmbientVehicle.h"
@@ -49,7 +50,7 @@ void APackagedValidationDriver::BeginPlay()
     FParse::Value(FCommandLine::Get(),TEXT("CourierValidationOutput="),Output);
     FParse::Value(FCommandLine::Get(),TEXT("CourierValidationSeconds="),MinimumSeconds);
     FParse::Value(FCommandLine::Get(),TEXT("CourierValidationMode="),Mode);
-    if(Mode==TEXT("Checks"))PrimaryActorTick.bTickEvenWhenPaused=true;
+    if(Mode==TEXT("Checks") || Mode==TEXT("FeatureUI") || Mode==TEXT("FutureEnvelopeCheck") || Mode==TEXT("CharacterActions"))PrimaryActorTick.bTickEvenWhenPaused=true;
     IFileManager::Get().MakeDirectory(*Output,true);
     PC=Cast<ACourierController>(GetWorld()->GetFirstPlayerController());
     Rider=PC?PC->GetCourier():nullptr;
@@ -89,7 +90,7 @@ void APackagedValidationDriver::WriteStatus(const FString& Filename,const FStrin
 void APackagedValidationDriver::Finish(const FString& Error)
 {
     if(bFinished)return;bFinished=true;
-    if(Mode==TEXT("Checks"))FPlatformFileManager::Get().GetPlatformFile().SetReadOnly(*(FPaths::ProjectSavedDir()/TEXT("SaveGames/CourierProfile.sav")),false);
+    if(Mode==TEXT("Checks") || Mode==TEXT("FeatureUI"))FPlatformFileManager::Get().GetPlatformFile().SetReadOnly(*(FPaths::ProjectSavedDir()/TEXT("SaveGames/CourierProfile.sav")),false);
     if(Bike)Bike->SetDriveInput(0,0,true);
     FFileHelper::SaveStringToFile(Frames,*(Output/(Mode==TEXT("Reload")?TEXT("reload-frames.csv"):TEXT("frames.csv"))));
     FFileHelper::SaveStringToFile(Events,*(Output/(Mode==TEXT("Reload")?TEXT("reload-events.csv"):TEXT("events.csv"))));
@@ -146,6 +147,13 @@ bool APackagedValidationDriver::FollowRoad(float DeltaSeconds)
 }
 void APackagedValidationDriver::NextOrder()
 {
+    if(Mode==TEXT("FeatureRoute") && OrderIndex>=1)
+    {
+        const auto& P=Profile->GetProfile();
+        if(P.OrderHistory.Num()!=1 || !P.OrderHistory[0].bCompleted || P.BalanceCents!=P.OrderHistory[0].PayoutCents || !Profile->SaveProfile())
+        { Finish(TEXT("Continuous delivery history/income mismatch")); return; }
+        PC->OpenOrderHistory(); Capture(TEXT("route-history")); Stage=EStage::FinishWait; StageTime=FPlatformTime::Seconds(); return;
+    }
     if(OrderIndex>=8)
     {
         if(FPlatformTime::Seconds()-StartTime>=MinimumSeconds){bFinalizeAtStation=true;BeginTrip(City->Station.LocationId);return;}
@@ -163,6 +171,11 @@ void APackagedValidationDriver::NextOrder()
         Delivery->RefreshOffers(Bike->GetActorLocation());
         for(const auto Offer:Delivery->GetOffers())if(Offer.MerchantId==Merchant.LocationId && Offer.DestinationId==Destination.LocationId)
         {
+            if(Mode==TEXT("FeatureRoute"))
+            {
+                if(!PC->PreviewOffer(Offer.InstanceId)) { Finish(TEXT("Continuous route preview rejected")); return; }
+                Capture(TEXT("route-preview")); Stage=EStage::Preview; StageTime=FPlatformTime::Seconds(); return;
+            }
             if(!Delivery->TryAccept(Offer.InstanceId)){Finish(TEXT("Could not accept fixture offer"));return;}
             Events+=FString::Printf(TEXT("%.3f,accepted,%s,%s,0,%lld\n"),FPlatformTime::Seconds()-StartTime,*Offer.MerchantId.ToString(),*Offer.DestinationId.ToString(),Profile->GetProfile().BalanceCents);
             BeginTrip(Merchant.LocationId);return;
@@ -260,6 +273,19 @@ void APackagedValidationDriver::Tick(float DeltaSeconds)
     Frames+=FString::Printf(TEXT("%s,%.6f,%.6f,%.4f,%.4f,%.4f,%.2f,%.2f,%s\n"),FPlatformProperties::RequiresCookedData()?TEXT("PackagedGame"):TEXT("EditorGame"),Elapsed,FrameMs,FPlatformTime::ToMilliseconds(GGameThreadTime),FPlatformTime::ToMilliseconds(GRenderThreadTime),FPlatformTime::ToMilliseconds(RHIGetGPUFrameCycles()),MemoryMB,TextureMB,*Phase);
     if(Now-LastStatus>5){LastStatus=Now;WriteStatus(TEXT("progress.json"));}
     if(Mode==TEXT("Checks")){RunInterfaceChecks(Now);return;}
+    if(Mode==TEXT("CharacterActions")){RunCharacterActionChecks(Now);return;}
+    if(Mode==TEXT("FeatureUI") || Mode==TEXT("FeatureReload") || Mode==TEXT("FeatureRouteReload") || Mode==TEXT("LegacyCheck") || Mode==TEXT("FutureEnvelopeCheck")){RunFeatureChecks(Now);return;}
+    if(Stage==EStage::Preview)
+    {
+        if(Now-StageTime<3)return;
+        const auto* Preview=PC->GetOfferPreview(); if(!Preview){Finish(TEXT("Lost continuous route preview"));return;}
+        const auto Offer=*Preview; PC->CloseOfferPreview();
+        if(!PC->AcceptOffer(Offer.InstanceId)){Finish(TEXT("Continuous route accept failed"));return;}
+        PC->SetInterfaceMode(ECourierInterfaceMode::Gameplay);
+        Events+=FString::Printf(TEXT("%.3f,accepted,%s,%s,0,%lld\n"),Elapsed,*Offer.MerchantId.ToString(),*Offer.DestinationId.ToString(),Profile->GetProfile().BalanceCents);
+        GetWorld()->GetSubsystem<UDeliveryNavigationSubsystem>()->SetNavigationMode(ECourierNavigationMode::Station);
+        BeginTrip(City->Station.LocationId);return;
+    }
     if(Elapsed>MinimumSeconds+1500){Finish(TEXT("Validation exceeded time limit"));return;}
     if(Delivery->GetState().Status==EDeliveryStatus::Failed && Profile->GetProfile().FailedCount>InitialFailed){Finish(TEXT("Delivery failed during continuous route"));return;}
     if(Stage==EStage::Reload)
@@ -271,6 +297,12 @@ void APackagedValidationDriver::Tick(float DeltaSeconds)
     if(Stage==EStage::FinishWait){if(Now-StageTime>3)Finish();return;}
     if(Stage==EStage::Warmup)
     {
+        if(Mode==TEXT("FeatureRoute"))
+        {
+            if(Elapsed<8)return;
+            if(!Bike->TryMount(Rider)){Finish(TEXT("Initial route mount failed"));return;}
+            NextOrder();return;
+        }
         if(Elapsed<30)return;
         FVector2D ViewSize;GEngine->GameViewport->GetViewportSize(ViewSize);
         auto Value=[](const TCHAR* Name){auto* C=IConsoleManager::Get().FindConsoleVariable(Name);return C?C->GetFloat():-1.f;};
@@ -346,8 +378,14 @@ void APackagedValidationDriver::Tick(float DeltaSeconds)
         if(Now<StageTime)return;
         if(PC->GetInterfaceMode()!=ECourierInterfaceMode::Gameplay)PC->SetInterfaceMode(ECourierInterfaceMode::Gameplay);
         if(Now-StageTime>30){Finish(TEXT("Return to bike timed out"));return;}
+        if(Mode==TEXT("FeatureRoute")) GetWorld()->GetSubsystem<UDeliveryNavigationSubsystem>()->SetNavigationMode(ECourierNavigationMode::ParkedBike);
         if(!Bike->TryMount(Rider)){WalkTo(Bike->GetActorLocation());return;}
-        if(Delivery->GetState().Status==EDeliveryStatus::Delivering)BeginTrip(Delivery->GetTargetId());else NextOrder();
+        if(Mode==TEXT("FeatureRoute"))
+        {
+            auto* Nav=GetWorld()->GetSubsystem<UDeliveryNavigationSubsystem>(); Nav->UpdateNavigation(Bike->GetActorLocation(),.5);
+            if(Nav->GetNavigationMode()!=ECourierNavigationMode::Order){Finish(TEXT("Mount did not restore order navigation"));return;}
+        }
+        if(Delivery->GetState().Status==EDeliveryStatus::Delivering || (Mode==TEXT("FeatureRoute") && Delivery->GetState().IsActive()))BeginTrip(Delivery->GetTargetId());else NextOrder();
     }
 #endif
 }

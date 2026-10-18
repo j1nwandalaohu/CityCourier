@@ -1,5 +1,7 @@
 # 原创资产制作与复现
 
+新增人物动作制作与功能接入先遵循 [人物动作与衔接约定](character-actions-contract.md)，其中明确首批清单、命名、时长、按键、连击窗口与双方分工。
+
 角色、电动车、楼房、店面、摊位、街道设施和招牌均由本项目制作，没有使用 GTA 或第三方模型。字体使用 Noto Sans CJK SC，许可与版权声明保留在 `AssetsSource/CityCourier/Fonts`。
 
 源场景：`AssetsSource/CityCourier/CityCourier_Original.blend`。打开后显示骑手和骨架；其他资产保留独立名称，可在 Outliner 逐个显示。四组动作保留在 Action 列表中。源尺寸为厘米，X 向前、Z 向上。FBX 转换会翻转 Y 轴，门面和招牌的场景朝向由布置脚本处理。

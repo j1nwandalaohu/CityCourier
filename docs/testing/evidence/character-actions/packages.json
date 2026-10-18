@@ -1,0 +1,9 @@
+{
+  "RuntimeCommit": "ae990f1",
+  "DevelopmentBuild": "Package-Development-20261018-181724-367c18d0",
+  "ShippingBuild": "Package-Shipping-20261018-181838-664587cb",
+  "DevelopmentExeSha256": "A5F3E0940D613CFC89C9996E218AFEB8E27ACB07A7F407DF07A4FDC8831735FB",
+  "ShippingExeSha256": "564B65B5490AAA6C413BBF4A00E2C46FBCB19EC46D35E7967FC92D6783156D12",
+  "ShippingFiles": 34,
+  "ShippingBytes": 704412184
+}

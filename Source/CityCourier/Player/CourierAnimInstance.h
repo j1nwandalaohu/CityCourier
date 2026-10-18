@@ -1,5 +1,6 @@
 #pragma once
 #include "Animation/AnimInstance.h"
+#include "Player/CourierActionTimeline.h"
 #include "CourierAnimInstance.generated.h"
 UCLASS()
 class CITYCOURIER_API UCourierAnimInstance : public UAnimInstance
@@ -13,6 +14,9 @@ public:
     UPROPERTY(BlueprintReadOnly,Category="Courier") bool bRiding=false;
     UPROPERTY(BlueprintReadOnly,Category="Courier") float SteeringAmount=0;
     UPROPERTY(BlueprintReadOnly,Category="Courier") int32 AnimationIndex=0;
+    UPROPERTY(BlueprintReadOnly,Category="Courier|Actions") bool bAirborne=false;
+    UPROPERTY(BlueprintReadOnly,Category="Courier|Actions") ECourierAction CurrentAction=ECourierAction::None;
+    UPROPERTY(BlueprintReadOnly,Category="Courier|Actions") float ActionElapsed=0;
 protected:
     virtual FAnimInstanceProxy* CreateAnimInstanceProxy() override;
     virtual void DestroyAnimInstanceProxy(FAnimInstanceProxy* InProxy) override;

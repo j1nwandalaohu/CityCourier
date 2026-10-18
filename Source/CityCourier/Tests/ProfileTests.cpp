@@ -4,6 +4,7 @@
 #include "Profile/ProfileSubsystem.h"
 #include "Profile/ProfileRules.h"
 #include "Tests/ProfileTestStorage.h"
+#include "Tests/HistoryTestSupport.h"
 #include <limits>
 
 IMPLEMENT_SIMPLE_AUTOMATION_TEST(FProfileTransactionsTest, "CityCourier.Profile.Transactions",
@@ -17,12 +18,12 @@ bool FProfileTransactionsTest::RunTest(const FString& Parameters)
     TestEqual(TEXT("Zero balance"), Profile->GetProfile().BalanceCents, int64(0));
     TestEqual(TEXT("Default volume"), Profile->GetProfile().MasterVolume, 0.8f);
     TestEqual(TEXT("Default medium quality"), Profile->GetProfile().QualityLevel, 1);
-    FSettlement Completed{FGuid::NewGuid(), true, 2000};
+    FSettlement Completed=MakeTestSettlement(FGuid::NewGuid(), true, 2000);
     TestTrue(TEXT("Settlement applied"), Profile->ApplySettlement(Completed));
     TestFalse(TEXT("Duplicate settlement rejected"), Profile->ApplySettlement(Completed));
     TestEqual(TEXT("Money once"), Profile->GetProfile().BalanceCents, int64(2000));
     TestEqual(TEXT("Completion once"), Profile->GetProfile().CompletedCount, 1);
-    FSettlement Failed{FGuid::NewGuid(), false, 0};
+    FSettlement Failed=MakeTestSettlement(FGuid::NewGuid(), false, 0);
     TestTrue(TEXT("Failure counted"), Profile->ApplySettlement(Failed));
     TestFalse(TEXT("Failure once only"), Profile->ApplySettlement(Failed));
     TestEqual(TEXT("Failure count"), Profile->GetProfile().FailedCount, 1);
@@ -31,12 +32,12 @@ bool FProfileTransactionsTest::RunTest(const FString& Parameters)
                                        {FGuid::NewGuid(), true, -1}, {FGuid::NewGuid(), true, 3201}})
         TestFalse(TEXT("Malformed settlement rejected"), Profile->ApplySettlement(Invalid));
     TestFalse(TEXT("Cannot afford power"), Profile->TryPurchase(EUpgradeKind::Power));
-    Profile->ApplySettlement({FGuid::NewGuid(), true, 2000});
-    Profile->ApplySettlement({FGuid::NewGuid(), true, 2000});
+    Profile->ApplySettlement(MakeTestSettlement(FGuid::NewGuid(), true, 2000));
+    Profile->ApplySettlement(MakeTestSettlement(FGuid::NewGuid(), true, 2000));
     TestTrue(TEXT("Exact balance buys power 1"), Profile->TryPurchase(EUpgradeKind::Power));
     TestEqual(TEXT("Exact balance now zero"), Profile->GetProfile().BalanceCents, int64(0));
     TestEqual(TEXT("Power level one"), Profile->GetProfile().PowerLevel, 1);
-    for (int32 I = 0; I < 6; ++I) Profile->ApplySettlement({FGuid::NewGuid(), true, 2000});
+    for (int32 I = 0; I < 6; ++I) Profile->ApplySettlement(MakeTestSettlement(FGuid::NewGuid(), true, 2000));
     TestTrue(TEXT("Power two"), Profile->TryPurchase(EUpgradeKind::Power));
     TestEqual(TEXT("Power two costs 12000"), Profile->GetProfile().BalanceCents, int64(0));
     TestFalse(TEXT("Max level no purchase"), Profile->TryPurchase(EUpgradeKind::Power));
@@ -47,7 +48,7 @@ bool FProfileTransactionsTest::RunTest(const FString& Parameters)
         {
             TestEqual(TEXT("Published upgrade price"), FProfileRules::GetUpgradeCost(Kind, Level), Expected[Level]);
             while (Profile->GetProfile().BalanceCents < Expected[Level])
-                Profile->ApplySettlement({FGuid::NewGuid(), true, 2000});
+                Profile->ApplySettlement(MakeTestSettlement(FGuid::NewGuid(), true, 2000));
             const int64 Before = Profile->GetProfile().BalanceCents;
             TestTrue(TEXT("Purchase upgrade"), Profile->TryPurchase(Kind));
             TestEqual(TEXT("Exact upgrade charge"), Profile->GetProfile().BalanceCents, Before - Expected[Level]);
@@ -78,7 +79,7 @@ bool FProfileSaveRetryTest::RunTest(const FString& Parameters)
     int32 Failures = 0;
     Profile->OnSaveFailed.AddLambda([&Failures](const FString&) { ++Failures; });
     Storage->FailWrite = FProfileRepository::PrimaryName;
-    const FSettlement Settlement{FGuid::NewGuid(), true, 2000};
+    const FSettlement Settlement=MakeTestSettlement(FGuid::NewGuid(), true, 2000);
     TestTrue(TEXT("Accepted transaction remains in memory despite disk failure"), Profile->ApplySettlement(Settlement));
     TestTrue(TEXT("Failed save visible"), Profile->HasUnsavedChanges() && Failures == 1);
     TestEqual(TEXT("Memory retains income"), Profile->GetProfile().BalanceCents, int64(2000));

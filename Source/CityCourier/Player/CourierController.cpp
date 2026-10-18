@@ -6,6 +6,7 @@
 #include "InputMappingContext.h"
 #include "GameFramework/PlayerInput.h"
 #include "Delivery/DeliverySubsystem.h"
+#include "Delivery/DeliveryNavigationSubsystem.h"
 #include "Profile/ProfileSubsystem.h"
 #include "UI/CourierHUDWidget.h"
 #include "UI/CourierSettings.h"
@@ -16,6 +17,10 @@
 #include "Vehicles/RiderRecoveryComponent.h"
 
 ACourierController::ACourierController() { Recovery=CreateDefaultSubobject<URiderRecoveryComponent>(TEXT("Recovery")); }
+void ACourierController::ShowActionFeedback(const FText& Message)
+{ ActionFeedback=Message; FeedbackUntil=GetWorld()->GetTimeSeconds()+3; }
+FText ACourierController::GetActionFeedback() const
+{ return GetWorld() && GetWorld()->GetTimeSeconds()<FeedbackUntil?ActionFeedback:FText::GetEmpty(); }
 void ACourierController::RecoverStarted() { if(InterfaceMode==ECourierInterfaceMode::Gameplay) Recovery->SetRecoverHeld(true); }
 void ACourierController::RecoverReleased() { Recovery->SetRecoverHeld(false); }
 void ACourierController::OpenStation(ARiderStation* Station) { ActiveStation=Station; SetInterfaceMode(ECourierInterfaceMode::Station); }
@@ -38,14 +43,35 @@ void ACourierController::SetupInputComponent()
 bool ACourierController::CourierOrder(int32 Number)
 {
     auto* D = GetWorld()->GetSubsystem<UDeliverySubsystem>();
-    return D && D->GetOffers().IsValidIndex(Number-1) && D->TryAccept(D->GetOffers()[Number-1].InstanceId);
+    return D && D->GetOffers().IsValidIndex(Number-1) && AcceptOffer(D->GetOffers()[Number-1].InstanceId);
 }
+bool ACourierController::AcceptOffer(FGuid Id)
+{
+    auto* D=GetDeliverySystem();
+    const auto Result=D?D->TryAcceptWithFeedback(Id):FCourierActionResult::Failure(TEXT("订单已失效，请刷新后重试"));
+    if(!Result.bSucceeded) { ShowActionFeedback(Result.Reason); return false; }
+    Preview.Reset(); ShowActionFeedback(FText::GetEmpty()); return true;
+}
+bool ACourierController::PreviewOffer(FGuid Id)
+{
+    FDeliveryOffer Offer; auto* D=GetDeliverySystem();
+    if(!D || !D->GetOfferPreview(Id,Offer))
+    { ShowActionFeedback(FText::FromString(TEXT("订单已失效或正在配送，请返回接单页"))); return false; }
+    auto* Nav=GetWorld()->GetSubsystem<UDeliveryNavigationSubsystem>();
+    if(!Nav || !Nav->IsRouteClear(Offer.PickupRoute.Points) || !Nav->IsRouteClear(Offer.DeliveryRoute.Points))
+    { ShowActionFeedback(FText::FromString(TEXT("路线暂不可用，请返回道路后刷新订单"))); return false; }
+    Preview=Offer; SetInterfaceMode(ECourierInterfaceMode::Map); return true;
+}
+void ACourierController::CloseOfferPreview() { Preview.Reset(); SetInterfaceMode(ECourierInterfaceMode::Phone); }
+void ACourierController::OpenOrderHistory() { SetInterfaceMode(ECourierInterfaceMode::Phone); bHistoryOpen=true; }
+void ACourierController::CloseOrderHistory() { bHistoryOpen=false; SetInterfaceMode(ECourierInterfaceMode::Phone); }
 UDeliverySubsystem* ACourierController::GetDeliverySystem() const
 { return GetWorld()->GetSubsystem<UDeliverySubsystem>(); }
 UProfileSubsystem* ACourierController::GetProfileSystem() const
 { return GetGameInstance()?GetGameInstance()->GetSubsystem<UProfileSubsystem>():nullptr; }
 void ACourierController::TogglePhone() { SetInterfaceMode(InterfaceMode==ECourierInterfaceMode::Phone?ECourierInterfaceMode::Gameplay:ECourierInterfaceMode::Phone); }
-void ACourierController::ToggleMap() { SetInterfaceMode(InterfaceMode==ECourierInterfaceMode::Map?ECourierInterfaceMode::Gameplay:ECourierInterfaceMode::Map); }
+void ACourierController::ToggleMap()
+{ if(Preview.IsSet()) { CloseOfferPreview(); return; } SetInterfaceMode(InterfaceMode==ECourierInterfaceMode::Map?ECourierInterfaceMode::Gameplay:ECourierInterfaceMode::Map); }
 void ACourierController::TogglePauseMenu() { SetInterfaceMode(InterfaceMode==ECourierInterfaceMode::Pause?ECourierInterfaceMode::Gameplay:ECourierInterfaceMode::Pause); }
 
 void ACourierController::BeginPlay()
@@ -78,13 +104,15 @@ void ACourierController::SetInterfaceMode(ECourierInterfaceMode Mode)
     if(ActiveStation.IsValid() && Mode!=ECourierInterfaceMode::Station) { ActiveStation->CancelCharge(); ActiveStation.Reset(); }
     if(Recovery) Recovery->SetRecoverHeld(false);
     InterfaceMode = Mode;
+    if(Mode!=ECourierInterfaceMode::Map) Preview.Reset();
+    if(Mode!=ECourierInterfaceMode::Phone) bHistoryOpen=false;
     if (auto* Scooter = Cast<AScooterPawn>(GetPawn())) Scooter->ClearDriveInput();
     if (auto* Local=GetLocalPlayer()) if (auto* Inputs=Local->GetSubsystem<UEnhancedInputLocalPlayerSubsystem>())
     {
         FModifyContextOptions Options; Options.bIgnoreAllPressedKeysUntilRelease=true;
         Inputs->RequestRebuildControlMappings(Options,EInputMappingRebuildType::RebuildWithFlush);
     }
-    if (Courier.IsValid()) Courier->SetInputSuppressed(Mode != ECourierInterfaceMode::Gameplay);
+    if (Courier.IsValid()) Courier->SetInputSuppressed(Mode != ECourierInterfaceMode::Gameplay,Mode==ECourierInterfaceMode::Pause);
     SetPause(Mode == ECourierInterfaceMode::Pause);
     bShowMouseCursor = Mode != ECourierInterfaceMode::Gameplay;
     ResetIgnoreLookInput(); ResetIgnoreMoveInput();

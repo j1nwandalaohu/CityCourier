@@ -12,11 +12,29 @@ int64 FProfileRules::GetUpgradeCost(EUpgradeKind Kind, int32 Level)
     }
 }
 
-bool FProfileRules::Validate(const FPlayerProfile& P)
+namespace
 {
-    return P.Version == 1 && P.BalanceCents >= 0 && P.TotalEarnedCents >= 0 &&
+bool ValidateBase(const FPlayerProfile& P)
+{
+    return P.BalanceCents >= 0 && P.TotalEarnedCents >= 0 &&
         P.CompletedCount >= 0 && P.FailedCount >= 0 &&
         P.PowerLevel >= 0 && P.PowerLevel <= 2 && P.HandlingLevel >= 0 && P.HandlingLevel <= 2 &&
         P.BatteryLevel >= 0 && P.BatteryLevel <= 2 && FMath::IsFinite(P.MasterVolume) &&
         P.MasterVolume >= 0 && P.MasterVolume <= 1 && P.QualityLevel >= 0 && P.QualityLevel <= 2;
+}
+}
+bool FProfileRules::Validate(const FPlayerProfile& P)
+{
+    if(P.Version!=2 || !ValidateBase(P) || P.OrderHistory.Num()>20) return false;
+    TSet<FGuid> Ids;
+    for(const auto& H:P.OrderHistory) { if(!FOrderHistoryRules::Validate(H) || Ids.Contains(H.InstanceId)) return false; Ids.Add(H.InstanceId); }
+    return true;
+}
+bool FProfileRules::ValidateSupported(const FPlayerProfile& P)
+{ return P.Version==1?ValidateBase(P) && P.OrderHistory.IsEmpty():Validate(P); }
+bool FProfileRules::UpgradeToCurrent(FPlayerProfile& P,bool& bMigrated)
+{
+    bMigrated=false; if(!ValidateSupported(P)) return false;
+    if(P.Version==1) { P.Version=2; bMigrated=true; }
+    return Validate(P);
 }

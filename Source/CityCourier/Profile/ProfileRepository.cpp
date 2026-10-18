@@ -78,8 +78,9 @@ bool FProfileRepository::PreserveInvalid(const FString& Name, FString& OutError)
     return true;
 }
 
-EProfileLoadResult FProfileRepository::Load(FPlayerProfile& Profile, FString& OutError)
+EProfileLoadResult FProfileRepository::Load(FPlayerProfile& Profile, FString& OutError,bool* bOutMigrated)
 {
+    if(bOutMigrated) *bOutMigrated=false;
     OutError.Empty(); bool bProblem = Storage->Exists(ResetMarkerName);
     for (const FString& Name : {PrimaryName, BackupName})
     {
@@ -90,8 +91,15 @@ EProfileLoadResult FProfileRepository::Load(FPlayerProfile& Profile, FString& Ou
             OutError = TEXT("无法读取存档；请检查磁盘权限后重试。");
             return EProfileLoadResult::NeedsReset;
         }
-        if (UProfileSaveGame::Decode(Bytes, Candidate) && FProfileRules::Validate(Candidate))
+        if(UProfileSaveGame::HasNewerEnvelope(Bytes))
+        { OutError=TEXT("存档来自更新版本，原文件未改动。请使用兼容版本，或确认后创建新进度。"); return EProfileLoadResult::NeedsReset; }
+        const bool bDecoded=UProfileSaveGame::Decode(Bytes,Candidate);
+        if(bDecoded && Candidate.Version>2)
+        { OutError=TEXT("存档来自更新版本，原文件未改动。请使用兼容版本，或确认后创建新进度。"); return EProfileLoadResult::NeedsReset; }
+        bool bMigrated=false;
+        if (bDecoded && FProfileRules::UpgradeToCurrent(Candidate,bMigrated))
         {
+            if(bOutMigrated) *bOutMigrated=bMigrated;
             Profile = Candidate;
             if (Name == BackupName) OutError = TEXT("已恢复上一个有效备份。");
             return Name == PrimaryName ? EProfileLoadResult::Loaded : EProfileLoadResult::RecoveredBackup;
@@ -118,7 +126,7 @@ bool FProfileRepository::Save(const FPlayerProfile& Profile, FString& OutError)
     {
         TArray<uint8> Old; FPlayerProfile Previous;
         if (!Storage->Read(PrimaryName, Old)) { OutError = TEXT("无法读取旧存档，取消覆盖。"); return false; }
-        if (UProfileSaveGame::Decode(Old, Previous) && FProfileRules::Validate(Previous))
+        if (UProfileSaveGame::Decode(Old, Previous) && FProfileRules::ValidateSupported(Previous))
         {
             if (!Storage->WriteAtomic(BackupName, Old)) { OutError = TEXT("备份失败，本次进度未保存。"); return false; }
         }

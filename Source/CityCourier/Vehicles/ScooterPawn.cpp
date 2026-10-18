@@ -76,18 +76,22 @@ void AScooterPawn::ApplyUpgrades(const FPlayerProfile& Profile)
 }
 bool AScooterPawn::CanInteract(ACourierCharacter* Courier, FText& OutReason) const
 {
-    return !Rider.IsValid() && GetSpeedKmh() <= 3 && IsValid(Courier) && Courier->GetController() &&
-        Courier->CanReachInteraction(this, GetActorLocation(), OutReason);
+    if(!IsValid(Courier) || !Courier->GetController()) { OutReason=FText::FromString(TEXT("骑手不可用")); return false; }
+    if(Rider.IsValid()) { OutReason=FText::FromString(TEXT("车辆正在使用中")); return false; }
+    if(GetSpeedKmh()>3) { OutReason=FText::FromString(TEXT("车速过快，请降至 3 km/h 或以下")); return false; }
+    return Courier->CanReachInteraction(this, GetActorLocation(), OutReason);
 }
 bool AScooterPawn::TryMount(ACourierCharacter* Courier)
+{ return TryMountWithFeedback(Courier).bSucceeded; }
+FCourierActionResult AScooterPawn::TryMountWithFeedback(ACourierCharacter* Courier)
 {
-    FText Reason; if (!CanInteract(Courier,Reason)) return false;
+    FText Reason; if (!CanInteract(Courier,Reason)) return {false,Reason};
     AController* RiderController = Courier->GetController();
     Rider = Courier; Courier->SetMounted(true); Courier->GetCharacterMovement()->DisableMovement();
     Courier->SetActorEnableCollision(false); Courier->AttachToComponent(VisualRoot, FAttachmentTransformRules::SnapToTargetNotIncludingScale);
     Courier->SetActorRelativeLocation(RiderSeat->GetRelativeLocation()+FVector(0,0,9));
     RiderController->Possess(this); RiderController->SetControlRotation(FRotator(-12,GetActorRotation().Yaw,0));
-    DriveAxis = FVector2D::ZeroVector; bBrakeHeld = false; SetDriveInput(0,0,true); return true;
+    DriveAxis = FVector2D::ZeroVector; bBrakeHeld = false; SetDriveInput(0,0,true); return FCourierActionResult::Success();
 }
 bool AScooterPawn::FindDismountLocation(FVector& Out) const
 {
@@ -112,15 +116,18 @@ bool AScooterPawn::FindDismountLocation(FVector& Out) const
     return false;
 }
 bool AScooterPawn::TryDismount()
+{ return TryDismountWithFeedback().bSucceeded; }
+FCourierActionResult AScooterPawn::TryDismountWithFeedback()
 {
-    if (!Rider.IsValid() || !Controller || GetSpeedKmh() > 3.f) return false;
-    FVector Location; if (!FindDismountLocation(Location)) return false;
+    if (!Rider.IsValid() || !Controller) return FCourierActionResult::Failure(TEXT("你当前没有骑车"));
+    if (GetSpeedKmh() > 3.f) return FCourierActionResult::Failure(TEXT("车速过快，请降至 3 km/h 或以下"));
+    FVector Location; if (!FindDismountLocation(Location)) return FCourierActionResult::Failure(TEXT("两侧空间不足，无法下车"));
     ACourierCharacter* Courier = Rider.Get(); AController* RiderController = Controller;
     StopDrive(); Movement->Velocity = FVector::ZeroVector;
     Courier->DetachFromActor(FDetachmentTransformRules::KeepWorldTransform);
     Courier->SetActorLocationAndRotation(Location, FRotator(0,GetActorRotation().Yaw,0),false,nullptr,ETeleportType::TeleportPhysics);
     Courier->SetActorEnableCollision(true); Courier->SetMounted(false); Courier->GetCharacterMovement()->SetMovementMode(MOVE_Walking);
-    RiderController->Possess(Courier); Rider.Reset(); return true;
+    RiderController->Possess(Courier); Rider.Reset(); return FCourierActionResult::Success();
 }
 void AScooterPawn::UpdateVisualDrive(float Steering, float Pitch, float Delta)
 {
@@ -168,7 +175,8 @@ void AScooterPawn::Drive(const FInputActionValue& Value)
 void AScooterPawn::StopDrive() { DriveAxis = FVector2D::ZeroVector; SetDriveInput(0,0,true); }
 void AScooterPawn::BrakeStart() { bBrakeHeld = true; SetDriveInput(DriveAxis.Y,DriveAxis.X,true); }
 void AScooterPawn::BrakeStop() { bBrakeHeld = false; SetDriveInput(DriveAxis.Y,DriveAxis.X,false); }
-void AScooterPawn::DismountPressed() { TryDismount(); }
+void AScooterPawn::DismountPressed()
+{ auto* PC=Cast<ACourierController>(Controller); const auto Result=TryDismountWithFeedback(); if(PC) PC->ShowActionFeedback(Result.Reason); }
 void AScooterPawn::Look(const FInputActionValue& Value)
 {
     if (const auto* PC = Cast<ACourierController>(Controller)) if (PC->GetInterfaceMode() != ECourierInterfaceMode::Gameplay) return;

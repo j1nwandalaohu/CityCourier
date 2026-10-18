@@ -1,4 +1,5 @@
 #include "Delivery/DeliverySubsystem.h"
+#include "Delivery/DeliveryNavigationSubsystem.h"
 #include "Core/DeliveryRules.h"
 #include "Profile/ProfileSubsystem.h"
 #include "World/CityDefinition.h"
@@ -60,8 +61,11 @@ bool UDeliverySubsystem::RefreshOffers(FVector RiderLocation)
         const auto* Shop = City->FindLocation(Fee.MerchantId); const auto* Customer = City->FindLocation(Fee.DestinationId);
         if (!Shop || !Customer || !ToShop.bReachable) continue;
         const auto ToCustomer = City->FindRouteBetween(*Shop,*Customer); if (!ToCustomer.bReachable) continue;
-        Candidates.Add({FGuid::NewGuid(),Fee.MerchantId,Fee.DestinationId,Fee.FeeCents,
-            FDeliveryRules::CalculateDeadline(ToShop.LengthMeters+ToCustomer.LengthMeters)});
+        FDeliveryOffer Offer{FGuid::NewGuid(),Fee.MerchantId,Fee.DestinationId,Fee.FeeCents,
+            FDeliveryRules::CalculateDeadline(ToShop.LengthMeters+ToCustomer.LengthMeters)};
+        Offer.EstimateOrigin=RiderLocation; Offer.PickupRoute=ToShop; Offer.DeliveryRoute=ToCustomer;
+        if(!AreRoutesClear(Offer)) continue;
+        Candidates.Add(MoveTemp(Offer));
     }
     Offers.Reset();
     while (Offers.Num() < 3 && !Candidates.IsEmpty())
@@ -71,13 +75,31 @@ bool UDeliverySubsystem::RefreshOffers(FVector RiderLocation)
     }
     OnDeliveryChanged.Broadcast(); return Offers.Num() == 3;
 }
+AScooterPawn* UDeliverySubsystem::GetScooter() const { return Scooter.Get(); }
+bool UDeliverySubsystem::GetOfferPreview(FGuid InstanceId,FDeliveryOffer& OutOffer) const
+{
+    OutOffer={}; if(State.IsActive()) return false;
+    const auto* Found=Offers.FindByPredicate([&](const FDeliveryOffer& O){return O.InstanceId==InstanceId;});
+    if(!Found || !Found->PickupRoute.bReachable || !Found->DeliveryRoute.bReachable) return false;
+    OutOffer=*Found; return true;
+}
 bool UDeliverySubsystem::TryAccept(FGuid InstanceId)
+{ return TryAcceptWithFeedback(InstanceId).bSucceeded; }
+bool UDeliverySubsystem::AreRoutesClear(const FDeliveryOffer& Offer) const
+{
+    const auto* Navigation=GetWorld()->GetSubsystem<UDeliveryNavigationSubsystem>();
+    return Navigation && Navigation->IsRouteClear(Offer.PickupRoute.Points) && Navigation->IsRouteClear(Offer.DeliveryRoute.Points);
+}
+FCourierActionResult UDeliverySubsystem::TryAcceptWithFeedback(FGuid InstanceId)
 {
     SynchronizeClock();
-    if (!bConfigured || Profile->NeedsReset() || Finished.Contains(InstanceId)) return false;
+    if(State.IsActive()) return FCourierActionResult::Failure(TEXT("请先完成当前订单"));
+    if (!bConfigured || Profile->NeedsReset() || Finished.Contains(InstanceId)) return FCourierActionResult::Failure(TEXT("订单已失效，请刷新后重试"));
     const auto* Offer = Offers.FindByPredicate([&](const FDeliveryOffer& O) { return O.InstanceId == InstanceId; });
-    if (!Offer || !FDeliveryRules::Accept(State,*Offer)) return false;
-    LastClock = ReadClock(); UpdateTargets(); OnDeliveryChanged.Broadcast(); return true;
+    if(!Offer) return FCourierActionResult::Failure(TEXT("订单已失效，请刷新后重试"));
+    if(!AreRoutesClear(*Offer)) return FCourierActionResult::Failure(TEXT("路线暂不可用，请返回道路后刷新订单"));
+    if(!FDeliveryRules::Accept(State,*Offer)) return FCourierActionResult::Failure(TEXT("订单已失效，请刷新后重试"));
+    LastClock = ReadClock(); UpdateTargets(); OnDeliveryChanged.Broadcast(); return FCourierActionResult::Success();
 }
 ADeliveryLocation* UDeliverySubsystem::FindLocationActor(FName Id) const
 {
@@ -135,6 +157,9 @@ void UDeliverySubsystem::FinishOnce(int64 PayoutCents)
     if ((State.Status != EDeliveryStatus::Completed && State.Status != EDeliveryStatus::Failed) || Finished.Contains(State.Offer.InstanceId)) return;
     Finished.Add(State.Offer.InstanceId);
     LastSettlement = {State.Offer.InstanceId,State.Status == EDeliveryStatus::Completed,PayoutCents};
+    const auto* Merchant=City->FindLocation(State.Offer.MerchantId); const auto* Destination=City->FindLocation(State.Offer.DestinationId);
+    LastSettlement.History=FOrderHistoryRules::MakeEntry(State,PayoutCents,Merchant?Merchant->DisplayName.ToString():State.Offer.MerchantId.ToString(),
+        Destination?Destination->DisplayName.ToString():State.Offer.DestinationId.ToString(),FDateTime::UtcNow());
     Profile->ApplySettlement(LastSettlement); UpdateTargets(); RefreshOffers(CurrentRiderLocation());
     OnDeliveryFinished.Broadcast(LastSettlement);
 }

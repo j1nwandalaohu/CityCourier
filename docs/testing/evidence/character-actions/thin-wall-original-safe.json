@@ -1,0 +1,43 @@
+﻿{
+	"devices": [
+		{
+			"deviceName": "DESKTOP-JPFMANM",
+			"instance": "C1803FB34B06788A92E13A9DBA8F850B",
+			"instanceName": "DESKTOP-JPFMANM-13764",
+			"platform": "WindowsEditor",
+			"oSVersion": "Windows 11 (25H2) [10.0.26200.9711] ",
+			"model": "Default",
+			"gPU": "NVIDIA GeForce RTX 3060 Ti",
+			"cPUModel": "13th Gen Intel(R) Core(TM) i5-13400F",
+			"rAMInGB": 16,
+			"renderMode": "D3D12_SM6",
+			"rHI": "D3D12 (SM6)",
+			"appInstanceLog": ""
+		}
+	],
+	"reportCreatedOn": "2026.10.18-10.13.59",
+	"succeeded": 1,
+	"succeededWithWarnings": 0,
+	"failed": 0,
+	"notRun": 0,
+	"inProcess": 0,
+	"totalDuration": 0.064143501222133636,
+	"comparisonExported": false,
+	"comparisonExportDirectory": "",
+	"tests": [
+		{
+			"testDisplayName": "InitialOverlapThinWall",
+			"fullTestPath": "CityCourier.CharacterActions.Review.InitialOverlapThinWall",
+			"state": "Success",
+			"deviceInstance": [
+				"C1803FB34B06788A92E13A9DBA8F850B"
+			],
+			"duration": 0.064143501222133636,
+			"dateTime": "2026.10.18-10.13.58",
+			"entries": [],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		}
+	]
+}
