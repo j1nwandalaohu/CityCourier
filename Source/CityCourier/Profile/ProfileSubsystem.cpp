@@ -22,9 +22,9 @@ EProfileLoadResult UProfileSubsystem::LoadProfile()
     if (bLoaded) return LoadResult;
     if (!Repository) Repository = MakeUnique<FProfileRepository>(MakeShared<FFileProfileStorage>(
         FPaths::Combine(FPaths::ProjectSavedDir(), TEXT("SaveGames"))));
-    LoadResult = Repository->Load(Profile, LastError); bLoaded = true;
+    bool bMigrated=false; LoadResult = Repository->Load(Profile, LastError,&bMigrated); bLoaded = true;
     bNeedsReset = LoadResult == EProfileLoadResult::NeedsReset;
-    if (LoadResult == EProfileLoadResult::NewProfile || LoadResult == EProfileLoadResult::RecoveredBackup)
+    if (bMigrated || LoadResult == EProfileLoadResult::NewProfile || LoadResult == EProfileLoadResult::RecoveredBackup)
     {
         bDirty = true; SaveProfile();
     }
@@ -46,6 +46,8 @@ bool UProfileSubsystem::ApplySettlement(const FSettlement& S)
 {
     if (!bLoaded || bNeedsReset || !S.InstanceId.IsValid() || SettledInstances.Contains(S.InstanceId) ||
         S.PayoutCents < 0 || S.PayoutCents > 3200 || (!S.bCompleted && S.PayoutCents != 0)) return false;
+    if(!FOrderHistoryRules::Validate(S.History) || S.History.InstanceId!=S.InstanceId || S.History.bCompleted!=S.bCompleted ||
+       S.History.PayoutCents!=S.PayoutCents || Profile.OrderHistory.ContainsByPredicate([&](const auto& H){return H.InstanceId==S.InstanceId;})) return false;
     if (S.bCompleted)
     {
         if (Profile.CompletedCount == MAX_int32 || Profile.BalanceCents > MAX_int64 - S.PayoutCents ||
@@ -53,6 +55,7 @@ bool UProfileSubsystem::ApplySettlement(const FSettlement& S)
         Profile.BalanceCents += S.PayoutCents; Profile.TotalEarnedCents += S.PayoutCents; ++Profile.CompletedCount;
     }
     else { if (Profile.FailedCount == MAX_int32) return false; ++Profile.FailedCount; }
+    Profile.OrderHistory.Insert(S.History,0); if(Profile.OrderHistory.Num()>20) Profile.OrderHistory.SetNum(20);
     SettledInstances.Add(S.InstanceId); Changed(); return true;
 }
 bool UProfileSubsystem::TryPurchase(EUpgradeKind Kind)

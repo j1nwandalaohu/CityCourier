@@ -31,7 +31,7 @@ public:
     static const FString BackupName;
     static const FString ResetMarkerName;
     explicit FProfileRepository(TSharedRef<IProfileStorage> InStorage) : Storage(InStorage) {}
-    EProfileLoadResult Load(FPlayerProfile& Profile, FString& OutError);
+    EProfileLoadResult Load(FPlayerProfile& Profile, FString& OutError,bool* bOutMigrated=nullptr);
     bool Save(const FPlayerProfile& Profile, FString& OutError);
 private:
     TSharedRef<IProfileStorage> Storage;

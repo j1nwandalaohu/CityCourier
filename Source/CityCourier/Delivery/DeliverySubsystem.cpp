@@ -145,6 +145,9 @@ void UDeliverySubsystem::FinishOnce(int64 PayoutCents)
     if ((State.Status != EDeliveryStatus::Completed && State.Status != EDeliveryStatus::Failed) || Finished.Contains(State.Offer.InstanceId)) return;
     Finished.Add(State.Offer.InstanceId);
     LastSettlement = {State.Offer.InstanceId,State.Status == EDeliveryStatus::Completed,PayoutCents};
+    const auto* Merchant=City->FindLocation(State.Offer.MerchantId); const auto* Destination=City->FindLocation(State.Offer.DestinationId);
+    LastSettlement.History=FOrderHistoryRules::MakeEntry(State,PayoutCents,Merchant?Merchant->DisplayName.ToString():State.Offer.MerchantId.ToString(),
+        Destination?Destination->DisplayName.ToString():State.Offer.DestinationId.ToString(),FDateTime::UtcNow());
     Profile->ApplySettlement(LastSettlement); UpdateTargets(); RefreshOffers(CurrentRiderLocation());
     OnDeliveryFinished.Broadcast(LastSettlement);
 }
