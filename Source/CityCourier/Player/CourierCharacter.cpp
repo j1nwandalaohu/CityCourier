@@ -158,6 +158,8 @@ void ACourierCharacter::JumpPressed()
 void ACourierCharacter::JumpReleased() { StopJumping(); }
 void ACourierCharacter::LightPressed() { Actions->QueueAttack(false); }
 void ACourierCharacter::HeavyPressed() { Actions->QueueAttack(true); }
+bool ACourierCharacter::ReceiveCourierStrike(FGuid Id,const FVector& Origin,ECourierAction Action)
+{ return Actions->ReceiveStrike(Id,Origin); }
 bool ACourierCharacter::CanReachInteraction(const AActor* Target, FVector Point, FText& Reason, bool bAllowSuppressed) const
 {
     Reason = FText::GetEmpty();

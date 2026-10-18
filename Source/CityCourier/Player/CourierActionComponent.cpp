@@ -2,17 +2,48 @@
 #include "Player/CourierCharacter.h"
 #include "Player/CourierController.h"
 #include "GameFramework/CharacterMovementComponent.h"
+#include "Player/CourierActionAnimation.h"
+#include "Player/CourierStrikeReceiver.h"
+#include "Animation/AnimInstance.h"
+#include "Animation/AnimMontage.h"
+#include "Animation/AnimSequence.h"
+#include "Components/SkeletalMeshComponent.h"
 
 UCourierActionComponent::UCourierActionComponent()
 { PrimaryComponentTick.bCanEverTick=true; }
+void UCourierActionComponent::BeginPlay()
+{
+    Super::BeginPlay();
+    for(auto Action:{ECourierAction::LightL,ECourierAction::LightR,ECourierAction::Heavy,ECourierAction::HitFront,ECourierAction::HitBack})
+        if(!ActionAnimations.Contains(Action)) if(auto* Sequence=FCourierActionAnimation::Load(FCourierActionAnimation::SequenceName(Action))) ActionAnimations.Add(Action,Sequence);
+    for(FName Name:{FName(TEXT("A_JumpStart")),FName(TEXT("A_JumpLoop")),FName(TEXT("A_Land")),FName(TEXT("A_RunStart")),FName(TEXT("A_RunStop"))})
+        if(!MovementAnimations.Contains(Name)) if(auto* Sequence=FCourierActionAnimation::Load(Name)) MovementAnimations.Add(Name,Sequence);
+}
+void UCourierActionComponent::Feedback(const FText& Message) const
+{ if(auto* Rider=Cast<ACourierCharacter>(GetOwner())) if(auto* PC=Cast<ACourierController>(Rider->GetController())) PC->ShowActionFeedback(Message); }
+bool UCourierActionComponent::HasAttackAnimation(bool bHeavy) const
+{
+    const auto* Rider=Cast<ACourierCharacter>(GetOwner());
+    const auto* Ptr=ActionAnimations.Find(bHeavy?ECourierAction::Heavy:ECourierAction::LightL);
+    return Rider && Ptr && FCourierActionAnimation::Compatible(Rider->GetMesh(),Ptr->Get(),bHeavy?.95:.55);
+}
 bool UCourierActionComponent::QueueAttack(bool bHeavy)
 {
     auto* Rider=Cast<ACourierCharacter>(GetOwner()); FText Reason;
-    if(bSuppressed || !Rider || !Rider->CanPerformGroundAction(Reason,true)) return false;
+    if(bSuppressed || !Rider || !Rider->CanPerformGroundAction(Reason,true)) { if(!Reason.IsEmpty()) Feedback(Reason); return false; }
+    const auto Next=bHeavy?ECourierAction::Heavy:Timeline.GetAction()==ECourierAction::LightL?ECourierAction::LightR:ECourierAction::LightL;
+    auto* Ptr=ActionAnimations.Find(Next);
+    if(!Ptr || !FCourierActionAnimation::Compatible(Rider->GetMesh(),Ptr->Get(),bHeavy?.95:.55))
+    { Feedback(FText::FromString(TEXT("出拳动画尚未就绪，请等待美术资源接入"))); return false; }
     PendingEdges|=bHeavy?2:1; return true;
 }
 void UCourierActionComponent::Cancel()
-{ Timeline.Cancel(); PendingEdges=0; }
+{
+    Timeline.Cancel(); PendingEdges=0; Struck.Empty();
+    if(PlayingMontage) if(auto* Rider=Cast<ACourierCharacter>(GetOwner())) if(auto* Anim=Rider->GetMesh()->GetAnimInstance()) Anim->Montage_Stop(.05f,PlayingMontage);
+    PlayingMontage=nullptr; PlayingSequence=nullptr; PlayingMovement=NAME_None; PlayingInstance.Invalidate();
+    if(auto* Rider=Cast<ACourierCharacter>(GetOwner())) Rider->UpdateActionMovement();
+}
 void UCourierActionComponent::SetSuppressed(bool bValue,bool bPreserveAction)
 {
     bSuppressed=bValue; bPreserve=bValue && bPreserveAction;
@@ -41,8 +72,121 @@ void UCourierActionComponent::TickComponent(float Delta,ELevelTick TickType,FAct
         if(!bSuppressed && Rider->CanPerformGroundAction(Reason,true)) Timeline.RequestAttack((PendingEdges&2)!=0);
         PendingEdges=0;
     }
-    Timeline.Advance(Delta);
+    if(Timeline.IsAttacking())
+    {
+        auto* Ptr=ActionAnimations.Find(Timeline.GetAction());
+        if(!Ptr || !FCourierActionAnimation::Compatible(Rider->GetMesh(),Ptr->Get())) Cancel();
+    }
+    auto CaptureFacing=[&](FGuid Id)
+    {
+        if(Id!=FacingInstance) { FacingInstance=Id; AttackFacing=FRotator(0,Rider->GetControlRotation().Yaw,0); }
+    };
+    if(Timeline.IsAttacking()) CaptureFacing(Timeline.GetInstanceId());
+    const auto Slices=Timeline.Advance(Delta);
+    for(const auto& Slice:Slices)
+    { CaptureFacing(Slice.InstanceId); Rider->SetActorRotation(AttackFacing); TraceSlice(Slice); }
+    if(Timeline.IsAttacking())
+    {
+        CaptureFacing(Timeline.GetInstanceId());
+        Rider->SetActorRotation(FMath::RInterpConstantTo(Rider->GetActorRotation(),AttackFacing,Delta,1440));
+    }
+    for(auto It=Struck.CreateIterator();It;++It) if(It.Key()!=Timeline.GetInstanceId() || !Timeline.IsAttacking()) It.RemoveCurrent();
     Rider->UpdateActionMovement();
+    SyncAnimation(Delta);
 }
 void UCourierActionComponent::EndPlay(EEndPlayReason::Type Reason)
 { Cancel(); Super::EndPlay(Reason); }
+
+bool UCourierActionComponent::ReceiveStrike(FGuid Id,const FVector& Origin)
+{
+    auto* Rider=Cast<ACourierCharacter>(GetOwner());
+    if(!Id.IsValid() || Received.Contains(Id) || Origin.ContainsNaN() || !Rider || bSuppressed || !Rider->GetCharacterMovement()->IsMovingOnGround()) return false;
+    Received.Add(Id);
+    const bool bFront=FVector::DotProduct((Origin-Rider->GetActorLocation()).GetSafeNormal2D(),Rider->GetActorForwardVector())>=0;
+    const auto Action=bFront?ECourierAction::HitFront:ECourierAction::HitBack;
+    PendingEdges=0; Timeline.ClearQueuedInput();
+    auto* Ptr=ActionAnimations.Find(Action);
+    if(Ptr && FCourierActionAnimation::Compatible(Rider->GetMesh(),Ptr->Get(),.4)) Timeline.ReceiveHit(bFront);
+    else Cancel();
+    Rider->UpdateActionMovement(); return true;
+}
+void UCourierActionComponent::TraceSlice(const FActionSlice& Slice)
+{
+    auto* Rider=Cast<ACourierCharacter>(GetOwner()); if(!Rider) return;
+    auto* Ptr=ActionAnimations.Find(Slice.Action); if(!Ptr) return;
+    const double Reach=Slice.Action==ECourierAction::Heavy?160:130;
+    const bool bLeft=Slice.Action==ECourierAction::LightL;
+    const int32 Steps=FMath::Max(1,FMath::CeilToInt((Slice.End-Slice.Start)*120));
+    FVector Previous; if(!FCourierActionAnimation::SampleFist(Rider->GetMesh(),Ptr->Get(),bLeft,Slice.Start,Previous)) return;
+    FCollisionQueryParams Params(SCENE_QUERY_STAT(CourierFist),false,Rider);
+    for(int32 I=1;I<=Steps;++I)
+    {
+        FVector Next;
+        if(!FCourierActionAnimation::SampleFist(Rider->GetMesh(),Ptr->Get(),bLeft,FMath::Lerp(Slice.Start,Slice.End,double(I)/Steps),Next)) return;
+        if(FVector::DistSquared2D(Rider->GetActorLocation(),Previous)<=Reach*Reach && FVector::DistSquared2D(Rider->GetActorLocation(),Next)<=Reach*Reach)
+        {
+            TArray<FHitResult> Hits;
+            GetWorld()->SweepMultiByChannel(Hits,Previous,Next,FQuat::Identity,ECC_Visibility,FCollisionShape::MakeSphere(12),Params);
+            Hits.Sort([](const FHitResult& A,const FHitResult& B){ return A.Time<B.Time; });
+            for(const auto& Hit:Hits)
+            {
+                auto* Target=Hit.GetActor(); auto* Receiver=Cast<ICourierStrikeReceiver>(Target);
+                if(Receiver && !Struck.FindOrAdd(Slice.InstanceId).Contains(Target))
+                {
+                    FHitResult Obstacle;
+                    // Initial overlaps can have an unset ImpactPoint. Use the actual swept fist center.
+                    const FVector Contact=FMath::Lerp(Previous,Next,double(Hit.Time));
+                    const FVector Center(Rider->GetActorLocation().X,Rider->GetActorLocation().Y,Contact.Z);
+                    const bool bBlocked=GetWorld()->LineTraceSingleByChannel(Obstacle,Center,Contact,ECC_Visibility,Params);
+                    if(!bBlocked || Obstacle.GetActor()==Target)
+                    {
+                        Struck.FindOrAdd(Slice.InstanceId).Add(Target);
+                        if(Receiver->ReceiveCourierStrike(Slice.InstanceId,Rider->GetActorLocation(),Slice.Action)) OnStrike.Broadcast(Target,Slice.InstanceId,Slice.Action);
+                    }
+                }
+                if(Hit.bBlockingHit) break;
+            }
+        }
+        Previous=Next;
+    }
+}
+void UCourierActionComponent::SyncAnimation(float Delta)
+{
+    auto* Rider=Cast<ACourierCharacter>(GetOwner()); auto* Mesh=Rider?Rider->GetMesh():nullptr;
+    auto* Anim=Mesh?Mesh->GetAnimInstance():nullptr; if(!Anim) return;
+    UAnimSequence* Desired=nullptr; FName Movement; float Time=0; bool bLoop=false;
+    const auto Action=Timeline.GetAction();
+    if(Action!=ECourierAction::None)
+    { if(auto* P=ActionAnimations.Find(Action)) Desired=P->Get(); Time=Timeline.GetElapsed(); }
+    else if(!Rider->IsMounted())
+    {
+        if(Rider->GetCharacterMovement()->IsFalling()) { Movement=IsJumpStart()?TEXT("A_JumpStart"):TEXT("A_JumpLoop"); Time=IsJumpStart()?JumpElapsed:FMath::Max(0.f,JumpElapsed-.18f); bLoop=!IsJumpStart(); }
+        else if(LandingElapsed<.25f) { Movement=TEXT("A_Land"); Time=LandingElapsed; }
+        else
+        {
+            const float Speed=Rider->GetVelocity().Size2D(); const bool bMoving=!Rider->GetLastMovementInputVector().IsNearlyZero() || !Rider->GetPendingMovementInputVector().IsNearlyZero();
+            if(bMoving && !bWasMoving && PreviousSpeed<10 && Rider->GetCharacterMovement()->MaxWalkSpeed>500) { RunTransition=TEXT("A_RunStart"); RunTransitionElapsed=0; }
+            else if(!bMoving && bWasMoving && PreviousSpeed>500) { RunTransition=TEXT("A_RunStop"); RunTransitionElapsed=0; }
+            if(bMoving && RunTransition==TEXT("A_RunStop")) RunTransition=NAME_None;
+            if(!RunTransition.IsNone())
+            {
+                RunTransitionElapsed+=Delta; const float Length=RunTransition==TEXT("A_RunStart")?.2f:.25f;
+                if(RunTransitionElapsed<Length) { Movement=RunTransition; Time=RunTransitionElapsed; } else RunTransition=NAME_None;
+            }
+            bWasMoving=bMoving; PreviousSpeed=Speed;
+        }
+        if(auto* P=MovementAnimations.Find(Movement)) Desired=P->Get();
+    }
+    if(!FCourierActionAnimation::Compatible(Mesh,Desired))
+    {
+        if(PlayingMontage) Anim->Montage_Stop(.05f,PlayingMontage);
+        PlayingMontage=nullptr; PlayingSequence=nullptr; PlayingMovement=NAME_None; PlayingInstance.Invalidate(); return;
+    }
+    const FGuid Instance=Action==ECourierAction::None?FGuid():Timeline.GetInstanceId();
+    if(Desired!=PlayingSequence || Instance!=PlayingInstance || Movement!=PlayingMovement)
+    {
+        PlayingMontage=Anim->PlaySlotAnimationAsDynamicMontage(Desired,TEXT("FullBodyAction"),.03f,.06f,1,bLoop?100000:1,-1,bLoop?FMath::Fmod(Time,Desired->GetPlayLength()):Time);
+        PlayingSequence=Desired; PlayingInstance=Instance; PlayingMovement=Movement;
+    }
+    else if(PlayingMontage && !bLoop) Anim->Montage_SetPosition(PlayingMontage,FMath::Min(Time,Desired->GetPlayLength()));
+}

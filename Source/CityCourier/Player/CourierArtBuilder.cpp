@@ -5,6 +5,9 @@
 #include "AnimGraphNode_Root.h"
 #include "AnimGraphNode_SequencePlayer.h"
 #include "AnimGraphNode_BlendListByInt.h"
+#include "AnimGraphNode_Slot.h"
+#include "Animation/Skeleton.h"
+#include "Engine/SkeletalMeshSocket.h"
 #include "K2Node_VariableGet.h"
 #include "Kismet2/BlueprintEditorUtils.h"
 #include "Kismet2/KismetEditorUtilities.h"
@@ -16,6 +19,18 @@ bool UCourierArtBuilder::BuildAnimationBlueprint(UAnimBlueprint* Blueprint)
 {
 #if WITH_EDITOR
     if(!Blueprint || !Blueprint->TargetSkeleton) return false;
+    // Preserve any artist-adjusted offsets when rebuilding the functional graph.
+    for(const auto& Pair:{TPair<FName,FName>(TEXT("PunchTrace_L"),TEXT("hand_l")),TPair<FName,FName>(TEXT("PunchTrace_R"),TEXT("hand_r"))})
+    {
+        if(Blueprint->TargetSkeleton->GetReferenceSkeleton().FindBoneIndex(Pair.Value)==INDEX_NONE) return false;
+        if(!Blueprint->TargetSkeleton->FindSocket(Pair.Key))
+        {
+            auto* Socket=NewObject<USkeletalMeshSocket>(Blueprint->TargetSkeleton,NAME_None,RF_Transactional);
+            Socket->SocketName=Pair.Key; Socket->BoneName=Pair.Value; Socket->RelativeLocation=FVector(5,0,0);
+            Blueprint->TargetSkeleton->Sockets.Add(Socket);
+            Blueprint->TargetSkeleton->MarkPackageDirty();
+        }
+    }
     UEdGraph* Graph=nullptr;
     for(UEdGraph* G:Blueprint->FunctionGraphs) if(G->GetFName()==TEXT("AnimGraph")) { Graph=G; break; }
     if(!Graph) return false;
@@ -30,7 +45,12 @@ bool UCourierArtBuilder::BuildAnimationBlueprint(UAnimBlueprint* Blueprint)
     // Constructor+PostPlacedNewNode create two poses.
     Blend->Node.AddPose(); Blend->Node.AddPose(); Blend->ReconstructNode(); Blend->NodePosX=-250;
     auto* Schema=Graph->GetSchema();
-    if(!Schema->TryCreateConnection(Blend->FindPin(TEXT("Pose")),Root->FindPin(TEXT("Result")))) return false;
+    Blueprint->TargetSkeleton->SetSlotGroupName(TEXT("FullBodyAction"),TEXT("CourierActions"));
+    FGraphNodeCreator<UAnimGraphNode_Slot> SlotCreator(*Graph);
+    auto* Slot=SlotCreator.CreateNode(); Slot->Node.SlotName=TEXT("FullBodyAction"); SlotCreator.Finalize();
+    Slot->NodePosX=0; Root->NodePosX=250;
+    if(!Schema->TryCreateConnection(Blend->FindPin(TEXT("Pose")),Slot->FindPin(TEXT("Source"))) ||
+       !Schema->TryCreateConnection(Slot->FindPin(TEXT("Pose")),Root->FindPin(TEXT("Result")))) return false;
     FGraphNodeCreator<UK2Node_VariableGet> VariableCreator(*Graph);
     auto* Variable=VariableCreator.CreateNode(); Variable->VariableReference.SetSelfMember(TEXT("AnimationIndex")); VariableCreator.Finalize(); Variable->NodePosX=-550; Variable->NodePosY=-200;
     if(!Schema->TryCreateConnection(Variable->FindPin(TEXT("AnimationIndex")),Blend->FindPin(TEXT("ActiveChildIndex")))) return false;

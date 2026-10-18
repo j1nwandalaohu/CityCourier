@@ -2,10 +2,11 @@
 #include "GameFramework/Character.h"
 #include "InputActionValue.h"
 #include "Core/CourierActionResult.h"
+#include "Player/CourierStrikeReceiver.h"
 #include "CourierCharacter.generated.h"
 
 UCLASS()
-class CITYCOURIER_API ACourierCharacter : public ACharacter
+class CITYCOURIER_API ACourierCharacter : public ACharacter,public ICourierStrikeReceiver
 {
     GENERATED_BODY()
 public:
@@ -19,6 +20,7 @@ public:
     bool CanPerformGroundAction(FText& Reason,bool bAllowAttack=false) const;
     class UCourierActionComponent* GetActions() const { return Actions; }
     void UpdateActionMovement();
+    virtual bool ReceiveCourierStrike(FGuid InstanceId,const FVector& Origin,ECourierAction Action) override;
     UFUNCTION(BlueprintCallable) bool TryInteract();
     FCourierActionResult TryInteractWithFeedback();
     void RefreshInteraction();

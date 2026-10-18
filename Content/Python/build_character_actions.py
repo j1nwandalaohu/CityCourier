@@ -27,3 +27,13 @@ for name, key_name in [('Jump', 'SpaceBar'), ('LightPunch', 'LeftMouseButton'), 
 context.set_editor_property('mappings', mappings)
 assets.save_loaded_asset(context)
 unreal.log('Courier action input assets saved; existing vehicle/UI mappings retained')
+
+blueprint = unreal.load_asset('/Game/CityCourier/Blueprints/ABP_Courier')
+assert blueprint and unreal.CourierArtBuilder.build_animation_blueprint(blueprint), 'Action slot graph setup failed'
+assets.save_loaded_asset(blueprint)
+mesh = unreal.load_asset('/Game/CityCourier/Art/Characters/SK_Courier')
+assets.save_loaded_asset(mesh.get_editor_property('skeleton'))
+for name in ['A_JumpStart', 'A_JumpLoop', 'A_Land', 'A_LightPunch_L', 'A_LightPunch_R',
+             'A_HeavyPunch_R', 'A_HitReact_Front', 'A_HitReact_Back', 'A_RunStart', 'A_RunStop']:
+    if not assets.does_asset_exist('/Game/CityCourier/Art/Characters/' + name):
+        unreal.log('Pending artist delivery: ' + name)
