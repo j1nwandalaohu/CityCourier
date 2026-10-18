@@ -1,0 +1,34 @@
+[
+  {
+    "path": "README.md",
+    "source": "https://github.com/Mesh2Motion/mesh2motion-app",
+    "revision": "653a9698f5f315523072f1c3ff3496100401317b",
+    "download": "https://raw.githubusercontent.com/Mesh2Motion/mesh2motion-app/653a9698f5f315523072f1c3ff3496100401317b/README.md",
+    "license": "License evidence",
+    "sha256": "ce4a2c0cbb3227fadd43de2c4d63226507da0a6241646fb2ef966309300867b5"
+  },
+  {
+    "path": "LICENSE-CC0.MD",
+    "source": "https://github.com/Mesh2Motion/mesh2motion-app",
+    "revision": "653a9698f5f315523072f1c3ff3496100401317b",
+    "download": "https://raw.githubusercontent.com/Mesh2Motion/mesh2motion-app/653a9698f5f315523072f1c3ff3496100401317b/LICENSE-CC0.MD",
+    "license": "License evidence",
+    "sha256": "52fec1c484df708c16b4c27b2bf0d7f0d3994105c57adc4b9e6f95bcfd9de65f"
+  },
+  {
+    "path": "static/animations/human-base-animations.glb",
+    "source": "https://github.com/Mesh2Motion/mesh2motion-app",
+    "revision": "653a9698f5f315523072f1c3ff3496100401317b",
+    "download": "https://raw.githubusercontent.com/Mesh2Motion/mesh2motion-app/653a9698f5f315523072f1c3ff3496100401317b/static/animations/human-base-animations.glb",
+    "license": "CC0-1.0",
+    "sha256": "406eb0a8dc4ab366e623b79b6e3005a4951392e1bda78ae39c1099d31147733c"
+  },
+  {
+    "path": "static/animations/human-addon-animations.glb",
+    "source": "https://github.com/Mesh2Motion/mesh2motion-app",
+    "revision": "653a9698f5f315523072f1c3ff3496100401317b",
+    "download": "https://raw.githubusercontent.com/Mesh2Motion/mesh2motion-app/653a9698f5f315523072f1c3ff3496100401317b/static/animations/human-addon-animations.glb",
+    "license": "CC0-1.0",
+    "sha256": "a0d64d555e0d492026b72d58bf8e16c5e86779295f9093e376dcc001915c2c95"
+  }
+]

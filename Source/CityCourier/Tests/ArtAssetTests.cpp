@@ -118,7 +118,11 @@ bool FCourierArtAssetsTest::RunTest(const FString& Parameters)
         TEXT("/Game/CityCourier/Art/StreetProps/SM_PlanterTreeB"),
         TEXT("/Game/CityCourier/Art/StreetProps/SM_MarketStallProduce"),
         TEXT("/Game/CityCourier/Art/StreetProps/SM_MarketStallNoodles"),
-        TEXT("/Game/CityCourier/Art/StreetProps/SM_AirConditioner")};
+        TEXT("/Game/CityCourier/Art/StreetProps/SM_AirConditioner"),
+        TEXT("/Game/CityCourier/Art/ReferenceProps/SM_ReferenceTree"),
+        TEXT("/Game/CityCourier/Art/ReferenceProps/SM_ReferenceCrate"),
+        TEXT("/Game/CityCourier/Art/ReferenceProps/SM_ReferenceAircon"),
+        TEXT("/Game/CityCourier/Art/ReferenceProps/SM_ReferenceAirconRusted")};
     for (const TCHAR* Path : StaticAssets)
     {
         const UStaticMesh* Mesh=LoadObject<UStaticMesh>(nullptr,Path);
@@ -129,6 +133,13 @@ bool FCourierArtAssetsTest::RunTest(const FString& Parameters)
             for(const auto& Slot:Mesh->GetStaticMaterials())
                 TestTrue(TEXT("Static art uses project materials"),Slot.MaterialInterface && Slot.MaterialInterface->GetPathName().StartsWith(TEXT("/Game/CityCourier/Art/Materials/")));
         }
+    }
+    // JPEG color maps have no alpha. Losing the separate masks makes leaf cards
+    // rectangular and closes the crate/air-conditioner grilles.
+    for(const TCHAR* Name:{TEXT("M_PH_tree_small_02_leaves"),TEXT("M_PH_plastic_crate_02"),TEXT("M_PH_exterior_aircon_unit_02"),TEXT("M_PH_exterior_aircon_unit_rusted_02")})
+    {
+        auto* Material=LoadObject<UMaterial>(nullptr,*FString::Printf(TEXT("/Game/CityCourier/Art/Materials/%s"),Name));
+        if(TestNotNull(Name,Material))TestEqual(TEXT("Reference cutout material retains masked rendering"),Material->GetBlendMode(),BLEND_Masked);
     }
     auto* Rider=LoadObject<USkeletalMesh>(nullptr,TEXT("/Game/CityCourier/Art/Characters/SK_Courier"));
     if(TestNotNull(TEXT("Rigged courier"),Rider))

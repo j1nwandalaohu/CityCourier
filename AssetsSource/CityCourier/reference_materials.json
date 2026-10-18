@@ -1,0 +1,146 @@
+[
+  {
+    "name": "M_PH_tree_small_02_branches",
+    "color": [
+      1,
+      1,
+      1
+    ],
+    "metallic": 0,
+    "roughness": 1,
+    "color_map": "External/PolyHavenModels/tree_small_02/textures/tree_small_02_branch_diff_2k.jpg",
+    "normal_map": "External/PolyHavenModels/tree_small_02/textures/tree_small_02_branch_nor_gl_2k.jpg",
+    "arm_map": "External/PolyHavenModels/tree_small_02/textures/tree_small_02_branch_arm_2k.jpg",
+    "ao_map": null,
+    "double_sided": true,
+    "alpha": "OPAQUE",
+    "foliage": false,
+    "opacity_map": null
+  },
+  {
+    "name": "M_PH_tree_small_02_leaves",
+    "color": [
+      1,
+      1,
+      1
+    ],
+    "metallic": 0,
+    "roughness": 1,
+    "color_map": "External/PolyHavenModels/tree_small_02/textures/tree_small_02_leaves_diff_2k.jpg",
+    "normal_map": "External/PolyHavenModels/tree_small_02/textures/tree_small_02_leaves_nor_gl_2k.jpg",
+    "arm_map": "External/PolyHavenModels/tree_small_02/textures/tree_small_02_leaves_arm_2k.jpg",
+    "ao_map": null,
+    "double_sided": true,
+    "alpha": "BLEND",
+    "foliage": true,
+    "opacity_map": "External/PolyHavenModels/tree_small_02/textures/tree_small_02_leaves_alpha_2k.jpg"
+  },
+  {
+    "name": "M_PH_tree_small_02_trunk",
+    "color": [
+      1,
+      1,
+      1
+    ],
+    "metallic": 0,
+    "roughness": 1,
+    "color_map": "External/PolyHavenModels/tree_small_02/textures/tree_small_02_diff_2k.jpg",
+    "normal_map": "External/PolyHavenModels/tree_small_02/textures/tree_small_02_nor_gl_2k.jpg",
+    "arm_map": "External/PolyHavenModels/tree_small_02/textures/tree_small_02_arm_2k.jpg",
+    "ao_map": null,
+    "double_sided": true,
+    "alpha": "OPAQUE",
+    "foliage": false,
+    "opacity_map": null
+  },
+  {
+    "name": "M_PH_plastic_crate_02",
+    "color": [
+      1,
+      0.40816283226013184,
+      0
+    ],
+    "metallic": 0,
+    "roughness": 1,
+    "color_map": "External/PolyHavenModels/plastic_crate_02/textures/plastic_crate_02_diff_2k.jpg",
+    "normal_map": "External/PolyHavenModels/plastic_crate_02/textures/plastic_crate_02_nor_gl_2k.jpg",
+    "arm_map": "External/PolyHavenModels/plastic_crate_02/textures/plastic_crate_02_arm_2k.jpg",
+    "ao_map": null,
+    "double_sided": false,
+    "alpha": "BLEND",
+    "foliage": false,
+    "opacity_map": "External/PolyHavenModels/plastic_crate_02/textures/plastic_crate_02_opacity_2k.jpg"
+  },
+  {
+    "name": "M_PH_exterior_aircon_unit_01",
+    "color": [
+      1,
+      1,
+      1
+    ],
+    "metallic": 1,
+    "roughness": 1,
+    "color_map": "External/PolyHavenModels/exterior_aircon_unit/textures/exterior_aircon_unit_01_diff_2k.jpg",
+    "normal_map": "External/PolyHavenModels/exterior_aircon_unit/textures/exterior_aircon_unit_01_nor_gl_2k.jpg",
+    "arm_map": "External/PolyHavenModels/exterior_aircon_unit/textures/exterior_aircon_unit_01_arm_2k.jpg",
+    "ao_map": null,
+    "double_sided": true,
+    "alpha": "OPAQUE",
+    "foliage": false,
+    "opacity_map": "External/PolyHavenModels/exterior_aircon_unit/textures/exterior_aircon_unit_01_opacity_2k.jpg"
+  },
+  {
+    "name": "M_PH_exterior_aircon_unit_02",
+    "color": [
+      1,
+      1,
+      1
+    ],
+    "metallic": 1,
+    "roughness": 1,
+    "color_map": "External/PolyHavenModels/exterior_aircon_unit/textures/exterior_aircon_unit_01_opacity_2k.jpg",
+    "normal_map": "External/PolyHavenModels/exterior_aircon_unit/textures/exterior_aircon_unit_02_nor_gl_2k.jpg",
+    "arm_map": "External/PolyHavenModels/exterior_aircon_unit/textures/exterior_aircon_unit_02_arm_2k.jpg",
+    "ao_map": null,
+    "double_sided": true,
+    "alpha": "BLEND",
+    "foliage": false,
+    "opacity_map": "External/PolyHavenModels/exterior_aircon_unit/textures/exterior_aircon_unit_01_opacity_2k.jpg"
+  },
+  {
+    "name": "M_PH_exterior_aircon_unit_rusted_01",
+    "color": [
+      1,
+      1,
+      1
+    ],
+    "metallic": 1,
+    "roughness": 1,
+    "color_map": "External/PolyHavenModels/exterior_aircon_unit/textures/exterior_aircon_unit_rusted_01_diff_2k.jpg",
+    "normal_map": "External/PolyHavenModels/exterior_aircon_unit/textures/exterior_aircon_unit_rusted_01_nor_gl_2k.jpg",
+    "arm_map": "External/PolyHavenModels/exterior_aircon_unit/textures/exterior_aircon_unit_rusted_01_arm_2k.jpg",
+    "ao_map": null,
+    "double_sided": true,
+    "alpha": "OPAQUE",
+    "foliage": false,
+    "opacity_map": null
+  },
+  {
+    "name": "M_PH_exterior_aircon_unit_rusted_02",
+    "color": [
+      1,
+      1,
+      1
+    ],
+    "metallic": 1,
+    "roughness": 1,
+    "color_map": "External/PolyHavenModels/exterior_aircon_unit/textures/exterior_aircon_unit_rusted_02_opacity_2k.jpg",
+    "normal_map": "External/PolyHavenModels/exterior_aircon_unit/textures/exterior_aircon_unit_rusted_02_nor_gl_2k.jpg",
+    "arm_map": "External/PolyHavenModels/exterior_aircon_unit/textures/exterior_aircon_unit_rusted_02_arm_2k.jpg",
+    "ao_map": null,
+    "double_sided": true,
+    "alpha": "BLEND",
+    "foliage": false,
+    "opacity_map": "External/PolyHavenModels/exterior_aircon_unit/textures/exterior_aircon_unit_rusted_02_opacity_2k.jpg"
+  }
+]

@@ -67,3 +67,7 @@ Esc 菜单提供总音量和低 / 中 / 高画质。中档使用软件 Lumen，1
 ## Integrated art preview
 
 main includes gameplay and updated art. The game starts in L_CourierCity; the editor opens L_CourierArtPreview. See [art preview guide](docs/art/preview-guide.md) for sources and rebuilding. Existing packages in the original worktree predate this merge. Build and package main to use the merged version.
+
+第三轮增加有实际内部空间的面馆、便利店和烧腊店，细化衣服褶皱、衣领袖口与鞋袜贴合，并接入 Poly Haven 的完整 CC0 树木、做旧空调及周转箱模型。模型保留原始 UV 和独立法线、粗糙度、透明裁切贴图；资源下载记录包含 SHA-256 校验。新增 [店面近景](docs/art/previews/shop.png)，完整对比见 [打磨记录](docs/art/polish-notes.md)。这些店面内部仅作视觉展示，原建筑碰撞保留。
+
+外部美术素材使用免费 CC0 资源，中文字体为 SIL OFL。来源见 [素材清单](docs/art/asset-manifest.csv)，原文件及授权记录在 `AssetsSource/CityCourier/External`；建筑、电动车和其余道具由项目制作。新增 [Mesh2Motion 动作及 CharMorph 写实度试验](docs/art/character-probe/README.md) 保留为独立测试关卡，尚未替换正式角色和动画。当前仍未达到照片级；人物表情、动态布料、建筑重复度和街区生活密度仍需打磨。各轮图片和性能数据适用的版本边界见 [验收记录](docs/testing/acceptance.md)。

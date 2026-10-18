@@ -1,0 +1,156 @@
+{
+  "date": "2026-10-18",
+  "branch": "feat/city-courier-art",
+  "baseline_commit": "6f04431",
+  "ue_automation": {
+    "report": "Saved/Validation/Automation-20261018-182551-b0d51459/Report/index.json",
+    "succeeded": 26,
+    "failed": 0,
+    "tests": [
+      {
+        "fullTestPath": "CityCourier.ArtAssets.LoadableProductionAssets",
+        "state": "Success"
+      },
+      {
+        "fullTestPath": "CityCourier.ArtAssets.PreviewPreservesGameplayCollision",
+        "state": "Success"
+      },
+      {
+        "fullTestPath": "CityCourier.CityData.AuthoredDistrict",
+        "state": "Success"
+      },
+      {
+        "fullTestPath": "CityCourier.DeliveryRules.Boundaries",
+        "state": "Success"
+      },
+      {
+        "fullTestPath": "CityCourier.DeliveryRules.Impact",
+        "state": "Success"
+      },
+      {
+        "fullTestPath": "CityCourier.DeliveryRules.InvalidInput",
+        "state": "Success"
+      },
+      {
+        "fullTestPath": "CityCourier.DeliveryRules.Transitions",
+        "state": "Success"
+      },
+      {
+        "fullTestPath": "CityCourier.DeliveryWorld.CompleteLoop",
+        "state": "Success"
+      },
+      {
+        "fullTestPath": "CityCourier.DeliveryWorld.ExactClockBoundaries",
+        "state": "Success"
+      },
+      {
+        "fullTestPath": "CityCourier.DeliveryWorld.MountedDamageAndCancellation",
+        "state": "Success"
+      },
+      {
+        "fullTestPath": "CityCourier.InputModes.DrivePhoneMapPauseResume",
+        "state": "Success"
+      },
+      {
+        "fullTestPath": "CityCourier.Interaction.DistanceOcclusionPriority",
+        "state": "Success"
+      },
+      {
+        "fullTestPath": "CityCourier.Interaction.WalkingRunningCamera",
+        "state": "Success"
+      },
+      {
+        "fullTestPath": "CityCourier.Navigation.RoadProjectionAndOcclusion",
+        "state": "Success"
+      },
+      {
+        "fullTestPath": "CityCourier.Navigation.TargetAndOffRoute",
+        "state": "Success"
+      },
+      {
+        "fullTestPath": "CityCourier.Profile.SaveRetry",
+        "state": "Success"
+      },
+      {
+        "fullTestPath": "CityCourier.Profile.Transactions",
+        "state": "Success"
+      },
+      {
+        "fullTestPath": "CityCourier.ProfileStorage.Faults",
+        "state": "Success"
+      },
+      {
+        "fullTestPath": "CityCourier.ProfileStorage.RealDisk",
+        "state": "Success"
+      },
+      {
+        "fullTestPath": "CityCourier.ProfileStorage.Recovery",
+        "state": "Success"
+      },
+      {
+        "fullTestPath": "CityCourier.Roads.Routing",
+        "state": "Success"
+      },
+      {
+        "fullTestPath": "CityCourier.Scooter.AuthoredRoadSurfaces",
+        "state": "Success"
+      },
+      {
+        "fullTestPath": "CityCourier.Scooter.DrivingBatteryImpact",
+        "state": "Success"
+      },
+      {
+        "fullTestPath": "CityCourier.Scooter.MountAndSafeDismount",
+        "state": "Success"
+      },
+      {
+        "fullTestPath": "CityCourier.Smoke.StartupMap",
+        "state": "Success"
+      },
+      {
+        "fullTestPath": "CityCourier.VehicleRules.RangeAndUpgrades",
+        "state": "Success"
+      }
+    ]
+  },
+  "capture": {
+    "log": "EditorScript-20261018-182251-99274521",
+    "count": 68,
+    "error": null,
+    "max_pose_error_cm": 7.069242696647466e-05,
+    "max_root_error_cm": 0.0
+  },
+  "source_sha256_verified_files": 116,
+  "movies": [
+    {
+      "path": "jog.mp4",
+      "sha256": "51b691870b9b9f7350b8a911bf1541c82184374e789d53699ac8c98d6f4081f3",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "frames": 30,
+      "fps": 15,
+      "decoded_by": "Blender 4.5.3 MovieClip"
+    },
+    {
+      "path": "run.mp4",
+      "sha256": "395235f47bcf7b7b13f01eb1ea5d5f09e5b75fea4b417201e1596e2198a978f0",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "frames": 30,
+      "fps": 15,
+      "decoded_by": "Blender 4.5.3 MovieClip"
+    }
+  ],
+  "production_files_unchanged": [
+    "Source",
+    "Config",
+    "Content/CityCourier/Art/Characters",
+    "Content/CityCourier/Maps/L_CourierArtPreview.umap",
+    "AssetsSource/CityCourier/Exports/Characters",
+    "AssetsSource/CityCourier/Blender/CourierRider.blend"
+  ]
+}

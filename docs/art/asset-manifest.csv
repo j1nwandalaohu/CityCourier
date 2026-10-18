@@ -51,6 +51,8 @@ prototype_rider,Source/CityCourier/Player/CourierCharacter.cpp,/Game/CityCourier
 courier_chinese_font,AssetsSource/CityCourier/Fonts/NotoSansCJKsc-Regular.otf,/Game/CityCourier/UI/Fonts/F_CourierChinese,Noto/Adobe,https://github.com/notofonts/noto-cjk/tree/main/Sans/OTF/SimplifiedChinese,SIL Open Font License 1.1,false
 courier_rider,AssetsSource/CityCourier/Blender/CourierRider.blend,/Game/CityCourier/Art/Characters/SK_Courier,MakeHuman community and CityCourier,https://static.makehumancommunity.org/assets/assetpacks/makehuman_system_assets.html,CC0-1.0 body skin and clothing; original helmet rig and animation,false
 courier_animations,AssetsSource/CityCourier/Exports/Characters,/Game/CityCourier/Art/Characters,CityCourier,,Original project animation,false
+mesh2motion_animation_probe,AssetsSource/CityCourier/External/Mesh2MotionProbe,/Game/CityCourier/Art/Experiments/Mesh2Motion,Mesh2Motion contributors,https://github.com/Mesh2Motion/mesh2motion-app/tree/653a9698f5f315523072f1c3ff3496100401317b,CC0-1.0 animation assets; experimental retarget,false
+charmorph_appearance_probe,AssetsSource/CityCourier/External/CharMorphProbe,/Game/CityCourier/Art/Experiments/CharacterComparison,Sean Buckley and Olaf Delgado-Friedrichs and contributors,https://github.com/Upliner/CharMorph-Vitruvian/tree/c252d1fc7f00ba59d87b66b3d32fa3471fc6ee44,CC0-1.0 per upstream config.yaml; static look comparison,false
 delivery_scooter,AssetsSource/CityCourier/Blender/DeliveryScooter.blend,/Game/CityCourier/Art/Scooter,CityCourier,,Original project models,false
 south_china_shop_houses,AssetsSource/CityCourier/Blender,/Game/CityCourier/Art/Architecture,CityCourier,,Original project models,false
 street_props,AssetsSource/CityCourier/Blender/StreetProps.blend,/Game/CityCourier/Art/StreetProps,CityCourier,,Original project models,false
@@ -64,3 +66,6 @@ evening_puresky,AssetsSource/CityCourier/External/PolyHaven/industrial_sunset_02
 courier_shoes,AssetsSource/CityCourier/External/MakeHumanPack/clothes/shoes01,/Game/CityCourier/Art/Materials/M_WorkShoes,MakeHuman community,https://files.makehumancommunity.org/asset_packs/makehuman_system_assets/makehuman_system_assets_cc0.zip,CC0-1.0,false
 ambient_citizen_skeleton,AssetsSource/CityCourier/CityCourier_Original.blend,/Game/CityCourier/Art/Ambient/Citizen/SK_Courier_Skeleton,CityCourier project,,Original project asset,false
 ambient_citizen_walk,AssetsSource/CityCourier/Exports/A_Walk.fbx,/Game/CityCourier/Art/Ambient/Citizen/A_Walk,CityCourier project,,Original project animation,false
+tree_small_02,AssetsSource/CityCourier/External/PolyHavenModels/tree_small_02,/Game/CityCourier/Art/ReferenceProps/SM_ReferenceTree,Poly Haven,https://polyhaven.com/a/tree_small_02,CC0-1.0,false
+plastic_crate_02,AssetsSource/CityCourier/External/PolyHavenModels/plastic_crate_02,/Game/CityCourier/Art/ReferenceProps/SM_ReferenceCrate,Poly Haven,https://polyhaven.com/a/plastic_crate_02,CC0-1.0,false
+exterior_aircon_unit,AssetsSource/CityCourier/External/PolyHavenModels/exterior_aircon_unit,/Game/CityCourier/Art/ReferenceProps,Poly Haven,https://polyhaven.com/a/exterior_aircon_unit,CC0-1.0,false
