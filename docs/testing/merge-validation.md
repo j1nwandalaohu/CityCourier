@@ -18,6 +18,25 @@ Validation:
 
 No new distribution package or rendered visual acceptance was produced. Existing packages and screenshots are historical evidence from their original branches. Feature branches and their worktrees remain available.
 
+## Functional actions and latest art integration - 2026-10-18 18:51 CST
+
+Integrated functional branch `feat/city-courier` at `faf8a9c` and preserved the latest art merge `7fe84d4`. Integration commits are `4451f3b` and `dda002a`; local `main` was advanced to the verified combined tree. Both source branches and their worktrees remain available.
+
+- Preserve main's corrected map projection while adding offer route previews, independent station/bike navigation, order history and action feedback.
+- Preserve the production skeleton, realistic art assets and native locomotion proxy. Rebuild the action slot and hand sockets against this skeleton without reimporting meshes or replacing artist offsets.
+- Fix a reproduced native-proxy integration defect: montage weights could be positive while the final pose still contained locomotion. Evaluate `FullBodyAction` explicitly after native locomotion blending. The regression checks the resulting fist position against a distinct authored sequence, beyond checking slot weights.
+- Fix a reproduced imported-rig scaling defect: the 100x armature scale enlarged a raw socket translation of five units to five meters. Convert the default five-centimeter offset through accumulated reference-bone scaling; apply the same centimeter interpretation to the sampler's missing-socket fallback. A regression measures the persisted socket five centimeters from the hand. Existing artist-adjusted sockets remain unchanged.
+- Preserve the existing attack reach limits, occlusion, interrupted-hit traversal and missing-animation safeguards. Borrowed Walk/Ride sequences remain test fixtures; the ten new action sequences still require artist delivery and visual acceptance.
+
+Validation on final local main (`dda002a`):
+
+- Editor build: `Saved/Validation/Build-Editor-20261018-185002-a5107ccb/build.log`, succeeded.
+- Complete UE automation with real RHI: `Saved/Validation/Automation-20261018-185026-d84523b8/Report/index.json`, **66 passed, 0 failed, 0 not run**. The tracked copy is [main-automation.json](evidence/main-integration/main-automation.json).
+- Before-fix reproductions are retained as [native-slot-red.json](evidence/main-integration/native-slot-red.json) and [scaled-socket-red.json](evidence/main-integration/scaled-socket-red.json). The latter includes the measured five-meter socket and failed real contact checks.
+- On the identical final integration tree: `tests/Tooling.Tests.ps1` passed 13 checks; `tests/Performance.Tests.ps1` passed its calculation and invalid-evidence checks; `tools/art/verify_sources.py` verified 116 retained sources against SHA-256 records.
+
+No remote push, new distribution package, physical mouse-input certification or new-animation visual acceptance is claimed. The existing shortcut and packaged game remain at their prior locations.
+
 ## Subsequent art integration - 2026-10-18
 
 Merged the remaining art commits `6f04431` (recessed shops, clothing and CC0 PBR props) and `c0a021c` (Mesh2Motion / CharMorph probes) into main based on `eacc48d`.

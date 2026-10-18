@@ -1,0 +1,56 @@
+﻿{
+	"devices": [
+		{
+			"deviceName": "DESKTOP-JPFMANM",
+			"instance": "510232C944575D752CF5149B6236F25D",
+			"instanceName": "DESKTOP-JPFMANM-30252",
+			"platform": "WindowsEditor",
+			"oSVersion": "Windows 11 (25H2) [10.0.26200.9711] ",
+			"model": "Default",
+			"gPU": "NVIDIA GeForce RTX 3060 Ti",
+			"cPUModel": "13th Gen Intel(R) Core(TM) i5-13400F",
+			"rAMInGB": 16,
+			"renderMode": "SM6",
+			"rHI": "",
+			"appInstanceLog": ""
+		}
+	],
+	"reportCreatedOn": "2026.10.18-10.42.40",
+	"succeeded": 0,
+	"succeededWithWarnings": 0,
+	"failed": 1,
+	"notRun": 0,
+	"inProcess": 0,
+	"totalDuration": 0.11197200417518616,
+	"comparisonExported": false,
+	"comparisonExportDirectory": "",
+	"tests": [
+		{
+			"testDisplayName": "AnimationBridge",
+			"fullTestPath": "CityCourier.CharacterActions.Contact.AnimationBridge",
+			"state": "Fail",
+			"deviceInstance": [
+				"510232C944575D752CF5149B6236F25D"
+			],
+			"duration": 0.11197200417518616,
+			"dateTime": "2026.10.18-10.42.40",
+			"entries": [
+				{
+					"event":
+					{
+						"type": "Error",
+						"message": "Expected 'Rendered full-body pose matches the montage rather than locomotion' to be true.",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "D:\\eleme\\.worktrees\\character-actions-main\\Source\\CityCourier\\Tests\\CharacterActionContactTests.cpp",
+					"lineNumber": 122,
+					"timestamp": "2026.10.18-10.42.40"
+				}
+			],
+			"warnings": 0,
+			"errors": 1,
+			"artifacts": []
+		}
+	]
+}

@@ -1,0 +1,224 @@
+﻿{
+	"devices": [
+		{
+			"deviceName": "DESKTOP-JPFMANM",
+			"instance": "22FDAC2F4BE0D922B0967AA4EE8376E2",
+			"instanceName": "DESKTOP-JPFMANM-20252",
+			"platform": "WindowsEditor",
+			"oSVersion": "Windows 11 (25H2) [10.0.26200.9711] ",
+			"model": "Default",
+			"gPU": "NVIDIA GeForce RTX 3060 Ti",
+			"cPUModel": "13th Gen Intel(R) Core(TM) i5-13400F",
+			"rAMInGB": 16,
+			"renderMode": "SM6",
+			"rHI": "",
+			"appInstanceLog": ""
+		}
+	],
+	"reportCreatedOn": "2026.10.18-10.46.10",
+	"succeeded": 0,
+	"succeededWithWarnings": 0,
+	"failed": 1,
+	"notRun": 0,
+	"inProcess": 0,
+	"totalDuration": 0.075952693819999695,
+	"comparisonExported": false,
+	"comparisonExportDirectory": "",
+	"tests": [
+		{
+			"testDisplayName": "TrajectoryAndOcclusion",
+			"fullTestPath": "CityCourier.CharacterActions.Contact.TrajectoryAndOcclusion",
+			"state": "Fail",
+			"deviceInstance": [
+				"22FDAC2F4BE0D922B0967AA4EE8376E2"
+			],
+			"duration": 0.075952693819999695,
+			"dateTime": "2026.10.18-10.46.10",
+			"entries": [
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "Walk fist fixture: X=519.013 Y=-12.835 Z=133.661; mesh: X=0.000 Y=0.000 Z=2.000",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.10.18-10.46.10"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "Socket parent=hand_l offset=X=5.000 Y=0.000 Z=0.000",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.10.18-10.46.10"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "Bone hand_l: X=0.000 Y=-0.239 Z=-0.000 scale X=1.000 Y=1.000 Z=1.000",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.10.18-10.46.10"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "Bone forearm_l: X=-0.000 Y=-0.240 Z=0.000 scale X=1.000 Y=1.000 Z=1.000",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.10.18-10.46.10"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "Bone upperarm_l: X=0.000 Y=-0.190 Z=0.000 scale X=1.000 Y=1.000 Z=1.000",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.10.18-10.46.10"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "Bone clavicle_l: X=-0.000 Y=-0.327 Z=-0.000 scale X=1.000 Y=1.000 Z=1.000",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.10.18-10.46.10"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "Bone chest: X=0.000 Y=-0.174 Z=0.000 scale X=1.000 Y=1.000 Z=1.000",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.10.18-10.46.10"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "Bone spine: X=-0.000 Y=-0.055 Z=-0.000 scale X=1.000 Y=1.000 Z=1.000",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.10.18-10.46.10"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "Bone pelvis: X=0.000 Y=-0.940 Z=0.015 scale X=1.000 Y=1.000 Z=1.000",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.10.18-10.46.10"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "Bone root: X=0.000 Y=0.000 Z=0.019 scale X=1.000 Y=1.000 Z=1.000",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.10.18-10.46.10"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "Bone CourierRig: X=0.000 Y=0.000 Z=0.000 scale X=100.000 Y=100.000 Z=100.000",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.10.18-10.46.10"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "Fixture contact: CourierTrainingTarget_0 at 0.000000 blocker=0",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.10.18-10.46.10"
+				},
+				{
+					"event":
+					{
+						"type": "Error",
+						"message": "Expected 'Skipped complete active window still contacts authored fist trajectory' to be 1, but it was 0.",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "D:\\eleme\\.worktrees\\character-actions-main\\Source\\CityCourier\\Tests\\CharacterActionContactTests.cpp",
+					"lineNumber": 54,
+					"timestamp": "2026.10.18-10.46.10"
+				},
+				{
+					"event":
+					{
+						"type": "Error",
+						"message": "Expected 'Recovery does not repeat contact' to be 1, but it was 0.",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "D:\\eleme\\.worktrees\\character-actions-main\\Source\\CityCourier\\Tests\\CharacterActionContactTests.cpp",
+					"lineNumber": 56,
+					"timestamp": "2026.10.18-10.46.10"
+				},
+				{
+					"event":
+					{
+						"type": "Error",
+						"message": "Expected 'Wall blocks target even when sweep begins beyond it' to be 1, but it was 0.",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "D:\\eleme\\.worktrees\\character-actions-main\\Source\\CityCourier\\Tests\\CharacterActionContactTests.cpp",
+					"lineNumber": 69,
+					"timestamp": "2026.10.18-10.46.10"
+				}
+			],
+			"warnings": 0,
+			"errors": 3,
+			"artifacts": []
+		}
+	]
+}
