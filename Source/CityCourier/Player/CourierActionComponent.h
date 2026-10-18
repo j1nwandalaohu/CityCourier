@@ -32,7 +32,10 @@ public:
     UPROPERTY(EditDefaultsOnly,Category="Courier|Actions") TMap<ECourierAction,TObjectPtr<class UAnimSequence>> ActionAnimations;
     UPROPERTY(EditDefaultsOnly,Category="Courier|Actions") TMap<FName,TObjectPtr<class UAnimSequence>> MovementAnimations;
 private:
-    void TraceSlice(const FActionSlice& Slice);
+    void TraceSlice(const FActionSlice& Slice,uint64 Generation);
+    bool CanProcessStrike(uint64 Generation) const;
+    bool IsPlaybackReady() const;
+    void MontageBlendingOut(class UAnimMontage* Montage,bool bInterrupted);
     void SyncAnimation(float Delta);
     void Feedback(const FText& Message) const;
     FCourierActionTimeline Timeline;
@@ -45,6 +48,8 @@ private:
     FName PlayingMovement,RunTransition;
     float RunTransitionElapsed=0,PreviousSpeed=0;
     bool bWasMoving=false;
+    bool bChangingMontage=false,bPlaybackFinishedNaturally=false;
+    uint64 InterruptionGeneration=0;
     FRotator AttackFacing;
     uint8 PendingEdges=0;
     bool bSuppressed=false,bPreserve=false,bJumpStarted=false;

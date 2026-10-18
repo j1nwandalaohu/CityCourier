@@ -21,6 +21,7 @@ struct FActionContactFixture : FStationFixture
         Sequence=LoadObject<UAnimSequence>(nullptr,TEXT("/Game/CityCourier/Art/Characters/A_Walk.A_Walk"));
         for(auto Action:{ECourierAction::LightL,ECourierAction::LightR,ECourierAction::Heavy,ECourierAction::HitFront,ECourierAction::HitBack})
             Rider->GetActions()->ActionAnimations.Add(Action,Sequence);
+        Rider->GetMesh()->TickAnimation(.01f,false); Rider->GetMesh()->RefreshBoneTransforms();
     }
     FVector Fist(double Time=.18)
     {
@@ -110,6 +111,76 @@ bool FCharacterActionBridgeTest::RunTest(const FString&)
     {
         TestTrue(TEXT("Action state available to animation"),Anim->CurrentAction==ECourierAction::LightL);
         TestTrue(TEXT("Full-body slot actually contributes montage pose"),Anim->GetSlotMontageGlobalWeight(TEXT("FullBodyAction"))>.5f);
+    }
+    return true;
+}
+IMPLEMENT_SIMPLE_AUTOMATION_TEST(FCharacterCancelledSliceTest,"CityCourier.CharacterActions.Review.InterruptDuringContact",EAutomationTestFlags::EditorContext|EAutomationTestFlags::EngineFilter)
+bool FCharacterCancelledSliceTest::RunTest(const FString&)
+{
+    for(int Mode=0;Mode<3;++Mode)
+    {
+        FActionContactFixture F; auto* A=F.Rider->GetActions();
+        auto* First=F.World->SpawnActor<ACourierTrainingTarget>(F.Fist(),FRotator::ZeroRotator);
+        auto* Second=F.World->SpawnActor<ACourierTrainingTarget>(F.Fist(),FRotator::ZeroRotator);
+        A->OnStrike.AddLambda([&](AActor*,FGuid,ECourierAction)
+        {
+            if(Mode==0) A->Cancel();
+            else if(Mode==1) F.Controller->SetInterfaceMode(ECourierInterfaceMode::Phone);
+            else F.Rider->Destroy();
+        });
+        A->QueueAttack(false); A->TickComponent(.3f,LEVELTICK_All,nullptr);
+        TestEqual(FString::Printf(TEXT("Interruption %d stops local hit/substep loops immediately"),Mode),First->GetHitCount()+Second->GetHitCount(),1);
+    }
+    return true;
+}
+IMPLEMENT_SIMPLE_AUTOMATION_TEST(FCharacterThinWallTest,"CityCourier.CharacterActions.Review.InitialOverlapThinWall",EAutomationTestFlags::EditorContext|EAutomationTestFlags::EngineFilter)
+bool FCharacterThinWallTest::RunTest(const FString&)
+{
+    FActionContactFixture F;
+    const FVector Start=F.Fist(.14);
+    auto* Target=F.World->SpawnActor<ACourierTrainingTarget>(Start+FVector(10,0,0),FRotator::ZeroRotator);
+    Target->Body->SetBoxExtent(FVector(2,2,5));
+    auto* Wall=F.Box(Start+FVector(6,0,0),FVector(1,100,100));
+    FHitResult Hit; FCollisionQueryParams Query(SCENE_QUERY_STAT(ThinWallFixture),false,F.Rider);
+    TestFalse(TEXT("Fist center is still on player side of wall"),F.World->LineTraceSingleByChannel(Hit,FVector(0,0,Start.Z),Start,ECC_Visibility,Query));
+    TArray<FHitResult> Contacts;
+    F.World->SweepMultiByChannel(Contacts,Start,Start+FVector(.01,0,0),FQuat::Identity,ECC_Visibility,FCollisionShape::MakeSphere(12),Query);
+    TestTrue(TEXT("Wall initially overlaps sphere"),Contacts.ContainsByPredicate([&](const FHitResult& H){return H.GetActor()==Wall && H.Time==0;}));
+    TestTrue(TEXT("Target also initially overlaps sphere"),Contacts.ContainsByPredicate([&](const FHitResult& H){return H.GetActor()==Target && H.Time==0;}));
+    F.Rider->GetActions()->QueueAttack(false); F.Rider->GetActions()->TickComponent(.15f,LEVELTICK_All,nullptr);
+    TestEqual(TEXT("Initial blocking wall wins over tied receiver overlap"),Target->GetHitCount(),0);
+    TArray<ACourierTrainingTarget*> Targets{Target};
+    for(int Extra=0;Extra<32;++Extra)
+    {
+        auto* Other=F.World->SpawnActor<ACourierTrainingTarget>(Start+FVector(10,0,0),FRotator::ZeroRotator);
+        Other->Body->SetBoxExtent(FVector(2,2,5)); Targets.Add(Other);
+        F.Rider->GetActions()->Cancel(); TestTrue(TEXT("Straddling fixture admits real strike"),F.Rider->GetActions()->QueueAttack(false));
+        F.Rider->GetActions()->TickComponent(.15f,LEVELTICK_All,nullptr);
+        int Count=0; for(auto* Item:Targets) Count+=Item->GetHitCount();
+        TestEqual(TEXT("Blocker priority survives varying equal-time overlap list sizes"),Count,0);
+    }
+    return true;
+}
+IMPLEMENT_SIMPLE_AUTOMATION_TEST(FCharacterPlaybackFailureTest,"CityCourier.CharacterActions.Review.PlaybackFailure",EAutomationTestFlags::EditorContext|EAutomationTestFlags::EngineFilter)
+bool FCharacterPlaybackFailureTest::RunTest(const FString&)
+{
+    for(int Mode=0;Mode<3;++Mode)
+    {
+        FActionContactFixture F; auto* A=F.Rider->GetActions(); auto* Mesh=F.Rider->GetMesh();
+        auto* Target=F.World->SpawnActor<ACourierTrainingTarget>(F.Fist(),FRotator::ZeroRotator);
+        Mesh->TickAnimation(.01f,false); Mesh->RefreshBoneTransforms();
+        if(Mode==0) Mesh->SetAnimInstanceClass(nullptr);
+        else if(Mode==1) Mesh->SetAnimInstanceClass(UAnimInstance::StaticClass()); // Instance has no action slot graph.
+        const bool bAccepted=A->QueueAttack(false);
+        if(Mode<2) TestFalse(TEXT("Unavailable playback cannot admit attack"),bAccepted);
+        else
+        {
+            TestTrue(TEXT("Valid graph admits windup"),bAccepted); A->TickComponent(.05f,LEVELTICK_All,nullptr);
+            Mesh->GetAnimInstance()->Montage_Stop(0.f);
+        }
+        A->TickComponent(.3f,LEVELTICK_All,nullptr);
+        TestEqual(FString::Printf(TEXT("Playback failure %d cannot produce invisible contact"),Mode),Target->GetHitCount(),0);
+        TestTrue(TEXT("Playback failure releases action lock"),A->GetTimeline().GetAction()==ECourierAction::None);
     }
     return true;
 }

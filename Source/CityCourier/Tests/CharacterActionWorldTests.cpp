@@ -3,6 +3,7 @@
 #include "Tests/StationTestSupport.h"
 #include "GameFramework/CharacterMovementComponent.h"
 #include "Animation/AnimSequence.h"
+#include "Components/SkeletalMeshComponent.h"
 #include "Player/CourierActionComponent.h"
 
 IMPLEMENT_SIMPLE_AUTOMATION_TEST(FCharacterJumpTest,"CityCourier.CharacterActions.World.JumpAndHeadroom",EAutomationTestFlags::EditorContext|EAutomationTestFlags::EngineFilter)
@@ -29,6 +30,7 @@ bool FCharacterActionModesTest::RunTest(const FString&)
     // Borrow authored Walk only as a functional timing fixture until attack art is delivered.
     auto* Fixture=LoadObject<UAnimSequence>(nullptr,TEXT("/Game/CityCourier/Art/Characters/A_Walk.A_Walk"));
     for(auto Action:{ECourierAction::LightL,ECourierAction::LightR,ECourierAction::Heavy}) A->ActionAnimations.Add(Action,Fixture);
+    F.Rider->GetMesh()->TickAnimation(.01f,false); F.Rider->GetMesh()->RefreshBoneTransforms();
     F.Rider->GetCharacterMovement()->SetMovementMode(MOVE_Walking);
     A->QueueAttack(false); A->QueueAttack(true); A->TickComponent(.01f,LEVELTICK_All,nullptr);
     TestTrue(TEXT("Same frame heavy takes priority"),A->GetTimeline().GetAction()==ECourierAction::Heavy);
