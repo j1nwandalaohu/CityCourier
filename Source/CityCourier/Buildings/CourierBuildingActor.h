@@ -21,6 +21,11 @@ public:
     UFUNCTION(BlueprintCallable,Category="Courier|Buildings") TArray<FString> GetPhysicalRoomErrors() const;
     const FCourierBuildingDefinition* GetDefinition() const;
     bool SetDoorProxy(int32 DoorIndex,float Angle,bool bVisible);
+    bool PrepareDetails();
+    void ReleaseDetails();
+    void EnsureEntranceBarriers();
+    void SetEntryLoading(bool bLoading);
+    int32 GetDetailComponentCount() const { return Details.Num(); }
     FTransform DoorProxyTransform(int32 DoorIndex,float Angle) const;
     UPROPERTY(EditAnywhere,BlueprintReadWrite,Category="Courier|Buildings") TObjectPtr<UCityBuildingCatalog> Catalog;
     UPROPERTY(EditAnywhere,BlueprintReadWrite,Category="Courier|Buildings") int32 BuildingIndex=INDEX_NONE;
@@ -29,4 +34,6 @@ public:
     UPROPERTY(VisibleAnywhere) TObjectPtr<UInstancedStaticMeshComponent> DoorProxies;
     UPROPERTY(VisibleAnywhere) TArray<TObjectPtr<UHierarchicalInstancedStaticMeshComponent>> Structure;
     UPROPERTY() TArray<int32> ProxyDoors;
+    UPROPERTY(Transient) TArray<TObjectPtr<USceneComponent>> Details;
+    UPROPERTY(Transient) TArray<TObjectPtr<class UBoxComponent>> EntryBarriers;
 };

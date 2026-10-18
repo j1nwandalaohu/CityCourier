@@ -202,10 +202,13 @@ def compile_building(seed: dict) -> dict:
                 rid, rn = room(f"{fid}_{unit}Store", n + 1, "storage", unit,
                                [xlo, core_front + 10, z], [xhi, rear - 20, top], [x, (core_front + rear) / 2, z])
                 prev_id, prev_node, prev_x = last_room[side]
-                near = node(f"{fid}_{unit}Store_approach", [x, core_front - 85, z], n + 1, prev_id)
+                # Keep the approach beside the bed rather than pinching its outer
+                # side; the full 100cm opening remains inside this rear strip.
+                door_x = x - side * 35
+                near = node(f"{fid}_{unit}Store_approach", [door_x, core_front - 85, z], n + 1, prev_id)
                 edge(prev_node, near)
-                door(f"{fid}_{unit}Store_Door", prev_id, rid, [x - 50, core_front, z], 0, 90, 100, near, rn)
-                wall(f"{fid}_{unit}_rear_room_front", "y", core_front, xlo - 10, xhi + 10, z, top, (x, 100))
+                door(f"{fid}_{unit}Store_Door", prev_id, rid, [door_x - 50, core_front, z], 0, 90, 100, near, rn)
+                wall(f"{fid}_{unit}_rear_room_front", "y", core_front, xlo - 10, xhi + 10, z, top, (door_x, 100))
                 floor_data.append((n, side, rid, rn, x))
             # Ground-level main/side/back external doors, not painted door panels.
             wall(fid + "_front", "y", front + 10, -width / 2, width / 2, z, top, (0, 120) if n == 0 else None)

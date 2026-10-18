@@ -156,6 +156,21 @@ class InteriorLayoutTests(unittest.TestCase):
             self.assertEqual(len(steps), 3, prefix)
             self.assertAlmostEqual(max(box["center"][2] + box["size"][2] / 2 for box in steps), 40)
 
+    def test_registered_infill_buildings_do_not_overlap_existing_houses(self):
+        source = json.loads((ROOT / "AssetsSource/CityCourier/Interiors/inventory.json").read_text(encoding="utf-8"))
+        def bounds(b):
+            angle = math.radians(b["yaw"])
+            half_x = (abs(math.cos(angle))*b["width"] + abs(math.sin(angle))*b["depth"])/2
+            half_y = (abs(math.sin(angle))*b["width"] + abs(math.cos(angle))*b["depth"])/2
+            return (b["location"][0]-half_x,b["location"][0]+half_x,b["location"][1]-half_y,b["location"][1]+half_y)
+        streets = [b for b in source["buildings"] if b["id"] not in {"B_Station", *[f"B_Merchant_{i}" for i in range(4)]}]
+        for annex in [b for b in source["buildings"] if b not in streets]:
+            a = bounds(annex)
+            for building in streets:
+                c = bounds(building)
+                overlap = min(a[1], c[1])-max(a[0], c[0]) > .01 and min(a[3], c[3])-max(a[2], c[2]) > .01
+                self.assertFalse(overlap, (annex["id"], building["id"]))
+
 
 if __name__ == "__main__":
     unittest.main()

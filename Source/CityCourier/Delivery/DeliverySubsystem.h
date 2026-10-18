@@ -22,6 +22,8 @@ public:
     virtual TStatId GetStatId() const override { RETURN_QUICK_DECLARE_CYCLE_STAT(UDeliverySubsystem,STATGROUP_Tickables); }
     virtual bool IsTickable() const override { return !IsTemplate() && bConfigured; }
     bool Configure(UCityDefinition* Definition,UProfileSubsystem* PlayerProfile,AScooterPawn* Vehicle);
+    void RegisterLocation(ADeliveryLocation* Location);
+    void UnregisterLocation(ADeliveryLocation* Location);
     bool RefreshOffers(FVector RiderLocation);
     const TArray<FDeliveryOffer>& GetOffers() const { return Offers; }
     bool TryAccept(FGuid InstanceId);

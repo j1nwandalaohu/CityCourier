@@ -76,10 +76,10 @@ Consumes building schema and catalog reflection. Produces separately named exter
 
 Consumes compiled catalog, runtime definitions and migrated maps. Produces persistent real structures, safe entry, session door state, spatial candidates and correct dynamic point registration.
 
-- [ ] Write tests for 30／45 meter hysteresis, occupied-building protection, eight inactive cache entries, deferred ready／failed states, door proxy ↔ actor transition, unload/reload angle preservation, readmission, and vehicle-only entrance blocking. Watch the relevant cases fail.
-- [ ] Implement `ACourierBuildingActor` using instanced structural meshes and existing materials; `UCourierBuildingSubsystem` owns registry, activation, detail cache and door states. Retain shell collision, all floors and stairs when details unload. Nearby-index candidates replace full world door scans.
-- [ ] Bind room-owned delivery actors when registered and unbind when removed. Keep authoritative order state outside streamed Actors; regenerate data-derived markers and room signs.
-- [ ] Run focused tests and actual doorway／stair fixture checks GREEN; commit.
+- [x] Write tests for 30／45 meter hysteresis, occupied-building protection, eight inactive cache entries, deferred ready／failed states, door proxy ↔ actor transition, unload/reload angle preservation, readmission, and vehicle-only entrance blocking. Watch the relevant cases fail.
+- [x] Implement `ACourierBuildingActor` using instanced structural meshes and existing materials; `UCourierBuildingSubsystem` owns registry, activation, detail cache and door states. Retain shell collision, all floors and stairs when details unload. Nearby-index candidates replace full world door scans.
+- [x] Bind room-owned delivery actors when registered and unbind when removed. Keep authoritative order state outside streamed Actors; regenerate data-derived markers and room signs.
+- [x] Run focused tests and actual doorway／stair fixture checks GREEN; commit.
 
 ## Task 5: Full routes, floor navigation and previews
 

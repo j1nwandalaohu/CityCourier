@@ -20,15 +20,20 @@ bool UDeliverySubsystem::Configure(UCityDefinition* Definition,UProfileSubsystem
     Profile->OnProfileChanged.AddWeakLambda(this,[this]() { if (Scooter.IsValid()) Scooter->ApplyUpgrades(Profile->GetProfile()); });
     Vehicle->OnEffectiveImpact.AddUObject(this,&UDeliverySubsystem::HandleImpact);
     for (TActorIterator<ADeliveryLocation> It(GetWorld()); It; ++It)
-    {
-        if (It->LocationKind == EDeliveryLocationKind::Station) continue;
-        const FName Id = It->LocationId;
-        const auto Kind = It->LocationKind;
-        It->OnInteraction.BindWeakLambda(this,[this,Id,Kind](ACourierCharacter* Courier)
-        { return Kind == EDeliveryLocationKind::Merchant ? TryPickup(Id,Courier) : TryDeliver(Id,Courier); });
-    }
+        RegisterLocation(*It);
     RefreshOffers(CurrentRiderLocation()); return true;
 }
+void UDeliverySubsystem::RegisterLocation(ADeliveryLocation* Location)
+{
+    if(!IsValid(Location) || Location->GetWorld()!=GetWorld() || Location->LocationKind==EDeliveryLocationKind::Station) return;
+    if(City) Location->CityDefinition=City;
+    const FName Id=Location->LocationId; const auto Kind=Location->LocationKind;
+    Location->OnInteraction.BindWeakLambda(this,[this,Id,Kind](ACourierCharacter* Courier)
+    { return Kind==EDeliveryLocationKind::Merchant?TryPickup(Id,Courier):TryDeliver(Id,Courier); });
+    Location->bActiveOrderTarget=Id==GetTargetId();
+}
+void UDeliverySubsystem::UnregisterLocation(ADeliveryLocation* Location)
+{ if(IsValid(Location) && Location->LocationKind!=EDeliveryLocationKind::Station) { Location->OnInteraction.Unbind(); Location->bActiveOrderTarget=false; } }
 double UDeliverySubsystem::ReadClock() const
 {
 #if WITH_DEV_AUTOMATION_TESTS

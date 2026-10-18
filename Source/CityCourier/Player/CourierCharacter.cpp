@@ -12,6 +12,7 @@
 #include "UObject/ConstructorHelpers.h"
 #include "Components/SkeletalMeshComponent.h"
 #include "Player/CourierActionComponent.h"
+#include "Buildings/CourierBuildingSubsystem.h"
 
 ACourierCharacter::ACourierCharacter()
 {
@@ -171,21 +172,29 @@ bool ACourierCharacter::CanReachInteraction(const AActor* Target, FVector Point,
     if (bHit && Hit.GetActor() != Target) { Reason = FText::FromString(TEXT("目标被遮挡")); return false; }
     return true;
 }
+TArray<AActor*> ACourierCharacter::InteractionCandidates() const
+{
+    if(!GetWorld()) return {};
+    const auto* Interiors=GetWorld()->GetSubsystem<UCourierBuildingSubsystem>();
+    if(Interiors && Interiors->IsEnabled()) return Interiors->GetInteractionCandidates(GetActorLocation());
+    TArray<AActor*> Result; for(TActorIterator<AActor> It(GetWorld());It;++It) if(Cast<ICourierInteractable>(*It)) Result.Add(*It);
+    return Result;
+}
 void ACourierCharacter::RefreshInteraction()
 {
     InteractionTarget.Reset(); InteractionPrompt = FText::GetEmpty();
     if (bMounted || bInputSuppressed || !GetWorld()) return;
     int32 BestPriority = MIN_int32; double BestDistance = MAX_dbl;
-    for (TActorIterator<AActor> It(GetWorld()); It; ++It)
+    for (AActor* Candidate:InteractionCandidates())
     {
-        auto* Target = Cast<ICourierInteractable>(*It); if (!Target) continue;
+        auto* Target = Cast<ICourierInteractable>(Candidate); if (!Target) continue;
         FText Reason;
-        if (!CanReachInteraction(*It, Target->GetInteractionLocation(), Reason) || !Target->CanInteract(this, Reason)) continue;
+        if (!CanReachInteraction(Candidate, Target->GetInteractionLocation(), Reason) || !Target->CanInteract(this, Reason)) continue;
         const int32 Priority = Target->GetInteractionPriority();
         const double Distance = FVector::DistSquared(GetActorLocation(), Target->GetInteractionLocation());
         if (Priority > BestPriority || (Priority == BestPriority && Distance < BestDistance))
         {
-            BestPriority = Priority; BestDistance = Distance; InteractionTarget = *It; InteractionPrompt = Target->GetInteractionText();
+            BestPriority = Priority; BestDistance = Distance; InteractionTarget = Candidate; InteractionPrompt = Target->GetInteractionText();
         }
     }
 }
@@ -202,13 +211,13 @@ FCourierActionResult ACourierCharacter::TryInteractWithFeedback()
     }
     if(bMounted || bInputSuppressed) return FCourierActionResult::Failure(TEXT("请先下车并关闭界面"));
     int32 Priority=MIN_int32; double Distance=MAX_dbl;
-    if(GetWorld()) for(TActorIterator<AActor> It(GetWorld());It;++It)
+    for(AActor* Actor:InteractionCandidates())
     {
-        const auto* Candidate=Cast<ICourierInteractable>(*It); if(!Candidate) continue;
+        const auto* Candidate=Cast<ICourierInteractable>(Actor); if(!Candidate) continue;
         const double D=FVector::DistSquared(GetActorLocation(),Candidate->GetInteractionLocation());
         if(D>500*500 || Candidate->GetInteractionPriority()<Priority || (Candidate->GetInteractionPriority()==Priority && D>=Distance)) continue;
         FText Rejected;
-        if(!CanReachInteraction(*It,Candidate->GetInteractionLocation(),Rejected) || !Candidate->CanInteract(this,Rejected))
+        if(!CanReachInteraction(Actor,Candidate->GetInteractionLocation(),Rejected) || !Candidate->CanInteract(this,Rejected))
         { Priority=Candidate->GetInteractionPriority(); Distance=D; Reason=Rejected; }
     }
     return Reason.IsEmpty()?FCourierActionResult::Failure(TEXT("附近没有可交互目标")):FCourierActionResult{false,Reason};

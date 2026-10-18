@@ -32,8 +32,11 @@ void ACourierDoor::Configure(const FCourierDoorDefinition& D,const FTransform& B
     SetActorLocation(SafeTransform.TransformPosition(Definition.Hinge));
     Collision->SetBoxExtent(FVector(Definition.Width/2,2.5f,Definition.Height/2));
     Collision->SetRelativeLocation(FVector(Definition.Width/2,0,Definition.Height/2));
-    Visual->SetRelativeScale3D(FVector(Definition.Width/100,.05,Definition.Height/100));
-    if(auto* Mat=LoadObject<UMaterialInterface>(nullptr,TEXT("/Game/CityCourier/Art/Materials/M_Wood.M_Wood"))) Visual->SetMaterial(0,Mat);
+    if(auto* Leaf=LoadObject<UStaticMesh>(nullptr,TEXT("/Game/CityCourier/Art/Buildings/SM_CourierDoor.SM_CourierDoor")))
+    {
+        Visual->SetStaticMesh(Leaf); Visual->SetRelativeLocation(FVector(-Definition.Width/2,0,-Definition.Height/2));
+        Visual->SetRelativeScale3D(FVector(Definition.Width/100,1,Definition.Height/220));
+    }
     bReady=bConfigurationValid;
     bMoving=bReady && !Initial.bBlocked && !FMath::IsNearlyEqual(State.Angle,State.bWantOpen?D.OpenAngle:0.f,.01f);
     ApplyAngle(); SetActorTickEnabled(bMoving);
@@ -84,7 +87,7 @@ bool ACourierDoor::IsAngularSliceBlocked(float From,float To) const
 }
 void ACourierDoor::AdvanceDoor(float Delta)
 {
-    if(!bMoving || !FMath::IsFinite(Delta) || Delta<=0 || (GetWorld() && GetWorld()->IsPaused())) return;
+    if(!bReady || !bMoving || !FMath::IsFinite(Delta) || Delta<=0 || (GetWorld() && GetWorld()->IsPaused())) return;
     const float Target=State.bWantOpen?Definition.OpenAngle:0;
     const float End=FMath::FInterpConstantTo(State.Angle,Target,Delta,FMath::Abs(Definition.OpenAngle)/.6f);
     const int32 Slices=FMath::Max(1,FMath::CeilToInt(FMath::Abs(End-State.Angle)));
