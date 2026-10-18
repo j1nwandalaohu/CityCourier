@@ -13,6 +13,9 @@ public:
     void RefreshFromState();
     void ShowMode(ECourierInterfaceMode Mode);
 private:
+    UFUNCTION() void ReturnFromMap();
+    UPROPERTY() TObjectPtr<class UButton> MapBackButton;
+    UPROPERTY() TObjectPtr<class UTextBlock> MapBackLabel;
     UPROPERTY() TObjectPtr<class UBorder> ObjectivePanel;
     UPROPERTY() TObjectPtr<class UTextBlock> Controls;
     UPROPERTY() TObjectPtr<class UTextBlock> Objective;

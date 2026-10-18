@@ -21,6 +21,8 @@ private:
     void WriteStatus(const FString& Filename,const FString& Error=FString());
     void Capture(const FString& Name);
     void RunInterfaceChecks(double Now);
+    void RunFeatureChecks(double Now);
+    double FeatureWorldTime=0,FeatureWaitStart=0;
     UPROPERTY() TObjectPtr<class ACourierController> PC;
     UPROPERTY() TObjectPtr<class ACourierCharacter> Rider;
     UPROPERTY() TObjectPtr<class AScooterPawn> Bike;

@@ -5,6 +5,7 @@
 #include "EngineUtils.h"
 #include "GameFramework/Pawn.h"
 #include "Vehicles/ScooterPawn.h"
+#include "Ambient/AmbientVehicle.h"
 void UDeliveryNavigationSubsystem::Configure(UDeliverySubsystem* System)
 {
     if(Delivery) Delivery->OnDeliveryChanged.RemoveAll(this);
@@ -103,10 +104,17 @@ bool UDeliveryNavigationSubsystem::IsRouteClear(const TArray<FVector>& Points) c
 {
     FCollisionQueryParams Params(SCENE_QUERY_STAT(CourierNavigation),false);
     for (TActorIterator<APawn> It(GetWorld()); It; ++It) Params.AddIgnoredActor(*It);
+      // Road estimates exclude moving population; solid city obstacles still block connectors.
+      for (TActorIterator<AAmbientVehicle> It(GetWorld()); It; ++It) Params.AddIgnoredActor(*It);
     for(int32 I=1;I<Points.Num();++I)
     {
         FVector A=Points[I-1],B=Points[I]; A.Z=FMath::Min(A.Z,B.Z)+100; B.Z=A.Z;
-        if(GetWorld()->LineTraceTestByChannel(A,B,ECC_Visibility,Params)) return false;
+          FHitResult Hit;
+          if(GetWorld()->LineTraceSingleByChannel(Hit,A,B,ECC_Visibility,Params))
+          {
+              UE_LOG(LogTemp,Verbose,TEXT("Navigation blocked by %s at %s, segment %s -> %s"),*GetNameSafe(Hit.GetActor()),*Hit.Location.ToString(),*A.ToString(),*B.ToString());
+              return false;
+          }
     }
     return Points.Num()>1;
 }

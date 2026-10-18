@@ -63,6 +63,8 @@ bool ACourierController::PreviewOffer(FGuid Id)
     Preview=Offer; SetInterfaceMode(ECourierInterfaceMode::Map); return true;
 }
 void ACourierController::CloseOfferPreview() { Preview.Reset(); SetInterfaceMode(ECourierInterfaceMode::Phone); }
+void ACourierController::OpenOrderHistory() { SetInterfaceMode(ECourierInterfaceMode::Phone); bHistoryOpen=true; }
+void ACourierController::CloseOrderHistory() { bHistoryOpen=false; SetInterfaceMode(ECourierInterfaceMode::Phone); }
 UDeliverySubsystem* ACourierController::GetDeliverySystem() const
 { return GetWorld()->GetSubsystem<UDeliverySubsystem>(); }
 UProfileSubsystem* ACourierController::GetProfileSystem() const
@@ -103,6 +105,7 @@ void ACourierController::SetInterfaceMode(ECourierInterfaceMode Mode)
     if(Recovery) Recovery->SetRecoverHeld(false);
     InterfaceMode = Mode;
     if(Mode!=ECourierInterfaceMode::Map) Preview.Reset();
+    if(Mode!=ECourierInterfaceMode::Phone) bHistoryOpen=false;
     if (auto* Scooter = Cast<AScooterPawn>(GetPawn())) Scooter->ClearDriveInput();
     if (auto* Local=GetLocalPlayer()) if (auto* Inputs=Local->GetSubsystem<UEnhancedInputLocalPlayerSubsystem>())
     {

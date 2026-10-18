@@ -18,6 +18,9 @@ public:
     void CloseOfferPreview();
     const FDeliveryOffer* GetOfferPreview() const { return Preview.IsSet()?&Preview.GetValue():nullptr; }
     bool AcceptOffer(FGuid InstanceId);
+    void OpenOrderHistory();
+    void CloseOrderHistory();
+    bool IsOrderHistoryOpen() const { return bHistoryOpen; }
     virtual void BeginPlay() override;
     virtual void OnPossess(APawn* NewPawn) override;
     virtual void SetupInputComponent() override;
@@ -37,6 +40,7 @@ private:
     FText ActionFeedback;
     double FeedbackUntil=0;
     TOptional<FDeliveryOffer> Preview;
+    bool bHistoryOpen=false;
     void RecoverStarted();
     void RecoverReleased();
     UPROPERTY(VisibleAnywhere) TObjectPtr<class URiderRecoveryComponent> Recovery;

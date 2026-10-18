@@ -49,7 +49,7 @@ void APackagedValidationDriver::BeginPlay()
     FParse::Value(FCommandLine::Get(),TEXT("CourierValidationOutput="),Output);
     FParse::Value(FCommandLine::Get(),TEXT("CourierValidationSeconds="),MinimumSeconds);
     FParse::Value(FCommandLine::Get(),TEXT("CourierValidationMode="),Mode);
-    if(Mode==TEXT("Checks"))PrimaryActorTick.bTickEvenWhenPaused=true;
+    if(Mode==TEXT("Checks") || Mode==TEXT("FeatureUI"))PrimaryActorTick.bTickEvenWhenPaused=true;
     IFileManager::Get().MakeDirectory(*Output,true);
     PC=Cast<ACourierController>(GetWorld()->GetFirstPlayerController());
     Rider=PC?PC->GetCourier():nullptr;
@@ -89,7 +89,7 @@ void APackagedValidationDriver::WriteStatus(const FString& Filename,const FStrin
 void APackagedValidationDriver::Finish(const FString& Error)
 {
     if(bFinished)return;bFinished=true;
-    if(Mode==TEXT("Checks"))FPlatformFileManager::Get().GetPlatformFile().SetReadOnly(*(FPaths::ProjectSavedDir()/TEXT("SaveGames/CourierProfile.sav")),false);
+    if(Mode==TEXT("Checks") || Mode==TEXT("FeatureUI"))FPlatformFileManager::Get().GetPlatformFile().SetReadOnly(*(FPaths::ProjectSavedDir()/TEXT("SaveGames/CourierProfile.sav")),false);
     if(Bike)Bike->SetDriveInput(0,0,true);
     FFileHelper::SaveStringToFile(Frames,*(Output/(Mode==TEXT("Reload")?TEXT("reload-frames.csv"):TEXT("frames.csv"))));
     FFileHelper::SaveStringToFile(Events,*(Output/(Mode==TEXT("Reload")?TEXT("reload-events.csv"):TEXT("events.csv"))));
@@ -260,6 +260,7 @@ void APackagedValidationDriver::Tick(float DeltaSeconds)
     Frames+=FString::Printf(TEXT("%s,%.6f,%.6f,%.4f,%.4f,%.4f,%.2f,%.2f,%s\n"),FPlatformProperties::RequiresCookedData()?TEXT("PackagedGame"):TEXT("EditorGame"),Elapsed,FrameMs,FPlatformTime::ToMilliseconds(GGameThreadTime),FPlatformTime::ToMilliseconds(GRenderThreadTime),FPlatformTime::ToMilliseconds(RHIGetGPUFrameCycles()),MemoryMB,TextureMB,*Phase);
     if(Now-LastStatus>5){LastStatus=Now;WriteStatus(TEXT("progress.json"));}
     if(Mode==TEXT("Checks")){RunInterfaceChecks(Now);return;}
+    if(Mode==TEXT("FeatureUI") || Mode==TEXT("FeatureReload") || Mode==TEXT("LegacyCheck")){RunFeatureChecks(Now);return;}
     if(Elapsed>MinimumSeconds+1500){Finish(TEXT("Validation exceeded time limit"));return;}
     if(Delivery->GetState().Status==EDeliveryStatus::Failed && Profile->GetProfile().FailedCount>InitialFailed){Finish(TEXT("Delivery failed during continuous route"));return;}
     if(Stage==EStage::Reload)
