@@ -1,11 +1,14 @@
 """Read-only scene inventory; writes source data, never edits either map."""
 import json
 import math
+import sys
 from pathlib import Path
 
 import unreal
 
 ROOT = Path(unreal.Paths.project_dir()).resolve()
+sys.path.insert(0,str(ROOT))
+from tools.interiors.placement import apply_site_constraints
 
 
 def export_inventory():
@@ -80,6 +83,7 @@ def export_inventory():
                           kind='station', storeys=1, height=400))
     bindings.append(dict(location_id='station', building_id='B_Station', room_suffix='F01_A01',
                          street_position=[p.x, p.y, p.z], role='station'))
+    apply_site_constraints(buildings)
     result = dict(schema_version=1, source_map='/Game/CityCourier/Maps/L_CourierArtPreview',
                   expected_source_tags=sorted(expected), expected_building_ids=sorted(b['id'] for b in buildings),
                   buildings=sorted(buildings, key=lambda b: b['id']), bindings=bindings, gateways=gateways)

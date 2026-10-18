@@ -36,6 +36,9 @@ def compile_building(seed: dict) -> dict:
     kind = seed.get("kind", "residential")
     if kind not in ("residential", "office", "shop", "station"):
         raise ValueError("Unknown building use")
+    external_sides = seed.get("external_sides", [-1, 1])
+    if not isinstance(external_sides, list) or any(side not in (-1, 1) for side in external_sides):
+        raise ValueError("Invalid external door visibility mask")
     height = float(seed.get("height", 400)) if one_storey else HEIGHTS[variant]
     if not math.isfinite(height) or (one_storey and not 300 <= height <= 600):
         raise ValueError("Invalid single-storey height")
@@ -132,7 +135,7 @@ def compile_building(seed: dict) -> dict:
         if not one_storey:
             stair_id, stair_node = room(fid + "_Stairs", n + 1, "stairs", "Public",
                                         [-core_half, core_front, z], [core_half, rear - 20, top],
-                                        [-85, core_front + 126, z])
+                                        [-85, core_front + 70, z])
             edge(root, stair_node)
         box(fid + "_front_slab", [0, (front + core_front + 140) / 2, z - 10],
             [width, core_front + 140 - front, 20], "floor", "M_Concrete")
@@ -209,7 +212,7 @@ def compile_building(seed: dict) -> dict:
             side_door_y = (core_front + rear) / 2
             for side in [-1, 1]:
                 wall(fid + f"_outer_{side}", "x", side * (width / 2 - 10), front, rear, z, top,
-                     (side_door_y, 120) if n == 0 and not one_storey else None)
+                     (side_door_y, 120) if n == 0 and not one_storey and side in external_sides else None)
                 if not one_storey:
                     wall(fid + f"_shaft_{side}", "x", side * core_half, core_front, rear, z, top)
             right_store = next((r for r in floor_data if r[0] == n and r[1] == 1), None)
@@ -232,16 +235,18 @@ def compile_building(seed: dict) -> dict:
         box(f"Entry_step_{i}", [0, front - (2.5 - i) * 28, top / 2], [140, 28, top], "step", "M_Concrete")
     for _, side, rid, rn, x in [r for r in floor_data if r[0] == 0]:
         y = (core_front + rear) / 2
-        out = node(f"SideStreet_{side}", [side * (width / 2 + 140), y, 0], 0, "Outside")
-        door(f"SideDoor_{side}", "Outside", rid, [side * (width / 2 - 10), y - 60, levels[0]], 90,
-             -90 if side < 0 else 90, 120, out, rn, True)
+        if side in external_sides:
+            out = node(f"SideStreet_{side}", [side * (width / 2 + 140), y, 0], 0, "Outside")
+            door(f"SideDoor_{side}", "Outside", rid, [side * (width / 2 - 10), y - 60, levels[0]], 90,
+                 -90 if side < 0 else 90, 120, out, rn, True)
         if side > 0:
             out = node("RearStreet", [x, rear + 140, 0], 0, "Outside")
             door("RearDoor", "Outside", rid, [x - 60, rear - 10, levels[0]], 0, -90, 120, out, rn, True)
         for i in range(3):
             top = levels[0] * (i + 1) / 3
-            box(f"Side_step_{side}_{i}", [side * (width / 2 + (2.5 - i) * 28), y, top / 2],
-                [28, 140, top], "step", "M_Concrete")
+            if side in external_sides:
+                box(f"Side_step_{side}_{i}", [side * (width / 2 + (2.5 - i) * 28), y, top / 2],
+                    [28, 140, top], "step", "M_Concrete")
             if side > 0:
                 box(f"Rear_step_{i}", [x, rear + (2.5 - i) * 28, top / 2], [140, 28, top], "step", "M_Concrete")
     b["entrance_node"] = entry

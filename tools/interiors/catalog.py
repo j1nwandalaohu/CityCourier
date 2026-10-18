@@ -48,7 +48,7 @@ def to_native_catalog(inventory):
         result["bindings"].append(dict(locationId=binding["location_id"], buildingId=binding["building_id"],
                                        roomId=room_id, streetPosition=vec(binding["street_position"]), role=binding["role"]))
     digest = hashlib.sha256(json.dumps(inventory, sort_keys=True).encode("utf-8"))
-    for source in [Path(__file__).with_name("layout.py"), Path(__file__)]:
+    for source in [Path(__file__).with_name("layout.py"), Path(__file__).with_name("placement.py"), Path(__file__)]:
         digest.update(source.read_text(encoding="utf-8").replace("\r\n", "\n").encode("utf-8"))
     result["sourceDigest"] = digest.hexdigest()
     return result

@@ -167,7 +167,7 @@
       ],
       "center": [
         -85,
-        626.0,
+        570.0,
         40.0
       ],
       "node": "B_0_0_0_0_0_F01_Stairs_center"
@@ -443,7 +443,7 @@
       ],
       "center": [
         -85,
-        626.0,
+        570.0,
         425.0
       ],
       "node": "B_0_0_0_0_0_F02_Stairs_center"
@@ -719,7 +719,7 @@
       ],
       "center": [
         -85,
-        626.0,
+        570.0,
         755.0
       ],
       "node": "B_0_0_0_0_0_F03_Stairs_center"
@@ -995,7 +995,7 @@
       ],
       "center": [
         -85,
-        626.0,
+        570.0,
         1085.0
       ],
       "node": "B_0_0_0_0_0_F04_Stairs_center"
@@ -1271,7 +1271,7 @@
       ],
       "center": [
         -85,
-        626.0,
+        570.0,
         1415.0
       ],
       "node": "B_0_0_0_0_0_F05_Stairs_center"
@@ -1547,7 +1547,7 @@
       ],
       "center": [
         -85,
-        626.0,
+        570.0,
         1770.0
       ],
       "node": "B_0_0_0_0_0_Roof_Stairs_center"
@@ -2479,23 +2479,6 @@
       "node_b": "B_0_0_0_0_0_F01_AStore_center"
     },
     {
-      "id": "B_0_0_0_0_0_SideDoor_1",
-      "from_room": "Outside",
-      "to_room": "B_0_0_0_0_0_F01_BStore",
-      "hinge": [
-        384.1666666666667,
-        765.0,
-        40.0
-      ],
-      "closed_yaw": 90.0,
-      "open_angle": 90.0,
-      "width": 120.0,
-      "height": 220.0,
-      "external": true,
-      "node_a": "B_0_0_0_0_0_SideStreet_1",
-      "node_b": "B_0_0_0_0_0_F01_BStore_center"
-    },
-    {
       "id": "B_0_0_0_0_0_RearDoor",
       "from_room": "Outside",
       "to_room": "B_0_0_0_0_0_F01_BStore",
@@ -2528,7 +2511,7 @@
       "id": "B_0_0_0_0_0_F01_Stairs_center",
       "position": [
         -85.0,
-        626.0,
+        570.0,
         40.0
       ],
       "floor": 1,
@@ -2708,7 +2691,7 @@
       "id": "B_0_0_0_0_0_F02_Stairs_center",
       "position": [
         -85.0,
-        626.0,
+        570.0,
         425.0
       ],
       "floor": 2,
@@ -2888,7 +2871,7 @@
       "id": "B_0_0_0_0_0_F03_Stairs_center",
       "position": [
         -85.0,
-        626.0,
+        570.0,
         755.0
       ],
       "floor": 3,
@@ -3068,7 +3051,7 @@
       "id": "B_0_0_0_0_0_F04_Stairs_center",
       "position": [
         -85.0,
-        626.0,
+        570.0,
         1085.0
       ],
       "floor": 4,
@@ -3248,7 +3231,7 @@
       "id": "B_0_0_0_0_0_F05_Stairs_center",
       "position": [
         -85.0,
-        626.0,
+        570.0,
         1415.0
       ],
       "floor": 5,
@@ -3428,7 +3411,7 @@
       "id": "B_0_0_0_0_0_Roof_Stairs_center",
       "position": [
         -85.0,
-        626.0,
+        570.0,
         1770.0
       ],
       "floor": 6,
@@ -3468,16 +3451,6 @@
       "id": "B_0_0_0_0_0_SideStreet_-1",
       "position": [
         -534.166667,
-        825.0,
-        0.0
-      ],
-      "floor": 0,
-      "room_id": "Outside"
-    },
-    {
-      "id": "B_0_0_0_0_0_SideStreet_1",
-      "position": [
-        534.166667,
         825.0,
         0.0
       ],
@@ -4761,7 +4734,7 @@
       "to": "B_0_0_0_0_0_F01_Stairs_center",
       "kind": "flat",
       "door_id": "",
-      "length": 101.78899744078434
+      "length": 85.0
     },
     {
       "from": "B_0_0_0_0_0_F01_corridor_0",
@@ -4880,7 +4853,7 @@
       "to": "B_0_0_0_0_0_F02_Stairs_center",
       "kind": "flat",
       "door_id": "",
-      "length": 101.78899744078434
+      "length": 85.0
     },
     {
       "from": "B_0_0_0_0_0_F02_corridor_0",
@@ -4999,7 +4972,7 @@
       "to": "B_0_0_0_0_0_F03_Stairs_center",
       "kind": "flat",
       "door_id": "",
-      "length": 101.78899744078434
+      "length": 85.0
     },
     {
       "from": "B_0_0_0_0_0_F03_corridor_0",
@@ -5118,7 +5091,7 @@
       "to": "B_0_0_0_0_0_F04_Stairs_center",
       "kind": "flat",
       "door_id": "",
-      "length": 101.78899744078434
+      "length": 85.0
     },
     {
       "from": "B_0_0_0_0_0_F04_corridor_0",
@@ -5237,7 +5210,7 @@
       "to": "B_0_0_0_0_0_F05_Stairs_center",
       "kind": "flat",
       "door_id": "",
-      "length": 101.78899744078434
+      "length": 85.0
     },
     {
       "from": "B_0_0_0_0_0_F05_corridor_0",
@@ -5356,7 +5329,7 @@
       "to": "B_0_0_0_0_0_Roof_Stairs_center",
       "kind": "flat",
       "door_id": "",
-      "length": 101.78899744078434
+      "length": 85.0
     },
     {
       "from": "B_0_0_0_0_0_Roof_landing",
@@ -5387,13 +5360,6 @@
       "length": 262.64711551919913
     },
     {
-      "from": "B_0_0_0_0_0_SideStreet_1",
-      "to": "B_0_0_0_0_0_F01_BStore_center",
-      "kind": "door",
-      "door_id": "B_0_0_0_0_0_SideDoor_1",
-      "length": 262.64711551919913
-    },
-    {
       "from": "B_0_0_0_0_0_RearStreet",
       "to": "B_0_0_0_0_0_F01_BStore_center",
       "kind": "door",
@@ -5405,7 +5371,7 @@
       "to": "B_0_0_0_0_0_F01_up_0",
       "kind": "stairs",
       "door_id": "",
-      "length": 32.269723893130674
+      "length": 85.51803950125897
     },
     {
       "from": "B_0_0_0_0_0_F01_up_0",
@@ -5608,7 +5574,7 @@
       "to": "B_0_0_0_0_0_F02_up_0",
       "kind": "stairs",
       "door_id": "",
-      "length": 32.5
+      "length": 85.60519844028165
     },
     {
       "from": "B_0_0_0_0_0_F02_up_0",
@@ -5783,7 +5749,7 @@
       "to": "B_0_0_0_0_0_F03_up_0",
       "kind": "stairs",
       "door_id": "",
-      "length": 32.5
+      "length": 85.60519844028165
     },
     {
       "from": "B_0_0_0_0_0_F03_up_0",
@@ -5958,7 +5924,7 @@
       "to": "B_0_0_0_0_0_F04_up_0",
       "kind": "stairs",
       "door_id": "",
-      "length": 32.5
+      "length": 85.60519844028165
     },
     {
       "from": "B_0_0_0_0_0_F04_up_0",
@@ -6133,7 +6099,7 @@
       "to": "B_0_0_0_0_0_F05_up_0",
       "kind": "stairs",
       "door_id": "",
-      "length": 32.316903365584004
+      "length": 85.53585355358591
     },
     {
       "from": "B_0_0_0_0_0_F05_up_0",
@@ -7536,48 +7502,16 @@
       "material": "M_Plaster"
     },
     {
-      "id": "B_0_0_0_0_0_F01_outer_1_before",
+      "id": "B_0_0_0_0_0_F01_outer_1",
       "center": [
         384.1666666666667,
-        -195.0,
+        0.0,
         222.5
       ],
       "size": [
         20,
-        1910.0,
+        2300.0,
         365.0
-      ],
-      "yaw": 0.0,
-      "kind": "wall",
-      "material": "M_Plaster"
-    },
-    {
-      "id": "B_0_0_0_0_0_F01_outer_1_after",
-      "center": [
-        384.1666666666667,
-        1020.0,
-        222.5
-      ],
-      "size": [
-        20,
-        260.0,
-        365.0
-      ],
-      "yaw": 0.0,
-      "kind": "wall",
-      "material": "M_Plaster"
-    },
-    {
-      "id": "B_0_0_0_0_0_F01_outer_1_header",
-      "center": [
-        384.1666666666667,
-        825.0,
-        332.5
-      ],
-      "size": [
-        20,
-        130.0,
-        145.0
       ],
       "yaw": 0.0,
       "kind": "wall",
@@ -12912,54 +12846,6 @@
       "material": "M_Concrete"
     },
     {
-      "id": "B_0_0_0_0_0_SideDoor_1_frame_hinge",
-      "center": [
-        384.1666666666667,
-        762.5,
-        152.5
-      ],
-      "size": [
-        5,
-        5,
-        225
-      ],
-      "yaw": 0.0,
-      "kind": "frame",
-      "material": "M_PaintedMetal"
-    },
-    {
-      "id": "B_0_0_0_0_0_SideDoor_1_frame_latch",
-      "center": [
-        384.1666666666667,
-        887.5,
-        152.5
-      ],
-      "size": [
-        5,
-        5,
-        225
-      ],
-      "yaw": 0.0,
-      "kind": "frame",
-      "material": "M_PaintedMetal"
-    },
-    {
-      "id": "B_0_0_0_0_0_SideDoor_1_frame_header",
-      "center": [
-        384.1666666666667,
-        825.0,
-        262.5
-      ],
-      "size": [
-        5,
-        130,
-        5
-      ],
-      "yaw": 0.0,
-      "kind": "frame",
-      "material": "M_PaintedMetal"
-    },
-    {
       "id": "B_0_0_0_0_0_RearDoor_frame_hinge",
       "center": [
         212.08333333333337,
@@ -13008,22 +12894,6 @@
       "material": "M_PaintedMetal"
     },
     {
-      "id": "B_0_0_0_0_0_Side_step_1_0",
-      "center": [
-        464.1666666666667,
-        825.0,
-        6.666666666666667
-      ],
-      "size": [
-        28,
-        140,
-        13.333333333333334
-      ],
-      "yaw": 0.0,
-      "kind": "step",
-      "material": "M_Concrete"
-    },
-    {
       "id": "B_0_0_0_0_0_Rear_step_0",
       "center": [
         274.58333333333337,
@@ -13040,22 +12910,6 @@
       "material": "M_Concrete"
     },
     {
-      "id": "B_0_0_0_0_0_Side_step_1_1",
-      "center": [
-        436.1666666666667,
-        825.0,
-        13.333333333333334
-      ],
-      "size": [
-        28,
-        140,
-        26.666666666666668
-      ],
-      "yaw": 0.0,
-      "kind": "step",
-      "material": "M_Concrete"
-    },
-    {
       "id": "B_0_0_0_0_0_Rear_step_1",
       "center": [
         274.58333333333337,
@@ -13066,22 +12920,6 @@
         140,
         28,
         26.666666666666668
-      ],
-      "yaw": 0.0,
-      "kind": "step",
-      "material": "M_Concrete"
-    },
-    {
-      "id": "B_0_0_0_0_0_Side_step_1_2",
-      "center": [
-        408.1666666666667,
-        825.0,
-        20.0
-      ],
-      "size": [
-        28,
-        140,
-        40.0
       ],
       "yaw": 0.0,
       "kind": "step",

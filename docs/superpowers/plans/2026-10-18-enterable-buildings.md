@@ -67,10 +67,10 @@ Consumes Task 1's field schema. Produces native serializable catalog, pure indoo
 
 Consumes building schema and catalog reflection. Produces separately named exterior／door assets, compiled cooked catalog and both maps with complete structures.
 
-- [ ] Add inventory validation first: expect every canonical building, all floors, rooms and visible entrance annexes; deliberately omit／duplicate one item and verify failures. Run against current city to capture missing-interior RED.
-- [ ] Implement `tools/art/build_enterable_assets.py` and import path: remove solid cores from new asset variants, retain external detail and materials, create door pivots, genuine openings, stairwell／roof and centimeter dimensions. No modification of original source meshes.
-- [ ] Implement `Content/Python/build_enterable_city.py` using Task 1 and native types. Keep roads and location IDs; create canonical inventory with source provenance and idempotent managed tags; replace each original solid shell only after new instance validation succeeds.
-- [ ] Build/import with serialized editor calls. Run generator twice and verify stable IDs/counts, preserved unrelated actors, no duplicate meshes／doors／rooms; commit source and generated assets.
+- [x] Add inventory validation first: expect every canonical building, all floors, rooms and visible entrance annexes; deliberately omit／duplicate one item and verify failures. Run against current city to capture missing-interior RED.
+- [x] Implement `tools/art/build_enterable_assets.py` and import path: remove solid cores from new asset variants, retain external detail and materials, create door pivots, genuine openings, stairwell／roof and centimeter dimensions. No modification of original source meshes.
+- [x] Implement `Content/Python/build_enterable_city.py` using Task 1 and native types. Keep roads and location IDs; create canonical inventory with source provenance and idempotent managed tags; replace each original solid shell only after new instance validation succeeds.
+- [x] Build/import with serialized editor calls. Run generator twice and verify stable IDs/counts, preserved unrelated actors, no duplicate meshes／doors／rooms; commit source and generated assets.
 
 ## Task 4: Spatial registry, structural rendering and detail lifecycle
 
