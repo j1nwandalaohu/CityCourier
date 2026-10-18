@@ -136,3 +136,15 @@
 - [ ] 用实际运行截图／短视频记录跳跃、轻拳连重拳、受击与骑行回归，不以导入成功代替动作验收。
 
 功能、美术分别交付各自分支的明确提交号后，在集成检查中逐项勾选。本文更新按版本号记录，动作名称、窗口和骨架规则改动需同时同步双方，避免只改动画或只改时间配置。
+
+## 7. 功能接入交付说明
+
+用户已确认按本稿推进；并补充新增动画在美术工作树刚开始制作。因此上面的联合视觉验收保持待办，功能测试不会冒充新动画验收。
+
+- 功能侧提供 `CourierActionTimeline`、`CourierActionComponent`、原生角色跳跃、`ICourierStrikeReceiver` 及可放置的 `CourierTrainingTarget` 测试靶；不扩展背景路人的战斗 AI。
+- `CourierAnimInstance` 暴露 `CurrentAction`、`ActionElapsed`、`bAirborne`，沿用原来的四种 `AnimationIndex`。动作通过 `FullBodyAction` Montage 槽覆盖，跳跃／落地／跑步起停读取约定名称。
+- 功能侧生成器增加 `PunchTrace_L`／`PunchTrace_R` 骨架挂点，父骨分别为现有的 `hand_l`／`hand_r`（FName 不区分大小写），默认相对位移 `(5,0,0)` cm。美术可按拳头中心调整，重建时保留已有偏移。
+- 新动画导入后运行 `./scripts/Run-EditorScript.ps1 -Script Content/Python/build_character_actions.py -EngineRoot D:/sdk/UE_5.6`。脚本仅更新动作输入、动作槽与缺资源报告，不重新导入角色或覆盖正在制作的源文件；它使用功能侧更新后的 `CourierArtBuilder`，应先编译 Editor。
+- Sequence 必须使用同一 Skeleton、关闭 Root Motion，且轻拳不少于 0.55 秒、重拳不少于 0.95 秒、受击不少于 0.40 秒；重启游戏后按稳定路径加载。缺少／不兼容的出拳动画会拒绝攻击并提示，避免不可见命中。
+- 联调单元测试在独立实例中借用已有 `A_Walk` 验证骨骼轨迹、遮挡、Montage 槽和动作时序；该夹具不会保存到发行角色，也不作为拳击姿态的交付证据。
+- 首批测试靶由编辑器从原生 `CourierTrainingTarget` 类放入测试场景；未擅自放进美术街区。实际城市放置需与美术确认净空和道路碰撞。

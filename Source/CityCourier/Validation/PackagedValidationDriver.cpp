@@ -50,7 +50,7 @@ void APackagedValidationDriver::BeginPlay()
     FParse::Value(FCommandLine::Get(),TEXT("CourierValidationOutput="),Output);
     FParse::Value(FCommandLine::Get(),TEXT("CourierValidationSeconds="),MinimumSeconds);
     FParse::Value(FCommandLine::Get(),TEXT("CourierValidationMode="),Mode);
-    if(Mode==TEXT("Checks") || Mode==TEXT("FeatureUI") || Mode==TEXT("FutureEnvelopeCheck"))PrimaryActorTick.bTickEvenWhenPaused=true;
+    if(Mode==TEXT("Checks") || Mode==TEXT("FeatureUI") || Mode==TEXT("FutureEnvelopeCheck") || Mode==TEXT("CharacterActions"))PrimaryActorTick.bTickEvenWhenPaused=true;
     IFileManager::Get().MakeDirectory(*Output,true);
     PC=Cast<ACourierController>(GetWorld()->GetFirstPlayerController());
     Rider=PC?PC->GetCourier():nullptr;
@@ -273,6 +273,7 @@ void APackagedValidationDriver::Tick(float DeltaSeconds)
     Frames+=FString::Printf(TEXT("%s,%.6f,%.6f,%.4f,%.4f,%.4f,%.2f,%.2f,%s\n"),FPlatformProperties::RequiresCookedData()?TEXT("PackagedGame"):TEXT("EditorGame"),Elapsed,FrameMs,FPlatformTime::ToMilliseconds(GGameThreadTime),FPlatformTime::ToMilliseconds(GRenderThreadTime),FPlatformTime::ToMilliseconds(RHIGetGPUFrameCycles()),MemoryMB,TextureMB,*Phase);
     if(Now-LastStatus>5){LastStatus=Now;WriteStatus(TEXT("progress.json"));}
     if(Mode==TEXT("Checks")){RunInterfaceChecks(Now);return;}
+    if(Mode==TEXT("CharacterActions")){RunCharacterActionChecks(Now);return;}
     if(Mode==TEXT("FeatureUI") || Mode==TEXT("FeatureReload") || Mode==TEXT("FeatureRouteReload") || Mode==TEXT("LegacyCheck") || Mode==TEXT("FutureEnvelopeCheck")){RunFeatureChecks(Now);return;}
     if(Stage==EStage::Preview)
     {

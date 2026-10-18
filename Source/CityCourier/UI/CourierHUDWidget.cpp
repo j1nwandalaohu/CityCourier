@@ -32,7 +32,7 @@ void UCourierHUDWidget::NativeOnInitialized()
     Place(Prompt,FVector2D(.5,1),FVector2D(.5,1),FVector2D(0,-145),FVector2D(700,45));
     SaveWarning=CourierUI::Text(WidgetTree,TEXT(""),22,CourierUI::Accent); SaveWarning->SetJustification(ETextJustify::Center);
     Place(SaveWarning,FVector2D(.5,0),FVector2D(.5,0),FVector2D(0,330),FVector2D(900,65));
-    Controls=CourierUI::Text(WidgetTree,TEXT("WASD 移动 / 骑行  Shift 奔跑  E 交互 / 上下车  空格 刹车  长按 R 脱困  Tab 手机  M 地图  Esc 暂停"),20);
+    Controls=CourierUI::Text(WidgetTree,TEXT("WASD 移动/骑行  Shift 奔跑  E 交互  空格 跳跃/刹车  左键 轻拳  右键 重拳  长按 R 脱困  Tab 手机  M 地图  Esc 暂停"),18);
     Place(Controls,FVector2D(.5,1),FVector2D(.5,1),FVector2D(0,-22),FVector2D(1540,32));
     MiniMap=CreateWidget<UCourierMapWidget>(GetOwningPlayer(),UCourierMapWidget::StaticClass()); MiniMap->bMini=true;
     MiniMap->SetVisibility(ESlateVisibility::HitTestInvisible);

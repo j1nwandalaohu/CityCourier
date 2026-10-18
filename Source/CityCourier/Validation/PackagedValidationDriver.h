@@ -22,6 +22,7 @@ private:
     void Capture(const FString& Name);
     void RunInterfaceChecks(double Now);
     void RunFeatureChecks(double Now);
+    void RunCharacterActionChecks(double Now);
     double FeatureWorldTime=0,FeatureWaitStart=0;
     UPROPERTY() TObjectPtr<class ACourierController> PC;
     UPROPERTY() TObjectPtr<class ACourierCharacter> Rider;

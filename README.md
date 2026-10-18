@@ -28,7 +28,8 @@ Windows 单人 3D 外卖配送游戏，基于 Unreal Engine 5.6.1。首版街区
 | 鼠标移动 | 转动镜头 |
 | Shift | 步行奔跑 |
 | E | 交互、上下车、取餐、交付 |
-| 空格 | 电动车刹车 |
+| 空格 | 步行跳跃 / 电动车刹车 |
+| 鼠标左键 / 右键 | 轻拳 / 重拳；对应动画未交付时提示未就绪，不产生不可见命中 |
 | Tab | 手机、接单、取消订单和没电救援 |
 | M | 完整地图 |
 | Esc | 暂停菜单 / 返回游戏 |
@@ -65,6 +66,8 @@ Esc 菜单提供总音量和低 / 中 / 高画质。中档使用软件 Lumen，1
 设计和实施记录在 `docs/superpowers`；美术源文件和音源在 `AssetsSource/CityCourier`，制作流程见 [美术制作说明](docs/art/authoring.md)，来源见 [素材清单](docs/art/asset-manifest.csv)。中文字体保留 Noto CJK 的 OFL 许可证。
 
 本次更新见 [功能完善版验证](docs/testing/function-improvements-validation.md)；首版历史证据见 [验收记录](docs/testing/acceptance.md)、[发行检查](docs/testing/release-checklist.md) 和 [性能报告](docs/testing/performance.md)。运行时不需要 Python、Blender 或 UE 编辑器。
+
+人物动作功能按 [动作衔接约定](docs/art/character-actions-contract.md) 接入。新增 10 段动画在独立美术工作树制作；功能侧已有跳跃、动作时序、连击、受击、遮挡检测与动画接口，最终新动作视觉效果须待资产交付后联调。
 
 ## 首版范围
 
