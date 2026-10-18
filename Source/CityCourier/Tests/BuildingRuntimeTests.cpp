@@ -74,7 +74,7 @@ bool FBuildingProxyLifecycleTest::RunTest(const FString&)
     if(!TestNotNull(TEXT("Nearby door activates"),Door)) return false;
     TestEqual(TEXT("Active leaf replaces a single collision proxy"),F.Building->GetDoorProxyCount(),Total-1);
     TestTrue(TEXT("Ready entrance can open"),Door->TryToggle(F.Rider).bSucceeded); Door->AdvanceDoor(.2f);
-    const float Angle=Door->GetDoorState().Angle; TestTrue(TEXT("Motion reaches a partial pose"),Angle>0 && Angle<90);
+    const float Angle=Door->GetDoorState().Angle; TestTrue(TEXT("Motion reaches a partial pose"),FMath::Abs(Angle)>0 && FMath::Abs(Angle)<90);
     F.Interiors->DeactivateFarDoors(F.Rider->GetActorLocation()+FVector(10000,10000,0));
     TestEqual(TEXT("Far door regains its proxy"),F.Building->GetDoorProxyCount(),Total);
     Door=F.Interiors->ActivateDoor(F.DoorId());

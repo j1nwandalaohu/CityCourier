@@ -58,6 +58,8 @@ void UCourierBuildingSubsystem::Deinitialize()
     Actors.Reset(); Locations.Reset(); Catalog=nullptr; Super::Deinitialize();
 }
 FCourierIndoorAddress UCourierBuildingSubsystem::Locate(FVector P) const
+{ return LocateFeet(P-FVector(0,0,88)); }
+FCourierIndoorAddress UCourierBuildingSubsystem::LocateFeet(FVector P) const
 {
     if(!bEnabled || P.ContainsNaN()) return {};
     for(int32 I=0;I<Catalog->Buildings.Num();++I)
@@ -103,7 +105,9 @@ bool UCourierBuildingSubsystem::PrepareNext()
     if(PendingLoads.IsEmpty()) return false;
     const int32 I=PendingLoads[0]; PendingLoads.RemoveAt(0);
     if(!Desired.Contains(I)) return false;
+    const double Started=FPlatformTime::Seconds();
     const bool Ready=Actors[I]->PrepareDetails();
+    MaxPreparationMs=FMath::Max(MaxPreparationMs,(FPlatformTime::Seconds()-Started)*1000);
     DetailStates[I]=Ready?ECourierBuildingDetailState::Ready:ECourierBuildingDetailState::Failed;
     Actors[I]->SetEntryLoading(!Ready && Locate(LastPosition).Building!=I);
     if(EntryRequest==I && Ready) EntryRequest=INDEX_NONE;

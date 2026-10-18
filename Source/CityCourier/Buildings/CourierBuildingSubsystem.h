@@ -28,7 +28,9 @@ public:
     virtual TStatId GetStatId() const override { RETURN_QUICK_DECLARE_CYCLE_STAT(UCourierBuildingSubsystem,STATGROUP_Tickables); }
     virtual void Tick(float DeltaSeconds) override;
     virtual void Deinitialize() override;
+    // Courier capsule center (88cm half height); explicit feet API for vehicles.
     FCourierIndoorAddress Locate(FVector Position) const;
+    FCourierIndoorAddress LocateFeet(FVector Foot) const;
     void UpdateResidency(FVector Position,FName TargetBuilding=NAME_None);
     bool PrepareNext();
     ECourierBuildingDetailState GetDetailState(int32 Index) const;
@@ -40,6 +42,8 @@ public:
     TArray<AActor*> GetInteractionCandidates(FVector Position,double Radius=500) const;
     ADeliveryLocation* GetManagedLocation(FName LocationId) const;
     int32 GetReadyCount() const;
+    int32 GetActiveDoorCount() const { return ActiveDoors.Num(); }
+    double GetMaxPreparationMs() const { return MaxPreparationMs; }
     bool RegisterIndoorLocation(ADeliveryLocation* Location);
     void UnregisterIndoorLocation(ADeliveryLocation* Location);
     bool CanPrepareLocation(FName Id) const;
@@ -59,6 +63,7 @@ private:
     FDelegateHandle SpawnHandle;
     FVector LastPosition=FVector::ZeroVector;
     float UpdateTime=0;
+    double MaxPreparationMs=0;
     int32 EntryRequest=INDEX_NONE;
     bool bEnabled=false;
     void CacheActor(AActor* Actor);

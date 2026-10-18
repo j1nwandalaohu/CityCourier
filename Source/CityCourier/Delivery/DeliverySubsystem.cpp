@@ -126,7 +126,8 @@ FText UDeliverySubsystem::GetLocationLabel(FName Id) const
     if(!Binding) return L->DisplayName;
     const int32 I=C->FindBuilding(Binding->BuildingId); if(I==INDEX_NONE) return L->DisplayName;
     const auto& B=C->Buildings[I]; const int32 R=B.FindRoom(Binding->RoomId); if(R==INDEX_NONE) return L->DisplayName;
-    return FText::FromString(FString::Printf(TEXT("%s · %d楼 %s"),*L->DisplayName.ToString(),B.Rooms[R].Floor,*B.Rooms[R].Label.ToString()).Left(64));
+    const FString Address=C->RoomAddress(I,R);
+    return FText::FromString(L->DisplayName.ToString().Left(FMath::Max(0,64-Address.Len()-3))+TEXT(" · ")+Address);
 }
 FCourierActionResult UDeliverySubsystem::TryAcceptWithFeedback(FGuid InstanceId)
 {

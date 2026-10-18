@@ -7,6 +7,19 @@
 #include "Tests/StationTestSupport.h"
 #include "Delivery/DeliveryNavigationSubsystem.h"
 
+IMPLEMENT_SIMPLE_AUTOMATION_TEST(FBuildingDoorplateTest,"CityCourier.Buildings.Journey.UniqueDoorplates",EAutomationTestFlags::EditorContext|EAutomationTestFlags::EngineFilter)
+bool FBuildingDoorplateTest::RunTest(const FString&)
+{
+    const auto* C=LoadObject<UCityBuildingCatalog>(nullptr,TEXT("/Game/CityCourier/Data/Buildings/DA_Buildings.DA_Buildings"));
+    TSet<FString> Addresses;
+    for(int32 I=0;I<C->Buildings.Num();++I) for(int32 J=0;J<C->Buildings[I].Rooms.Num();++J)
+    {
+        const FString Address=C->RoomAddress(I,J);
+        if(!TestTrue(*FString::Printf(TEXT("Every room has a unique bounded friendly address: %s"),*Address),!Address.IsEmpty() && Address.Len()<=64 && !Addresses.Contains(Address))) return false;
+        Addresses.Add(Address);
+    }
+    return true;
+}
 IMPLEMENT_SIMPLE_AUTOMATION_TEST(FBuildingJourneyTest,"CityCourier.Buildings.Journey.ComposedFloorAndRoomRoutes",EAutomationTestFlags::EditorContext|EAutomationTestFlags::EngineFilter)
 bool FBuildingJourneyTest::RunTest(const FString&)
 {
@@ -75,6 +88,23 @@ bool FBuildingNavigationTest::RunTest(const FString&)
     const auto* Point=Interiors->GetManagedLocation(Offer.MerchantId);
     F.Rider->SetActorLocation(Point->GetActorLocation()+FVector(0,0,90)); Nav->UpdateNavigation(F.Rider->GetActorLocation(),.6);
     TestTrue(TEXT("Actual correct room reports arrival"),Nav->HasArrived());
+    // Replans happen at every tread in both directions, not only at landings.
+    for(const auto& N:B.Nodes)
+    {
+        if(!N.Id.ToString().Contains(TEXT("return_")) && !N.Id.ToString().Contains(TEXT("up_"))) continue;
+        const FVector Foot=B.ToWorld(N.Position)+FVector(.5,0,0), Center=Foot+FVector(0,0,88);
+        const auto Address=Interiors->Locate(Center);
+        const auto* Floor=B.Floors.FindByPredicate([&](const auto& V){return V.Elevation>N.Position.Z+.1;});
+        const int32 ExpectedFloor=Floor?Floor->Number-1:B.Floors.Last().Number;
+        if(!TestTrue(*FString::Printf(TEXT("Tread %s belongs to support floor %d"),*N.Id.ToString(),ExpectedFloor),Address.IsValid() && Address.Floor==ExpectedFloor)) return false;
+        const auto Exit=F.City->FindJourneyToPosition(Center,F.Bike->GetActorLocation(),*C);
+        if(!TestTrue(*FString::Printf(TEXT("Live stair replan at %s preserves foot height and joins the actual tread"),*N.Id.ToString()),Exit.bReachable && Exit.Points.Num()>1 && FVector::Distance(Exit.Points[0],Foot)<.1 && FVector::Distance(Exit.Points[1],Foot)<=1)) return false;
+    }
+    const auto Label=Delivery->GetLocationLabel(Offer.DestinationId).ToString();
+    const auto* Binding=C->FindBinding(Offer.DestinationId);
+    const auto& Destination=C->Buildings[C->FindBuilding(Binding->BuildingId)];
+    const auto& Room=Destination.Rooms[Destination.FindRoom(Binding->RoomId)];
+    TestTrue(TEXT("Full friendly address retains building and unique unit"),Label.Contains(TEXT("号楼")) && Label.Contains(Room.Unit) && Label.Len()<=64);
     return true;
 }
 #endif

@@ -41,7 +41,7 @@ bool ACourierBuildingActor::RebuildStructure()
     for(const auto& Box:B->Boxes)
     {
         if(Materials.Contains(Box.Material)) continue;
-        auto* Mat=LoadObject<UMaterialInterface>(nullptr,*FString::Printf(TEXT("/Game/CityCourier/Art/Materials/%s.%s"),*Box.Material.ToString(),*Box.Material.ToString()));
+        auto* Mat=LoadObject<UMaterialInterface>(nullptr,*FString::Printf(TEXT("/Game/CityCourier/Art/Buildings/Materials/%s.%s"),*Box.Material.ToString(),*Box.Material.ToString()));
         if(!Mat) return false; Materials.Add(Box.Material,Mat);
     }
     Modify(); SetActorTransform(B->Transform());
@@ -75,7 +75,7 @@ bool ACourierBuildingActor::RebuildStructure()
         AddInstanceComponent(C); C->RegisterComponent(); C->BuildTreeIfOutdated(false,true); Structure.Add(C);
     }
     DoorProxies->ClearInstances(); ProxyDoors.Reset();
-    if(auto* Wood=LoadObject<UMaterialInterface>(nullptr,TEXT("/Game/CityCourier/Art/Materials/M_Wood.M_Wood"))) DoorProxies->SetMaterial(0,Wood);
+    if(auto* Wood=LoadObject<UMaterialInterface>(nullptr,TEXT("/Game/CityCourier/Art/Buildings/Materials/M_Wood.M_Wood"))) DoorProxies->SetMaterial(0,Wood);
     TArray<FTransform> DoorTransforms; DoorTransforms.Reserve(B->Doors.Num());
     for(int32 I=0;I<B->Doors.Num();++I) { DoorTransforms.Add(DoorProxyTransform(I,0)); ProxyDoors.Add(I); }
     DoorProxies->AddInstances(DoorTransforms,false,false,false);
@@ -194,7 +194,7 @@ bool ACourierBuildingActor::PrepareDetails()
                 for(const auto& E:B->Edges)
                 {
                     const auto& A=B->Nodes[E.From]; const auto& Z=B->Nodes[E.To];
-                    if(A.Floor!=R.Floor || (A.RoomId!=R.Id && Z.RoomId!=R.Id)) continue;
+                    if((A.Floor!=R.Floor && Z.Floor!=R.Floor) || (A.RoomId!=R.Id && Z.RoomId!=R.Id)) continue;
                     if(FMath::LineBoxIntersection(Expanded,A.Position,Z.Position,Z.Position-A.Position)) { Blocked=true; break; }
                 }
                 if(Blocked) continue;
@@ -214,7 +214,7 @@ bool ACourierBuildingActor::PrepareDetails()
         {
             auto* Sign=NewObject<UTextRenderComponent>(this,NAME_None,RF_Transient);
             Sign->SetupAttachment(BuildingRoot); Sign->SetMobility(EComponentMobility::Movable);
-            Sign->SetText(FText::FromString(FString::Printf(TEXT("%dF %s"),R.Floor,R.Kind==TEXT("hall" )?TEXT("Stairs / Exit"):*R.Unit)));
+            Sign->SetText(FText::FromString(FString::Printf(TEXT("%03d / %dF %s"),Catalog->FindBuilding(B->Id)+1,R.Floor,*R.Doorplate())));
             Sign->SetWorldSize(13); Sign->SetTextRenderColor(FColor(245,224,170));
             Sign->SetRelativeLocation(FVector(R.Minimum.X+3,R.Minimum.Y+45,R.Minimum.Z+195));
             Sign->SetRelativeRotation(FRotator(0,0,0)); Sign->SetCollisionEnabled(ECollisionEnabled::NoCollision);

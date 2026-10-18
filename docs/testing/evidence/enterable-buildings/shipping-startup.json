@@ -1,0 +1,13 @@
+﻿{
+    "startup_seconds":  30,
+    "normal_exit":  false,
+    "cleanup":  "terminated owned headless test process",
+    "exit_code":  -1,
+    "peak_working_set_mb":  2438.6484375,
+    "validation_ignored":  true,
+    "profile_initialized":  true,
+    "window_classes":  [
+
+                       ],
+    "executable_sha256":  "73F031DEC826985FAB0F359F2884EDCAC554385CE4CB783CF0D73D1720F089DF"
+}

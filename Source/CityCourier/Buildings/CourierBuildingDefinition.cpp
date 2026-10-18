@@ -4,6 +4,20 @@
 #include "Misc/FileHelper.h"
 #endif
 
+FString FCourierRoomDefinition::Doorplate() const
+{
+    if(Kind==TEXT("hall")) return TEXT("Hall");
+    if(Kind==TEXT("stairs")) return TEXT("Stairs");
+    if(Kind==TEXT("roof")) return TEXT("Roof");
+    const FString Identity=Id.ToString(); int32 Last=INDEX_NONE;
+    return Identity.FindLastChar(TEXT('_'),Last)?Identity.Mid(Last+1).Replace(TEXT("Store"),TEXT("-S")):Unit;
+}
+FString UCityBuildingCatalog::RoomAddress(int32 BuildingIndex,int32 RoomIndex) const
+{
+    if(!Buildings.IsValidIndex(BuildingIndex) || !Buildings[BuildingIndex].Rooms.IsValidIndex(RoomIndex)) return {};
+    const auto& R=Buildings[BuildingIndex].Rooms[RoomIndex];
+    return FString::Printf(TEXT("%03d号楼 · %d楼 %s %s"),BuildingIndex+1,R.Floor,*R.Doorplate(),*R.Label.ToString());
+}
 int32 FCourierBuildingDefinition::FindRoom(FName RoomId) const
 { return Rooms.IndexOfByPredicate([&](const auto& R){return R.Id==RoomId;}); }
 int32 FCourierBuildingDefinition::LocateRoom(FVector World) const
@@ -12,7 +26,17 @@ int32 FCourierBuildingDefinition::LocateRoom(FVector World) const
     const FVector Local=ToLocal(World); int32 Best=INDEX_NONE; double BestVolume=MAX_dbl;
     for(int32 I=0;I<Rooms.Num();++I)
     {
-        const auto& R=Rooms[I]; if(!R.Contains(Local)) continue;
+        const auto& R=Rooms[I];
+        bool Inside=R.Contains(Local);
+        if(R.Kind==TEXT("stairs"))
+        {
+            // The ceiling stops below the next slab; the actual stair support
+            // continues through that gap. Classify feet, never capsule heads.
+            float Top=R.Maximum.Z;
+            for(const auto& F:Floors) if(F.Elevation>R.Minimum.Z) { Top=F.Elevation; break; }
+            Inside=Local.X>=R.Minimum.X && Local.X<=R.Maximum.X && Local.Y>=R.Minimum.Y && Local.Y<=R.Maximum.Y && Local.Z>=R.Minimum.Z && Local.Z<Top;
+        }
+        if(!Inside) continue;
         const FVector S=R.Maximum-R.Minimum; double Volume=S.X*S.Y*S.Z;
         // A real room takes priority over its public/circulation envelope.
         if(R.Kind==TEXT("roof")) Volume*=100;

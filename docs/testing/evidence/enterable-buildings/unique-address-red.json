@@ -1,0 +1,56 @@
+﻿{
+	"devices": [
+		{
+			"deviceName": "DESKTOP-JPFMANM",
+			"instance": "38408518466C0F93B6B77FA6528BDC51",
+			"instanceName": "DESKTOP-JPFMANM-16688",
+			"platform": "WindowsEditor",
+			"oSVersion": "Windows 11 (25H2) [10.0.26200.9711] ",
+			"model": "Default",
+			"gPU": "NVIDIA GeForce RTX 3060 Ti",
+			"cPUModel": "13th Gen Intel(R) Core(TM) i5-13400F",
+			"rAMInGB": 16,
+			"renderMode": "SM6",
+			"rHI": "",
+			"appInstanceLog": ""
+		}
+	],
+	"reportCreatedOn": "2026.10.18-17.22.46",
+	"succeeded": 0,
+	"succeededWithWarnings": 0,
+	"failed": 1,
+	"notRun": 0,
+	"inProcess": 0,
+	"totalDuration": 0.059988100081682205,
+	"comparisonExported": false,
+	"comparisonExportDirectory": "",
+	"tests": [
+		{
+			"testDisplayName": "UniqueDoorplates",
+			"fullTestPath": "CityCourier.Buildings.Journey.UniqueDoorplates",
+			"state": "Fail",
+			"deviceInstance": [
+				"38408518466C0F93B6B77FA6528BDC51"
+			],
+			"duration": 0.059988100081682205,
+			"dateTime": "2026.10.18-17.22.46",
+			"entries": [
+				{
+					"event":
+					{
+						"type": "Error",
+						"message": "Expected 'Every room has a unique bounded friendly address: 001号楼 · 1楼 A-S 储藏间' to be true.",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "D:\\eleme\\.worktrees\\enterable-buildings\\Source\\CityCourier\\Tests\\BuildingJourneyTests.cpp",
+					"lineNumber": 18,
+					"timestamp": "2026.10.18-17.22.46"
+				}
+			],
+			"warnings": 0,
+			"errors": 1,
+			"artifacts": []
+		}
+	]
+}

@@ -1,0 +1,109 @@
+{
+  "source_hashes": "gameplay-source-hashes.json",
+  "coverage_run": "EditorScript-20261019-030932-d85f8d3e",
+  "automation_run": "Automation-20261019-031046-879bc3ba",
+  "preflight_run": "Interiors-Acceptance-20261019-031345-08926902",
+  "play_run": "Interiors-Acceptance-20261019-032038-f95e1bba",
+  "packages": {
+    "Development": {
+      "build_run": "Package-Development-20261019-031112-3055dff5",
+      "files": [
+        {
+          "path": "Artifacts/Windows/Development/CityCourier/Binaries/Win64/CityCourier.exe",
+          "bytes": 317180416,
+          "sha256": "24248b7282d48702484855dd690deacbf45c71361ad5ee0b2a836ffa359047b8"
+        },
+        {
+          "path": "Artifacts/Windows/Development/CityCourier/Content/Paks/CityCourier-Windows.pak",
+          "bytes": 24307895,
+          "sha256": "4f3b98eb586ab94343638fa6b7687586f74d447316316417140b8e70dc2210d3"
+        },
+        {
+          "path": "Artifacts/Windows/Development/CityCourier/Content/Paks/CityCourier-Windows.ucas",
+          "bytes": 513252224,
+          "sha256": "a188a3b13715f60199beef6d949c1cc73d1ed4f53a859bd2950182cc196ad4d8"
+        },
+        {
+          "path": "Artifacts/Windows/Development/CityCourier/Content/Paks/CityCourier-Windows.utoc",
+          "bytes": 357092,
+          "sha256": "2b4c44ffc38ed9fce1d13d4216127a454c2160fd65630bca6b391c9dde400c43"
+        },
+        {
+          "path": "Artifacts/Windows/Development/CityCourier/Content/Paks/global.ucas",
+          "bytes": 2560464,
+          "sha256": "6a4f796379f7cdd7748cc6c9ac288ade69ff1aed69f557bb631b170b0e018a91"
+        },
+        {
+          "path": "Artifacts/Windows/Development/CityCourier/Content/Paks/global.utoc",
+          "bytes": 674,
+          "sha256": "c62a0e31c41b37ba41189a6f4a7880d741719ea25c31744737b74a7b6fa447bb"
+        },
+        {
+          "path": "Artifacts/Windows/Development/CityCourier.exe",
+          "bytes": 169472,
+          "sha256": "afc9335c07c82fb33dfea20d15790ad1129ea54b3cd859b814d2df3240f5ee9b"
+        },
+        {
+          "path": "Artifacts/Windows/Development/Engine/Extras/Redist/en-us/vc_redist.arm64.exe",
+          "bytes": 11733624,
+          "sha256": "cec9838d1fc26336fc9455efa2dca7fe90f8031a1aa2bc9141b1b5ec5fb9d85f"
+        },
+        {
+          "path": "Artifacts/Windows/Development/Engine/Extras/Redist/en-us/vc_redist.x64.exe",
+          "bytes": 25652704,
+          "sha256": "04c75c1dce1ad11e851c5ef5babe286259ed92b42b8274ad03916f454f4174dc"
+        }
+      ]
+    },
+    "Shipping": {
+      "build_run": "Package-Shipping-20261019-031159-1800d4be",
+      "files": [
+        {
+          "path": "Artifacts/Windows/Shipping/CityCourier/Binaries/Win64/CityCourier-Win64-Shipping.exe",
+          "bytes": 150633472,
+          "sha256": "73f031dec826985fab0f359f2884edcac554385ce4cb783cf0d73d1720f089df"
+        },
+        {
+          "path": "Artifacts/Windows/Shipping/CityCourier/Content/Paks/CityCourier-Windows.pak",
+          "bytes": 24300769,
+          "sha256": "fdbae363b3509dc60716083b2c7abe12b98f9b6c2c983ca389d3b72c958c9088"
+        },
+        {
+          "path": "Artifacts/Windows/Shipping/CityCourier/Content/Paks/CityCourier-Windows.ucas",
+          "bytes": 513252224,
+          "sha256": "b70a98202ee74093c8505a9734dd69c781705d2aa3d24336af357e585d8cfb0f"
+        },
+        {
+          "path": "Artifacts/Windows/Shipping/CityCourier/Content/Paks/CityCourier-Windows.utoc",
+          "bytes": 357092,
+          "sha256": "fb0996cae900727e2443de8ff2b3cc9f9f3ec4f1b4886513527d52d14559e818"
+        },
+        {
+          "path": "Artifacts/Windows/Shipping/CityCourier/Content/Paks/global.ucas",
+          "bytes": 2560464,
+          "sha256": "6a4f796379f7cdd7748cc6c9ac288ade69ff1aed69f557bb631b170b0e018a91"
+        },
+        {
+          "path": "Artifacts/Windows/Shipping/CityCourier/Content/Paks/global.utoc",
+          "bytes": 674,
+          "sha256": "c62a0e31c41b37ba41189a6f4a7880d741719ea25c31744737b74a7b6fa447bb"
+        },
+        {
+          "path": "Artifacts/Windows/Shipping/CityCourier.exe",
+          "bytes": 169472,
+          "sha256": "7714a76d6b71b9e54d00cbdaf24d919555d5c24375831cdbf1131fadfc981f1a"
+        },
+        {
+          "path": "Artifacts/Windows/Shipping/Engine/Extras/Redist/en-us/vc_redist.arm64.exe",
+          "bytes": 11733624,
+          "sha256": "cec9838d1fc26336fc9455efa2dca7fe90f8031a1aa2bc9141b1b5ec5fb9d85f"
+        },
+        {
+          "path": "Artifacts/Windows/Shipping/Engine/Extras/Redist/en-us/vc_redist.x64.exe",
+          "bytes": 25652704,
+          "sha256": "04c75c1dce1ad11e851c5ef5babe286259ed92b42b8274ad03916f454f4174dc"
+        }
+      ]
+    }
+  }
+}

@@ -5,6 +5,9 @@
 #include "Vehicles/ScooterPawn.h"
 #include "Rendering/DrawElements.h"
 #include "Styling/CoreStyle.h"
+#include "Framework/Application/SlateApplication.h"
+#include "Rendering/SlateRenderer.h"
+#include "Fonts/FontMeasure.h"
 #include "Player/CourierController.h"
 #include "Delivery/DeliverySubsystem.h"
 #include "Delivery/DeliveryNavigationSubsystem.h"
@@ -48,7 +51,7 @@ int32 UCourierMapWidget::NativePaint(const FPaintArgs& Args,const FGeometry& G,c
             FSlateDrawElement::MakeLines(Out,Layer+1,G.ToPaintGeometry(),Corners,ESlateDrawEffect::None,Target?CourierUI::Accent:FLinearColor(.36f,.48f,.5f),true,Target?3:1);
             const FVector2D Center=IndoorPoint(B.ToWorld(R.StandingPoint));
             if(R.Kind==TEXT("stairs")) Text(Center,TEXT("楼梯 ↑↓"),bMini?11:17,CourierUI::Accent);
-            else if(!bMini && R.Kind!=TEXT("hall")) Text(Center,R.Label.ToString(),15,Target?CourierUI::Accent:CourierUI::Muted);
+            else if(!bMini && R.Kind!=TEXT("hall")) Text(Center,R.Doorplate()+TEXT(" ")+R.Label.ToString(),15,Target?CourierUI::Accent:CourierUI::Muted);
         }
         const double FloorZ=B.Floors[Address.Floor-1].Elevation+B.Origin.Z;
         if(Nav)
@@ -86,13 +89,31 @@ int32 UCourierMapWidget::NativePaint(const FPaintArgs& Args,const FGeometry& G,c
     };
     if(Preview) { DrawRoute(Preview->PickupRoute,CourierUI::Accent); DrawRoute(Preview->DeliveryRoute,FLinearColor(.3f,.8f,.8f)); }
     else if(const auto* Nav=GetWorld()->GetSubsystem<UDeliveryNavigationSubsystem>()) DrawRoute(Nav->GetActiveRoute(),CourierUI::Accent);
+    TArray<FSlateRect> LabelRects;
     auto Marker=[&](const FCourierLocationDefinition& L,FLinearColor Color)
     {
         FVector Position=L.Position;
         if(Interiors && Interiors->IsEnabled()) if(const auto* Actor=Interiors->GetManagedLocation(L.LocationId)) Position=Actor->GetActorLocation();
         const FVector2D P=Point(Position); const float R=bMini?3:6;
         FSlateDrawElement::MakeBox(Out,Layer+3,G.ToPaintGeometry(FVector2D(R*2,R*2),FSlateLayoutTransform(P-FVector2D(R,R))),Brush,ESlateDrawEffect::None,Color);
-        if(!bMini) Text(P+FVector2D(10,-24),L.LocationId.IsNone()?L.DisplayName.ToString():D->GetLocationLabel(L.LocationId).ToString(),18,Color);
+        if(!bMini)
+        {
+            // Full addresses belong in the selected journey header. Short map
+            // labels use measured bounds so the station/bike cluster stays legible.
+            const FString Label=L.DisplayName.ToString();
+            const FVector2D Extent=FSlateApplication::Get().GetRenderer()->GetFontMeasureService()->Measure(FStringView(Label),CourierUI::Font(16));
+            for(int32 Attempt=0;Attempt<32;++Attempt)
+            {
+                const int32 Row=Attempt/2;
+                const float Offset=(Row/2+1)*26*(Row%2?1:-1);
+                FVector2D At=P+FVector2D(Attempt%2?-Extent.X-10:10,Offset);
+                At.X=FMath::Clamp(At.X,20.,FMath::Max(20.,Size.X-Extent.X-20));
+                At.Y=FMath::Clamp(At.Y,140.,Size.Y-130);
+                const FSlateRect Bounds(At.X-4,At.Y-3,At.X+Extent.X+4,At.Y+Extent.Y+3);
+                if(LabelRects.ContainsByPredicate([&](const auto& Other){return FSlateRect::DoRectanglesIntersect(Bounds,Other);})) continue;
+                LabelRects.Add(Bounds); Text(At,Label,16,Color); break;
+            }
+        }
     };
     for(const auto& L:City->Merchants) Marker(L,CourierUI::Accent);
     for(const auto& L:City->Destinations) Marker(L,FLinearColor(.3f,.8f,.8f));
@@ -107,10 +128,12 @@ int32 UCourierMapWidget::NativePaint(const FPaintArgs& Args,const FGeometry& G,c
     Text(FVector2D(18,12),bMini?TEXT("南城街区  ·  M 地图"):Preview?TEXT("接单路线预览 / 尚未接单"):TEXT("南城街区 / 配送导航"),bMini?18:30,FLinearColor::White);
     if(Preview)
     {
-        const auto* M=City->FindLocation(Preview->MerchantId); const auto* Dst=City->FindLocation(Preview->DestinationId);
-        Text(FVector2D(30,58),FString::Printf(TEXT("%s → %s · 含上楼与开门"),*D->GetLocationLabel(Preview->MerchantId).ToString(),*D->GetLocationLabel(Preview->DestinationId).ToString()),20,CourierUI::Muted);
+        Text(FVector2D(30,82),TEXT("取餐：")+D->GetLocationLabel(Preview->MerchantId).ToString(),18,CourierUI::Accent);
+        Text(FVector2D(30,110),TEXT("送餐：")+D->GetLocationLabel(Preview->DestinationId).ToString()+TEXT(" · 含上楼与开门"),18,FLinearColor(.3f,.8f,.8f));
         Text(FVector2D(30,Size.Y-78),FString::Printf(TEXT("金色取餐 %s + 青色送餐 %s = 总路程 %s"),*CourierUI::Distance(Preview->PickupRoute.LengthMeters),*CourierUI::Distance(Preview->DeliveryRoute.LengthMeters),*CourierUI::Distance(Preview->PickupRoute.LengthMeters+Preview->DeliveryRoute.LengthMeters)),20,FLinearColor::White);
     }
+    else if(!bMini) if(const auto* Nav=GetWorld()->GetSubsystem<UDeliveryNavigationSubsystem>())
+        Text(FVector2D(30,82),Nav->GetTargetLabel().ToString(),18,CourierUI::Accent);
     if(!bMini) Text(FVector2D(30,Size.Y-45),TEXT("绿色：驿站   紫色：车辆   白色：你   M 返回   Esc 暂停"),19,CourierUI::Muted);
     // Interactive controls are HUD siblings above this custom-painted widget.
     return Layer+5;

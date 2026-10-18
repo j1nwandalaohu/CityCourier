@@ -44,6 +44,7 @@ struct CITYCOURIER_API FCourierRoomDefinition
     UPROPERTY(EditAnywhere,BlueprintReadWrite) FVector StandingPoint=FVector::ZeroVector;
     UPROPERTY(EditAnywhere,BlueprintReadWrite) int32 RouteNode=INDEX_NONE;
     bool Contains(FVector Local) const { return FBox(Minimum,Maximum).IsInsideOrOn(Local); }
+    FString Doorplate() const;
 };
 USTRUCT(BlueprintType)
 struct CITYCOURIER_API FCourierDoorDefinition
@@ -135,4 +136,5 @@ public:
     bool Validate(TArray<FString>& Errors) const;
     int32 FindBuilding(FName Id) const;
     const FCourierIndoorBinding* FindBinding(FName LocationId) const;
+    FString RoomAddress(int32 BuildingIndex,int32 RoomIndex) const;
 };

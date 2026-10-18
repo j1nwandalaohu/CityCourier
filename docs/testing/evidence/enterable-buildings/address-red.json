@@ -1,0 +1,70 @@
+﻿{
+	"devices": [
+		{
+			"deviceName": "DESKTOP-JPFMANM",
+			"instance": "140CA52F4A200DEA31A6A9A35393CE47",
+			"instanceName": "DESKTOP-JPFMANM-3552",
+			"platform": "WindowsEditor",
+			"oSVersion": "Windows 11 (25H2) [10.0.26200.9711] ",
+			"model": "Default",
+			"gPU": "NVIDIA GeForce RTX 3060 Ti",
+			"cPUModel": "13th Gen Intel(R) Core(TM) i5-13400F",
+			"rAMInGB": 16,
+			"renderMode": "SM6",
+			"rHI": "",
+			"appInstanceLog": ""
+		}
+	],
+	"reportCreatedOn": "2026.10.18-17.21.01",
+	"succeeded": 1,
+	"succeededWithWarnings": 0,
+	"failed": 1,
+	"notRun": 0,
+	"inProcess": 0,
+	"totalDuration": 0.47023499011993408,
+	"comparisonExported": false,
+	"comparisonExportDirectory": "",
+	"tests": [
+		{
+			"testDisplayName": "ComposedFloorAndRoomRoutes",
+			"fullTestPath": "CityCourier.Buildings.Journey.ComposedFloorAndRoomRoutes",
+			"state": "Success",
+			"deviceInstance": [
+				"140CA52F4A200DEA31A6A9A35393CE47"
+			],
+			"duration": 0.38162910938262939,
+			"dateTime": "2026.10.18-17.21.01",
+			"entries": [],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "FloorAwareNavigationAndPreviewSnapshot",
+			"fullTestPath": "CityCourier.Buildings.Journey.FloorAwareNavigationAndPreviewSnapshot",
+			"state": "Fail",
+			"deviceInstance": [
+				"140CA52F4A200DEA31A6A9A35393CE47"
+			],
+			"duration": 0.088605895638465881,
+			"dateTime": "2026.10.18-17.21.01",
+			"entries": [
+				{
+					"event":
+					{
+						"type": "Error",
+						"message": "Expected 'Full friendly address retains building and unique unit' to be true.",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "D:\\eleme\\.worktrees\\enterable-buildings\\Source\\CityCourier\\Tests\\BuildingJourneyTests.cpp",
+					"lineNumber": 95,
+					"timestamp": "2026.10.18-17.21.01"
+				}
+			],
+			"warnings": 0,
+			"errors": 1,
+			"artifacts": []
+		}
+	]
+}

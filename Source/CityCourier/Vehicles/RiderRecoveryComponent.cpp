@@ -18,7 +18,7 @@ bool URiderRecoveryComponent::ValidateLocation(const FTransform& Candidate,FTran
 {
     if(!City || !Bike.IsValid() || !Rider.IsValid() || Candidate.ContainsNaN()) return false;
     const FVector Position=Candidate.GetLocation();
-    if(const auto* S=GetWorld()->GetSubsystem<UCourierBuildingSubsystem>(); S && S->IsEnabled() && S->Locate(Position).IsValid()) return false;
+    if(const auto* S=GetWorld()->GetSubsystem<UCourierBuildingSubsystem>(); S && S->IsEnabled() && S->LocateFeet(Position-FVector(0,0,52)).IsValid()) return false;
     double RoadDistance=MAX_dbl;
     for(const auto& E:City->Roads.Edges)
     {

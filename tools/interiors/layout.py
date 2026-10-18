@@ -231,7 +231,7 @@ def compile_building(seed: dict) -> dict:
     threshold = node("EntryInside", [0, front + 110, levels[0]], 1, f"{ident}_F01_Hall")
     ground_hall_first = f"{ident}_F01_corridor_0"
     edge(threshold, ground_hall_first)
-    door("Entry_Door", "Outside", f"{ident}_F01_Hall", [-60, front + 10, levels[0]], 0, 90, 120, entry, threshold, True)
+    door("Entry_Door", "Outside", f"{ident}_F01_Hall", [-60, front + 10, levels[0]], 0, -90, 120, entry, threshold, True)
     # Three real entrance treads bridge the 40cm plinth.
     for i in range(3):
         top = levels[0] * (i + 1) / 3
@@ -241,10 +241,10 @@ def compile_building(seed: dict) -> dict:
         if side in external_sides:
             out = node(f"SideStreet_{side}", [side * (width / 2 + 140), y, 0], 0, "Outside")
             door(f"SideDoor_{side}", "Outside", rid, [side * (width / 2 - 10), y - 60, levels[0]], 90,
-                 -90 if side < 0 else 90, 120, out, rn, True)
+                 90 if side < 0 else -90, 120, out, rn, True)
         if side > 0:
             out = node("RearStreet", [x, rear + 140, 0], 0, "Outside")
-            door("RearDoor", "Outside", rid, [x - 60, rear - 10, levels[0]], 0, -90, 120, out, rn, True)
+            door("RearDoor", "Outside", rid, [x - 60, rear - 10, levels[0]], 0, 90, 120, out, rn, True)
         for i in range(3):
             top = levels[0] * (i + 1) / 3
             if side in external_sides:
@@ -269,7 +269,7 @@ def compile_building(seed: dict) -> dict:
             y, z = core_front + 140 + (i + .5) * 28, low + (i + 1) * rise
             step = node(f"{prefix}_up_{i}", [-85, y, z], n + 1, stair_id)
             edge(previous, step, "stairs")
-            box(f"{prefix}_up_{i}", [-85, y, (low + z) / 2], [120, 28, z - low], "step", "M_Concrete")
+            box(f"{prefix}_up_{i}", [-85, y, z - 10], [120, 28, 20], "step", "M_Concrete")
             previous = step
         mid_z, mid_y = low + count * rise, core_front + 140 + run + 70
         for i, p in enumerate([[-85, mid_y, mid_z], [85, mid_y, mid_z], [85, core_front + 140 + run + 14, mid_z]]):
@@ -281,7 +281,7 @@ def compile_building(seed: dict) -> dict:
             y, z = core_front + 140 + (count - i - .5) * 28, low + (count + i + 1) * rise
             step = node(f"{prefix}_return_{i}", [85, y, z], n + 1, stair_id)
             edge(previous, step, "stairs")
-            box(f"{prefix}_return_{i}", [85, y, (low + z) / 2], [120, 28, z - low], "step", "M_Concrete")
+            box(f"{prefix}_return_{i}", [85, y, z - 10], [120, 28, 20], "step", "M_Concrete")
             previous = step
         top = node(prefix + "_top", [85, core_front + 70, high], n + 2, f"{ident}_{b['floors'][n + 1]['id']}_Hall")
         edge(previous, top)

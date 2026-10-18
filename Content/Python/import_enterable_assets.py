@@ -5,10 +5,38 @@ import unreal
 ROOT = Path(unreal.Paths.project_dir()).resolve()
 DEST = '/Game/CityCourier/Art/Buildings'
 
+def kit_material(name):
+    """Separate usage-enabled copies keep original art materials untouched."""
+    assets = unreal.get_editor_subsystem(unreal.EditorAssetSubsystem)
+    source = '/Game/CityCourier/Art/Materials/' + name
+    target = DEST + '/Materials/' + name
+    assert assets.does_asset_exist(source), 'Missing retained material: ' + source
+    material = unreal.load_asset(target) if assets.does_asset_exist(target) else assets.duplicate_asset(source, target)
+    assert material, 'Material duplication failed: ' + target
+    unreal.MaterialEditingLibrary.set_material_usage(material, unreal.MaterialUsage.MATUSAGE_INSTANCED_STATIC_MESHES)
+    assert material.get_editor_property('used_with_instanced_static_meshes')
+    assert assets.save_loaded_asset(material)
+    return material
+
+
+def prepare_materials():
+    assets = unreal.get_editor_subsystem(unreal.EditorAssetSubsystem)
+    for name in ['M_Plaster', 'M_Concrete', 'M_PaintedMetal', 'M_Wood']:
+        kit_material(name)
+    for path in assets.list_assets(DEST, recursive=False):
+        mesh = unreal.load_asset(path)
+        if not isinstance(mesh, unreal.StaticMesh):
+            continue
+        for index, slot in enumerate(mesh.get_editor_property('static_materials')):
+            mesh.set_material(index, kit_material(str(slot.get_editor_property('imported_material_slot_name'))))
+        assert assets.save_loaded_asset(mesh)
+
 
 def import_assets():
     assets = unreal.get_editor_subsystem(unreal.EditorAssetSubsystem)
     tools = unreal.AssetToolsHelpers.get_asset_tools()
+    for name in ['M_Plaster', 'M_Concrete', 'M_PaintedMetal', 'M_Wood']:
+        kit_material(name)
     unreal.SystemLibrary.execute_console_command(None, 'Interchange.FeatureFlags.Import.FBX 0')
     files = sorted((ROOT/'AssetsSource/CityCourier/Exports/Buildings').glob('*.fbx'))
     assert len(files) == 12, 'Incomplete enterable-building kit'
@@ -37,9 +65,7 @@ def import_assets():
         assert isinstance(mesh, unreal.StaticMesh), 'Static mesh import failed: '+path.stem
         for i, slot in enumerate(mesh.get_editor_property('static_materials')):
             name = str(slot.get_editor_property('imported_material_slot_name'))
-            material_path = '/Game/CityCourier/Art/Materials/' + name
-            assert assets.does_asset_exist(material_path), f'Missing retained project material {name} on {path.stem}'
-            mesh.set_material(i, unreal.load_asset(material_path))
+            mesh.set_material(i, kit_material(name))
         body = mesh.get_editor_property('body_setup')
         assert body, 'Mesh has no physical body setup: '+path.stem
         body.set_editor_property('collision_trace_flag', unreal.CollisionTraceFlag.CTF_USE_COMPLEX_AS_SIMPLE)

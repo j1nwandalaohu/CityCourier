@@ -8,6 +8,7 @@ import unreal
 ROOT = Path(unreal.Paths.project_dir()).resolve()
 sys.path.insert(0, str(ROOT/'Content/Python'))
 from validate_enterable_city import validate_map
+from clear_enterable_entrances import clear_current_map
 
 
 def protected_snapshot(actors, exempt):
@@ -70,7 +71,9 @@ def build_map(name, catalog, source):
             comp.set_visibility(False)
             actor.set_actor_hidden_in_game(True)
     assert protected_snapshot(actors, legacy_tags) == before, 'Unrelated gameplay actor changed during migration'
+    clearance = clear_current_map(name)
     report = validate_map(catalog)
+    report['entrance_prop_clearance'] = clearance
     report['protected_gameplay_digest'] = hashlib.sha256(json.dumps(before,sort_keys=True).encode()).hexdigest()
     output = ROOT/f'Saved/Validation/{name}-interior-migration.json'
     output.write_text(json.dumps(report,ensure_ascii=False,indent=2),encoding='utf-8')

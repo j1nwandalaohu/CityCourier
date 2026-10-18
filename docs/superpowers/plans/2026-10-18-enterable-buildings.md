@@ -103,12 +103,12 @@ Consumes complete route snapshots and room bindings. Produces room-aware pickup/
 
 Consumes all previous outputs. Produces tracked evidence, runnable game artifacts and an honest final requirements status.
 
-- [ ] First run full validation against an intentionally missing room／blocked stair／wrong transform and verify explicit failures without reducing expected totals.
-- [ ] Implement `Content/Python/validate_enterable_city.py` and opt-in Development native driver. Enumerate every building and room; verify graph return paths and capsule geometry for each actual instance, then physically traverse entrances, stairs and doors to every room. Record source hashes, exact identities, counts, failed paths and state.
-- [ ] Run complete Editor build／UE tests, Python layout tests, tooling and performance-calculation tests. Preserve final reports and RED→GREEN reproductions for new integration defects.
-- [ ] Run actual packaged play for every layout class, highest-floor delivery, return to street／bike, repeated load cycle, door anti-clipping and character actions; validate history after restart. Produce Development and Shipping builds in this worktree. Verify the production startup map contains the same complete catalog and assets.
-- [ ] Measure packaged 1080p medium on the fixed 3-minute route; report actual mean／1% low／memory and run 20-minute stability. Check ≥30 mean FPS and ≥24 FPS 1% low; optimize within scope if unmet.
-- [ ] Run one independent whole-branch review per executing-plans; address Important findings with focused RED→GREEN tests, then green suite. Update `docs/testing/enterable-buildings-validation.md`, plan and ledger; commit and keep user launch artifacts／other worktrees intact. No remote push.
+- [x] First run full validation against an intentionally missing room／blocked stair／wrong transform and verify explicit failures without reducing expected totals.
+- [x] Implement `Content/Python/validate_enterable_city.py` and opt-in Development native driver. Enumerate every building and room; verify graph return paths and capsule geometry for each actual instance, then physically traverse entrances, stairs and doors to every room. Record source hashes, exact identities, counts, failed paths and state.
+- [x] Run complete Editor build／UE tests, Python layout tests, tooling and performance-calculation tests. Preserve final reports and RED→GREEN reproductions for new integration defects.
+- [x] Run actual packaged play for every layout class, highest-floor delivery, return to street／bike, repeated load cycle, door anti-clipping and character actions; validate history after restart. Produce Development and Shipping builds in this worktree. Verify the production startup map contains the same complete catalog and assets.
+- [x] Measure packaged 1080p medium on the fixed 3-minute route; report actual mean／1% low／memory and run 20-minute stability. Check ≥30 mean FPS and ≥24 FPS 1% low; optimize within scope if unmet.
+- [x] Run one independent whole-branch review per executing-plans; address Important findings with focused RED→GREEN tests, then green suite. Update `docs/testing/enterable-buildings-validation.md`, plan and ledger; commit and keep user launch artifacts／other worktrees intact. No remote push.
 
 ## Plan self-review
 

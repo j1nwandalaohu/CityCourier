@@ -24,14 +24,19 @@
 | `SM_InteriorSofa` | 起居区座椅，底部中心原点 |
 | `SM_InteriorCounter` | 服务／取餐柜台与餐盒，底部中心原点 |
 
-所有新资产复用项目既有材质和来源记录。结构墙、楼板和楼梯由编译后的厘米尺寸实例化，真实门洞不能被外观模型重新封住。门框和门扇分离；门远处代理与近处活动对象保持角度和阻挡一致。
+所有新资产保留既有材质外观和来源记录。室内套件使用 `Buildings/Materials/` 下的独立副本，保存实例化渲染标记以支持打包；不修改原 `Art/Materials/` 资产。导入器会准备所需副本，已导入资产可运行 `prepare_enterable_materials.py` 单独修复绑定。结构墙、楼板和楼梯由编译后的厘米尺寸实例化，真实门洞不能被外观模型重新封住。门框和门扇分离；门远处代理与近处活动对象保持角度和阻挡一致。
 
 ## 重建流程
 
 1. 使用 Blender 运行 `tools/art/build_enterable_assets.py`，生成新的 `.blend` 和 `Exports/Buildings/*.fbx`。
 2. 先编译 Editor，再通过 `scripts/Run-EditorScript.ps1` 依次运行 `import_enterable_assets.py`、`export_building_inventory.py`、`build_building_catalog.py` 和 `build_enterable_city.py`。
-3. 最后运行 `validate_enterable_city.py`，检查两张地图的完整编号集合、结构和每个房间的站立净空与地面。
+3. 最后运行 `validate_enterable_city.py`，检查两张地图的完整编号集合、结构、每个房间的站立净空与地面，并用原生角色运动组件连续走过全部房间与门、返回街道。
 
 所有脚本位于 `Content/Python/`。重建只在负责地图集成的功能工作树进行，不能覆盖另一个会话尚未提交的 `.umap`。源布局调整后必须重新编译目录并重建两张地图；不能只改一个副本。
 
-结构覆盖报告仅证明清单、碰撞和站立位置，不能代替完整行走、门交互、正式陈设、配送或性能验收。后续运行结果记录在测试文档中。
+全量物理行走采用加速固定步长调度，不能代替墙钟实机游玩或性能验收；两者分别记录在 [验证文档](../testing/enterable-buildings-validation.md)。
+
+
+实际通行修正：所有外门向建筑外侧打开，避免堵住一层转弯；楼梯踏板厚 20 cm，禁止用楼面至踏步顶面的实心柱体，以免压低下一层回跑梯净空。家具放置检查真实导入边界、中央 120 cm 站立区和通路胶囊净空。
+
+外门净空：`clear_enterable_entrances.py` 保留全部街道道具和碰撞，仅将门扇扫掠／接近通道内的盆栽、长椅、摊位移到旁边。原、新坐标及受影响 DoorId 记录在 `AssetsSource/CityCourier/Interiors/entrance-prop-placement.json`；不移动建筑或道路。地图重建自动执行，验证器独立检查全部 881 处外门。街道美术新增或改动道具后也必须通过该检查。

@@ -5,8 +5,9 @@
 namespace
 {
 struct FAddress { int32 Building=INDEX_NONE,Room=INDEX_NONE,Node=INDEX_NONE; FVector Foot; };
-FAddress Locate(const UCityBuildingCatalog& C,FVector P)
+FAddress Locate(const UCityBuildingCatalog& C,FVector P,bool bCapsuleCenter=false)
 {
+    if(bCapsuleCenter) P.Z-=88;
     FAddress A; A.Foot=P;
     for(int32 I=0;I<C.Buildings.Num();++I)
     {
@@ -14,10 +15,12 @@ FAddress Locate(const UCityBuildingCatalog& C,FVector P)
         A.Building=I; A.Room=R; const auto& Room=B.Rooms[R]; A.Node=Room.RouteNode;
         if(Room.Kind==TEXT("hall") || Room.Kind==TEXT("stairs"))
         {
-            FVector Foot=P; Foot.Z=Room.Kind==TEXT("stairs")?P.Z-88:B.Origin.Z+Room.Minimum.Z;
+            FVector Foot=P; if(Room.Kind!=TEXT("stairs")) Foot.Z=B.Origin.Z+Room.Minimum.Z;
             double Best=MAX_dbl;
-            for(int32 N=0;N<B.Nodes.Num();++N) if(B.Nodes[N].RoomId==Room.Id)
+            for(int32 N=0;N<B.Nodes.Num();++N)
             {
+                const int32 NodeRoom=B.FindRoom(B.Nodes[N].RoomId);
+                if(NodeRoom==INDEX_NONE || (B.Rooms[NodeRoom].Kind!=TEXT("hall") && B.Rooms[NodeRoom].Kind!=TEXT("stairs"))) continue;
                 const double D=FVector::DistSquared(Foot,B.ToWorld(B.Nodes[N].Position));
                 if(D<Best) { Best=D; A.Node=N; }
             }
@@ -57,19 +60,28 @@ bool AddIndoor(FRouteResult& Out,const FCourierBuildingDefinition& B,int32 From,
 // costs remain separate from indoor distances and logical openable doors.
 TArray<FVector> OutdoorDetour(FVector From,FVector To,const UCityBuildingCatalog& C)
 {
-    From.Z=To.Z=0; TArray<FBox> Obstacles;
-    for(const auto& B:C.Buildings)
+    From.Z=To.Z=0;
+    struct FObstacleCache { TWeakObjectPtr<const UCityBuildingCatalog> Owner; FString Digest; TArray<FBox> Bounds; TMap<FString,TArray<FVector>> Detours; };
+    static FObstacleCache Cache;
+    if(Cache.Owner.Get()!=&C || Cache.Digest!=C.SourceDigest)
     {
-        FBox Box(EForceInit::ForceInit);
-        for(int32 X:{-1,1}) for(int32 Y:{-1,1}) Box+=B.ToWorld(FVector(X*B.Size.X/2,Y*B.Size.Y/2,0));
-        Box.Min.Z=-1000; Box.Max.Z=10000; Box=Box.ExpandBy(FVector(40,40,0)); Obstacles.Add(Box);
+        Cache={}; Cache.Owner=&C; Cache.Digest=C.SourceDigest;
+        for(const auto& B:C.Buildings)
+        {
+            FBox Box(EForceInit::ForceInit);
+            for(int32 X:{-1,1}) for(int32 Y:{-1,1}) Box+=B.ToWorld(FVector(X*B.Size.X/2,Y*B.Size.Y/2,0));
+            Box.Min.Z=-1000; Box.Max.Z=10000; Cache.Bounds.Add(Box.ExpandBy(FVector(40,40,0)));
+        }
     }
+    const auto& Obstacles=Cache.Bounds;
     auto Clear=[&](FVector A,FVector Z)
     {
         for(const auto& Box:Obstacles) if(FMath::LineBoxIntersection(Box,A,Z,Z-A)) return false;
         return true;
     };
     if(Clear(From,To)) return {From,To};
+    const FString Key=From.ToString()+TEXT("/")+To.ToString();
+    if(const auto* Existing=Cache.Detours.Find(Key)) return *Existing;
     for(double Padding:{5000.,20000.})
     {
         const FBox Region(FVector(FMath::Min(From.X,To.X)-Padding,FMath::Min(From.Y,To.Y)-Padding,-1),FVector(FMath::Max(From.X,To.X)+Padding,FMath::Max(From.Y,To.Y)+Padding,1));
@@ -91,7 +103,8 @@ TArray<FVector> OutdoorDetour(FVector From,FVector To,const UCityBuildingCatalog
             if(Current==INDEX_NONE) break;
             if(Current==1)
             {
-                TArray<FVector> Path; for(int32 I=1;I!=INDEX_NONE;I=Previous[I]) Path.Insert(Nodes[I],0); return Path;
+                TArray<FVector> Path; for(int32 I=1;I!=INDEX_NONE;I=Previous[I]) Path.Insert(Nodes[I],0);
+                if(Cache.Detours.Num()>=512) Cache.Detours.Reset(); Cache.Detours.Add(Key,Path); return Path;
             }
             Done[Current]=true;
             for(int32 I=0;I<Nodes.Num();++I) if(!Done[I])
@@ -114,7 +127,7 @@ FVector BindingPosition(const UCityBuildingCatalog& C,FName Id,bool& Valid)
 FRouteResult UCityDefinition::FindJourneyToPosition(FVector From,FVector To,const UCityBuildingCatalog& C) const
 {
     if(From.ContainsNaN() || To.ContainsNaN()) return {};
-    const FAddress A=Locate(C,From),Z=Locate(C,To); FRouteResult Out;
+    const FAddress A=Locate(C,From,true),Z=Locate(C,To); FRouteResult Out;
     AddPoint(Out,A.Foot,TEXT("flat"));
     auto Finish=[&]()
     {
@@ -159,5 +172,5 @@ FRouteResult UCityDefinition::FindJourneyFrom(FVector From,FName Destination,con
 }
 FRouteResult UCityDefinition::FindJourneyBetween(FName From,FName To,const UCityBuildingCatalog& C) const
 {
-    bool Valid; const FVector P=BindingPosition(C,From,Valid); return Valid?FindJourneyFrom(P,To,C):FRouteResult{};
+    bool Valid; const FVector P=BindingPosition(C,From,Valid); return Valid?FindJourneyFrom(P+FVector(0,0,88),To,C):FRouteResult{};
 }

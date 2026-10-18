@@ -7,6 +7,18 @@ class UHierarchicalInstancedStaticMeshComponent;
 class UInstancedStaticMeshComponent;
 class UStaticMeshComponent;
 
+USTRUCT(BlueprintType)
+struct CITYCOURIER_API FCourierPhysicalTraversalReport
+{
+    GENERATED_BODY()
+    UPROPERTY(BlueprintReadOnly) TArray<FString> Errors;
+    UPROPERTY(BlueprintReadOnly) TArray<FName> VisitedRooms;
+    UPROPERTY(BlueprintReadOnly) int32 VisitedNodes=0;
+    UPROPERTY(BlueprintReadOnly) int32 OpenedDoors=0;
+    UPROPERTY(BlueprintReadOnly) double WalkedMeters=0;
+    UPROPERTY(BlueprintReadOnly) bool bReturnedToStreet=false;
+};
+
 /** Resident geometry never disappears when room details are evicted. */
 UCLASS()
 class CITYCOURIER_API ACourierBuildingActor : public AActor
@@ -19,6 +31,7 @@ public:
     UFUNCTION(BlueprintPure,Category="Courier|Buildings") int32 GetStructuralBoxCount() const;
     UFUNCTION(BlueprintPure,Category="Courier|Buildings") int32 GetDoorProxyCount() const;
     UFUNCTION(BlueprintCallable,Category="Courier|Buildings") TArray<FString> GetPhysicalRoomErrors() const;
+    UFUNCTION(BlueprintCallable,Category="Courier|Buildings") FCourierPhysicalTraversalReport ValidatePhysicalTraversal(bool bWithDetails=true);
     const FCourierBuildingDefinition* GetDefinition() const;
     bool SetDoorProxy(int32 DoorIndex,float Angle,bool bVisible);
     bool PrepareDetails();
