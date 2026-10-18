@@ -36,6 +36,14 @@ def mesh(tag,path,pos,scale=(1,1,1),yaw=0):
     a.static_mesh_component.set_collision_profile_name('NoCollision')
     return a
 
+def solid_block(tag,pos,scale,material):
+    a=ensure(unreal.StaticMeshActor,tag,pos)
+    a.set_actor_scale3d(unreal.Vector(*scale))
+    a.static_mesh_component.set_static_mesh(unreal.load_asset('/Engine/BasicShapes/Cube'))
+    a.static_mesh_component.set_material(0,unreal.load_asset(ART+'/Materials/'+material))
+    a.static_mesh_component.set_collision_profile_name('NoCollision')
+    return a
+
 polish_materials.ground('M_RoadWorld','asphalt_02',200,(.48,.48,.46),True)
 polish_materials.ground('M_PavementWorld','pavement_05',180,(.7,.69,.66),True)
 
@@ -52,7 +60,23 @@ for actor in list(actors.get_all_level_actors()):
         for i in range(n):
             x=center.x-size.x/2+size.x*(i+.5)/n
             variant=(row+col+number+i)%3
-            mesh(f'CC_Art_Building_{row}_{col}_{frontage}_{number}_{i}','Architecture/SM_ShopHouse'+chr(65+variant),(x,center.y,0),(size.x/n/800,size.y/1150,1),yaw)
+            tag=f'CC_Art_Building_{row}_{col}_{frontage}_{number}_{i}'
+            sx,sy=size.x/n/800,size.y/1150
+            mesh(tag,'Architecture/SM_ShopHouse'+chr(65+variant),(x,center.y,0),(sx,sy,1),yaw)
+            # Source -Y is reflected to UE +Y by the established FBX convention.
+            direction=-1 if yaw==180 else 1
+            front_y=center.y+direction*500*sy
+            if abs(front_y+12000)<1800 and abs(x)<8000:
+                for j,lx in enumerate((-210,180)):
+                    light=ensure(unreal.PointLight,tag.replace('CC_Art_Building_','CC_Art_ShopLight_')+f'_{j}',(x+direction*lx*sx,front_y,272))
+                    light.light_component.set_mobility(unreal.ComponentMobility.MOVABLE)
+                    light.light_component.set_editor_property('intensity',5)
+                    light.light_component.set_editor_property('attenuation_radius',500)
+                    light.light_component.set_light_color(unreal.LinearColor(1,.79,.57,1))
+                    light.light_component.set_editor_property('cast_shadows',False)
+                # High-mounted worn equipment; circulation at ground level stays clear.
+                mesh(tag.replace('CC_Art_Building_','CC_Art_WallAircon_'),'ReferenceProps/SM_ReferenceAirconRusted',
+                     (x+direction*135*sx,center.y+direction*(576*sy+28),435),yaw=yaw+180)
             count+=1
     if any(t.startswith('CC_City_Road_') for t in tags):actor.static_mesh_component.set_material(0,unreal.load_asset(ART+'/Materials/M_RoadWorld'))
     if any(t.startswith('CC_City_Walk_') for t in tags):actor.static_mesh_component.set_material(0,unreal.load_asset(ART+'/Materials/M_PavementWorld'))
@@ -83,8 +107,11 @@ for i,x in enumerate(range(-7500,7501,1500)):
         light.light_component.set_editor_property('attenuation_radius',850)
         light.light_component.set_light_color(unreal.LinearColor(1.0,.60,.28,1.0))
         light.light_component.set_editor_property('cast_shadows',False)
-        tree='SM_PlanterTreeB' if (i+side)%3==0 else 'SM_PlanterTree'
-        mesh(f'CC_Art_Tree_{i}_{side}','StreetProps/'+tree,(x+350,y,14),yaw=(i*71)%360)
+        variation=.92+(i%3)*.08
+        mesh(f'CC_Art_Tree_{i}_{side}','ReferenceProps/SM_ReferenceTree',(x+350,y,18),scale=(variation,variation,variation),yaw=(i*71)%360)
+        solid_block(f'CC_Art_TreeSoil_{i}_{side}',(x+350,y,16),(1.1,1.1,.04),'M_Wood')
+        for j,(dx,dy,sx,sy) in enumerate(((-61,0,.12,1.34),(61,0,.12,1.34),(0,-61,1.1,.12),(0,61,1.1,.12))):
+            solid_block(f'CC_Art_TreeCurb_{i}_{side}_{j}',(x+350+dx,y+dy,21),(sx,sy,.14),'M_Concrete')
         mesh(f'CC_Art_Drain_{i}_{side}','StreetProps/SM_DrainGrate',(x-160,-12000+side*570,4.5))
         if i%2:
             mesh(f'CC_Art_Bin_{i}_{side}','StreetProps/SM_WheelieBin',(x-240,y+side*55,14),yaw=180 if side>0 else 0)
@@ -93,7 +120,8 @@ for i,x in enumerate([-2200,2500,6700]):
 for i in range(6):
     stall=['SM_MarketStall','SM_MarketStallProduce','SM_MarketStallNoodles'][i%3]
     mesh(f'CC_Art_Market_{i}','StreetProps/'+stall,(13300+i*270,12900,14),yaw=180)
-    mesh(f'CC_Art_MarketCrates_{i}','StreetProps/SM_CrateStack',(13380+i*270,13030,14),yaw=i*17)
+    for j in range(3):
+        mesh(f'CC_Art_MarketCrates_{i}_{j}','ReferenceProps/SM_ReferenceCrate',(13380+i*270,13030,14+j*23),yaw=i*17+j*3)
     light=ensure(unreal.PointLight,f'CC_Art_MarketLight_{i}',(13300+i*270,12850,225))
     light.light_component.set_mobility(unreal.ComponentMobility.MOVABLE)
     light.light_component.set_editor_property('intensity',3)

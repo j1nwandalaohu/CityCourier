@@ -71,6 +71,8 @@ import_file(SOURCE/'External/PolyHaven/industrial_sunset_02_puresky_2k.hdr',ART+
 sys.path.insert(0,str(ROOT/'Content/Python'))
 import polish_materials
 polish_materials.apply()
+import import_reference_materials
+materials.update(import_reference_materials.apply(SOURCE,ART,import_file))
 
 def fbx_options(skeletal=False,animation=False,skeleton=None):
     o=unreal.FbxImportUI();o.automated_import_should_detect_type=False
@@ -92,7 +94,7 @@ for file in ([] if scope=='characters' else sorted((SOURCE/'Exports').glob('*/*.
         if name not in materials:name=str(slot.get_editor_property('material_slot_name'))
         if name not in materials:raise RuntimeError('Missing static material '+name+' on '+file.stem)
         mesh.set_material(i,materials[name])
-    if file.parent.name=='Architecture':
+    if file.parent.name in ('Architecture','ReferenceProps'):
         settings=mesh.get_editor_property('nanite_settings');settings.enabled=True;mesh.set_editor_property('nanite_settings',settings)
     assets.save_loaded_asset(mesh)
 

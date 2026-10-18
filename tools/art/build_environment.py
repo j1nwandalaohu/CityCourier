@@ -4,6 +4,7 @@ import random
 import bpy
 from art_common import *
 from environment_detail import window, cable, tree, stall, dressing, tapered, box, cylinder
+from storefront_detail import storefront
 
 def palette():
     return dict(
@@ -43,40 +44,15 @@ def building(m,variant):
     start=set(bpy.data.objects);r=random.Random(107+variant)
     width=8;depth=11.5;height=[17.7,14.4,20.9][variant]
     wall=m['plaster'] if variant!=1 else m['brick']
-    # Structural volume is inset behind the individually framed front openings.
-    box('Building_core',(0,.24,height/2),(width,depth-.48,height),wall,.025)
+    # The lower core stops behind the occupied shop recess. The previous full
+    # height solid block intersected the windows and hid every interior detail.
+    # Side/rear envelope and collision footprint remain 8 x 11.5 metres.
+    core=box('Building_upper_core',(0,.24,(height+3.0)/2),
+        (width,depth-.48,height-3.0),wall,.025)
+    box('Building_lower_rear_core',(0,.775,1.50),(width,9.95,3.0),wall,.015)
     box('Ground_plinth',(0,0,.2),(8.1,11.6,.4),m['concrete'],.025)
     front=-5.76
-    # Ground floor is a shallow occupied shop, with a dark recessed interior.
-    box('Shop_recess',(0,front-.05,1.6),(7.6,.12,3.05),m['dark'],.01)
-    for x in [-3.88,0,3.88]:box('Tiled_pier',(x,front-.16,1.65),(.22,.35,3.3),m['cream'],.015)
-    for side in [-1,1]:
-        cx=side*1.96
-        for x in [cx-1.73,cx,cx+1.73]:box('Shop_frame',(x,front-.19,1.4),(.06,.07,2.8),m['aluminum'],.005)
-        box('Shop_glazing',(cx,front-.13,1.42),(3.42,.04,2.62),m['glass'],.002)
-        box('Shop_lower_panel',(cx,front-.21,.28),(3.42,.08,.5),m['metal'],.008)
-        box('Door_header',(cx,front-.2,2.78),(3.5,.08,.08),m['aluminum'],.005)
-        cylinder('Door_handle',(cx+.13,front-.28,1.1),(cx+.13,front-.28,1.55),.014,m['aluminum'])
-        # Interior hints visible as warmer strips; no fake navigable interiors.
-        box('Interior_light',(cx,front-.175,2.5),(2.6,.018,.07),m['warm'],.002)
-    colors=[m['red'],m['green'],m['metal']]
-    box('Lightbox',(0,front-.26,3.3),(7.78,.35,.85),colors[variant],.035)
-    title=['阿荣面馆','南城便利','巷口烧腊'][variant]
-    text_mesh('Shop_name',title,(0,front-.445,3.08),.60,m['white'])
-    # The map stretches building depth 2x; shallow authoring gives a 1.4 m canopy.
-    awning=box('Awning',(0,front-.40,2.86),(7.8,.72,.055),colors[variant],.008)
-    awning.rotation_euler.x=.055
-    for x in [-3.4,3.4]:cylinder('Awning_brace',(x,front-.1,2.45),(x,front-.75,2.84),.018,m['metal'])
-    for i in range(27):
-        box('Awning_seam',(-3.78+i*.29,front-.4,2.9),(.014,.70,.012),m['metal'],.002)
-    # Tile joints, roller-shutter tracks and a worn entrance establish human scale.
-    for x in [-3.88,0,3.88]:
-        for z in range(1,11):box('Pier_tile_joint',(x,front-.339,z*.27),(.215,.007,.012),m['concrete'],0)
-    box('Entrance_step',(0,front-.24,.055),(7.58,.40,.11),m['concrete'],.013)
-    for side in [-1,1]:
-        x=side*1.96
-        for zz in [2.72,2.66,2.60]:box('Shutter_slats',(x,front-.24,zz),(3.48,.055,.045),m['aluminum'],.003)
-        box('Shop_door_sticker',(x+.38,front-.245,1.48),(.14,.008,.21),m['cream'],.001)
+    storefront(m,variant,front,wall)
     box('Electric_meter_box',(-3.54,front-.19,1.75),(.28,.18,.43),m['metal'],.012)
     box('Meter_face',(-3.54,front-.289,1.8),(.15,.015,.16),m['dark'],.002)
     cable('Meter_conduit',[(-3.54,front-.19,1.98),(-3.54,front-.19,3.86),(-3.15,front-.19,3.86)],.014,m['cream'])
@@ -88,9 +64,10 @@ def building(m,variant):
         if floor==0 or (floor+variant)%2==0:
             box('Floor_band',(0,front-.04,z-.22),(8.06,.12,.085),m['concrete'],.006)
         for col,x in enumerate([-2.65,0,2.65]):
+            x += [.035,-.065,.04][(floor+variant+col)%3]
             window(m,x,front-.04,z+1.05,variant*101+floor*11+col*3,
                    width=[1.73,1.82,1.63][(col+variant)%3],height=1.92 if variant!=1 else 1.82)
-            if (floor+col+variant)%3==0:
+            if (floor*2+col+variant)%4 in ([0,1] if variant==2 else [0]):
                 box('Balcony_slab',(x,front-.36,z-.02),(2.17,.72,.115),m['concrete'],.014)
                 for dx in [-1.02,1.02]:
                     cylinder('Balcony_post',(x+dx,front-.68,z),(x+dx,front-.68,z+.95),.019,m['metal'])
@@ -145,7 +122,10 @@ def building(m,variant):
     box('Rear_skirt',(0,5.79,.35),(8,.07,.6),m['concrete'],.008)
     box('Rear_door_surround',(-1.9,5.82,1.18),(1.2,.10,2.36),m['concrete'],.01)
     box('Rear_service_door',(-1.9,5.88,1.12),(1.02,.04,2.21),m['metal'],.006)
-    return join(list(set(bpy.data.objects)-start),'SM_ShopHouse'+chr(65+variant))
+    # Joining onto a randomly chosen rotated window gave the finished mesh a
+    # random local axis. Keep the building's source front reliably at -Y.
+    parts=sorted(set(bpy.data.objects)-start-{core},key=lambda obj:obj.name)
+    return join([core]+parts,'SM_ShopHouse'+chr(65+variant))
 
 def props(m):
     reset();ac=aircon(m);export(ac.name,[ac],'StreetProps')

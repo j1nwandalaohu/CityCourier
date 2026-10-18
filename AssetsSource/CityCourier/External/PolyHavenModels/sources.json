@@ -1,0 +1,233 @@
+[
+  {
+    "path": "tree_small_02/tree_small_02_2k.gltf",
+    "source": "https://polyhaven.com/a/tree_small_02",
+    "download": "https://dl.polyhaven.org/file/ph-assets/Models/gltf/2k/tree_small_02/tree_small_02_2k.gltf",
+    "license": "CC0-1.0",
+    "sha256": "a1a7c8a145c811392457c111bff8192146f655a75b5de163ec659cd32af17726"
+  },
+  {
+    "path": "tree_small_02/textures/tree_small_02_branch_nor_gl_2k.jpg",
+    "source": "https://polyhaven.com/a/tree_small_02",
+    "download": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/2k/tree_small_02/tree_small_02_branch_nor_gl_2k.jpg",
+    "license": "CC0-1.0",
+    "sha256": "368505992d867bb50eccc00d77940a7a3eaf32f42de9f536d105407b0d6df3fd"
+  },
+  {
+    "path": "tree_small_02/textures/tree_small_02_branch_diff_2k.jpg",
+    "source": "https://polyhaven.com/a/tree_small_02",
+    "download": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/2k/tree_small_02/tree_small_02_branch_diff_2k.jpg",
+    "license": "CC0-1.0",
+    "sha256": "9032de9e063ee7e3763a6b10d19d89302f5776e85a966b6dd1c3a5634b2a80e1"
+  },
+  {
+    "path": "tree_small_02/textures/tree_small_02_branch_arm_2k.jpg",
+    "source": "https://polyhaven.com/a/tree_small_02",
+    "download": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/2k/tree_small_02/tree_small_02_branch_arm_2k.jpg",
+    "license": "CC0-1.0",
+    "sha256": "82da928cc4e8a45c559f6abe8053227c7ae6cc14eb8d026a30c203aedd087042"
+  },
+  {
+    "path": "tree_small_02/textures/tree_small_02_leaves_nor_gl_2k.jpg",
+    "source": "https://polyhaven.com/a/tree_small_02",
+    "download": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/2k/tree_small_02/tree_small_02_leaves_nor_gl_2k.jpg",
+    "license": "CC0-1.0",
+    "sha256": "40c956e345430562cdb4d0470c7d499aa160f1fa3dd7555d88be2dedf0d7ff2e"
+  },
+  {
+    "path": "tree_small_02/textures/tree_small_02_leaves_diff_2k.jpg",
+    "source": "https://polyhaven.com/a/tree_small_02",
+    "download": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/2k/tree_small_02/tree_small_02_leaves_diff_2k.jpg",
+    "license": "CC0-1.0",
+    "sha256": "6c984a46861562f2a20381c54106aa5e07ce0d3fce785907f8d263157e7561af"
+  },
+  {
+    "path": "tree_small_02/textures/tree_small_02_leaves_arm_2k.jpg",
+    "source": "https://polyhaven.com/a/tree_small_02",
+    "download": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/2k/tree_small_02/tree_small_02_leaves_arm_2k.jpg",
+    "license": "CC0-1.0",
+    "sha256": "a126c0d92b60c44c0664e4d3651831970e259b0d5a1fb39ebb67081cbecaca96"
+  },
+  {
+    "path": "tree_small_02/textures/tree_small_02_nor_gl_2k.jpg",
+    "source": "https://polyhaven.com/a/tree_small_02",
+    "download": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/2k/tree_small_02/tree_small_02_nor_gl_2k.jpg",
+    "license": "CC0-1.0",
+    "sha256": "cb7897fc0aea602964836116ecf631614ece2970f579647fe1070bccb428fe89"
+  },
+  {
+    "path": "tree_small_02/textures/tree_small_02_diff_2k.jpg",
+    "source": "https://polyhaven.com/a/tree_small_02",
+    "download": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/2k/tree_small_02/tree_small_02_diff_2k.jpg",
+    "license": "CC0-1.0",
+    "sha256": "4ab3210b6ec6bb1181145500bca71d1c1f81ead6baaa8600f5979c2cec50c6a4"
+  },
+  {
+    "path": "tree_small_02/textures/tree_small_02_arm_2k.jpg",
+    "source": "https://polyhaven.com/a/tree_small_02",
+    "download": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/2k/tree_small_02/tree_small_02_arm_2k.jpg",
+    "license": "CC0-1.0",
+    "sha256": "e96b4e84e9786b982d01562e0d249f6e58db1b656dd511db7c034d6ed60b1c92"
+  },
+  {
+    "path": "tree_small_02/tree_small_02.bin",
+    "source": "https://polyhaven.com/a/tree_small_02",
+    "download": "https://dl.polyhaven.org/file/ph-assets/Models/gltf/8k/tree_small_02/tree_small_02.bin",
+    "license": "CC0-1.0",
+    "sha256": "8da6c3c389ad8748286d1b7488cd827f75ebdad9d8f59ef7dfb0916df5edc634"
+  },
+  {
+    "path": "tree_small_02/textures/tree_small_02_leaves_alpha_2k.jpg",
+    "source": "https://polyhaven.com/a/tree_small_02",
+    "download": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/2k/tree_small_02/tree_small_02_leaves_alpha_2k.jpg",
+    "license": "CC0-1.0",
+    "sha256": "129fe4b106890f4113eb6cd090dabe4064a1c3a8fbe8c805e2f57639a5d69cdf"
+  },
+  {
+    "path": "plastic_crate_02/plastic_crate_02_2k.gltf",
+    "source": "https://polyhaven.com/a/plastic_crate_02",
+    "download": "https://dl.polyhaven.org/file/ph-assets/Models/gltf/2k/plastic_crate_02/plastic_crate_02_2k.gltf",
+    "license": "CC0-1.0",
+    "sha256": "08a7097a13c59aec70206d3e7ed6a0f924611814042c016534b4caef44f91b23"
+  },
+  {
+    "path": "plastic_crate_02/textures/plastic_crate_02_nor_gl_2k.jpg",
+    "source": "https://polyhaven.com/a/plastic_crate_02",
+    "download": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/2k/plastic_crate_02/plastic_crate_02_nor_gl_2k.jpg",
+    "license": "CC0-1.0",
+    "sha256": "6cec50295c73421eb6d170a5cc277d4cbf037715dfe098ab76206cd3e3df3da4"
+  },
+  {
+    "path": "plastic_crate_02/textures/plastic_crate_02_diff_2k.jpg",
+    "source": "https://polyhaven.com/a/plastic_crate_02",
+    "download": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/2k/plastic_crate_02/plastic_crate_02_diff_2k.jpg",
+    "license": "CC0-1.0",
+    "sha256": "b994b677d3d91c2e40d02e9a38a3bd4a593138dc8325e5a047bb5766a2094c98"
+  },
+  {
+    "path": "plastic_crate_02/textures/plastic_crate_02_arm_2k.jpg",
+    "source": "https://polyhaven.com/a/plastic_crate_02",
+    "download": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/2k/plastic_crate_02/plastic_crate_02_arm_2k.jpg",
+    "license": "CC0-1.0",
+    "sha256": "d245957a212217e1aaf0bb3130f3e0eee20332326c0661c864dd69e267b7b589"
+  },
+  {
+    "path": "plastic_crate_02/plastic_crate_02.bin",
+    "source": "https://polyhaven.com/a/plastic_crate_02",
+    "download": "https://dl.polyhaven.org/file/ph-assets/Models/gltf/4k/plastic_crate_02/plastic_crate_02.bin",
+    "license": "CC0-1.0",
+    "sha256": "f51696aa04643b5c1948da88be8ce1d4e92596ae4908b0132cd690f8fb8e0b63"
+  },
+  {
+    "path": "plastic_crate_02/textures/plastic_crate_02_alpha_2k.jpg",
+    "source": "https://polyhaven.com/a/plastic_crate_02",
+    "download": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/2k/plastic_crate_02/plastic_crate_02_alpha_2k.jpg",
+    "license": "CC0-1.0",
+    "sha256": "aea1c6e3e8bba6bb3c83641fe1233a9575ede88e653dff42968d399895fc5124"
+  },
+  {
+    "path": "plastic_crate_02/textures/plastic_crate_02_opacity_2k.jpg",
+    "source": "https://polyhaven.com/a/plastic_crate_02",
+    "download": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/2k/plastic_crate_02/plastic_crate_02_opacity_2k.jpg",
+    "license": "CC0-1.0",
+    "sha256": "6dbad279da9febd819772739688d04a2a8d882bf510a1d9e013f1a2ff8b69265"
+  },
+  {
+    "path": "exterior_aircon_unit/exterior_aircon_unit_2k.gltf",
+    "source": "https://polyhaven.com/a/exterior_aircon_unit",
+    "download": "https://dl.polyhaven.org/file/ph-assets/Models/gltf/2k/exterior_aircon_unit/exterior_aircon_unit_2k.gltf",
+    "license": "CC0-1.0",
+    "sha256": "3baf6dbbe3af4591b60013ebb40aa9441775b5bf7888ec820c6089c31e35acf6"
+  },
+  {
+    "path": "exterior_aircon_unit/textures/exterior_aircon_unit_rusted_01_diff_2k.jpg",
+    "source": "https://polyhaven.com/a/exterior_aircon_unit",
+    "download": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/2k/exterior_aircon_unit/exterior_aircon_unit_rusted_01_diff_2k.jpg",
+    "license": "CC0-1.0",
+    "sha256": "e459cf5f606567e7fe11ec486d57fe02b462b7546b324458a0039aa38ed6fc39"
+  },
+  {
+    "path": "exterior_aircon_unit/textures/exterior_aircon_unit_rusted_02_nor_gl_2k.jpg",
+    "source": "https://polyhaven.com/a/exterior_aircon_unit",
+    "download": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/2k/exterior_aircon_unit/exterior_aircon_unit_rusted_02_nor_gl_2k.jpg",
+    "license": "CC0-1.0",
+    "sha256": "d9bed2084f46db041ccbcff6000a88c5177041e2f418071812c899b0e60b37e2"
+  },
+  {
+    "path": "exterior_aircon_unit/textures/exterior_aircon_unit_01_arm_2k.jpg",
+    "source": "https://polyhaven.com/a/exterior_aircon_unit",
+    "download": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/2k/exterior_aircon_unit/exterior_aircon_unit_01_arm_2k.jpg",
+    "license": "CC0-1.0",
+    "sha256": "1a146357454fc143ed7e3b1443abc901d675d3dbef6b8c5afc9705d53be681a9"
+  },
+  {
+    "path": "exterior_aircon_unit/textures/exterior_aircon_unit_rusted_01_nor_gl_2k.jpg",
+    "source": "https://polyhaven.com/a/exterior_aircon_unit",
+    "download": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/2k/exterior_aircon_unit/exterior_aircon_unit_rusted_01_nor_gl_2k.jpg",
+    "license": "CC0-1.0",
+    "sha256": "3a2bae0c5e700e6fd96ea46644e967d739531771ea59330f87ecbff96c6defe5"
+  },
+  {
+    "path": "exterior_aircon_unit/textures/exterior_aircon_unit_rusted_01_arm_2k.jpg",
+    "source": "https://polyhaven.com/a/exterior_aircon_unit",
+    "download": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/2k/exterior_aircon_unit/exterior_aircon_unit_rusted_01_arm_2k.jpg",
+    "license": "CC0-1.0",
+    "sha256": "41763f49cc6f9dfe4ddcb1ef93a3c6340d1fba10c3f81af0c3d80bb00779b580"
+  },
+  {
+    "path": "exterior_aircon_unit/textures/exterior_aircon_unit_01_nor_gl_2k.jpg",
+    "source": "https://polyhaven.com/a/exterior_aircon_unit",
+    "download": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/2k/exterior_aircon_unit/exterior_aircon_unit_01_nor_gl_2k.jpg",
+    "license": "CC0-1.0",
+    "sha256": "f0d04099be28fe83a0c2dd9454c82838b3980520b244d25e912e5ffe56958837"
+  },
+  {
+    "path": "exterior_aircon_unit/exterior_aircon_unit.bin",
+    "source": "https://polyhaven.com/a/exterior_aircon_unit",
+    "download": "https://dl.polyhaven.org/file/ph-assets/Models/gltf/4k/exterior_aircon_unit/exterior_aircon_unit.bin",
+    "license": "CC0-1.0",
+    "sha256": "b4b9ad082bdaa8f8b437bc14d9981caeaf318334499d4bf65d616fb2ec0c5ca8"
+  },
+  {
+    "path": "exterior_aircon_unit/textures/exterior_aircon_unit_rusted_02_opacity_2k.jpg",
+    "source": "https://polyhaven.com/a/exterior_aircon_unit",
+    "download": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/2k/exterior_aircon_unit/exterior_aircon_unit_rusted_02_opacity_2k.jpg",
+    "license": "CC0-1.0",
+    "sha256": "24c395f621ba1f4b8251a02afef7a58038b82c78e6cadf758d059e3d93edd8db"
+  },
+  {
+    "path": "exterior_aircon_unit/textures/exterior_aircon_unit_01_diff_2k.jpg",
+    "source": "https://polyhaven.com/a/exterior_aircon_unit",
+    "download": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/2k/exterior_aircon_unit/exterior_aircon_unit_01_diff_2k.jpg",
+    "license": "CC0-1.0",
+    "sha256": "a346d5f9f6e5c130e051529811443b61af8dfd7f2391b4358931ecef29c403b8"
+  },
+  {
+    "path": "exterior_aircon_unit/textures/exterior_aircon_unit_02_nor_gl_2k.jpg",
+    "source": "https://polyhaven.com/a/exterior_aircon_unit",
+    "download": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/2k/exterior_aircon_unit/exterior_aircon_unit_02_nor_gl_2k.jpg",
+    "license": "CC0-1.0",
+    "sha256": "64276d1799429842b823881c557dbf0efffa784096dafd1f69be719866acc39a"
+  },
+  {
+    "path": "exterior_aircon_unit/textures/exterior_aircon_unit_02_arm_2k.jpg",
+    "source": "https://polyhaven.com/a/exterior_aircon_unit",
+    "download": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/2k/exterior_aircon_unit/exterior_aircon_unit_02_arm_2k.jpg",
+    "license": "CC0-1.0",
+    "sha256": "4817491a80bbe44a63d88d6191fe4771128b2e1bc9f772851ce61bcf1d673d49"
+  },
+  {
+    "path": "exterior_aircon_unit/textures/exterior_aircon_unit_rusted_02_arm_2k.jpg",
+    "source": "https://polyhaven.com/a/exterior_aircon_unit",
+    "download": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/2k/exterior_aircon_unit/exterior_aircon_unit_rusted_02_arm_2k.jpg",
+    "license": "CC0-1.0",
+    "sha256": "d4c48ab4b811eb514fa78caecd265c672142d326e23edf917da0e8cecb718747"
+  },
+  {
+    "path": "exterior_aircon_unit/textures/exterior_aircon_unit_01_opacity_2k.jpg",
+    "source": "https://polyhaven.com/a/exterior_aircon_unit",
+    "download": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/2k/exterior_aircon_unit/exterior_aircon_unit_01_opacity_2k.jpg",
+    "license": "CC0-1.0",
+    "sha256": "38247caa9353b1875ba983702e13417732381e25cf0d9ef2945baabb938bd184"
+  }
+]

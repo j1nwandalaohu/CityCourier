@@ -12,13 +12,16 @@ Windows + UE5.6，中国城市外卖员游戏。
 
 第二轮细化增加四面立面细节、窗帘和防盗网、树冠、三种摊位、街头杂物、实拍铺地与纯天空 HDR、50 骨骼骑手、手指动作、贴合鞋履和通勤头盔。所有改动继续保留在此美术 worktree。
 
-外部素材仅使用免费 CC0 人体、服装、皮肤、PBR 材质和环境光；中文字体为 SIL OFL。来源详见 [素材清单](docs/art/asset-manifest.csv)，原文件及授权记录在 `AssetsSource/CityCourier/External`。建筑、电动车、街景道具与动画由项目自行制作。
+第三轮增加有实际内部空间的面馆、便利店和烧腊店，细化衣服褶皱、衣领袖口与鞋袜贴合，并接入 Poly Haven 的完整 CC0 树木、做旧空调及周转箱模型。模型保留原始 UV 和独立法线、粗糙度、透明裁切贴图；资源下载记录包含 SHA-256 校验。
+
+外部素材仅使用免费 CC0 人体、服装、皮肤、PBR 材质、树木与街景道具、环境光；中文字体为 SIL OFL。来源详见 [素材清单](docs/art/asset-manifest.csv)，原文件及授权记录在 `AssetsSource/CityCourier/External`。建筑、电动车、其余街景道具与动画由项目自行制作。
 
 重建美术（先安装 Blender 4.5 LTS；已提交导入后的 UE 资源，普通预览不需要重建）：
 
 ```powershell
 python tools/art/fetch_sources.py
 python tools/art/fetch_human_pack.py
+python tools/art/fetch_reference_props.py
 python tools/art/verify_sources.py
 blender --background --factory-startup --python tools/art/build_courier_assets.py
 .\scripts\Build.ps1 -Target Editor
@@ -41,7 +44,7 @@ $env:CITYCOURIER_UE_ROOT = 'D:\sdk\UE_5.6'
 .\scripts\Test.ps1 -Filter CityCourier -Headless
 ```
 
-实际验证结果见 [验证记录](docs/testing/acceptance.md)。首次构建会生成缓存。本轮已改善材质、建筑细节与人体附件，但尚不能称为照片级最终效果；人物面部表情、布料褶皱、建筑重复度、街区生活密度仍是明显差距，未进行最终发行性能验收。
+实际验证结果见 [验证记录](docs/testing/acceptance.md)。首次构建会生成缓存。本轮已改善材质、店面空间、树木和服装，但尚不能称为照片级最终效果；人物面部表情、动态布料、建筑重复度、街区生活密度仍是明显差距，未进行最终发行性能验收。新增 [店面近景](docs/art/previews/shop.png)，完整对比见 [打磨记录](docs/art/polish-notes.md)。
 
 历史任务1打包入口为 `Artifacts\Windows\Development\CityCourier.exe`，不包含当前玩法和美术；本次没有重新生成发行包。
 

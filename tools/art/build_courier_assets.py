@@ -21,4 +21,6 @@ for m in bpy.data.materials:
     catalog.append(dict(name=m.name,color=list(p.inputs['Base Color'].default_value)[:3],roughness=p.inputs['Roughness'].default_value,metallic=p.inputs['Metallic'].default_value,emission=p.inputs['Emission Strength'].default_value,
         textures=[str(Path(n.image.filepath).name) for n in m.node_tree.nodes if n.type=='TEX_IMAGE' and n.image]))
 (SOURCE/'materials.json').write_text(json.dumps(catalog,indent=2),encoding='utf-8')
+import build_reference_props
+build_reference_props.build()
 print('CityCourier art source generation finished',flush=True)

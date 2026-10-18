@@ -38,6 +38,43 @@
       ]
     },
     {
+      "shot": "shop",
+      "rider_class": "BP_CourierCharacter_C",
+      "bike_class": "BP_Scooter_C",
+      "bones": {
+        "pelvis": [
+          801.5266315080225,
+          -11550.0,
+          100.11917881037219
+        ],
+        "hand_l": [
+          808.1316993333878,
+          -11571.052827184707,
+          100.68724490190475
+        ],
+        "hand_r": [
+          808.1316993333877,
+          -11528.947172815293,
+          100.68724490190475
+        ],
+        "foot_l": [
+          801.2990031458817,
+          -11562.77231826511,
+          12.75270489556344
+        ],
+        "foot_r": [
+          801.2990031458816,
+          -11537.22768173489,
+          12.752704895563447
+        ]
+      },
+      "bike": [
+        950.0,
+        -11550.0,
+        56.0
+      ]
+    },
+    {
       "shot": "rider",
       "rider_class": "BP_CourierCharacter_C",
       "bike_class": "BP_Scooter_C",
@@ -190,9 +227,9 @@
     "pelvis_anchor_error_cm": 0.4733684920180412,
     "hand_l_anchor_error_cm": 0.0440454301869804,
     "hand_r_anchor_error_cm": 0.044045430186866893,
-    "ride_distance_cm": 680.2440131494757,
+    "ride_distance_cm": 680.2454005922837,
     "dismounted": true,
-    "walk_distance_cm": 593.7911026174204,
+    "walk_distance_cm": 593.7887590572009,
     "walk_animation_speed": 420.0
   },
   "error": null

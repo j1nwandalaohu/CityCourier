@@ -5,7 +5,7 @@ from pathlib import Path
 
 root = Path(__file__).resolve().parents[2] / 'AssetsSource/CityCourier/External'
 count = 0
-for directory in [root, root / 'MakeHumanPack']:
+for directory in [root, root / 'MakeHumanPack', root / 'PolyHavenModels']:
     for record in json.loads((directory / 'sources.json').read_text(encoding='utf-8')):
         path = (directory / record['path']).resolve()
         if not path.is_relative_to(directory.resolve()):

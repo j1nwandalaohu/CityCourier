@@ -18,3 +18,6 @@ evening_environment,AssetsSource/CityCourier/External/PolyHaven/sunset_jhbcentra
 pavement_05,AssetsSource/CityCourier/External/PolyHaven,/Game/CityCourier/Art/Textures,Poly Haven,https://polyhaven.com/a/pavement_05,CC0-1.0,false
 evening_puresky,AssetsSource/CityCourier/External/PolyHaven/industrial_sunset_02_puresky_2k.hdr,/Game/CityCourier/Art/Textures/T_EveningPanorama,Poly Haven,https://polyhaven.com/a/industrial_sunset_02_puresky,CC0-1.0,false
 courier_shoes,AssetsSource/CityCourier/External/MakeHumanPack/clothes/shoes01,/Game/CityCourier/Art/Materials/M_WorkShoes,MakeHuman community,https://files.makehumancommunity.org/asset_packs/makehuman_system_assets/makehuman_system_assets_cc0.zip,CC0-1.0,false
+tree_small_02,AssetsSource/CityCourier/External/PolyHavenModels/tree_small_02,/Game/CityCourier/Art/ReferenceProps/SM_ReferenceTree,Poly Haven,https://polyhaven.com/a/tree_small_02,CC0-1.0,false
+plastic_crate_02,AssetsSource/CityCourier/External/PolyHavenModels/plastic_crate_02,/Game/CityCourier/Art/ReferenceProps/SM_ReferenceCrate,Poly Haven,https://polyhaven.com/a/plastic_crate_02,CC0-1.0,false
+exterior_aircon_unit,AssetsSource/CityCourier/External/PolyHavenModels/exterior_aircon_unit,/Game/CityCourier/Art/ReferenceProps,Poly Haven,https://polyhaven.com/a/exterior_aircon_unit,CC0-1.0,false
