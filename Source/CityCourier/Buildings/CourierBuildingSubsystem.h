@@ -40,6 +40,10 @@ public:
     TArray<AActor*> GetInteractionCandidates(FVector Position,double Radius=500) const;
     ADeliveryLocation* GetManagedLocation(FName LocationId) const;
     int32 GetReadyCount() const;
+    bool RegisterIndoorLocation(ADeliveryLocation* Location);
+    void UnregisterIndoorLocation(ADeliveryLocation* Location);
+    bool CanPrepareLocation(FName Id) const;
+    bool CanUseLocation(FName Id,FVector Position,FText& Reason) const;
 private:
     UPROPERTY() TObjectPtr<UCityBuildingCatalog> Catalog;
     UPROPERTY() TMap<int32,TObjectPtr<ACourierBuildingActor>> Actors;

@@ -27,6 +27,8 @@ bool UDeliverySubsystem::Configure(UCityDefinition* Definition,UProfileSubsystem
 void UDeliverySubsystem::RegisterLocation(ADeliveryLocation* Location)
 {
     if(!IsValid(Location) || Location->GetWorld()!=GetWorld() || Location->LocationKind==EDeliveryLocationKind::Station) return;
+    if(auto* S=GetWorld()->GetSubsystem<UCourierBuildingSubsystem>(); S && S->IsEnabled())
+        if(!S->RegisterIndoorLocation(Location)) return;
     if(City) Location->CityDefinition=City;
     const FName Id=Location->LocationId; const auto Kind=Location->LocationKind;
     Location->OnInteraction.BindWeakLambda(this,[this,Id,Kind](ACourierCharacter* Courier)
@@ -34,7 +36,11 @@ void UDeliverySubsystem::RegisterLocation(ADeliveryLocation* Location)
     Location->bActiveOrderTarget=Id==GetTargetId();
 }
 void UDeliverySubsystem::UnregisterLocation(ADeliveryLocation* Location)
-{ if(IsValid(Location) && Location->LocationKind!=EDeliveryLocationKind::Station) { Location->OnInteraction.Unbind(); Location->bActiveOrderTarget=false; } }
+{
+    if(!Location) return;
+    if(auto* S=GetWorld()->GetSubsystem<UCourierBuildingSubsystem>()) S->UnregisterIndoorLocation(Location);
+    if(Location->LocationKind!=EDeliveryLocationKind::Station) { Location->OnInteraction.Unbind(); Location->bActiveOrderTarget=false; }
+}
 double UDeliverySubsystem::ReadClock() const
 {
 #if WITH_DEV_AUTOMATION_TESTS
@@ -78,7 +84,7 @@ bool UDeliverySubsystem::RefreshOffers(FVector RiderLocation)
         else ToCustomer=City->FindRouteBetween(*Shop,*Customer);
         if (!ToCustomer.bReachable) continue;
         FDeliveryOffer Offer{FGuid::NewGuid(),Fee.MerchantId,Fee.DestinationId,Fee.FeeCents,
-            FDeliveryRules::CalculateDeadline(ToShop.LengthMeters+ToCustomer.LengthMeters)};
+            Buildings?FDeliveryRules::CalculateDeadline(ToShop,ToCustomer):FDeliveryRules::CalculateDeadline(ToShop.LengthMeters+ToCustomer.LengthMeters)};
         Offer.EstimateOrigin=RiderLocation; Offer.PickupRoute=ToShop; Offer.DeliveryRoute=ToCustomer;
         if(!AreRoutesClear(Offer)) continue;
         Candidates.Add(MoveTemp(Offer));
@@ -103,6 +109,8 @@ bool UDeliverySubsystem::TryAccept(FGuid InstanceId)
 { return TryAcceptWithFeedback(InstanceId).bSucceeded; }
 bool UDeliverySubsystem::AreRoutesClear(const FDeliveryOffer& Offer) const
 {
+    if(const auto* S=GetWorld()->GetSubsystem<UCourierBuildingSubsystem>(); S && S->IsEnabled())
+        if(!S->CanPrepareLocation(Offer.MerchantId) || !S->CanPrepareLocation(Offer.DestinationId)) return false;
     const auto* Navigation=GetWorld()->GetSubsystem<UDeliveryNavigationSubsystem>();
     return Navigation && Navigation->IsRouteClear(Offer.PickupRoute) && Navigation->IsRouteClear(Offer.DeliveryRoute);
 }
@@ -133,12 +141,16 @@ FCourierActionResult UDeliverySubsystem::TryAcceptWithFeedback(FGuid InstanceId)
 }
 ADeliveryLocation* UDeliverySubsystem::FindLocationActor(FName Id) const
 {
+    if(const auto* S=GetWorld()->GetSubsystem<UCourierBuildingSubsystem>(); S && S->IsEnabled())
+        return S->GetManagedLocation(Id);
     for (TActorIterator<ADeliveryLocation> It(GetWorld()); It; ++It) if (It->LocationId == Id) return *It;
     return nullptr;
 }
 bool UDeliverySubsystem::ValidateCourier(FName Id,ACourierCharacter* Courier) const
 {
     if (!IsValid(Courier) || Courier->GetWorld() != GetWorld() || Courier->IsMounted()) return false;
+    if(const auto* S=GetWorld()->GetSubsystem<UCourierBuildingSubsystem>(); S && S->IsEnabled())
+    { FText Reason; if(!S->CanUseLocation(Id,Courier->GetActorLocation(),Reason)) return false; }
     auto* Location = FindLocationActor(Id); FText Reason;
     return Location && Courier->CanReachInteraction(Location,Location->GetInteractionLocation(),Reason);
 }
@@ -188,8 +200,8 @@ void UDeliverySubsystem::FinishOnce(int64 PayoutCents)
     Finished.Add(State.Offer.InstanceId);
     LastSettlement = {State.Offer.InstanceId,State.Status == EDeliveryStatus::Completed,PayoutCents};
     const auto* Merchant=City->FindLocation(State.Offer.MerchantId); const auto* Destination=City->FindLocation(State.Offer.DestinationId);
-    LastSettlement.History=FOrderHistoryRules::MakeEntry(State,PayoutCents,Merchant?Merchant->DisplayName.ToString():State.Offer.MerchantId.ToString(),
-        Destination?Destination->DisplayName.ToString():State.Offer.DestinationId.ToString(),FDateTime::UtcNow());
+    LastSettlement.History=FOrderHistoryRules::MakeEntry(State,PayoutCents,GetLocationLabel(State.Offer.MerchantId).ToString(),
+        GetLocationLabel(State.Offer.DestinationId).ToString(),FDateTime::UtcNow());
     Profile->ApplySettlement(LastSettlement); UpdateTargets(); RefreshOffers(CurrentRiderLocation());
     OnDeliveryFinished.Broadcast(LastSettlement);
 }

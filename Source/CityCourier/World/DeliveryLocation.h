@@ -22,6 +22,9 @@ public:
     FOnLocationInteraction OnInteraction;
     bool bActiveOrderTarget = false;
     UPROPERTY(EditAnywhere, BlueprintReadWrite) FName LocationId;
+    UPROPERTY(VisibleAnywhere,BlueprintReadOnly) FName BuildingId;
+    UPROPERTY(VisibleAnywhere,BlueprintReadOnly) FName RoomId;
+    UPROPERTY(VisibleAnywhere,BlueprintReadOnly) FVector StreetAnchor=FVector::ZeroVector;
     UPROPERTY(EditAnywhere, BlueprintReadWrite) EDeliveryLocationKind LocationKind = EDeliveryLocationKind::Destination;
     UPROPERTY(EditAnywhere, BlueprintReadWrite) TObjectPtr<UCityDefinition> CityDefinition;
     UPROPERTY(VisibleAnywhere, BlueprintReadOnly) TObjectPtr<USceneComponent> InteractionPoint;

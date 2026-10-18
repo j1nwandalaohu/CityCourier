@@ -40,6 +40,7 @@ void ACourierGameMode::StartPlay()
         GetWorld()->GetSubsystem<UDeliveryNavigationSubsystem>()->Configure(GetWorld()->GetSubsystem<UDeliverySubsystem>());
         for(TActorIterator<ARiderStation> Station(GetWorld());Station;++Station)
         {
+            if(Station->LocationId!=City->Station.LocationId) continue;
             Station->Configure(GetGameInstance()->GetSubsystem<UProfileSubsystem>(),*It);
             if(auto* PC=Cast<ACourierController>(GetWorld()->GetFirstPlayerController()))
                 PC->GetRecovery()->Configure(City,*It,PC->GetCourier(),GetWorld()->GetSubsystem<UDeliverySubsystem>(),*Station);

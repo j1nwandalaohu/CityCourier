@@ -94,10 +94,10 @@ Consumes building spatial addresses and indoor paths. Produces composed room-to-
 
 Consumes complete route snapshots and room bindings. Produces room-aware pickup/delivery, honest timing and unchanged persistent progress format.
 
-- [ ] Write regressions for wrong floor／room／closed door, newly registered pickup actor, duplicate registration, missing target resource, exact expiry and unique settlement, old v1/v2 profiles and address history. Observe missing address gating／timing RED.
-- [ ] Extend existing locations with street anchor and room interaction address; keep existing LocationId and names' 64-unit validity. Implement complete deadline formula from spec with 120–300 bounds. Offers use a single snapshot; acceptance defensively checks reachability without excluding legitimately closed doors.
-- [ ] Add spatial membership to physical interaction checks; preserve station 12 m parking and vehicle safety, character controls, pause, existing income and damage rules. Reset building membership on recovery and use existing safe external destination.
-- [ ] Run focused and complete UE suites GREEN; commit.
+- [x] Write regressions for wrong floor／room／closed door, newly registered pickup actor, duplicate registration, missing target resource, exact expiry and unique settlement, old v1/v2 profiles and address history. Observe missing address gating／timing RED.
+- [x] Extend existing locations with street anchor and room interaction address; keep existing LocationId and names' 64-unit validity. Implement complete deadline formula from spec with 120–300 bounds. Offers use a single snapshot; acceptance defensively checks reachability without excluding legitimately closed doors.
+- [x] Add spatial membership to physical interaction checks; preserve station 12 m parking and vehicle safety, character controls, pause, existing income and damage rules. Reset building membership on recovery and use existing safe external destination.
+- [x] Run focused and complete UE suites GREEN; commit.
 
 ## Task 7: Whole-city physical coverage, real play and packages
 

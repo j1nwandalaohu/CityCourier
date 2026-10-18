@@ -31,6 +31,7 @@ bool ACourierBuildingActor::ConfigureBuilding(UCityBuildingCatalog* InCatalog,in
 bool ACourierBuildingActor::RebuildStructure()
 {
     const auto* B=GetDefinition(); if(!B) return false;
+    if(!FPackageName::DoesPackageExist(TEXT("/Game/CityCourier/Art/Buildings/SM_CourierDoor"))) return false;
     TArray<FString> Errors; if(!B->Validate(Errors)) return false;
     auto* Cube=LoadObject<UStaticMesh>(nullptr,TEXT("/Engine/BasicShapes/Cube.Cube"));
     const FString ExteriorName=B->Floors.Num()==1?TEXT("SM_EnterableAnnex"):FString::Printf(TEXT("SM_EnterableShopHouse%c"),TCHAR('A'+B->Variant));
@@ -151,6 +152,7 @@ bool ACourierBuildingActor::PrepareDetails()
 {
     if(!Details.IsEmpty()) return true;
     const auto* B=GetDefinition(); if(!B) return false;
+    if(!FPackageName::DoesPackageExist(TEXT("/Game/CityCourier/Art/Buildings/SM_CourierDoor"))) return false;
     TMap<FName,UStaticMesh*> Meshes;
     for(const FString Kind:{TEXT("Bed"),TEXT("Desk"),TEXT("Kitchen"),TEXT("Toilet"),TEXT("Shelf"),TEXT("Sofa"),TEXT("Counter")})
     {

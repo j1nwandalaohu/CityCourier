@@ -11,4 +11,5 @@ struct CITYCOURIER_API FDeliveryRules
     static bool Deliver(FDeliveryState& State, FName DestinationId, int64& OutPayoutCents);
     static bool Cancel(FDeliveryState& State, EDeliveryFailure Reason);
     static double CalculateDeadline(double RouteMeters);
+    static double CalculateDeadline(const FRouteResult& Pickup,const FRouteResult& Delivery);
 };

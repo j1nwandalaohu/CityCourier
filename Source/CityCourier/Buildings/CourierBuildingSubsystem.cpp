@@ -1,11 +1,13 @@
 #include "Buildings/CourierBuildingSubsystem.h"
 #include "Buildings/CourierBuildingActor.h"
 #include "World/DeliveryLocation.h"
+#include "World/RiderStation.h"
 #include "Buildings/CourierBuildingResidency.h"
 #include "Delivery/DeliverySubsystem.h"
 #include "Player/CourierInteractable.h"
 #include "EngineUtils.h"
 #include "GameFramework/PlayerController.h"
+#include "Misc/PackageName.h"
 
 bool UCourierBuildingSubsystem::Configure(UCityBuildingCatalog* Input)
 {
@@ -168,7 +170,8 @@ TArray<AActor*> UCourierBuildingSubsystem::GetInteractionCandidates(FVector P,do
         if(const auto* I=Cast<ICourierInteractable>(A)) if(FVector::DistSquared(P,I->GetInteractionLocation())<=Radius*Radius) Result.Add(A);
     return Result;
 }
-ADeliveryLocation* UCourierBuildingSubsystem::GetManagedLocation(FName Id) const { return Locations.FindRef(Id).Get(); }
+ADeliveryLocation* UCourierBuildingSubsystem::GetManagedLocation(FName Id) const
+{ auto* L=Locations.FindRef(Id).Get(); return IsValid(L)?L:nullptr; }
 int32 UCourierBuildingSubsystem::GetReadyCount() const
 { int32 N=0; for(auto S:DetailStates) N+=S==ECourierBuildingDetailState::Ready; return N; }
 void UCourierBuildingSubsystem::CacheActor(AActor* A)
@@ -183,13 +186,46 @@ void UCourierBuildingSubsystem::BindLocations()
         const auto& B=Catalog->Buildings[I]; const int32 R=B.FindRoom(Binding.RoomId); if(R==INDEX_NONE) continue;
         if(!Location)
         {
-            Location=GetWorld()->SpawnActor<ADeliveryLocation>(); Location->LocationId=Binding.LocationId;
-            Location->LocationKind=Binding.Role==TEXT("merchant")?EDeliveryLocationKind::Merchant:EDeliveryLocationKind::Destination;
+            Location=Binding.Role==TEXT("station")?GetWorld()->SpawnActor<ARiderStation>():GetWorld()->SpawnActor<ADeliveryLocation>(); Location->LocationId=Binding.LocationId;
+            Location->LocationKind=Binding.Role==TEXT("station")?EDeliveryLocationKind::Station:Binding.Role==TEXT("merchant")?EDeliveryLocationKind::Merchant:EDeliveryLocationKind::Destination;
         }
-        Location->SetActorLocation(B.ToWorld(B.Rooms[R].StandingPoint)); Locations.Add(Binding.LocationId,Location);
+        RegisterIndoorLocation(Location);
         if(auto* Delivery=GetWorld()->GetSubsystem<UDeliverySubsystem>())
         { if(Delivery->GetCity()) Location->CityDefinition=Delivery->GetCity(); Delivery->RegisterLocation(Location); }
     }
 }
 FIntVector UCourierBuildingSubsystem::Cell(FVector P)
 { return FIntVector(FMath::FloorToInt(P.X/1000),FMath::FloorToInt(P.Y/1000),FMath::FloorToInt(P.Z/1000)); }
+bool UCourierBuildingSubsystem::RegisterIndoorLocation(ADeliveryLocation* L)
+{
+    if(!bEnabled || !IsValid(L) || L->GetWorld()!=GetWorld()) return false;
+    const auto* Binding=Catalog->FindBinding(L->LocationId); if(!Binding) return false;
+    const int32 I=Catalog->FindBuilding(Binding->BuildingId); if(I==INDEX_NONE) return false;
+    const auto& B=Catalog->Buildings[I]; const int32 R=B.FindRoom(Binding->RoomId); if(R==INDEX_NONE) return false;
+    auto* Previous=Locations.FindRef(L->LocationId).Get();
+    if(IsValid(Previous) && Previous!=L) return false;
+    L->BuildingId=B.Id; L->RoomId=Binding->RoomId; L->StreetAnchor=B.ToWorld(B.Nodes[B.EntranceNode].Position);
+    L->SetActorLocation(B.ToWorld(B.Rooms[R].StandingPoint)); Locations.Add(L->LocationId,L); CacheActor(L); return true;
+}
+void UCourierBuildingSubsystem::UnregisterIndoorLocation(ADeliveryLocation* L)
+{ if(L && Locations.FindRef(L->LocationId)==L) Locations.Remove(L->LocationId); }
+bool UCourierBuildingSubsystem::CanPrepareLocation(FName Id) const
+{
+    if(!bEnabled || !IsValid(GetManagedLocation(Id))) return false;
+    const auto* Binding=Catalog->FindBinding(Id); if(!Binding) return false;
+    const int32 I=Catalog->FindBuilding(Binding->BuildingId);
+    if(I==INDEX_NONE || GetDetailState(I)==ECourierBuildingDetailState::Failed) return false;
+    for(const FString Asset:{TEXT("SM_CourierDoor"),TEXT("SM_InteriorBed"),TEXT("SM_InteriorDesk"),TEXT("SM_InteriorKitchen"),TEXT("SM_InteriorToilet"),TEXT("SM_InteriorShelf"),TEXT("SM_InteriorSofa"),TEXT("SM_InteriorCounter")})
+        if(!FPackageName::DoesPackageExist(TEXT("/Game/CityCourier/Art/Buildings/")+Asset)) return false;
+    return true;
+}
+bool UCourierBuildingSubsystem::CanUseLocation(FName Id,FVector P,FText& Reason) const
+{
+    if(!CanPrepareLocation(Id)) { Reason=FText::FromString(TEXT("室内资源暂不可用，请返回驿站")); return false; }
+    const auto* Binding=Catalog->FindBinding(Id); const int32 I=Catalog->FindBuilding(Binding->BuildingId);
+    if(GetDetailState(I)!=ECourierBuildingDetailState::Ready) { Reason=FText::FromString(TEXT("室内正在准备，请稍候")); return false; }
+    const auto A=Locate(P);
+    if(!A.IsValid() || A.Building!=I || Catalog->Buildings[I].Rooms[A.Room].Id!=Binding->RoomId)
+    { Reason=FText::FromString(TEXT("请进入目标楼层和房间后再操作")); return false; }
+    return true;
+}
