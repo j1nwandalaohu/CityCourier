@@ -1,8 +1,11 @@
 # 街头骑手：功能完善版设计
 
-日期：2026-10-18  
-状态：四项功能范围已获用户授权；本书面设计待审阅，尚未开始实现。  
-工作树：`D:/eleme/.worktrees/city-courier`，分支 `feat/city-courier`。  
+日期：2026-10-18
+
+状态：四项功能范围已获用户授权；本书面设计待审阅，尚未开始实现。
+
+工作树：`D:/eleme/.worktrees/city-courier`，分支 `feat/city-courier`。
+
 基线：`c749674`。
 
 ## 1. 目标与边界
