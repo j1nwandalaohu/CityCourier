@@ -1,0 +1,25 @@
+{
+  "base_main_commit": "c6e9323",
+  "art_branch_commit": "7490a2b",
+  "protected_packages_unchanged": 17,
+  "production_clips_retained": [
+    "A_Jog",
+    "A_Sprint",
+    "A_LightPunch_L",
+    "A_LightPunch_R",
+    "A_HeavyPunch_R"
+  ],
+  "ue_automation": {
+    "succeeded": 69,
+    "succeededWithWarnings": 0,
+    "failed": 0,
+    "notRun": 0,
+    "inProcess": 0
+  },
+  "ue_automation_report": "Saved/Validation/Automation-20261018-214159-09c1ec3f/Report/index.json",
+  "pipeline_self_tests_passed": 16,
+  "retained_free_source_hashes_verified": 116,
+  "editor_build": "Saved/Validation/Build-Editor-20261018-213653-d67a09e8/build.log",
+  "ue_import": "Saved/Validation/EditorScript-20261018-213933-f46a646d",
+  "ue_bones": 51
+}

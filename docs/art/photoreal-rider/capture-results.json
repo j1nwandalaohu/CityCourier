@@ -1,0 +1,3772 @@
+{
+  "run_id": "20261018T124906Z-256e094c",
+  "error": null,
+  "complete": true,
+  "phase": "both",
+  "shots": [
+    {
+      "name": "head-helmet-neutral",
+      "view": "head",
+      "helmet": true,
+      "lighting": "neutral",
+      "phase": "before",
+      "run_id": "20261018T124906Z-256e094c",
+      "sequence": "/Game/CityCourier/Art/Characters/A_Idle.A_Idle",
+      "sample_seconds": 0.7,
+      "animation_length_seconds": 2.0,
+      "camera": {
+        "position_cm": [
+          38.0,
+          -142.0,
+          163.0
+        ],
+        "target_cm": [
+          0.0,
+          0.0,
+          160.0
+        ],
+        "fov_degrees": 23.0
+      },
+      "sections": {
+        "forced_lod": 0,
+        "hidden_materials": [],
+        "slots": [
+          "M_Skin",
+          "M_WorkClothes",
+          "M_WorkShoes",
+          "M_Helmet",
+          "M_Rubber",
+          "M_ReflectiveStrip",
+          "M_EyeWhite",
+          "M_Iris",
+          "M_Pupil",
+          "M_Hair"
+        ]
+      },
+      "mesh": "/Game/CityCourier/Art/Portrait/Baseline/SK_CourierBefore.SK_CourierBefore",
+      "material_assets": [
+        "/Game/CityCourier/Art/Materials/M_Skin.M_Skin",
+        "/Game/CityCourier/Art/Materials/M_WorkClothes.M_WorkClothes",
+        "/Game/CityCourier/Art/Materials/M_WorkShoes.M_WorkShoes",
+        "/Game/CityCourier/Art/Materials/M_Helmet.M_Helmet",
+        "/Game/CityCourier/Art/Materials/M_Rubber.M_Rubber",
+        "/Game/CityCourier/Art/Materials/M_ReflectiveStrip.M_ReflectiveStrip",
+        "/Game/CityCourier/Art/Materials/M_EyeWhite.M_EyeWhite",
+        "/Game/CityCourier/Art/Materials/M_Iris.M_Iris",
+        "/Game/CityCourier/Art/Materials/M_Pupil.M_Pupil",
+        "/Game/CityCourier/Art/Materials/M_Hair.M_Hair"
+      ],
+      "skeleton": "/Game/CityCourier/Art/Characters/SK_Courier_Skeleton.SK_Courier_Skeleton",
+      "bone_count": 51,
+      "ue_bone_roster_matches_baseline": true,
+      "animation_instance": "AnimSingleNodeInstance",
+      "bones_world_cm": {
+        "head": [
+          1.3272196783997233e-14,
+          -4.426226132999279,
+          159.96002069172022
+        ],
+        "hand_l": [
+          -21.05282718470741,
+          -8.131699333387767,
+          94.53724429130058
+        ],
+        "hand_r": [
+          21.052827184707468,
+          -8.131699333387642,
+          94.53724429130054
+        ],
+        "foot_l": [
+          -12.772318265109991,
+          -1.2990031458816627,
+          6.602704284959316
+        ],
+        "foot_r": [
+          12.772318265110002,
+          -1.2990031458815565,
+          6.602704284959323
+        ]
+      },
+      "actor_rotation_pyr_degrees": [
+        0.0,
+        180.0,
+        0.0
+      ],
+      "pose_diagnostics": {
+        "head": {
+          "actual_component_cm": [
+            -1.381425315060522e-14,
+            4.426226132999275,
+            159.96002069172022
+          ],
+          "expected_component_cm": [
+            -1.3814251771632812e-14,
+            4.426215096496186,
+            159.96001025126918
+          ],
+          "ref_component_cm": [
+            0.0,
+            1.698308979081208,
+            159.97987407572495
+          ],
+          "error_cm": 1.5192347358381368e-05,
+          "distance_to_ref_cm": 2.7279893979810272
+        },
+        "hand_l": {
+          "actual_component_cm": [
+            21.052827184707397,
+            8.131699333387761,
+            94.53724429130058
+          ],
+          "expected_component_cm": [
+            21.052824922797186,
+            8.131681617078243,
+            94.53724176813083
+          ],
+          "ref_component_cm": [
+            45.55437212553855,
+            18.557815845671396,
+            112.19328838359755
+          ],
+          "error_cm": 1.8037467847668626e-05,
+          "distance_to_ref_cm": 31.949421012037394
+        },
+        "hand_r": {
+          "actual_component_cm": [
+            -21.052827184707454,
+            8.131699333387633,
+            94.53724429130054
+          ],
+          "expected_component_cm": [
+            -21.052824922797242,
+            8.131681617078115,
+            94.5372417681308
+          ],
+          "ref_component_cm": [
+            -45.55437212553855,
+            18.557815845671396,
+            112.19328838359755
+          ],
+          "error_cm": 1.803746784568074e-05,
+          "distance_to_ref_cm": 31.94942101203742
+        },
+        "foot_l": {
+          "actual_component_cm": [
+            12.772318265109984,
+            1.2990031458816633,
+            6.602704284959316
+          ],
+          "expected_component_cm": [
+            12.772318152516295,
+            1.2989935915920017,
+            6.602707709504259
+          ],
+          "ref_component_cm": [
+            23.20268724553037,
+            -0.09614458933528791,
+            7.604085704415411
+          ],
+          "error_cm": 1.0150105237992689e-05,
+          "distance_to_ref_cm": 10.570799355679243
+        },
+        "foot_r": {
+          "actual_component_cm": [
+            -12.772318265109995,
+            1.299003145881554,
+            6.602704284959323
+          ],
+          "expected_component_cm": [
+            -12.772318152516304,
+            1.2989935915918995,
+            6.602707709504266
+          ],
+          "ref_component_cm": [
+            -23.20268724553037,
+            -0.09614458933528791,
+            7.604085704415411
+          ],
+          "error_cm": 1.015010523132406e-05,
+          "distance_to_ref_cm": 10.570799355679217
+        }
+      },
+      "tick_diagnostics": {
+        "world_paused": false,
+        "component_tick_enabled": true,
+        "pause_anims": false,
+        "no_skeleton_update": false,
+        "visibility_option": "<VisibilityBasedAnimTickOption.ALWAYS_TICK_POSE_AND_REFRESH_BONES: 0>"
+      },
+      "rendered_pose_error_cm": 1.8037467847668626e-05,
+      "rendered_sample_seconds": 0.699999988079071,
+      "root_error_cm": 0.0,
+      "authored_root_offset_cm": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "rendered_root_offset_cm": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "file": "Saved\\Validation\\PhotorealRider\\before\\head-helmet-neutral.png",
+      "png_sha256": "46e130f07e0a0058c9c57a0460807008321727db3d2146f9e83f692e7404cbe9",
+      "screenshot_task_complete": true,
+      "png_bytes": 1221375,
+      "run_archive_file": "Saved\\Validation\\PhotorealRider\\runs\\20261018T124906Z-256e094c\\before\\head-helmet-neutral.png",
+      "published_path": "before/head-helmet-neutral.png"
+    },
+    {
+      "name": "head-helmet-neutral",
+      "view": "head",
+      "helmet": true,
+      "lighting": "neutral",
+      "phase": "after",
+      "run_id": "20261018T124906Z-256e094c",
+      "sequence": "/Game/CityCourier/Art/Characters/A_Idle.A_Idle",
+      "sample_seconds": 0.7,
+      "animation_length_seconds": 2.0,
+      "camera": {
+        "position_cm": [
+          38.0,
+          -142.0,
+          163.0
+        ],
+        "target_cm": [
+          0.0,
+          0.0,
+          160.0
+        ],
+        "fov_degrees": 23.0
+      },
+      "sections": {
+        "forced_lod": 0,
+        "hidden_materials": [],
+        "slots": [
+          "M_PortraitSkinHead",
+          "M_WorkClothes",
+          "M_WorkShoes",
+          "M_Helmet",
+          "M_Rubber",
+          "M_ReflectiveStrip",
+          "M_PortraitCornea",
+          "M_PortraitIris",
+          "M_PortraitPupil",
+          "M_PortraitHair",
+          "M_PortraitTearline",
+          "M_PortraitSclera",
+          "M_PortraitMouth",
+          "M_PortraitSkinBody"
+        ]
+      },
+      "mesh": "/Game/CityCourier/Art/Characters/SK_Courier.SK_Courier",
+      "material_assets": [
+        "/Game/CityCourier/Art/Materials/M_PortraitSkinHead.M_PortraitSkinHead",
+        "/Game/CityCourier/Art/Materials/M_WorkClothes.M_WorkClothes",
+        "/Game/CityCourier/Art/Materials/M_WorkShoes.M_WorkShoes",
+        "/Game/CityCourier/Art/Materials/M_Helmet.M_Helmet",
+        "/Game/CityCourier/Art/Materials/M_Rubber.M_Rubber",
+        "/Game/CityCourier/Art/Materials/M_ReflectiveStrip.M_ReflectiveStrip",
+        "/Game/CityCourier/Art/Materials/M_PortraitCornea.M_PortraitCornea",
+        "/Game/CityCourier/Art/Materials/M_PortraitIris.M_PortraitIris",
+        "/Game/CityCourier/Art/Materials/M_PortraitPupil.M_PortraitPupil",
+        "/Game/CityCourier/Art/Materials/M_PortraitHair.M_PortraitHair",
+        "/Game/CityCourier/Art/Materials/M_PortraitTearline.M_PortraitTearline",
+        "/Game/CityCourier/Art/Materials/M_PortraitSclera.M_PortraitSclera",
+        "/Game/CityCourier/Art/Materials/M_PortraitMouth.M_PortraitMouth",
+        "/Game/CityCourier/Art/Materials/M_PortraitSkinBody.M_PortraitSkinBody"
+      ],
+      "skeleton": "/Game/CityCourier/Art/Characters/SK_Courier_Skeleton.SK_Courier_Skeleton",
+      "bone_count": 51,
+      "ue_bone_roster_matches_baseline": true,
+      "animation_instance": "AnimSingleNodeInstance",
+      "bones_world_cm": {
+        "head": [
+          1.3272196783997233e-14,
+          -4.426226132999279,
+          159.96002069172022
+        ],
+        "hand_l": [
+          -21.05282718470741,
+          -8.131699333387767,
+          94.53724429130058
+        ],
+        "hand_r": [
+          21.052827184707468,
+          -8.131699333387642,
+          94.53724429130054
+        ],
+        "foot_l": [
+          -12.772318265109991,
+          -1.2990031458816627,
+          6.602704284959316
+        ],
+        "foot_r": [
+          12.772318265110002,
+          -1.2990031458815565,
+          6.602704284959323
+        ]
+      },
+      "actor_rotation_pyr_degrees": [
+        0.0,
+        180.0,
+        0.0
+      ],
+      "pose_diagnostics": {
+        "head": {
+          "actual_component_cm": [
+            -1.381425315060522e-14,
+            4.426226132999275,
+            159.96002069172022
+          ],
+          "expected_component_cm": [
+            -1.3814251771632812e-14,
+            4.426215096496186,
+            159.96001025126918
+          ],
+          "ref_component_cm": [
+            0.0,
+            1.698308979081208,
+            159.97987407572495
+          ],
+          "error_cm": 1.5192347358381368e-05,
+          "distance_to_ref_cm": 2.7279893979810272
+        },
+        "hand_l": {
+          "actual_component_cm": [
+            21.052827184707397,
+            8.131699333387761,
+            94.53724429130058
+          ],
+          "expected_component_cm": [
+            21.052824922797186,
+            8.131681617078243,
+            94.53724176813083
+          ],
+          "ref_component_cm": [
+            45.55437212553855,
+            18.557815845671396,
+            112.19328838359755
+          ],
+          "error_cm": 1.8037467847668626e-05,
+          "distance_to_ref_cm": 31.949421012037394
+        },
+        "hand_r": {
+          "actual_component_cm": [
+            -21.052827184707454,
+            8.131699333387633,
+            94.53724429130054
+          ],
+          "expected_component_cm": [
+            -21.052824922797242,
+            8.131681617078115,
+            94.5372417681308
+          ],
+          "ref_component_cm": [
+            -45.55437212553855,
+            18.557815845671396,
+            112.19328838359755
+          ],
+          "error_cm": 1.803746784568074e-05,
+          "distance_to_ref_cm": 31.94942101203742
+        },
+        "foot_l": {
+          "actual_component_cm": [
+            12.772318265109984,
+            1.2990031458816633,
+            6.602704284959316
+          ],
+          "expected_component_cm": [
+            12.772318152516295,
+            1.2989935915920017,
+            6.602707709504259
+          ],
+          "ref_component_cm": [
+            23.20268724553037,
+            -0.09614458933528791,
+            7.604085704415411
+          ],
+          "error_cm": 1.0150105237992689e-05,
+          "distance_to_ref_cm": 10.570799355679243
+        },
+        "foot_r": {
+          "actual_component_cm": [
+            -12.772318265109995,
+            1.299003145881554,
+            6.602704284959323
+          ],
+          "expected_component_cm": [
+            -12.772318152516304,
+            1.2989935915918995,
+            6.602707709504266
+          ],
+          "ref_component_cm": [
+            -23.20268724553037,
+            -0.09614458933528791,
+            7.604085704415411
+          ],
+          "error_cm": 1.015010523132406e-05,
+          "distance_to_ref_cm": 10.570799355679217
+        }
+      },
+      "tick_diagnostics": {
+        "world_paused": false,
+        "component_tick_enabled": true,
+        "pause_anims": false,
+        "no_skeleton_update": false,
+        "visibility_option": "<VisibilityBasedAnimTickOption.ALWAYS_TICK_POSE_AND_REFRESH_BONES: 0>"
+      },
+      "rendered_pose_error_cm": 1.8037467847668626e-05,
+      "rendered_sample_seconds": 0.699999988079071,
+      "root_error_cm": 0.0,
+      "authored_root_offset_cm": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "rendered_root_offset_cm": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "file": "Saved\\Validation\\PhotorealRider\\after\\head-helmet-neutral.png",
+      "png_sha256": "07fa3dff26f20104ac55e974c5ba1c567dba3391903fb2e816db23df09c65905",
+      "screenshot_task_complete": true,
+      "png_bytes": 1322133,
+      "run_archive_file": "Saved\\Validation\\PhotorealRider\\runs\\20261018T124906Z-256e094c\\after\\head-helmet-neutral.png",
+      "published_path": "after/head-helmet-neutral.png"
+    },
+    {
+      "name": "head-bare-neutral",
+      "view": "head",
+      "helmet": false,
+      "lighting": "neutral",
+      "phase": "before",
+      "run_id": "20261018T124906Z-256e094c",
+      "sequence": "/Game/CityCourier/Art/Characters/A_Idle.A_Idle",
+      "sample_seconds": 0.7,
+      "animation_length_seconds": 2.0,
+      "camera": {
+        "position_cm": [
+          38.0,
+          -142.0,
+          163.0
+        ],
+        "target_cm": [
+          0.0,
+          0.0,
+          160.0
+        ],
+        "fov_degrees": 23.0
+      },
+      "sections": {
+        "forced_lod": 0,
+        "hidden_materials": [
+          {
+            "material_id": 3,
+            "slot": "M_Helmet"
+          },
+          {
+            "material_id": 4,
+            "slot": "M_Rubber"
+          },
+          {
+            "material_id": 5,
+            "slot": "M_ReflectiveStrip"
+          }
+        ],
+        "slots": [
+          "M_Skin",
+          "M_WorkClothes",
+          "M_WorkShoes",
+          "M_Helmet",
+          "M_Rubber",
+          "M_ReflectiveStrip",
+          "M_EyeWhite",
+          "M_Iris",
+          "M_Pupil",
+          "M_Hair"
+        ]
+      },
+      "mesh": "/Game/CityCourier/Art/Portrait/Baseline/SK_CourierBefore.SK_CourierBefore",
+      "material_assets": [
+        "/Game/CityCourier/Art/Materials/M_Skin.M_Skin",
+        "/Game/CityCourier/Art/Materials/M_WorkClothes.M_WorkClothes",
+        "/Game/CityCourier/Art/Materials/M_WorkShoes.M_WorkShoes",
+        "/Game/CityCourier/Art/Materials/M_Helmet.M_Helmet",
+        "/Game/CityCourier/Art/Materials/M_Rubber.M_Rubber",
+        "/Game/CityCourier/Art/Materials/M_ReflectiveStrip.M_ReflectiveStrip",
+        "/Game/CityCourier/Art/Materials/M_EyeWhite.M_EyeWhite",
+        "/Game/CityCourier/Art/Materials/M_Iris.M_Iris",
+        "/Game/CityCourier/Art/Materials/M_Pupil.M_Pupil",
+        "/Game/CityCourier/Art/Materials/M_Hair.M_Hair"
+      ],
+      "skeleton": "/Game/CityCourier/Art/Characters/SK_Courier_Skeleton.SK_Courier_Skeleton",
+      "bone_count": 51,
+      "ue_bone_roster_matches_baseline": true,
+      "animation_instance": "AnimSingleNodeInstance",
+      "bones_world_cm": {
+        "head": [
+          1.3272196783997233e-14,
+          -4.426226132999279,
+          159.96002069172022
+        ],
+        "hand_l": [
+          -21.05282718470741,
+          -8.131699333387767,
+          94.53724429130058
+        ],
+        "hand_r": [
+          21.052827184707468,
+          -8.131699333387642,
+          94.53724429130054
+        ],
+        "foot_l": [
+          -12.772318265109991,
+          -1.2990031458816627,
+          6.602704284959316
+        ],
+        "foot_r": [
+          12.772318265110002,
+          -1.2990031458815565,
+          6.602704284959323
+        ]
+      },
+      "actor_rotation_pyr_degrees": [
+        0.0,
+        180.0,
+        0.0
+      ],
+      "pose_diagnostics": {
+        "head": {
+          "actual_component_cm": [
+            -1.381425315060522e-14,
+            4.426226132999275,
+            159.96002069172022
+          ],
+          "expected_component_cm": [
+            -1.3814251771632812e-14,
+            4.426215096496186,
+            159.96001025126918
+          ],
+          "ref_component_cm": [
+            0.0,
+            1.698308979081208,
+            159.97987407572495
+          ],
+          "error_cm": 1.5192347358381368e-05,
+          "distance_to_ref_cm": 2.7279893979810272
+        },
+        "hand_l": {
+          "actual_component_cm": [
+            21.052827184707397,
+            8.131699333387761,
+            94.53724429130058
+          ],
+          "expected_component_cm": [
+            21.052824922797186,
+            8.131681617078243,
+            94.53724176813083
+          ],
+          "ref_component_cm": [
+            45.55437212553855,
+            18.557815845671396,
+            112.19328838359755
+          ],
+          "error_cm": 1.8037467847668626e-05,
+          "distance_to_ref_cm": 31.949421012037394
+        },
+        "hand_r": {
+          "actual_component_cm": [
+            -21.052827184707454,
+            8.131699333387633,
+            94.53724429130054
+          ],
+          "expected_component_cm": [
+            -21.052824922797242,
+            8.131681617078115,
+            94.5372417681308
+          ],
+          "ref_component_cm": [
+            -45.55437212553855,
+            18.557815845671396,
+            112.19328838359755
+          ],
+          "error_cm": 1.803746784568074e-05,
+          "distance_to_ref_cm": 31.94942101203742
+        },
+        "foot_l": {
+          "actual_component_cm": [
+            12.772318265109984,
+            1.2990031458816633,
+            6.602704284959316
+          ],
+          "expected_component_cm": [
+            12.772318152516295,
+            1.2989935915920017,
+            6.602707709504259
+          ],
+          "ref_component_cm": [
+            23.20268724553037,
+            -0.09614458933528791,
+            7.604085704415411
+          ],
+          "error_cm": 1.0150105237992689e-05,
+          "distance_to_ref_cm": 10.570799355679243
+        },
+        "foot_r": {
+          "actual_component_cm": [
+            -12.772318265109995,
+            1.299003145881554,
+            6.602704284959323
+          ],
+          "expected_component_cm": [
+            -12.772318152516304,
+            1.2989935915918995,
+            6.602707709504266
+          ],
+          "ref_component_cm": [
+            -23.20268724553037,
+            -0.09614458933528791,
+            7.604085704415411
+          ],
+          "error_cm": 1.015010523132406e-05,
+          "distance_to_ref_cm": 10.570799355679217
+        }
+      },
+      "tick_diagnostics": {
+        "world_paused": false,
+        "component_tick_enabled": true,
+        "pause_anims": false,
+        "no_skeleton_update": false,
+        "visibility_option": "<VisibilityBasedAnimTickOption.ALWAYS_TICK_POSE_AND_REFRESH_BONES: 0>"
+      },
+      "rendered_pose_error_cm": 1.8037467847668626e-05,
+      "rendered_sample_seconds": 0.699999988079071,
+      "root_error_cm": 0.0,
+      "authored_root_offset_cm": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "rendered_root_offset_cm": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "file": "Saved\\Validation\\PhotorealRider\\before\\head-bare-neutral.png",
+      "png_sha256": "3298ea59a2f72e2a43eb96c863a0f41b65aa1cfbece8f83cfd76427cef989486",
+      "screenshot_task_complete": true,
+      "png_bytes": 1145428,
+      "run_archive_file": "Saved\\Validation\\PhotorealRider\\runs\\20261018T124906Z-256e094c\\before\\head-bare-neutral.png",
+      "published_path": "before/head-bare-neutral.png"
+    },
+    {
+      "name": "head-bare-neutral",
+      "view": "head",
+      "helmet": false,
+      "lighting": "neutral",
+      "phase": "after",
+      "run_id": "20261018T124906Z-256e094c",
+      "sequence": "/Game/CityCourier/Art/Characters/A_Idle.A_Idle",
+      "sample_seconds": 0.7,
+      "animation_length_seconds": 2.0,
+      "camera": {
+        "position_cm": [
+          38.0,
+          -142.0,
+          163.0
+        ],
+        "target_cm": [
+          0.0,
+          0.0,
+          160.0
+        ],
+        "fov_degrees": 23.0
+      },
+      "sections": {
+        "forced_lod": 0,
+        "hidden_materials": [
+          {
+            "material_id": 3,
+            "slot": "M_Helmet"
+          },
+          {
+            "material_id": 4,
+            "slot": "M_Rubber"
+          },
+          {
+            "material_id": 5,
+            "slot": "M_ReflectiveStrip"
+          }
+        ],
+        "slots": [
+          "M_PortraitSkinHead",
+          "M_WorkClothes",
+          "M_WorkShoes",
+          "M_Helmet",
+          "M_Rubber",
+          "M_ReflectiveStrip",
+          "M_PortraitCornea",
+          "M_PortraitIris",
+          "M_PortraitPupil",
+          "M_PortraitHair",
+          "M_PortraitTearline",
+          "M_PortraitSclera",
+          "M_PortraitMouth",
+          "M_PortraitSkinBody"
+        ]
+      },
+      "mesh": "/Game/CityCourier/Art/Characters/SK_Courier.SK_Courier",
+      "material_assets": [
+        "/Game/CityCourier/Art/Materials/M_PortraitSkinHead.M_PortraitSkinHead",
+        "/Game/CityCourier/Art/Materials/M_WorkClothes.M_WorkClothes",
+        "/Game/CityCourier/Art/Materials/M_WorkShoes.M_WorkShoes",
+        "/Game/CityCourier/Art/Materials/M_Helmet.M_Helmet",
+        "/Game/CityCourier/Art/Materials/M_Rubber.M_Rubber",
+        "/Game/CityCourier/Art/Materials/M_ReflectiveStrip.M_ReflectiveStrip",
+        "/Game/CityCourier/Art/Materials/M_PortraitCornea.M_PortraitCornea",
+        "/Game/CityCourier/Art/Materials/M_PortraitIris.M_PortraitIris",
+        "/Game/CityCourier/Art/Materials/M_PortraitPupil.M_PortraitPupil",
+        "/Game/CityCourier/Art/Materials/M_PortraitHair.M_PortraitHair",
+        "/Game/CityCourier/Art/Materials/M_PortraitTearline.M_PortraitTearline",
+        "/Game/CityCourier/Art/Materials/M_PortraitSclera.M_PortraitSclera",
+        "/Game/CityCourier/Art/Materials/M_PortraitMouth.M_PortraitMouth",
+        "/Game/CityCourier/Art/Materials/M_PortraitSkinBody.M_PortraitSkinBody"
+      ],
+      "skeleton": "/Game/CityCourier/Art/Characters/SK_Courier_Skeleton.SK_Courier_Skeleton",
+      "bone_count": 51,
+      "ue_bone_roster_matches_baseline": true,
+      "animation_instance": "AnimSingleNodeInstance",
+      "bones_world_cm": {
+        "head": [
+          1.3272196783997233e-14,
+          -4.426226132999279,
+          159.96002069172022
+        ],
+        "hand_l": [
+          -21.05282718470741,
+          -8.131699333387767,
+          94.53724429130058
+        ],
+        "hand_r": [
+          21.052827184707468,
+          -8.131699333387642,
+          94.53724429130054
+        ],
+        "foot_l": [
+          -12.772318265109991,
+          -1.2990031458816627,
+          6.602704284959316
+        ],
+        "foot_r": [
+          12.772318265110002,
+          -1.2990031458815565,
+          6.602704284959323
+        ]
+      },
+      "actor_rotation_pyr_degrees": [
+        0.0,
+        180.0,
+        0.0
+      ],
+      "pose_diagnostics": {
+        "head": {
+          "actual_component_cm": [
+            -1.381425315060522e-14,
+            4.426226132999275,
+            159.96002069172022
+          ],
+          "expected_component_cm": [
+            -1.3814251771632812e-14,
+            4.426215096496186,
+            159.96001025126918
+          ],
+          "ref_component_cm": [
+            0.0,
+            1.698308979081208,
+            159.97987407572495
+          ],
+          "error_cm": 1.5192347358381368e-05,
+          "distance_to_ref_cm": 2.7279893979810272
+        },
+        "hand_l": {
+          "actual_component_cm": [
+            21.052827184707397,
+            8.131699333387761,
+            94.53724429130058
+          ],
+          "expected_component_cm": [
+            21.052824922797186,
+            8.131681617078243,
+            94.53724176813083
+          ],
+          "ref_component_cm": [
+            45.55437212553855,
+            18.557815845671396,
+            112.19328838359755
+          ],
+          "error_cm": 1.8037467847668626e-05,
+          "distance_to_ref_cm": 31.949421012037394
+        },
+        "hand_r": {
+          "actual_component_cm": [
+            -21.052827184707454,
+            8.131699333387633,
+            94.53724429130054
+          ],
+          "expected_component_cm": [
+            -21.052824922797242,
+            8.131681617078115,
+            94.5372417681308
+          ],
+          "ref_component_cm": [
+            -45.55437212553855,
+            18.557815845671396,
+            112.19328838359755
+          ],
+          "error_cm": 1.803746784568074e-05,
+          "distance_to_ref_cm": 31.94942101203742
+        },
+        "foot_l": {
+          "actual_component_cm": [
+            12.772318265109984,
+            1.2990031458816633,
+            6.602704284959316
+          ],
+          "expected_component_cm": [
+            12.772318152516295,
+            1.2989935915920017,
+            6.602707709504259
+          ],
+          "ref_component_cm": [
+            23.20268724553037,
+            -0.09614458933528791,
+            7.604085704415411
+          ],
+          "error_cm": 1.0150105237992689e-05,
+          "distance_to_ref_cm": 10.570799355679243
+        },
+        "foot_r": {
+          "actual_component_cm": [
+            -12.772318265109995,
+            1.299003145881554,
+            6.602704284959323
+          ],
+          "expected_component_cm": [
+            -12.772318152516304,
+            1.2989935915918995,
+            6.602707709504266
+          ],
+          "ref_component_cm": [
+            -23.20268724553037,
+            -0.09614458933528791,
+            7.604085704415411
+          ],
+          "error_cm": 1.015010523132406e-05,
+          "distance_to_ref_cm": 10.570799355679217
+        }
+      },
+      "tick_diagnostics": {
+        "world_paused": false,
+        "component_tick_enabled": true,
+        "pause_anims": false,
+        "no_skeleton_update": false,
+        "visibility_option": "<VisibilityBasedAnimTickOption.ALWAYS_TICK_POSE_AND_REFRESH_BONES: 0>"
+      },
+      "rendered_pose_error_cm": 1.8037467847668626e-05,
+      "rendered_sample_seconds": 0.699999988079071,
+      "root_error_cm": 0.0,
+      "authored_root_offset_cm": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "rendered_root_offset_cm": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "file": "Saved\\Validation\\PhotorealRider\\after\\head-bare-neutral.png",
+      "png_sha256": "38fd004aa6f72264ecbf558ca4705406caaf91891d28788b243a1f945c99697f",
+      "screenshot_task_complete": true,
+      "png_bytes": 1224676,
+      "run_archive_file": "Saved\\Validation\\PhotorealRider\\runs\\20261018T124906Z-256e094c\\after\\head-bare-neutral.png",
+      "published_path": "after/head-bare-neutral.png"
+    },
+    {
+      "name": "head-bare-dusk",
+      "view": "head",
+      "helmet": false,
+      "lighting": "dusk",
+      "phase": "before",
+      "run_id": "20261018T124906Z-256e094c",
+      "sequence": "/Game/CityCourier/Art/Characters/A_Idle.A_Idle",
+      "sample_seconds": 0.7,
+      "animation_length_seconds": 2.0,
+      "camera": {
+        "position_cm": [
+          38.0,
+          -142.0,
+          163.0
+        ],
+        "target_cm": [
+          0.0,
+          0.0,
+          160.0
+        ],
+        "fov_degrees": 23.0
+      },
+      "sections": {
+        "forced_lod": 0,
+        "hidden_materials": [
+          {
+            "material_id": 3,
+            "slot": "M_Helmet"
+          },
+          {
+            "material_id": 4,
+            "slot": "M_Rubber"
+          },
+          {
+            "material_id": 5,
+            "slot": "M_ReflectiveStrip"
+          }
+        ],
+        "slots": [
+          "M_Skin",
+          "M_WorkClothes",
+          "M_WorkShoes",
+          "M_Helmet",
+          "M_Rubber",
+          "M_ReflectiveStrip",
+          "M_EyeWhite",
+          "M_Iris",
+          "M_Pupil",
+          "M_Hair"
+        ]
+      },
+      "mesh": "/Game/CityCourier/Art/Portrait/Baseline/SK_CourierBefore.SK_CourierBefore",
+      "material_assets": [
+        "/Game/CityCourier/Art/Materials/M_Skin.M_Skin",
+        "/Game/CityCourier/Art/Materials/M_WorkClothes.M_WorkClothes",
+        "/Game/CityCourier/Art/Materials/M_WorkShoes.M_WorkShoes",
+        "/Game/CityCourier/Art/Materials/M_Helmet.M_Helmet",
+        "/Game/CityCourier/Art/Materials/M_Rubber.M_Rubber",
+        "/Game/CityCourier/Art/Materials/M_ReflectiveStrip.M_ReflectiveStrip",
+        "/Game/CityCourier/Art/Materials/M_EyeWhite.M_EyeWhite",
+        "/Game/CityCourier/Art/Materials/M_Iris.M_Iris",
+        "/Game/CityCourier/Art/Materials/M_Pupil.M_Pupil",
+        "/Game/CityCourier/Art/Materials/M_Hair.M_Hair"
+      ],
+      "skeleton": "/Game/CityCourier/Art/Characters/SK_Courier_Skeleton.SK_Courier_Skeleton",
+      "bone_count": 51,
+      "ue_bone_roster_matches_baseline": true,
+      "animation_instance": "AnimSingleNodeInstance",
+      "bones_world_cm": {
+        "head": [
+          1.3272196783997233e-14,
+          -4.426226132999279,
+          159.96002069172022
+        ],
+        "hand_l": [
+          -21.05282718470741,
+          -8.131699333387767,
+          94.53724429130058
+        ],
+        "hand_r": [
+          21.052827184707468,
+          -8.131699333387642,
+          94.53724429130054
+        ],
+        "foot_l": [
+          -12.772318265109991,
+          -1.2990031458816627,
+          6.602704284959316
+        ],
+        "foot_r": [
+          12.772318265110002,
+          -1.2990031458815565,
+          6.602704284959323
+        ]
+      },
+      "actor_rotation_pyr_degrees": [
+        0.0,
+        180.0,
+        0.0
+      ],
+      "pose_diagnostics": {
+        "head": {
+          "actual_component_cm": [
+            -1.381425315060522e-14,
+            4.426226132999275,
+            159.96002069172022
+          ],
+          "expected_component_cm": [
+            -1.3814251771632812e-14,
+            4.426215096496186,
+            159.96001025126918
+          ],
+          "ref_component_cm": [
+            0.0,
+            1.698308979081208,
+            159.97987407572495
+          ],
+          "error_cm": 1.5192347358381368e-05,
+          "distance_to_ref_cm": 2.7279893979810272
+        },
+        "hand_l": {
+          "actual_component_cm": [
+            21.052827184707397,
+            8.131699333387761,
+            94.53724429130058
+          ],
+          "expected_component_cm": [
+            21.052824922797186,
+            8.131681617078243,
+            94.53724176813083
+          ],
+          "ref_component_cm": [
+            45.55437212553855,
+            18.557815845671396,
+            112.19328838359755
+          ],
+          "error_cm": 1.8037467847668626e-05,
+          "distance_to_ref_cm": 31.949421012037394
+        },
+        "hand_r": {
+          "actual_component_cm": [
+            -21.052827184707454,
+            8.131699333387633,
+            94.53724429130054
+          ],
+          "expected_component_cm": [
+            -21.052824922797242,
+            8.131681617078115,
+            94.5372417681308
+          ],
+          "ref_component_cm": [
+            -45.55437212553855,
+            18.557815845671396,
+            112.19328838359755
+          ],
+          "error_cm": 1.803746784568074e-05,
+          "distance_to_ref_cm": 31.94942101203742
+        },
+        "foot_l": {
+          "actual_component_cm": [
+            12.772318265109984,
+            1.2990031458816633,
+            6.602704284959316
+          ],
+          "expected_component_cm": [
+            12.772318152516295,
+            1.2989935915920017,
+            6.602707709504259
+          ],
+          "ref_component_cm": [
+            23.20268724553037,
+            -0.09614458933528791,
+            7.604085704415411
+          ],
+          "error_cm": 1.0150105237992689e-05,
+          "distance_to_ref_cm": 10.570799355679243
+        },
+        "foot_r": {
+          "actual_component_cm": [
+            -12.772318265109995,
+            1.299003145881554,
+            6.602704284959323
+          ],
+          "expected_component_cm": [
+            -12.772318152516304,
+            1.2989935915918995,
+            6.602707709504266
+          ],
+          "ref_component_cm": [
+            -23.20268724553037,
+            -0.09614458933528791,
+            7.604085704415411
+          ],
+          "error_cm": 1.015010523132406e-05,
+          "distance_to_ref_cm": 10.570799355679217
+        }
+      },
+      "tick_diagnostics": {
+        "world_paused": false,
+        "component_tick_enabled": true,
+        "pause_anims": false,
+        "no_skeleton_update": false,
+        "visibility_option": "<VisibilityBasedAnimTickOption.ALWAYS_TICK_POSE_AND_REFRESH_BONES: 0>"
+      },
+      "rendered_pose_error_cm": 1.8037467847668626e-05,
+      "rendered_sample_seconds": 0.699999988079071,
+      "root_error_cm": 0.0,
+      "authored_root_offset_cm": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "rendered_root_offset_cm": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "file": "Saved\\Validation\\PhotorealRider\\before\\head-bare-dusk.png",
+      "png_sha256": "d8584acb2351cd9f25cdbc08f693e3c1c4a56e7a573deaad820ba3aff36d9186",
+      "screenshot_task_complete": true,
+      "png_bytes": 1126209,
+      "run_archive_file": "Saved\\Validation\\PhotorealRider\\runs\\20261018T124906Z-256e094c\\before\\head-bare-dusk.png",
+      "published_path": "before/head-bare-dusk.png"
+    },
+    {
+      "name": "head-bare-dusk",
+      "view": "head",
+      "helmet": false,
+      "lighting": "dusk",
+      "phase": "after",
+      "run_id": "20261018T124906Z-256e094c",
+      "sequence": "/Game/CityCourier/Art/Characters/A_Idle.A_Idle",
+      "sample_seconds": 0.7,
+      "animation_length_seconds": 2.0,
+      "camera": {
+        "position_cm": [
+          38.0,
+          -142.0,
+          163.0
+        ],
+        "target_cm": [
+          0.0,
+          0.0,
+          160.0
+        ],
+        "fov_degrees": 23.0
+      },
+      "sections": {
+        "forced_lod": 0,
+        "hidden_materials": [
+          {
+            "material_id": 3,
+            "slot": "M_Helmet"
+          },
+          {
+            "material_id": 4,
+            "slot": "M_Rubber"
+          },
+          {
+            "material_id": 5,
+            "slot": "M_ReflectiveStrip"
+          }
+        ],
+        "slots": [
+          "M_PortraitSkinHead",
+          "M_WorkClothes",
+          "M_WorkShoes",
+          "M_Helmet",
+          "M_Rubber",
+          "M_ReflectiveStrip",
+          "M_PortraitCornea",
+          "M_PortraitIris",
+          "M_PortraitPupil",
+          "M_PortraitHair",
+          "M_PortraitTearline",
+          "M_PortraitSclera",
+          "M_PortraitMouth",
+          "M_PortraitSkinBody"
+        ]
+      },
+      "mesh": "/Game/CityCourier/Art/Characters/SK_Courier.SK_Courier",
+      "material_assets": [
+        "/Game/CityCourier/Art/Materials/M_PortraitSkinHead.M_PortraitSkinHead",
+        "/Game/CityCourier/Art/Materials/M_WorkClothes.M_WorkClothes",
+        "/Game/CityCourier/Art/Materials/M_WorkShoes.M_WorkShoes",
+        "/Game/CityCourier/Art/Materials/M_Helmet.M_Helmet",
+        "/Game/CityCourier/Art/Materials/M_Rubber.M_Rubber",
+        "/Game/CityCourier/Art/Materials/M_ReflectiveStrip.M_ReflectiveStrip",
+        "/Game/CityCourier/Art/Materials/M_PortraitCornea.M_PortraitCornea",
+        "/Game/CityCourier/Art/Materials/M_PortraitIris.M_PortraitIris",
+        "/Game/CityCourier/Art/Materials/M_PortraitPupil.M_PortraitPupil",
+        "/Game/CityCourier/Art/Materials/M_PortraitHair.M_PortraitHair",
+        "/Game/CityCourier/Art/Materials/M_PortraitTearline.M_PortraitTearline",
+        "/Game/CityCourier/Art/Materials/M_PortraitSclera.M_PortraitSclera",
+        "/Game/CityCourier/Art/Materials/M_PortraitMouth.M_PortraitMouth",
+        "/Game/CityCourier/Art/Materials/M_PortraitSkinBody.M_PortraitSkinBody"
+      ],
+      "skeleton": "/Game/CityCourier/Art/Characters/SK_Courier_Skeleton.SK_Courier_Skeleton",
+      "bone_count": 51,
+      "ue_bone_roster_matches_baseline": true,
+      "animation_instance": "AnimSingleNodeInstance",
+      "bones_world_cm": {
+        "head": [
+          1.3272196783997233e-14,
+          -4.426226132999279,
+          159.96002069172022
+        ],
+        "hand_l": [
+          -21.05282718470741,
+          -8.131699333387767,
+          94.53724429130058
+        ],
+        "hand_r": [
+          21.052827184707468,
+          -8.131699333387642,
+          94.53724429130054
+        ],
+        "foot_l": [
+          -12.772318265109991,
+          -1.2990031458816627,
+          6.602704284959316
+        ],
+        "foot_r": [
+          12.772318265110002,
+          -1.2990031458815565,
+          6.602704284959323
+        ]
+      },
+      "actor_rotation_pyr_degrees": [
+        0.0,
+        180.0,
+        0.0
+      ],
+      "pose_diagnostics": {
+        "head": {
+          "actual_component_cm": [
+            -1.381425315060522e-14,
+            4.426226132999275,
+            159.96002069172022
+          ],
+          "expected_component_cm": [
+            -1.3814251771632812e-14,
+            4.426215096496186,
+            159.96001025126918
+          ],
+          "ref_component_cm": [
+            0.0,
+            1.698308979081208,
+            159.97987407572495
+          ],
+          "error_cm": 1.5192347358381368e-05,
+          "distance_to_ref_cm": 2.7279893979810272
+        },
+        "hand_l": {
+          "actual_component_cm": [
+            21.052827184707397,
+            8.131699333387761,
+            94.53724429130058
+          ],
+          "expected_component_cm": [
+            21.052824922797186,
+            8.131681617078243,
+            94.53724176813083
+          ],
+          "ref_component_cm": [
+            45.55437212553855,
+            18.557815845671396,
+            112.19328838359755
+          ],
+          "error_cm": 1.8037467847668626e-05,
+          "distance_to_ref_cm": 31.949421012037394
+        },
+        "hand_r": {
+          "actual_component_cm": [
+            -21.052827184707454,
+            8.131699333387633,
+            94.53724429130054
+          ],
+          "expected_component_cm": [
+            -21.052824922797242,
+            8.131681617078115,
+            94.5372417681308
+          ],
+          "ref_component_cm": [
+            -45.55437212553855,
+            18.557815845671396,
+            112.19328838359755
+          ],
+          "error_cm": 1.803746784568074e-05,
+          "distance_to_ref_cm": 31.94942101203742
+        },
+        "foot_l": {
+          "actual_component_cm": [
+            12.772318265109984,
+            1.2990031458816633,
+            6.602704284959316
+          ],
+          "expected_component_cm": [
+            12.772318152516295,
+            1.2989935915920017,
+            6.602707709504259
+          ],
+          "ref_component_cm": [
+            23.20268724553037,
+            -0.09614458933528791,
+            7.604085704415411
+          ],
+          "error_cm": 1.0150105237992689e-05,
+          "distance_to_ref_cm": 10.570799355679243
+        },
+        "foot_r": {
+          "actual_component_cm": [
+            -12.772318265109995,
+            1.299003145881554,
+            6.602704284959323
+          ],
+          "expected_component_cm": [
+            -12.772318152516304,
+            1.2989935915918995,
+            6.602707709504266
+          ],
+          "ref_component_cm": [
+            -23.20268724553037,
+            -0.09614458933528791,
+            7.604085704415411
+          ],
+          "error_cm": 1.015010523132406e-05,
+          "distance_to_ref_cm": 10.570799355679217
+        }
+      },
+      "tick_diagnostics": {
+        "world_paused": false,
+        "component_tick_enabled": true,
+        "pause_anims": false,
+        "no_skeleton_update": false,
+        "visibility_option": "<VisibilityBasedAnimTickOption.ALWAYS_TICK_POSE_AND_REFRESH_BONES: 0>"
+      },
+      "rendered_pose_error_cm": 1.8037467847668626e-05,
+      "rendered_sample_seconds": 0.699999988079071,
+      "root_error_cm": 0.0,
+      "authored_root_offset_cm": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "rendered_root_offset_cm": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "file": "Saved\\Validation\\PhotorealRider\\after\\head-bare-dusk.png",
+      "png_sha256": "a3ab61b254751821524aac60726773dde8ecb8daf5ee51ead842db02afbc1002",
+      "screenshot_task_complete": true,
+      "png_bytes": 1213174,
+      "run_archive_file": "Saved\\Validation\\PhotorealRider\\runs\\20261018T124906Z-256e094c\\after\\head-bare-dusk.png",
+      "published_path": "after/head-bare-dusk.png"
+    },
+    {
+      "name": "profile-bare-neutral",
+      "view": "profile",
+      "helmet": false,
+      "lighting": "neutral",
+      "phase": "before",
+      "run_id": "20261018T124906Z-256e094c",
+      "sequence": "/Game/CityCourier/Art/Characters/A_Idle.A_Idle",
+      "sample_seconds": 0.7,
+      "animation_length_seconds": 2.0,
+      "camera": {
+        "position_cm": [
+          148.0,
+          -12.0,
+          163.0
+        ],
+        "target_cm": [
+          0.0,
+          0.0,
+          160.0
+        ],
+        "fov_degrees": 23.0
+      },
+      "sections": {
+        "forced_lod": 0,
+        "hidden_materials": [
+          {
+            "material_id": 3,
+            "slot": "M_Helmet"
+          },
+          {
+            "material_id": 4,
+            "slot": "M_Rubber"
+          },
+          {
+            "material_id": 5,
+            "slot": "M_ReflectiveStrip"
+          }
+        ],
+        "slots": [
+          "M_Skin",
+          "M_WorkClothes",
+          "M_WorkShoes",
+          "M_Helmet",
+          "M_Rubber",
+          "M_ReflectiveStrip",
+          "M_EyeWhite",
+          "M_Iris",
+          "M_Pupil",
+          "M_Hair"
+        ]
+      },
+      "mesh": "/Game/CityCourier/Art/Portrait/Baseline/SK_CourierBefore.SK_CourierBefore",
+      "material_assets": [
+        "/Game/CityCourier/Art/Materials/M_Skin.M_Skin",
+        "/Game/CityCourier/Art/Materials/M_WorkClothes.M_WorkClothes",
+        "/Game/CityCourier/Art/Materials/M_WorkShoes.M_WorkShoes",
+        "/Game/CityCourier/Art/Materials/M_Helmet.M_Helmet",
+        "/Game/CityCourier/Art/Materials/M_Rubber.M_Rubber",
+        "/Game/CityCourier/Art/Materials/M_ReflectiveStrip.M_ReflectiveStrip",
+        "/Game/CityCourier/Art/Materials/M_EyeWhite.M_EyeWhite",
+        "/Game/CityCourier/Art/Materials/M_Iris.M_Iris",
+        "/Game/CityCourier/Art/Materials/M_Pupil.M_Pupil",
+        "/Game/CityCourier/Art/Materials/M_Hair.M_Hair"
+      ],
+      "skeleton": "/Game/CityCourier/Art/Characters/SK_Courier_Skeleton.SK_Courier_Skeleton",
+      "bone_count": 51,
+      "ue_bone_roster_matches_baseline": true,
+      "animation_instance": "AnimSingleNodeInstance",
+      "bones_world_cm": {
+        "head": [
+          1.3272196783997233e-14,
+          -4.426226132999279,
+          159.96002069172022
+        ],
+        "hand_l": [
+          -21.05282718470741,
+          -8.131699333387767,
+          94.53724429130058
+        ],
+        "hand_r": [
+          21.052827184707468,
+          -8.131699333387642,
+          94.53724429130054
+        ],
+        "foot_l": [
+          -12.772318265109991,
+          -1.2990031458816627,
+          6.602704284959316
+        ],
+        "foot_r": [
+          12.772318265110002,
+          -1.2990031458815565,
+          6.602704284959323
+        ]
+      },
+      "actor_rotation_pyr_degrees": [
+        0.0,
+        180.0,
+        0.0
+      ],
+      "pose_diagnostics": {
+        "head": {
+          "actual_component_cm": [
+            -1.381425315060522e-14,
+            4.426226132999275,
+            159.96002069172022
+          ],
+          "expected_component_cm": [
+            -1.3814251771632812e-14,
+            4.426215096496186,
+            159.96001025126918
+          ],
+          "ref_component_cm": [
+            0.0,
+            1.698308979081208,
+            159.97987407572495
+          ],
+          "error_cm": 1.5192347358381368e-05,
+          "distance_to_ref_cm": 2.7279893979810272
+        },
+        "hand_l": {
+          "actual_component_cm": [
+            21.052827184707397,
+            8.131699333387761,
+            94.53724429130058
+          ],
+          "expected_component_cm": [
+            21.052824922797186,
+            8.131681617078243,
+            94.53724176813083
+          ],
+          "ref_component_cm": [
+            45.55437212553855,
+            18.557815845671396,
+            112.19328838359755
+          ],
+          "error_cm": 1.8037467847668626e-05,
+          "distance_to_ref_cm": 31.949421012037394
+        },
+        "hand_r": {
+          "actual_component_cm": [
+            -21.052827184707454,
+            8.131699333387633,
+            94.53724429130054
+          ],
+          "expected_component_cm": [
+            -21.052824922797242,
+            8.131681617078115,
+            94.5372417681308
+          ],
+          "ref_component_cm": [
+            -45.55437212553855,
+            18.557815845671396,
+            112.19328838359755
+          ],
+          "error_cm": 1.803746784568074e-05,
+          "distance_to_ref_cm": 31.94942101203742
+        },
+        "foot_l": {
+          "actual_component_cm": [
+            12.772318265109984,
+            1.2990031458816633,
+            6.602704284959316
+          ],
+          "expected_component_cm": [
+            12.772318152516295,
+            1.2989935915920017,
+            6.602707709504259
+          ],
+          "ref_component_cm": [
+            23.20268724553037,
+            -0.09614458933528791,
+            7.604085704415411
+          ],
+          "error_cm": 1.0150105237992689e-05,
+          "distance_to_ref_cm": 10.570799355679243
+        },
+        "foot_r": {
+          "actual_component_cm": [
+            -12.772318265109995,
+            1.299003145881554,
+            6.602704284959323
+          ],
+          "expected_component_cm": [
+            -12.772318152516304,
+            1.2989935915918995,
+            6.602707709504266
+          ],
+          "ref_component_cm": [
+            -23.20268724553037,
+            -0.09614458933528791,
+            7.604085704415411
+          ],
+          "error_cm": 1.015010523132406e-05,
+          "distance_to_ref_cm": 10.570799355679217
+        }
+      },
+      "tick_diagnostics": {
+        "world_paused": false,
+        "component_tick_enabled": true,
+        "pause_anims": false,
+        "no_skeleton_update": false,
+        "visibility_option": "<VisibilityBasedAnimTickOption.ALWAYS_TICK_POSE_AND_REFRESH_BONES: 0>"
+      },
+      "rendered_pose_error_cm": 1.8037467847668626e-05,
+      "rendered_sample_seconds": 0.699999988079071,
+      "root_error_cm": 0.0,
+      "authored_root_offset_cm": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "rendered_root_offset_cm": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "file": "Saved\\Validation\\PhotorealRider\\before\\profile-bare-neutral.png",
+      "png_sha256": "3a7d031b61312c42e03ee32d1b6876d5d08583d16c830e842660aa80ef913b18",
+      "screenshot_task_complete": true,
+      "png_bytes": 1066166,
+      "run_archive_file": "Saved\\Validation\\PhotorealRider\\runs\\20261018T124906Z-256e094c\\before\\profile-bare-neutral.png",
+      "published_path": "before/profile-bare-neutral.png"
+    },
+    {
+      "name": "profile-bare-neutral",
+      "view": "profile",
+      "helmet": false,
+      "lighting": "neutral",
+      "phase": "after",
+      "run_id": "20261018T124906Z-256e094c",
+      "sequence": "/Game/CityCourier/Art/Characters/A_Idle.A_Idle",
+      "sample_seconds": 0.7,
+      "animation_length_seconds": 2.0,
+      "camera": {
+        "position_cm": [
+          148.0,
+          -12.0,
+          163.0
+        ],
+        "target_cm": [
+          0.0,
+          0.0,
+          160.0
+        ],
+        "fov_degrees": 23.0
+      },
+      "sections": {
+        "forced_lod": 0,
+        "hidden_materials": [
+          {
+            "material_id": 3,
+            "slot": "M_Helmet"
+          },
+          {
+            "material_id": 4,
+            "slot": "M_Rubber"
+          },
+          {
+            "material_id": 5,
+            "slot": "M_ReflectiveStrip"
+          }
+        ],
+        "slots": [
+          "M_PortraitSkinHead",
+          "M_WorkClothes",
+          "M_WorkShoes",
+          "M_Helmet",
+          "M_Rubber",
+          "M_ReflectiveStrip",
+          "M_PortraitCornea",
+          "M_PortraitIris",
+          "M_PortraitPupil",
+          "M_PortraitHair",
+          "M_PortraitTearline",
+          "M_PortraitSclera",
+          "M_PortraitMouth",
+          "M_PortraitSkinBody"
+        ]
+      },
+      "mesh": "/Game/CityCourier/Art/Characters/SK_Courier.SK_Courier",
+      "material_assets": [
+        "/Game/CityCourier/Art/Materials/M_PortraitSkinHead.M_PortraitSkinHead",
+        "/Game/CityCourier/Art/Materials/M_WorkClothes.M_WorkClothes",
+        "/Game/CityCourier/Art/Materials/M_WorkShoes.M_WorkShoes",
+        "/Game/CityCourier/Art/Materials/M_Helmet.M_Helmet",
+        "/Game/CityCourier/Art/Materials/M_Rubber.M_Rubber",
+        "/Game/CityCourier/Art/Materials/M_ReflectiveStrip.M_ReflectiveStrip",
+        "/Game/CityCourier/Art/Materials/M_PortraitCornea.M_PortraitCornea",
+        "/Game/CityCourier/Art/Materials/M_PortraitIris.M_PortraitIris",
+        "/Game/CityCourier/Art/Materials/M_PortraitPupil.M_PortraitPupil",
+        "/Game/CityCourier/Art/Materials/M_PortraitHair.M_PortraitHair",
+        "/Game/CityCourier/Art/Materials/M_PortraitTearline.M_PortraitTearline",
+        "/Game/CityCourier/Art/Materials/M_PortraitSclera.M_PortraitSclera",
+        "/Game/CityCourier/Art/Materials/M_PortraitMouth.M_PortraitMouth",
+        "/Game/CityCourier/Art/Materials/M_PortraitSkinBody.M_PortraitSkinBody"
+      ],
+      "skeleton": "/Game/CityCourier/Art/Characters/SK_Courier_Skeleton.SK_Courier_Skeleton",
+      "bone_count": 51,
+      "ue_bone_roster_matches_baseline": true,
+      "animation_instance": "AnimSingleNodeInstance",
+      "bones_world_cm": {
+        "head": [
+          1.3272196783997233e-14,
+          -4.426226132999279,
+          159.96002069172022
+        ],
+        "hand_l": [
+          -21.05282718470741,
+          -8.131699333387767,
+          94.53724429130058
+        ],
+        "hand_r": [
+          21.052827184707468,
+          -8.131699333387642,
+          94.53724429130054
+        ],
+        "foot_l": [
+          -12.772318265109991,
+          -1.2990031458816627,
+          6.602704284959316
+        ],
+        "foot_r": [
+          12.772318265110002,
+          -1.2990031458815565,
+          6.602704284959323
+        ]
+      },
+      "actor_rotation_pyr_degrees": [
+        0.0,
+        180.0,
+        0.0
+      ],
+      "pose_diagnostics": {
+        "head": {
+          "actual_component_cm": [
+            -1.381425315060522e-14,
+            4.426226132999275,
+            159.96002069172022
+          ],
+          "expected_component_cm": [
+            -1.3814251771632812e-14,
+            4.426215096496186,
+            159.96001025126918
+          ],
+          "ref_component_cm": [
+            0.0,
+            1.698308979081208,
+            159.97987407572495
+          ],
+          "error_cm": 1.5192347358381368e-05,
+          "distance_to_ref_cm": 2.7279893979810272
+        },
+        "hand_l": {
+          "actual_component_cm": [
+            21.052827184707397,
+            8.131699333387761,
+            94.53724429130058
+          ],
+          "expected_component_cm": [
+            21.052824922797186,
+            8.131681617078243,
+            94.53724176813083
+          ],
+          "ref_component_cm": [
+            45.55437212553855,
+            18.557815845671396,
+            112.19328838359755
+          ],
+          "error_cm": 1.8037467847668626e-05,
+          "distance_to_ref_cm": 31.949421012037394
+        },
+        "hand_r": {
+          "actual_component_cm": [
+            -21.052827184707454,
+            8.131699333387633,
+            94.53724429130054
+          ],
+          "expected_component_cm": [
+            -21.052824922797242,
+            8.131681617078115,
+            94.5372417681308
+          ],
+          "ref_component_cm": [
+            -45.55437212553855,
+            18.557815845671396,
+            112.19328838359755
+          ],
+          "error_cm": 1.803746784568074e-05,
+          "distance_to_ref_cm": 31.94942101203742
+        },
+        "foot_l": {
+          "actual_component_cm": [
+            12.772318265109984,
+            1.2990031458816633,
+            6.602704284959316
+          ],
+          "expected_component_cm": [
+            12.772318152516295,
+            1.2989935915920017,
+            6.602707709504259
+          ],
+          "ref_component_cm": [
+            23.20268724553037,
+            -0.09614458933528791,
+            7.604085704415411
+          ],
+          "error_cm": 1.0150105237992689e-05,
+          "distance_to_ref_cm": 10.570799355679243
+        },
+        "foot_r": {
+          "actual_component_cm": [
+            -12.772318265109995,
+            1.299003145881554,
+            6.602704284959323
+          ],
+          "expected_component_cm": [
+            -12.772318152516304,
+            1.2989935915918995,
+            6.602707709504266
+          ],
+          "ref_component_cm": [
+            -23.20268724553037,
+            -0.09614458933528791,
+            7.604085704415411
+          ],
+          "error_cm": 1.015010523132406e-05,
+          "distance_to_ref_cm": 10.570799355679217
+        }
+      },
+      "tick_diagnostics": {
+        "world_paused": false,
+        "component_tick_enabled": true,
+        "pause_anims": false,
+        "no_skeleton_update": false,
+        "visibility_option": "<VisibilityBasedAnimTickOption.ALWAYS_TICK_POSE_AND_REFRESH_BONES: 0>"
+      },
+      "rendered_pose_error_cm": 1.8037467847668626e-05,
+      "rendered_sample_seconds": 0.699999988079071,
+      "root_error_cm": 0.0,
+      "authored_root_offset_cm": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "rendered_root_offset_cm": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "file": "Saved\\Validation\\PhotorealRider\\after\\profile-bare-neutral.png",
+      "png_sha256": "1dafa108bd42f0cd4d169520219dfe0e0bc0efb8f80403729efc38023ac5ec32",
+      "screenshot_task_complete": true,
+      "png_bytes": 1073687,
+      "run_archive_file": "Saved\\Validation\\PhotorealRider\\runs\\20261018T124906Z-256e094c\\after\\profile-bare-neutral.png",
+      "published_path": "after/profile-bare-neutral.png"
+    },
+    {
+      "name": "fullbody-run-sample",
+      "view": "body",
+      "helmet": true,
+      "lighting": "neutral",
+      "clip": "A_Run",
+      "sample": 0.19,
+      "phase": "before",
+      "run_id": "20261018T124906Z-256e094c",
+      "sequence": "/Game/CityCourier/Art/Characters/A_Run.A_Run",
+      "sample_seconds": 0.19,
+      "animation_length_seconds": 0.7333333492279053,
+      "camera": {
+        "position_cm": [
+          110.0,
+          -440.0,
+          145.0
+        ],
+        "target_cm": [
+          0.0,
+          0.0,
+          91.0
+        ],
+        "fov_degrees": 38.0
+      },
+      "sections": {
+        "forced_lod": 0,
+        "hidden_materials": [],
+        "slots": [
+          "M_Skin",
+          "M_WorkClothes",
+          "M_WorkShoes",
+          "M_Helmet",
+          "M_Rubber",
+          "M_ReflectiveStrip",
+          "M_EyeWhite",
+          "M_Iris",
+          "M_Pupil",
+          "M_Hair"
+        ]
+      },
+      "mesh": "/Game/CityCourier/Art/Portrait/Baseline/SK_CourierBefore.SK_CourierBefore",
+      "material_assets": [
+        "/Game/CityCourier/Art/Materials/M_Skin.M_Skin",
+        "/Game/CityCourier/Art/Materials/M_WorkClothes.M_WorkClothes",
+        "/Game/CityCourier/Art/Materials/M_WorkShoes.M_WorkShoes",
+        "/Game/CityCourier/Art/Materials/M_Helmet.M_Helmet",
+        "/Game/CityCourier/Art/Materials/M_Rubber.M_Rubber",
+        "/Game/CityCourier/Art/Materials/M_ReflectiveStrip.M_ReflectiveStrip",
+        "/Game/CityCourier/Art/Materials/M_EyeWhite.M_EyeWhite",
+        "/Game/CityCourier/Art/Materials/M_Iris.M_Iris",
+        "/Game/CityCourier/Art/Materials/M_Pupil.M_Pupil",
+        "/Game/CityCourier/Art/Materials/M_Hair.M_Hair"
+      ],
+      "skeleton": "/Game/CityCourier/Art/Characters/SK_Courier_Skeleton.SK_Courier_Skeleton",
+      "bone_count": 51,
+      "ue_bone_roster_matches_baseline": true,
+      "animation_instance": "AnimSingleNodeInstance",
+      "bones_world_cm": {
+        "head": [
+          1.796946934907609e-14,
+          -5.968578755169748,
+          162.22546665596968
+        ],
+        "hand_l": [
+          -20.7636725786567,
+          -29.50365173477608,
+          104.23933199555026
+        ],
+        "hand_r": [
+          20.76367600870132,
+          -9.912847583542154,
+          104.23933370697998
+        ],
+        "foot_l": [
+          -12.595354977754955,
+          22.769289227545112,
+          16.023652529168714
+        ],
+        "foot_r": [
+          12.598418211678155,
+          0.5487586969046754,
+          25.42185625653999
+        ]
+      },
+      "actor_rotation_pyr_degrees": [
+        0.0,
+        180.0,
+        0.0
+      ],
+      "pose_diagnostics": {
+        "head": {
+          "actual_component_cm": [
+            -1.870040943587383e-14,
+            5.9685787551697445,
+            162.22546665596968
+          ],
+          "expected_component_cm": [
+            -1.8700407596987603e-14,
+            5.968568074761924,
+            162.22545672456056
+          ],
+          "ref_component_cm": [
+            0.0,
+            1.698308979081208,
+            159.97987407572495
+          ],
+          "error_cm": 1.4584375146234572e-05,
+          "distance_to_ref_cm": 4.824716571678116
+        },
+        "hand_l": {
+          "actual_component_cm": [
+            20.76367257865668,
+            29.50365173477607,
+            104.23933199555026
+          ],
+          "expected_component_cm": [
+            20.763670670709836,
+            29.503642371418753,
+            104.23932389801394
+          ],
+          "ref_component_cm": [
+            45.55437212553855,
+            18.557815845671396,
+            112.19328838359755
+          ],
+          "error_cm": 1.2525287060034854e-05,
+          "distance_to_ref_cm": 28.242796064801006
+        },
+        "hand_r": {
+          "actual_component_cm": [
+            -20.763676008701307,
+            9.912847583542145,
+            104.23933370697998
+          ],
+          "expected_component_cm": [
+            -20.76367401942078,
+            9.912840515670982,
+            104.23932562080964
+          ],
+          "ref_component_cm": [
+            -45.55437212553855,
+            18.557815845671396,
+            112.19328838359755
+          ],
+          "error_cm": 1.0922371104838758e-05,
+          "distance_to_ref_cm": 27.433182192525127
+        },
+        "foot_l": {
+          "actual_component_cm": [
+            12.595354977754951,
+            -22.769289227545098,
+            16.023652529168714
+          ],
+          "expected_component_cm": [
+            12.595354897122784,
+            -22.769289213130612,
+            16.023647850893347
+          ],
+          "ref_component_cm": [
+            23.20268724553037,
+            -0.09614458933528791,
+            7.604085704415411
+          ],
+          "error_cm": 4.678992384503998e-06,
+          "distance_to_ref_cm": 26.409772644622638
+        },
+        "foot_r": {
+          "actual_component_cm": [
+            -12.598418211678148,
+            -0.5487586969046765,
+            25.42185625653999
+          ],
+          "expected_component_cm": [
+            -12.5984181356296,
+            -0.5487687117328939,
+            25.421859215195443
+          ],
+          "ref_component_cm": [
+            -23.20268724553037,
+            -0.09614458933528791,
+            7.604085704415411
+          ],
+          "error_cm": 1.0442998118382576e-05,
+          "distance_to_ref_cm": 20.739535402724087
+        }
+      },
+      "tick_diagnostics": {
+        "world_paused": false,
+        "component_tick_enabled": true,
+        "pause_anims": false,
+        "no_skeleton_update": false,
+        "visibility_option": "<VisibilityBasedAnimTickOption.ALWAYS_TICK_POSE_AND_REFRESH_BONES: 0>"
+      },
+      "rendered_pose_error_cm": 1.4584375146234572e-05,
+      "rendered_sample_seconds": 0.1899999976158142,
+      "root_error_cm": 0.0,
+      "authored_root_offset_cm": [
+        0.0,
+        0.0,
+        2.35139150172472
+      ],
+      "rendered_root_offset_cm": [
+        0.0,
+        0.0,
+        2.35139150172472
+      ],
+      "file": "Saved\\Validation\\PhotorealRider\\before\\fullbody-run-sample.png",
+      "png_sha256": "29203019e982a4f1c5dbd1540698110bd6afaef388f17f5c58e4d71cf8ecb7bf",
+      "screenshot_task_complete": true,
+      "png_bytes": 1318328,
+      "run_archive_file": "Saved\\Validation\\PhotorealRider\\runs\\20261018T124906Z-256e094c\\before\\fullbody-run-sample.png",
+      "published_path": "before/fullbody-run-sample.png"
+    },
+    {
+      "name": "fullbody-run-sample",
+      "view": "body",
+      "helmet": true,
+      "lighting": "neutral",
+      "clip": "A_Run",
+      "sample": 0.19,
+      "phase": "after",
+      "run_id": "20261018T124906Z-256e094c",
+      "sequence": "/Game/CityCourier/Art/Characters/A_Run.A_Run",
+      "sample_seconds": 0.19,
+      "animation_length_seconds": 0.7333333492279053,
+      "camera": {
+        "position_cm": [
+          110.0,
+          -440.0,
+          145.0
+        ],
+        "target_cm": [
+          0.0,
+          0.0,
+          91.0
+        ],
+        "fov_degrees": 38.0
+      },
+      "sections": {
+        "forced_lod": 0,
+        "hidden_materials": [],
+        "slots": [
+          "M_PortraitSkinHead",
+          "M_WorkClothes",
+          "M_WorkShoes",
+          "M_Helmet",
+          "M_Rubber",
+          "M_ReflectiveStrip",
+          "M_PortraitCornea",
+          "M_PortraitIris",
+          "M_PortraitPupil",
+          "M_PortraitHair",
+          "M_PortraitTearline",
+          "M_PortraitSclera",
+          "M_PortraitMouth",
+          "M_PortraitSkinBody"
+        ]
+      },
+      "mesh": "/Game/CityCourier/Art/Characters/SK_Courier.SK_Courier",
+      "material_assets": [
+        "/Game/CityCourier/Art/Materials/M_PortraitSkinHead.M_PortraitSkinHead",
+        "/Game/CityCourier/Art/Materials/M_WorkClothes.M_WorkClothes",
+        "/Game/CityCourier/Art/Materials/M_WorkShoes.M_WorkShoes",
+        "/Game/CityCourier/Art/Materials/M_Helmet.M_Helmet",
+        "/Game/CityCourier/Art/Materials/M_Rubber.M_Rubber",
+        "/Game/CityCourier/Art/Materials/M_ReflectiveStrip.M_ReflectiveStrip",
+        "/Game/CityCourier/Art/Materials/M_PortraitCornea.M_PortraitCornea",
+        "/Game/CityCourier/Art/Materials/M_PortraitIris.M_PortraitIris",
+        "/Game/CityCourier/Art/Materials/M_PortraitPupil.M_PortraitPupil",
+        "/Game/CityCourier/Art/Materials/M_PortraitHair.M_PortraitHair",
+        "/Game/CityCourier/Art/Materials/M_PortraitTearline.M_PortraitTearline",
+        "/Game/CityCourier/Art/Materials/M_PortraitSclera.M_PortraitSclera",
+        "/Game/CityCourier/Art/Materials/M_PortraitMouth.M_PortraitMouth",
+        "/Game/CityCourier/Art/Materials/M_PortraitSkinBody.M_PortraitSkinBody"
+      ],
+      "skeleton": "/Game/CityCourier/Art/Characters/SK_Courier_Skeleton.SK_Courier_Skeleton",
+      "bone_count": 51,
+      "ue_bone_roster_matches_baseline": true,
+      "animation_instance": "AnimSingleNodeInstance",
+      "bones_world_cm": {
+        "head": [
+          1.796946934907609e-14,
+          -5.968578755169748,
+          162.22546665596968
+        ],
+        "hand_l": [
+          -20.7636725786567,
+          -29.50365173477608,
+          104.23933199555026
+        ],
+        "hand_r": [
+          20.76367600870132,
+          -9.912847583542154,
+          104.23933370697998
+        ],
+        "foot_l": [
+          -12.595354977754955,
+          22.769289227545112,
+          16.023652529168714
+        ],
+        "foot_r": [
+          12.598418211678155,
+          0.5487586969046754,
+          25.42185625653999
+        ]
+      },
+      "actor_rotation_pyr_degrees": [
+        0.0,
+        180.0,
+        0.0
+      ],
+      "pose_diagnostics": {
+        "head": {
+          "actual_component_cm": [
+            -1.870040943587383e-14,
+            5.9685787551697445,
+            162.22546665596968
+          ],
+          "expected_component_cm": [
+            -1.8700407596987603e-14,
+            5.968568074761924,
+            162.22545672456056
+          ],
+          "ref_component_cm": [
+            0.0,
+            1.698308979081208,
+            159.97987407572495
+          ],
+          "error_cm": 1.4584375146234572e-05,
+          "distance_to_ref_cm": 4.824716571678116
+        },
+        "hand_l": {
+          "actual_component_cm": [
+            20.76367257865668,
+            29.50365173477607,
+            104.23933199555026
+          ],
+          "expected_component_cm": [
+            20.763670670709836,
+            29.503642371418753,
+            104.23932389801394
+          ],
+          "ref_component_cm": [
+            45.55437212553855,
+            18.557815845671396,
+            112.19328838359755
+          ],
+          "error_cm": 1.2525287060034854e-05,
+          "distance_to_ref_cm": 28.242796064801006
+        },
+        "hand_r": {
+          "actual_component_cm": [
+            -20.763676008701307,
+            9.912847583542145,
+            104.23933370697998
+          ],
+          "expected_component_cm": [
+            -20.76367401942078,
+            9.912840515670982,
+            104.23932562080964
+          ],
+          "ref_component_cm": [
+            -45.55437212553855,
+            18.557815845671396,
+            112.19328838359755
+          ],
+          "error_cm": 1.0922371104838758e-05,
+          "distance_to_ref_cm": 27.433182192525127
+        },
+        "foot_l": {
+          "actual_component_cm": [
+            12.595354977754951,
+            -22.769289227545098,
+            16.023652529168714
+          ],
+          "expected_component_cm": [
+            12.595354897122784,
+            -22.769289213130612,
+            16.023647850893347
+          ],
+          "ref_component_cm": [
+            23.20268724553037,
+            -0.09614458933528791,
+            7.604085704415411
+          ],
+          "error_cm": 4.678992384503998e-06,
+          "distance_to_ref_cm": 26.409772644622638
+        },
+        "foot_r": {
+          "actual_component_cm": [
+            -12.598418211678148,
+            -0.5487586969046765,
+            25.42185625653999
+          ],
+          "expected_component_cm": [
+            -12.5984181356296,
+            -0.5487687117328939,
+            25.421859215195443
+          ],
+          "ref_component_cm": [
+            -23.20268724553037,
+            -0.09614458933528791,
+            7.604085704415411
+          ],
+          "error_cm": 1.0442998118382576e-05,
+          "distance_to_ref_cm": 20.739535402724087
+        }
+      },
+      "tick_diagnostics": {
+        "world_paused": false,
+        "component_tick_enabled": true,
+        "pause_anims": false,
+        "no_skeleton_update": false,
+        "visibility_option": "<VisibilityBasedAnimTickOption.ALWAYS_TICK_POSE_AND_REFRESH_BONES: 0>"
+      },
+      "rendered_pose_error_cm": 1.4584375146234572e-05,
+      "rendered_sample_seconds": 0.1899999976158142,
+      "root_error_cm": 0.0,
+      "authored_root_offset_cm": [
+        0.0,
+        0.0,
+        2.35139150172472
+      ],
+      "rendered_root_offset_cm": [
+        0.0,
+        0.0,
+        2.35139150172472
+      ],
+      "file": "Saved\\Validation\\PhotorealRider\\after\\fullbody-run-sample.png",
+      "png_sha256": "0b9d3bfa76eac7387f8202b2e0a2238b8d331c74cdefa373c16e00ca7c13970e",
+      "screenshot_task_complete": true,
+      "png_bytes": 1334975,
+      "run_archive_file": "Saved\\Validation\\PhotorealRider\\runs\\20261018T124906Z-256e094c\\after\\fullbody-run-sample.png",
+      "published_path": "after/fullbody-run-sample.png"
+    },
+    {
+      "name": "fullbody-ride-sample",
+      "view": "ride",
+      "helmet": true,
+      "lighting": "neutral",
+      "clip": "A_Ride",
+      "sample": 0.4,
+      "phase": "before",
+      "run_id": "20261018T124906Z-256e094c",
+      "sequence": "/Game/CityCourier/Art/Characters/A_Ride.A_Ride",
+      "sample_seconds": 0.4,
+      "animation_length_seconds": 2.0,
+      "camera": {
+        "position_cm": [
+          220.0,
+          -360.0,
+          150.0
+        ],
+        "target_cm": [
+          0.0,
+          0.0,
+          99.0
+        ],
+        "fov_degrees": 42.0
+      },
+      "sections": {
+        "forced_lod": 0,
+        "hidden_materials": [],
+        "slots": [
+          "M_Skin",
+          "M_WorkClothes",
+          "M_WorkShoes",
+          "M_Helmet",
+          "M_Rubber",
+          "M_ReflectiveStrip",
+          "M_EyeWhite",
+          "M_Iris",
+          "M_Pupil",
+          "M_Hair"
+        ]
+      },
+      "mesh": "/Game/CityCourier/Art/Portrait/Baseline/SK_CourierBefore.SK_CourierBefore",
+      "material_assets": [
+        "/Game/CityCourier/Art/Materials/M_Skin.M_Skin",
+        "/Game/CityCourier/Art/Materials/M_WorkClothes.M_WorkClothes",
+        "/Game/CityCourier/Art/Materials/M_WorkShoes.M_WorkShoes",
+        "/Game/CityCourier/Art/Materials/M_Helmet.M_Helmet",
+        "/Game/CityCourier/Art/Materials/M_Rubber.M_Rubber",
+        "/Game/CityCourier/Art/Materials/M_ReflectiveStrip.M_ReflectiveStrip",
+        "/Game/CityCourier/Art/Materials/M_EyeWhite.M_EyeWhite",
+        "/Game/CityCourier/Art/Materials/M_Iris.M_Iris",
+        "/Game/CityCourier/Art/Materials/M_Pupil.M_Pupil",
+        "/Game/CityCourier/Art/Materials/M_Hair.M_Hair"
+      ],
+      "skeleton": "/Game/CityCourier/Art/Characters/SK_Courier_Skeleton.SK_Courier_Skeleton",
+      "bone_count": 51,
+      "ue_bone_roster_matches_baseline": true,
+      "animation_instance": "AnimSingleNodeInstance",
+      "bones_world_cm": {
+        "head": [
+          5.732898476621956e-14,
+          -18.892302250012506,
+          131.96040304276866
+        ],
+        "hand_l": [
+          -34.00001799209734,
+          -44.99998515219334,
+          87.99999690960045
+        ],
+        "hand_r": [
+          34.00001799209761,
+          -44.999985152193155,
+          87.99999690960045
+        ],
+        "foot_l": [
+          -20.00001827610649,
+          -13.000039224824937,
+          17.000029369875087
+        ],
+        "foot_r": [
+          20.00001827610658,
+          -13.000039224824826,
+          17.000029369875083
+        ]
+      },
+      "actor_rotation_pyr_degrees": [
+        0.0,
+        180.0,
+        0.0
+      ],
+      "pose_diagnostics": {
+        "head": {
+          "actual_component_cm": [
+            -5.964262451411973e-14,
+            18.89230225001249,
+            131.96040304276866
+          ],
+          "expected_component_cm": [
+            -5.964261802196539e-14,
+            18.892289969708024,
+            131.96039331651806
+          ],
+          "ref_component_cm": [
+            0.0,
+            1.698308979081208,
+            159.97987407572495
+          ],
+          "error_cm": 1.566543419354334e-05,
+          "distance_to_ref_cm": 32.87436937140402
+        },
+        "hand_l": {
+          "actual_component_cm": [
+            34.000017992097305,
+            44.99998515219332,
+            87.99999690960045
+          ],
+          "expected_component_cm": [
+            34.00001444682576,
+            44.99996484571477,
+            87.99999204227538
+          ],
+          "ref_component_cm": [
+            45.55437212553855,
+            18.557815845671396,
+            112.19328838359755
+          ],
+          "error_cm": 2.1180483344025757e-05,
+          "distance_to_ref_cm": 37.65643065163666
+        },
+        "hand_r": {
+          "actual_component_cm": [
+            -34.00001799209759,
+            44.99998515219312,
+            87.99999690960045
+          ],
+          "expected_component_cm": [
+            -34.000014446826036,
+            44.999964845714516,
+            87.9999920422754
+          ],
+          "ref_component_cm": [
+            -45.55437212553855,
+            18.557815845671396,
+            112.19328838359755
+          ],
+          "error_cm": 2.11804833964472e-05,
+          "distance_to_ref_cm": 37.656430651636434
+        },
+        "foot_l": {
+          "actual_component_cm": [
+            20.000018276106477,
+            13.000039224824931,
+            17.000029369875087
+          ],
+          "expected_component_cm": [
+            20.000017985073203,
+            13.00003134481728,
+            17.00002803159111
+          ],
+          "ref_component_cm": [
+            23.20268724553037,
+            -0.09614458933528791,
+            7.604085704415411
+          ],
+          "error_cm": 7.998138842535054e-06,
+          "distance_to_ref_cm": 16.433224771373226
+        },
+        "foot_r": {
+          "actual_component_cm": [
+            -20.000018276106566,
+            13.000039224824818,
+            17.000029369875083
+          ],
+          "expected_component_cm": [
+            -20.000017985073292,
+            13.000031344817167,
+            17.000028031591107
+          ],
+          "ref_component_cm": [
+            -23.20268724553037,
+            -0.09614458933528791,
+            7.604085704415411
+          ],
+          "error_cm": 7.998138842535054e-06,
+          "distance_to_ref_cm": 16.433224771373116
+        }
+      },
+      "tick_diagnostics": {
+        "world_paused": false,
+        "component_tick_enabled": true,
+        "pause_anims": false,
+        "no_skeleton_update": false,
+        "visibility_option": "<VisibilityBasedAnimTickOption.ALWAYS_TICK_POSE_AND_REFRESH_BONES: 0>"
+      },
+      "rendered_pose_error_cm": 2.11804833964472e-05,
+      "rendered_sample_seconds": 0.4000000059604645,
+      "root_error_cm": 0.0,
+      "authored_root_offset_cm": [
+        0.0,
+        0.0,
+        -24.969184398651123
+      ],
+      "rendered_root_offset_cm": [
+        0.0,
+        0.0,
+        -24.969184398651123
+      ],
+      "file": "Saved\\Validation\\PhotorealRider\\before\\fullbody-ride-sample.png",
+      "png_sha256": "ebfd3efc3aa0d99f02d39e8ab8259e18fc21bc0b0182b903216713f311ec22cc",
+      "screenshot_task_complete": true,
+      "png_bytes": 1242473,
+      "run_archive_file": "Saved\\Validation\\PhotorealRider\\runs\\20261018T124906Z-256e094c\\before\\fullbody-ride-sample.png",
+      "published_path": "before/fullbody-ride-sample.png"
+    },
+    {
+      "name": "fullbody-ride-sample",
+      "view": "ride",
+      "helmet": true,
+      "lighting": "neutral",
+      "clip": "A_Ride",
+      "sample": 0.4,
+      "phase": "after",
+      "run_id": "20261018T124906Z-256e094c",
+      "sequence": "/Game/CityCourier/Art/Characters/A_Ride.A_Ride",
+      "sample_seconds": 0.4,
+      "animation_length_seconds": 2.0,
+      "camera": {
+        "position_cm": [
+          220.0,
+          -360.0,
+          150.0
+        ],
+        "target_cm": [
+          0.0,
+          0.0,
+          99.0
+        ],
+        "fov_degrees": 42.0
+      },
+      "sections": {
+        "forced_lod": 0,
+        "hidden_materials": [],
+        "slots": [
+          "M_PortraitSkinHead",
+          "M_WorkClothes",
+          "M_WorkShoes",
+          "M_Helmet",
+          "M_Rubber",
+          "M_ReflectiveStrip",
+          "M_PortraitCornea",
+          "M_PortraitIris",
+          "M_PortraitPupil",
+          "M_PortraitHair",
+          "M_PortraitTearline",
+          "M_PortraitSclera",
+          "M_PortraitMouth",
+          "M_PortraitSkinBody"
+        ]
+      },
+      "mesh": "/Game/CityCourier/Art/Characters/SK_Courier.SK_Courier",
+      "material_assets": [
+        "/Game/CityCourier/Art/Materials/M_PortraitSkinHead.M_PortraitSkinHead",
+        "/Game/CityCourier/Art/Materials/M_WorkClothes.M_WorkClothes",
+        "/Game/CityCourier/Art/Materials/M_WorkShoes.M_WorkShoes",
+        "/Game/CityCourier/Art/Materials/M_Helmet.M_Helmet",
+        "/Game/CityCourier/Art/Materials/M_Rubber.M_Rubber",
+        "/Game/CityCourier/Art/Materials/M_ReflectiveStrip.M_ReflectiveStrip",
+        "/Game/CityCourier/Art/Materials/M_PortraitCornea.M_PortraitCornea",
+        "/Game/CityCourier/Art/Materials/M_PortraitIris.M_PortraitIris",
+        "/Game/CityCourier/Art/Materials/M_PortraitPupil.M_PortraitPupil",
+        "/Game/CityCourier/Art/Materials/M_PortraitHair.M_PortraitHair",
+        "/Game/CityCourier/Art/Materials/M_PortraitTearline.M_PortraitTearline",
+        "/Game/CityCourier/Art/Materials/M_PortraitSclera.M_PortraitSclera",
+        "/Game/CityCourier/Art/Materials/M_PortraitMouth.M_PortraitMouth",
+        "/Game/CityCourier/Art/Materials/M_PortraitSkinBody.M_PortraitSkinBody"
+      ],
+      "skeleton": "/Game/CityCourier/Art/Characters/SK_Courier_Skeleton.SK_Courier_Skeleton",
+      "bone_count": 51,
+      "ue_bone_roster_matches_baseline": true,
+      "animation_instance": "AnimSingleNodeInstance",
+      "bones_world_cm": {
+        "head": [
+          5.732898476621956e-14,
+          -18.892302250012506,
+          131.96040304276866
+        ],
+        "hand_l": [
+          -34.00001799209734,
+          -44.99998515219334,
+          87.99999690960045
+        ],
+        "hand_r": [
+          34.00001799209761,
+          -44.999985152193155,
+          87.99999690960045
+        ],
+        "foot_l": [
+          -20.00001827610649,
+          -13.000039224824937,
+          17.000029369875087
+        ],
+        "foot_r": [
+          20.00001827610658,
+          -13.000039224824826,
+          17.000029369875083
+        ]
+      },
+      "actor_rotation_pyr_degrees": [
+        0.0,
+        180.0,
+        0.0
+      ],
+      "pose_diagnostics": {
+        "head": {
+          "actual_component_cm": [
+            -5.964262451411973e-14,
+            18.89230225001249,
+            131.96040304276866
+          ],
+          "expected_component_cm": [
+            -5.964261802196539e-14,
+            18.892289969708024,
+            131.96039331651806
+          ],
+          "ref_component_cm": [
+            0.0,
+            1.698308979081208,
+            159.97987407572495
+          ],
+          "error_cm": 1.566543419354334e-05,
+          "distance_to_ref_cm": 32.87436937140402
+        },
+        "hand_l": {
+          "actual_component_cm": [
+            34.000017992097305,
+            44.99998515219332,
+            87.99999690960045
+          ],
+          "expected_component_cm": [
+            34.00001444682576,
+            44.99996484571477,
+            87.99999204227538
+          ],
+          "ref_component_cm": [
+            45.55437212553855,
+            18.557815845671396,
+            112.19328838359755
+          ],
+          "error_cm": 2.1180483344025757e-05,
+          "distance_to_ref_cm": 37.65643065163666
+        },
+        "hand_r": {
+          "actual_component_cm": [
+            -34.00001799209759,
+            44.99998515219312,
+            87.99999690960045
+          ],
+          "expected_component_cm": [
+            -34.000014446826036,
+            44.999964845714516,
+            87.9999920422754
+          ],
+          "ref_component_cm": [
+            -45.55437212553855,
+            18.557815845671396,
+            112.19328838359755
+          ],
+          "error_cm": 2.11804833964472e-05,
+          "distance_to_ref_cm": 37.656430651636434
+        },
+        "foot_l": {
+          "actual_component_cm": [
+            20.000018276106477,
+            13.000039224824931,
+            17.000029369875087
+          ],
+          "expected_component_cm": [
+            20.000017985073203,
+            13.00003134481728,
+            17.00002803159111
+          ],
+          "ref_component_cm": [
+            23.20268724553037,
+            -0.09614458933528791,
+            7.604085704415411
+          ],
+          "error_cm": 7.998138842535054e-06,
+          "distance_to_ref_cm": 16.433224771373226
+        },
+        "foot_r": {
+          "actual_component_cm": [
+            -20.000018276106566,
+            13.000039224824818,
+            17.000029369875083
+          ],
+          "expected_component_cm": [
+            -20.000017985073292,
+            13.000031344817167,
+            17.000028031591107
+          ],
+          "ref_component_cm": [
+            -23.20268724553037,
+            -0.09614458933528791,
+            7.604085704415411
+          ],
+          "error_cm": 7.998138842535054e-06,
+          "distance_to_ref_cm": 16.433224771373116
+        }
+      },
+      "tick_diagnostics": {
+        "world_paused": false,
+        "component_tick_enabled": true,
+        "pause_anims": false,
+        "no_skeleton_update": false,
+        "visibility_option": "<VisibilityBasedAnimTickOption.ALWAYS_TICK_POSE_AND_REFRESH_BONES: 0>"
+      },
+      "rendered_pose_error_cm": 2.11804833964472e-05,
+      "rendered_sample_seconds": 0.4000000059604645,
+      "root_error_cm": 0.0,
+      "authored_root_offset_cm": [
+        0.0,
+        0.0,
+        -24.969184398651123
+      ],
+      "rendered_root_offset_cm": [
+        0.0,
+        0.0,
+        -24.969184398651123
+      ],
+      "file": "Saved\\Validation\\PhotorealRider\\after\\fullbody-ride-sample.png",
+      "png_sha256": "eeb5d9a677f93775b1ba8d6a0d38f06885d06c9fb2198a0617b6cfd4f403422b",
+      "screenshot_task_complete": true,
+      "png_bytes": 1246830,
+      "run_archive_file": "Saved\\Validation\\PhotorealRider\\runs\\20261018T124906Z-256e094c\\after\\fullbody-ride-sample.png",
+      "published_path": "after/fullbody-ride-sample.png"
+    },
+    {
+      "name": "native-gameplay-run",
+      "view": "body",
+      "helmet": true,
+      "lighting": "neutral",
+      "native": "run",
+      "phase": "before",
+      "run_id": "20261018T124906Z-256e094c",
+      "native_input": "Enhanced Input forced IA_Sprint + force AddMovementInput",
+      "sections": {
+        "forced_lod": 0,
+        "hidden_materials": [],
+        "slots": [
+          "M_Skin",
+          "M_WorkClothes",
+          "M_WorkShoes",
+          "M_Helmet",
+          "M_Rubber",
+          "M_ReflectiveStrip",
+          "M_EyeWhite",
+          "M_Iris",
+          "M_Pupil",
+          "M_Hair"
+        ]
+      },
+      "mesh": "/Game/CityCourier/Art/Portrait/Baseline/SK_CourierBefore.SK_CourierBefore",
+      "material_assets": [
+        "/Game/CityCourier/Art/Materials/M_Skin.M_Skin",
+        "/Game/CityCourier/Art/Materials/M_WorkClothes.M_WorkClothes",
+        "/Game/CityCourier/Art/Materials/M_WorkShoes.M_WorkShoes",
+        "/Game/CityCourier/Art/Materials/M_Helmet.M_Helmet",
+        "/Game/CityCourier/Art/Materials/M_Rubber.M_Rubber",
+        "/Game/CityCourier/Art/Materials/M_ReflectiveStrip.M_ReflectiveStrip",
+        "/Game/CityCourier/Art/Materials/M_EyeWhite.M_EyeWhite",
+        "/Game/CityCourier/Art/Materials/M_Iris.M_Iris",
+        "/Game/CityCourier/Art/Materials/M_Pupil.M_Pupil",
+        "/Game/CityCourier/Art/Materials/M_Hair.M_Hair"
+      ],
+      "skeleton": "/Game/CityCourier/Art/Characters/SK_Courier_Skeleton.SK_Courier_Skeleton",
+      "bone_count": 51,
+      "ue_bone_roster_matches_baseline": true,
+      "native_distance_cm": 801.8311502543265,
+      "native_pose_motion_cm": 11.450888701108708,
+      "native_travel_end_actor_cm": [
+        0.0,
+        -801.8311502543265,
+        90.0
+      ],
+      "camera": {
+        "position_cm": [
+          110.0,
+          -440.0,
+          145.0
+        ],
+        "target_cm": [
+          0.0,
+          0.0,
+          91.0
+        ],
+        "fov_degrees": 38.0
+      },
+      "animation_instance": "ABP_Courier_C",
+      "bones_world_cm": {
+        "head": [
+          2.002570014752945e-14,
+          -5.968578755169736,
+          160.33309555280215
+        ],
+        "hand_l": [
+          -21.016609990015123,
+          -23.717965135366946,
+          100.61623026776381
+        ],
+        "hand_r": [
+          21.018294158981465,
+          -15.698371576197422,
+          100.61701319279969
+        ],
+        "foot_l": [
+          -12.75178987276639,
+          9.210497554322766,
+          8.322471752964631
+        ],
+        "foot_r": [
+          12.772681529456971,
+          0.3680539349191458,
+          10.187808383383398
+        ]
+      },
+      "actor_rotation_pyr_degrees": [
+        0.0,
+        -90.00000000000001,
+        0.0
+      ],
+      "native_ground_speed_cm_s": 700.0,
+      "native_animation_index": 2,
+      "native_b_riding": false,
+      "native_clip": "/Game/CityCourier/Art/Characters/A_Run.A_Run",
+      "file": "Saved\\Validation\\PhotorealRider\\before\\native-gameplay-run.png",
+      "png_sha256": "aaa76f05c4c660f50a039f3e4bb9cad568b3cc6e3efee01ac97c42660ff7f418",
+      "screenshot_task_complete": true,
+      "png_bytes": 1320567,
+      "run_archive_file": "Saved\\Validation\\PhotorealRider\\runs\\20261018T124906Z-256e094c\\before\\native-gameplay-run.png",
+      "published_path": "before/native-gameplay-run.png"
+    },
+    {
+      "name": "native-gameplay-run",
+      "view": "body",
+      "helmet": true,
+      "lighting": "neutral",
+      "native": "run",
+      "phase": "after",
+      "run_id": "20261018T124906Z-256e094c",
+      "native_input": "Enhanced Input forced IA_Sprint + force AddMovementInput",
+      "sections": {
+        "forced_lod": 0,
+        "hidden_materials": [],
+        "slots": [
+          "M_PortraitSkinHead",
+          "M_WorkClothes",
+          "M_WorkShoes",
+          "M_Helmet",
+          "M_Rubber",
+          "M_ReflectiveStrip",
+          "M_PortraitCornea",
+          "M_PortraitIris",
+          "M_PortraitPupil",
+          "M_PortraitHair",
+          "M_PortraitTearline",
+          "M_PortraitSclera",
+          "M_PortraitMouth",
+          "M_PortraitSkinBody"
+        ]
+      },
+      "mesh": "/Game/CityCourier/Art/Characters/SK_Courier.SK_Courier",
+      "material_assets": [
+        "/Game/CityCourier/Art/Materials/M_PortraitSkinHead.M_PortraitSkinHead",
+        "/Game/CityCourier/Art/Materials/M_WorkClothes.M_WorkClothes",
+        "/Game/CityCourier/Art/Materials/M_WorkShoes.M_WorkShoes",
+        "/Game/CityCourier/Art/Materials/M_Helmet.M_Helmet",
+        "/Game/CityCourier/Art/Materials/M_Rubber.M_Rubber",
+        "/Game/CityCourier/Art/Materials/M_ReflectiveStrip.M_ReflectiveStrip",
+        "/Game/CityCourier/Art/Materials/M_PortraitCornea.M_PortraitCornea",
+        "/Game/CityCourier/Art/Materials/M_PortraitIris.M_PortraitIris",
+        "/Game/CityCourier/Art/Materials/M_PortraitPupil.M_PortraitPupil",
+        "/Game/CityCourier/Art/Materials/M_PortraitHair.M_PortraitHair",
+        "/Game/CityCourier/Art/Materials/M_PortraitTearline.M_PortraitTearline",
+        "/Game/CityCourier/Art/Materials/M_PortraitSclera.M_PortraitSclera",
+        "/Game/CityCourier/Art/Materials/M_PortraitMouth.M_PortraitMouth",
+        "/Game/CityCourier/Art/Materials/M_PortraitSkinBody.M_PortraitSkinBody"
+      ],
+      "skeleton": "/Game/CityCourier/Art/Characters/SK_Courier_Skeleton.SK_Courier_Skeleton",
+      "bone_count": 51,
+      "ue_bone_roster_matches_baseline": true,
+      "native_distance_cm": 825.1723519899994,
+      "native_pose_motion_cm": 14.127878410954267,
+      "native_travel_end_actor_cm": [
+        0.0,
+        -825.1723519899994,
+        90.0
+      ],
+      "camera": {
+        "position_cm": [
+          110.0,
+          -440.0,
+          145.0
+        ],
+        "target_cm": [
+          0.0,
+          0.0,
+          91.0
+        ],
+        "fov_degrees": 38.0
+      },
+      "animation_instance": "ABP_Courier_C",
+      "bones_world_cm": {
+        "head": [
+          2.002570014752945e-14,
+          -5.968578755169736,
+          159.99706712684787
+        ],
+        "hand_l": [
+          -21.061098590079652,
+          -20.820268618523965,
+          99.97302768380128
+        ],
+        "hand_r": [
+          21.06201020880853,
+          -18.598915695283445,
+          99.97342368851895
+        ],
+        "foot_l": [
+          -12.784950967523017,
+          1.6677721657199283,
+          6.822792083449173
+        ],
+        "foot_r": [
+          12.809039062076728,
+          -0.7733863078433714,
+          6.9742196816707605
+        ]
+      },
+      "actor_rotation_pyr_degrees": [
+        0.0,
+        -90.00000000000001,
+        0.0
+      ],
+      "native_ground_speed_cm_s": 700.0,
+      "native_animation_index": 2,
+      "native_b_riding": false,
+      "native_clip": "/Game/CityCourier/Art/Characters/A_Run.A_Run",
+      "file": "Saved\\Validation\\PhotorealRider\\after\\native-gameplay-run.png",
+      "png_sha256": "b9a48ef86cb75afcceb478065bc250e4ad4dba0d83387971e3f63ecaed129aad",
+      "screenshot_task_complete": true,
+      "png_bytes": 1347925,
+      "run_archive_file": "Saved\\Validation\\PhotorealRider\\runs\\20261018T124906Z-256e094c\\after\\native-gameplay-run.png",
+      "published_path": "after/native-gameplay-run.png"
+    },
+    {
+      "name": "native-gameplay-ride",
+      "view": "ride",
+      "helmet": true,
+      "lighting": "neutral",
+      "native": "ride",
+      "phase": "before",
+      "run_id": "20261018T124906Z-256e094c",
+      "sections": {
+        "forced_lod": 0,
+        "hidden_materials": [],
+        "slots": [
+          "M_Skin",
+          "M_WorkClothes",
+          "M_WorkShoes",
+          "M_Helmet",
+          "M_Rubber",
+          "M_ReflectiveStrip",
+          "M_EyeWhite",
+          "M_Iris",
+          "M_Pupil",
+          "M_Hair"
+        ]
+      },
+      "mesh": "/Game/CityCourier/Art/Portrait/Baseline/SK_CourierBefore.SK_CourierBefore",
+      "material_assets": [
+        "/Game/CityCourier/Art/Materials/M_Skin.M_Skin",
+        "/Game/CityCourier/Art/Materials/M_WorkClothes.M_WorkClothes",
+        "/Game/CityCourier/Art/Materials/M_WorkShoes.M_WorkShoes",
+        "/Game/CityCourier/Art/Materials/M_Helmet.M_Helmet",
+        "/Game/CityCourier/Art/Materials/M_Rubber.M_Rubber",
+        "/Game/CityCourier/Art/Materials/M_ReflectiveStrip.M_ReflectiveStrip",
+        "/Game/CityCourier/Art/Materials/M_EyeWhite.M_EyeWhite",
+        "/Game/CityCourier/Art/Materials/M_Iris.M_Iris",
+        "/Game/CityCourier/Art/Materials/M_Pupil.M_Pupil",
+        "/Game/CityCourier/Art/Materials/M_Hair.M_Hair"
+      ],
+      "skeleton": "/Game/CityCourier/Art/Characters/SK_Courier_Skeleton.SK_Courier_Skeleton",
+      "bone_count": 51,
+      "ue_bone_roster_matches_baseline": true,
+      "native_distance_cm": 0.0,
+      "native_travel_end_actor_cm": [
+        -1.7763568394002505e-15,
+        -6.000000000000006,
+        88.0
+      ],
+      "camera": {
+        "position_cm": [
+          220.0,
+          -360.0,
+          150.0
+        ],
+        "target_cm": [
+          0.0,
+          0.0,
+          99.0
+        ],
+        "fov_degrees": 42.0
+      },
+      "animation_instance": "ABP_Courier_C",
+      "bones_world_cm": {
+        "head": [
+          6.02848446245477e-14,
+          -38.89230225001256,
+          151.9604030427687
+        ],
+        "hand_l": [
+          -34.00001799209738,
+          -64.99998515219345,
+          107.99999690960047
+        ],
+        "hand_r": [
+          34.00001799209767,
+          -64.99998515219323,
+          107.99999690960047
+        ],
+        "foot_l": [
+          -20.00001827610652,
+          -33.00003922482498,
+          37.00002936987509
+        ],
+        "foot_r": [
+          20.00001827610661,
+          -33.00003922482486,
+          37.00002936987508
+        ]
+      },
+      "actor_rotation_pyr_degrees": [
+        0.0,
+        -90.00000000000001,
+        0.0
+      ],
+      "native_ground_speed_cm_s": 0.0,
+      "native_animation_index": 3,
+      "native_b_riding": true,
+      "native_clip": "/Game/CityCourier/Art/Characters/A_Ride.A_Ride",
+      "native_ride_clip_static_error_cm": 0.0,
+      "native_ride_baseline_compressed_pose_error_cm": 2.1180483545795832e-05,
+      "native_mount_component_relative_location_cm": [
+        14.000000000000009,
+        0.0,
+        -68.0
+      ],
+      "native_mount_actor_relative_location_cm": [
+        6.0000000000000036,
+        0.0,
+        36.0
+      ],
+      "native_mount_chain": "ScooterPawn: actor relative = RiderSeat+(0,0,9); CourierArtCharacter.Tick: mesh relative = (14,0,-32-actorRelativeZ). Existing art/gameplay offsets are measured, not corrected.",
+      "native_bones_in_scooter_space_cm": {
+        "root": [
+          20.00000000000002,
+          0.0,
+          -56.96918439865112
+        ],
+        "pelvis": [
+          21.526631508022575,
+          3.552713678800501e-15,
+          36.99999380111694
+        ],
+        "head": [
+          38.89230225001257,
+          5.684341886080802e-14,
+          99.96040304276869
+        ],
+        "hand_l": [
+          64.99998515219346,
+          -34.0000179920974,
+          55.99999690960047
+        ],
+        "hand_r": [
+          64.99998515219323,
+          34.000017992097696,
+          55.99999690960047
+        ],
+        "foot_l": [
+          33.00003922482499,
+          -20.000018276106523,
+          -14.999970630124913
+        ],
+        "foot_r": [
+          33.00003922482487,
+          20.000018276106612,
+          -14.99997063012492
+        ]
+      },
+      "native_ride_baseline_world_error_cm": 2.118048347497114e-05,
+      "native_anchor_error_cm": {
+        "pelvis": 15.526631508023803,
+        "hand_l": 15.999985152203854,
+        "hand_r": 15.999985152203626,
+        "foot_l": 17.08805453045008,
+        "foot_r": 17.08805453044996
+      },
+      "native_anchor_residuals": {
+        "pelvis": {
+          "anchor": "RiderSeat",
+          "reference_offset_z_cm": 10.0,
+          "anchor_world_cm": [
+            -8.881784197001252e-16,
+            -6.000000000000002,
+            89.0
+          ],
+          "bone_world_cm": [
+            1.4356601469047513e-15,
+            -21.526631508022568,
+            88.99999380111694
+          ],
+          "actual_offset_cm": [
+            2.3238385666048765e-15,
+            -15.526631508022566,
+            -6.198883056640625e-06
+          ],
+          "baseline_offset_cm": [
+            2.3238376723193756e-15,
+            -15.526628239340615,
+            -9.363056278743898e-06
+          ],
+          "baseline_delta_cm": 4.549315759047636e-06,
+          "legacy_absolute_tolerance_cm": 10.0,
+          "meets_legacy_absolute_tolerance": false
+        },
+        "hand_l": {
+          "anchor": "LeftGrip",
+          "reference_offset_z_cm": 0.0,
+          "anchor_world_cm": [
+            -34.00000000000002,
+            -49.00000000000001,
+            108.0
+          ],
+          "bone_world_cm": [
+            -34.00001799209738,
+            -64.99998515219345,
+            107.99999690960047
+          ],
+          "actual_offset_cm": [
+            -1.799209736219609e-05,
+            -15.999985152193439,
+            -3.090399530947252e-06
+          ],
+          "baseline_offset_cm": [
+            -1.4446825765901394e-05,
+            -15.999964845714821,
+            -7.957724619700457e-06
+          ],
+          "baseline_delta_cm": 2.118048342373903e-05,
+          "legacy_absolute_tolerance_cm": 12.0,
+          "meets_legacy_absolute_tolerance": false
+        },
+        "hand_r": {
+          "anchor": "RightGrip",
+          "reference_offset_z_cm": 0.0,
+          "anchor_world_cm": [
+            34.00000000000001,
+            -49.00000000000002,
+            108.0
+          ],
+          "bone_world_cm": [
+            34.00001799209767,
+            -64.99998515219323,
+            107.99999690960047
+          ],
+          "actual_offset_cm": [
+            1.799209766062404e-05,
+            -15.999985152193211,
+            -3.090399530947252e-06
+          ],
+          "baseline_offset_cm": [
+            1.4446826064329343e-05,
+            -15.999964845714537,
+            -7.957724605489602e-06
+          ],
+          "baseline_delta_cm": 2.118048347497114e-05,
+          "legacy_absolute_tolerance_cm": 12.0,
+          "meets_legacy_absolute_tolerance": false
+        },
+        "foot_l": {
+          "anchor": "LeftPedal",
+          "reference_offset_z_cm": 0.0,
+          "anchor_world_cm": [
+            -20.000000000000007,
+            -17.000000000000004,
+            31.0
+          ],
+          "bone_world_cm": [
+            -20.00001827610652,
+            -33.00003922482498,
+            37.00002936987509
+          ],
+          "actual_offset_cm": [
+            -1.8276106512615797e-05,
+            -16.000039224824977,
+            6.000029369875087
+          ],
+          "baseline_offset_cm": [
+            -1.798507321026932e-05,
+            -16.000031344817312,
+            6.000028031591114
+          ],
+          "baseline_delta_cm": 7.99813885697576e-06,
+          "legacy_absolute_tolerance_cm": 12.0,
+          "meets_legacy_absolute_tolerance": false
+        },
+        "foot_r": {
+          "anchor": "RightPedal",
+          "reference_offset_z_cm": 0.0,
+          "anchor_world_cm": [
+            19.999999999999996,
+            -17.00000000000001,
+            31.0
+          ],
+          "bone_world_cm": [
+            20.00001827610661,
+            -33.00003922482486,
+            37.00002936987508
+          ],
+          "actual_offset_cm": [
+            1.827610661209178e-05,
+            -16.00003922482485,
+            6.0000293698750795
+          ],
+          "baseline_offset_cm": [
+            1.7985073309745303e-05,
+            -16.000031344817184,
+            6.000028031591107
+          ],
+          "baseline_delta_cm": 7.99813885697576e-06,
+          "legacy_absolute_tolerance_cm": 12.0,
+          "meets_legacy_absolute_tolerance": false
+        }
+      },
+      "absolute_anchor_alignment_passed": false,
+      "native_ride_validation_basis": "Unchanged baseline pose and mount-space alignment; absolute residuals remain reported separately",
+      "file": "Saved\\Validation\\PhotorealRider\\before\\native-gameplay-ride.png",
+      "png_sha256": "e77dce34b3ec5a81320a6df7e045d8c62e25fe65dcd6755593fe8a8517e233fe",
+      "screenshot_task_complete": true,
+      "png_bytes": 1319679,
+      "run_archive_file": "Saved\\Validation\\PhotorealRider\\runs\\20261018T124906Z-256e094c\\before\\native-gameplay-ride.png",
+      "published_path": "before/native-gameplay-ride.png"
+    },
+    {
+      "name": "native-gameplay-ride",
+      "view": "ride",
+      "helmet": true,
+      "lighting": "neutral",
+      "native": "ride",
+      "phase": "after",
+      "run_id": "20261018T124906Z-256e094c",
+      "sections": {
+        "forced_lod": 0,
+        "hidden_materials": [],
+        "slots": [
+          "M_PortraitSkinHead",
+          "M_WorkClothes",
+          "M_WorkShoes",
+          "M_Helmet",
+          "M_Rubber",
+          "M_ReflectiveStrip",
+          "M_PortraitCornea",
+          "M_PortraitIris",
+          "M_PortraitPupil",
+          "M_PortraitHair",
+          "M_PortraitTearline",
+          "M_PortraitSclera",
+          "M_PortraitMouth",
+          "M_PortraitSkinBody"
+        ]
+      },
+      "mesh": "/Game/CityCourier/Art/Characters/SK_Courier.SK_Courier",
+      "material_assets": [
+        "/Game/CityCourier/Art/Materials/M_PortraitSkinHead.M_PortraitSkinHead",
+        "/Game/CityCourier/Art/Materials/M_WorkClothes.M_WorkClothes",
+        "/Game/CityCourier/Art/Materials/M_WorkShoes.M_WorkShoes",
+        "/Game/CityCourier/Art/Materials/M_Helmet.M_Helmet",
+        "/Game/CityCourier/Art/Materials/M_Rubber.M_Rubber",
+        "/Game/CityCourier/Art/Materials/M_ReflectiveStrip.M_ReflectiveStrip",
+        "/Game/CityCourier/Art/Materials/M_PortraitCornea.M_PortraitCornea",
+        "/Game/CityCourier/Art/Materials/M_PortraitIris.M_PortraitIris",
+        "/Game/CityCourier/Art/Materials/M_PortraitPupil.M_PortraitPupil",
+        "/Game/CityCourier/Art/Materials/M_PortraitHair.M_PortraitHair",
+        "/Game/CityCourier/Art/Materials/M_PortraitTearline.M_PortraitTearline",
+        "/Game/CityCourier/Art/Materials/M_PortraitSclera.M_PortraitSclera",
+        "/Game/CityCourier/Art/Materials/M_PortraitMouth.M_PortraitMouth",
+        "/Game/CityCourier/Art/Materials/M_PortraitSkinBody.M_PortraitSkinBody"
+      ],
+      "skeleton": "/Game/CityCourier/Art/Characters/SK_Courier_Skeleton.SK_Courier_Skeleton",
+      "bone_count": 51,
+      "ue_bone_roster_matches_baseline": true,
+      "native_distance_cm": 0.0,
+      "native_travel_end_actor_cm": [
+        -1.7763568394002505e-15,
+        -6.000000000000006,
+        88.0
+      ],
+      "camera": {
+        "position_cm": [
+          220.0,
+          -360.0,
+          150.0
+        ],
+        "target_cm": [
+          0.0,
+          0.0,
+          99.0
+        ],
+        "fov_degrees": 42.0
+      },
+      "animation_instance": "ABP_Courier_C",
+      "bones_world_cm": {
+        "head": [
+          6.02848446245477e-14,
+          -38.89230225001256,
+          151.9604030427687
+        ],
+        "hand_l": [
+          -34.00001799209738,
+          -64.99998515219345,
+          107.99999690960047
+        ],
+        "hand_r": [
+          34.00001799209767,
+          -64.99998515219323,
+          107.99999690960047
+        ],
+        "foot_l": [
+          -20.00001827610652,
+          -33.00003922482498,
+          37.00002936987509
+        ],
+        "foot_r": [
+          20.00001827610661,
+          -33.00003922482486,
+          37.00002936987508
+        ]
+      },
+      "actor_rotation_pyr_degrees": [
+        0.0,
+        -90.00000000000001,
+        0.0
+      ],
+      "native_ground_speed_cm_s": 0.0,
+      "native_animation_index": 3,
+      "native_b_riding": true,
+      "native_clip": "/Game/CityCourier/Art/Characters/A_Ride.A_Ride",
+      "native_ride_clip_static_error_cm": 0.0,
+      "native_ride_baseline_compressed_pose_error_cm": 2.1180483545795832e-05,
+      "native_mount_component_relative_location_cm": [
+        14.000000000000009,
+        0.0,
+        -68.0
+      ],
+      "native_mount_actor_relative_location_cm": [
+        6.0000000000000036,
+        0.0,
+        36.0
+      ],
+      "native_mount_chain": "ScooterPawn: actor relative = RiderSeat+(0,0,9); CourierArtCharacter.Tick: mesh relative = (14,0,-32-actorRelativeZ). Existing art/gameplay offsets are measured, not corrected.",
+      "native_bones_in_scooter_space_cm": {
+        "root": [
+          20.00000000000002,
+          0.0,
+          -56.96918439865112
+        ],
+        "pelvis": [
+          21.526631508022575,
+          3.552713678800501e-15,
+          36.99999380111694
+        ],
+        "head": [
+          38.89230225001257,
+          5.684341886080802e-14,
+          99.96040304276869
+        ],
+        "hand_l": [
+          64.99998515219346,
+          -34.0000179920974,
+          55.99999690960047
+        ],
+        "hand_r": [
+          64.99998515219323,
+          34.000017992097696,
+          55.99999690960047
+        ],
+        "foot_l": [
+          33.00003922482499,
+          -20.000018276106523,
+          -14.999970630124913
+        ],
+        "foot_r": [
+          33.00003922482487,
+          20.000018276106612,
+          -14.99997063012492
+        ]
+      },
+      "native_ride_baseline_world_error_cm": 2.118048347497114e-05,
+      "native_anchor_error_cm": {
+        "pelvis": 15.526631508023803,
+        "hand_l": 15.999985152203854,
+        "hand_r": 15.999985152203626,
+        "foot_l": 17.08805453045008,
+        "foot_r": 17.08805453044996
+      },
+      "native_anchor_residuals": {
+        "pelvis": {
+          "anchor": "RiderSeat",
+          "reference_offset_z_cm": 10.0,
+          "anchor_world_cm": [
+            -8.881784197001252e-16,
+            -6.000000000000002,
+            89.0
+          ],
+          "bone_world_cm": [
+            1.4356601469047513e-15,
+            -21.526631508022568,
+            88.99999380111694
+          ],
+          "actual_offset_cm": [
+            2.3238385666048765e-15,
+            -15.526631508022566,
+            -6.198883056640625e-06
+          ],
+          "baseline_offset_cm": [
+            2.3238376723193756e-15,
+            -15.526628239340615,
+            -9.363056278743898e-06
+          ],
+          "baseline_delta_cm": 4.549315759047636e-06,
+          "legacy_absolute_tolerance_cm": 10.0,
+          "meets_legacy_absolute_tolerance": false
+        },
+        "hand_l": {
+          "anchor": "LeftGrip",
+          "reference_offset_z_cm": 0.0,
+          "anchor_world_cm": [
+            -34.00000000000002,
+            -49.00000000000001,
+            108.0
+          ],
+          "bone_world_cm": [
+            -34.00001799209738,
+            -64.99998515219345,
+            107.99999690960047
+          ],
+          "actual_offset_cm": [
+            -1.799209736219609e-05,
+            -15.999985152193439,
+            -3.090399530947252e-06
+          ],
+          "baseline_offset_cm": [
+            -1.4446825765901394e-05,
+            -15.999964845714821,
+            -7.957724619700457e-06
+          ],
+          "baseline_delta_cm": 2.118048342373903e-05,
+          "legacy_absolute_tolerance_cm": 12.0,
+          "meets_legacy_absolute_tolerance": false
+        },
+        "hand_r": {
+          "anchor": "RightGrip",
+          "reference_offset_z_cm": 0.0,
+          "anchor_world_cm": [
+            34.00000000000001,
+            -49.00000000000002,
+            108.0
+          ],
+          "bone_world_cm": [
+            34.00001799209767,
+            -64.99998515219323,
+            107.99999690960047
+          ],
+          "actual_offset_cm": [
+            1.799209766062404e-05,
+            -15.999985152193211,
+            -3.090399530947252e-06
+          ],
+          "baseline_offset_cm": [
+            1.4446826064329343e-05,
+            -15.999964845714537,
+            -7.957724605489602e-06
+          ],
+          "baseline_delta_cm": 2.118048347497114e-05,
+          "legacy_absolute_tolerance_cm": 12.0,
+          "meets_legacy_absolute_tolerance": false
+        },
+        "foot_l": {
+          "anchor": "LeftPedal",
+          "reference_offset_z_cm": 0.0,
+          "anchor_world_cm": [
+            -20.000000000000007,
+            -17.000000000000004,
+            31.0
+          ],
+          "bone_world_cm": [
+            -20.00001827610652,
+            -33.00003922482498,
+            37.00002936987509
+          ],
+          "actual_offset_cm": [
+            -1.8276106512615797e-05,
+            -16.000039224824977,
+            6.000029369875087
+          ],
+          "baseline_offset_cm": [
+            -1.798507321026932e-05,
+            -16.000031344817312,
+            6.000028031591114
+          ],
+          "baseline_delta_cm": 7.99813885697576e-06,
+          "legacy_absolute_tolerance_cm": 12.0,
+          "meets_legacy_absolute_tolerance": false
+        },
+        "foot_r": {
+          "anchor": "RightPedal",
+          "reference_offset_z_cm": 0.0,
+          "anchor_world_cm": [
+            19.999999999999996,
+            -17.00000000000001,
+            31.0
+          ],
+          "bone_world_cm": [
+            20.00001827610661,
+            -33.00003922482486,
+            37.00002936987508
+          ],
+          "actual_offset_cm": [
+            1.827610661209178e-05,
+            -16.00003922482485,
+            6.0000293698750795
+          ],
+          "baseline_offset_cm": [
+            1.7985073309745303e-05,
+            -16.000031344817184,
+            6.000028031591107
+          ],
+          "baseline_delta_cm": 7.99813885697576e-06,
+          "legacy_absolute_tolerance_cm": 12.0,
+          "meets_legacy_absolute_tolerance": false
+        }
+      },
+      "absolute_anchor_alignment_passed": false,
+      "native_ride_validation_basis": "Unchanged baseline pose and mount-space alignment; absolute residuals remain reported separately",
+      "native_ride_before_after_mount_delta_cm": {
+        "root": 0.0,
+        "pelvis": 0.0,
+        "head": 0.0,
+        "hand_l": 0.0,
+        "hand_r": 0.0,
+        "foot_l": 0.0,
+        "foot_r": 0.0
+      },
+      "file": "Saved\\Validation\\PhotorealRider\\after\\native-gameplay-ride.png",
+      "png_sha256": "36ca6bd67fd82417691c1bde379b91a83352695fa07b0e083f137a6e66f90bb8",
+      "screenshot_task_complete": true,
+      "png_bytes": 1320856,
+      "run_archive_file": "Saved\\Validation\\PhotorealRider\\runs\\20261018T124906Z-256e094c\\after\\native-gameplay-ride.png",
+      "published_path": "after/native-gameplay-ride.png"
+    }
+  ],
+  "planned_shots": 16,
+  "checks": {
+    "section_visibility_api": "show_material_section(material_id, section_index, show, lod_index)",
+    "section_visibility_documentation": "https://dev.epicgames.com/documentation/en-us/unreal-engine/python-api/class/SkinnedMeshComponent?application_version=5.6",
+    "no_map_or_asset_save": true,
+    "native_pose_is_not_single_node": true,
+    "editor_fixture_created": true,
+    "editor_fixture_destroyed": true,
+    "editor_fixture_cleanup_complete": true,
+    "editor_fixture_path": "/Game/CityCourier/Maps/L_CharacterProbe.L_CharacterProbe:PersistentLevel.BP_Scooter_C_0",
+    "editor_fixture_tag": "CC_PortraitFixture_978f8180755c43b0acb759d4d9560162",
+    "initial_world_paused": false,
+    "native_scooter_pie_path": "/Game/CityCourier/Maps/UEDPIE_0_L_CharacterProbe.L_CharacterProbe:PersistentLevel.BP_Scooter_C_0",
+    "skeletal_mesh_package_sha256": {
+      "before": "7a2c6d8474fa2314688c6a548628f2c1b48d9dc4ebc1c5d92865057603d3c586",
+      "after": "ecd291d6a29bfc18b3c45c0c8783916e27483831438e29d3f12416cefe88f50c"
+    },
+    "baseline_bones_and_parents": [
+      [
+        "CourierRig",
+        "None"
+      ],
+      [
+        "root",
+        "CourierRig"
+      ],
+      [
+        "pelvis",
+        "root"
+      ],
+      [
+        "spine",
+        "pelvis"
+      ],
+      [
+        "chest",
+        "spine"
+      ],
+      [
+        "neck",
+        "chest"
+      ],
+      [
+        "head",
+        "neck"
+      ],
+      [
+        "clavicle_l",
+        "chest"
+      ],
+      [
+        "upperarm_l",
+        "clavicle_l"
+      ],
+      [
+        "forearm_l",
+        "upperarm_l"
+      ],
+      [
+        "hand_l",
+        "forearm_l"
+      ],
+      [
+        "finger_1_1_l",
+        "hand_l"
+      ],
+      [
+        "finger_1_2_l",
+        "finger_1_1_l"
+      ],
+      [
+        "finger_1_3_l",
+        "finger_1_2_l"
+      ],
+      [
+        "finger_2_1_l",
+        "hand_l"
+      ],
+      [
+        "finger_2_2_l",
+        "finger_2_1_l"
+      ],
+      [
+        "finger_2_3_l",
+        "finger_2_2_l"
+      ],
+      [
+        "finger_3_1_l",
+        "hand_l"
+      ],
+      [
+        "finger_3_2_l",
+        "finger_3_1_l"
+      ],
+      [
+        "finger_3_3_l",
+        "finger_3_2_l"
+      ],
+      [
+        "finger_4_1_l",
+        "hand_l"
+      ],
+      [
+        "finger_4_2_l",
+        "finger_4_1_l"
+      ],
+      [
+        "finger_4_3_l",
+        "finger_4_2_l"
+      ],
+      [
+        "finger_5_1_l",
+        "hand_l"
+      ],
+      [
+        "finger_5_2_l",
+        "finger_5_1_l"
+      ],
+      [
+        "finger_5_3_l",
+        "finger_5_2_l"
+      ],
+      [
+        "clavicle_r",
+        "chest"
+      ],
+      [
+        "upperarm_r",
+        "clavicle_r"
+      ],
+      [
+        "forearm_r",
+        "upperarm_r"
+      ],
+      [
+        "hand_r",
+        "forearm_r"
+      ],
+      [
+        "finger_1_1_r",
+        "hand_r"
+      ],
+      [
+        "finger_1_2_r",
+        "finger_1_1_r"
+      ],
+      [
+        "finger_1_3_r",
+        "finger_1_2_r"
+      ],
+      [
+        "finger_2_1_r",
+        "hand_r"
+      ],
+      [
+        "finger_2_2_r",
+        "finger_2_1_r"
+      ],
+      [
+        "finger_2_3_r",
+        "finger_2_2_r"
+      ],
+      [
+        "finger_3_1_r",
+        "hand_r"
+      ],
+      [
+        "finger_3_2_r",
+        "finger_3_1_r"
+      ],
+      [
+        "finger_3_3_r",
+        "finger_3_2_r"
+      ],
+      [
+        "finger_4_1_r",
+        "hand_r"
+      ],
+      [
+        "finger_4_2_r",
+        "finger_4_1_r"
+      ],
+      [
+        "finger_4_3_r",
+        "finger_4_2_r"
+      ],
+      [
+        "finger_5_1_r",
+        "hand_r"
+      ],
+      [
+        "finger_5_2_r",
+        "finger_5_1_r"
+      ],
+      [
+        "finger_5_3_r",
+        "finger_5_2_r"
+      ],
+      [
+        "thigh_l",
+        "pelvis"
+      ],
+      [
+        "shin_l",
+        "thigh_l"
+      ],
+      [
+        "foot_l",
+        "shin_l"
+      ],
+      [
+        "thigh_r",
+        "pelvis"
+      ],
+      [
+        "shin_r",
+        "thigh_r"
+      ],
+      [
+        "foot_r",
+        "shin_r"
+      ]
+    ],
+    "baseline_ue_bone_count": 51,
+    "ambient_managers_disabled": 1,
+    "ambient_entities_deactivated": 30
+  },
+  "failed_job": null,
+  "dimensions": [
+    1800,
+    1200
+  ],
+  "profiles": {
+    "neutral": {
+      "key_kelvin": 6500,
+      "key": 12.0,
+      "fill": 1.2,
+      "rim": 0.5,
+      "sky": 0.1
+    },
+    "dusk": {
+      "key_kelvin": 4400,
+      "key": 12.0,
+      "fill": 1.2,
+      "rim": 0.5,
+      "sky": 0.1
+    }
+  },
+  "interpretation": "Actual Unreal PIE renders; visual realism requires human review.",
+  "exposure": "Fixed lab exposure; DOF, motion blur, bloom, vignette and grain disabled.",
+  "elapsed_seconds": 75.625
+}

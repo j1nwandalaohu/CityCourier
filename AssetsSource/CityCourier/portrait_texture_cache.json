@@ -1,0 +1,70 @@
+{
+  "provenance": {
+    "recipe": {
+      "version": 2,
+      "light_mix": 0.82,
+      "dark_mix": 0.18,
+      "age_height": 0.035,
+      "head_normal_strength": 0.006,
+      "eye_normal_strength": 0.003,
+      "roughness_min": 0.25,
+      "roughness_max": 0.72
+    },
+    "generator_sha256": "f4e81af8a940e5c292bb192bd504249d59816f87e26f5ec10f859edf0b47728e",
+    "inputs": {
+      "Light_Skin_Color.1001.exr": "fc24dc691865d28f142bd6d01c50ae7a4c1b084aa62199fd0a313fb553147bc5",
+      "Dark_Skin_Color.1001.exr": "dc0c787bdde240a033fd17420e5cfbedfcecc941572294c3c6bc29f5891edf4b",
+      "Skin_Roughness.1001.exr": "e85a51efca7f420c4343d1c09dd365bc8b3b1a8e0de9f93f40bd1ffc238bbc5c",
+      "Skin_Height.1001.exr": "98ce6827bcb036b5a2d7d40957c40760e49745e3d988331e65fd1a46b1195660",
+      "Skin_Age_Height.1001.exr": "d19dc0cc3c2863966e857baa71747148c0d2341a4c0104048a5cef6041037aba",
+      "Mouth_Color.1008.exr": "90cd829d0efe0a248daa0126dcc0632db659bd105ac14a97a7589929c1d12ba4",
+      "Mouth_Roughness.1008.exr": "54639786e84398bb7576b9b8c091a49a5699d6276220d574654079cba49adeb1",
+      "Mouth_Height.1008.exr": "25d365625b29821b42f7a04484d269ada651d2846cc7287b161037e93d54dfc5",
+      "Iris_Color.1007.exr": "9241f2e16310b2d96be83c8f39359ca9168a28d04bc57f21e8fe95cfbd1000ff",
+      "Iris_Roughness.1007.exr": "dd024982e52edb20961cd9e4b26472fd622a42a68f9ebd57a2baa08a44b52892",
+      "Iris_Height.1007.exr": "067dda470065a8d0c0ce345bceef595b59aa1b91d7a9dac78e69fc734b341b73",
+      "Sclera_Color.1005.exr": "1134f1d4c3d7173228e3830db885a8c2602a25bf316ffe842bb92e05b14ba768",
+      "Sclera_Height.1005.exr": "67338b7d495df44a4eb7ee326ad6186069210c57c6ce49f3c8e586e6e71b3ac2"
+    }
+  },
+  "maps": {
+    "head": {
+      "base_color": "Exports/Portrait/Textures/PortraitHead_BaseColor.png",
+      "roughness": "Exports/Portrait/Textures/PortraitHead_Roughness.png",
+      "normal": "Exports/Portrait/Textures/PortraitHead_NormalGL.png",
+      "neck_base_color": "External/MakeHumanPack/skins/young_asian_male/young_lightskinned_male_diffuse3.png"
+    },
+    "micro": {
+      "normal": "Exports/Portrait/Textures/PortraitMicro_NormalGL.png"
+    },
+    "mouth": {
+      "base_color": "Exports/Portrait/Textures/PortraitMouth_BaseColor.png",
+      "roughness": "Exports/Portrait/Textures/PortraitMouth_Roughness.png",
+      "normal": "Exports/Portrait/Textures/PortraitMouth_NormalGL.png"
+    },
+    "iris": {
+      "base_color": "Exports/Portrait/Textures/PortraitIris_BaseColor.png",
+      "roughness": "Exports/Portrait/Textures/PortraitIris_Roughness.png",
+      "normal": "Exports/Portrait/Textures/PortraitIris_NormalGL.png"
+    },
+    "sclera": {
+      "base_color": "Exports/Portrait/Textures/PortraitSclera_BaseColor.png",
+      "normal": "Exports/Portrait/Textures/PortraitSclera_NormalGL.png"
+    }
+  },
+  "outputs": {
+    "Exports/Portrait/Textures/PortraitHead_BaseColor.png": "5532e0eb098bef0b6b3001a45227e447f2ae5e1d5dbf5c4f7e347a11bd3245c0",
+    "Exports/Portrait/Textures/PortraitHead_Roughness.png": "e1bbcbf18fe572ac35eea4b25d8faa37838ad5c587eef873859f51867a023fc3",
+    "Exports/Portrait/Textures/PortraitHead_NormalGL.png": "bc755da82873087c791b64bcbed491473db7271f3d748ee5f01e8616b937fbe2",
+    "External/MakeHumanPack/skins/young_asian_male/young_lightskinned_male_diffuse3.png": "f50016a5507fc687dc8df06599c8ea48de950cd185de33a71cafc1319ddab4d5",
+    "Exports/Portrait/Textures/PortraitMicro_NormalGL.png": "23e335dfeabf8c14f412ce8c932be904e5b7e84d08d25dc9b4e6918e02b73279",
+    "Exports/Portrait/Textures/PortraitMouth_BaseColor.png": "c1d388272794706cc3a382b16d2247bb20e396c0cc1f67670437265495c3746f",
+    "Exports/Portrait/Textures/PortraitMouth_Roughness.png": "2b33c13986f4cf14aa4bcef56071fb265407d01e88779b84ff94e7d4d867c61c",
+    "Exports/Portrait/Textures/PortraitMouth_NormalGL.png": "cbd274a1790afcacb58ed1a2372c011d521ddfeebad1dc6dee3067618ea9c9bd",
+    "Exports/Portrait/Textures/PortraitIris_BaseColor.png": "6d8e9cdb8b5de0e30396df2b5ff796242e36eec936169be9d4dc13aa1203cbb7",
+    "Exports/Portrait/Textures/PortraitIris_Roughness.png": "fb5a13d3a15f84bf01409ae31f518e1ab05b67ec6fbb0e68f773dc2be43e3c2d",
+    "Exports/Portrait/Textures/PortraitIris_NormalGL.png": "fb236a1ca296cbc5772a9d57dbcec35151ebebfb36849f01e9b1d1cf11362eaf",
+    "Exports/Portrait/Textures/PortraitSclera_BaseColor.png": "a6bd081f2d29f14fe924612479ed8c37d9d75b967eee95eb4f06184760c0d3b7",
+    "Exports/Portrait/Textures/PortraitSclera_NormalGL.png": "ba68ad8731bba28b3cdd24331b6026e7c2067658820a52c31cab4e8861707e2e"
+  }
+}

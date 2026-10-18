@@ -1,0 +1,59 @@
+{
+  "capture_run": "20261018T124906Z-256e094c",
+  "captured": 16,
+  "actual_ue_renders": true,
+  "max_sample_pose_error_cm": 2.11804833964472e-05,
+  "max_native_ride_pose_error_cm": 2.1180483545795832e-05,
+  "max_before_after_mount_delta_cm": 0.0,
+  "native_run_speeds_cm_s": [
+    700.0,
+    700.0
+  ],
+  "native_run_travel_cm": [
+    801.8311502543265,
+    825.1723519899994
+  ],
+  "legacy_absolute_anchor_alignment_passed": [
+    false,
+    false
+  ],
+  "legacy_anchor_error_cm": [
+    {
+      "pelvis": 15.526631508023803,
+      "hand_l": 15.999985152203854,
+      "hand_r": 15.999985152203626,
+      "foot_l": 17.08805453045008,
+      "foot_r": 17.08805453044996
+    },
+    {
+      "pelvis": 15.526631508023803,
+      "hand_l": 15.999985152203854,
+      "hand_r": 15.999985152203626,
+      "foot_l": 17.08805453045008,
+      "foot_r": 17.08805453044996
+    }
+  ],
+  "source": {
+    "skeleton_bones": 50,
+    "reference_unchanged": true,
+    "vertices": 347833,
+    "triangles": 581976,
+    "unbound_vertices": 0,
+    "max_weight_error": 1.2200325727462769e-07,
+    "max_neck_face_uv_span": 0.01899111270904541,
+    "texture_references_verified": 14
+  },
+  "shared_protected_packages": 12,
+  "visual_judgment": "Detailed realistic game character. Photographic indistinguishability is not asserted.",
+  "ue_automation": {
+    "succeeded": 66,
+    "succeededWithWarnings": 0,
+    "failed": 0,
+    "notRun": 0,
+    "inProcess": 0,
+    "reportCreatedOn": "2026.10.18-12.51.01",
+    "report": "Saved/Validation/Automation-20261018-205042-3422f232/Report/index.json"
+  },
+  "pipeline_self_tests_passed": 15,
+  "retained_free_source_hashes_verified": 116
+}
