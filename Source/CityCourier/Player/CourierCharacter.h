@@ -1,6 +1,7 @@
 #pragma once
 #include "GameFramework/Character.h"
 #include "InputActionValue.h"
+#include "Core/CourierActionResult.h"
 #include "CourierCharacter.generated.h"
 
 UCLASS()
@@ -13,6 +14,7 @@ public:
     virtual void Tick(float DeltaSeconds) override;
     virtual void SetupPlayerInputComponent(UInputComponent* Input) override;
     UFUNCTION(BlueprintCallable) bool TryInteract();
+    FCourierActionResult TryInteractWithFeedback();
     void RefreshInteraction();
     bool CanReachInteraction(const AActor* Target, FVector Point, FText& Reason, bool bAllowSuppressed=false) const;
     AActor* GetInteractionTarget() const { return InteractionTarget.Get(); }

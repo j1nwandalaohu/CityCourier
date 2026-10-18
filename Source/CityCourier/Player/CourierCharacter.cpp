@@ -1,4 +1,5 @@
 #include "Player/CourierCharacter.h"
+#include "Player/CourierController.h"
 #include "Player/CourierInteractable.h"
 #include "Camera/CameraComponent.h"
 #include "Components/CapsuleComponent.h"
@@ -85,7 +86,8 @@ void ACourierCharacter::Look(const FInputActionValue& Value)
 }
 void ACourierCharacter::SprintStart() { SetSprinting(true); }
 void ACourierCharacter::SprintStop() { SetSprinting(false); }
-void ACourierCharacter::InteractPressed() { TryInteract(); }
+void ACourierCharacter::InteractPressed()
+{ const auto Result=TryInteractWithFeedback(); if(auto* PC=Cast<ACourierController>(Controller)) PC->ShowActionFeedback(Result.Reason); }
 void ACourierCharacter::SetSprinting(bool bValue)
 {
     GetCharacterMovement()->MaxWalkSpeed = bValue && !bMounted && !bInputSuppressed ? 700 : 420;
@@ -123,8 +125,26 @@ void ACourierCharacter::RefreshInteraction()
     }
 }
 bool ACourierCharacter::TryInteract()
+{ return TryInteractWithFeedback().bSucceeded; }
+FCourierActionResult ACourierCharacter::TryInteractWithFeedback()
 {
     RefreshInteraction(); auto* Target = Cast<ICourierInteractable>(InteractionTarget.Get());
     FText Reason;
-    return Target && Target->CanInteract(this, Reason) && Target->Interact(this);
+    if(Target)
+    {
+        if(!Target->CanInteract(this,Reason)) return {false,Reason};
+        return Target->Interact(this)?FCourierActionResult::Success():FCourierActionResult::Failure(TEXT("当前订单无法在此操作，请检查取餐或送达目标"));
+    }
+    if(bMounted || bInputSuppressed) return FCourierActionResult::Failure(TEXT("请先下车并关闭界面"));
+    int32 Priority=MIN_int32; double Distance=MAX_dbl;
+    if(GetWorld()) for(TActorIterator<AActor> It(GetWorld());It;++It)
+    {
+        const auto* Candidate=Cast<ICourierInteractable>(*It); if(!Candidate) continue;
+        const double D=FVector::DistSquared(GetActorLocation(),Candidate->GetInteractionLocation());
+        if(D>500*500 || Candidate->GetInteractionPriority()<Priority || (Candidate->GetInteractionPriority()==Priority && D>=Distance)) continue;
+        FText Rejected;
+        if(!CanReachInteraction(*It,Candidate->GetInteractionLocation(),Rejected) || !Candidate->CanInteract(this,Rejected))
+        { Priority=Candidate->GetInteractionPriority(); Distance=D; Reason=Rejected; }
+    }
+    return Reason.IsEmpty()?FCourierActionResult::Failure(TEXT("附近没有可交互目标")):FCourierActionResult{false,Reason};
 }

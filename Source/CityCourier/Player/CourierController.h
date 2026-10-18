@@ -11,6 +11,8 @@ class CITYCOURIER_API ACourierController : public APlayerController
     GENERATED_BODY()
 public:
     ACourierController();
+    void ShowActionFeedback(const FText& Message);
+    FText GetActionFeedback() const;
     virtual void BeginPlay() override;
     virtual void OnPossess(APawn* NewPawn) override;
     virtual void SetupInputComponent() override;
@@ -27,6 +29,8 @@ public:
     class ARiderStation* GetStation() const { return ActiveStation.Get(); }
     UFUNCTION(BlueprintPure) class URiderRecoveryComponent* GetRecovery() const { return Recovery; }
 private:
+    FText ActionFeedback;
+    double FeedbackUntil=0;
     void RecoverStarted();
     void RecoverReleased();
     UPROPERTY(VisibleAnywhere) TObjectPtr<class URiderRecoveryComponent> Recovery;

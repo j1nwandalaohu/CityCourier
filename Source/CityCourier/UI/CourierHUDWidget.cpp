@@ -88,6 +88,7 @@ void UCourierHUDWidget::RefreshFromState()
     AScooterPawn* Bike=nullptr; for(TActorIterator<AScooterPawn> It(GetWorld());It;++It) { Bike=*It; break; }
     Vehicle->SetText(FText::FromString(Bike?FString::Printf(TEXT("%.0f km/h\n电量 %.0f%% %s"),Bike->GetSpeedKmh(),Bike->GetBatteryFraction()*100,Bike->GetBatteryFraction()<.2?TEXT("· 低"):TEXT("")):TEXT("步行")));
     Prompt->SetText(PC->GetCourier()?(PC->GetCourier()->IsMounted()?FText::FromString(TEXT("E 下车（速度不高于 3 km/h）")):PC->GetCourier()->GetInteractionPrompt()):FText::GetEmpty());
+    if(!PC->GetActionFeedback().IsEmpty()) Prompt->SetText(PC->GetActionFeedback());
     if(PC->GetRecovery() && PC->GetRecovery()->GetHoldProgress()>0)
         Prompt->SetText(FText::FromString(FString::Printf(TEXT("保持按住 R · 脱困 %.0f%%（订单耗时 +5秒）"),PC->GetRecovery()->GetHoldProgress()*100)));
     SaveWarning->SetText(FText::FromString(P->NeedsReset()?TEXT("存档无法读取，请在暂停菜单选择恢复方式。"):P->HasUnsavedChanges()?TEXT("本次进度未保存 · 按 Esc 重试保存"):P->GetLoadResult()==EProfileLoadResult::RecoveredBackup?TEXT("已从备份恢复进度"):TEXT("")));

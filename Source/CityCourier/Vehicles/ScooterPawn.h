@@ -1,4 +1,5 @@
 #pragma once
+#include "Core/CourierActionResult.h"
 #include "GameFramework/Pawn.h"
 #include "Player/CourierInteractable.h"
 #include "Profile/PlayerProfile.h"
@@ -14,6 +15,8 @@ class CITYCOURIER_API AScooterPawn : public APawn, public ICourierInteractable
 {
     GENERATED_BODY()
 public:
+    FCourierActionResult TryMountWithFeedback(ACourierCharacter* Courier);
+    FCourierActionResult TryDismountWithFeedback();
     AScooterPawn();
     virtual void BeginPlay() override;
     virtual void Tick(float DeltaSeconds) override;

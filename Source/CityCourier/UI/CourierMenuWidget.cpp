@@ -59,8 +59,9 @@ void UCourierMenuWidget::RefreshFromState()
     }
     if(Station)
     {
-        Description=TEXT("停车后可充电和升级，订单仍在计时。\n充电需留在站点2米内，离开或关闭即取消。");
-        if(!ServiceMessage.IsEmpty()) Description+=TEXT("\n")+ServiceMessage;
+        Description=TEXT("车辆停在入口12米内，停车后可充电和升级。\n玩家需留在站点2米内；订单仍在计时。");
+        const FString CurrentMessage=Station->GetServiceMessage().IsEmpty()?ServiceMessage:Station->GetServiceMessage().ToString();
+        if(!CurrentMessage.IsEmpty()) Description+=TEXT("\n")+CurrentMessage;
         ChargeText->SetText(FText::FromString(Station->IsCharging()?FString::Printf(TEXT("充电 %.0f%% · 点击取消"),Station->GetChargeProgress()*100):TEXT("免费充电 · 5秒")));
         const int32 Levels[]={P->GetProfile().PowerLevel,P->GetProfile().HandlingLevel,P->GetProfile().BatteryLevel};
         const TCHAR* Names[]={TEXT("动力"),TEXT("操控"),TEXT("电池")};
@@ -113,7 +114,7 @@ void UCourierMenuWidget::Charge()
     {
         PendingUpgrade=-1;
         if(S->IsCharging()) { S->CancelCharge(); ServiceMessage=TEXT("已取消充电，电量保持不变。"); }
-        else ServiceMessage=S->BeginCharge(PC->GetCourier())?TEXT("充电需5秒，完成后电量为100%。"):TEXT("请下车靠近驿站，并将车辆停稳。");
+        else { const auto R=S->BeginChargeWithFeedback(PC->GetCourier()); ServiceMessage=R.bSucceeded?TEXT("充电需5秒，完成后电量为100%。"):R.Reason.ToString(); }
     }
     RefreshFromState();
 }
@@ -122,7 +123,7 @@ void UCourierMenuWidget::Purchase(int32 Kind)
     if(PendingUpgrade!=Kind) { PendingUpgrade=Kind; RefreshFromState(); return; }
     PendingUpgrade=-1;
     if(auto* PC=Cast<ACourierController>(GetOwningPlayer())) if(auto* S=PC->GetStation())
-        ServiceMessage=S->TryPurchase(static_cast<EUpgradeKind>(Kind),PC->GetCourier())?TEXT("升级成功，车辆性能已更新。"):TEXT("暂时无法购买：检查余额、等级、距离和充电状态。");
+    { const auto R=S->TryPurchaseWithFeedback(static_cast<EUpgradeKind>(Kind),PC->GetCourier()); ServiceMessage=R.bSucceeded?TEXT("升级成功，车辆性能已更新。"):R.Reason.ToString(); }
     RefreshFromState();
 }
 void UCourierMenuWidget::UpgradePower(){ Purchase(0); }

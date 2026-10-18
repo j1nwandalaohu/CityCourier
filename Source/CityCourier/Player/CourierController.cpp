@@ -16,6 +16,10 @@
 #include "Vehicles/RiderRecoveryComponent.h"
 
 ACourierController::ACourierController() { Recovery=CreateDefaultSubobject<URiderRecoveryComponent>(TEXT("Recovery")); }
+void ACourierController::ShowActionFeedback(const FText& Message)
+{ ActionFeedback=Message; FeedbackUntil=GetWorld()->GetTimeSeconds()+3; }
+FText ACourierController::GetActionFeedback() const
+{ return GetWorld() && GetWorld()->GetTimeSeconds()<FeedbackUntil?ActionFeedback:FText::GetEmpty(); }
 void ACourierController::RecoverStarted() { if(InterfaceMode==ECourierInterfaceMode::Gameplay) Recovery->SetRecoverHeld(true); }
 void ACourierController::RecoverReleased() { Recovery->SetRecoverHeld(false); }
 void ACourierController::OpenStation(ARiderStation* Station) { ActiveStation=Station; SetInterfaceMode(ECourierInterfaceMode::Station); }
