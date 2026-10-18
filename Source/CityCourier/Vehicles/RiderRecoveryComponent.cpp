@@ -1,4 +1,5 @@
 #include "Vehicles/RiderRecoveryComponent.h"
+#include "Player/CourierActionComponent.h"
 #include "Vehicles/ScooterPawn.h"
 #include "Vehicles/ScooterMovementComponent.h"
 #include "World/RiderStation.h"
@@ -69,6 +70,7 @@ bool URiderRecoveryComponent::FindDestination(bool StationOnly,FTransform& Out,F
 }
 void URiderRecoveryComponent::Relocate(const FTransform& Transform,FVector Foot)
 {
+    Rider->GetActions()->Cancel();
     Bike->ClearDriveInput(); Bike->GetScooterMovement()->ResetAfterTeleport();
     Bike->VisualRoot->SetRelativeRotation(FRotator::ZeroRotator);
     Bike->SetActorTransform(Transform,false,nullptr,ETeleportType::TeleportPhysics);

@@ -112,7 +112,7 @@ void ACourierController::SetInterfaceMode(ECourierInterfaceMode Mode)
         FModifyContextOptions Options; Options.bIgnoreAllPressedKeysUntilRelease=true;
         Inputs->RequestRebuildControlMappings(Options,EInputMappingRebuildType::RebuildWithFlush);
     }
-    if (Courier.IsValid()) Courier->SetInputSuppressed(Mode != ECourierInterfaceMode::Gameplay);
+    if (Courier.IsValid()) Courier->SetInputSuppressed(Mode != ECourierInterfaceMode::Gameplay,Mode==ECourierInterfaceMode::Pause);
     SetPause(Mode == ECourierInterfaceMode::Pause);
     bShowMouseCursor = Mode != ECourierInterfaceMode::Gameplay;
     ResetIgnoreLookInput(); ResetIgnoreMoveInput();

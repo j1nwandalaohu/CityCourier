@@ -11,15 +11,18 @@
 #include "InputAction.h"
 #include "UObject/ConstructorHelpers.h"
 #include "Components/SkeletalMeshComponent.h"
+#include "Player/CourierActionComponent.h"
 
 ACourierCharacter::ACourierCharacter()
 {
     PrimaryActorTick.bCanEverTick = true;
+    Actions=CreateDefaultSubobject<UCourierActionComponent>(TEXT("CharacterActions"));
     GetCapsuleComponent()->InitCapsuleSize(34, 88);
     bUseControllerRotationYaw = false;
     auto* Movement = GetCharacterMovement();
     Movement->bOrientRotationToMovement = true; Movement->RotationRate = FRotator(0,540,0);
     Movement->MaxWalkSpeed = 420; Movement->MaxStepHeight = 35; Movement->BrakingDecelerationWalking = 1600;
+    Movement->JumpZVelocity=420; Movement->AirControl=.25; JumpMaxCount=1; JumpMaxHoldTime=0;
     CameraBoom = CreateDefaultSubobject<USpringArmComponent>(TEXT("CameraBoom"));
     CameraBoom->SetupAttachment(RootComponent); CameraBoom->TargetArmLength = 380;
     CameraBoom->SocketOffset = FVector(0,55,65); CameraBoom->bUsePawnControlRotation = true;
@@ -71,10 +74,18 @@ void ACourierCharacter::SetupPlayerInputComponent(UInputComponent* Input)
         Enhanced->BindAction(A, ETriggerEvent::Canceled, this, &ACourierCharacter::SprintStop);
     }
     if (auto* A = Action(TEXT("Interact"))) Enhanced->BindAction(A, ETriggerEvent::Started, this, &ACourierCharacter::InteractPressed);
+    if(auto* A=Action(TEXT("Jump")))
+    {
+        Enhanced->BindAction(A,ETriggerEvent::Started,this,&ACourierCharacter::JumpPressed);
+        Enhanced->BindAction(A,ETriggerEvent::Completed,this,&ACourierCharacter::JumpReleased);
+        Enhanced->BindAction(A,ETriggerEvent::Canceled,this,&ACourierCharacter::JumpReleased);
+    }
+    if(auto* A=Action(TEXT("LightPunch"))) Enhanced->BindAction(A,ETriggerEvent::Started,this,&ACourierCharacter::LightPressed);
+    if(auto* A=Action(TEXT("HeavyPunch"))) Enhanced->BindAction(A,ETriggerEvent::Started,this,&ACourierCharacter::HeavyPressed);
 }
 void ACourierCharacter::Move(const FInputActionValue& Value)
 {
-    if (bInputSuppressed || bMounted || !Controller) return;
+    if (bInputSuppressed || bMounted || !Controller || Actions->IsMovementLocked()) return;
     const FVector2D Axis = Value.Get<FVector2D>(); const FRotator Yaw(0, Controller->GetControlRotation().Yaw, 0);
     AddMovementInput(FRotationMatrix(Yaw).GetUnitAxis(EAxis::X), Axis.Y);
     AddMovementInput(FRotationMatrix(Yaw).GetUnitAxis(EAxis::Y), Axis.X);
@@ -90,15 +101,67 @@ void ACourierCharacter::InteractPressed()
 { const auto Result=TryInteractWithFeedback(); if(auto* PC=Cast<ACourierController>(Controller)) PC->ShowActionFeedback(Result.Reason); }
 void ACourierCharacter::SetSprinting(bool bValue)
 {
-    GetCharacterMovement()->MaxWalkSpeed = bValue && !bMounted && !bInputSuppressed ? 700 : 420;
+    bSprintHeld=bValue; UpdateActionMovement();
+}
+void ACourierCharacter::UpdateActionMovement()
+{
+    const auto& State=Actions->GetTimeline();
+    const float Limit=Actions->IsMovementLocked()?0.f:State.IsAttacking()?120.f:bSprintHeld && !bMounted && !bInputSuppressed?700.f:420.f;
+    auto* Movement=GetCharacterMovement(); Movement->MaxWalkSpeed=Limit;
+    if(State.IsAttacking() || Actions->IsMovementLocked())
+    {
+        FVector Horizontal=Movement->Velocity; Horizontal.Z=0;
+        Horizontal=Horizontal.GetClampedToMaxSize(Limit); Horizontal.Z=Movement->Velocity.Z; Movement->Velocity=Horizontal;
+    }
+    Movement->bOrientRotationToMovement=!State.IsAttacking() && !State.IsReacting();
 }
 void ACourierCharacter::ClearMovementInput()
 {
-    ConsumeMovementInputVector(); GetCharacterMovement()->StopMovementImmediately(); SetSprinting(false);
+    ConsumeMovementInputVector();
+    const double Vertical=GetCharacterMovement()->Velocity.Z;
+    GetCharacterMovement()->StopMovementImmediately();
+    if(GetCharacterMovement()->IsFalling()) GetCharacterMovement()->Velocity.Z=Vertical;
+    StopJumping(); SetSprinting(false);
 }
+void ACourierCharacter::SetMounted(bool bValue)
+{ bMounted=bValue; Actions->Cancel(); ClearMovementInput(); RefreshInteraction(); }
+void ACourierCharacter::SetInputSuppressed(bool bValue,bool bPreserveAction)
+{ bInputSuppressed=bValue; Actions->SetSuppressed(bValue,bPreserveAction); ClearMovementInput(); RefreshInteraction(); }
+void ACourierCharacter::OnMovementModeChanged(EMovementMode Prev,uint8 Custom)
+{
+    Super::OnMovementModeChanged(Prev,Custom);
+    if(Actions && (GetCharacterMovement()->IsFalling() || Prev==MOVE_Falling)) Actions->MovementModeChanged(GetCharacterMovement()->IsFalling());
+}
+void ACourierCharacter::OnJumped_Implementation()
+{ Super::OnJumped_Implementation(); Actions->JumpStarted(); }
+bool ACourierCharacter::CanPerformGroundAction(FText& Reason,bool bAllowAttack) const
+{
+    if(bMounted || bInputSuppressed) { Reason=FText::FromString(TEXT("请先下车并关闭界面")); return false; }
+    if(!GetCharacterMovement()->IsMovingOnGround()) { Reason=FText::FromString(TEXT("请落地后再操作")); return false; }
+    if(Actions->IsGroundActionBlocked() && !(bAllowAttack && Actions->GetTimeline().IsAttacking()))
+    { Reason=FText::FromString(TEXT("请等待当前动作结束")); return false; }
+    return true;
+}
+FCourierActionResult ACourierCharacter::TryJumpWithFeedback()
+{
+    FText Reason; if(!CanPerformGroundAction(Reason)) return {false,Reason};
+    FHitResult Hit; FCollisionQueryParams Params(SCENE_QUERY_STAT(CourierJumpHeadroom),false,this);
+    const auto* Capsule=GetCapsuleComponent();
+    if(GetWorld()->SweepSingleByChannel(Hit,GetActorLocation()+FVector(0,0,2),GetActorLocation()+FVector(0,0,50),FQuat::Identity,ECC_Pawn,
+        FCollisionShape::MakeCapsule(Capsule->GetScaledCapsuleRadius()-1,Capsule->GetScaledCapsuleHalfHeight()-1),Params))
+        return FCourierActionResult::Failure(TEXT("头顶空间不足，无法跳跃"));
+    Jump(); CheckJumpInput(0); StopJumping();
+    return GetCharacterMovement()->IsFalling()?FCourierActionResult::Success():FCourierActionResult::Failure(TEXT("当前无法起跳"));
+}
+void ACourierCharacter::JumpPressed()
+{ const auto R=TryJumpWithFeedback(); if(!R.bSucceeded) if(auto* PC=Cast<ACourierController>(Controller)) PC->ShowActionFeedback(R.Reason); }
+void ACourierCharacter::JumpReleased() { StopJumping(); }
+void ACourierCharacter::LightPressed() { Actions->QueueAttack(false); }
+void ACourierCharacter::HeavyPressed() { Actions->QueueAttack(true); }
 bool ACourierCharacter::CanReachInteraction(const AActor* Target, FVector Point, FText& Reason, bool bAllowSuppressed) const
 {
     Reason = FText::GetEmpty();
+    if(GetCharacterMovement()->IsFalling() || Actions->IsGroundActionBlocked()) { Reason=FText::FromString(TEXT("请落地并等待当前动作结束")); return false; }
     if (!IsValid(Target) || bMounted || (bInputSuppressed && !bAllowSuppressed)) { Reason = FText::FromString(TEXT("请先下车并关闭界面")); return false; }
     if (FVector::DistSquared(GetActorLocation(), Point) > 200.0 * 200.0) { Reason = FText::FromString(TEXT("请靠近至2米内")); return false; }
     FHitResult Hit; FCollisionQueryParams Params(SCENE_QUERY_STAT(CourierInteraction), false, this);
