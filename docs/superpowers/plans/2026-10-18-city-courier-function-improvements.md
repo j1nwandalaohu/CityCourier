@@ -1,6 +1,6 @@
 # 功能完善版 Implementation Plan
 
-> **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
+> **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [x]`) syntax for tracking.
 
 **Goal:** 完成操作反馈、接单距离与路线预览、驿站／找车导航、持久化订单历史，并交付可运行的 Windows 游戏包。
 
@@ -50,11 +50,11 @@
 
 **Interfaces:** Produce `FCourierActionResult { bool bSucceeded; FText Reason; }`; add `ACourierCharacter::TryInteractWithFeedback()`, `AScooterPawn::TryMountWithFeedback(ACourierCharacter*)`, `TryDismountWithFeedback()`, `ARiderStation::CheckService(ACourierCharacter*) const`, `BeginChargeWithFeedback(ACourierCharacter*)`, `TryPurchaseWithFeedback(EUpgradeKind, ACourierCharacter*)`, all returning `FCourierActionResult`. Keep existing bool entrypoints as wrappers. Controller provides `void ShowActionFeedback(const FText&)` and `FText GetActionFeedback() const` with a 3-second world-time expiry. Station exposes `FText GetServiceMessage() const` for asynchronous charging cancellation.
 
-- [ ] Write `FunctionalUpgrade.Feedback` tests: denied actions return distinct nonempty reasons without mutating state; valid target still wins over rejected target; no candidate beyond 5 m; player distance 2 m allowed and above rejected; vehicle station distance 12 m allowed and above rejected; moving vehicle and occupied vehicle rejected; charging interrupted on invalid distance; insufficient funds and max level produce their own reasons.
-- [ ] Build and run `CityCourier.FunctionalUpgrade.Feedback`; observe those behavioral failures against the old behavior/minimal API shells.
-- [ ] Implement the result APIs with shared validation and stable failure ordering from spec §3. Preserve collision, dismount placement and movement rules. Connect controller feedback and menu messages; no tick-driven toast spam; clear menu messages on mode change.
-- [ ] Rebuild and run `CityCourier.FunctionalUpgrade.Feedback`, `CityCourier.Interaction`, `CityCourier.Station`, `CityCourier.Scooter`, and `CityCourier.InputModes`. Check concrete test count and every result; never accept an empty report.
-- [ ] Commit explicit changed files as `fix: explain rejected courier actions and require nearby station parking`.
+- [x] Write `FunctionalUpgrade.Feedback` tests: denied actions return distinct nonempty reasons without mutating state; valid target still wins over rejected target; no candidate beyond 5 m; player distance 2 m allowed and above rejected; vehicle station distance 12 m allowed and above rejected; moving vehicle and occupied vehicle rejected; charging interrupted on invalid distance; insufficient funds and max level produce their own reasons.
+- [x] Build and run `CityCourier.FunctionalUpgrade.Feedback`; observe those behavioral failures against the old behavior/minimal API shells.
+- [x] Implement the result APIs with shared validation and stable failure ordering from spec §3. Preserve collision, dismount placement and movement rules. Connect controller feedback and menu messages; no tick-driven toast spam; clear menu messages on mode change.
+- [x] Rebuild and run `CityCourier.FunctionalUpgrade.Feedback`, `CityCourier.Interaction`, `CityCourier.Station`, `CityCourier.Scooter`, and `CityCourier.InputModes`. Check concrete test count and every result; never accept an empty report.
+- [x] Commit explicit changed files as `fix: explain rejected courier actions and require nearby station parking`.
 
 ### Task 2: 候选距离与不干扰导航的预览数据
 
@@ -62,11 +62,11 @@
 
 **Interfaces:** Add `FDeliveryOffer::EstimateOrigin` (`FVector`), `PickupRoute`, `DeliveryRoute` (`FRouteResult`). Distances come from their `LengthMeters`; total is their sum. Add `bool UDeliverySubsystem::GetOfferPreview(FGuid, FDeliveryOffer& OutOffer) const` returning a copy, and `AScooterPawn* GetScooter() const`. Controller adds `bool PreviewOffer(FGuid)`, `void CloseOfferPreview()`, `const FDeliveryOffer* GetOfferPreview() const`, and `bool AcceptOffer(FGuid)`; old `CourierOrder(int32)` remains a wrapper resolving the current ID. Preview storage belongs to controller, not navigation.
 
-- [ ] Write `FunctionalUpgrade.Offers` tests: stored pickup plus delivery route length equals the route used for deadline generation; routes include entrance connectors; preview copy does not accept order/change navigation; refresh invalidates old IDs; accepting stale ID does not select a new index; active order rejects refresh; acceptance preserves displayed fee/deadline.
-- [ ] Build and run `CityCourier.FunctionalUpgrade.Offers`; observe missing behavior failures.
-- [ ] Populate both routes once during candidate generation from the same origin; retain current 3-candidate selection and 120–300 second deadline rule. Resolve preview/acceptance by ID and return precise feedback on invalid or stale requests. Reject unreachable candidates and leave gameplay route unchanged during preview.
-- [ ] Rebuild and run `CityCourier.FunctionalUpgrade.Offers`, `CityCourier.DeliveryWorld` and `CityCourier.DeliveryRules`; inspect reported success counts.
-- [ ] Commit as `feat: add stable offer distance estimates and route preview data`.
+- [x] Write `FunctionalUpgrade.Offers` tests: stored pickup plus delivery route length equals the route used for deadline generation; routes include entrance connectors; preview copy does not accept order/change navigation; refresh invalidates old IDs; accepting stale ID does not select a new index; active order rejects refresh; acceptance preserves displayed fee/deadline.
+- [x] Build and run `CityCourier.FunctionalUpgrade.Offers`; observe missing behavior failures.
+- [x] Populate both routes once during candidate generation from the same origin; retain current 3-candidate selection and 120–300 second deadline rule. Resolve preview/acceptance by ID and return precise feedback on invalid or stale requests. Reject unreachable candidates and leave gameplay route unchanged during preview.
+- [x] Rebuild and run `CityCourier.FunctionalUpgrade.Offers`, `CityCourier.DeliveryWorld` and `CityCourier.DeliveryRules`; inspect reported success counts.
+- [x] Commit as `feat: add stable offer distance estimates and route preview data`.
 
 ### Task 3: 独立驿站与找车导航
 
@@ -74,12 +74,12 @@
 
 **Interfaces:** Consume Task 2 `UDeliverySubsystem::GetScooter()`. Add `UCityDefinition::FindRouteToPosition(FVector From, FVector To) const -> FRouteResult`. Add `ECourierNavigationMode { Order, Station, ParkedBike }`; navigation provides `FCourierActionResult SetNavigationMode(ECourierNavigationMode)`, `ECourierNavigationMode GetNavigationMode() const`, `FText GetTargetLabel() const`, `double GetRemainingMeters() const`, `FVector GetTargetPosition() const`, `bool HasArrived() const`. Existing `GetActiveRoute`, `RefreshRoute`, `UpdateNavigation`, `DistanceFromRoute` remain supported.
 
-- [ ] Write `FunctionalUpgrade.Navigation` tests: station override survives pickup and order finish; new acceptance selects Order; empty Order mode has no target; ParkedBike rejects riding, exits on mount and restores Order if active; moved/recovered bike reroutes; route progress decreases remaining distance; unreachable connector reports failure; preview leaves navigation mode/route intact.
-- [ ] Test arbitrary-endpoint routing including same edge, opposite ends, bidirectional and one-way edges, disconnected graph and nonfinite coordinates. Assert returned route respects direction and length, including endpoint connectors; do not silently route a one-way edge backwards.
-- [ ] Build and run `CityCourier.FunctionalUpgrade.Navigation`; observe the intended failures.
-- [ ] Implement endpoint projection and graph traversal; validate connector visibility/collision consistently with existing route checks. Update remaining progress every 0.5 seconds, reroute at spec thresholds; handle invalid vehicle and changed world state without stale pointers. Recompute from actual player pawn location after mode switch; maintain order state independently.
-- [ ] Rebuild and run `CityCourier.FunctionalUpgrade.Navigation`, `CityCourier.Navigation` and `CityCourier.Roads`.
-- [ ] Commit as `feat: navigate independently to station and parked scooter`.
+- [x] Write `FunctionalUpgrade.Navigation` tests: station override survives pickup and order finish; new acceptance selects Order; empty Order mode has no target; ParkedBike rejects riding, exits on mount and restores Order if active; moved/recovered bike reroutes; route progress decreases remaining distance; unreachable connector reports failure; preview leaves navigation mode/route intact.
+- [x] Test arbitrary-endpoint routing including same edge, opposite ends, bidirectional and one-way edges, disconnected graph and nonfinite coordinates. Assert returned route respects direction and length, including endpoint connectors; do not silently route a one-way edge backwards.
+- [x] Build and run `CityCourier.FunctionalUpgrade.Navigation`; observe the intended failures.
+- [x] Implement endpoint projection and graph traversal; validate connector visibility/collision consistently with existing route checks. Update remaining progress every 0.5 seconds, reroute at spec thresholds; handle invalid vehicle and changed world state without stale pointers. Recompute from actual player pawn location after mode switch; maintain order state independently.
+- [x] Rebuild and run `CityCourier.FunctionalUpgrade.Navigation`, `CityCourier.Navigation` and `CityCourier.Roads`.
+- [x] Commit as `feat: navigate independently to station and parked scooter`.
 
 ### Task 4: 历史记录、一次性结算与存档迁移
 
@@ -87,13 +87,13 @@
 
 **Interfaces:** Define reflected `FOrderHistoryEntry` with SaveGame fields: `FGuid InstanceId`, `FString MerchantName, DestinationName`, `FName MerchantId, DestinationId`, `FDateTime SettledAtUtc`, `bool bCompleted, bLate`, `uint8 FailureCode` (explicit mapping to existing failure enum), `int64 BaseFeeCents, PayoutCents`, `double ElapsedSeconds, DeadlineSeconds`, `int32 IntegrityPercent`. Add `TArray<FOrderHistoryEntry> FPlayerProfile::OrderHistory`; default Version 2. Extend `FSettlement` with `FOrderHistoryEntry History` while retaining existing identity/completed/payout members and validating their agreement. Add `FProfileRules::UpgradeToCurrent(FPlayerProfile&, bool& bMigrated) -> bool` and `ValidateSupported(const FPlayerProfile&) -> bool`; retain `Validate` for current version. Add `FOrderHistoryRules::MakeEntry(const FDeliveryState&, int64, const FString&, const FString&, FDateTime) -> FOrderHistoryEntry`, `Validate(const FOrderHistoryEntry&) -> bool`, `DescribeIncome(const FOrderHistoryEntry&) -> FText`.
 
-- [ ] Before changing profile types, capture a real version-1 binary fixture using the baseline serializer in isolated storage; record exact values and producer commit. Include nonzero balance, counts, upgrades and nondefault settings. This fixture must not be generated by the upgraded serializer.
-- [ ] Write `FunctionalUpgrade.History` tests: every terminal cause and late completion records once; repeated callbacks and save retries do not duplicate money/history; 21st entry removes oldest without changing totals; UTC timestamp and insertion order survive roundtrip; failed entries earn 0; integer payout explanation sums exactly; longest names and surrogate boundaries serialize within 65536-byte payload.
-- [ ] Write `FunctionalUpgrade.Migration` tests: actual v1 fixture preserves every old field; v1 backup recovery migrates; first migration write failure preserves readable original; retry succeeds without duplicate history; unknown future version is preserved and not auto-overwritten; duplicate IDs, invalid enum, NaN and contradictory completion/cause are rejected.
-- [ ] Build and run both new groups; observe missing history/migration behavior before implementing it. Update existing test helpers to construct valid complete settlement snapshots, without weakening their old assertions.
-- [ ] Implement old-version validation before upgrade, current-version validation after upgrade, atomic snapshot updates and bounded history. Validate source before truncating names; preserve surrogate pairs. Load marks migrated data dirty and attempts normal save; repository backup recognition accepts supported v1 without calling it corrupt. Keep current-session deduplication set unbounded by the 20-row history cap; no history replay API.
-- [ ] Build and run `CityCourier.FunctionalUpgrade.History`, `CityCourier.FunctionalUpgrade.Migration`, `CityCourier.Profile`, `CityCourier.ProfileStorage`, `CityCourier.DeliveryWorld`.
-- [ ] Commit as `feat: persist bounded delivery history with safe profile migration`.
+- [x] Before changing profile types, capture a real version-1 binary fixture using the baseline serializer in isolated storage; record exact values and producer commit. Include nonzero balance, counts, upgrades and nondefault settings. This fixture must not be generated by the upgraded serializer.
+- [x] Write `FunctionalUpgrade.History` tests: every terminal cause and late completion records once; repeated callbacks and save retries do not duplicate money/history; 21st entry removes oldest without changing totals; UTC timestamp and insertion order survive roundtrip; failed entries earn 0; integer payout explanation sums exactly; longest names and surrogate boundaries serialize within 65536-byte payload.
+- [x] Write `FunctionalUpgrade.Migration` tests: actual v1 fixture preserves every old field; v1 backup recovery migrates; first migration write failure preserves readable original; retry succeeds without duplicate history; unknown future version is preserved and not auto-overwritten; duplicate IDs, invalid enum, NaN and contradictory completion/cause are rejected.
+- [x] Build and run both new groups; observe missing history/migration behavior before implementing it. Update existing test helpers to construct valid complete settlement snapshots, without weakening their old assertions.
+- [x] Implement old-version validation before upgrade, current-version validation after upgrade, atomic snapshot updates and bounded history. Validate source before truncating names; preserve surrogate pairs. Load marks migrated data dirty and attempts normal save; repository backup recognition accepts supported v1 without calling it corrupt. Keep current-session deduplication set unbounded by the 20-row history cap; no history replay API.
+- [x] Build and run `CityCourier.FunctionalUpgrade.History`, `CityCourier.FunctionalUpgrade.Migration`, `CityCourier.Profile`, `CityCourier.ProfileStorage`, `CityCourier.DeliveryWorld`.
+- [x] Commit as `feat: persist bounded delivery history with safe profile migration`.
 
 ### Task 5: 手机、地图、历史与导航反馈集成
 
@@ -101,11 +101,11 @@
 
 **Interfaces:** Consume Tasks 1–4 APIs. `UCourierHistoryWidget::RefreshFromState()` reads Profile.OrderHistory; `void OpenEntry(FGuid)` renders an immutable selected entry. History is a phone subpage, preview uses existing Map mode with controller-owned preview state; no extra input-mode enum needed. Add phone actions for refresh, preview by stored card ID, history, station, bike, restore Order and back. Map adds return button and reads preview only for full map, never minimap.
 
-- [ ] Write `FunctionalUpgrade.UI` tests: card button binds the displayed ID; preview return restores phone; world time advances while history/preview open; expiration closes overlays into Settlement once; Esc from either pauses and does not revive stale preview; repeated key transitions neither accept another order nor leave movement enabled in menus.
-- [ ] Build and run `CityCourier.FunctionalUpgrade.UI`; observe missing behavior failures using actual native widget/controller paths.
-- [ ] Implement two-leg preview with separate colors and legend, independent parked-bike marker, updated target/remaining-distance HUD and navigation buttons with disabled explanations. Label offer estimates by refresh origin and retain visible deadline. Add history empty state, scrollable 20-row list, per-entry detail and back. Use shared `DescribeIncome` in history and settlement; menu cancellation messages use Task 1 result.
-- [ ] Rebuild and run `CityCourier.FunctionalUpgrade.UI` and `CityCourier.InputModes`. Inspect real rendered 1280×720 and 1920×1080 UI for readable Chinese, scrolling and reachable buttons, including 20 rows/longest names; verify actual font glyph coverage. No asset redesign.
-- [ ] Commit as `feat: expose route previews navigation shortcuts and order history`.
+- [x] Write `FunctionalUpgrade.UI` tests: card button binds the displayed ID; preview return restores phone; world time advances while history/preview open; expiration closes overlays into Settlement once; Esc from either pauses and does not revive stale preview; repeated key transitions neither accept another order nor leave movement enabled in menus.
+- [x] Build and run `CityCourier.FunctionalUpgrade.UI`; observe missing behavior failures using actual native widget/controller paths.
+- [x] Implement two-leg preview with separate colors and legend, independent parked-bike marker, updated target/remaining-distance HUD and navigation buttons with disabled explanations. Label offer estimates by refresh origin and retain visible deadline. Add history empty state, scrollable 20-row list, per-entry detail and back. Use shared `DescribeIncome` in history and settlement; menu cancellation messages use Task 1 result.
+- [x] Rebuild and run `CityCourier.FunctionalUpgrade.UI` and `CityCourier.InputModes`. Inspect real rendered 1280×720 and 1920×1080 UI for readable Chinese, scrolling and reachable buttons, including 20 rows/longest names; verify actual font glyph coverage. No asset redesign.
+- [x] Commit as `feat: expose route previews navigation shortcuts and order history`.
 
 ### Task 6: 回归、实际游戏验证与发布交付
 

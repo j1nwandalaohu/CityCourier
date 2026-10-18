@@ -12,7 +12,7 @@ public:
     virtual void BeginPlay()override;
     virtual void Tick(float DeltaSeconds)override;
 private:
-    enum class EStage:uint8 { Warmup,Performance,Drive,Walk,ReturnBike,Charging,Cruise,FinishWait,Reload };
+    enum class EStage:uint8 { Warmup,Performance,Drive,Walk,ReturnBike,Charging,Cruise,FinishWait,Reload,Preview };
     void BeginTrip(FName Location);
     bool FollowRoad(float DeltaSeconds);
     bool WalkTo(FVector Target);

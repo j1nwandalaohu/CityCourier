@@ -38,6 +38,14 @@ void APackagedValidationDriver::RunFeatureChecks(double Now)
     { if(auto* Function=Object->FindFunction(Name)) Object->ProcessEvent(Function,nullptr); else Finish(FString(TEXT("Missing action: "))+Name); };
     auto* Nav=GetWorld()->GetSubsystem<UDeliveryNavigationSubsystem>();
     const FString SavePath=FPaths::ProjectSavedDir()/TEXT("SaveGames/CourierProfile.sav");
+    if(Mode==TEXT("FeatureRouteReload"))
+    {
+        const auto& P=Profile->GetProfile();
+        if(P.OrderHistory.Num()!=1 || !P.OrderHistory[0].bCompleted || !FOrderHistoryRules::Validate(P.OrderHistory[0]) || P.CompletedCount!=1 || P.FailedCount!=0 || P.BalanceCents!=P.OrderHistory[0].PayoutCents || Delivery->GetState().IsActive())
+        { Finish(TEXT("Continuous history reload mismatch")); return; }
+        if(InterfaceCheck++==0) { PC->OpenOrderHistory(); Phone->RefreshFromState(); History->OpenEntry(P.OrderHistory[0].InstanceId); Capture(TEXT("route-history-reloaded")); return; }
+        Finish(); return;
+    }
     if(Mode==TEXT("LegacyCheck"))
     {
         const auto& P=Profile->GetProfile();
