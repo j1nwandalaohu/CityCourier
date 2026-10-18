@@ -38,6 +38,13 @@ void APackagedValidationDriver::RunFeatureChecks(double Now)
     { if(auto* Function=Object->FindFunction(Name)) Object->ProcessEvent(Function,nullptr); else Finish(FString(TEXT("Missing action: "))+Name); };
     auto* Nav=GetWorld()->GetSubsystem<UDeliveryNavigationSubsystem>();
     const FString SavePath=FPaths::ProjectSavedDir()/TEXT("SaveGames/CourierProfile.sav");
+    if(Mode==TEXT("FutureEnvelopeCheck"))
+    {
+        if(!Profile->NeedsReset() || Profile->SaveProfile() || PC->GetInterfaceMode()!=ECourierInterfaceMode::Pause)
+        { Finish(TEXT("Future envelope was not protected")); return; }
+        if(InterfaceCheck++==0) { Menu->RefreshFromState(); Capture(TEXT("future-envelope-protected")); return; }
+        Finish(); return;
+    }
     if(Mode==TEXT("FeatureRouteReload"))
     {
         const auto& P=Profile->GetProfile();

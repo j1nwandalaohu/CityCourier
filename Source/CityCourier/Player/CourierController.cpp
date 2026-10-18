@@ -48,8 +48,8 @@ bool ACourierController::CourierOrder(int32 Number)
 bool ACourierController::AcceptOffer(FGuid Id)
 {
     auto* D=GetDeliverySystem();
-    if(!D || !D->TryAccept(Id))
-    { ShowActionFeedback(FText::FromString(D && D->GetState().IsActive()?TEXT("请先完成当前订单"):TEXT("订单已失效，请刷新后重试"))); return false; }
+    const auto Result=D?D->TryAcceptWithFeedback(Id):FCourierActionResult::Failure(TEXT("订单已失效，请刷新后重试"));
+    if(!Result.bSucceeded) { ShowActionFeedback(Result.Reason); return false; }
     Preview.Reset(); ShowActionFeedback(FText::GetEmpty()); return true;
 }
 bool ACourierController::PreviewOffer(FGuid Id)

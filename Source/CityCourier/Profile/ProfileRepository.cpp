@@ -91,6 +91,8 @@ EProfileLoadResult FProfileRepository::Load(FPlayerProfile& Profile, FString& Ou
             OutError = TEXT("无法读取存档；请检查磁盘权限后重试。");
             return EProfileLoadResult::NeedsReset;
         }
+        if(UProfileSaveGame::HasNewerEnvelope(Bytes))
+        { OutError=TEXT("存档来自更新版本，原文件未改动。请使用兼容版本，或确认后创建新进度。"); return EProfileLoadResult::NeedsReset; }
         const bool bDecoded=UProfileSaveGame::Decode(Bytes,Candidate);
         if(bDecoded && Candidate.Version>2)
         { OutError=TEXT("存档来自更新版本，原文件未改动。请使用兼容版本，或确认后创建新进度。"); return EProfileLoadResult::NeedsReset; }

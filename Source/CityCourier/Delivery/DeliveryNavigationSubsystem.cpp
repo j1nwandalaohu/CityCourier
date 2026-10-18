@@ -66,6 +66,11 @@ bool UDeliveryNavigationSubsystem::RefreshRoute(FVector Position)
 void UDeliveryNavigationSubsystem::UpdateRemaining(FVector Position)
 {
     RemainingMeters=0; if(!Route.bReachable) return;
+    const double FinalMeters=FVector::Distance(Position,TargetPosition)/100;
+    // A nearby off-road bike can have overlapping out-and-back road connectors.
+    // Arrival uses a clear final approach, never the outward connector's progress.
+    if(Mode==ECourierNavigationMode::ParkedBike && FinalMeters<=2 && IsRouteClear({Position,TargetPosition}))
+    { RemainingMeters=FinalMeters; return; }
     double Closest=MAX_dbl,Total=0,Progress=0,Traversed=0;
     for(int32 I=1;I<Route.Points.Num();++I) Total+=FVector::Distance(Route.Points[I-1],Route.Points[I]);
     for(int32 I=1;I<Route.Points.Num();++I)

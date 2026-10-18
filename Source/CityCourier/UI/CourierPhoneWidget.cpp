@@ -49,7 +49,8 @@ void UCourierPhoneWidget::RefreshFromState()
     const bool bHistory=PC->IsOrderHistoryOpen(); WorkPage->SetVisibility(bHistory?ESlateVisibility::Collapsed:ESlateVisibility::Visible); History->SetVisibility(bHistory?ESlateVisibility::Visible:ESlateVisibility::Collapsed);
     if(bHistory && !bWasHistory) History->ResetPage(); bWasHistory=bHistory;
     if(bHistory) { History->RefreshFromState(); return; }
-    Status->SetText(FText::FromString(S.IsActive()?FString::Printf(TEXT("%s\n%s → %s\n请先收起手机，再到门口按 E。"),S.Status==EDeliveryStatus::AwaitingPickup?TEXT("正在前往取餐"):TEXT("正在配送"),*Name(S.Offer.MerchantId),*Name(S.Offer.DestinationId)):TEXT("附近有 3 个待接订单")));
+    const FString IdleStatus=D->GetOffers().IsEmpty()?TEXT("路线暂不可用，请返回道路后刷新订单"):FString::Printf(TEXT("附近有 %d 个待接订单"),D->GetOffers().Num());
+    Status->SetText(FText::FromString(S.IsActive()?FString::Printf(TEXT("%s\n%s → %s\n请先收起手机，再到门口按 E。"),S.Status==EDeliveryStatus::AwaitingPickup?TEXT("正在前往取餐"):TEXT("正在配送"),*Name(S.Offer.MerchantId),*Name(S.Offer.DestinationId)):IdleStatus));
     for(int32 I=0;I<Cards.Num();++I)
     {
         const bool Visible=!S.IsActive() && D->GetOffers().IsValidIndex(I); Cards[I]->SetVisibility(Visible?ESlateVisibility::Visible:ESlateVisibility::Collapsed);

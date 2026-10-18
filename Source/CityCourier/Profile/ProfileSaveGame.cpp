@@ -17,6 +17,13 @@ bool UProfileSaveGame::Encode(const FPlayerProfile& Profile, TArray<uint8>& Byte
     return true;
 }
 
+bool UProfileSaveGame::HasNewerEnvelope(const TArray<uint8>& Bytes)
+{
+    if(Bytes.Num()<static_cast<int32>(sizeof(uint32))) return false;
+    uint32 Magic=0; FMemory::Memcpy(&Magic,Bytes.GetData(),sizeof(Magic));
+    // Unsupported formats cannot safely be interpreted using today's length/CRC layout.
+    return (Magic&0xffffff00u)==(ProfileMagic&0xffffff00u) && Magic>ProfileMagic;
+}
 bool UProfileSaveGame::Decode(const TArray<uint8>& Bytes, FPlayerProfile& Profile)
 {
     // Check framing and checksum before passing possibly damaged bytes to UE serialization.

@@ -1,4 +1,5 @@
 #include "Delivery/DeliverySubsystem.h"
+#include "Delivery/DeliveryNavigationSubsystem.h"
 #include "Core/DeliveryRules.h"
 #include "Profile/ProfileSubsystem.h"
 #include "World/CityDefinition.h"
@@ -63,6 +64,7 @@ bool UDeliverySubsystem::RefreshOffers(FVector RiderLocation)
         FDeliveryOffer Offer{FGuid::NewGuid(),Fee.MerchantId,Fee.DestinationId,Fee.FeeCents,
             FDeliveryRules::CalculateDeadline(ToShop.LengthMeters+ToCustomer.LengthMeters)};
         Offer.EstimateOrigin=RiderLocation; Offer.PickupRoute=ToShop; Offer.DeliveryRoute=ToCustomer;
+        if(!AreRoutesClear(Offer)) continue;
         Candidates.Add(MoveTemp(Offer));
     }
     Offers.Reset();
@@ -82,12 +84,22 @@ bool UDeliverySubsystem::GetOfferPreview(FGuid InstanceId,FDeliveryOffer& OutOff
     OutOffer=*Found; return true;
 }
 bool UDeliverySubsystem::TryAccept(FGuid InstanceId)
+{ return TryAcceptWithFeedback(InstanceId).bSucceeded; }
+bool UDeliverySubsystem::AreRoutesClear(const FDeliveryOffer& Offer) const
+{
+    const auto* Navigation=GetWorld()->GetSubsystem<UDeliveryNavigationSubsystem>();
+    return Navigation && Navigation->IsRouteClear(Offer.PickupRoute.Points) && Navigation->IsRouteClear(Offer.DeliveryRoute.Points);
+}
+FCourierActionResult UDeliverySubsystem::TryAcceptWithFeedback(FGuid InstanceId)
 {
     SynchronizeClock();
-    if (!bConfigured || Profile->NeedsReset() || Finished.Contains(InstanceId)) return false;
+    if(State.IsActive()) return FCourierActionResult::Failure(TEXT("请先完成当前订单"));
+    if (!bConfigured || Profile->NeedsReset() || Finished.Contains(InstanceId)) return FCourierActionResult::Failure(TEXT("订单已失效，请刷新后重试"));
     const auto* Offer = Offers.FindByPredicate([&](const FDeliveryOffer& O) { return O.InstanceId == InstanceId; });
-    if (!Offer || !FDeliveryRules::Accept(State,*Offer)) return false;
-    LastClock = ReadClock(); UpdateTargets(); OnDeliveryChanged.Broadcast(); return true;
+    if(!Offer) return FCourierActionResult::Failure(TEXT("订单已失效，请刷新后重试"));
+    if(!AreRoutesClear(*Offer)) return FCourierActionResult::Failure(TEXT("路线暂不可用，请返回道路后刷新订单"));
+    if(!FDeliveryRules::Accept(State,*Offer)) return FCourierActionResult::Failure(TEXT("订单已失效，请刷新后重试"));
+    LastClock = ReadClock(); UpdateTargets(); OnDeliveryChanged.Broadcast(); return FCourierActionResult::Success();
 }
 ADeliveryLocation* UDeliverySubsystem::FindLocationActor(FName Id) const
 {
