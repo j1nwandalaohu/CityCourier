@@ -1,0 +1,16 @@
+Selected MakeHuman system assets
+
+Pack: makehuman_system_assets_cc0.zip
+Author: MakeHuman community / makehuman_system
+Source: https://static.makehumancommunity.org/assets/assetpacks/makehuman_system_assets.html
+Download: https://files.makehumancommunity.org/asset_packs/makehuman_system_assets/makehuman_system_assets_cc0.zip
+License: CC0 1.0 Universal
+License text: https://creativecommons.org/publicdomain/zero/1.0/legalcode
+
+The official pack index explicitly lists male_casualsuit04, young_asian_male
+and shoes01 as CC0. Only asset data is included; no MakeHuman application
+source code is distributed here. Clothing fitting is implemented independently
+from the barycentric mapping provided in each .mhclo asset.
+
+Retained source asset bytes are unmodified. Source adaptation and rigging are
+performed reproducibly by tools/art/build_rider.py.

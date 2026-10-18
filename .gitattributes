@@ -1,0 +1,2 @@
+# Keep downloaded asset bytes identical to the retained source checksums.
+AssetsSource/CityCourier/External/** -text

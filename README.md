@@ -63,3 +63,7 @@ Esc 菜单提供总音量和低 / 中 / 高画质。中档使用软件 Lumen，1
 ## 首版范围
 
 当前使用原创简化模型和固定傍晚街区；自由步行、骑行和配送循环已实现，画面规模与精细度不等同于 GTA 成品。背景交通为最多 6 辆车、12 名行人的有限巡行和避障。首版不包含多人、建筑内部探索、警察、战斗、真实地图平台、真实支付、天气或昼夜循环。
+
+## Integrated art preview
+
+main includes gameplay and updated art. The game starts in L_CourierCity; the editor opens L_CourierArtPreview. See [art preview guide](docs/art/preview-guide.md) for sources and rebuilding. Existing packages in the original worktree predate this merge. Build and package main to use the merged version.
