@@ -85,10 +85,10 @@ Consumes compiled catalog, runtime definitions and migrated maps. Produces persi
 
 Consumes building spatial addresses and indoor paths. Produces composed room-to-room routes and full journey estimates without affecting running orders.
 
-- [ ] Write regressions for same XY different floors, room-to-street-to-other-building path, closed but openable doors, immutable preview, FindBike from upstairs and unreachable geometry. Watch RED.
-- [ ] Extend `FRouteResult` with road／indoor flat／stair meters, mandatory door count and floor/address metadata; preserve legacy length and point fields. `UCityDefinition` composes interior entry/exit segments with the existing graph; door traversability is distinct from collision-at-this-instant.
-- [ ] Adapt navigation's remaining distance and floor-aware arrival, keep independent Order／Station／ParkedBike modes, and render the current floor's schematic and stairs on map/minimap with existing corrected world projection.
-- [ ] Run routing, preview, map and functional suites GREEN; commit.
+- [x] Write regressions for same XY different floors, room-to-street-to-other-building path, closed but openable doors, immutable preview, FindBike from upstairs and unreachable geometry. Watch RED.
+- [x] Extend `FRouteResult` with road／indoor flat／stair meters, mandatory door count and floor/address metadata; preserve legacy length and point fields. `UCityDefinition` composes interior entry/exit segments with the existing graph; door traversability is distinct from collision-at-this-instant.
+- [x] Adapt navigation's remaining distance and floor-aware arrival, keep independent Order／Station／ParkedBike modes, and render the current floor's schematic and stairs on map/minimap with existing corrected world projection.
+- [x] Run routing, preview, map and functional suites GREEN; commit.
 
 ## Task 6: Physical indoor delivery and compatibility
 

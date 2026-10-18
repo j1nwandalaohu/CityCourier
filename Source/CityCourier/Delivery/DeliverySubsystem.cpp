@@ -8,6 +8,7 @@
 #include "Vehicles/ScooterPawn.h"
 #include "EngineUtils.h"
 #include "GameFramework/PlayerController.h"
+#include "Buildings/CourierBuildingSubsystem.h"
 
 bool UDeliverySubsystem::DoesSupportWorldType(EWorldType::Type Type) const
 { return Type == EWorldType::Game || Type == EWorldType::PIE; }
@@ -60,12 +61,22 @@ bool UDeliverySubsystem::RefreshOffers(FVector RiderLocation)
     if (!bConfigured || State.IsActive() || RiderLocation.ContainsNaN()) return false;
     LastRiderLocation = RiderLocation;
     TArray<FDeliveryOffer> Candidates;
+    const auto* Buildings=GetBuildings(); TMap<FName,FRouteResult> PickupRoutes;
     for (const auto& Fee : City->Fees)
     {
-        const auto ToShop = City->FindRouteFrom(RiderLocation,Fee.MerchantId);
+        if(!PickupRoutes.Contains(Fee.MerchantId)) PickupRoutes.Add(Fee.MerchantId,Buildings?City->FindJourneyFrom(RiderLocation,Fee.MerchantId,*Buildings):City->FindRouteFrom(RiderLocation,Fee.MerchantId));
+        const auto& ToShop=PickupRoutes[Fee.MerchantId];
         const auto* Shop = City->FindLocation(Fee.MerchantId); const auto* Customer = City->FindLocation(Fee.DestinationId);
         if (!Shop || !Customer || !ToShop.bReachable) continue;
-        const auto ToCustomer = City->FindRouteBetween(*Shop,*Customer); if (!ToCustomer.bReachable) continue;
+        FRouteResult ToCustomer;
+        if(Buildings)
+        {
+            const FString Key=Fee.MerchantId.ToString()+TEXT("/")+Fee.DestinationId.ToString();
+            if(!IndoorDeliveryRoutes.Contains(Key)) IndoorDeliveryRoutes.Add(Key,City->FindJourneyBetween(Fee.MerchantId,Fee.DestinationId,*Buildings));
+            ToCustomer=IndoorDeliveryRoutes[Key];
+        }
+        else ToCustomer=City->FindRouteBetween(*Shop,*Customer);
+        if (!ToCustomer.bReachable) continue;
         FDeliveryOffer Offer{FGuid::NewGuid(),Fee.MerchantId,Fee.DestinationId,Fee.FeeCents,
             FDeliveryRules::CalculateDeadline(ToShop.LengthMeters+ToCustomer.LengthMeters)};
         Offer.EstimateOrigin=RiderLocation; Offer.PickupRoute=ToShop; Offer.DeliveryRoute=ToCustomer;
@@ -93,7 +104,21 @@ bool UDeliverySubsystem::TryAccept(FGuid InstanceId)
 bool UDeliverySubsystem::AreRoutesClear(const FDeliveryOffer& Offer) const
 {
     const auto* Navigation=GetWorld()->GetSubsystem<UDeliveryNavigationSubsystem>();
-    return Navigation && Navigation->IsRouteClear(Offer.PickupRoute.Points) && Navigation->IsRouteClear(Offer.DeliveryRoute.Points);
+    return Navigation && Navigation->IsRouteClear(Offer.PickupRoute) && Navigation->IsRouteClear(Offer.DeliveryRoute);
+}
+const UCityBuildingCatalog* UDeliverySubsystem::GetBuildings() const
+{
+    const auto* S=GetWorld()?GetWorld()->GetSubsystem<UCourierBuildingSubsystem>():nullptr;
+    return S && S->IsEnabled()?S->GetCatalog():nullptr;
+}
+FText UDeliverySubsystem::GetLocationLabel(FName Id) const
+{
+    const auto* L=City?City->FindLocation(Id):nullptr; if(!L) return FText::GetEmpty();
+    const auto* C=GetBuildings(); const auto* Binding=C?C->FindBinding(Id):nullptr;
+    if(!Binding) return L->DisplayName;
+    const int32 I=C->FindBuilding(Binding->BuildingId); if(I==INDEX_NONE) return L->DisplayName;
+    const auto& B=C->Buildings[I]; const int32 R=B.FindRoom(Binding->RoomId); if(R==INDEX_NONE) return L->DisplayName;
+    return FText::FromString(FString::Printf(TEXT("%s · %d楼 %s"),*L->DisplayName.ToString(),B.Rooms[R].Floor,*B.Rooms[R].Label.ToString()).Left(64));
 }
 FCourierActionResult UDeliverySubsystem::TryAcceptWithFeedback(FGuid InstanceId)
 {

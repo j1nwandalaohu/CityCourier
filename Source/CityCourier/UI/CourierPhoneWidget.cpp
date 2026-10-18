@@ -45,7 +45,7 @@ void UCourierPhoneWidget::NativeOnInitialized()
 void UCourierPhoneWidget::RefreshFromState()
 {
     auto* PC=Cast<ACourierController>(GetOwningPlayer()); auto* D=PC?PC->GetDeliverySystem():nullptr; if(!D || !Status || !D->GetCity()) return;
-    const auto& S=D->GetState(); auto Name=[&](FName Id) { const auto* L=D->GetCity()->FindLocation(Id); return L?L->DisplayName.ToString():Id.ToString(); };
+    const auto& S=D->GetState(); auto Name=[&](FName Id) { return D->GetLocationLabel(Id).ToString(); };
     const bool bHistory=PC->IsOrderHistoryOpen(); WorkPage->SetVisibility(bHistory?ESlateVisibility::Collapsed:ESlateVisibility::Visible); History->SetVisibility(bHistory?ESlateVisibility::Visible:ESlateVisibility::Collapsed);
     if(bHistory && !bWasHistory) History->ResetPage(); bWasHistory=bHistory;
     if(bHistory) { History->RefreshFromState(); return; }

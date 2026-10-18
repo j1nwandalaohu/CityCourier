@@ -15,7 +15,7 @@ public:
     FText GetTargetLabel() const;
     double GetRemainingMeters() const { return RemainingMeters; }
     FVector GetTargetPosition() const { return TargetPosition; }
-    bool HasArrived() const { return Route.bReachable && RemainingMeters<=2; }
+    bool HasArrived() const { return bArrived; }
     virtual bool DoesSupportWorldType(EWorldType::Type Type) const override { return Type==EWorldType::Game || Type==EWorldType::PIE; }
     virtual bool IsTickable() const override { return !IsTemplate() && Delivery!=nullptr; }
     virtual TStatId GetStatId() const override { RETURN_QUICK_DECLARE_CYCLE_STAT(UDeliveryNavigationSubsystem,STATGROUP_Tickables); }
@@ -26,6 +26,7 @@ public:
     void UpdateNavigation(FVector RiderLocation,double DeltaSeconds);
     double DistanceFromRoute(FVector Position) const;
     bool IsRouteClear(const TArray<FVector>& Points) const;
+    bool IsRouteClear(const FRouteResult& Candidate) const;
 private:
     FName ResolveTarget() const;
     void UpdateRemaining(FVector Position);
@@ -38,4 +39,6 @@ private:
     FRouteResult Route;
     FName Target;
     double CheckSeconds=0;
+    FName OriginRoom;
+    bool bArrived=false;
 };

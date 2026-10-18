@@ -40,6 +40,8 @@ public:
     UFUNCTION(BlueprintPure) ADeliveryLocation* FindLocationActor(FName Id) const;
     const FSettlement& GetLastSettlement() const { return LastSettlement; }
     UCityDefinition* GetCity() const { return City; }
+    const class UCityBuildingCatalog* GetBuildings() const;
+    FText GetLocationLabel(FName Id) const;
     FOnDeliveryChanged OnDeliveryChanged;
     FOnDeliveryFinished OnDeliveryFinished;
 #if WITH_DEV_AUTOMATION_TESTS
@@ -64,6 +66,7 @@ private:
     FVector LastRiderLocation = FVector::ZeroVector;
     double LastClock = 0;
     bool bConfigured = false;
+    TMap<FString,FRouteResult> IndoorDeliveryRoutes;
 #if WITH_DEV_AUTOMATION_TESTS
     TFunction<double()> TestClock;
 #endif
