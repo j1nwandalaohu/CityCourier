@@ -1,0 +1,242 @@
+﻿{
+	"devices": [
+		{
+			"deviceName": "DESKTOP-JPFMANM",
+			"instance": "3A062579436323D277F4019FC5DE2F8B",
+			"instanceName": "DESKTOP-JPFMANM-16344",
+			"platform": "WindowsEditor",
+			"oSVersion": "Windows 11 (25H2) [10.0.26200.9711] ",
+			"model": "Default",
+			"gPU": "NVIDIA GeForce RTX 3060 Ti",
+			"cPUModel": "13th Gen Intel(R) Core(TM) i5-13400F",
+			"rAMInGB": 16,
+			"renderMode": "SM6",
+			"rHI": "",
+			"appInstanceLog": ""
+		}
+	],
+	"reportCreatedOn": "2026.10.18-05.25.28",
+	"succeeded": 0,
+	"succeededWithWarnings": 0,
+	"failed": 3,
+	"notRun": 0,
+	"inProcess": 0,
+	"totalDuration": 0.11664929986000061,
+	"comparisonExported": false,
+	"comparisonExportDirectory": "",
+	"tests": [
+		{
+			"testDisplayName": "BlockedOffers",
+			"fullTestPath": "CityCourier.FunctionalUpgrade.Review.BlockedOffers",
+			"state": "Fail",
+			"deviceInstance": [
+				"3A062579436323D277F4019FC5DE2F8B"
+			],
+			"duration": 0.095109894871711731,
+			"dateTime": "2026.10.18-05.25.28",
+			"entries": [
+				{
+					"event":
+					{
+						"type": "Error",
+						"message": "Expected 'Displayed card becomes blocked before click' to be false.",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "D:\\eleme\\.worktrees\\city-courier\\Source\\CityCourier\\Tests\\FunctionalReviewTests.cpp",
+					"lineNumber": 17,
+					"timestamp": "2026.10.18-05.25.28"
+				},
+				{
+					"event":
+					{
+						"type": "Error",
+						"message": "Expected 'Route-specific rejection reaches player' to be true.",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "D:\\eleme\\.worktrees\\city-courier\\Source\\CityCourier\\Tests\\FunctionalReviewTests.cpp",
+					"lineNumber": 17,
+					"timestamp": "2026.10.18-05.25.28"
+				},
+				{
+					"event":
+					{
+						"type": "Error",
+						"message": "Expected 'Rejected card never starts timer' to be false.",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "D:\\eleme\\.worktrees\\city-courier\\Source\\CityCourier\\Tests\\FunctionalReviewTests.cpp",
+					"lineNumber": 19,
+					"timestamp": "2026.10.18-05.25.28"
+				},
+				{
+					"event":
+					{
+						"type": "Error",
+						"message": "Expected 'Direct delivery API also rejects blockage' to be false.",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "D:\\eleme\\.worktrees\\city-courier\\Source\\CityCourier\\Tests\\FunctionalReviewTests.cpp",
+					"lineNumber": 22,
+					"timestamp": "2026.10.18-05.25.28"
+				},
+				{
+					"event":
+					{
+						"type": "Error",
+						"message": "Expected 'Blocked roads cannot refresh three offers' to be false.",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "D:\\eleme\\.worktrees\\city-courier\\Source\\CityCourier\\Tests\\FunctionalReviewTests.cpp",
+					"lineNumber": 24,
+					"timestamp": "2026.10.18-05.25.28"
+				},
+				{
+					"event":
+					{
+						"type": "Error",
+						"message": "Expected 'No physically blocked cards are offered' to be 0, but it was 3.",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "D:\\eleme\\.worktrees\\city-courier\\Source\\CityCourier\\Tests\\FunctionalReviewTests.cpp",
+					"lineNumber": 25,
+					"timestamp": "2026.10.18-05.25.28"
+				}
+			],
+			"warnings": 0,
+			"errors": 6,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "FutureEnvelope",
+			"fullTestPath": "CityCourier.FunctionalUpgrade.Review.FutureEnvelope",
+			"state": "Fail",
+			"deviceInstance": [
+				"3A062579436323D277F4019FC5DE2F8B"
+			],
+			"duration": 0.0076558999717235565,
+			"dateTime": "2026.10.18-05.25.28",
+			"entries": [
+				{
+					"event":
+					{
+						"type": "Error",
+						"message": "Expected 'Newer envelope requires explicit choice' to be true.",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "D:\\eleme\\.worktrees\\city-courier\\Source\\CityCourier\\Tests\\FunctionalReviewTests.cpp",
+					"lineNumber": 41,
+					"timestamp": "2026.10.18-05.25.28"
+				},
+				{
+					"event":
+					{
+						"type": "Error",
+						"message": "Expected 'No autosave or manual retry over unsupported envelope' to be false.",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "D:\\eleme\\.worktrees\\city-courier\\Source\\CityCourier\\Tests\\FunctionalReviewTests.cpp",
+					"lineNumber": 42,
+					"timestamp": "2026.10.18-05.25.28"
+				},
+				{
+					"event":
+					{
+						"type": "Error",
+						"message": "Expected 'Primary remains byte-identical in place' to be true.",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "D:\\eleme\\.worktrees\\city-courier\\Source\\CityCourier\\Tests\\FunctionalReviewTests.cpp",
+					"lineNumber": 43,
+					"timestamp": "2026.10.18-05.25.28"
+				},
+				{
+					"event":
+					{
+						"type": "Error",
+						"message": "Expected 'Newer primary not archived as corruption' to be 0, but it was 1.",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "D:\\eleme\\.worktrees\\city-courier\\Source\\CityCourier\\Tests\\FunctionalReviewTests.cpp",
+					"lineNumber": 45,
+					"timestamp": "2026.10.18-05.25.28"
+				},
+				{
+					"event":
+					{
+						"type": "Error",
+						"message": "Expected 'No corrupt marker created' to be false.",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "D:\\eleme\\.worktrees\\city-courier\\Source\\CityCourier\\Tests\\FunctionalReviewTests.cpp",
+					"lineNumber": 45,
+					"timestamp": "2026.10.18-05.25.28"
+				}
+			],
+			"warnings": 0,
+			"errors": 5,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "OffRoadBikeArrival",
+			"fullTestPath": "CityCourier.FunctionalUpgrade.Review.OffRoadBikeArrival",
+			"state": "Fail",
+			"deviceInstance": [
+				"3A062579436323D277F4019FC5DE2F8B"
+			],
+			"duration": 0.013883501291275024,
+			"dateTime": "2026.10.18-05.25.28",
+			"entries": [
+				{
+					"event":
+					{
+						"type": "Error",
+						"message": "Expected 'Beside off-road bike arrives without road detour' to be true.",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "D:\\eleme\\.worktrees\\city-courier\\Source\\CityCourier\\Tests\\FunctionalReviewTests.cpp",
+					"lineNumber": 65,
+					"timestamp": "2026.10.18-05.25.28"
+				},
+				{
+					"event":
+					{
+						"type": "Error",
+						"message": "Expected 'Nearby remaining distance follows clear final approach' to be true.",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "D:\\eleme\\.worktrees\\city-courier\\Source\\CityCourier\\Tests\\FunctionalReviewTests.cpp",
+					"lineNumber": 66,
+					"timestamp": "2026.10.18-05.25.28"
+				},
+				{
+					"event":
+					{
+						"type": "Error",
+						"message": "Expected 'At bike stays arrived' to be true.",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "D:\\eleme\\.worktrees\\city-courier\\Source\\CityCourier\\Tests\\FunctionalReviewTests.cpp",
+					"lineNumber": 67,
+					"timestamp": "2026.10.18-05.25.28"
+				}
+			],
+			"warnings": 0,
+			"errors": 3,
+			"artifacts": []
+		}
+	]
+}
