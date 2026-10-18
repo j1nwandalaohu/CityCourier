@@ -49,19 +49,19 @@
 
 Produces: JSON-compatible building data with explicit centimeter geometry, stable IDs, room bounds, door links, floor heights, route nodes and structural boxes. Main entry, all rooms, stairs and roof access belong to the same graph.
 
-- [ ] Write `tests/test_interior_layout.py` first: missing compiler fails; valid A/B/C buildings have all rooms reachable and returnable; stair rise ≤17 and tread ≥28; every door references two real regions; wrong sizes／NaN／duplicate IDs／missing floors fail. Exercise all production width／depth／rotation cases from existing generator metadata.
-- [ ] Run `D:/sdk/Python/Python314/python.exe -m unittest discover -s tests -p test_interior_layout.py -v`; record expected RED for missing behavior.
-- [ ] Implement `compile_building` and `validate_building` in `tools/interiors/layout.py`; preserve source transforms, derive floors from actual visual variant, choose fitting layouts, enumerate independent expected IDs before geometry generation.
-- [ ] Run the same tests GREEN; retain a deterministic source layout sample under `AssetsSource/CityCourier/Interiors/` and commit.
+- [x] Write `tests/test_interior_layout.py` first: missing compiler fails; valid A/B/C buildings have all rooms reachable and returnable; stair rise ≤17 and tread ≥28; every door references two real regions; wrong sizes／NaN／duplicate IDs／missing floors fail. Exercise all production width／depth／rotation cases from existing generator metadata.
+- [x] Run `D:/sdk/Python/Python314/python.exe -m unittest discover -s tests -p test_interior_layout.py -v`; record expected RED for missing behavior.
+- [x] Implement `compile_building` and `validate_building` in `tools/interiors/layout.py`; preserve source transforms, derive floors from actual visual variant, choose fitting layouts, enumerate independent expected IDs before geometry generation.
+- [x] Run the same tests GREEN; retain a deterministic source layout sample under `AssetsSource/CityCourier/Interiors/` and commit.
 
 ## Task 2: Runtime data, doors and native collision behavior
 
 Consumes Task 1's field schema. Produces native serializable catalog, pure indoor route search and a doorway actor with stable data identity.
 
-- [ ] Add UE tests for absent catalog and closed/opening/open/closing behavior, two-sided E, blocked motion stopping at last safe angle, pause, duplicate edges and correct cross-floor route. Start with a runtime asset-availability failure that compiles against existing UDataAsset APIs, then add typed tests alongside the new types.
-- [ ] Build Editor and run `./scripts/Test.ps1 -Filter CityCourier.Buildings -EngineRoot D:/sdk/UE_5.6`; preserve observed RED.
-- [ ] Implement definition validation, graph route lengths, `ACourierDoor` state machine with swept blocker checks and pose-preserving proxy transition; use existing unified player admission and feedback. Closed doors block strikes; moving doors are the only ticking doors.
-- [ ] Run focused UE tests GREEN and existing action tests; commit.
+- [x] Add UE tests for absent catalog and closed/opening/open/closing behavior, two-sided E, blocked motion stopping at last safe angle, pause, duplicate edges and correct cross-floor route. Start with a runtime asset-availability failure that compiles against existing UDataAsset APIs, then add typed tests alongside the new types.
+- [x] Build Editor and run `./scripts/Test.ps1 -Filter CityCourier.Buildings -EngineRoot D:/sdk/UE_5.6`; preserve observed RED.
+- [x] Implement definition validation, graph route lengths, `ACourierDoor` state machine with swept blocker checks and pose-preserving proxy transition; use existing unified player admission and feedback. Closed doors block strikes; moving doors are the only ticking doors.
+- [x] Run focused UE tests GREEN and existing action tests; commit.
 
 ## Task 3: Formal assets and deterministic map migration
 
