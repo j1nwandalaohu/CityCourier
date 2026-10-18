@@ -3,6 +3,7 @@ import math
 import random
 import bpy
 from art_common import *
+from environment_detail import window, cable, tree, stall, dressing, tapered, box, cylinder
 
 def palette():
     return dict(
@@ -62,24 +63,48 @@ def building(m,variant):
     box('Lightbox',(0,front-.26,3.3),(7.78,.35,.85),colors[variant],.035)
     title=['阿荣面馆','南城便利','巷口烧腊'][variant]
     text_mesh('Shop_name',title,(0,front-.445,3.08),.60,m['white'])
-    box('Awning',(0,front-.78,2.86),(7.8,1.45,.09),colors[variant],.015)
-    for x in [-3.4,3.4]:cylinder('Awning_brace',(x,front-.1,2.35),(x,front-1.45,2.86),.025,m['metal'])
+    # The map stretches building depth 2x; shallow authoring gives a 1.4 m canopy.
+    awning=box('Awning',(0,front-.40,2.86),(7.8,.72,.055),colors[variant],.008)
+    awning.rotation_euler.x=.055
+    for x in [-3.4,3.4]:cylinder('Awning_brace',(x,front-.1,2.45),(x,front-.75,2.84),.018,m['metal'])
+    for i in range(27):
+        box('Awning_seam',(-3.78+i*.29,front-.4,2.9),(.014,.70,.012),m['metal'],.002)
+    # Tile joints, roller-shutter tracks and a worn entrance establish human scale.
+    for x in [-3.88,0,3.88]:
+        for z in range(1,11):box('Pier_tile_joint',(x,front-.339,z*.27),(.215,.007,.012),m['concrete'],0)
+    box('Entrance_step',(0,front-.24,.055),(7.58,.40,.11),m['concrete'],.013)
+    for side in [-1,1]:
+        x=side*1.96
+        for zz in [2.72,2.66,2.60]:box('Shutter_slats',(x,front-.24,zz),(3.48,.055,.045),m['aluminum'],.003)
+        box('Shop_door_sticker',(x+.38,front-.245,1.48),(.14,.008,.21),m['cream'],.001)
+    box('Electric_meter_box',(-3.54,front-.19,1.75),(.28,.18,.43),m['metal'],.012)
+    box('Meter_face',(-3.54,front-.289,1.8),(.15,.015,.16),m['dark'],.002)
+    cable('Meter_conduit',[(-3.54,front-.19,1.98),(-3.54,front-.19,3.86),(-3.15,front-.19,3.86)],.014,m['cream'])
+    for j in range(3):
+        cable('Facade_service_cable',[(x,front-.14,3.91+j*.055-.10*math.sin((x+3.9)/7.8*math.pi)) for x in [-3.9+i*.39 for i in range(21)]],.010,m['rubber'])
     floors=round((height-4.1)/3.3)
     for floor in range(floors):
         z=4.25+floor*3.3
-        box('Floor_band',(0,front-.04,z-.22),(8.1,.16,.12),m['concrete'],.008)
+        if floor==0 or (floor+variant)%2==0:
+            box('Floor_band',(0,front-.04,z-.22),(8.06,.12,.085),m['concrete'],.006)
         for col,x in enumerate([-2.65,0,2.65]):
-            box('Window_recess',(x,front-.04,z+1.05),(1.85,.1,1.95),m['dark'],.008)
-            glass=m['warm'] if r.random()<.18 else m['glass']
-            box('Window_pane',(x,front-.11,z+1.05),(1.68,.035,1.78),glass,.002)
-            for dx in [-.88,0,.88]:box('Window_mullion',(x+dx,front-.16,z+1.05),(.045,.06,1.94),m['aluminum'],.003)
-            for dz in [.12,1.04,1.98]:box('Window_transom',(x,front-.16,z+dz),(1.82,.06,.045),m['aluminum'],.003)
-            box('Window_sill',(x,front-.28,z+.05),(2.0,.5,.10),m['concrete'],.015)
+            window(m,x,front-.04,z+1.05,variant*101+floor*11+col*3,
+                   width=[1.73,1.82,1.63][(col+variant)%3],height=1.92 if variant!=1 else 1.82)
             if (floor+col+variant)%3==0:
-                box('Balcony_slab',(x,front-.65,z-.02),(2.2,1.3,.14),m['concrete'],.02)
-                for dx in [-1.02,1.02]:cylinder('Balcony_post',(x+dx,front-1.22,z),(x+dx,front-1.22,z+.95),.022,m['metal'])
-                for j in range(10):cylinder('Balcony_rail',(x-1+j*.22,front-1.22,z),(x-1+j*.22,front-1.22,z+.9),.012,m['metal'],8)
-                cylinder('Balcony_top',(x-1.08,front-1.22,z+.95),(x+1.08,front-1.22,z+.95),.028,m['metal'])
+                box('Balcony_slab',(x,front-.36,z-.02),(2.17,.72,.115),m['concrete'],.014)
+                for dx in [-1.02,1.02]:
+                    cylinder('Balcony_post',(x+dx,front-.68,z),(x+dx,front-.68,z+.95),.019,m['metal'])
+                    cylinder('Balcony_return',(x+dx,front-.1,z+.95),(x+dx,front-.68,z+.95),.021,m['metal'])
+                for j in range(10):cylinder('Balcony_rail',(x-1+j*.22,front-.68,z),(x-1+j*.22,front-.68,z+.9),.010,m['metal'],8)
+                cylinder('Balcony_top',(x-1.06,front-.68,z+.95),(x+1.06,front-.68,z+.95),.024,m['metal'])
+                if (floor+variant)%2==0:
+                    box('Balcony_planter',(x-.62,front-.43,z+.18),(.48,.23,.33),m['brick'],.018)
+                    for j in range(5):
+                        tapered('Planter_leaf',(x-.62,front-.43,z+.32),(x-.79+j*.08,front-.48,z+.57+(j%2)*.10),.045,.002,m['leaf'],5)
+                else:
+                    cable('Clothes_line',[(x-.93,front-.46,z+1.68),(x,front-.46,z+1.62),(x+.93,front-.46,z+1.68)],.005,m['rubber'])
+                    for j in range(2):
+                        box('Drying_laundry',(x-.45+j*.55,front-.46,z+1.31),(.32,.018,.60-j*.15),m['cream'] if j else m['metal'],.008)
             if (floor+col)%2==0:
                 ac=aircon(m);ac.location=(x+.72,front-.30,z-.62)
                 cylinder('AC_drain',(x+1.07,front-.32,z-.9),(x+1.07,front-.32,z-1.45),.018,m['cream'],10)
@@ -91,13 +116,35 @@ def building(m,variant):
     for y in [-5.6,5.6]:box('Roof_parapet',(0,y,height+.35),(7.8,.18,.65),wall,.02)
     cylinder('Water_tank',(2,2,height+.2),(2,2,height+1.5),.62,m['aluminum'],32)
     torus('Tank_band',(2,2,height+.65),.63,.025,m['metal'],rotation=(0,0,0))
-    # Side windows and a service door prevent blank side faces at intersections.
+    torus('Tank_top_band',(2,2,height+1.42),.63,.018,m['aluminum'],rotation=(0,0,0))
+    tapered('Tank_lid',(2,2,height+1.5),(2,2,height+1.66),.62,.10,m['aluminum'],32)
+    for x in [1.65,2.35]:box('Tank_foot',(x,2,height+.15),(.09,.75,.3),m['metal'],.008)
+    cable('Tank_supply',[(2.62,2,height+.44),(3.45,2,height+.44),(3.45,4.5,height+.44),(3.45,4.5,height-1.5)],.035,m['cream'])
+    box('Roof_stairwell',(-1.75,2.7,height+.85),(2.35,3.1,1.7),wall,.015)
+    box('Stairwell_roof',(-1.75,2.7,height+1.74),(2.55,3.3,.14),m['concrete'],.015)
+    box('Roof_access_door',(-1.75,1.135,height+.72),(.72,.04,1.43),m['metal'],.005)
+    cylinder('Aerial_mast',(-2.6,3.3,height+1.75),(-2.6,3.3,height+3.10),.018,m['metal'],10)
+    for i in range(5):
+        yy=2.95+i*.18
+        cylinder('Aerial_elements',(-3.05+i*.045,yy,height+2.86),(-2.15-i*.045,yy,height+2.86),.009,m['aluminum'],8)
+    # Complete side and rear elevations, including lintels and utility doors.
     for side in [-1,1]:
-        for z in [5.4,8.7,12]:
-            if z+1>height:continue
-            for y in [-2.8,1.1,4]:
-                box('Side_window',(side*4.015,y,z),(.035,1.5,1.65),m['glass'],.002)
-                for dy in [-.8,.8]:box('Side_frame',(side*4.055,y+dy,z),(.07,.06,1.8),m['aluminum'],.003)
+        box('Side_tile_skirt',(side*4.025,0,.38),(.055,11.4,.66),m['concrete'],.008)
+        for floor in range(floors):
+            z=5.3+floor*3.3
+            for col,y in enumerate([-3.1,.4,3.9]):
+                window(m,side*4.03,y,z,200+variant*41+floor*7+col,width=1.4,height=1.70,
+                       angle=side*math.pi/2)
+        box('Service_door_frame',(side*4.05,3.45,1.14),(.09,1.11,2.28),m['concrete'],.012)
+        box('Service_door',(side*4.105,3.45,1.11),(.045,.93,2.16),m['metal'],.006)
+        for i in range(6):box('Door_vent',(side*4.135,3.45,.45+i*.07),(.012,.66,.025),m['dark'],0)
+        cylinder('Side_rainpipe',(side*4.09,5.15,.25),(side*4.09,5.15,height),.045,m['cream'],10)
+    for floor in range(floors):
+        for col,x in enumerate([-2.5,.1,2.55]):
+            window(m,x,5.765,5.3+floor*3.3,300+variant*31+floor*5+col,width=1.55,height=1.76,angle=math.pi)
+    box('Rear_skirt',(0,5.79,.35),(8,.07,.6),m['concrete'],.008)
+    box('Rear_door_surround',(-1.9,5.82,1.18),(1.2,.10,2.36),m['concrete'],.01)
+    box('Rear_service_door',(-1.9,5.88,1.12),(1.02,.04,2.21),m['metal'],.006)
     return join(list(set(bpy.data.objects)-start),'SM_ShopHouse'+chr(65+variant))
 
 def props(m):
@@ -109,36 +156,18 @@ def props(m):
     box('Lamp_emitter',(0,-1.15,6.375),(.23,.6,.015),m['warm'],.005)
     box('Lamp_base',(0,0,.14),(.23,.23,.28),m['metal'],.04)
     o=join(list(set(bpy.data.objects)-start),'SM_StreetLamp');export(o.name,[o],'StreetProps')
-    reset();start=set(bpy.data.objects)
-    box('Planter',(0,0,.3),(.9,.9,.6),m['concrete'],.08)
-    box('Soil',(0,0,.61),(.77,.77,.03),m['dark'],.01)
-    cylinder('Trunk',(0,0,.6),(.06,0,2.4),.07,m['wood'])
-    r=random.Random(31)
-    leaves=[];leaf_faces=[]
-    for i in range(22):
-        x,y=r.uniform(-.75,.75),r.uniform(-.75,.75);z=2.1+r.uniform(-.3,.8)
-        cylinder('Branch',(0,0,1.7),(x,y,z),.018,m['wood'],8)
-        for k in range(65):
-            center=Vector((x+r.gauss(0,.26),y+r.gauss(0,.26),z+r.gauss(0,.24)))
-            a=r.uniform(0,math.tau);u=Vector((math.cos(a),math.sin(a),r.uniform(-.8,.8))).normalized()*r.uniform(.065,.12)
-            v=u.cross(Vector((0,0,1))).normalized()*.032
-            n=len(leaves)
-            leaves.extend([center-u,center+v,center+Vector((0,0,.012)),center-v,center+u])
-            leaf_faces.extend([(n,n+1,n+2),(n,n+2,n+3),(n+1,n+4,n+2),(n+2,n+4,n+3)])
-    data=bpy.data.meshes.new('Camphor_leaves');data.from_pydata(leaves,[],leaf_faces);data.update()
-    foliage=bpy.data.objects.new('Camphor_leaves',data);bpy.context.collection.objects.link(foliage);data.materials.append(m['leaf'])
-    o=join(list(set(bpy.data.objects)-start),'SM_PlanterTree');export(o.name,[o],'StreetProps')
-    reset();start=set(bpy.data.objects)
-    for x in [-1,1]:
-        for y in [-.55,.55]:cylinder('Stall_post',(x,y,0),(x,y,2.3),.025,m['metal'])
-    box('Market_counter',(0,0,.9),(2.15,1.2,.1),m['aluminum'],.025)
-    box('Counter_front',(0,-.56,.48),(2.05,.06,.85),m['green'],.01)
-    box('Market_canopy',(0,0,2.3),(2.5,1.7,.12),m['red'],.04)
-    text_mesh('Stall_name','邻里小厨',(0,-.86,2.08),.25,m['white'])
-    for x in [-.55,.1,.65]:
-        cylinder('Cooking_pot',(x,0,.96),(x,0,1.2),.23,m['aluminum'],24)
-        torus('Pot_rim',(x,0,1.21),.22,.015,m['metal'],rotation=(0,0,0))
-    o=join(list(set(bpy.data.objects)-start),'SM_MarketStall');export(o.name,[o],'StreetProps')
+    for seed, name in [(31, 'SM_PlanterTree'), (67, 'SM_PlanterTreeB')]:
+        reset();start=set(bpy.data.objects)
+        tree(m,seed)
+        o=join(list(set(bpy.data.objects)-start),name);export(o.name,[o],'StreetProps')
+    for variant, name in enumerate(['SM_MarketStall','SM_MarketStallProduce','SM_MarketStallNoodles']):
+        reset();start=set(bpy.data.objects)
+        stall(m,variant)
+        o=join(list(set(bpy.data.objects)-start),name);export(o.name,[o],'StreetProps')
+    for kind in ['DrainGrate','Manhole','WheelieBin','CrateStack','TrafficCone']:
+        reset();start=set(bpy.data.objects)
+        dressing(m,kind)
+        o=join(list(set(bpy.data.objects)-start),'SM_'+kind);export(o.name,[o],'StreetProps')
     save('StreetProps')
 
 def build():

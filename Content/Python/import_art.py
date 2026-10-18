@@ -5,6 +5,7 @@ Run only in the art worktree. No gameplay rules or original city map are rewritt
 import csv
 import json
 import os
+import sys
 from pathlib import Path
 import unreal
 
@@ -66,6 +67,10 @@ for definition in json.loads((SOURCE/'materials.json').read_text(encoding='utf-8
     unreal.MaterialEditingLibrary.recompile_material(mat);assets.save_loaded_asset(mat);materials[name]=mat
 
 sky=import_file(SOURCE/'External/PolyHaven/sunset_jhbcentral_1k.hdr',ART+'/Textures','T_EveningSky')
+import_file(SOURCE/'External/PolyHaven/industrial_sunset_02_puresky_2k.hdr',ART+'/Textures','T_EveningPanorama')
+sys.path.insert(0,str(ROOT/'Content/Python'))
+import polish_materials
+polish_materials.apply()
 
 def fbx_options(skeletal=False,animation=False,skeleton=None):
     o=unreal.FbxImportUI();o.automated_import_should_detect_type=False
@@ -73,6 +78,7 @@ def fbx_options(skeletal=False,animation=False,skeleton=None):
     o.import_mesh=not animation;o.import_animations=animation
     o.mesh_type_to_import=unreal.FBXImportType.FBXIT_ANIMATION if animation else unreal.FBXImportType.FBXIT_SKELETAL_MESH if skeletal else unreal.FBXImportType.FBXIT_STATIC_MESH
     if skeleton:o.skeleton=skeleton
+    if skeletal:o.skeletal_mesh_import_data.set_editor_property('update_skeleton_reference_pose',True)
     if not skeletal:
         o.static_mesh_import_data.combine_meshes=True;o.static_mesh_import_data.auto_generate_collision=False
         o.static_mesh_import_data.generate_lightmap_u_vs=False
@@ -90,7 +96,11 @@ for file in ([] if scope=='characters' else sorted((SOURCE/'Exports').glob('*/*.
         settings=mesh.get_editor_property('nanite_settings');settings.enabled=True;mesh.set_editor_property('nanite_settings',settings)
     assets.save_loaded_asset(mesh)
 
-character=import_file(SOURCE/'Exports/Characters/SK_Courier.fbx',ART+'/Characters','SK_Courier',fbx_options(True))
+# The legacy FBX path merges added joints on skeletal reimport. Interchange in
+# UE 5.6 can update the mesh while leaving its shared skeleton's bone tree stale.
+unreal.SystemLibrary.execute_console_command(None,'Interchange.FeatureFlags.Import.FBX 0')
+existing_skeleton=unreal.load_asset(ART+'/Characters/SK_Courier_Skeleton') if assets.does_asset_exist(ART+'/Characters/SK_Courier_Skeleton') else None
+character=import_file(SOURCE/'Exports/Characters/SK_Courier.fbx',ART+'/Characters','SK_Courier',fbx_options(True,skeleton=existing_skeleton))
 slots=list(character.get_editor_property('materials'))
 for slot in slots:
     name=str(slot.get_editor_property('material_slot_name'))
@@ -101,6 +111,7 @@ for slot in character.get_editor_property('materials'):
     if not slot.material_interface.get_path_name().startswith(ART+'/Materials/'):
         raise RuntimeError('Rider material assignment did not persist: '+str(slot))
 skeleton=character.get_editor_property('skeleton')
+if not assets.save_loaded_asset(skeleton,only_if_is_dirty=False):raise RuntimeError('Cannot persist expanded courier skeleton')
 clips=[]
 for name in ['A_Idle','A_Walk','A_Run','A_Ride']:
     clips.append(import_file(SOURCE/f'Exports/Characters/{name}.fbx',ART+'/Characters',name,fbx_options(True,True,skeleton)))

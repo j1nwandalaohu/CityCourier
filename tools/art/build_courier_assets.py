@@ -6,7 +6,9 @@ import build_environment
 import build_scooter_art
 import build_rider
 import bpy,json
-from art_common import SOURCE
+from art_common import SOURCE,material
+
+material('M_Pavers',(.32,.31,.28),scan='pavement_05')
 
 build_environment.build()
 build_scooter_art.build()

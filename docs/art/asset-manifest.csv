@@ -15,3 +15,6 @@ asphalt_02,AssetsSource/CityCourier/External/PolyHaven,/Game/CityCourier/Art/Tex
 red_brick_03,AssetsSource/CityCourier/External/PolyHaven,/Game/CityCourier/Art/Textures,Poly Haven,https://polyhaven.com/a/red_brick_03,CC0-1.0,false
 painted_plaster_wall,AssetsSource/CityCourier/External/PolyHaven,/Game/CityCourier/Art/Textures,Poly Haven,https://polyhaven.com/a/painted_plaster_wall,CC0-1.0,false
 evening_environment,AssetsSource/CityCourier/External/PolyHaven/sunset_jhbcentral_1k.hdr,/Game/CityCourier/Art/Textures/T_EveningSky,Poly Haven,https://polyhaven.com/a/sunset_jhbcentral,CC0-1.0,false
+pavement_05,AssetsSource/CityCourier/External/PolyHaven,/Game/CityCourier/Art/Textures,Poly Haven,https://polyhaven.com/a/pavement_05,CC0-1.0,false
+evening_puresky,AssetsSource/CityCourier/External/PolyHaven/industrial_sunset_02_puresky_2k.hdr,/Game/CityCourier/Art/Textures/T_EveningPanorama,Poly Haven,https://polyhaven.com/a/industrial_sunset_02_puresky,CC0-1.0,false
+courier_shoes,AssetsSource/CityCourier/External/MakeHumanPack/clothes/shoes01,/Game/CityCourier/Art/Materials/M_WorkShoes,MakeHuman community,https://files.makehumancommunity.org/asset_packs/makehuman_system_assets/makehuman_system_assets_cc0.zip,CC0-1.0,false

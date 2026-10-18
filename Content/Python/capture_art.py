@@ -13,6 +13,7 @@ if hasattr(unreal,'EditorPerformanceSettings'):
 levels.editor_request_begin_play()
 start=time.monotonic();stage=0;step=0;task=None;results=[];checks={}
 shots=[('street',(-2700,-12200,210),(-300,-11100,650)),('rider',(1050,-11830,145),(800,-11550,110)),
+       ('portrait',(925,-11700,170),(800,-11550,158)),
        ('riding',(1220,-11900,170),(950,-11550,105)),('market',(12600,12100,240),(13800,13300,450))]
 
 def finish(error=None):
@@ -23,7 +24,7 @@ def finish(error=None):
 def tick_impl(delta):
     global stage,step,task,ready,pc,rider,bike,camera,drive_start,walk_start
     try:
-        if time.monotonic()-start>480:raise RuntimeError('Art PIE capture timeout')
+        if time.monotonic()-start>720:raise RuntimeError('Art PIE capture timeout')
         world=editor.get_game_world()
         if not world:return
         if stage==0:
@@ -34,6 +35,8 @@ def tick_impl(delta):
             unreal.SystemLibrary.execute_console_command(world,'t.MaxFPS 30')
             unreal.SystemLibrary.execute_console_command(world,'r.ScreenPercentage 100')
             unreal.SystemLibrary.execute_console_command(world,'ShowFlag.Game 1')
+            for command in ['sg.ViewDistanceQuality 3','sg.ShadowQuality 3','sg.GlobalIlluminationQuality 3','sg.ReflectionQuality 3','sg.TextureQuality 3','sg.EffectsQuality 3','sg.FoliageQuality 3','sg.PostProcessQuality 3','r.Streaming.PoolSize 2000']:
+                unreal.SystemLibrary.execute_console_command(world,command)
             # Use a pre-authored camera; editor actor spawning cannot target PIE.
             camera=next(a for a in unreal.GameplayStatics.get_all_actors_of_class(world,unreal.CameraActor) if 'CC_Art_InspectionCamera' in [str(t) for t in a.tags])
             camera.camera_component.set_field_of_view(65)
@@ -41,6 +44,14 @@ def tick_impl(delta):
             stage=1
         elif stage==1:
             name,pos,target=shots[step]
+            camera.camera_component.set_field_of_view(42 if name=='portrait' else 65)
+            lens=camera.camera_component.get_editor_property('post_process_settings')
+            lens.set_editor_property('override_depth_of_field_focal_distance',True)
+            lens.set_editor_property('depth_of_field_focal_distance',(unreal.Vector(*pos)-unreal.Vector(*target)).length())
+            lens.set_editor_property('override_depth_of_field_fstop',True)
+            lens.set_editor_property('depth_of_field_fstop',4.0 if name=='portrait' else 16.0)
+            camera.camera_component.set_editor_property('post_process_settings',lens)
+            camera.camera_component.set_editor_property('post_process_blend_weight',1.0)
             if name=='riding':
                 if not bike.try_mount(rider):raise RuntimeError('Art rider could not mount original gameplay scooter')
                 bike.disable_input(pc);bike.set_drive_input(0,0,True);pc.set_view_target_with_blend(camera,0)

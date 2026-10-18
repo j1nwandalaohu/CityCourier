@@ -8,6 +8,7 @@ sys.path.insert(0,str(Path(__file__).resolve().parent))
 from collections import defaultdict
 from mathutils import Vector,Matrix
 from art_common import *
+from rider_details import fitted_garment,headgear,facial_details,finger_bones,curl_fingers,orient_grip
 
 def read_body():
     verts=[];tex=[];faces=[];groups=defaultdict(set);group=''
@@ -40,9 +41,9 @@ def build():
     textured(skin,Path('skins/young_asian_male'),'young_lightskinned_male_diffuse3.png')
     rubber=material('M_Rubber',(.025,.027,.025),.92)
     reflective=material('M_ReflectiveStrip',(.70,.73,.65),.33,.4)
-    helmet=material('M_Helmet',(.92,.56,.08),.30)
-    eye=material('M_EyeWhite',(.67,.65,.58),.25)
-    iris=material('M_Iris',(.028,.016,.008),.22)
+    helmet=material('M_Helmet',(.83,.48,.045),.36)
+    eye=material('M_EyeWhite',(.43,.40,.35),.23)
+    iris=material('M_Iris',(.058,.029,.013),.28)
     # Retain the skin under the garment to avoid gaps at animated sleeve openings.
     objects=[]
     def body_part(name,predicate,mat,offset):
@@ -62,68 +63,24 @@ def build():
         objects.append(obj);return obj
     wardrobe=SOURCE/'External/MakeHumanPack/clothes/male_casualsuit04'
     hidden=set()
-    hidden_text=(wardrobe/'male_casualsuit04.mhclo').read_text().split('delete_verts',1)[1]
+    shoe_folder=SOURCE/'External/MakeHumanPack/clothes/shoes01'
+    hidden_text='\n'.join(p.read_text().split('delete_verts',1)[1] for p in
+                         [wardrobe/'male_casualsuit04.mhclo',shoe_folder/'shoes01.mhclo'])
     for match in re.finditer(r'(\d+)(?:\s*-\s*(\d+))?',hidden_text):
         a=int(match[1]);b=int(match[2]) if match[2] else a;hidden.update(range(a,b+1))
     faces=[(vi,uv) for vi,uv in faces if not all(i in hidden for i in vi)]
     body_part('Body',lambda c:True,skin,0)
     cloth=material('M_WorkClothes',(.15,.25,.35),.9)
     textured(cloth,Path('clothes/male_casualsuit04'),'male_casualsuit04_diffuse.png','male_casualsuit04_normal.png')
-    # Adapt the authored garment through its CC0 barycentric fit to the exact
-    # MakeHuman base vertices. This preserves pockets, folds and its original UVs.
-    lines=(wardrobe/'male_casualsuit04.mhclo').read_text().splitlines();factors=[1,1,1];mapping=[];reading=False
-    for line in lines:
-        p=line.split()
-        if not p:continue
-        if p[0] in ['x_scale','y_scale','z_scale']:
-            axis=['x_scale','z_scale','y_scale'].index(p[0]);factors[axis]=abs(verts[int(p[1])][axis]-verts[int(p[2])][axis])/float(p[3])
-        elif p[0]=='verts':reading=True
-        elif p[0]=='delete_verts':break
-        elif reading and p[0].isdigit():
-            base=sum((verts[int(p[i])]*float(p[i+3]) for i in range(3)),Vector())
-            offset=Vector((float(p[6])*factors[0],-float(p[8])*factors[1],float(p[7])*factors[2]))
-            mapping.append(base+offset)
-    uv=[];cloth_faces=[]
-    for line in (wardrobe/'male_casualsuit04.obj').read_text().splitlines():
-        p=line.split()
-        if not p:continue
-        if p[0]=='vt':uv.append(tuple(map(float,p[1:3])))
-        elif p[0]=='f':cloth_faces.append(([int(t.split('/')[0])-1 for t in p[1:]],[int(t.split('/')[1])-1 for t in p[1:]]))
-    data=bpy.data.meshes.new('Tailored_workwear');data.from_pydata(mapping,[],[f[0] for f in cloth_faces]);data.update()
-    o=bpy.data.objects.new('Tailored_workwear',data);bpy.context.collection.objects.link(o);data.materials.append(cloth)
-    layer=data.uv_layers.new(name='UVMap')
-    for poly,(_,indices) in zip(data.polygons,cloth_faces):
-        poly.use_smooth=True
-        for li,ti in zip(poly.loop_indices,indices):layer.data[li].uv=uv[ti]
-    objects.append(o)
+    objects.append(fitted_garment(verts,'male_casualsuit04','Tailored_workwear',cloth))
+    shoes=material('M_WorkShoes',(.11,.095,.08),.79)
+    textured(shoes,Path('clothes/shoes01'),'shoes01_diffuse.png','shoes01_normal.png')
+    objects.append(fitted_garment(verts,'shoes01','Fitted_work_shoes',shoes))
     # Clothing details have explicit attachment bones after joining.
     attachments=[]
     def attach(o,bone):objects.append(o);attachments.append((o,bone));return o
-    for side in ['l','r']:
-        sign=1 if side=='l' else -1
-        ankle=j['joint-'+side+'-ankle'];shoe=ankle+Vector((0,-.07,-.035))
-        attach(box('Work_shoe',shoe,(.14,.29,.13),rubber,.045),'foot_'+side)
-        attach(box('Shoe_sole',shoe+Vector((0,0,-.055)),(.15,.3,.035),reflective,.012),'foot_'+side)
-        for k in range(4):attach(cylinder('Shoelace',(shoe.x-.045,shoe.y-.045+k*.025,shoe.z+.067),(shoe.x+.045,shoe.y-.045+k*.025,shoe.z+.067),.0025,reflective,8),'foot_'+side)
-    # Helmet is an open lower hemisphere with a brim and a dark padded rim.
-    head=j['joint-head'];center=Vector((0,head.y-.025,1.675))
-    vv=[];ff=[]
-    for ring in range(10):
-        theta=(ring/9)*math.pi*.56
-        for k in range(48):
-            a=k*math.tau/48;vv.append(center+Vector((.132*math.sin(theta)*math.cos(a),.164*math.sin(theta)*math.sin(a),.125*math.cos(theta))))
-    for ring in range(9):
-        for k in range(48):ff.append((ring*48+k,(ring+1)*48+k,(ring+1)*48+(k+1)%48,ring*48+(k+1)%48))
-    mesh=bpy.data.meshes.new('Helmet');mesh.from_pydata(vv,[],ff);mesh.update()
-    o=bpy.data.objects.new('Helmet_shell',mesh);bpy.context.collection.objects.link(o);o.data.materials.append(helmet)
-    for p in mesh.polygons:p.use_smooth=True
-    attach(o,'head')
-    attach(box('Helmet_brim',(0,center.y-.126,1.653),(.22,.115,.018),helmet,.008),'head')
-    for sign in [-1,1]:
-        attach(cylinder('Chin_strap',(sign*.092,center.y,1.65),(sign*.025,center.y-.04,1.49),.006,rubber,10),'head')
-    for side in ['l','r']:
-        p=j['joint-'+side+'-eye'];attach(sphere('Eye',p,(.014,.014,.013),eye),'head')
-        attach(sphere('Iris',p+Vector((0,-.0125,0)),(.007,.003,.007),iris),'head')
+    headgear(attach,helmet,rubber,reflective,j)
+    facial_details(attach,j,eye,iris,verts,faces)
     # Build the rig from MakeHuman joint landmarks, preserving measured limb lengths.
     rig_data=bpy.data.armatures.new('CourierSkeleton');rig=bpy.data.objects.new('CourierRig',rig_data);bpy.context.collection.objects.link(rig)
     bpy.context.view_layer.objects.active=rig;rig.select_set(True);bpy.ops.object.mode_set(mode='EDIT')
@@ -142,7 +99,10 @@ def build():
         bone('clavicle_'+s,j['joint-neck'],j['joint-'+s+'-shoulder'],'chest')
         bone('upperarm_'+s,j['joint-'+s+'-shoulder'],j['joint-'+s+'-elbow'],'clavicle_'+s)
         bone('forearm_'+s,j['joint-'+s+'-elbow'],j['joint-'+s+'-hand'],'upperarm_'+s)
+        # Keep the shipped skeleton's hand basis. Grip pronation belongs in the
+        # animation, so reimporting into an existing UE skeleton stays compatible.
         bone('hand_'+s,j['joint-'+s+'-hand'],j['joint-'+s+'-hand']+Vector((0,-.065,-.03)),'forearm_'+s)
+        finger_bones(bone,j,s)
         bone('thigh_'+s,j['joint-'+s+'-upper-leg'],j['joint-'+s+'-knee'],'pelvis')
         bone('shin_'+s,j['joint-'+s+'-knee'],j['joint-'+s+'-ankle'],'thigh_'+s)
         bone('foot_'+s,j['joint-'+s+'-ankle'],j['joint-'+s+'-foot-2'],'shin_'+s)
@@ -154,7 +114,16 @@ def build():
         else:
             for v in o.data.vertices:
                 p=v.co;side='l' if p.x>=0 else 'r'
-                if p.z>1.49:candidates=['head','neck']
+                if o.name=='Fitted_work_shoes':candidates=['foot_'+side]
+                elif o.name=='Tailored_workwear' and v.index<810:
+                    candidates=['pelvis','spine','chest']
+                    if p.z>1.24 and abs(p.x)>.17:candidates+=['upperarm_'+side,'clavicle_'+side]
+                elif o.name=='Tailored_workwear' and p.z<.25:candidates=['shin_'+side]
+                elif (p-j['joint-'+side+'-hand']).length<.21 and abs(p.x)>.39:
+                    candidates=['hand_'+side,'forearm_'+side]
+                    candidates+=[f'finger_{d}_{s}_{side}' for d in range(1,6) for s in range(1,4)]
+                elif p.z>1.54:candidates=['head']
+                elif p.z>1.49:candidates=['head','neck']
                 elif p.z<.94:candidates=['thigh_'+side,'shin_'+side,'foot_'+side,'pelvis']
                 else:candidates=['pelvis','spine','chest','neck','upperarm_'+side,'forearm_'+side,'hand_'+side,'clavicle_'+side]
                 distances=[]
@@ -205,12 +174,14 @@ def build():
                 direction('foot_'+s,(0,-1,-.03))
                 direction('upperarm_'+s,(sign*.14,-.65 if ride else -swing*.7,-.72 if ride else -1))
                 direction('forearm_'+s,(0,-1 if ride else -.65 if run else -.16,-.02 if ride else -.75))
-                direction('hand_'+s,(0,-1,-.1))
+                direction('hand_'+s,(sign*.08,-.2,-1))
                 if ride:
                     solve_limb('thigh_'+s,'shin_'+s,(sign*.20,-.13,.17),(0,-1,0))
                     direction('foot_'+s,(0,-1,-.03))
                     solve_limb('upperarm_'+s,'forearm_'+s,(sign*.34,-.45,.88),(sign*.5,.2,-1))
                     direction('hand_'+s,(0,-1,-.2))
+                    orient_grip(rig,j,s)
+                curl_fingers(rig,j,s,ride,moving)
             for pb in rig.pose.bones:
                 pb.keyframe_insert('location',frame=frame);pb.keyframe_insert('rotation_quaternion',frame=frame)
         scene.frame_set(1);export(name,[rig],'Characters',True)

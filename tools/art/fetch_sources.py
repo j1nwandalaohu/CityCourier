@@ -36,7 +36,7 @@ for relative, dest in [("makehuman/data/3dobjs/base.obj", "MakeHuman/base.obj"),
     records.append(dict(path=dest, source=mh+relative, license="CC0-1.0 (asset)", sha256=hashlib.sha256(data).hexdigest()))
 
 get("https://polyhaven.com/license", OUT / "PolyHaven/license.html")
-for name in ["concrete_wall_008", "asphalt_02", "red_brick_03", "painted_plaster_wall"]:
+for name in ["concrete_wall_008", "asphalt_02", "red_brick_03", "painted_plaster_wall", "pavement_05"]:
     meta = json.loads(get("https://api.polyhaven.com/files/"+name, OUT/"PolyHaven"/(name+".json")))
     for channel in ["Diffuse", "nor_gl", "Rough"]:
         entry = meta[channel]["2k"]["jpg"]
@@ -50,5 +50,15 @@ entry=meta['hdri']['1k']['hdr'];dest='PolyHaven/sunset_jhbcentral_1k.hdr'
 data=get(entry['url'],OUT/dest)
 if hashlib.md5(data).hexdigest()!=entry['md5']:raise RuntimeError('HDRI source checksum mismatch')
 records.append(dict(path=dest,source='https://polyhaven.com/a/sunset_jhbcentral',download=entry['url'],license='CC0-1.0',sha256=hashlib.sha256(data).hexdigest()))
-(OUT/"sources.json").write_text(json.dumps(records, ensure_ascii=False, indent=2)+"\n", encoding="utf-8")
+entry=meta['hdri']['2k']['hdr'];dest='PolyHaven/sunset_jhbcentral_2k.hdr'
+data=get(entry['url'],OUT/dest)
+if hashlib.md5(data).hexdigest()!=entry['md5']:raise RuntimeError('Sky source checksum mismatch')
+records.append(dict(path=dest,source='https://polyhaven.com/a/sunset_jhbcentral',download=entry['url'],license='CC0-1.0',sha256=hashlib.sha256(data).hexdigest()))
+name='industrial_sunset_02_puresky'
+meta=json.loads(get('https://api.polyhaven.com/files/'+name,OUT/'PolyHaven'/f'{name}.json'))
+entry=meta['hdri']['2k']['hdr'];dest=f'PolyHaven/{name}_2k.hdr'
+data=get(entry['url'],OUT/dest)
+if hashlib.md5(data).hexdigest()!=entry['md5']:raise RuntimeError('Pure sky source checksum mismatch')
+records.append(dict(path=dest,source='https://polyhaven.com/a/'+name,download=entry['url'],license='CC0-1.0',sha256=hashlib.sha256(data).hexdigest()))
+(OUT/"sources.json").write_text(json.dumps(records, ensure_ascii=False, indent=2)+"\n", encoding="utf-8",newline='\n')
 print("CC0 source download complete", flush=True)

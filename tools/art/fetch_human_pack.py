@@ -24,14 +24,19 @@ class Remote(io.RawIOBase):
         return data[:n]
 with zipfile.ZipFile(Remote()) as z:
     names=z.namelist()
-    wanted=[n for n in names if any(s in n for s in ['male_casualsuit04/','young_asian_male/'])]
-    records=[]
+    wanted=[n for n in names if any(s in n for s in ['male_casualsuit04/','young_asian_male/','shoes01/'])]
+    pack=ROOT/'AssetsSource/CityCourier/External/MakeHumanPack'
+    manifest=pack/'sources.json'
+    # Preserve provenance for previously fetched assets even when the selection grows.
+    records={r['path']:r for r in json.loads(manifest.read_text())} if manifest.exists() else {}
     for name in wanted:
         if name.endswith('/'):continue
         if Path(name).is_absolute() or '..' in Path(name).parts:raise RuntimeError('Unsafe archive path')
         path=ROOT/'AssetsSource/CityCourier/External/MakeHumanPack'/name
         path.parent.mkdir(parents=True,exist_ok=True)
         if not path.exists():path.write_bytes(z.read(name))
-        records.append(dict(path=name,source=URL,license='CC0-1.0',sha256=hashlib.sha256(path.read_bytes()).hexdigest()))
+        records[name]=dict(path=name,source=URL,license='CC0-1.0',
+                           license_source='https://creativecommons.org/publicdomain/zero/1.0/',
+                           license_file='LICENSE.txt',sha256=hashlib.sha256(path.read_bytes()).hexdigest())
         print(name,path.stat().st_size,flush=True)
-    (ROOT/'AssetsSource/CityCourier/External/MakeHumanPack/sources.json').write_text(json.dumps(records,indent=2)+'\n',encoding='utf-8')
+    manifest.write_text(json.dumps(list(records.values()),indent=2)+'\n',encoding='utf-8',newline='\n')

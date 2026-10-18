@@ -58,5 +58,61 @@
     "source": "https://files.makehumancommunity.org/asset_packs/makehuman_system_assets/makehuman_system_assets_cc0.zip",
     "license": "CC0-1.0",
     "sha256": "0408dea995c10e078ab79a3b68fa3092bdf18d3241b74fa35d48fe5397b42430"
+  },
+  {
+    "path": "clothes/shoes01/shoes01.mhclo",
+    "source": "https://files.makehumancommunity.org/asset_packs/makehuman_system_assets/makehuman_system_assets_cc0.zip",
+    "license": "CC0-1.0",
+    "sha256": "7994e38f7cdcee0bd5f55101660badcce0162fcdfc7f432218dd1eb301626252",
+    "license_source": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "license_file": "LICENSE.txt"
+  },
+  {
+    "path": "clothes/shoes01/shoes01.mhmat",
+    "source": "https://files.makehumancommunity.org/asset_packs/makehuman_system_assets/makehuman_system_assets_cc0.zip",
+    "license": "CC0-1.0",
+    "sha256": "db1711e2dfea4dd8c24459643603a190d9a9da603fd26da5542002a73d740be8",
+    "license_source": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "license_file": "LICENSE.txt"
+  },
+  {
+    "path": "clothes/shoes01/shoes01.mhw",
+    "source": "https://files.makehumancommunity.org/asset_packs/makehuman_system_assets/makehuman_system_assets_cc0.zip",
+    "license": "CC0-1.0",
+    "sha256": "b377d91e6d0264521f672c3990c366b2631103accba4921fc3965c2ed5ce395b",
+    "license_source": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "license_file": "LICENSE.txt"
+  },
+  {
+    "path": "clothes/shoes01/shoes01.obj",
+    "source": "https://files.makehumancommunity.org/asset_packs/makehuman_system_assets/makehuman_system_assets_cc0.zip",
+    "license": "CC0-1.0",
+    "sha256": "eac355a842a8eb8ae2f09fac8dd18a877a24ef2521ed2d6bf38559b42ce4b49a",
+    "license_source": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "license_file": "LICENSE.txt"
+  },
+  {
+    "path": "clothes/shoes01/shoes01.thumb",
+    "source": "https://files.makehumancommunity.org/asset_packs/makehuman_system_assets/makehuman_system_assets_cc0.zip",
+    "license": "CC0-1.0",
+    "sha256": "a118291fe3e83e3c616febf52fdb480186c816e7cd4d77d331adffd457421cbb",
+    "license_source": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "license_file": "LICENSE.txt"
+  },
+  {
+    "path": "clothes/shoes01/shoes01_diffuse.png",
+    "source": "https://files.makehumancommunity.org/asset_packs/makehuman_system_assets/makehuman_system_assets_cc0.zip",
+    "license": "CC0-1.0",
+    "sha256": "50c9a406a7f1cb6aa7b42912348e78f09d0252aa3963c8229cf18dfe8353cdbf",
+    "license_source": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "license_file": "LICENSE.txt"
+  },
+  {
+    "path": "clothes/shoes01/shoes01_normal.png",
+    "source": "https://files.makehumancommunity.org/asset_packs/makehuman_system_assets/makehuman_system_assets_cc0.zip",
+    "license": "CC0-1.0",
+    "sha256": "a9bfd7223e98b8f93100e89596135e3a94e6044f9db11b4d23cec625c37a4599",
+    "license_source": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "license_file": "LICENSE.txt"
   }
 ]

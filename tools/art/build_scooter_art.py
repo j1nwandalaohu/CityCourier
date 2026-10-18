@@ -3,9 +3,21 @@ import bpy
 import math
 from art_common import *
 
+def box(name,loc,size,mat,bevel=.015):
+    """Small manufactured parts need rounded highlights, including their silhouette."""
+    bpy.ops.mesh.primitive_cube_add(size=1,location=loc)
+    o=bpy.context.object;o.scale=size
+    finish(o,name,mat,smooth=True)
+    if bevel:
+        mod=o.modifiers.new('Rounded manufactured edges','BEVEL');mod.width=bevel;mod.segments=5
+        bpy.ops.object.modifier_apply(modifier=mod.name)
+    mod=o.modifiers.new('Weighted panel normals','WEIGHTED_NORMAL');mod.keep_sharp=True
+    bpy.ops.object.modifier_apply(modifier=mod.name)
+    return o
+
 def build():
     reset()
-    paint=material('M_ScooterPaint',(.025,.24,.30),.28,.45)
+    paint=material('M_ScooterPaint',(.018,.11,.13),.32,0)
     gold=material('M_CourierGold',(.95,.48,.045),.5)
     steel=material('M_Steel',(.20,.22,.23),.24,.85)
     black=material('M_Rubber',(.025,.027,.025),.9)
@@ -24,7 +36,7 @@ def build():
                      (side*.052,.15*math.sin(a+.1),.15*math.cos(a+.1)),.009,steel,8)
     for i in range(48):
         a=i*math.tau/48
-        o=box('Tire_tread',(0,.261*math.sin(a),.261*math.cos(a)),(.105,.017,.009),black,.002)
+        o=box('Tire_tread',(0,.265*math.sin(a),.265*math.cos(a)),(.09,.014,.004),black,.001)
         o.rotation_euler.x=-a
     wheel=join(list(bpy.data.objects),'SM_ScooterWheel');export(wheel.name,[wheel],'Scooter');save('ScooterWheel')
     reset()
@@ -34,6 +46,10 @@ def build():
         cylinder('Rear_support',(x,.15,.3),(x,.4,.72),.035,steel)
         cylinder('Fork',(x,-.63,.26),(x,-.44,.93),.028,steel)
     box('Battery_enclosure',(0,.1,.36),(.39,.65,.28),paint,.075)
+    for side in [-1,1]:
+        box('Battery_access_panel',(side*.197,.10,.39),(.008,.37,.14),black,.018)
+        for y in [-.05,.25]:
+            cylinder('Panel_screw',(side*.20,y,.39),(side*.207,y,.39),.005,steel,12)
     box('Foot_deck',(0,-.17,.27),(.52,.62,.07),black,.035)
     for i in range(8):box('Deck_grip',(0,-.43+i*.07,.31),(.43,.018,.008),steel,.003)
     sphere('Rear_fairing',(0,.38,.57),(.27,.45,.19),paint)
@@ -55,6 +71,9 @@ def build():
     sphere('Headlamp_lens',(0,-.602,1.0),(.135,.018,.065),light)
     box('Instrument_panel',(0,-.46,1.09),(.15,.13,.035),black,.012)
     box('Instrument_glass',(0,-.46,1.111),(.11,.09,.008),silver,.006)
+    for side in [-1,1]:
+        cylinder('Brake_cable',(side*.24,-.49,1.06),(side*.12,-.45,.81),.004,black,8)
+        sphere('Amber_indicator',(side*.205,-.57,.92),(.04,.018,.022),gold)
     # Fender arcs follow the wheel instead of primitive slabs.
     for cy in [-.63,.62]:
         verts=[];faces=[]
@@ -78,6 +97,8 @@ def build():
     text_mesh('Delivery_brand','南城速达',(0,.894,1.04),.10,black,(math.pi/2,0,math.pi))
     box('Rear_light',(0,.88,.62),(.22,.045,.055),red,.015)
     box('Number_plate',(0,.88,.5),(.21,.018,.12),silver,.005)
+    text_mesh('Plate_registration','南城 · 0628',(0,.891,.48),.025,black,(math.pi/2,0,math.pi))
+    for x in [-.08,.08]:cylinder('Plate_screw',(x,.89,.54),(x,.897,.54),.004,steel,12)
     cylinder('Kickstand',(-.2,.08,.32),(-.3,.14,.04),.015,steel)
     body=join(list(bpy.data.objects),'SM_ScooterBody');export(body.name,[body],'Scooter');save('DeliveryScooter')
 

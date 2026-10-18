@@ -8,7 +8,9 @@ Windows + UE5.6，中国城市外卖员游戏。
 
 直接打开本目录的 `CityCourier.uproject`，点击 Play 即可预览。美术预览图在 `Saved/Validation/Art-PIE`，Blender 源文件在 `AssetsSource/CityCourier/Blender`。本分支没有生成新的发行包；旧的 Artifacts 不能代表当前效果。
 
-已保存的实际游戏画面：[街景](docs/art/previews/street.png)、[骑手](docs/art/previews/rider.png)、[骑乘](docs/art/previews/riding.png)、[摊位街](docs/art/previews/market.png)。
+已保存的实际游戏画面：[街景](docs/art/previews/street.png)、[骑手](docs/art/previews/rider.png)、[人物近景](docs/art/previews/portrait.png)、[骑乘](docs/art/previews/riding.png)、[摊位街](docs/art/previews/market.png)。截图脚本使用 Epic 级渲染设置、1600×900 输出和近景镜头景深；这是实际 PIE 画面，不是发行性能验收。游戏默认仍沿用中画质，菜单切到高画质后才启用关键的 Lumen 间接光照；截图的 Epic 设置比菜单高画质更高。
+
+第二轮细化增加四面立面细节、窗帘和防盗网、树冠、三种摊位、街头杂物、实拍铺地与纯天空 HDR、50 骨骼骑手、手指动作、贴合鞋履和通勤头盔。所有改动继续保留在此美术 worktree。
 
 外部素材仅使用免费 CC0 人体、服装、皮肤、PBR 材质和环境光；中文字体为 SIL OFL。来源详见 [素材清单](docs/art/asset-manifest.csv)，原文件及授权记录在 `AssetsSource/CityCourier/External`。建筑、电动车、街景道具与动画由项目自行制作。
 
@@ -17,6 +19,7 @@ Windows + UE5.6，中国城市外卖员游戏。
 ```powershell
 python tools/art/fetch_sources.py
 python tools/art/fetch_human_pack.py
+python tools/art/verify_sources.py
 blender --background --factory-startup --python tools/art/build_courier_assets.py
 .\scripts\Build.ps1 -Target Editor
 .\scripts\Run-EditorScript.ps1 -Script Content/Python/import_art.py
@@ -38,7 +41,7 @@ $env:CITYCOURIER_UE_ROOT = 'D:\sdk\UE_5.6'
 .\scripts\Test.ps1 -Filter CityCourier -Headless
 ```
 
-实际验证结果见 [验证记录](docs/testing/acceptance.md)。首次构建会生成缓存。当前美术为可玩的首版，尚非照片级效果；建筑重复度、手指握把、鞋履、表情和更细致的布料变形仍需打磨，未进行最终发行性能验收。
+实际验证结果见 [验证记录](docs/testing/acceptance.md)。首次构建会生成缓存。本轮已改善材质、建筑细节与人体附件，但尚不能称为照片级最终效果；人物面部表情、布料褶皱、建筑重复度、街区生活密度仍是明显差距，未进行最终发行性能验收。
 
 历史任务1打包入口为 `Artifacts\Windows\Development\CityCourier.exe`，不包含当前玩法和美术；本次没有重新生成发行包。
 

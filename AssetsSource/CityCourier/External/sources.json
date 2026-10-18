@@ -102,10 +102,45 @@
     "sha256": "35aad595469533cc3b7cc209cc6c7e065d660211f02c867f4492d3b371b1fee1"
   },
   {
+    "path": "PolyHaven/pavement_05_diff_2k.jpg",
+    "source": "https://polyhaven.com/a/pavement_05",
+    "download": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/pavement_05/pavement_05_diff_2k.jpg",
+    "license": "CC0-1.0",
+    "sha256": "c3d0961df1c97afcc555cb478187ba0ebea106c786c061ae40d8c95faebf297a"
+  },
+  {
+    "path": "PolyHaven/pavement_05_nor_gl_2k.jpg",
+    "source": "https://polyhaven.com/a/pavement_05",
+    "download": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/pavement_05/pavement_05_nor_gl_2k.jpg",
+    "license": "CC0-1.0",
+    "sha256": "cf91062ac7d7db1e495e91ae6f2f67e83afeb8d30de20ce1c4f16fabe8964b29"
+  },
+  {
+    "path": "PolyHaven/pavement_05_rough_2k.jpg",
+    "source": "https://polyhaven.com/a/pavement_05",
+    "download": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/pavement_05/pavement_05_rough_2k.jpg",
+    "license": "CC0-1.0",
+    "sha256": "f045c91319b553232304230f8780709d2b05cf4fc4d03becade149722293870c"
+  },
+  {
     "path": "PolyHaven/sunset_jhbcentral_1k.hdr",
     "source": "https://polyhaven.com/a/sunset_jhbcentral",
     "download": "https://dl.polyhaven.org/file/ph-assets/HDRIs/hdr/1k/sunset_jhbcentral_1k.hdr",
     "license": "CC0-1.0",
     "sha256": "39a9c6b391e9bda935501eb5abbe200c38959f054902050ca198d82e9f20b65b"
+  },
+  {
+    "path": "PolyHaven/sunset_jhbcentral_2k.hdr",
+    "source": "https://polyhaven.com/a/sunset_jhbcentral",
+    "download": "https://dl.polyhaven.org/file/ph-assets/HDRIs/hdr/2k/sunset_jhbcentral_2k.hdr",
+    "license": "CC0-1.0",
+    "sha256": "d906ad6158a3bb9571ec82d238cdad7390211040aea506b3670b52475ad69737"
+  },
+  {
+    "path": "PolyHaven/industrial_sunset_02_puresky_2k.hdr",
+    "source": "https://polyhaven.com/a/industrial_sunset_02_puresky",
+    "download": "https://dl.polyhaven.org/file/ph-assets/HDRIs/hdr/2k/industrial_sunset_02_puresky_2k.hdr",
+    "license": "CC0-1.0",
+    "sha256": "439d7e99b34bd3727896d9a06247d4bd80d8276f208f4fdefce919ce74b602c3"
   }
 ]

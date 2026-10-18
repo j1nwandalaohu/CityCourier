@@ -3,6 +3,7 @@
 #include "Engine/StaticMesh.h"
 #include "Engine/SkeletalMesh.h"
 #include "Animation/AnimSequence.h"
+#include "Animation/Skeleton.h"
 #include "Engine/Texture2D.h"
 #include "Misc/FileHelper.h"
 #include "Misc/Paths.h"
@@ -25,6 +26,10 @@ bool FCourierArtAssetsTest::RunTest(const FString& Parameters)
         TEXT("/Game/CityCourier/Art/Scooter/SM_ScooterWheel"),
         TEXT("/Game/CityCourier/Art/Architecture/SM_ShopHouseA"),
         TEXT("/Game/CityCourier/Art/Architecture/SM_ShopHouseB"),
+        TEXT("/Game/CityCourier/Art/Architecture/SM_ShopHouseC"),
+        TEXT("/Game/CityCourier/Art/StreetProps/SM_PlanterTreeB"),
+        TEXT("/Game/CityCourier/Art/StreetProps/SM_MarketStallProduce"),
+        TEXT("/Game/CityCourier/Art/StreetProps/SM_MarketStallNoodles"),
         TEXT("/Game/CityCourier/Art/StreetProps/SM_AirConditioner")};
     for (const TCHAR* Path : StaticAssets)
     {
@@ -40,7 +45,19 @@ bool FCourierArtAssetsTest::RunTest(const FString& Parameters)
     auto* Rider=LoadObject<USkeletalMesh>(nullptr,TEXT("/Game/CityCourier/Art/Characters/SK_Courier"));
     if(TestNotNull(TEXT("Rigged courier"),Rider))
     {
+        // Loading the mesh can repair an unsaved skeleton in memory. A dirty
+        // skeleton on a fresh test run must not mask missing persisted joints.
+        if(TestNotNull(TEXT("Shared courier skeleton"),Rider->GetSkeleton()))
+            TestFalse(TEXT("Shared skeleton did not require repair after load"),Rider->GetSkeleton()->GetOutermost()->IsDirty());
         TestTrue(TEXT("Human skeleton has articulated limbs"),Rider->GetRefSkeleton().GetNum()>=16);
+        for(const TCHAR* Hand:{TEXT("l"),TEXT("r")})
+            for(int32 Digit=1;Digit<=5;++Digit)
+                for(int32 Segment=1;Segment<=3;++Segment)
+                {
+                    const FName Joint(*FString::Printf(TEXT("finger_%d_%d_%s"),Digit,Segment,Hand));
+                    TestTrue(TEXT("Imported rider retains every finger joint"),Rider->GetRefSkeleton().FindBoneIndex(Joint)!=INDEX_NONE);
+                    TestTrue(TEXT("Saved shared skeleton retains every finger joint"),Rider->GetSkeleton() && Rider->GetSkeleton()->GetReferenceSkeleton().FindBoneIndex(Joint)!=INDEX_NONE);
+                }
         const float Height=Rider->GetBounds().BoxExtent.Z*2;
         TestTrue(TEXT("Rider uses real centimeter scale"),Height>=160 && Height<=205);
         for(const auto& Slot:Rider->GetMaterials())
