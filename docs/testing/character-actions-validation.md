@@ -20,6 +20,8 @@
 
 最终功能桥接测试在 `Automation-20261018-175756-47263eea` 为 60/60；加入 Development 实机验证驱动后 `Automation-20261018-180009-2511d16a` 仍为 60/60。报告逐项检查 Success，失败／未执行均为 0。
 
+独立审查后最终全套为 `Automation-20261018-181636-c304d497`：**63/63**，另覆盖命中回调中取消／打开界面／移除攻击者、缺 AnimInstance／缺动作槽／前摇中停止 Montage，以及薄墙初始重叠的不同目标数量。完整审查与处理见 [审查记录](character-actions-review.md)。薄墙场景在原代码已通过，没有把它算成失败复现。
+
 RED 记录保留在 `Saved/Validation/actions-task1-red.log`、`actions-task1-green2.log`（World 尚未实现）、`actions-task3-red.log`、`actions-edges-red.log`、`actions-bridge-red.log`。额外回归复现并修正：整拳跨帧时的朝向丢失、初始重叠命中点缺失，以及挂点未标记包脏导致新进程读不到。
 
 ## 夹具与真实运行的区别
@@ -32,7 +34,22 @@ RED 记录保留在 `Saved/Validation/actions-task1-red.log`、`actions-task1-gr
 
 ## 打包与回归
 
-最终打包、打包运行及 Shipping 实际键鼠结果在本轮验证结束后补入此处，当前不预先宣称通过。
+最终包对应运行时代码 `ae990f1`，Development 与 Shipping 均完整成功，ExitCode=0；SHA256 见 [packages.json](evidence/character-actions/packages.json)。Shipping 完整目录 34 个文件、704412184 字节，约 672 MiB。
+
+| 检查 | 实际结果（日志位于 `Saved/Validation`） |
+| --- | --- |
+| Development | `Package-Development-20261018-181724-367c18d0` |
+| Shipping | `Package-Shipping-20261018-181838-664587cb` |
+| 最终打包动作运行 | `Actions-Packaged-Final`，10.010 秒，`error` 为空；真实起跳、空中手机重力、落地、缺动画拒绝、暂停及界面隔离通过；明确报告缺少 10 段动画 |
+| 最终真实配送 | `Actions-Route-Final`，70.116 秒、256.83 米，预览后接单、绕行驿站／充电、找车、取餐、骑行送达；完成 1／失败 0、余额 1600 分，无传送、注入收入或加速计时 |
+| 配送重启 | `Actions-Route-FinalReload`，11.007 秒，余额 1600 分、完成 1／失败 0、单条历史一致，无活动订单 |
+| Shipping 实际键盘 | `Actions-Shipping-Final`，实际按住空格，截图观察到离地与随后落地，没有长按连续跳跃；定向 Tab／Esc 事件观察到手机与暂停界面；测试进程正常关闭 |
+
+实际鼠标检查遭遇桌面焦点干扰，途中停止全局鼠标模拟；本轮**不宣称 Shipping 物理左右键检查通过**。碰撞、连击、同帧输入聚合及界面隔离已由实际组件／原生动画测试覆盖，左右键实际体验仍应在美术动作到位、桌面焦点稳定后联合检查。定向窗口消息结果不冒充物理鼠标验收。
+
+最终打包截图已目视检查：角色真实离地、落地，底部跳跃／轻重拳提示可见，“出拳动画尚未就绪，请等待美术资源接入”明确可读。截图不证明尚未制作的新跳跃／拳击姿态。所有本轮测试进程均已退出，未终止美术侧的运行。
+
+JSON、报告及上述有效截图保存在 [evidence/character-actions](evidence/character-actions)。首次 `180139/180307` 包、初次 `Actions-Route-01` 和 `Actions-Editor-01` 保留作诊断；当前交付以本表最终包为准。本轮未更改资料格式；完整 63 项仍包含已有迁移、历史、存储与配送回归。
 
 ## 美术交接
 

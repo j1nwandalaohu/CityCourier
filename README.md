@@ -8,7 +8,7 @@ Windows 单人 3D 外卖配送游戏，基于 Unreal Engine 5.6.1。首版街区
 
 正式版本入口：`Artifacts/Windows/Shipping/CityCourier.exe`。保留整个 Shipping 文件夹及其中的 `CityCourier`、`Engine` 目录，不能单独复制根目录的小型启动 exe。
 
-本机也可双击 `D:\eleme\街头骑手.lnk`。工程与完整包保存在 `D:\eleme\.worktrees\city-courier`；移动工程后需重新创建该快捷方式。Shipping 完整目录约671 MiB，附带 `开始游戏.txt` 和字体许可。
+本机也可双击 `D:\eleme\街头骑手.lnk`。工程与完整包保存在 `D:\eleme\.worktrees\city-courier`；移动工程后需重新创建该快捷方式。Shipping 完整目录约672 MiB，附带 `开始游戏.txt` 和字体许可。
 
 开发版本位于 `Artifacts/Windows/Development/CityCourier.exe`。打开工程使用 `CityCourier.uproject`，本机引擎位于 `D:\sdk\UE_5.6`。
 
@@ -67,7 +67,7 @@ Esc 菜单提供总音量和低 / 中 / 高画质。中档使用软件 Lumen，1
 
 本次更新见 [功能完善版验证](docs/testing/function-improvements-validation.md)；首版历史证据见 [验收记录](docs/testing/acceptance.md)、[发行检查](docs/testing/release-checklist.md) 和 [性能报告](docs/testing/performance.md)。运行时不需要 Python、Blender 或 UE 编辑器。
 
-人物动作功能按 [动作衔接约定](docs/art/character-actions-contract.md) 接入。新增 10 段动画在独立美术工作树制作；功能侧已有跳跃、动作时序、连击、受击、遮挡检测与动画接口，最终新动作视觉效果须待资产交付后联调。
+人物动作功能按 [动作衔接约定](docs/art/character-actions-contract.md) 接入，检查结果见 [动作验证记录](docs/testing/character-actions-validation.md)。新增 10 段动画在独立美术工作树制作；功能侧已有跳跃、动作时序、连击、受击、遮挡检测与动画接口，最终新动作视觉效果须待资产交付后联调。
 
 ## 首版范围
 

@@ -1,0 +1,10 @@
+﻿{
+    "ProcessId":  27112,
+    "ExitedNormally":  true,
+    "SpaceHeldObserved":  true,
+    "SpaceHeldDidNotRepeat":  true,
+    "MouseInputVerified":  false,
+    "MouseLimitation":  "Desktop focus interference; no physical mouse pass claimed",
+    "TargetedTabEscapeObserved":  true,
+    "NewActionArtAvailable":  false
+}

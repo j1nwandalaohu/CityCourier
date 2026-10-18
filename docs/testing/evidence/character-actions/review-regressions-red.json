@@ -1,0 +1,205 @@
+﻿{
+	"devices": [
+		{
+			"deviceName": "DESKTOP-JPFMANM",
+			"instance": "43BBBCA441A1F36F7DE4F2B91138FC28",
+			"instanceName": "DESKTOP-JPFMANM-29808",
+			"platform": "WindowsEditor",
+			"oSVersion": "Windows 11 (25H2) [10.0.26200.9711] ",
+			"model": "Default",
+			"gPU": "NVIDIA GeForce RTX 3060 Ti",
+			"cPUModel": "13th Gen Intel(R) Core(TM) i5-13400F",
+			"rAMInGB": 16,
+			"renderMode": "D3D12_SM6",
+			"rHI": "D3D12 (SM6)",
+			"appInstanceLog": ""
+		}
+	],
+	"reportCreatedOn": "2026.10.18-10.12.19",
+	"succeeded": 1,
+	"succeededWithWarnings": 0,
+	"failed": 2,
+	"notRun": 0,
+	"inProcess": 0,
+	"totalDuration": 0.20277121663093567,
+	"comparisonExported": false,
+	"comparisonExportDirectory": "",
+	"tests": [
+		{
+			"testDisplayName": "InitialOverlapThinWall",
+			"fullTestPath": "CityCourier.CharacterActions.Review.InitialOverlapThinWall",
+			"state": "Success",
+			"deviceInstance": [
+				"43BBBCA441A1F36F7DE4F2B91138FC28"
+			],
+			"duration": 0.055907901376485825,
+			"dateTime": "2026.10.18-10.12.19",
+			"entries": [],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "InterruptDuringContact",
+			"fullTestPath": "CityCourier.CharacterActions.Review.InterruptDuringContact",
+			"state": "Fail",
+			"deviceInstance": [
+				"43BBBCA441A1F36F7DE4F2B91138FC28"
+			],
+			"duration": 0.10166360437870026,
+			"dateTime": "2026.10.18-10.12.19",
+			"entries": [
+				{
+					"event":
+					{
+						"type": "Error",
+						"message": "Expected 'Interruption 0 stops local hit/substep loops immediately' to be 1, but it was 2.",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "D:\\eleme\\.worktrees\\city-courier\\Source\\CityCourier\\Tests\\CharacterActionContactTests.cpp",
+					"lineNumber": 131,
+					"timestamp": "2026.10.18-10.12.19"
+				},
+				{
+					"event":
+					{
+						"type": "Error",
+						"message": "Expected 'Interruption 1 stops local hit/substep loops immediately' to be 1, but it was 2.",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "D:\\eleme\\.worktrees\\city-courier\\Source\\CityCourier\\Tests\\CharacterActionContactTests.cpp",
+					"lineNumber": 131,
+					"timestamp": "2026.10.18-10.12.19"
+				},
+				{
+					"event":
+					{
+						"type": "Error",
+						"message": "Expected 'Interruption 2 stops local hit/substep loops immediately' to be 1, but it was 2.",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "D:\\eleme\\.worktrees\\city-courier\\Source\\CityCourier\\Tests\\CharacterActionContactTests.cpp",
+					"lineNumber": 131,
+					"timestamp": "2026.10.18-10.12.19"
+				}
+			],
+			"warnings": 0,
+			"errors": 3,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "PlaybackFailure",
+			"fullTestPath": "CityCourier.CharacterActions.Review.PlaybackFailure",
+			"state": "Fail",
+			"deviceInstance": [
+				"43BBBCA441A1F36F7DE4F2B91138FC28"
+			],
+			"duration": 0.045199699699878693,
+			"dateTime": "2026.10.18-10.12.19",
+			"entries": [
+				{
+					"event":
+					{
+						"type": "Error",
+						"message": "Expected 'Unavailable playback cannot admit attack' to be false.",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "D:\\eleme\\.worktrees\\city-courier\\Source\\CityCourier\\Tests\\CharacterActionContactTests.cpp",
+					"lineNumber": 174,
+					"timestamp": "2026.10.18-10.12.19"
+				},
+				{
+					"event":
+					{
+						"type": "Error",
+						"message": "Expected 'Playback failure 0 cannot produce invisible contact' to be 0, but it was 1.",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "D:\\eleme\\.worktrees\\city-courier\\Source\\CityCourier\\Tests\\CharacterActionContactTests.cpp",
+					"lineNumber": 181,
+					"timestamp": "2026.10.18-10.12.19"
+				},
+				{
+					"event":
+					{
+						"type": "Error",
+						"message": "Expected 'Playback failure releases action lock' to be true.",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "D:\\eleme\\.worktrees\\city-courier\\Source\\CityCourier\\Tests\\CharacterActionContactTests.cpp",
+					"lineNumber": 182,
+					"timestamp": "2026.10.18-10.12.19"
+				},
+				{
+					"event":
+					{
+						"type": "Error",
+						"message": "Expected 'Unavailable playback cannot admit attack' to be false.",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "D:\\eleme\\.worktrees\\city-courier\\Source\\CityCourier\\Tests\\CharacterActionContactTests.cpp",
+					"lineNumber": 174,
+					"timestamp": "2026.10.18-10.12.19"
+				},
+				{
+					"event":
+					{
+						"type": "Error",
+						"message": "Expected 'Playback failure 1 cannot produce invisible contact' to be 0, but it was 1.",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "D:\\eleme\\.worktrees\\city-courier\\Source\\CityCourier\\Tests\\CharacterActionContactTests.cpp",
+					"lineNumber": 181,
+					"timestamp": "2026.10.18-10.12.19"
+				},
+				{
+					"event":
+					{
+						"type": "Error",
+						"message": "Expected 'Playback failure releases action lock' to be true.",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "D:\\eleme\\.worktrees\\city-courier\\Source\\CityCourier\\Tests\\CharacterActionContactTests.cpp",
+					"lineNumber": 182,
+					"timestamp": "2026.10.18-10.12.19"
+				},
+				{
+					"event":
+					{
+						"type": "Error",
+						"message": "Expected 'Playback failure 2 cannot produce invisible contact' to be 0, but it was 1.",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "D:\\eleme\\.worktrees\\city-courier\\Source\\CityCourier\\Tests\\CharacterActionContactTests.cpp",
+					"lineNumber": 181,
+					"timestamp": "2026.10.18-10.12.19"
+				},
+				{
+					"event":
+					{
+						"type": "Error",
+						"message": "Expected 'Playback failure releases action lock' to be true.",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "D:\\eleme\\.worktrees\\city-courier\\Source\\CityCourier\\Tests\\CharacterActionContactTests.cpp",
+					"lineNumber": 182,
+					"timestamp": "2026.10.18-10.12.19"
+				}
+			],
+			"warnings": 0,
+			"errors": 8,
+			"artifacts": []
+		}
+	]
+}
