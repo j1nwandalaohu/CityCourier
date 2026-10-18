@@ -38,4 +38,5 @@ public:
     int64 GetFee(FName Merchant, FName Destination) const;
     FRouteResult FindRouteBetween(const FCourierLocationDefinition& From, const FCourierLocationDefinition& To) const;
     FRouteResult FindRouteFrom(FVector Position, FName Destination) const;
+    FRouteResult FindRouteToPosition(FVector From,FVector To) const;
 };
