@@ -23,4 +23,7 @@ for m in bpy.data.materials:
 (SOURCE/'materials.json').write_text(json.dumps(catalog,indent=2),encoding='utf-8')
 import build_reference_props
 build_reference_props.build()
+if (SOURCE/'portrait_materials.json').exists():
+    import build_photoreal_rider
+    build_photoreal_rider.build()
 print('CityCourier art source generation finished',flush=True)

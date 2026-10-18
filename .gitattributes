@@ -1,2 +1,8 @@
 # Keep downloaded asset bytes identical to the retained source checksums.
 AssetsSource/CityCourier/External/** -text
+# Portrait provenance contains byte-level source checksums, including its
+# generator. Keep these bytes stable across Windows and Unix checkouts.
+AssetsSource/CityCourier/portrait*.json -text
+AssetsSource/CityCourier/Exports/Portrait/** -text
+tools/art/build_photoreal_rider.py text eol=lf
+Content/CityCourier/Art/Characters/SK_Courier.uasset filter=lfs diff=lfs merge=lfs -text

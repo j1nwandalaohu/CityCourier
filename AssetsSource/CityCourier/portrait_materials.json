@@ -1,0 +1,101 @@
+{
+  "materials": {
+    "M_PortraitSkinBody": {
+      "kind": "skin_body",
+      "textures": {
+        "base_color": "External/MakeHumanPack/skins/young_asian_male/young_lightskinned_male_diffuse3.png",
+        "normal": "Exports/Portrait/Textures/PortraitMicro_NormalGL.png"
+      },
+      "normal_uv_scale": 6.0,
+      "texture_sha256": {
+        "base_color": "f50016a5507fc687dc8df06599c8ea48de950cd185de33a71cafc1319ddab4d5",
+        "normal": "23e335dfeabf8c14f412ce8c932be904e5b7e84d08d25dc9b4e6918e02b73279"
+      }
+    },
+    "M_PortraitSkinHead": {
+      "kind": "skin_head",
+      "textures": {
+        "base_color": "Exports/Portrait/Textures/PortraitHead_BaseColor.png",
+        "roughness": "Exports/Portrait/Textures/PortraitHead_Roughness.png",
+        "normal": "Exports/Portrait/Textures/PortraitHead_NormalGL.png",
+        "neck_base_color": "External/MakeHumanPack/skins/young_asian_male/young_lightskinned_male_diffuse3.png"
+      },
+      "neck_vertex_color": "R",
+      "scalp_vertex_color": "B",
+      "texture_sha256": {
+        "base_color": "5532e0eb098bef0b6b3001a45227e447f2ae5e1d5dbf5c4f7e347a11bd3245c0",
+        "roughness": "e1bbcbf18fe572ac35eea4b25d8faa37838ad5c587eef873859f51867a023fc3",
+        "normal": "bc755da82873087c791b64bcbed491473db7271f3d748ee5f01e8616b937fbe2",
+        "neck_base_color": "f50016a5507fc687dc8df06599c8ea48de950cd185de33a71cafc1319ddab4d5"
+      }
+    },
+    "M_PortraitMouth": {
+      "kind": "mouth",
+      "textures": {
+        "base_color": "Exports/Portrait/Textures/PortraitMouth_BaseColor.png",
+        "roughness": "Exports/Portrait/Textures/PortraitMouth_Roughness.png",
+        "normal": "Exports/Portrait/Textures/PortraitMouth_NormalGL.png"
+      },
+      "texture_sha256": {
+        "base_color": "c1d388272794706cc3a382b16d2247bb20e396c0cc1f67670437265495c3746f",
+        "roughness": "2b33c13986f4cf14aa4bcef56071fb265407d01e88779b84ff94e7d4d867c61c",
+        "normal": "cbd274a1790afcacb58ed1a2372c011d521ddfeebad1dc6dee3067618ea9c9bd"
+      }
+    },
+    "M_PortraitIris": {
+      "kind": "iris",
+      "textures": {
+        "base_color": "Exports/Portrait/Textures/PortraitIris_BaseColor.png",
+        "roughness": "Exports/Portrait/Textures/PortraitIris_Roughness.png",
+        "normal": "Exports/Portrait/Textures/PortraitIris_NormalGL.png"
+      },
+      "texture_sha256": {
+        "base_color": "6d8e9cdb8b5de0e30396df2b5ff796242e36eec936169be9d4dc13aa1203cbb7",
+        "roughness": "fb5a13d3a15f84bf01409ae31f518e1ab05b67ec6fbb0e68f773dc2be43e3c2d",
+        "normal": "fb236a1ca296cbc5772a9d57dbcec35151ebebfb36849f01e9b1d1cf11362eaf"
+      }
+    },
+    "M_PortraitSclera": {
+      "kind": "sclera",
+      "textures": {
+        "base_color": "Exports/Portrait/Textures/PortraitSclera_BaseColor.png",
+        "normal": "Exports/Portrait/Textures/PortraitSclera_NormalGL.png"
+      },
+      "alpha_mask": true,
+      "texture_sha256": {
+        "base_color": "a6bd081f2d29f14fe924612479ed8c37d9d75b967eee95eb4f06184760c0d3b7",
+        "normal": "ba68ad8731bba28b3cdd24331b6026e7c2067658820a52c31cab4e8861707e2e"
+      }
+    },
+    "M_PortraitPupil": {
+      "kind": "pupil",
+      "textures": {},
+      "texture_sha256": {}
+    },
+    "M_PortraitCornea": {
+      "kind": "cornea",
+      "textures": {},
+      "ior": 1.376,
+      "roughness": 0.025,
+      "texture_sha256": {}
+    },
+    "M_PortraitHair": {
+      "kind": "hair",
+      "textures": {},
+      "vertex_tangent": true,
+      "texture_sha256": {}
+    },
+    "M_PortraitTearline": {
+      "kind": "tearline",
+      "textures": {},
+      "roughness": 0.08,
+      "texture_sha256": {}
+    }
+  },
+  "normal_convention": "OpenGL +Y",
+  "albedo_color_space": "sRGB",
+  "linear_maps": [
+    "normal",
+    "roughness"
+  ]
+}

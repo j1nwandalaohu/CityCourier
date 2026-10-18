@@ -1,0 +1,40 @@
+{
+  "source_head": "CharMorph-Vitruvian c252d1fc7f00ba59d87b66b3d32fa3471fc6ee44 CC0",
+  "body": "Existing CC0 MakeHuman courier",
+  "fitting_translation_m": [
+    0.0,
+    -0.08385416120290756,
+    -0.012783050537109375
+  ],
+  "skeleton_reference_unchanged": true,
+  "bones": 50,
+  "scalp_strands": 16000,
+  "total_hair_strands": 18624,
+  "lashes": 144,
+  "scalp_root_bounds_m": [
+    [
+      -0.08156831562519073,
+      0.08155213296413422
+    ],
+    [
+      -0.14579510688781738,
+      0.04717288911342621
+    ],
+    [
+      1.5973100662231445,
+      1.7469017505645752
+    ]
+  ],
+  "vertices": 347833,
+  "triangles": 581976,
+  "skin_source_mix": {
+    "light": 0.82,
+    "dark": 0.18,
+    "age_height": 0.035
+  },
+  "units": "meters; existing FBX centimeter convention",
+  "limitations": [
+    "Rigid head/neck skinning; no new facial expression rig",
+    "Hero strand geometry requires LOD validation at gameplay distance"
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "skeleton_bones": 50,
+  "reference_unchanged": true,
+  "vertices": 347833,
+  "triangles": 581976,
+  "unbound_vertices": 0,
+  "max_weight_error": 1.2200325727462769e-07,
+  "max_neck_face_uv_span": 0.01899111270904541,
+  "texture_references_verified": 14
+}
