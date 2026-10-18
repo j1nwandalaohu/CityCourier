@@ -22,7 +22,7 @@ struct FCourierAnimProxy final : FAnimInstanceProxy
         for(int32 I=0;I<4;++I) Clips[I]=Anim->Clips.IsValidIndex(I)?Anim->Clips[I].Get():nullptr;
         const int32 Next=Anim->AnimationIndex;
         if(Next!=Active) { Previous=Active; PreviousClock=Clock; Active=Next; Clock=0; Blend=0; }
-        Rate=Active==1?FMath::Clamp(Anim->GroundSpeed/420.f,.5f,1.5f):Active==2?FMath::Clamp(Anim->GroundSpeed/700.f,.5f,1.5f):1;
+        Rate=Active==1?FMath::Clamp(Anim->GroundSpeed/473.2f,.5f,1.5f):Active==2?FMath::Clamp(Anim->GroundSpeed/715.9f,.5f,1.5f):1;
     }
     virtual void Update(float Delta) override
     {

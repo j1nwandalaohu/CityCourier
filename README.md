@@ -67,7 +67,7 @@ Esc 菜单提供总音量和低 / 中 / 高画质。中档使用软件 Lumen，1
 
 本次更新见 [功能完善版验证](docs/testing/function-improvements-validation.md)；首版历史证据见 [验收记录](docs/testing/acceptance.md)、[发行检查](docs/testing/release-checklist.md) 和 [性能报告](docs/testing/performance.md)。运行时不需要 Python、Blender 或 UE 编辑器。
 
-人物动作功能按 [动作衔接约定](docs/art/character-actions-contract.md) 接入，检查结果见 [动作验证记录](docs/testing/character-actions-validation.md)。新增 10 段动画在独立美术工作树制作；功能侧已有跳跃、动作时序、连击、受击、遮挡检测与动画接口，最终新动作视觉效果须待资产交付后联调。
+正式角色现已切换新版慢跑／快跑，接入真实左右轻拳与右手重拳。WASD 慢跑、Shift 快跑、左键轻拳（连击窗口内再按一次接右拳）、右键重拳；骑乘和界面中不触发出拳。来源、重建与验证见 [正式动作接入记录](docs/art/production-actions.md)。跳跃、落地、受击和起停过渡的其余七段专用动画仍待制作。
 
 ## 首版范围
 

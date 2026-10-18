@@ -60,7 +60,7 @@ bool UCourierArtBuilder::BuildAnimationBlueprint(UAnimBlueprint* Blueprint)
     FGraphNodeCreator<UK2Node_VariableGet> VariableCreator(*Graph);
     auto* Variable=VariableCreator.CreateNode(); Variable->VariableReference.SetSelfMember(TEXT("AnimationIndex")); VariableCreator.Finalize(); Variable->NodePosX=-550; Variable->NodePosY=-200;
     if(!Schema->TryCreateConnection(Variable->FindPin(TEXT("AnimationIndex")),Blend->FindPin(TEXT("ActiveChildIndex")))) return false;
-    const TCHAR* Names[]={TEXT("Idle"),TEXT("Walk"),TEXT("Run"),TEXT("Ride")};
+    const TCHAR* Names[]={TEXT("Idle"),TEXT("Jog"),TEXT("Sprint"),TEXT("Ride")};
     for(int32 I=0;I<4;++I)
     {
         auto* Sequence=LoadObject<UAnimSequence>(nullptr,*FString::Printf(TEXT("/Game/CityCourier/Art/Characters/A_%s.A_%s"),Names[I],Names[I]));

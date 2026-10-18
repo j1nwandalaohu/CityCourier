@@ -1,0 +1,86 @@
+{
+  "error": null,
+  "shots": [
+    {
+      "name": "jog",
+      "action": "<CourierAction.NONE: 0>",
+      "action_elapsed": 0.0,
+      "speed": 420.0,
+      "clips": [
+        "A_Idle",
+        "A_Jog",
+        "A_Sprint",
+        "A_Ride"
+      ],
+      "fists": {
+        "L": "<Struct 'Vector' (0x000001628C6F2E00) {x: -3608.192275, y: -12046.296869, z: 120.336511}>",
+        "R": "<Struct 'Vector' (0x000001628C6F2E00) {x: -3586.131109, y: -11976.467077, z: 108.338747}>"
+      }
+    },
+    {
+      "name": "sprint",
+      "action": "<CourierAction.NONE: 0>",
+      "action_elapsed": 0.0,
+      "speed": 700.0,
+      "clips": [
+        "A_Idle",
+        "A_Jog",
+        "A_Sprint",
+        "A_Ride"
+      ],
+      "fists": {
+        "L": "<Struct 'Vector' (0x000001628C6F2BD0) {x: -3115.025365, y: -12039.413579, z: 122.635639}>",
+        "R": "<Struct 'Vector' (0x000001628C6F2BD0) {x: -3077.576090, y: -11980.523678, z: 113.249008}>"
+      }
+    },
+    {
+      "name": "light-left",
+      "action": "<CourierAction.LIGHT_L: 1>",
+      "action_elapsed": 0.1833367943763733,
+      "speed": 0.0,
+      "clips": [
+        "A_Idle",
+        "A_Jog",
+        "A_Sprint",
+        "A_Ride"
+      ],
+      "fists": {
+        "L": "<Struct 'Vector' (0x000001628C6F2B30) {x: -3026.423931, y: -12001.884208, z: 149.480123}>",
+        "R": "<Struct 'Vector' (0x000001628C6F2B30) {x: -3106.092672, y: -11969.480128, z: 136.136953}>"
+      }
+    },
+    {
+      "name": "light-right",
+      "action": "<CourierAction.LIGHT_R: 2>",
+      "action_elapsed": 0.1607894003391266,
+      "speed": 0.0,
+      "clips": [
+        "A_Idle",
+        "A_Jog",
+        "A_Sprint",
+        "A_Ride"
+      ],
+      "fists": {
+        "L": "<Struct 'Vector' (0x000001628C6F14B0) {x: -3066.329812, y: -12027.862580, z: 140.160351}>",
+        "R": "<Struct 'Vector' (0x000001628C6F14B0) {x: -3036.616286, y: -11998.192404, z: 139.463962}>"
+      }
+    },
+    {
+      "name": "heavy",
+      "action": "<CourierAction.HEAVY: 3>",
+      "action_elapsed": 0.38333460688591003,
+      "speed": 0.0,
+      "clips": [
+        "A_Idle",
+        "A_Jog",
+        "A_Sprint",
+        "A_Ride"
+      ],
+      "fists": {
+        "L": "<Struct 'Vector' (0x000001628C6F2040) {x: -3078.488524, y: -12019.220051, z: 82.736956}>",
+        "R": "<Struct 'Vector' (0x000001628C6F2040) {x: -2974.704490, y: -12019.514886, z: 76.277894}>"
+      }
+    }
+  ],
+  "input": "Enhanced Input injection through production bindings"
+}

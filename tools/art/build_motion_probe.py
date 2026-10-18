@@ -9,6 +9,11 @@ from art_common import SOURCE,export
 ROOT=SOURCE.parents[1]
 OUT=ROOT/'Saved/CharacterProbe';OUT.mkdir(parents=True,exist_ok=True)
 CLIPS={'Idle_A':'A_M2M_Idle','Walk':'A_M2M_Walk','Jog':'A_M2M_Jog','Sprint':'A_M2M_Run'}
+EXPORT_FOLDER='MotionProbe'
+REPORT_NAME='motion_probe.json'
+BLEND_NAME='Mesh2MotionProbe'
+POSTPROCESS=None
+CYCLIC=True
 MAPPING={'pelvis':'pelvis','spine':'spine_01','chest':'spine_03','neck':'neck_01','head':'head'}
 for side in ('l','r'):
     MAPPING.update({f'{t}_{side}':f'{s}_{side}' for t,s in (
@@ -128,9 +133,13 @@ def build():
         for matrices in samples:
             for joint,mat in matrices.items():
                 if joint!='root':mat.translation.z+=lift
+        if POSTPROCESS:
+            samples=POSTPROCESS(name,samples,rest)
+            frames=len(samples)-1
+            fps=scene.render.fps/scene.render.fps_base
         # These four sources are cyclic locomotion/idle. Close the terminal
         # key explicitly after fractional-frame resampling to avoid a seam.
-        samples[-1]={n:m.copy() for n,m in samples[0].items()}
+        if CYCLIC:samples[-1]={n:m.copy() for n,m in samples[0].items()}
         generated=bpy.data.actions.new(name);generated.use_fake_user=True;target.animation_data.action=generated
         scene.frame_start=1;scene.frame_end=frames+1
         previous_quaternions={}
@@ -146,7 +155,7 @@ def build():
         for curve in generated.fcurves:
             for key in curve.keyframe_points:key.interpolation='LINEAR'
         scene.frame_set(1)
-        export(name,[target],'MotionProbe',True)
+        export(name,[target],EXPORT_FOLDER,True)
         delta=max((samples[0][n].translation-samples[-1][n].translation).length for n in rest)
         angle=max(min(a,math.tau-a) for n in rest for a in [samples[0][n].to_quaternion().rotation_difference(samples[-1][n].to_quaternion()).angle])
         report['clips'][name]={'source_action':source_name,'duration_s':frames/fps,'samples':frames+1,'sole_height_correction_cm':lift*100,'loop_translation_error_cm':delta*100,'loop_rotation_error_deg':math.degrees(angle)}
@@ -154,9 +163,9 @@ def build():
     assert all(old_actions[name]==([float(x) for x in bpy.data.actions[name].frame_range],len(bpy.data.actions[name].fcurves)) for name in old_actions)
     report['skeleton_reference_unchanged']=True;report['baseline_actions_unchanged']=True
     report['mapping']=MAPPING
-    (SOURCE/'motion_probe.json').write_text(json.dumps(report,indent=2)+'\n',encoding='utf-8')
-    target.animation_data.action=bpy.data.actions['A_M2M_Idle'];scene.frame_set(1)
-    bpy.ops.wm.save_as_mainfile(filepath=str(SOURCE/'Blender/Mesh2MotionProbe.blend'))
+    (SOURCE/REPORT_NAME).write_text(json.dumps(report,indent=2)+'\n',encoding='utf-8')
+    target.animation_data.action=bpy.data.actions[next(iter(CLIPS.values()))];scene.frame_set(1)
+    bpy.ops.wm.save_as_mainfile(filepath=str(SOURCE/'Blender'/f'{BLEND_NAME}.blend'))
     print('MOTION PROBE',json.dumps(report),flush=True)
 
 if __name__=='__main__':build()

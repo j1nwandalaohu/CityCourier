@@ -140,3 +140,6 @@ for prop in ['front_wheel_art','rear_wheel_art']:defaults.get_editor_property(pr
 for part in defaults.get_editor_property('prototype_parts'):part.set_visibility(False)
 unreal.BlueprintEditorLibrary.compile_blueprint(bp);assets.save_loaded_asset(bp)
 unreal.log('CityCourier ART IMPORT COMPLETE: meshes, four clips, animation blueprint and visual subclasses')
+if (SOURCE/'production_actions.json').exists():
+    import runpy
+    runpy.run_path(str(ROOT/'Content/Python/import_production_actions.py'))

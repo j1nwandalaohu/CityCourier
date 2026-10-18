@@ -1,0 +1,127 @@
+{
+  "source_revision": "653a9698f5f315523072f1c3ff3496100401317b",
+  "fps": 60,
+  "leg_scale": 1.0223963015069717,
+  "clips": {
+    "A_LightPunch_L": {
+      "source_action": "Punch_Jab",
+      "duration_s": 0.55,
+      "samples": 34,
+      "sole_height_correction_cm": 4.697271031141281,
+      "loop_translation_error_cm": 0.0,
+      "loop_rotation_error_deg": 0.0
+    },
+    "A_LightPunch_R": {
+      "source_action": "Punch_Cross",
+      "duration_s": 0.55,
+      "samples": 34,
+      "sole_height_correction_cm": 4.981487584114075,
+      "loop_translation_error_cm": 0.0,
+      "loop_rotation_error_deg": 0.0
+    },
+    "A_HeavyPunch_R": {
+      "source_action": "Melee_Hook",
+      "duration_s": 0.95,
+      "samples": 58,
+      "sole_height_correction_cm": 6.898745489120484,
+      "loop_translation_error_cm": 85.59909341629522,
+      "loop_rotation_error_deg": 155.11339114531447
+    }
+  },
+  "experimental": false,
+  "skeleton_reference_unchanged": true,
+  "baseline_actions_unchanged": true,
+  "mapping": {
+    "pelvis": "pelvis",
+    "spine": "spine_01",
+    "chest": "spine_03",
+    "neck": "neck_01",
+    "head": "head",
+    "clavicle_l": "clavicle_l",
+    "upperarm_l": "upperarm_l",
+    "forearm_l": "lowerarm_l",
+    "hand_l": "hand_l",
+    "thigh_l": "thigh_l",
+    "shin_l": "calf_l",
+    "foot_l": "foot_l",
+    "finger_1_1_l": "thumb_01_l",
+    "finger_1_2_l": "thumb_02_l",
+    "finger_1_3_l": "thumb_03_l",
+    "finger_2_1_l": "index_01_l",
+    "finger_2_2_l": "index_02_l",
+    "finger_2_3_l": "index_03_l",
+    "finger_3_1_l": "middle_01_l",
+    "finger_3_2_l": "middle_02_l",
+    "finger_3_3_l": "middle_03_l",
+    "finger_4_1_l": "ring_01_l",
+    "finger_4_2_l": "ring_02_l",
+    "finger_4_3_l": "ring_03_l",
+    "finger_5_1_l": "pinky_01_l",
+    "finger_5_2_l": "pinky_02_l",
+    "finger_5_3_l": "pinky_03_l",
+    "clavicle_r": "clavicle_r",
+    "upperarm_r": "upperarm_r",
+    "forearm_r": "lowerarm_r",
+    "hand_r": "hand_r",
+    "thigh_r": "thigh_r",
+    "shin_r": "calf_r",
+    "foot_r": "foot_r",
+    "finger_1_1_r": "thumb_01_r",
+    "finger_1_2_r": "thumb_02_r",
+    "finger_1_3_r": "thumb_03_r",
+    "finger_2_1_r": "index_01_r",
+    "finger_2_2_r": "index_02_r",
+    "finger_2_3_r": "index_03_r",
+    "finger_3_1_r": "middle_01_r",
+    "finger_3_2_r": "middle_02_r",
+    "finger_3_3_r": "middle_03_r",
+    "finger_4_1_r": "ring_01_r",
+    "finger_4_2_r": "ring_02_r",
+    "finger_4_3_r": "ring_03_r",
+    "finger_5_1_r": "pinky_01_r",
+    "finger_5_2_r": "pinky_02_r",
+    "finger_5_3_r": "pinky_03_r"
+  },
+  "contact_alignment": {
+    "A_LightPunch_L": {
+      "source": "Punch_Jab",
+      "hand": "l",
+      "duration": 0.55,
+      "contact": 0.18,
+      "source_hand": "l",
+      "mirrored": false,
+      "source_contact_normalized": 0.25,
+      "samples": 34
+    },
+    "A_LightPunch_R": {
+      "source": "Punch_Cross",
+      "hand": "r",
+      "duration": 0.55,
+      "contact": 0.18,
+      "source_hand": "r",
+      "mirrored": false,
+      "source_contact_normalized": 0.2894736842105263,
+      "samples": 34
+    },
+    "A_HeavyPunch_R": {
+      "source": "Melee_Hook",
+      "hand": "r",
+      "duration": 0.95,
+      "contact": 0.4,
+      "source_hand": "r",
+      "mirrored": false,
+      "source_contact_normalized": 0.6428571428571429,
+      "samples": 58
+    }
+  },
+  "locomotion": {
+    "A_Jog": {
+      "source": "A_M2M_Jog",
+      "natural_speed_cm_s": 473.2
+    },
+    "A_Sprint": {
+      "source": "A_M2M_Run",
+      "natural_speed_cm_s": 715.9
+    }
+  }
+}
