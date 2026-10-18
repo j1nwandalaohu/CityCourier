@@ -60,8 +60,10 @@ bool UDeliverySubsystem::RefreshOffers(FVector RiderLocation)
         const auto* Shop = City->FindLocation(Fee.MerchantId); const auto* Customer = City->FindLocation(Fee.DestinationId);
         if (!Shop || !Customer || !ToShop.bReachable) continue;
         const auto ToCustomer = City->FindRouteBetween(*Shop,*Customer); if (!ToCustomer.bReachable) continue;
-        Candidates.Add({FGuid::NewGuid(),Fee.MerchantId,Fee.DestinationId,Fee.FeeCents,
-            FDeliveryRules::CalculateDeadline(ToShop.LengthMeters+ToCustomer.LengthMeters)});
+        FDeliveryOffer Offer{FGuid::NewGuid(),Fee.MerchantId,Fee.DestinationId,Fee.FeeCents,
+            FDeliveryRules::CalculateDeadline(ToShop.LengthMeters+ToCustomer.LengthMeters)};
+        Offer.EstimateOrigin=RiderLocation; Offer.PickupRoute=ToShop; Offer.DeliveryRoute=ToCustomer;
+        Candidates.Add(MoveTemp(Offer));
     }
     Offers.Reset();
     while (Offers.Num() < 3 && !Candidates.IsEmpty())
@@ -70,6 +72,14 @@ bool UDeliverySubsystem::RefreshOffers(FVector RiderLocation)
         Offers.Add(Candidates[Index]); Candidates.RemoveAtSwap(Index);
     }
     OnDeliveryChanged.Broadcast(); return Offers.Num() == 3;
+}
+AScooterPawn* UDeliverySubsystem::GetScooter() const { return Scooter.Get(); }
+bool UDeliverySubsystem::GetOfferPreview(FGuid InstanceId,FDeliveryOffer& OutOffer) const
+{
+    OutOffer={}; if(State.IsActive()) return false;
+    const auto* Found=Offers.FindByPredicate([&](const FDeliveryOffer& O){return O.InstanceId==InstanceId;});
+    if(!Found || !Found->PickupRoute.bReachable || !Found->DeliveryRoute.bReachable) return false;
+    OutOffer=*Found; return true;
 }
 bool UDeliverySubsystem::TryAccept(FGuid InstanceId)
 {

@@ -24,6 +24,8 @@ public:
     bool RefreshOffers(FVector RiderLocation);
     const TArray<FDeliveryOffer>& GetOffers() const { return Offers; }
     bool TryAccept(FGuid InstanceId);
+    bool GetOfferPreview(FGuid InstanceId,FDeliveryOffer& OutOffer) const;
+    AScooterPawn* GetScooter() const;
     UFUNCTION(BlueprintCallable) bool TryPickup(FName Merchant,ACourierCharacter* Courier);
     UFUNCTION(BlueprintCallable) bool TryDeliver(FName Destination,ACourierCharacter* Courier);
     bool TryCancel(EDeliveryFailure Reason);

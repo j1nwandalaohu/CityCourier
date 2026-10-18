@@ -1,5 +1,6 @@
 #pragma once
 #include "CoreMinimal.h"
+#include "World/RoadGraph.h"
 #include <limits>
 
 enum class EDeliveryStatus : uint8 { Idle, AwaitingPickup, Delivering, Completed, Failed };
@@ -12,6 +13,9 @@ struct FDeliveryOffer
     FName DestinationId;
     int64 BaseFeeCents = 0;
     double DeadlineSeconds = 0;
+    FVector EstimateOrigin = FVector::ZeroVector;
+    FRouteResult PickupRoute;
+    FRouteResult DeliveryRoute;
 };
 
 struct FDeliveryState

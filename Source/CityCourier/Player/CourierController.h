@@ -1,5 +1,6 @@
 #pragma once
 #include "GameFramework/PlayerController.h"
+#include "Core/DeliveryTypes.h"
 #include "CourierController.generated.h"
 class ACourierCharacter;
 UENUM(BlueprintType)
@@ -13,6 +14,10 @@ public:
     ACourierController();
     void ShowActionFeedback(const FText& Message);
     FText GetActionFeedback() const;
+    bool PreviewOffer(FGuid InstanceId);
+    void CloseOfferPreview();
+    const FDeliveryOffer* GetOfferPreview() const { return Preview.IsSet()?&Preview.GetValue():nullptr; }
+    bool AcceptOffer(FGuid InstanceId);
     virtual void BeginPlay() override;
     virtual void OnPossess(APawn* NewPawn) override;
     virtual void SetupInputComponent() override;
@@ -31,6 +36,7 @@ public:
 private:
     FText ActionFeedback;
     double FeedbackUntil=0;
+    TOptional<FDeliveryOffer> Preview;
     void RecoverStarted();
     void RecoverReleased();
     UPROPERTY(VisibleAnywhere) TObjectPtr<class URiderRecoveryComponent> Recovery;
