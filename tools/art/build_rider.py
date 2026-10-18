@@ -9,6 +9,7 @@ from collections import defaultdict
 from mathutils import Vector,Matrix
 from art_common import *
 from rider_details import fitted_garment,headgear,facial_details,finger_bones,curl_fingers,orient_grip
+from rider_cloth import tag_garment_panels,refine_workwear
 
 def read_body():
     verts=[];tex=[];faces=[];groups=defaultdict(set);group=''
@@ -72,7 +73,8 @@ def build():
     body_part('Body',lambda c:True,skin,0)
     cloth=material('M_WorkClothes',(.15,.25,.35),.9)
     textured(cloth,Path('clothes/male_casualsuit04'),'male_casualsuit04_diffuse.png','male_casualsuit04_normal.png')
-    objects.append(fitted_garment(verts,'male_casualsuit04','Tailored_workwear',cloth))
+    workwear=fitted_garment(verts,'male_casualsuit04','Tailored_workwear',cloth)
+    tag_garment_panels(workwear);objects.append(workwear)
     shoes=material('M_WorkShoes',(.11,.095,.08),.79)
     textured(shoes,Path('clothes/shoes01'),'shoes01_diffuse.png','shoes01_normal.png')
     objects.append(fitted_garment(verts,'shoes01','Fitted_work_shoes',shoes))
@@ -114,8 +116,18 @@ def build():
         else:
             for v in o.data.vertices:
                 p=v.co;side='l' if p.x>=0 else 'r'
-                if o.name=='Fitted_work_shoes':candidates=['foot_'+side]
-                elif o.name=='Tailored_workwear' and v.index<810:
+                if o.name=='Fitted_work_shoes':
+                    # The CC0 shoe OBJ also contains sock shafts. Rigidly
+                    # weighting those to the foot made them protrude behind the
+                    # calf in the riding pose. Keep the shoe rigid and let the
+                    # upper sock follow the shin through a soft ankle transition.
+                    ankle=j['joint-'+side+'-ankle'].z
+                    blend=max(0.,min(1.,(p.z-ankle-.035)/.055))
+                    blend=blend*blend*(3-2*blend)
+                    if blend<1:o.vertex_groups['foot_'+side].add([v.index],1-blend,'REPLACE')
+                    if blend>0:o.vertex_groups['shin_'+side].add([v.index],blend,'REPLACE')
+                    continue
+                elif o.name=='Tailored_workwear' and o.data.attributes['cloth_shirt'].data[v.index].value>.5:
                     candidates=['pelvis','spine','chest']
                     if p.z>1.24 and abs(p.x)>.17:candidates+=['upperarm_'+side,'clavicle_'+side]
                 elif o.name=='Tailored_workwear' and p.z<.25:candidates=['shin_'+side]
@@ -135,6 +147,7 @@ def build():
                 for d,name in weights:o.vertex_groups[name].add([v.index],1/max(d,.005)**4/total,'REPLACE')
         bpy.context.view_layer.objects.active=o;o.select_set(True)
         bpy.ops.object.transform_apply(location=True,rotation=True,scale=True)
+        if o.name=='Tailored_workwear':refine_workwear(o,j)
     mesh=join(objects,'SK_Courier');mesh.parent=rig
     mod=mesh.modifiers.new('Courier skin','ARMATURE');mod.object=rig
     export('SK_Courier',[mesh,rig],'Characters')

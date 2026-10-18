@@ -12,7 +12,9 @@ if hasattr(unreal,'EditorPerformanceSettings'):
     unreal.get_default_object(unreal.EditorPerformanceSettings).set_editor_property('throttle_cpu_when_not_foreground',False)
 levels.editor_request_begin_play()
 start=time.monotonic();stage=0;step=0;task=None;results=[];checks={}
-shots=[('street',(-2700,-12200,210),(-300,-11100,650)),('rider',(1050,-11830,145),(800,-11550,110)),
+shots=[('street',(-2700,-12200,210),(-300,-11100,650)),
+       ('shop',(-4750,-12100,165),(-4333,-10900,205)),
+       ('rider',(1050,-11830,145),(800,-11550,110)),
        ('portrait',(925,-11700,170),(800,-11550,158)),
        ('riding',(1220,-11900,170),(950,-11550,105)),('market',(12600,12100,240),(13800,13300,450))]
 
