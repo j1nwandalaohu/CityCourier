@@ -1,0 +1,1492 @@
+{
+  "shots": [
+    {
+      "name": "idle-comparison",
+      "base": "A_Idle",
+      "new": "A_M2M_Idle",
+      "time": 0.7,
+      "matched_play_rate": 1,
+      "ue_root_error_cm": 0.0,
+      "ue_position_s": 0.699999988079071,
+      "ue_anim_instance": "AnimSingleNodeInstance",
+      "ue_head_world": [
+        -63.41182018442905,
+        -6.73136003258433,
+        159.73523779449664
+      ],
+      "ue_left_foot_world": [
+        -99.3402460827531,
+        -16.655314491767168,
+        13.091072397438978
+      ],
+      "ue_pose_error_cm": 1.5400182228345842e-05
+    },
+    {
+      "name": "walk-comparison",
+      "base": "A_Walk",
+      "new": "A_M2M_Walk",
+      "time": 0.4,
+      "matched_play_rate": 1,
+      "ue_root_error_cm": 0.0,
+      "ue_position_s": 0.4000000059604645,
+      "ue_anim_instance": "AnimSingleNodeInstance",
+      "ue_head_world": [
+        -68.84283419472281,
+        -14.81177832015753,
+        162.33875628383853
+      ],
+      "ue_left_foot_world": [
+        -88.38595137649017,
+        0.8794345906293308,
+        12.578257746281196
+      ],
+      "ue_pose_error_cm": 1.2773301606257784e-05
+    },
+    {
+      "name": "jog-comparison",
+      "base": "A_Walk",
+      "new": "A_M2M_Jog",
+      "time": 0.25,
+      "matched_play_rate": 1,
+      "ue_root_error_cm": 0.0,
+      "ue_position_s": 0.25,
+      "ue_anim_instance": "AnimSingleNodeInstance",
+      "ue_head_world": [
+        -58.30578627627427,
+        -31.88761379545084,
+        147.5339700906102
+      ],
+      "ue_left_foot_world": [
+        -88.11469098970048,
+        49.49834494718981,
+        33.22922596484848
+      ],
+      "ue_pose_error_cm": 1.2977969260772453e-05
+    },
+    {
+      "name": "run-comparison",
+      "base": "A_Run",
+      "new": "A_M2M_Run",
+      "time": 0.19,
+      "matched_play_rate": 1,
+      "ue_root_error_cm": 0.0,
+      "ue_position_s": 0.1899999976158142,
+      "ue_anim_instance": "AnimSingleNodeInstance",
+      "ue_head_world": [
+        -61.386221929363664,
+        -41.8416688100315,
+        144.99327817988714
+      ],
+      "ue_left_foot_world": [
+        -88.05735270814543,
+        51.582739715508396,
+        26.305450486587326
+      ],
+      "ue_pose_error_cm": 1.2928571194953373e-05
+    },
+    {
+      "name": "makehuman-neutral",
+      "person": "MakeHuman",
+      "lighting": "neutral"
+    },
+    {
+      "name": "charmorph-neutral",
+      "person": "CharMorph",
+      "lighting": "neutral"
+    },
+    {
+      "name": "makehuman-dusk",
+      "person": "MakeHuman",
+      "lighting": "dusk"
+    },
+    {
+      "name": "charmorph-dusk",
+      "person": "CharMorph",
+      "lighting": "dusk"
+    },
+    {
+      "name": "jog-frames/frame-000",
+      "base": "A_Walk",
+      "new": "A_M2M_Jog",
+      "time": 0.0,
+      "speed": 420,
+      "video": true,
+      "matched_play_rate": 0.8876290427729085,
+      "ue_root_error_cm": 0.0,
+      "ue_position_s": 0.0,
+      "ue_anim_instance": "AnimSingleNodeInstance",
+      "ue_head_world": [
+        -75.44244372400722,
+        -28.8231856596031,
+        147.15443744511708
+      ],
+      "ue_left_foot_world": [
+        -87.95013376174086,
+        -50.62386707205012,
+        21.5235575562995
+      ],
+      "ue_pose_error_cm": 3.2377719141315947e-05
+    },
+    {
+      "name": "jog-frames/frame-001",
+      "base": "A_Walk",
+      "new": "A_M2M_Jog",
+      "time": 0.06666666666666667,
+      "speed": 420,
+      "video": true,
+      "matched_play_rate": 0.8876290427729085,
+      "ue_root_error_cm": 0.0,
+      "ue_position_s": 0.059175267815589905,
+      "ue_anim_instance": "AnimSingleNodeInstance",
+      "ue_head_world": [
+        -72.69796073127233,
+        -56.34819042682709,
+        140.52807090945345
+      ],
+      "ue_left_foot_world": [
+        -88.17446298992098,
+        -52.93109408439214,
+        15.350282745520111
+      ],
+      "ue_pose_error_cm": 2.5397587760202075e-05
+    },
+    {
+      "name": "jog-frames/frame-002",
+      "base": "A_Walk",
+      "new": "A_M2M_Jog",
+      "time": 0.13333333333333333,
+      "speed": 420,
+      "video": true,
+      "matched_play_rate": 0.8876290427729085,
+      "ue_root_error_cm": 0.0,
+      "ue_position_s": 0.11835053563117981,
+      "ue_anim_instance": "AnimSingleNodeInstance",
+      "ue_head_world": [
+        -68.855898850187,
+        -83.82611297337445,
+        137.18992075217258
+      ],
+      "ue_left_foot_world": [
+        -88.284143643496,
+        -55.84796887682363,
+        17.766560704957527
+      ],
+      "ue_pose_error_cm": 5.7488815696045826e-05
+    },
+    {
+      "name": "jog-frames/frame-003",
+      "base": "A_Walk",
+      "new": "A_M2M_Jog",
+      "time": 0.2,
+      "speed": 420,
+      "video": true,
+      "matched_play_rate": 0.8876290427729085,
+      "ue_root_error_cm": 0.0,
+      "ue_position_s": 0.17752580344676971,
+      "ue_anim_instance": "AnimSingleNodeInstance",
+      "ue_head_world": [
+        -64.66930318986034,
+        -113.02604844624436,
+        140.18664994692801
+      ],
+      "ue_left_foot_world": [
+        -88.2480508323168,
+        -59.10922964232182,
+        19.824714493169754
+      ],
+      "ue_pose_error_cm": 1.7442885846186454e-05
+    },
+    {
+      "name": "jog-frames/frame-004",
+      "base": "A_Walk",
+      "new": "A_M2M_Jog",
+      "time": 0.26666666666666666,
+      "speed": 420,
+      "video": true,
+      "matched_play_rate": 0.8876290427729085,
+      "ue_root_error_cm": 0.0,
+      "ue_position_s": 0.23670107126235962,
+      "ue_anim_instance": "AnimSingleNodeInstance",
+      "ue_head_world": [
+        -59.45202167573543,
+        -143.47212686756328,
+        146.23649525798677
+      ],
+      "ue_left_foot_world": [
+        -88.09292339075625,
+        -65.22012411407479,
+        30.0591044240054
+      ],
+      "ue_pose_error_cm": 4.3166748248211986e-05
+    },
+    {
+      "name": "jog-frames/frame-005",
+      "base": "A_Walk",
+      "new": "A_M2M_Jog",
+      "time": 0.3333333333333333,
+      "speed": 420,
+      "video": true,
+      "matched_play_rate": 0.8876290427729085,
+      "ue_root_error_cm": 0.0,
+      "ue_position_s": 0.2958763539791107,
+      "ue_anim_instance": "AnimSingleNodeInstance",
+      "ue_head_world": [
+        -54.42166582638165,
+        -172.59854247722018,
+        151.57428638386375
+      ],
+      "ue_left_foot_world": [
+        -88.13639634017926,
+        -83.75611530939703,
+        40.848028501594506
+      ],
+      "ue_pose_error_cm": 5.0754995567380775e-05
+    },
+    {
+      "name": "jog-frames/frame-006",
+      "base": "A_Walk",
+      "new": "A_M2M_Jog",
+      "time": 0.4,
+      "speed": 420,
+      "video": true,
+      "matched_play_rate": 0.8876290427729085,
+      "ue_root_error_cm": 0.0,
+      "ue_position_s": 0.35505160689353943,
+      "ue_anim_instance": "AnimSingleNodeInstance",
+      "ue_head_world": [
+        -51.24038526463775,
+        -199.9107374631288,
+        154.75509960537948
+      ],
+      "ue_left_foot_world": [
+        -88.23384081801836,
+        -107.84513396453374,
+        45.2840772263211
+      ],
+      "ue_pose_error_cm": 3.040231262218506e-05
+    },
+    {
+      "name": "jog-frames/frame-007",
+      "base": "A_Walk",
+      "new": "A_M2M_Jog",
+      "time": 0.4666666666666667,
+      "speed": 420,
+      "video": true,
+      "matched_play_rate": 0.8876290427729085,
+      "ue_root_error_cm": 0.0,
+      "ue_position_s": 0.4142268896102905,
+      "ue_anim_instance": "AnimSingleNodeInstance",
+      "ue_head_world": [
+        -50.459002844842615,
+        -226.45284432534987,
+        155.83952706290123
+      ],
+      "ue_left_foot_world": [
+        -88.15644327867446,
+        -134.34885370281012,
+        47.95869207718355
+      ],
+      "ue_pose_error_cm": 1.8776252553003322e-05
+    },
+    {
+      "name": "jog-frames/frame-008",
+      "base": "A_Walk",
+      "new": "A_M2M_Jog",
+      "time": 0.5333333333333333,
+      "speed": 420,
+      "video": true,
+      "matched_play_rate": 0.8876290427729085,
+      "ue_root_error_cm": 0.0,
+      "ue_position_s": 0.47340214252471924,
+      "ue_anim_instance": "AnimSingleNodeInstance",
+      "ue_head_world": [
+        -50.991845922915005,
+        -252.95933527449935,
+        155.54011614380383
+      ],
+      "ue_left_foot_world": [
+        -88.22306187304493,
+        -160.1323548302113,
+        51.846741573641246
+      ],
+      "ue_pose_error_cm": 5.962570167376507e-05
+    },
+    {
+      "name": "jog-frames/frame-009",
+      "base": "A_Walk",
+      "new": "A_M2M_Jog",
+      "time": 0.6,
+      "speed": 420,
+      "video": true,
+      "matched_play_rate": 0.8876290427729085,
+      "ue_root_error_cm": 0.0,
+      "ue_position_s": 0.5325774550437927,
+      "ue_anim_instance": "AnimSingleNodeInstance",
+      "ue_head_world": [
+        -52.21712074379448,
+        -279.5295812882292,
+        152.9055867791521
+      ],
+      "ue_left_foot_world": [
+        -88.17730746762328,
+        -185.65130978646428,
+        55.129695753534904
+      ],
+      "ue_pose_error_cm": 9.547283411596907e-06
+    },
+    {
+      "name": "jog-frames/frame-010",
+      "base": "A_Walk",
+      "new": "A_M2M_Jog",
+      "time": 0.6666666666666666,
+      "speed": 420,
+      "video": true,
+      "matched_play_rate": 0.8876290427729085,
+      "ue_root_error_cm": 0.0,
+      "ue_position_s": 0.5917527079582214,
+      "ue_anim_instance": "AnimSingleNodeInstance",
+      "ue_head_world": [
+        -53.706241482522884,
+        -306.40681808293425,
+        147.2682252468475
+      ],
+      "ue_left_foot_world": [
+        -88.22167652485443,
+        -216.24686816326948,
+        53.815556514190966
+      ],
+      "ue_pose_error_cm": 2.916844244382879e-05
+    },
+    {
+      "name": "jog-frames/frame-011",
+      "base": "A_Walk",
+      "new": "A_M2M_Jog",
+      "time": 0.7333333333333333,
+      "speed": 420,
+      "video": true,
+      "matched_play_rate": 0.8876290427729085,
+      "ue_root_error_cm": 0.0,
+      "ue_position_s": 0.6509279608726501,
+      "ue_anim_instance": "AnimSingleNodeInstance",
+      "ue_head_world": [
+        -56.30096603599344,
+        -334.2504073775243,
+        140.39761933746516
+      ],
+      "ue_left_foot_world": [
+        -88.14525878482333,
+        -269.3405021199735,
+        42.90221419137518
+      ],
+      "ue_pose_error_cm": 4.868642647763414e-05
+    },
+    {
+      "name": "jog-frames/frame-012",
+      "base": "A_Walk",
+      "new": "A_M2M_Jog",
+      "time": 0.8,
+      "speed": 420,
+      "video": true,
+      "matched_play_rate": 0.8876290427729085,
+      "ue_root_error_cm": 0.0,
+      "ue_position_s": 0.7101032137870789,
+      "ue_anim_instance": "AnimSingleNodeInstance",
+      "ue_head_world": [
+        -59.930016201373576,
+        -363.28632057253515,
+        137.31274125404104
+      ],
+      "ue_left_foot_world": [
+        -88.17102165718472,
+        -326.5698749521951,
+        39.704673575134834
+      ],
+      "ue_pose_error_cm": 2.3763824889961383e-05
+    },
+    {
+      "name": "jog-frames/frame-013",
+      "base": "A_Walk",
+      "new": "A_M2M_Jog",
+      "time": 0.8666666666666667,
+      "speed": 420,
+      "video": true,
+      "matched_play_rate": 0.8876290427729085,
+      "ue_root_error_cm": 0.0,
+      "ue_position_s": 0.7692785263061523,
+      "ue_anim_instance": "AnimSingleNodeInstance",
+      "ue_head_world": [
+        -64.09045559016795,
+        -392.24405350105957,
+        141.9062224633063
+      ],
+      "ue_left_foot_world": [
+        -88.18814441762314,
+        -372.68699800853017,
+        40.38364103638348
+      ],
+      "ue_pose_error_cm": 1.6434618162713334e-05
+    },
+    {
+      "name": "jog-frames/frame-014",
+      "base": "A_Walk",
+      "new": "A_M2M_Jog",
+      "time": 0.9333333333333333,
+      "speed": 420,
+      "video": true,
+      "matched_play_rate": 0.8876290427729085,
+      "ue_root_error_cm": 0.0,
+      "ue_position_s": 0.828453779220581,
+      "ue_anim_instance": "AnimSingleNodeInstance",
+      "ue_head_world": [
+        -68.04321775075833,
+        -420.630687897419,
+        149.9136634970887
+      ],
+      "ue_left_foot_world": [
+        -88.23867045177725,
+        -415.3980893948096,
+        40.869834689626316
+      ],
+      "ue_pose_error_cm": 2.8428852798929123e-05
+    },
+    {
+      "name": "jog-frames/frame-015",
+      "base": "A_Walk",
+      "new": "A_M2M_Jog",
+      "time": 1.0,
+      "speed": 420,
+      "video": true,
+      "matched_play_rate": 0.8876290427729085,
+      "ue_root_error_cm": 0.0,
+      "ue_position_s": 0.8876290321350098,
+      "ue_anim_instance": "AnimSingleNodeInstance",
+      "ue_head_world": [
+        -70.75705254732675,
+        -448.7173979518836,
+        156.08791914439658
+      ],
+      "ue_left_foot_world": [
+        -88.20942657233897,
+        -455.9242405775829,
+        42.11051309131272
+      ],
+      "ue_pose_error_cm": 2.9929443500818668e-05
+    },
+    {
+      "name": "jog-frames/frame-016",
+      "base": "A_Walk",
+      "new": "A_M2M_Jog",
+      "time": 1.0666666666666667,
+      "speed": 420,
+      "video": true,
+      "matched_play_rate": 0.8876290427729085,
+      "ue_root_error_cm": 0.0,
+      "ue_position_s": 0.9468042850494385,
+      "ue_anim_instance": "AnimSingleNodeInstance",
+      "ue_head_world": [
+        -72.83069701055373,
+        -476.6782371980291,
+        159.50939271766282
+      ],
+      "ue_left_foot_world": [
+        -88.1793979862625,
+        -492.82226856482697,
+        43.73082961387764
+      ],
+      "ue_pose_error_cm": 2.4284518844113452e-05
+    },
+    {
+      "name": "jog-frames/frame-017",
+      "base": "A_Walk",
+      "new": "A_M2M_Jog",
+      "time": 1.1333333333333333,
+      "speed": 420,
+      "video": true,
+      "matched_play_rate": 0.8876290427729085,
+      "ue_root_error_cm": 0.0,
+      "ue_position_s": 1.0059795379638672,
+      "ue_anim_instance": "AnimSingleNodeInstance",
+      "ue_head_world": [
+        -74.296001864476,
+        -504.6614567761305,
+        159.30323768012568
+      ],
+      "ue_left_foot_world": [
+        -88.22597142496666,
+        -525.4058808996875,
+        41.855079267285575
+      ],
+      "ue_pose_error_cm": 8.945526327700244e-06
+    },
+    {
+      "name": "jog-frames/frame-018",
+      "base": "A_Walk",
+      "new": "A_M2M_Jog",
+      "time": 1.2,
+      "speed": 420,
+      "video": true,
+      "matched_play_rate": 0.8876290427729085,
+      "ue_root_error_cm": 0.0,
+      "ue_position_s": 1.0651549100875854,
+      "ue_anim_instance": "AnimSingleNodeInstance",
+      "ue_head_world": [
+        -75.00123170977014,
+        -532.7197748193598,
+        156.2102157938627
+      ],
+      "ue_left_foot_world": [
+        -88.26809885563158,
+        -555.4352112779966,
+        33.71362813957037
+      ],
+      "ue_pose_error_cm": 5.8413521393556766e-05
+    },
+    {
+      "name": "jog-frames/frame-019",
+      "base": "A_Walk",
+      "new": "A_M2M_Jog",
+      "time": 1.2666666666666666,
+      "speed": 420,
+      "video": true,
+      "matched_play_rate": 0.8876290427729085,
+      "ue_root_error_cm": 0.0,
+      "ue_position_s": 1.1243301630020142,
+      "ue_anim_instance": "AnimSingleNodeInstance",
+      "ue_head_world": [
+        -75.35889930072761,
+        -560.7822381440333,
+        152.07218611076465
+      ],
+      "ue_left_foot_world": [
+        -87.99872624020963,
+        -583.0890406659247,
+        26.72145499435716
+      ],
+      "ue_pose_error_cm": 4.074162119517171e-05
+    },
+    {
+      "name": "jog-frames/frame-020",
+      "base": "A_Walk",
+      "new": "A_M2M_Jog",
+      "time": 1.3333333333333333,
+      "speed": 420,
+      "video": true,
+      "matched_play_rate": 0.8876290427729085,
+      "ue_root_error_cm": 0.0,
+      "ue_position_s": 0.016838762909173965,
+      "ue_anim_instance": "AnimSingleNodeInstance",
+      "ue_head_world": [
+        -74.89636757084476,
+        -588.7372635597006,
+        145.01581532053058
+      ],
+      "ue_left_foot_world": [
+        -87.87922191094907,
+        -604.4167514527303,
+        16.742055119366533
+      ],
+      "ue_pose_error_cm": 6.728120199580582e-05
+    },
+    {
+      "name": "jog-frames/frame-021",
+      "base": "A_Walk",
+      "new": "A_M2M_Jog",
+      "time": 1.4,
+      "speed": 420,
+      "video": true,
+      "matched_play_rate": 0.8876290427729085,
+      "ue_root_error_cm": 0.0,
+      "ue_position_s": 0.07601403445005417,
+      "ue_anim_instance": "AnimSingleNodeInstance",
+      "ue_head_world": [
+        -71.62672470589953,
+        -616.1621928280679,
+        139.1523463450954
+      ],
+      "ue_left_foot_world": [
+        -88.22533566917612,
+        -605.3723043927406,
+        16.108102555419066
+      ],
+      "ue_pose_error_cm": 2.115266011424562e-05
+    },
+    {
+      "name": "jog-frames/frame-022",
+      "base": "A_Walk",
+      "new": "A_M2M_Jog",
+      "time": 1.4666666666666666,
+      "speed": 420,
+      "video": true,
+      "matched_play_rate": 0.8876290427729085,
+      "ue_root_error_cm": 0.0,
+      "ue_position_s": 0.13518930971622467,
+      "ue_anim_instance": "AnimSingleNodeInstance",
+      "ue_head_world": [
+        -67.70001976937083,
+        -643.7654918413866,
+        137.13608983365813
+      ],
+      "ue_left_foot_world": [
+        -88.30145921742243,
+        -609.2354671301574,
+        18.89653388401025
+      ],
+      "ue_pose_error_cm": 3.9799365656333327e-05
+    },
+    {
+      "name": "jog-frames/frame-023",
+      "base": "A_Walk",
+      "new": "A_M2M_Jog",
+      "time": 1.5333333333333334,
+      "speed": 420,
+      "video": true,
+      "matched_play_rate": 0.8876290427729085,
+      "ue_root_error_cm": 0.0,
+      "ue_position_s": 0.19436457753181458,
+      "ue_anim_instance": "AnimSingleNodeInstance",
+      "ue_head_world": [
+        -63.269183752889674,
+        -673.7794037176982,
+        141.9901424380786
+      ],
+      "ue_left_foot_world": [
+        -88.27654179763145,
+        -611.4426667074337,
+        19.856865946602223
+      ],
+      "ue_pose_error_cm": 1.8796976424178624e-05
+    },
+    {
+      "name": "jog-frames/frame-024",
+      "base": "A_Walk",
+      "new": "A_M2M_Jog",
+      "time": 1.6,
+      "speed": 420,
+      "video": true,
+      "matched_play_rate": 0.8876290427729085,
+      "ue_root_error_cm": 0.0,
+      "ue_position_s": 0.2535398304462433,
+      "ue_anim_instance": "AnimSingleNodeInstance",
+      "ue_head_world": [
+        -57.99686948531163,
+        -703.9838737399908,
+        147.88002299053576
+      ],
+      "ue_left_foot_world": [
+        -88.12375378572528,
+        -621.7884996149423,
+        34.09797721170451
+      ],
+      "ue_pose_error_cm": 1.7561501490132444e-05
+    },
+    {
+      "name": "jog-frames/frame-025",
+      "base": "A_Walk",
+      "new": "A_M2M_Jog",
+      "time": 1.6666666666666667,
+      "speed": 420,
+      "video": true,
+      "matched_play_rate": 0.8876290427729085,
+      "ue_root_error_cm": 0.0,
+      "ue_position_s": 0.3127151131629944,
+      "ue_anim_instance": "AnimSingleNodeInstance",
+      "ue_head_world": [
+        -53.279141993911196,
+        -732.5551798503878,
+        152.56212607751866
+      ],
+      "ue_left_foot_world": [
+        -88.16637896475848,
+        -642.1821398974786,
+        42.38953817477416
+      ],
+      "ue_pose_error_cm": 9.51967115525952e-06
+    },
+    {
+      "name": "jog-frames/frame-026",
+      "base": "A_Walk",
+      "new": "A_M2M_Jog",
+      "time": 1.7333333333333334,
+      "speed": 420,
+      "video": true,
+      "matched_play_rate": 0.8876290427729085,
+      "ue_root_error_cm": 0.0,
+      "ue_position_s": 0.3718903660774231,
+      "ue_anim_instance": "AnimSingleNodeInstance",
+      "ue_head_world": [
+        -50.78379648582847,
+        -759.5158301465,
+        155.4445409027143
+      ],
+      "ue_left_foot_world": [
+        -88.22780036251163,
+        -667.3954396614229,
+        46.108667026184165
+      ],
+      "ue_pose_error_cm": 4.328512578104277e-05
+    },
+    {
+      "name": "jog-frames/frame-027",
+      "base": "A_Walk",
+      "new": "A_M2M_Jog",
+      "time": 1.8,
+      "speed": 420,
+      "video": true,
+      "matched_play_rate": 0.8876290427729085,
+      "ue_root_error_cm": 0.0,
+      "ue_position_s": 0.4310656487941742,
+      "ue_anim_instance": "AnimSingleNodeInstance",
+      "ue_head_world": [
+        -50.47191667112444,
+        -786.0218854968499,
+        155.8025220300664
+      ],
+      "ue_left_foot_world": [
+        -88.1348538590892,
+        -693.8940406274769,
+        48.77366018274325
+      ],
+      "ue_pose_error_cm": 5.332695833779088e-05
+    },
+    {
+      "name": "jog-frames/frame-028",
+      "base": "A_Walk",
+      "new": "A_M2M_Jog",
+      "time": 1.8666666666666667,
+      "speed": 420,
+      "video": true,
+      "matched_play_rate": 0.8876290427729085,
+      "ue_root_error_cm": 0.0,
+      "ue_position_s": 0.4902409315109253,
+      "ue_anim_instance": "AnimSingleNodeInstance",
+      "ue_head_world": [
+        -51.2804099624787,
+        -812.5292683485525,
+        154.80602032961005
+      ],
+      "ue_left_foot_world": [
+        -88.15980681677043,
+        -719.3783003049083,
+        52.62554812490842
+      ],
+      "ue_pose_error_cm": 3.0173915944162402e-05
+    },
+    {
+      "name": "jog-frames/frame-029",
+      "base": "A_Walk",
+      "new": "A_M2M_Jog",
+      "time": 1.9333333333333333,
+      "speed": 420,
+      "video": true,
+      "matched_play_rate": 0.8876290427729085,
+      "ue_root_error_cm": 0.0,
+      "ue_position_s": 0.549416184425354,
+      "ue_anim_instance": "AnimSingleNodeInstance",
+      "ue_head_world": [
+        -52.59245217030352,
+        -839.1549249764413,
+        151.34709175456484
+      ],
+      "ue_left_foot_world": [
+        -88.19064068267724,
+        -745.1899534512742,
+        55.48824501482241
+      ],
+      "ue_pose_error_cm": 3.0083898491210557e-05
+    },
+    {
+      "name": "run-frames/frame-000",
+      "base": "A_Run",
+      "new": "A_M2M_Run",
+      "time": 0.0,
+      "speed": 700,
+      "video": true,
+      "matched_play_rate": 0.9778423440799358,
+      "ue_root_error_cm": 0.0,
+      "ue_position_s": 0.0,
+      "ue_anim_instance": "AnimSingleNodeInstance",
+      "ue_head_world": [
+        -69.556772867467,
+        -40.359335938590405,
+        145.83690905973933
+      ],
+      "ue_left_foot_world": [
+        -87.79383190269768,
+        -34.32060749727732,
+        18.513790627649627
+      ],
+      "ue_pose_error_cm": 1.8033820669701858e-05
+    },
+    {
+      "name": "run-frames/frame-001",
+      "base": "A_Run",
+      "new": "A_M2M_Run",
+      "time": 0.06666666666666667,
+      "speed": 700,
+      "video": true,
+      "matched_play_rate": 0.9778423440799358,
+      "ue_root_error_cm": 0.0,
+      "ue_position_s": 0.06518948823213577,
+      "ue_anim_instance": "AnimSingleNodeInstance",
+      "ue_head_world": [
+        -67.46558297027929,
+        -85.78844364095895,
+        141.02045729078316
+      ],
+      "ue_left_foot_world": [
+        -88.1409361665841,
+        -64.00584459926482,
+        15.5089885264262
+      ],
+      "ue_pose_error_cm": 5.8049059880913e-05
+    },
+    {
+      "name": "run-frames/frame-002",
+      "base": "A_Run",
+      "new": "A_M2M_Run",
+      "time": 0.13333333333333333,
+      "speed": 700,
+      "video": true,
+      "matched_play_rate": 0.9778423440799358,
+      "ue_root_error_cm": 0.0,
+      "ue_position_s": 0.13037897646427155,
+      "ue_anim_instance": "AnimSingleNodeInstance",
+      "ue_head_world": [
+        -65.20448079860408,
+        -133.01425498020478,
+        141.30891449587023
+      ],
+      "ue_left_foot_world": [
+        -88.15391421078161,
+        -68.87285538296432,
+        18.874120512740056
+      ],
+      "ue_pose_error_cm": 1.598606492430941e-05
+    },
+    {
+      "name": "run-frames/frame-003",
+      "base": "A_Run",
+      "new": "A_M2M_Run",
+      "time": 0.2,
+      "speed": 700,
+      "video": true,
+      "matched_play_rate": 0.9778423440799358,
+      "ue_root_error_cm": 0.0,
+      "ue_position_s": 0.19556847214698792,
+      "ue_anim_instance": "AnimSingleNodeInstance",
+      "ue_head_world": [
+        -60.98565564183694,
+        -181.99389603966486,
+        145.53435870316764
+      ],
+      "ue_left_foot_world": [
+        -88.01259471977681,
+        -87.88351010970126,
+        27.357588370542615
+      ],
+      "ue_pose_error_cm": 1.2687273466970278e-05
+    },
+    {
+      "name": "run-frames/frame-004",
+      "base": "A_Run",
+      "new": "A_M2M_Run",
+      "time": 0.26666666666666666,
+      "speed": 700,
+      "video": true,
+      "matched_play_rate": 0.9778423440799358,
+      "ue_root_error_cm": 0.0,
+      "ue_position_s": 0.2607579529285431,
+      "ue_anim_instance": "AnimSingleNodeInstance",
+      "ue_head_world": [
+        -57.63288832923843,
+        -228.94893386037708,
+        149.52050667698882
+      ],
+      "ue_left_foot_world": [
+        -88.17244739125739,
+        -125.5244571054374,
+        46.43939906388661
+      ],
+      "ue_pose_error_cm": 2.7819298036351067e-05
+    },
+    {
+      "name": "run-frames/frame-005",
+      "base": "A_Run",
+      "new": "A_M2M_Run",
+      "time": 0.3333333333333333,
+      "speed": 700,
+      "video": true,
+      "matched_play_rate": 0.9778423440799358,
+      "ue_root_error_cm": 0.0,
+      "ue_position_s": 0.32594743371009827,
+      "ue_anim_instance": "AnimSingleNodeInstance",
+      "ue_head_world": [
+        -57.056805722727894,
+        -274.1847152567423,
+        150.46003541636765
+      ],
+      "ue_left_foot_world": [
+        -88.12929856571259,
+        -175.30929942244808,
+        54.94230733603496
+      ],
+      "ue_pose_error_cm": 2.6226584447360543e-05
+    },
+    {
+      "name": "run-frames/frame-006",
+      "base": "A_Run",
+      "new": "A_M2M_Run",
+      "time": 0.4,
+      "speed": 700,
+      "video": true,
+      "matched_play_rate": 0.9778423440799358,
+      "ue_root_error_cm": 0.0,
+      "ue_position_s": 0.39113694429397583,
+      "ue_anim_instance": "AnimSingleNodeInstance",
+      "ue_head_world": [
+        -58.16554847789579,
+        -319.0196047947663,
+        148.53743298142763
+      ],
+      "ue_left_foot_world": [
+        -88.19106058891704,
+        -231.0818482687945,
+        57.06124062335124
+      ],
+      "ue_pose_error_cm": 3.216368678747452e-05
+    },
+    {
+      "name": "run-frames/frame-007",
+      "base": "A_Run",
+      "new": "A_M2M_Run",
+      "time": 0.4666666666666667,
+      "speed": 700,
+      "video": true,
+      "matched_play_rate": 0.9778423440799358,
+      "ue_root_error_cm": 0.0,
+      "ue_position_s": 0.456326425075531,
+      "ue_anim_instance": "AnimSingleNodeInstance",
+      "ue_head_world": [
+        -59.56367511799051,
+        -364.70300280001675,
+        143.677771915928
+      ],
+      "ue_left_foot_world": [
+        -88.2152212866631,
+        -293.665616214558,
+        57.06010827434864
+      ],
+      "ue_pose_error_cm": 2.4847454375066605e-05
+    },
+    {
+      "name": "run-frames/frame-008",
+      "base": "A_Run",
+      "new": "A_M2M_Run",
+      "time": 0.5333333333333333,
+      "speed": 700,
+      "video": true,
+      "matched_play_rate": 0.9778423440799358,
+      "ue_root_error_cm": 0.0,
+      "ue_position_s": 0.5215159058570862,
+      "ue_anim_instance": "AnimSingleNodeInstance",
+      "ue_head_world": [
+        -61.691698566738076,
+        -411.8751233456068,
+        141.12714253041443
+      ],
+      "ue_left_foot_world": [
+        -88.27582705001704,
+        -362.07045259098254,
+        50.534294604283964
+      ],
+      "ue_pose_error_cm": 1.3022818038523476e-05
+    },
+    {
+      "name": "run-frames/frame-009",
+      "base": "A_Run",
+      "new": "A_M2M_Run",
+      "time": 0.6,
+      "speed": 700,
+      "video": true,
+      "matched_play_rate": 0.9778423440799358,
+      "ue_root_error_cm": 0.0,
+      "ue_position_s": 0.5867053866386414,
+      "ue_anim_instance": "AnimSingleNodeInstance",
+      "ue_head_world": [
+        -64.92754491521254,
+        -459.40148251444407,
+        145.86648716725279
+      ],
+      "ue_left_foot_world": [
+        -88.32208641085003,
+        -434.95964849616814,
+        40.68058845421113
+      ],
+      "ue_pose_error_cm": 1.138846590157021e-05
+    },
+    {
+      "name": "run-frames/frame-010",
+      "base": "A_Run",
+      "new": "A_M2M_Run",
+      "time": 0.6666666666666666,
+      "speed": 700,
+      "video": true,
+      "matched_play_rate": 0.9778423440799358,
+      "ue_root_error_cm": 0.0,
+      "ue_position_s": 0.6518948674201965,
+      "ue_anim_instance": "AnimSingleNodeInstance",
+      "ue_head_world": [
+        -67.39891154340297,
+        -506.51899574076924,
+        152.09693248204792
+      ],
+      "ue_left_foot_world": [
+        -88.23875835035967,
+        -507.62499648144285,
+        36.29081195849579
+      ],
+      "ue_pose_error_cm": 1.9537149933497065e-05
+    },
+    {
+      "name": "run-frames/frame-011",
+      "base": "A_Run",
+      "new": "A_M2M_Run",
+      "time": 0.7333333333333333,
+      "speed": 700,
+      "video": true,
+      "matched_play_rate": 0.9778423440799358,
+      "ue_root_error_cm": 0.0,
+      "ue_position_s": 0.7170844078063965,
+      "ue_anim_instance": "AnimSingleNodeInstance",
+      "ue_head_world": [
+        -68.74205914261563,
+        -553.4475154402579,
+        152.37437816925842
+      ],
+      "ue_left_foot_world": [
+        -87.84793864967983,
+        -561.2612636425971,
+        32.58323218923411
+      ],
+      "ue_pose_error_cm": 2.4255864385205388e-05
+    },
+    {
+      "name": "run-frames/frame-012",
+      "base": "A_Run",
+      "new": "A_M2M_Run",
+      "time": 0.8,
+      "speed": 700,
+      "video": true,
+      "matched_play_rate": 0.9778423440799358,
+      "ue_root_error_cm": 0.0,
+      "ue_position_s": 0.7822738885879517,
+      "ue_anim_instance": "AnimSingleNodeInstance",
+      "ue_head_world": [
+        -69.39016910563853,
+        -600.2807827384067,
+        149.78023258356626
+      ],
+      "ue_left_foot_world": [
+        -87.7879304051691,
+        -598.8575651166641,
+        24.615856425123425
+      ],
+      "ue_pose_error_cm": 4.965176973624638e-05
+    },
+    {
+      "name": "run-frames/frame-013",
+      "base": "A_Run",
+      "new": "A_M2M_Run",
+      "time": 0.8666666666666667,
+      "speed": 700,
+      "video": true,
+      "matched_play_rate": 0.9778423440799358,
+      "ue_root_error_cm": 0.0,
+      "ue_position_s": 0.014130051247775555,
+      "ue_anim_instance": "AnimSingleNodeInstance",
+      "ue_head_world": [
+        -69.14084214610982,
+        -646.7894925916511,
+        144.57741241548177
+      ],
+      "ue_left_foot_world": [
+        -87.96326114593398,
+        -641.049300788461,
+        17.03974044374221
+      ],
+      "ue_pose_error_cm": 1.974451518799448e-05
+    },
+    {
+      "name": "run-frames/frame-014",
+      "base": "A_Run",
+      "new": "A_M2M_Run",
+      "time": 0.9333333333333333,
+      "speed": 700,
+      "video": true,
+      "matched_play_rate": 0.9778423440799358,
+      "ue_root_error_cm": 0.0,
+      "ue_position_s": 0.0793195441365242,
+      "ue_anim_instance": "AnimSingleNodeInstance",
+      "ue_head_world": [
+        -67.02926921559212,
+        -692.4146584912165,
+        140.6436562761404
+      ],
+      "ue_left_foot_world": [
+        -88.27359766363004,
+        -661.6140466447789,
+        15.894102901192703
+      ],
+      "ue_pose_error_cm": 2.2534923688786325e-05
+    },
+    {
+      "name": "run-frames/frame-015",
+      "base": "A_Run",
+      "new": "A_M2M_Run",
+      "time": 1.0,
+      "speed": 700,
+      "video": true,
+      "matched_play_rate": 0.9778423440799358,
+      "ue_root_error_cm": 0.0,
+      "ue_position_s": 0.14450903236865997,
+      "ue_anim_instance": "AnimSingleNodeInstance",
+      "ue_head_world": [
+        -64.41760727790427,
+        -740.2298543307237,
+        141.857273532014
+      ],
+      "ue_left_foot_world": [
+        -88.17719997589049,
+        -665.4211432850562,
+        17.949464512803385
+      ],
+      "ue_pose_error_cm": 1.4900352732508246e-05
+    },
+    {
+      "name": "run-frames/frame-016",
+      "base": "A_Run",
+      "new": "A_M2M_Run",
+      "time": 1.0666666666666667,
+      "speed": 700,
+      "video": true,
+      "matched_play_rate": 0.9778423440799358,
+      "ue_root_error_cm": 0.0,
+      "ue_position_s": 0.20969851315021515,
+      "ue_anim_instance": "AnimSingleNodeInstance",
+      "ue_head_world": [
+        -60.05752957940188,
+        -788.9088233909174,
+        146.78335172672172
+      ],
+      "ue_left_foot_world": [
+        -88.04569387328903,
+        -691.9720424138854,
+        31.189194278199203
+      ],
+      "ue_pose_error_cm": 4.545319165165937e-05
+    },
+    {
+      "name": "run-frames/frame-017",
+      "base": "A_Run",
+      "new": "A_M2M_Run",
+      "time": 1.1333333333333333,
+      "speed": 700,
+      "video": true,
+      "matched_play_rate": 0.9778423440799358,
+      "ue_root_error_cm": 0.0,
+      "ue_position_s": 0.2748880088329315,
+      "ue_anim_instance": "AnimSingleNodeInstance",
+      "ue_head_world": [
+        -57.321921442555414,
+        -835.4015787833274,
+        149.83895463567362
+      ],
+      "ue_left_foot_world": [
+        -88.20446667413765,
+        -732.2580098051492,
+        49.2341886260528
+      ],
+      "ue_pose_error_cm": 4.377664549407512e-05
+    },
+    {
+      "name": "run-frames/frame-018",
+      "base": "A_Run",
+      "new": "A_M2M_Run",
+      "time": 1.2,
+      "speed": 700,
+      "video": true,
+      "matched_play_rate": 0.9778423440799358,
+      "ue_root_error_cm": 0.0,
+      "ue_position_s": 0.3400774896144867,
+      "ue_anim_instance": "AnimSingleNodeInstance",
+      "ue_head_world": [
+        -57.193184974090215,
+        -880.450089783933,
+        150.3656097162741
+      ],
+      "ue_left_foot_world": [
+        -88.09374236279689,
+        -783.41682294391,
+        55.792579097788945
+      ],
+      "ue_pose_error_cm": 7.069242696647466e-05
+    },
+    {
+      "name": "run-frames/frame-019",
+      "base": "A_Run",
+      "new": "A_M2M_Run",
+      "time": 1.2666666666666666,
+      "speed": 700,
+      "video": true,
+      "matched_play_rate": 0.9778423440799358,
+      "ue_root_error_cm": 0.0,
+      "ue_position_s": 0.40526700019836426,
+      "ue_anim_instance": "AnimSingleNodeInstance",
+      "ue_head_world": [
+        -58.46698186311803,
+        -925.3607584703742,
+        147.73344862159203
+      ],
+      "ue_left_foot_world": [
+        -88.18490256098869,
+        -840.5427282818429,
+        57.28870436862694
+      ],
+      "ue_pose_error_cm": 2.9425357362692674e-05
+    },
+    {
+      "name": "run-frames/frame-020",
+      "base": "A_Run",
+      "new": "A_M2M_Run",
+      "time": 1.3333333333333333,
+      "speed": 700,
+      "video": true,
+      "matched_play_rate": 0.9778423440799358,
+      "ue_root_error_cm": 0.0,
+      "ue_position_s": 0.47045648097991943,
+      "ue_anim_instance": "AnimSingleNodeInstance",
+      "ue_head_world": [
+        -59.90091651249566,
+        -971.3122791892586,
+        142.42905739343541
+      ],
+      "ue_left_foot_world": [
+        -88.22816518727777,
+        -904.5564723425736,
+        56.527155319672204
+      ],
+      "ue_pose_error_cm": 2.004356036877211e-05
+    },
+    {
+      "name": "run-frames/frame-021",
+      "base": "A_Run",
+      "new": "A_M2M_Run",
+      "time": 1.4,
+      "speed": 700,
+      "video": true,
+      "matched_play_rate": 0.9778423440799358,
+      "ue_root_error_cm": 0.0,
+      "ue_position_s": 0.5356459617614746,
+      "ue_anim_instance": "AnimSingleNodeInstance",
+      "ue_head_world": [
+        -62.31855590344922,
+        -1018.751671272714,
+        141.517692153416
+      ],
+      "ue_left_foot_world": [
+        -88.30447216823087,
+        -974.398567090691,
+        48.44444976843604
+      ],
+      "ue_pose_error_cm": 3.499593113447158e-05
+    },
+    {
+      "name": "run-frames/frame-022",
+      "base": "A_Run",
+      "new": "A_M2M_Run",
+      "time": 1.4666666666666666,
+      "speed": 700,
+      "video": true,
+      "matched_play_rate": 0.9778423440799358,
+      "ue_root_error_cm": 0.0,
+      "ue_position_s": 0.6008354425430298,
+      "ue_anim_instance": "AnimSingleNodeInstance",
+      "ue_head_world": [
+        -65.63467520991706,
+        -1066.1782190391307,
+        147.3363426070135
+      ],
+      "ue_left_foot_world": [
+        -88.23760004455586,
+        -1048.1925736725268,
+        39.641949534700466
+      ],
+      "ue_pose_error_cm": 1.9998516055289502e-05
+    },
+    {
+      "name": "run-frames/frame-023",
+      "base": "A_Run",
+      "new": "A_M2M_Run",
+      "time": 1.5333333333333334,
+      "speed": 700,
+      "video": true,
+      "matched_play_rate": 0.9778423440799358,
+      "ue_root_error_cm": 0.0,
+      "ue_position_s": 0.666024923324585,
+      "ue_anim_instance": "AnimSingleNodeInstance",
+      "ue_head_world": [
+        -67.87715267263125,
+        -1113.2432545429053,
+        153.17805752656025
+      ],
+      "ue_left_foot_world": [
+        -88.31047636319224,
+        -1118.658389718679,
+        36.591879015066176
+      ],
+      "ue_pose_error_cm": 2.4070961138445845e-05
+    },
+    {
+      "name": "run-frames/frame-024",
+      "base": "A_Run",
+      "new": "A_M2M_Run",
+      "time": 1.6,
+      "speed": 700,
+      "video": true,
+      "matched_play_rate": 0.9778423440799358,
+      "ue_root_error_cm": 0.0,
+      "ue_position_s": 0.7312144637107849,
+      "ue_anim_instance": "AnimSingleNodeInstance",
+      "ue_head_world": [
+        -68.92809401394126,
+        -1160.1599229506485,
+        151.88515065699733
+      ],
+      "ue_left_foot_world": [
+        -87.67786292049088,
+        -1166.6620264528142,
+        31.28161318928411
+      ],
+      "ue_pose_error_cm": 4.447048768672791e-05
+    },
+    {
+      "name": "run-frames/frame-025",
+      "base": "A_Run",
+      "new": "A_M2M_Run",
+      "time": 1.6666666666666667,
+      "speed": 700,
+      "video": true,
+      "matched_play_rate": 0.9778423440799358,
+      "ue_root_error_cm": 0.0,
+      "ue_position_s": 0.7964039444923401,
+      "ue_anim_instance": "AnimSingleNodeInstance",
+      "ue_head_world": [
+        -69.52600009805616,
+        -1206.9721119252522,
+        148.93740160061853
+      ],
+      "ue_left_foot_world": [
+        -87.83084037290978,
+        -1203.3711786198187,
+        22.68901280517077
+      ],
+      "ue_pose_error_cm": 3.5906094436444936e-05
+    },
+    {
+      "name": "run-frames/frame-026",
+      "base": "A_Run",
+      "new": "A_M2M_Run",
+      "time": 1.7333333333333334,
+      "speed": 700,
+      "video": true,
+      "matched_play_rate": 0.9778423440799358,
+      "ue_root_error_cm": 0.0,
+      "ue_position_s": 0.02826010249555111,
+      "ue_anim_instance": "AnimSingleNodeInstance",
+      "ue_head_world": [
+        -68.73419236446692,
+        -1253.2008590880941,
+        143.32334075665605
+      ],
+      "ue_left_foot_world": [
+        -88.17008094188094,
+        -1247.7143452525363,
+        15.727582018751043
+      ],
+      "ue_pose_error_cm": 2.2254277223637584e-05
+    },
+    {
+      "name": "run-frames/frame-027",
+      "base": "A_Run",
+      "new": "A_M2M_Run",
+      "time": 1.8,
+      "speed": 700,
+      "video": true,
+      "matched_play_rate": 0.9778423440799358,
+      "ue_root_error_cm": 0.0,
+      "ue_position_s": 0.09344959259033203,
+      "ue_anim_instance": "AnimSingleNodeInstance",
+      "ue_head_world": [
+        -66.59939896059883,
+        -1299.0231020910303,
+        140.3534608230383
+      ],
+      "ue_left_foot_world": [
+        -88.34218421490571,
+        -1259.406545936232,
+        17.230934943354566
+      ],
+      "ue_pose_error_cm": 2.8385505726884676e-05
+    },
+    {
+      "name": "run-frames/frame-028",
+      "base": "A_Run",
+      "new": "A_M2M_Run",
+      "time": 1.8666666666666667,
+      "speed": 700,
+      "video": true,
+      "matched_play_rate": 0.9778423440799358,
+      "ue_root_error_cm": 0.0,
+      "ue_position_s": 0.1586390882730484,
+      "ue_anim_instance": "AnimSingleNodeInstance",
+      "ue_head_world": [
+        -63.52427492788778,
+        -1347.4402539973235,
+        142.4422499134952
+      ],
+      "ue_left_foot_world": [
+        -88.23984594264198,
+        -1262.3531265231275,
+        19.528232354341572
+      ],
+      "ue_pose_error_cm": 2.317921496086055e-05
+    },
+    {
+      "name": "run-frames/frame-029",
+      "base": "A_Run",
+      "new": "A_M2M_Run",
+      "time": 1.9333333333333333,
+      "speed": 700,
+      "video": true,
+      "matched_play_rate": 0.9778423440799358,
+      "ue_root_error_cm": 0.0,
+      "ue_position_s": 0.22382856905460358,
+      "ue_anim_instance": "AnimSingleNodeInstance",
+      "ue_head_world": [
+        -59.162132457146406,
+        -1395.7281594129897,
+        147.9909503176427
+      ],
+      "ue_left_foot_world": [
+        -88.15725842138764,
+        -1295.8872089691129,
+        35.910124293929826
+      ],
+      "ue_pose_error_cm": 1.1558072316785859e-05
+    }
+  ],
+  "error": null,
+  "render": "Epic 1280x720, actual PIE pose samples",
+  "motion_frames_fps": 15,
+  "order": "baseline left, retarget right"
+}

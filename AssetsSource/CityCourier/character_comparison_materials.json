@@ -1,0 +1,472 @@
+{
+  "source_revision": "c252d1fc7f00ba59d87b66b3d32fa3471fc6ee44",
+  "license": "CC0-1.0",
+  "measured_full_body_height_m": 1.76,
+  "source_shape": "Vitruvian Default + Gender_Male 1 + Race_EastAsian 1",
+  "phenotype_limit": "Upstream EastAsian morph, not the same identity as MakeHuman young_asian_male; light skin color texture unchanged",
+  "bust_cutoff_source_m": 1.22,
+  "skin_cutoff_source_m": 1.44,
+  "units": "meters in Blender; FBX unit metadata centimeters for UE",
+  "object": "SM_CharMorphBust",
+  "dimensions_m": [
+    0.6814367771148682,
+    0.27780789136886597,
+    0.5326145887374878
+  ],
+  "vertices": 138277,
+  "triangles": 258576,
+  "uv_layers": [
+    "UE_UV0",
+    "Source_VitruvianUV.UDIM",
+    "Source_VitruvianUV",
+    "Source_3DScanStore",
+    "Source_DigitalEmily",
+    "Source_Metahuman",
+    "Source_OriginalAntoniaUV",
+    "Source_UltraDense"
+  ],
+  "textures": "Original source EXR bytes retained; 4K head and 2K other derived PNGs",
+  "limitations": [
+    "Static look comparison; no gameplay rig or animation",
+    "Bald scalp; source eyebrow strand geometry retained; source eyelashes omitted",
+    "Skin uses original light color + roughness with derived tangent normal and explicit SSS, rather than full Blender procedural node graph",
+    "Source sclera/cornea alpha used directly as opacity mask; true corneal refraction and transparent tearline overlay omitted",
+    "Iris source luminance retains original detail, tinted natural brown [0.25,0.09,0.025] in linear RGB",
+    "Clothed bust crop, no unclothed full body saved or exported"
+  ],
+  "materials": {
+    "M_CM_Skin_1001": {
+      "base_color": [
+        0.55,
+        0.32,
+        0.22
+      ],
+      "roughness": 0.5,
+      "metallic": 0,
+      "textures": {
+        "base_color": "Exports/CharacterComparison/Textures/CharMorph_Skin_1001_BaseColor.png",
+        "roughness": "Exports/CharacterComparison/Textures/CharMorph_Skin_1001_Roughness.png",
+        "normal": "Exports/CharacterComparison/Textures/CharMorph_Skin_1001_NormalGL.png"
+      },
+      "texture_color_spaces": {
+        "base_color": "sRGB",
+        "normal": "linear",
+        "roughness": "linear"
+      },
+      "normal": {
+        "space": "tangent",
+        "convention": "OpenGL +Y",
+        "unreal_flip_green": true,
+        "source": "Finite differences from original CC0 scalar height; UV amplitude 0.006; approximation"
+      },
+      "alpha": {
+        "mode": "opaque",
+        "constant": 1,
+        "texture_channel": null,
+        "clip_threshold": 0.5,
+        "source": null
+      },
+      "subsurface": {
+        "weight": 0.22,
+        "radius_rgb": [
+          1,
+          0.35,
+          0.2
+        ],
+        "scale_m": 0.003,
+        "unreal_shading_model": "Subsurface",
+        "unreal_opacity": 0.15,
+        "texture": null
+      },
+      "transmission": 0,
+      "uv_channel": 0,
+      "texture_sha256": {
+        "base_color": "8c285e266f796b5be3908dff922416bffc5b8019a3461d4370db86a483a7b2b8",
+        "roughness": "163d6b347bc29582c80bb10e176b71c5650886b498cae60d29e1a70feb5a8e1c",
+        "normal": "3fd74eea7d0f4c4aa291d1f79f9387c3905d7313a800d267a26386f588813701"
+      }
+    },
+    "M_CM_Skin_1002": {
+      "base_color": [
+        0.55,
+        0.32,
+        0.22
+      ],
+      "roughness": 0.5,
+      "metallic": 0,
+      "textures": {
+        "base_color": "Exports/CharacterComparison/Textures/CharMorph_Skin_1002_BaseColor.png",
+        "roughness": "Exports/CharacterComparison/Textures/CharMorph_Skin_1002_Roughness.png",
+        "normal": "Exports/CharacterComparison/Textures/CharMorph_Skin_1002_NormalGL.png"
+      },
+      "texture_color_spaces": {
+        "base_color": "sRGB",
+        "normal": "linear",
+        "roughness": "linear"
+      },
+      "normal": {
+        "space": "tangent",
+        "convention": "OpenGL +Y",
+        "unreal_flip_green": true,
+        "source": "Finite differences from original CC0 scalar height; UV amplitude 0.006; approximation"
+      },
+      "alpha": {
+        "mode": "opaque",
+        "constant": 1,
+        "texture_channel": null,
+        "clip_threshold": 0.5,
+        "source": null
+      },
+      "subsurface": {
+        "weight": 0.22,
+        "radius_rgb": [
+          1,
+          0.35,
+          0.2
+        ],
+        "scale_m": 0.003,
+        "unreal_shading_model": "Subsurface",
+        "unreal_opacity": 0.15,
+        "texture": null
+      },
+      "transmission": 0,
+      "uv_channel": 0,
+      "texture_sha256": {
+        "base_color": "7af17cb7e6618e9608288a050254c9ea9ca35f8f39db1b129da1f2db4aa95f37",
+        "roughness": "d810fc8d6b6dc05cf4724f19fbb1ef3471ecc587f920535ebe19840de5674cc7",
+        "normal": "da309034161b8c3e6e5fa2c5b1bd946fd62b7767fae625f6508fe3689147569a"
+      }
+    },
+    "M_CM_Skin_1003": {
+      "base_color": [
+        0.55,
+        0.32,
+        0.22
+      ],
+      "roughness": 0.5,
+      "metallic": 0,
+      "textures": {
+        "base_color": "Exports/CharacterComparison/Textures/CharMorph_Skin_1003_BaseColor.png",
+        "roughness": "Exports/CharacterComparison/Textures/CharMorph_Skin_1003_Roughness.png",
+        "normal": "Exports/CharacterComparison/Textures/CharMorph_Skin_1003_NormalGL.png"
+      },
+      "texture_color_spaces": {
+        "base_color": "sRGB",
+        "normal": "linear",
+        "roughness": "linear"
+      },
+      "normal": {
+        "space": "tangent",
+        "convention": "OpenGL +Y",
+        "unreal_flip_green": true,
+        "source": "Finite differences from original CC0 scalar height; UV amplitude 0.006; approximation"
+      },
+      "alpha": {
+        "mode": "opaque",
+        "constant": 1,
+        "texture_channel": null,
+        "clip_threshold": 0.5,
+        "source": null
+      },
+      "subsurface": {
+        "weight": 0.22,
+        "radius_rgb": [
+          1,
+          0.35,
+          0.2
+        ],
+        "scale_m": 0.003,
+        "unreal_shading_model": "Subsurface",
+        "unreal_opacity": 0.15,
+        "texture": null
+      },
+      "transmission": 0,
+      "uv_channel": 0,
+      "texture_sha256": {
+        "base_color": "1771d96a5b94304fbd76e727dfaf11abaffa9c854f5dec828726132e86459790",
+        "roughness": "c61ddb9159c97ab6ecbfb17881b02cf704fa256c7699fcfa53712fd919721fc1",
+        "normal": "5a7179eb4472f6e6693e12dea10587ff04cbf624a2bc06e06cf8546b8ed39032"
+      }
+    },
+    "M_CM_Iris": {
+      "base_color": [
+        0.5,
+        0.5,
+        0.5
+      ],
+      "roughness": 0.4,
+      "metallic": 0,
+      "textures": {
+        "base_color": "Exports/CharacterComparison/Textures/CharMorph_Iris_BaseColor.png",
+        "roughness": "Exports/CharacterComparison/Textures/CharMorph_Iris_Roughness.png",
+        "normal": "Exports/CharacterComparison/Textures/CharMorph_Iris_NormalGL.png"
+      },
+      "texture_color_spaces": {
+        "base_color": "sRGB",
+        "normal": "linear",
+        "roughness": "linear"
+      },
+      "normal": {
+        "space": "tangent",
+        "convention": "OpenGL +Y",
+        "unreal_flip_green": true,
+        "source": "Finite differences from original CC0 scalar height; UV amplitude 0.006; approximation"
+      },
+      "alpha": {
+        "mode": "opaque",
+        "constant": 1,
+        "texture_channel": null,
+        "clip_threshold": 0.5,
+        "source": null
+      },
+      "subsurface": {
+        "weight": 0,
+        "radius_rgb": [
+          1,
+          0.35,
+          0.2
+        ],
+        "scale_m": 0.003,
+        "unreal_shading_model": "Default Lit",
+        "unreal_opacity": 0,
+        "texture": null
+      },
+      "transmission": 0,
+      "uv_channel": 0,
+      "texture_sha256": {
+        "base_color": "6cce17d48c86de9b2ddd54c51048ae8953ce2db8032245707546f75c1de76a1b",
+        "roughness": "bda256ab7b80f991cb3b2b1f27ee41e89639dfbb2bbf1b87721b33d615ab2999",
+        "normal": "30294dc600c29cd2bc429dcc1fb80af67e369d2b0ba79324dce40f0ae99c4984"
+      }
+    },
+    "M_CM_Mouth": {
+      "base_color": [
+        0.5,
+        0.5,
+        0.5
+      ],
+      "roughness": 0.4,
+      "metallic": 0,
+      "textures": {
+        "base_color": "Exports/CharacterComparison/Textures/CharMorph_Mouth_BaseColor.png",
+        "roughness": "Exports/CharacterComparison/Textures/CharMorph_Mouth_Roughness.png",
+        "normal": "Exports/CharacterComparison/Textures/CharMorph_Mouth_NormalGL.png"
+      },
+      "texture_color_spaces": {
+        "base_color": "sRGB",
+        "normal": "linear",
+        "roughness": "linear"
+      },
+      "normal": {
+        "space": "tangent",
+        "convention": "OpenGL +Y",
+        "unreal_flip_green": true,
+        "source": "Finite differences from original CC0 scalar height; UV amplitude 0.006; approximation"
+      },
+      "alpha": {
+        "mode": "opaque",
+        "constant": 1,
+        "texture_channel": null,
+        "clip_threshold": 0.5,
+        "source": null
+      },
+      "subsurface": {
+        "weight": 0,
+        "radius_rgb": [
+          1,
+          0.35,
+          0.2
+        ],
+        "scale_m": 0.003,
+        "unreal_shading_model": "Default Lit",
+        "unreal_opacity": 0,
+        "texture": null
+      },
+      "transmission": 0,
+      "uv_channel": 0,
+      "texture_sha256": {
+        "base_color": "bbfe1e92c18481359e3c257afc08aa2cdafa3a77b8ae0bccc1763f2f631f5590",
+        "roughness": "7b095f4b4f68c4988394800bea0ead13ecc134082046d6057f931c803559b97d",
+        "normal": "6ed82ab0272a0574adb483233ac63991f66025cdd6d8684b862d26903a253db6"
+      }
+    },
+    "M_CM_Sclera": {
+      "base_color": [
+        0.5,
+        0.5,
+        0.5
+      ],
+      "roughness": 0.18,
+      "metallic": 0,
+      "textures": {
+        "base_color": "Exports/CharacterComparison/Textures/CharMorph_Sclera_BaseColor.png",
+        "normal": "Exports/CharacterComparison/Textures/CharMorph_Sclera_NormalGL.png"
+      },
+      "texture_color_spaces": {
+        "base_color": "sRGB",
+        "normal": "linear",
+        "roughness": "linear"
+      },
+      "normal": {
+        "space": "tangent",
+        "convention": "OpenGL +Y",
+        "unreal_flip_green": true,
+        "source": "Finite differences from original CC0 scalar height; UV amplitude 0.006; approximation"
+      },
+      "alpha": {
+        "mode": "masked",
+        "constant": 1,
+        "texture_channel": "base_color.A",
+        "clip_threshold": 0.5,
+        "source": "upstream Sclera_Color EXR alpha directly; alpha=0 glass/cornea, alpha=1 opaque sclera, confirmed by Mix Shader input indices and CorneaCol"
+      },
+      "subsurface": {
+        "weight": 0,
+        "radius_rgb": [
+          1,
+          0.35,
+          0.2
+        ],
+        "scale_m": 0.003,
+        "unreal_shading_model": "Default Lit",
+        "unreal_opacity": 0,
+        "texture": null
+      },
+      "transmission": 0,
+      "uv_channel": 0,
+      "texture_sha256": {
+        "base_color": "1ef9013697f7498d3bc06302ebf66efcf66db6cbf19384bd483dc02f361c94b7",
+        "normal": "820386dec7c216e5eba6b25707c7081db6f530f6a3fa2fac28a990edcc9fb624"
+      }
+    },
+    "M_CM_Pupil": {
+      "base_color": [
+        0.002,
+        0.001,
+        0.001
+      ],
+      "roughness": 0.2,
+      "metallic": 0,
+      "textures": {},
+      "texture_color_spaces": {
+        "base_color": "sRGB",
+        "normal": "linear",
+        "roughness": "linear"
+      },
+      "normal": {
+        "space": "tangent",
+        "convention": "OpenGL +Y",
+        "unreal_flip_green": true,
+        "source": "Finite differences from original CC0 scalar height; UV amplitude 0.006; approximation"
+      },
+      "alpha": {
+        "mode": "opaque",
+        "constant": 1,
+        "texture_channel": null,
+        "clip_threshold": 0.5,
+        "source": null
+      },
+      "subsurface": {
+        "weight": 0,
+        "radius_rgb": [
+          1,
+          0.35,
+          0.2
+        ],
+        "scale_m": 0.003,
+        "unreal_shading_model": "Default Lit",
+        "unreal_opacity": 0,
+        "texture": null
+      },
+      "transmission": 0,
+      "uv_channel": 0,
+      "texture_sha256": {}
+    },
+    "M_CM_BlueShirt": {
+      "base_color": [
+        0.025,
+        0.15,
+        0.32
+      ],
+      "roughness": 0.88,
+      "metallic": 0,
+      "textures": {},
+      "texture_color_spaces": {
+        "base_color": "sRGB",
+        "normal": "linear",
+        "roughness": "linear"
+      },
+      "normal": {
+        "space": "tangent",
+        "convention": "OpenGL +Y",
+        "unreal_flip_green": true,
+        "source": "Finite differences from original CC0 scalar height; UV amplitude 0.006; approximation"
+      },
+      "alpha": {
+        "mode": "opaque",
+        "constant": 1,
+        "texture_channel": null,
+        "clip_threshold": 0.5,
+        "source": null
+      },
+      "subsurface": {
+        "weight": 0,
+        "radius_rgb": [
+          1,
+          0.35,
+          0.2
+        ],
+        "scale_m": 0.003,
+        "unreal_shading_model": "Default Lit",
+        "unreal_opacity": 0,
+        "texture": null
+      },
+      "transmission": 0,
+      "uv_channel": 0,
+      "texture_sha256": {}
+    },
+    "M_CM_DarkBrows": {
+      "base_color": [
+        0.018,
+        0.009,
+        0.005
+      ],
+      "roughness": 0.7,
+      "metallic": 0,
+      "textures": {},
+      "texture_color_spaces": {
+        "base_color": "sRGB",
+        "normal": "linear",
+        "roughness": "linear"
+      },
+      "normal": {
+        "space": "tangent",
+        "convention": "OpenGL +Y",
+        "unreal_flip_green": true,
+        "source": "Finite differences from original CC0 scalar height; UV amplitude 0.006; approximation"
+      },
+      "alpha": {
+        "mode": "opaque",
+        "constant": 1,
+        "texture_channel": null,
+        "clip_threshold": 0.5,
+        "source": null
+      },
+      "subsurface": {
+        "weight": 0,
+        "radius_rgb": [
+          1,
+          0.35,
+          0.2
+        ],
+        "scale_m": 0.003,
+        "unreal_shading_model": "Default Lit",
+        "unreal_opacity": 0,
+        "texture": null
+      },
+      "transmission": 0,
+      "uv_channel": 0,
+      "texture_sha256": {}
+    }
+  }
+}

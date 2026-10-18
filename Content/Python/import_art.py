@@ -87,7 +87,7 @@ def fbx_options(skeletal=False,animation=False,skeleton=None):
     return o
 
 for file in ([] if scope=='characters' else sorted((SOURCE/'Exports').glob('*/*.fbx'))):
-    if file.parent.name=='Characters':continue
+    if file.parent.name in ('Characters','MotionProbe','CharacterComparison'):continue
     mesh=import_file(file,ART+'/'+file.parent.name,file.stem,fbx_options())
     for i,slot in enumerate(mesh.get_editor_property('static_materials')):
         name=str(slot.get_editor_property('imported_material_slot_name'))
