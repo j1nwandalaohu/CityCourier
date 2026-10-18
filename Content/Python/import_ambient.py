@@ -1,11 +1,15 @@
-"""Import retained original ambient sources, preserving the courier skeleton."""
+"""Import retained ambient sources using the independent original citizen rig."""
 import json,pathlib,unreal
 root=pathlib.Path(unreal.Paths.project_dir())
 entries=json.loads((root/'AssetsSource/CityCourier/Ambient/catalog.json').read_text())
+if globals().get('CITIZEN_ONLY',False):
+    entries=[entry for entry in entries if entry['kind']=='skeletal']
 assets=unreal.get_editor_subsystem(unreal.EditorAssetSubsystem);tools=unreal.AssetToolsHelpers.get_asset_tools()
 unreal.SystemLibrary.execute_console_command(None,'Interchange.FeatureFlags.Import.FBX 0')
-skeleton=unreal.load_asset('/Game/CityCourier/Art/Characters/SK_Courier_Skeleton')
+skeleton=unreal.load_asset('/Game/CityCourier/Art/Ambient/Citizen/SK_Courier_Skeleton')
+assert skeleton, 'The retained independent citizen skeleton is required'
 for name,color in [('CitizenCloth',(.12,.20,.31)),('CarPaint',(.24,.32,.38))]:
+    if globals().get('CITIZEN_ONLY',False) and name!='CitizenCloth':continue
     path='/Game/CityCourier/Art/Materials/M_'+name
     material=unreal.load_asset(path) if assets.does_asset_exist(path) else tools.create_asset('M_'+name,'/Game/CityCourier/Art/Materials',unreal.Material,unreal.MaterialFactoryNew())
     unreal.MaterialEditingLibrary.delete_all_material_expressions(material)
@@ -19,6 +23,12 @@ for name,color in [('CitizenCloth',(.12,.20,.31)),('CarPaint',(.24,.32,.38))]:
     unreal.MaterialEditingLibrary.recompile_material(material);assets.save_loaded_asset(material)
 for entry in entries:
     folder,name=entry['ue_path'].rsplit('/',1)
+    if entry['kind']=='skeletal' and assets.does_asset_exist(entry['ue_path']):
+        existing=unreal.load_asset(entry['ue_path'])
+        # FBX reimport keeps the previous rig even if options name another one.
+        # Recreate only this generated mesh when migrating from the courier rig.
+        if existing.get_editor_property('skeleton')!=skeleton:
+            assert assets.delete_asset(entry['ue_path'])
     task=unreal.AssetImportTask();task.set_editor_property('filename',str(root/entry['source_path']))
     for key,value in [('destination_path',folder),('destination_name',name),('automated',True),('replace_existing',True),('save',True)]:task.set_editor_property(key,value)
     if entry['kind']!='audio':

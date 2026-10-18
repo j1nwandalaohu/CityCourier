@@ -15,7 +15,7 @@ void AAmbientPedestrian::BeginPlay()
 {
     Super::BeginPlay();
     Person->SetSkeletalMesh(LoadObject<USkeletalMesh>(nullptr,TEXT("/Game/CityCourier/Art/Ambient/SK_Citizen.SK_Citizen")));
-    Person->PlayAnimation(LoadObject<UAnimSequence>(nullptr,TEXT("/Game/CityCourier/Art/Characters/A_Walk.A_Walk")),true);
+    Person->PlayAnimation(LoadObject<UAnimSequence>(nullptr,TEXT("/Game/CityCourier/Art/Ambient/Citizen/A_Walk.A_Walk")),true);
 }
 void AAmbientPedestrian::Tick(float DeltaSeconds)
 {

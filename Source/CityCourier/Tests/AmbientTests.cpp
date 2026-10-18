@@ -8,6 +8,9 @@
 #include "EngineUtils.h"
 #include "Sound/SoundWave.h"
 #include "Components/SkeletalMeshComponent.h"
+#include "Animation/Skeleton.h"
+#include "Animation/AnimSequence.h"
+#include "Animation/AnimSingleNodeInstance.h"
 
 IMPLEMENT_SIMPLE_AUTOMATION_TEST(FAmbientPoolTest,"CityCourier.Ambient.BoundedPopulation",
     EAutomationTestFlags::EditorContext|EAutomationTestFlags::EngineFilter)
@@ -109,8 +112,28 @@ bool FAmbientSourceTest::RunTest(const FString& Parameters)
     }
     TestNotNull(TEXT("Original car"),LoadObject<UStaticMesh>(nullptr,TEXT("/Game/CityCourier/Art/Ambient/SM_CityCar.SM_CityCar")));
     auto* Person=LoadObject<USkeletalMesh>(nullptr,TEXT("/Game/CityCourier/Art/Ambient/SK_Citizen.SK_Citizen"));
-    if(TestNotNull(TEXT("Original ordinary clothes"),Person))
-        TestEqual(TEXT("Citizen shares courier skeleton"),Person->GetSkeleton(),LoadObject<USkeleton>(nullptr,TEXT("/Game/CityCourier/Art/Characters/SK_Courier_Skeleton.SK_Courier_Skeleton")));
+    if(TestNotNull(TEXT("Original ordinary clothes"),Person) && TestNotNull(TEXT("Citizen skeleton"),Person->GetSkeleton()))
+    {
+        const auto& MeshBones=Person->GetRefSkeleton();
+        const auto& SkeletonBones=Person->GetSkeleton()->GetReferenceSkeleton();
+        for(int32 Bone=0;Bone<MeshBones.GetNum();++Bone)
+        {
+            const FName Name=MeshBones.GetBoneName(Bone);
+            const int32 Match=SkeletonBones.FindBoneIndex(Name);
+            if(!TestTrue(*FString::Printf(TEXT("Citizen skeleton retains %s"),*Name.ToString()),Match!=INDEX_NONE)) continue;
+            const int32 Parent=MeshBones.GetParentIndex(Bone),SkeletonParent=SkeletonBones.GetParentIndex(Match);
+            TestEqual(*FString::Printf(TEXT("Citizen parent matches for %s"),*Name.ToString()),Parent==INDEX_NONE?NAME_None:MeshBones.GetBoneName(Parent),SkeletonParent==INDEX_NONE?NAME_None:SkeletonBones.GetBoneName(SkeletonParent));
+        }
+        FStationFixture F;
+        auto* Walker=F.World->SpawnActor<AAmbientPedestrian>();Walker->DispatchBeginPlay();
+        auto* Animation=Walker->Person->GetSingleNodeInstance();
+        if(TestNotNull(TEXT("Citizen runtime walk player"),Animation))
+        {
+            auto* Walk=Cast<UAnimSequence>(Animation->GetCurrentAsset());
+            if(TestNotNull(TEXT("Citizen runtime walk clip"),Walk))
+                TestEqual(TEXT("Citizen runtime animation matches its own skeleton"),Walk->GetSkeleton(),Person->GetSkeleton());
+        }
+    }
     return true;
 }
 #endif

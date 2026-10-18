@@ -1,6 +1,6 @@
 """Blender 4.0 original traffic meshes and deterministic synthesized mono WAV sources."""
 import pathlib,math,json,csv,wave,struct,random
-source=pathlib.Path(__file__).with_name('build_courier_assets.py').read_text(encoding='utf-8')
+source=pathlib.Path(__file__).with_name('build_courier_assets_original.py').read_text(encoding='utf-8')
 # Reuse the retained original geometry helpers and exact courier bone proportions.
 exec(compile(source.split('# Rider:')[0],str(__file__),'exec'))
 OUT=ROOT/'AssetsSource/CityCourier/Ambient';EXPORT=OUT/'Exports';EXPORT.mkdir(parents=True,exist_ok=True)

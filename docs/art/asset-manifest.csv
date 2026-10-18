@@ -62,3 +62,5 @@ evening_environment,AssetsSource/CityCourier/External/PolyHaven/sunset_jhbcentra
 pavement_05,AssetsSource/CityCourier/External/PolyHaven,/Game/CityCourier/Art/Textures,Poly Haven,https://polyhaven.com/a/pavement_05,CC0-1.0,false
 evening_puresky,AssetsSource/CityCourier/External/PolyHaven/industrial_sunset_02_puresky_2k.hdr,/Game/CityCourier/Art/Textures/T_EveningPanorama,Poly Haven,https://polyhaven.com/a/industrial_sunset_02_puresky,CC0-1.0,false
 courier_shoes,AssetsSource/CityCourier/External/MakeHumanPack/clothes/shoes01,/Game/CityCourier/Art/Materials/M_WorkShoes,MakeHuman community,https://files.makehumancommunity.org/asset_packs/makehuman_system_assets/makehuman_system_assets_cc0.zip,CC0-1.0,false
+ambient_citizen_skeleton,AssetsSource/CityCourier/CityCourier_Original.blend,/Game/CityCourier/Art/Ambient/Citizen/SK_Courier_Skeleton,CityCourier project,,Original project asset,false
+ambient_citizen_walk,AssetsSource/CityCourier/Exports/A_Walk.fbx,/Game/CityCourier/Art/Ambient/Citizen/A_Walk,CityCourier project,,Original project animation,false

@@ -7,6 +7,13 @@
 #include "Delivery/DeliverySubsystem.h"
 #include "Delivery/DeliveryNavigationSubsystem.h"
 #include "World/CityDefinition.h"
+FVector2D UCourierMapWidget::ProjectWorldPosition(const FVector& P,const FVector2D& Size,double Margin)
+{
+    const double Scale=FMath::Min(Size.X-2*Margin,Size.Y-2*Margin)/60000;
+    // Unreal +X forward is map up, +Y right is map right. Flipping only Y
+    // mirrors the world and reverses every left/right turn on the map.
+    return FVector2D(Size.X*.5+P.Y*Scale,Size.Y*.5-P.X*Scale);
+}
 void UCourierMapWidget::NativeOnInitialized() { Super::NativeOnInitialized(); WidgetTree->RootWidget=WidgetTree->ConstructWidget<UCanvasPanel>(); }
 int32 UCourierMapWidget::NativePaint(const FPaintArgs& Args,const FGeometry& G,const FSlateRect& Culling,FSlateWindowElementList& Out,int32 Layer,const FWidgetStyle& Style,bool bEnabled) const
 {
@@ -14,8 +21,8 @@ int32 UCourierMapWidget::NativePaint(const FPaintArgs& Args,const FGeometry& G,c
     const FVector2D Size=G.GetLocalSize(); const auto* Brush=FCoreStyle::Get().GetBrush(TEXT("WhiteBrush"));
     FSlateDrawElement::MakeBox(Out,++Layer,G.ToPaintGeometry(),Brush,ESlateDrawEffect::None,CourierUI::Ink);
     auto* PC=Cast<ACourierController>(GetOwningPlayer()); const auto* D=PC?PC->GetDeliverySystem():nullptr; if(!D || !D->GetCity()) return Layer;
-    const auto* City=D->GetCity(); const float Margin=bMini?18:80; const double Scale=FMath::Min(Size.X-2*Margin,Size.Y-2*Margin)/60000;
-    auto Point=[&](FVector P) { return FVector2D(Size.X*.5+P.X*Scale,Size.Y*.5-P.Y*Scale); };
+    const auto* City=D->GetCity(); const float Margin=bMini?18:80;
+    auto Point=[&](FVector P) { return ProjectWorldPosition(P,Size,Margin); };
     auto Text=[&](FVector2D At,const FString& Value,int32 FontSize,FLinearColor Color)
     { FSlateDrawElement::MakeText(Out,Layer+3,G.ToPaintGeometry(FVector2D(400,50),FSlateLayoutTransform(At)),Value,CourierUI::Font(FontSize),ESlateDrawEffect::None,Color); };
     for(const auto& E:City->Roads.Edges)
