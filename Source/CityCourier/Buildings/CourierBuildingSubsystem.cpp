@@ -1,4 +1,5 @@
 #include "Buildings/CourierBuildingSubsystem.h"
+#include "Buildings/CourierInteriorFinish.h"
 #include "Buildings/CourierBuildingActor.h"
 #include "World/DeliveryLocation.h"
 #include "World/RiderStation.h"
@@ -219,8 +220,8 @@ bool UCourierBuildingSubsystem::CanPrepareLocation(FName Id) const
     const auto* Binding=Catalog->FindBinding(Id); if(!Binding) return false;
     const int32 I=Catalog->FindBuilding(Binding->BuildingId);
     if(I==INDEX_NONE || GetDetailState(I)==ECourierBuildingDetailState::Failed) return false;
-    for(const FString Asset:{TEXT("SM_CourierDoor"),TEXT("SM_InteriorBed"),TEXT("SM_InteriorDesk"),TEXT("SM_InteriorKitchen"),TEXT("SM_InteriorToilet"),TEXT("SM_InteriorShelf"),TEXT("SM_InteriorSofa"),TEXT("SM_InteriorCounter")})
-        if(!FPackageName::DoesPackageExist(TEXT("/Game/CityCourier/Art/Buildings/")+Asset)) return false;
+    const auto* Art=UCourierInteriorFinish::Load();
+    if(!Art || !Art->Matches(Catalog) || !Art->IsAvailable(Binding->BuildingId)) return false;
     return true;
 }
 bool UCourierBuildingSubsystem::CanUseLocation(FName Id,FVector P,FText& Reason) const

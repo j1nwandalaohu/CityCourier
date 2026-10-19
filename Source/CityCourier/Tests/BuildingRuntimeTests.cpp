@@ -129,8 +129,8 @@ bool FBuildingDetailsCoverageTest::RunTest(const FString&)
 IMPLEMENT_SIMPLE_AUTOMATION_TEST(FBuildingMissingFurnitureTest,"CityCourier.Buildings.Runtime.MissingAssetAdmission",EAutomationTestFlags::EditorContext|EAutomationTestFlags::EngineFilter)
 bool FBuildingMissingFurnitureTest::RunTest(const FString&)
 {
-    if(FPackageName::DoesPackageExist(TEXT("/Game/CityCourier/Art/Buildings/SM_InteriorBed")))
-    { AddInfo(TEXT("Fault injection is exercised in a separate run with this worktree's bed asset temporarily moved and restored.")); return true; }
+    if(FPackageName::DoesPackageExist(TEXT("/Game/CityCourier/Art/Interiors/SM_IF_Bed")))
+    { AddInfo(TEXT("Missing cooked mesh admission is checked by Art.CookedCoverageAndDoorContinuity; cold-load absence requires a separate fault-injection run.")); return true; }
     FInteriorRuntimeFixture F;
     TestTrue(TEXT("Structure remains available without furnishings"),F.Interiors->Configure(F.Catalog));
     F.Interiors->UpdateResidency(F.Rider->GetActorLocation());

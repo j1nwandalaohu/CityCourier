@@ -1,4 +1,6 @@
 #include "Buildings/CourierDoor.h"
+#include "Buildings/CourierBuildingActor.h"
+#include "Buildings/CourierInteriorFinish.h"
 #include "Player/CourierCharacter.h"
 #include "Player/CourierController.h"
 #include "Components/BoxComponent.h"
@@ -37,6 +39,11 @@ void ACourierDoor::Configure(const FCourierDoorDefinition& D,const FTransform& B
         Visual->SetStaticMesh(Leaf); Visual->SetRelativeLocation(FVector(-Definition.Width/2,0,-Definition.Height/2));
         Visual->SetRelativeScale3D(FVector(Definition.Width/100,1,Definition.Height/220));
     }
+    if(const auto* Building=Cast<ACourierBuildingActor>(GetOwner()))
+        if(const auto* B=Building->GetDefinition())
+            if(const auto* Art=Building->Finish.Get())
+                if(Art->DoorMeshes.Num()==3)
+                    Visual->SetStaticMesh(Art->DoorMeshes[UCourierInteriorFinish::DoorStyle(*B,D)]);
     bReady=bConfigurationValid;
     bMoving=bReady && !Initial.bBlocked && !FMath::IsNearlyEqual(State.Angle,State.bWantOpen?D.OpenAngle:0.f,.01f);
     ApplyAngle(); SetActorTickEnabled(bMoving);

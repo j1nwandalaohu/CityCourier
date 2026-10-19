@@ -306,6 +306,8 @@ def _report(error=None):
                       background_cpu_throttling_disabled=True),
                   exit_method='EditorPythonExecuter deferred QUIT_EDITOR after keep_python_script_alive=False',
                   interpretation='Actual Unreal Engine 5.6 editor viewport renders; not PIE or gameplay acceptance.',
+                  source_map=scene.get('source_map') if scene else None,
+                  native_details_explicitly_prepared=bool(scene and scene.get('native_details_explicitly_prepared')),
                   no_city_maps_written=True, no_assets_saved=True, complete_physical_shell_present=True,
                   walls_hidden_or_cut_away=False, native_collision_retained=True,
                   render_door_proxy_geometry_hidden_only=True,
@@ -436,7 +438,7 @@ def _tick(delta):
         state['busy'] = False
 
 
-def main():
+def main(scene_builder=build_scene, lighting_builder=_lights, door_preparer=prepare_render_doors):
     try:
         state['protected_before'] = protected_snapshot()
         unreal.EditorPythonScripting.set_keep_python_script_alive(True)
@@ -447,9 +449,9 @@ def main():
             raise RuntimeError('Editor performance settings class is unavailable')
         unreal.get_default_object(performance_class).set_editor_property(
             'bThrottleCPUWhenNotForeground', False)
-        state['scene'] = build_scene()
-        state['lighting'] = _lights(state['scene'])
-        prepare_render_doors(state['scene'])
+        state['scene'] = scene_builder()
+        state['lighting'] = lighting_builder(state['scene'])
+        door_preparer(state['scene'])
         state['jobs'] = _jobs(state['scene'])
         state['camera'] = _camera()
         # Runtime CVars affect only this transient editor process.

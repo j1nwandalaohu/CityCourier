@@ -39,6 +39,7 @@ FCourierPhysicalTraversalReport ACourierBuildingActor::ValidatePhysicalTraversal
         if(Proxy!=INDEX_NONE && DoorProxies->GetInstanceTransform(Proxy,T,false))
             SavedProxyAngles.Add(I,FMath::FindDeltaAngleDegrees(B->Doors[I].ClosedYaw,T.Rotator().Yaw));
         else { Out.Errors.Add(TEXT("Traversal requires inactive production door actors")); break; }
+        Params.Owner=this; // Same building/style context as production ActivateDoor.
         auto* Door=GetWorld()->SpawnActor<ACourierDoor>(ACourierDoor::StaticClass(),FVector::ZeroVector,FRotator::ZeroRotator,Params);
         Door->Configure(B->Doors[I],B->Transform()); Door->SetReady(true);
         SetDoorProxy(I,0,false); Doors.Add(B->Doors[I].Id,Door);

@@ -34,8 +34,11 @@ public:
     UFUNCTION(BlueprintCallable,Category="Courier|Buildings") FCourierPhysicalTraversalReport ValidatePhysicalTraversal(bool bWithDetails=true);
     const FCourierBuildingDefinition* GetDefinition() const;
     bool SetDoorProxy(int32 DoorIndex,float Angle,bool bVisible);
-    bool PrepareDetails();
-    void ReleaseDetails();
+    UFUNCTION(BlueprintCallable,Category="Courier|Buildings") bool PrepareDetails();
+    void RefreshFinishDoorVisuals();
+    UPROPERTY() TObjectPtr<class UCourierInteriorFinish> Finish;
+    UPROPERTY(Transient) TArray<TObjectPtr<UInstancedStaticMeshComponent>> FinishDoorVisuals;
+    UFUNCTION(BlueprintCallable,Category="Courier|Buildings") void ReleaseDetails();
     void EnsureEntranceBarriers();
     void SetEntryLoading(bool bLoading);
     int32 GetDetailComponentCount() const { return Details.Num(); }

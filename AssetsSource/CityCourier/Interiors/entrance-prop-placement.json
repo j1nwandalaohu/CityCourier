@@ -159,6 +159,166 @@
       "blocked_doors": [
         "B_3_5_0_0_2_Entry_Door"
       ]
+    },
+    {
+      "id": "CC_Art_MainBench_14",
+      "from_position": [
+        1750.0,
+        -11140.0,
+        0.0
+      ],
+      "to_position": [
+        1950.0,
+        -11240.0,
+        0.0
+      ],
+      "blocked_doors": [
+        "B_1_3_0_0_0_Entry_Door"
+      ]
+    },
+    {
+      "id": "CC_Art_MainBench_2",
+      "from_position": [
+        -10250.0,
+        -11140.0,
+        0.0
+      ],
+      "to_position": [
+        -10050.0,
+        -11240.0,
+        0.0
+      ],
+      "blocked_doors": [
+        "B_1_1_0_0_0_Entry_Door"
+      ]
+    },
+    {
+      "id": "CC_Art_MainBench_8",
+      "from_position": [
+        -4250.0,
+        -11140.0,
+        0.0
+      ],
+      "to_position": [
+        -4050.0,
+        -11240.0,
+        0.0
+      ],
+      "blocked_doors": [
+        "B_1_2_0_0_0_Entry_Door"
+      ]
+    },
+    {
+      "id": "CC_Art_MainTree_15",
+      "from_position": [
+        3000.0,
+        -11050.0,
+        0.0
+      ],
+      "to_position": [
+        3250.0,
+        -11150.0,
+        0.0
+      ],
+      "blocked_doors": [
+        "B_1_3_0_1_0_Entry_Door"
+      ]
+    },
+    {
+      "id": "CC_Art_MainTree_3",
+      "from_position": [
+        -9000.0,
+        -11050.0,
+        0.0
+      ],
+      "to_position": [
+        -8750.0,
+        -11150.0,
+        0.0
+      ],
+      "blocked_doors": [
+        "B_1_1_0_1_0_Entry_Door"
+      ]
+    },
+    {
+      "id": "CC_Art_MainTree_9",
+      "from_position": [
+        -3000.0,
+        -11050.0,
+        0.0
+      ],
+      "to_position": [
+        -2750.0,
+        -11150.0,
+        0.0
+      ],
+      "blocked_doors": [
+        "B_1_2_0_1_0_Entry_Door"
+      ]
+    },
+    {
+      "id": "CC_Art_MarketStall_0",
+      "from_position": [
+        13700.0,
+        12910.0,
+        0.0
+      ],
+      "to_position": [
+        13000.0,
+        12810.0,
+        0.0
+      ],
+      "blocked_doors": [
+        "B_3_5_0_0_0_Entry_Door"
+      ]
+    },
+    {
+      "id": "CC_Art_MarketStall_2",
+      "from_position": [
+        14280.0,
+        12910.0,
+        0.0
+      ],
+      "to_position": [
+        14530.0,
+        12760.0,
+        0.0
+      ],
+      "blocked_doors": [
+        "B_3_5_0_0_1_Entry_Door"
+      ]
+    },
+    {
+      "id": "CC_Art_MarketStall_4",
+      "from_position": [
+        14860.0,
+        12910.0,
+        0.0
+      ],
+      "to_position": [
+        15310.0,
+        12760.0,
+        0.0
+      ],
+      "blocked_doors": [
+        "B_3_5_0_0_2_Entry_Door"
+      ]
+    },
+    {
+      "id": "CC_Art_MarketStall_5",
+      "from_position": [
+        15150.0,
+        12910.0,
+        0.0
+      ],
+      "to_position": [
+        14800.0,
+        12810.0,
+        0.0
+      ],
+      "blocked_doors": [
+        "B_3_5_0_0_2_Entry_Door"
+      ]
     }
   ],
   "L_CourierArtPreview": []

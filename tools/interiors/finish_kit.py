@@ -171,7 +171,8 @@ def _fit_furniture(building, room, bounds, kind=None, existing=()):
     for yaw in (0, 90, 180, 270):
         suffix = "_Furniture" if not existing else "_Furniture_" + kind
         base = _placement(building, room["id"] + suffix, kind, [0, 0, 0], room["floor"], room,
-                          "furniture", rotation=[0, yaw, 0], collision="BlockAll")
+                          "furniture", rotation=[0, yaw, 0], collision="BlockAll",
+                          scale=[.85, .50 if kind == "Toilet" else .60, 1] if len(building["floors"]) == 1 else None)
         lo, hi = placement_bounds(base, bounds[asset])
         for corner in range(4):
             translation = [room["maximum"][0] - hi[0] - 6 if corner & 1 else room["minimum"][0] - lo[0] + 6,
@@ -323,7 +324,7 @@ def _sample(seed, bounds):
                   placements=[], door_styles=[], preview_room_ids=[])
     placements = sample["placements"]
     for room in building["rooms"]:
-        if room["floor"] == len(building["floors"]):
+        if building["floors"][room["floor"]-1]["kind"] == "roof":
             continue
         if room["kind"] in FURNITURE:
             group = [_fit_furniture(building, room, bounds)]
@@ -399,6 +400,25 @@ def plan_samples(inventory: dict, mesh_bounds: dict) -> dict:
     errors = validate_plan(plan, mesh_bounds)
     if errors:
         raise ValueError("Unsafe sample overlay: " + "; ".join(errors))
+    return plan
+
+
+def plan_city(inventory: dict, mesh_bounds: dict) -> dict:
+    """Apply approved assemblies to every canonical building, including annexes."""
+    for name in FURNITURE.values():
+        if "SM_IF_" + name not in mesh_bounds:
+            raise ValueError("Missing actual bounds: SM_IF_" + name)
+    for bounds in mesh_bounds.values():
+        _bounds(bounds)
+    plan = dict(schema_version=SCHEMA_VERSION, coordinate_space="building_local_cm",
+                clearance_cm=dict(capsule_radius=34, route_allowance=11, route_total=45,
+                                  central_standing_square=120), samples=[])
+    for seed in inventory["buildings"]:
+        sample = _sample(seed, mesh_bounds)
+        errors = validate_plan(dict(samples=[sample]), mesh_bounds)
+        if errors:
+            raise ValueError("Unsafe city overlay: " + "; ".join(errors[:12]))
+        plan["samples"].append(sample)
     return plan
 
 

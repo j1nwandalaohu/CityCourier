@@ -16,4 +16,8 @@ Content/Python/import_pending_actions.py text eol=lf
 Content/Python/*interior_finish*.py text eol=lf
 tools/interiors/finish_kit.py text eol=lf
 Source/CityCourier/Player/CourierActionComponent.cpp text eol=crlf
+Source/CityCourier/Buildings/CourierInteriorFinish.* text eol=lf
+Source/CityCourier/Tests/InteriorFinishTests.cpp text eol=lf
+Content/Python/*city_finish.py text eol=lf
+tools/interiors/build_city_finish.py text eol=lf
 Content/CityCourier/Art/Characters/SK_Courier.uasset filter=lfs diff=lfs merge=lfs -text

@@ -1,0 +1,33 @@
+{
+  "passed": true,
+  "source_file_sha256": {
+    "Content/CityCourier/Maps/L_CourierCity.umap": "279b5de846243d3df269e8456be8cb1f4aec133c858aa203f31a81c3cafc709f",
+    "Content/CityCourier/Maps/L_CourierArtPreview.umap": "0292432b2164a8ba4c92f3fe89eb86c04af55b7a12425d8bf5cbbda1ab17b926",
+    "Content/CityCourier/Art/Interiors/DA_InteriorFinish.uasset": "1cbf64b39fea1d39b2000485efa8dfcbef19d57837c371dbd0370df6a0c2bf7b",
+    "AssetsSource/CityCourier/Interiors/inventory.json": "e32efe7e16c831681ae244bda638ad228d7eb93e35afa4eccb0bdf68ca9f9224",
+    "AssetsSource/CityCourier/InteriorArt/city-layout.json": "51441109a42d75feaaac84f1947515d29f7f4d82d2cbfcb45e36604c8ec0d557",
+    "tools/interiors/finish_kit.py": "1444518db68f46b9e0ed2c4d9333793a4d4d385f0722f48114da38852314a41a",
+    "tools/interiors/build_city_finish.py": "053b3f708af555d3edb23c2903f3aa0a2332c22d9c64b27d6f2956a791629a03",
+    "Source/CityCourier/Buildings/CourierBuildingActor.cpp": "69d3a200916f9cd3ee2bed256bc47c8c38ed04142f3ea5af4862174322d5c2fc",
+    "Source/CityCourier/Buildings/CourierBuildingDefinition.cpp": "c6396a958b7418d5056fc6f1bec098d8c5056343b500b4c7b9d95c93dd4a6119",
+    "Source/CityCourier/Buildings/CourierBuildingResidency.cpp": "b095fe909b3a12f13419952711223e80428a384fb54a26de6a2daace48517655",
+    "Source/CityCourier/Buildings/CourierBuildingSubsystem.cpp": "acd1d5c7aa9115df40ca103212376e739ce4aa46fde08f3b1f2804525b53a769",
+    "Source/CityCourier/Buildings/CourierBuildingTraversal.cpp": "02d5db679ddc200b6a87a97715bc53b4a3f25e888cab479b6bd81eb35a59da67",
+    "Source/CityCourier/Buildings/CourierDoor.cpp": "ed9f6d2ecbb88ca0f2ee6e8f556e648a776a8a6421b1fcccd4b3e97ebea72dd8",
+    "Source/CityCourier/Buildings/CourierInteriorFinish.cpp": "5accb6efddeb229eae8363649d04f4999d7247a97487ae5b189d44a26743fee3",
+    "Source/CityCourier/Buildings/CourierInteriorRouting.cpp": "ca80e77d68f8f26a9e20b1f78f170c60bf99434ebd367a26d0b1d1853d19e45d"
+  },
+  "native_walk_run": "EditorScript-20261019-102156-30ab47ad",
+  "native_door_owner_is_building": true,
+  "editor_build": "Build-Editor-20261019-102146-923986be",
+  "editor_build_exit_code": 0,
+  "automation_run": "Automation-20261019-102515-08010d3b",
+  "automation_succeeded": 93,
+  "automation_failed": 0,
+  "python_succeeded": 33,
+  "retained_free_source_files_verified": 116,
+  "capture_run": "20261019T022359Z",
+  "capture_exit_code": 0,
+  "capture_protected_unchanged": true,
+  "rendered_frame_rate_performance_checked": false
+}

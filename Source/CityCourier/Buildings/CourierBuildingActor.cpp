@@ -1,4 +1,5 @@
 #include "Buildings/CourierBuildingActor.h"
+#include "Buildings/CourierInteriorFinish.h"
 #include "Components/HierarchicalInstancedStaticMeshComponent.h"
 #include "Components/InstancedStaticMeshComponent.h"
 #include "Components/StaticMeshComponent.h"
@@ -8,6 +9,7 @@
 #include "Components/PointLightComponent.h"
 #include "Components/TextRenderComponent.h"
 #include "Misc/PackageName.h"
+#include "Misc/ScopeExit.h"
 
 ACourierBuildingActor::ACourierBuildingActor()
 {
@@ -37,11 +39,15 @@ bool ACourierBuildingActor::RebuildStructure()
     const FString ExteriorName=B->Floors.Num()==1?TEXT("SM_EnterableAnnex"):FString::Printf(TEXT("SM_EnterableShopHouse%c"),TCHAR('A'+B->Variant));
     auto* Facade=LoadObject<UStaticMesh>(nullptr,*FString::Printf(TEXT("/Game/CityCourier/Art/Buildings/%s.%s"),*ExteriorName,*ExteriorName));
     if(!Cube || !Facade) return false;
+    Finish=UCourierInteriorFinish::Load(); if(Finish && !Finish->Matches(Catalog)) Finish=nullptr;
     TMap<FName,UMaterialInterface*> Materials;
     for(const auto& Box:B->Boxes)
     {
         if(Materials.Contains(Box.Material)) continue;
         auto* Mat=LoadObject<UMaterialInterface>(nullptr,*FString::Printf(TEXT("/Game/CityCourier/Art/Buildings/Materials/%s.%s"),*Box.Material.ToString(),*Box.Material.ToString()));
+        const FString Old=Box.Material.ToString();
+        const FString New=Old==TEXT("M_Plaster")?TEXT("M_IF_Plaster"):Old==TEXT("M_Concrete")?TEXT("M_IF_TileGrey"):Old==TEXT("M_PaintedMetal")?TEXT("M_IF_MetalDark"):Old==TEXT("M_Wood")?TEXT("M_IF_WoodLight"):TEXT("");
+        if(Finish && !New.IsEmpty()) Mat=LoadObject<UMaterialInterface>(nullptr,*(TEXT("/Game/CityCourier/Art/Interiors/Materials/")+New+TEXT(".")+New));
         if(!Mat) return false; Materials.Add(Box.Material,Mat);
     }
     Modify(); SetActorTransform(B->Transform());
@@ -70,6 +76,7 @@ bool ACourierBuildingActor::RebuildStructure()
         C->SetupAttachment(BuildingRoot); C->SetMobility(EComponentMobility::Static); C->SetStaticMesh(Cube);
         C->SetMaterial(0,Materials.FindChecked(Pair.Value.Material)); C->SetCanEverAffectNavigation(false);
         C->SetCollisionProfileName(Pair.Value.bSolid?TEXT("BlockAll"):TEXT("NoCollision"));
+        C->SetVisibility(Pair.Value.bSolid || !Finish); // Independent art U-frames replace the old visual strips.
         C->bAutoRebuildTreeOnInstanceChanges=false;
         C->AddInstances(Pair.Value.Instances,false,false,false);
         AddInstanceComponent(C); C->RegisterComponent(); C->BuildTreeIfOutdated(false,true); Structure.Add(C);
@@ -109,6 +116,7 @@ FTransform ACourierBuildingActor::DoorProxyTransform(int32 Index,float Angle) co
 }
 bool ACourierBuildingActor::SetDoorProxy(int32 DoorIndex,float Angle,bool bVisible)
 {
+    ON_SCOPE_EXIT { RefreshFinishDoorVisuals(); };
     const auto* B=GetDefinition(); if(!B || !B->Doors.IsValidIndex(DoorIndex) || !FMath::IsFinite(Angle)) return false;
     const int32 Instance=ProxyDoors.IndexOfByKey(DoorIndex);
     if(bVisible)
@@ -147,69 +155,24 @@ void ACourierBuildingActor::ReleaseDetails()
 {
     for(const auto& C:Details) if(C) { RemoveInstanceComponent(C); C->DestroyComponent(); }
     Details.Reset();
+    FinishDoorVisuals.Reset(); DoorProxies->SetVisibility(true);
 }
 bool ACourierBuildingActor::PrepareDetails()
 {
     if(!Details.IsEmpty()) return true;
     const auto* B=GetDefinition(); if(!B) return false;
-    if(!FPackageName::DoesPackageExist(TEXT("/Game/CityCourier/Art/Buildings/SM_CourierDoor"))) return false;
-    TMap<FName,UStaticMesh*> Meshes;
-    for(const FString Kind:{TEXT("Bed"),TEXT("Desk"),TEXT("Kitchen"),TEXT("Toilet"),TEXT("Shelf"),TEXT("Sofa"),TEXT("Counter")})
+    Finish=UCourierInteriorFinish::Load();
+    if(!Finish || !Finish->Apply(this)) { ReleaseDetails(); return false; }
+    for(const auto& Mesh:Finish->DoorMeshes)
     {
-        const FString Package=TEXT("/Game/CityCourier/Art/Buildings/SM_Interior")+Kind;
-        if(!FPackageName::DoesPackageExist(Package)) return false;
-        auto* M=LoadObject<UStaticMesh>(nullptr,*(Package+TEXT(".SM_Interior")+Kind)); if(!M) return false;
-        Meshes.Add(FName(*Kind),M);
+        auto* C=NewObject<UInstancedStaticMeshComponent>(this,NAME_None,RF_Transient);
+        C->SetupAttachment(BuildingRoot); C->SetMobility(EComponentMobility::Movable); C->SetStaticMesh(Mesh);
+        C->SetCollisionEnabled(ECollisionEnabled::NoCollision); C->SetCanEverAffectNavigation(false);
+        AddInstanceComponent(C); C->RegisterComponent(); Details.Add(C); FinishDoorVisuals.Add(C);
     }
-    TMap<FName,TArray<FTransform>> Groups;
+    RefreshFinishDoorVisuals();
     for(const auto& R:B->Rooms)
     {
-        FName Kind;
-        if(R.Kind==TEXT("bedroom")) Kind=TEXT("Bed");
-        else if(R.Kind==TEXT("living")) Kind=TEXT("Sofa");
-        else if(R.Kind==TEXT("kitchen")) Kind=TEXT("Kitchen");
-        else if(R.Kind==TEXT("bathroom")) Kind=TEXT("Toilet");
-        else if(R.Kind==TEXT("storage")) Kind=TEXT("Shelf");
-        else if(R.Kind==TEXT("office") || R.Kind==TEXT("meeting")) Kind=TEXT("Desk");
-        else if(R.Kind==TEXT("shop") || R.Kind==TEXT("service")) Kind=TEXT("Counter");
-        if(!Kind.IsNone())
-        {
-            const FBox Bounds=Meshes[Kind]->GetBoundingBox();
-            const FVector FurnitureScale=B->Floors.Num()==1?FVector(.85,.75,1):FVector::OneVector;
-            bool Placed=false;
-            // Fit the real imported bounds into a corner, keeping the central standing
-            // square and every graph segment clear for the player's capsule.
-            for(float Yaw:{0.f,90.f}) for(int32 Corner=0;Corner<4 && !Placed;++Corner)
-            {
-                const FQuat Q=FRotator(0,Yaw,0).Quaternion(); const FBox Rotated=Bounds.TransformBy(FTransform(Q,FVector::ZeroVector,FurnitureScale));
-                const FVector Ext=Rotated.GetExtent();
-                const FVector Center((Corner&1)?R.Maximum.X-Ext.X-6:R.Minimum.X+Ext.X+6,
-                    (Corner&2)?R.Maximum.Y-Ext.Y-6:R.Minimum.Y+Ext.Y+6,R.Minimum.Z-Rotated.Min.Z+Rotated.GetCenter().Z);
-                FBox Foot(Center-FVector(Ext.X,Ext.Y,0),Center+FVector(Ext.X,Ext.Y,Ext.Z*2));
-                if(Foot.Min.X<R.Minimum.X || Foot.Max.X>R.Maximum.X || Foot.Min.Y<R.Minimum.Y || Foot.Max.Y>R.Maximum.Y) continue;
-                const FBox Expanded(FVector(Foot.Min.X-45,Foot.Min.Y-45,-1.e6),FVector(Foot.Max.X+45,Foot.Max.Y+45,1.e6));
-                const FBox StandingClear(FVector(Foot.Min.X-60,Foot.Min.Y-60,-1.e6),FVector(Foot.Max.X+60,Foot.Max.Y+60,1.e6));
-                if(StandingClear.IsInsideOrOn(R.StandingPoint)) continue;
-                bool Blocked=false;
-                for(const auto& E:B->Edges)
-                {
-                    const auto& A=B->Nodes[E.From]; const auto& Z=B->Nodes[E.To];
-                    if((A.Floor!=R.Floor && Z.Floor!=R.Floor) || (A.RoomId!=R.Id && Z.RoomId!=R.Id)) continue;
-                    if(FMath::LineBoxIntersection(Expanded,A.Position,Z.Position,Z.Position-A.Position)) { Blocked=true; break; }
-                }
-                if(Blocked) continue;
-                Groups.FindOrAdd(Kind).Emplace(Q,Center-Rotated.GetCenter(),FurnitureScale); Placed=true;
-            }
-            if(!Placed) { UE_LOG(LogTemp,Warning,TEXT("Cannot fit %s in %s: mesh %s, room %s -> %s"),*Kind.ToString(),*R.Id.ToString(),*Bounds.ToString(),*R.Minimum.ToString(),*R.Maximum.ToString()); ReleaseDetails(); return false; }
-        }
-        if(R.Kind!=TEXT("roof") && R.Kind!=TEXT("stairs"))
-        {
-            auto* Light=NewObject<UPointLightComponent>(this,NAME_None,RF_Transient);
-            Light->SetupAttachment(BuildingRoot); Light->SetMobility(EComponentMobility::Movable);
-            Light->SetRelativeLocation(R.StandingPoint+FVector(0,0,FMath::Min(240.0,R.Maximum.Z-R.Minimum.Z-30)));
-            Light->SetIntensity(1200); Light->SetAttenuationRadius(420); Light->SetCastShadows(false);
-            Light->SetLightColor(FLinearColor(1,.84,.65)); AddInstanceComponent(Light); Light->RegisterComponent(); Details.Add(Light);
-        }
         if(!R.Unit.IsEmpty() || R.Kind==TEXT("hall"))
         {
             auto* Sign=NewObject<UTextRenderComponent>(this,NAME_None,RF_Transient);
@@ -221,13 +184,19 @@ bool ACourierBuildingActor::PrepareDetails()
             AddInstanceComponent(Sign); Sign->RegisterComponent(); Details.Add(Sign);
         }
     }
-    for(auto& G:Groups)
-    {
-        auto* C=NewObject<UHierarchicalInstancedStaticMeshComponent>(this,NAME_None,RF_Transient);
-        C->SetupAttachment(BuildingRoot); C->SetMobility(EComponentMobility::Movable); C->SetStaticMesh(Meshes[G.Key]);
-        C->SetCollisionProfileName(TEXT("BlockAllDynamic")); C->SetCanEverAffectNavigation(false);
-        C->bAutoRebuildTreeOnInstanceChanges=false; C->AddInstances(G.Value,false,false,false);
-        AddInstanceComponent(C); C->RegisterComponent(); C->BuildTreeIfOutdated(false,true); Details.Add(C);
-    }
     return true;
+}
+void ACourierBuildingActor::RefreshFinishDoorVisuals()
+{
+    const auto* B=GetDefinition(); if(!B || FinishDoorVisuals.Num()!=3) return;
+    for(const auto& C:FinishDoorVisuals) C->ClearInstances();
+    TArray<FTransform> Groups[3];
+    for(int32 I=0;I<ProxyDoors.Num();++I)
+    {
+        const auto& D=B->Doors[ProxyDoors[I]]; FTransform Proxy;
+        if(!DoorProxies->GetInstanceTransform(I,Proxy,false)) continue;
+        Groups[UCourierInteriorFinish::DoorStyle(*B,D)].Emplace(Proxy.GetRotation(),D.Hinge,FVector(D.Width/100,1,D.Height/220));
+    }
+    for(int32 I=0;I<3;++I) FinishDoorVisuals[I]->AddInstances(Groups[I],false,false,false);
+    DoorProxies->SetVisibility(false); // Collision remains on the original authoritative proxies.
 }

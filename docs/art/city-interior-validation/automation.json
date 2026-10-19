@@ -1,0 +1,1459 @@
+﻿{
+	"devices": [
+		{
+			"deviceName": "DESKTOP-JPFMANM",
+			"instance": "E8F0C596494C7B4DF28C3BA612AFA367",
+			"instanceName": "DESKTOP-JPFMANM-10888",
+			"platform": "WindowsEditor",
+			"oSVersion": "Windows 11 (25H2) [10.0.26200.9711] ",
+			"model": "Default",
+			"gPU": "NVIDIA GeForce RTX 3060 Ti",
+			"cPUModel": "13th Gen Intel(R) Core(TM) i5-13400F",
+			"rAMInGB": 16,
+			"renderMode": "SM6",
+			"rHI": "",
+			"appInstanceLog": ""
+		}
+	],
+	"reportCreatedOn": "2026.10.19-02.25.40",
+	"succeeded": 93,
+	"succeededWithWarnings": 0,
+	"failed": 0,
+	"notRun": 0,
+	"inProcess": 0,
+	"totalDuration": 10.452171325683594,
+	"comparisonExported": false,
+	"comparisonExportDirectory": "",
+	"tests": [
+		{
+			"testDisplayName": "BoundedPopulation",
+			"fullTestPath": "CityCourier.Ambient.BoundedPopulation",
+			"state": "Success",
+			"deviceInstance": [
+				"E8F0C596494C7B4DF28C3BA612AFA367"
+			],
+			"duration": 0.013391200453042984,
+			"dateTime": "2026.10.19-02.25.28",
+			"entries": [],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "DeliveryCueTransitions",
+			"fullTestPath": "CityCourier.Ambient.DeliveryCueTransitions",
+			"state": "Success",
+			"deviceInstance": [
+				"E8F0C596494C7B4DF28C3BA612AFA367"
+			],
+			"duration": 0.017066396772861481,
+			"dateTime": "2026.10.19-02.25.28",
+			"entries": [],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "RetainedPlayableAssets",
+			"fullTestPath": "CityCourier.Ambient.RetainedPlayableAssets",
+			"state": "Success",
+			"deviceInstance": [
+				"E8F0C596494C7B4DF28C3BA612AFA367"
+			],
+			"duration": 0.030246999114751816,
+			"dateTime": "2026.10.19-02.25.28",
+			"entries": [],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "StopAndResume",
+			"fullTestPath": "CityCourier.Ambient.StopAndResume",
+			"state": "Success",
+			"deviceInstance": [
+				"E8F0C596494C7B4DF28C3BA612AFA367"
+			],
+			"duration": 0.016381300985813141,
+			"dateTime": "2026.10.19-02.25.28",
+			"entries": [
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "Following stop x=1020.002 speed=0.000 lead=X=1500.000 Y=-1000.000 Z=70.000",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.10.19-02.25.28"
+				}
+			],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "AuthoredStreet",
+			"fullTestPath": "CityCourier.ArtAssets.AuthoredStreet",
+			"state": "Success",
+			"deviceInstance": [
+				"E8F0C596494C7B4DF28C3BA612AFA367"
+			],
+			"duration": 0.21450039744377136,
+			"dateTime": "2026.10.19-02.25.28",
+			"entries": [],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "LoadableProductionAssets",
+			"fullTestPath": "CityCourier.ArtAssets.LoadableProductionAssets",
+			"state": "Success",
+			"deviceInstance": [
+				"E8F0C596494C7B4DF28C3BA612AFA367"
+			],
+			"duration": 0.039079397916793823,
+			"dateTime": "2026.10.19-02.25.29",
+			"entries": [],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "OriginalMeshesAndAnimation",
+			"fullTestPath": "CityCourier.ArtAssets.OriginalMeshesAndAnimation",
+			"state": "Success",
+			"deviceInstance": [
+				"E8F0C596494C7B4DF28C3BA612AFA367"
+			],
+			"duration": 0.014933601021766663,
+			"dateTime": "2026.10.19-02.25.29",
+			"entries": [],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "PreviewPreservesGameplayCollision",
+			"fullTestPath": "CityCourier.ArtAssets.PreviewPreservesGameplayCollision",
+			"state": "Success",
+			"deviceInstance": [
+				"E8F0C596494C7B4DF28C3BA612AFA367"
+			],
+			"duration": 1.0852036476135254,
+			"dateTime": "2026.10.19-02.25.29",
+			"entries": [],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "RuntimeAnimationPoses",
+			"fullTestPath": "CityCourier.ArtAssets.RuntimeAnimationPoses",
+			"state": "Success",
+			"deviceInstance": [
+				"E8F0C596494C7B4DF28C3BA612AFA367"
+			],
+			"duration": 0.031553097069263458,
+			"dateTime": "2026.10.19-02.25.30",
+			"entries": [
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "Walk foot displacement: 45.541181",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.10.19-02.25.30"
+				}
+			],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "CookedCoverageAndDoorContinuity",
+			"fullTestPath": "CityCourier.Buildings.Art.CookedCoverageAndDoorContinuity",
+			"state": "Success",
+			"deviceInstance": [
+				"E8F0C596494C7B4DF28C3BA612AFA367"
+			],
+			"duration": 0.26445949077606201,
+			"dateTime": "2026.10.19-02.25.30",
+			"entries": [],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "CanonicalCatalog",
+			"fullTestPath": "CityCourier.Buildings.Assets.CanonicalCatalog",
+			"state": "Success",
+			"deviceInstance": [
+				"E8F0C596494C7B4DF28C3BA612AFA367"
+			],
+			"duration": 0.019649997353553772,
+			"dateTime": "2026.10.19-02.25.30",
+			"entries": [],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "ExactExpiryAndSafeOutdoorRecovery",
+			"fullTestPath": "CityCourier.Buildings.Delivery.ExactExpiryAndSafeOutdoorRecovery",
+			"state": "Success",
+			"deviceInstance": [
+				"E8F0C596494C7B4DF28C3BA612AFA367"
+			],
+			"duration": 0.026341598480939865,
+			"dateTime": "2026.10.19-02.25.30",
+			"entries": [],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "MissingTargetResourceFailsBeforeTimer",
+			"fullTestPath": "CityCourier.Buildings.Delivery.MissingTargetResourceFailsBeforeTimer",
+			"state": "Success",
+			"deviceInstance": [
+				"E8F0C596494C7B4DF28C3BA612AFA367"
+			],
+			"duration": 0.0080904997885227203,
+			"dateTime": "2026.10.19-02.25.30",
+			"entries": [
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "Separate actual missing-asset run required; normal packaged assets are present.",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.10.19-02.25.30"
+				}
+			],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "RoomGatingLateRegistrationAndHistory",
+			"fullTestPath": "CityCourier.Buildings.Delivery.RoomGatingLateRegistrationAndHistory",
+			"state": "Success",
+			"deviceInstance": [
+				"E8F0C596494C7B4DF28C3BA612AFA367"
+			],
+			"duration": 0.025296300649642944,
+			"dateTime": "2026.10.19-02.25.30",
+			"entries": [],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "StructuredDeadline",
+			"fullTestPath": "CityCourier.Buildings.Delivery.StructuredDeadline",
+			"state": "Success",
+			"deviceInstance": [
+				"E8F0C596494C7B4DF28C3BA612AFA367"
+			],
+			"duration": 0.0080421976745128632,
+			"dateTime": "2026.10.19-02.25.30",
+			"entries": [],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "ComposedFloorAndRoomRoutes",
+			"fullTestPath": "CityCourier.Buildings.Journey.ComposedFloorAndRoomRoutes",
+			"state": "Success",
+			"deviceInstance": [
+				"E8F0C596494C7B4DF28C3BA612AFA367"
+			],
+			"duration": 0.3772675096988678,
+			"dateTime": "2026.10.19-02.25.30",
+			"entries": [],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "FloorAwareNavigationAndPreviewSnapshot",
+			"fullTestPath": "CityCourier.Buildings.Journey.FloorAwareNavigationAndPreviewSnapshot",
+			"state": "Success",
+			"deviceInstance": [
+				"E8F0C596494C7B4DF28C3BA612AFA367"
+			],
+			"duration": 0.026897497475147247,
+			"dateTime": "2026.10.19-02.25.31",
+			"entries": [],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "UniqueDoorplates",
+			"fullTestPath": "CityCourier.Buildings.Journey.UniqueDoorplates",
+			"state": "Success",
+			"deviceInstance": [
+				"E8F0C596494C7B4DF28C3BA612AFA367"
+			],
+			"duration": 0.018676798790693283,
+			"dateTime": "2026.10.19-02.25.31",
+			"entries": [],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "CanonicalMapCoverage",
+			"fullTestPath": "CityCourier.Buildings.Production.CanonicalMapCoverage",
+			"state": "Success",
+			"deviceInstance": [
+				"E8F0C596494C7B4DF28C3BA612AFA367"
+			],
+			"duration": 2.0035033226013184,
+			"dateTime": "2026.10.19-02.25.31",
+			"entries": [],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "HollowExteriorAssets",
+			"fullTestPath": "CityCourier.Buildings.Production.HollowExteriorAssets",
+			"state": "Success",
+			"deviceInstance": [
+				"E8F0C596494C7B4DF28C3BA612AFA367"
+			],
+			"duration": 0.011116299778223038,
+			"dateTime": "2026.10.19-02.25.33",
+			"entries": [],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "RoomStandingClearance",
+			"fullTestPath": "CityCourier.Buildings.Production.RoomStandingClearance",
+			"state": "Success",
+			"deviceInstance": [
+				"E8F0C596494C7B4DF28C3BA612AFA367"
+			],
+			"duration": 0.012831602245569229,
+			"dateTime": "2026.10.19-02.25.33",
+			"entries": [],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "CrossFloorRoutes",
+			"fullTestPath": "CityCourier.Buildings.Rules.CrossFloorRoutes",
+			"state": "Success",
+			"deviceInstance": [
+				"E8F0C596494C7B4DF28C3BA612AFA367"
+			],
+			"duration": 0.008029501885175705,
+			"dateTime": "2026.10.19-02.25.33",
+			"entries": [],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "DoorConfigurationSafety",
+			"fullTestPath": "CityCourier.Buildings.Rules.DoorConfigurationSafety",
+			"state": "Success",
+			"deviceInstance": [
+				"E8F0C596494C7B4DF28C3BA612AFA367"
+			],
+			"duration": 0.0085174031555652618,
+			"dateTime": "2026.10.19-02.25.33",
+			"entries": [],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "DoorMovementAndAdmission",
+			"fullTestPath": "CityCourier.Buildings.Rules.DoorMovementAndAdmission",
+			"state": "Success",
+			"deviceInstance": [
+				"E8F0C596494C7B4DF28C3BA612AFA367"
+			],
+			"duration": 0.0090547986328601837,
+			"dateTime": "2026.10.19-02.25.33",
+			"entries": [],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "IdentityAndCoverage",
+			"fullTestPath": "CityCourier.Buildings.Rules.IdentityAndCoverage",
+			"state": "Success",
+			"deviceInstance": [
+				"E8F0C596494C7B4DF28C3BA612AFA367"
+			],
+			"duration": 0.0084285028278827667,
+			"dateTime": "2026.10.19-02.25.33",
+			"entries": [],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "SweptDoorAndRestore",
+			"fullTestPath": "CityCourier.Buildings.Rules.SweptDoorAndRestore",
+			"state": "Success",
+			"deviceInstance": [
+				"E8F0C596494C7B4DF28C3BA612AFA367"
+			],
+			"duration": 0.0088224001228809357,
+			"dateTime": "2026.10.19-02.25.33",
+			"entries": [],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "DelayedDeliveryPointRegistration",
+			"fullTestPath": "CityCourier.Buildings.Runtime.DelayedDeliveryPointRegistration",
+			"state": "Success",
+			"deviceInstance": [
+				"E8F0C596494C7B4DF28C3BA612AFA367"
+			],
+			"duration": 0.0089739002287387848,
+			"dateTime": "2026.10.19-02.25.33",
+			"entries": [],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "DetailLifecycleAndPersistentStructure",
+			"fullTestPath": "CityCourier.Buildings.Runtime.DetailLifecycleAndPersistentStructure",
+			"state": "Success",
+			"deviceInstance": [
+				"E8F0C596494C7B4DF28C3BA612AFA367"
+			],
+			"duration": 0.013859998434782028,
+			"dateTime": "2026.10.19-02.25.33",
+			"entries": [],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "DoorProxyPoseContinuity",
+			"fullTestPath": "CityCourier.Buildings.Runtime.DoorProxyPoseContinuity",
+			"state": "Success",
+			"deviceInstance": [
+				"E8F0C596494C7B4DF28C3BA612AFA367"
+			],
+			"duration": 0.012312900274991989,
+			"dateTime": "2026.10.19-02.25.33",
+			"entries": [],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "FurnitureAndVehicleAdmission",
+			"fullTestPath": "CityCourier.Buildings.Runtime.FurnitureAndVehicleAdmission",
+			"state": "Success",
+			"deviceInstance": [
+				"E8F0C596494C7B4DF28C3BA612AFA367"
+			],
+			"duration": 0.05578560009598732,
+			"dateTime": "2026.10.19-02.25.33",
+			"entries": [],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "MissingAssetAdmission",
+			"fullTestPath": "CityCourier.Buildings.Runtime.MissingAssetAdmission",
+			"state": "Success",
+			"deviceInstance": [
+				"E8F0C596494C7B4DF28C3BA612AFA367"
+			],
+			"duration": 0.0082307010889053345,
+			"dateTime": "2026.10.19-02.25.33",
+			"entries": [
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "Missing cooked mesh admission is checked by Art.CookedCoverageAndDoorContinuity; cold-load absence requires a separate fault-injection run.",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.10.19-02.25.33"
+				}
+			],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "ResidencyHysteresisAndPins",
+			"fullTestPath": "CityCourier.Buildings.Runtime.ResidencyHysteresisAndPins",
+			"state": "Success",
+			"deviceInstance": [
+				"E8F0C596494C7B4DF28C3BA612AFA367"
+			],
+			"duration": 0.0071520991623401642,
+			"dateTime": "2026.10.19-02.25.33",
+			"entries": [],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "RealMovementAndFaultDetection",
+			"fullTestPath": "CityCourier.Buildings.Traversal.RealMovementAndFaultDetection",
+			"state": "Success",
+			"deviceInstance": [
+				"E8F0C596494C7B4DF28C3BA612AFA367"
+			],
+			"duration": 0.57540428638458252,
+			"dateTime": "2026.10.19-02.25.33",
+			"entries": [],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "AnimationBridge",
+			"fullTestPath": "CityCourier.CharacterActions.Contact.AnimationBridge",
+			"state": "Success",
+			"deviceInstance": [
+				"E8F0C596494C7B4DF28C3BA612AFA367"
+			],
+			"duration": 0.0090553984045982361,
+			"dateTime": "2026.10.19-02.25.33",
+			"entries": [],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "FrameFacingRangeAndDedup",
+			"fullTestPath": "CityCourier.CharacterActions.Contact.FrameFacingRangeAndDedup",
+			"state": "Success",
+			"deviceInstance": [
+				"E8F0C596494C7B4DF28C3BA612AFA367"
+			],
+			"duration": 0.0089279003441333771,
+			"dateTime": "2026.10.19-02.25.34",
+			"entries": [],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "ReactionsAndMissingAssets",
+			"fullTestPath": "CityCourier.CharacterActions.Contact.ReactionsAndMissingAssets",
+			"state": "Success",
+			"deviceInstance": [
+				"E8F0C596494C7B4DF28C3BA612AFA367"
+			],
+			"duration": 0.0088394992053508759,
+			"dateTime": "2026.10.19-02.25.34",
+			"entries": [],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "TrajectoryAndOcclusion",
+			"fullTestPath": "CityCourier.CharacterActions.Contact.TrajectoryAndOcclusion",
+			"state": "Success",
+			"deviceInstance": [
+				"E8F0C596494C7B4DF28C3BA612AFA367"
+			],
+			"duration": 0.0088961981236934662,
+			"dateTime": "2026.10.19-02.25.34",
+			"entries": [],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "NewLocomotion",
+			"fullTestPath": "CityCourier.CharacterActions.Production.NewLocomotion",
+			"state": "Success",
+			"deviceInstance": [
+				"E8F0C596494C7B4DF28C3BA612AFA367"
+			],
+			"duration": 0.0086494013667106628,
+			"dateTime": "2026.10.19-02.25.34",
+			"entries": [],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "PunchContactPoses",
+			"fullTestPath": "CityCourier.CharacterActions.Production.PunchContactPoses",
+			"state": "Success",
+			"deviceInstance": [
+				"E8F0C596494C7B4DF28C3BA612AFA367"
+			],
+			"duration": 0.0095464996993541718,
+			"dateTime": "2026.10.19-02.25.34",
+			"entries": [
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "A_LightPunch_L initial=X=839.654 Y=-11356.922 Z=164.985 travel=36.88 peak=76.38 contact=76.38 meshRotation=P=0.000000 Y=-90.000000 R=0.000000",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.10.19-02.25.34"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "A_LightPunch_R initial=X=816.012 Y=-11329.438 Z=151.163 travel=53.64 peak=65.94 contact=65.94 meshRotation=P=0.000000 Y=-90.000000 R=0.000000",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.10.19-02.25.34"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "A_HeavyPunch_R initial=X=829.353 Y=-11337.707 Z=143.934 travel=115.65 peak=127.70 contact=127.70 meshRotation=P=0.000000 Y=-90.000000 R=0.000000",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.10.19-02.25.34"
+				}
+			],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "RealPlaybackAndContact",
+			"fullTestPath": "CityCourier.CharacterActions.Production.RealPlaybackAndContact",
+			"state": "Success",
+			"deviceInstance": [
+				"E8F0C596494C7B4DF28C3BA612AFA367"
+			],
+			"duration": 0.020998600870370865,
+			"dateTime": "2026.10.19-02.25.34",
+			"entries": [],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "InitialOverlapThinWall",
+			"fullTestPath": "CityCourier.CharacterActions.Review.InitialOverlapThinWall",
+			"state": "Success",
+			"deviceInstance": [
+				"E8F0C596494C7B4DF28C3BA612AFA367"
+			],
+			"duration": 0.013783100992441177,
+			"dateTime": "2026.10.19-02.25.34",
+			"entries": [],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "InterruptDuringContact",
+			"fullTestPath": "CityCourier.CharacterActions.Review.InterruptDuringContact",
+			"state": "Success",
+			"deviceInstance": [
+				"E8F0C596494C7B4DF28C3BA612AFA367"
+			],
+			"duration": 0.018624298274517059,
+			"dateTime": "2026.10.19-02.25.34",
+			"entries": [],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "PlaybackFailure",
+			"fullTestPath": "CityCourier.CharacterActions.Review.PlaybackFailure",
+			"state": "Success",
+			"deviceInstance": [
+				"E8F0C596494C7B4DF28C3BA612AFA367"
+			],
+			"duration": 0.017959900200366974,
+			"dateTime": "2026.10.19-02.25.34",
+			"entries": [],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "ComboBoundaries",
+			"fullTestPath": "CityCourier.CharacterActions.Timeline.ComboBoundaries",
+			"state": "Success",
+			"deviceInstance": [
+				"E8F0C596494C7B4DF28C3BA612AFA367"
+			],
+			"duration": 0.0077088028192520142,
+			"dateTime": "2026.10.19-02.25.34",
+			"entries": [],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "Interruptions",
+			"fullTestPath": "CityCourier.CharacterActions.Timeline.Interruptions",
+			"state": "Success",
+			"deviceInstance": [
+				"E8F0C596494C7B4DF28C3BA612AFA367"
+			],
+			"duration": 0.0090851001441478729,
+			"dateTime": "2026.10.19-02.25.34",
+			"entries": [],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "WindowsAndFrameSkips",
+			"fullTestPath": "CityCourier.CharacterActions.Timeline.WindowsAndFrameSkips",
+			"state": "Success",
+			"deviceInstance": [
+				"E8F0C596494C7B4DF28C3BA612AFA367"
+			],
+			"duration": 0.0081428997218608856,
+			"dateTime": "2026.10.19-02.25.34",
+			"entries": [],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "JumpAndHeadroom",
+			"fullTestPath": "CityCourier.CharacterActions.World.JumpAndHeadroom",
+			"state": "Success",
+			"deviceInstance": [
+				"E8F0C596494C7B4DF28C3BA612AFA367"
+			],
+			"duration": 0.0088919997215270996,
+			"dateTime": "2026.10.19-02.25.34",
+			"entries": [],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "ModesAndInterruptions",
+			"fullTestPath": "CityCourier.CharacterActions.World.ModesAndInterruptions",
+			"state": "Success",
+			"deviceInstance": [
+				"E8F0C596494C7B4DF28C3BA612AFA367"
+			],
+			"duration": 0.0089267008006572723,
+			"dateTime": "2026.10.19-02.25.34",
+			"entries": [],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "AuthoredDistrict",
+			"fullTestPath": "CityCourier.CityData.AuthoredDistrict",
+			"state": "Success",
+			"deviceInstance": [
+				"E8F0C596494C7B4DF28C3BA612AFA367"
+			],
+			"duration": 0.18561530113220215,
+			"dateTime": "2026.10.19-02.25.34",
+			"entries": [],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "Boundaries",
+			"fullTestPath": "CityCourier.DeliveryRules.Boundaries",
+			"state": "Success",
+			"deviceInstance": [
+				"E8F0C596494C7B4DF28C3BA612AFA367"
+			],
+			"duration": 0.0083993002772331238,
+			"dateTime": "2026.10.19-02.25.34",
+			"entries": [],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "Impact",
+			"fullTestPath": "CityCourier.DeliveryRules.Impact",
+			"state": "Success",
+			"deviceInstance": [
+				"E8F0C596494C7B4DF28C3BA612AFA367"
+			],
+			"duration": 0.0073916986584663391,
+			"dateTime": "2026.10.19-02.25.34",
+			"entries": [],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "InvalidInput",
+			"fullTestPath": "CityCourier.DeliveryRules.InvalidInput",
+			"state": "Success",
+			"deviceInstance": [
+				"E8F0C596494C7B4DF28C3BA612AFA367"
+			],
+			"duration": 0.0082198008894920349,
+			"dateTime": "2026.10.19-02.25.34",
+			"entries": [],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "Transitions",
+			"fullTestPath": "CityCourier.DeliveryRules.Transitions",
+			"state": "Success",
+			"deviceInstance": [
+				"E8F0C596494C7B4DF28C3BA612AFA367"
+			],
+			"duration": 0.007432200014591217,
+			"dateTime": "2026.10.19-02.25.34",
+			"entries": [],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "CompleteLoop",
+			"fullTestPath": "CityCourier.DeliveryWorld.CompleteLoop",
+			"state": "Success",
+			"deviceInstance": [
+				"E8F0C596494C7B4DF28C3BA612AFA367"
+			],
+			"duration": 0.013032302260398865,
+			"dateTime": "2026.10.19-02.25.34",
+			"entries": [],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "ExactClockBoundaries",
+			"fullTestPath": "CityCourier.DeliveryWorld.ExactClockBoundaries",
+			"state": "Success",
+			"deviceInstance": [
+				"E8F0C596494C7B4DF28C3BA612AFA367"
+			],
+			"duration": 0.037342101335525513,
+			"dateTime": "2026.10.19-02.25.34",
+			"entries": [],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "MountedDamageAndCancellation",
+			"fullTestPath": "CityCourier.DeliveryWorld.MountedDamageAndCancellation",
+			"state": "Success",
+			"deviceInstance": [
+				"E8F0C596494C7B4DF28C3BA612AFA367"
+			],
+			"duration": 0.01721930131316185,
+			"dateTime": "2026.10.19-02.25.34",
+			"entries": [],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "ParkingDistance",
+			"fullTestPath": "CityCourier.FunctionalUpgrade.Feedback.ParkingDistance",
+			"state": "Success",
+			"deviceInstance": [
+				"E8F0C596494C7B4DF28C3BA612AFA367"
+			],
+			"duration": 0.016608603298664093,
+			"dateTime": "2026.10.19-02.25.34",
+			"entries": [],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "RejectionReasons",
+			"fullTestPath": "CityCourier.FunctionalUpgrade.Feedback.RejectionReasons",
+			"state": "Success",
+			"deviceInstance": [
+				"E8F0C596494C7B4DF28C3BA612AFA367"
+			],
+			"duration": 0.017809201031923294,
+			"dateTime": "2026.10.19-02.25.34",
+			"entries": [],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "BoundedAtomicSnapshot",
+			"fullTestPath": "CityCourier.FunctionalUpgrade.History.BoundedAtomicSnapshot",
+			"state": "Success",
+			"deviceInstance": [
+				"E8F0C596494C7B4DF28C3BA612AFA367"
+			],
+			"duration": 0.017539199441671371,
+			"dateTime": "2026.10.19-02.25.34",
+			"entries": [],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "OutcomesAndValidation",
+			"fullTestPath": "CityCourier.FunctionalUpgrade.History.OutcomesAndValidation",
+			"state": "Success",
+			"deviceInstance": [
+				"E8F0C596494C7B4DF28C3BA612AFA367"
+			],
+			"duration": 0.0081055983901023865,
+			"dateTime": "2026.10.19-02.25.34",
+			"entries": [],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "TerminalTransitions",
+			"fullTestPath": "CityCourier.FunctionalUpgrade.History.TerminalTransitions",
+			"state": "Success",
+			"deviceInstance": [
+				"E8F0C596494C7B4DF28C3BA612AFA367"
+			],
+			"duration": 0.04226209968328476,
+			"dateTime": "2026.10.19-02.25.34",
+			"entries": [],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "FutureVersionProtected",
+			"fullTestPath": "CityCourier.FunctionalUpgrade.Migration.FutureVersionProtected",
+			"state": "Success",
+			"deviceInstance": [
+				"E8F0C596494C7B4DF28C3BA612AFA367"
+			],
+			"duration": 0.0077705010771751404,
+			"dateTime": "2026.10.19-02.25.34",
+			"entries": [],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "LegacyPrimaryBackupAndRetry",
+			"fullTestPath": "CityCourier.FunctionalUpgrade.Migration.LegacyPrimaryBackupAndRetry",
+			"state": "Success",
+			"deviceInstance": [
+				"E8F0C596494C7B4DF28C3BA612AFA367"
+			],
+			"duration": 0.0078083984553813934,
+			"dateTime": "2026.10.19-02.25.34",
+			"entries": [],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "ArbitraryEndpoints",
+			"fullTestPath": "CityCourier.FunctionalUpgrade.Navigation.ArbitraryEndpoints",
+			"state": "Success",
+			"deviceInstance": [
+				"E8F0C596494C7B4DF28C3BA612AFA367"
+			],
+			"duration": 0.0079674012959003448,
+			"dateTime": "2026.10.19-02.25.34",
+			"entries": [],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "TargetModes",
+			"fullTestPath": "CityCourier.FunctionalUpgrade.Navigation.TargetModes",
+			"state": "Success",
+			"deviceInstance": [
+				"E8F0C596494C7B4DF28C3BA612AFA367"
+			],
+			"duration": 0.012095600366592407,
+			"dateTime": "2026.10.19-02.25.34",
+			"entries": [],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "EstimatesAndIdentity",
+			"fullTestPath": "CityCourier.FunctionalUpgrade.Offers.EstimatesAndIdentity",
+			"state": "Success",
+			"deviceInstance": [
+				"E8F0C596494C7B4DF28C3BA612AFA367"
+			],
+			"duration": 0.0092969983816146851,
+			"dateTime": "2026.10.19-02.25.34",
+			"entries": [],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "BlockedOffers",
+			"fullTestPath": "CityCourier.FunctionalUpgrade.Review.BlockedOffers",
+			"state": "Success",
+			"deviceInstance": [
+				"E8F0C596494C7B4DF28C3BA612AFA367"
+			],
+			"duration": 0.012525498867034912,
+			"dateTime": "2026.10.19-02.25.34",
+			"entries": [],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "FutureEnvelope",
+			"fullTestPath": "CityCourier.FunctionalUpgrade.Review.FutureEnvelope",
+			"state": "Success",
+			"deviceInstance": [
+				"E8F0C596494C7B4DF28C3BA612AFA367"
+			],
+			"duration": 0.0082026980817317963,
+			"dateTime": "2026.10.19-02.25.34",
+			"entries": [],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "OffRoadBikeArrival",
+			"fullTestPath": "CityCourier.FunctionalUpgrade.Review.OffRoadBikeArrival",
+			"state": "Success",
+			"deviceInstance": [
+				"E8F0C596494C7B4DF28C3BA612AFA367"
+			],
+			"duration": 0.0093837976455688477,
+			"dateTime": "2026.10.19-02.25.34",
+			"entries": [],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "NativePhoneAndModes",
+			"fullTestPath": "CityCourier.FunctionalUpgrade.UI.NativePhoneAndModes",
+			"state": "Success",
+			"deviceInstance": [
+				"E8F0C596494C7B4DF28C3BA612AFA367"
+			],
+			"duration": 0.019074801355600357,
+			"dateTime": "2026.10.19-02.25.34",
+			"entries": [],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "DrivePhoneMapPauseResume",
+			"fullTestPath": "CityCourier.InputModes.DrivePhoneMapPauseResume",
+			"state": "Success",
+			"deviceInstance": [
+				"E8F0C596494C7B4DF28C3BA612AFA367"
+			],
+			"duration": 0.027029499411582947,
+			"dateTime": "2026.10.19-02.25.34",
+			"entries": [],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "EscapeFromOpenInterfaces",
+			"fullTestPath": "CityCourier.InputModes.EscapeFromOpenInterfaces",
+			"state": "Success",
+			"deviceInstance": [
+				"E8F0C596494C7B4DF28C3BA612AFA367"
+			],
+			"duration": 0.017122399061918259,
+			"dateTime": "2026.10.19-02.25.35",
+			"entries": [],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "DistanceOcclusionPriority",
+			"fullTestPath": "CityCourier.Interaction.DistanceOcclusionPriority",
+			"state": "Success",
+			"deviceInstance": [
+				"E8F0C596494C7B4DF28C3BA612AFA367"
+			],
+			"duration": 0.0089983977377414703,
+			"dateTime": "2026.10.19-02.25.35",
+			"entries": [],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "WalkingRunningCamera",
+			"fullTestPath": "CityCourier.Interaction.WalkingRunningCamera",
+			"state": "Success",
+			"deviceInstance": [
+				"E8F0C596494C7B4DF28C3BA612AFA367"
+			],
+			"duration": 0.012067202478647232,
+			"dateTime": "2026.10.19-02.25.35",
+			"entries": [
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "One-second physics route: walk 380.4cm, run 586.1cm",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.10.19-02.25.35"
+				}
+			],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "MapPreservesTurnDirection",
+			"fullTestPath": "CityCourier.Navigation.MapPreservesTurnDirection",
+			"state": "Success",
+			"deviceInstance": [
+				"E8F0C596494C7B4DF28C3BA612AFA367"
+			],
+			"duration": 0.0080744996666908264,
+			"dateTime": "2026.10.19-02.25.35",
+			"entries": [],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "RoadProjectionAndOcclusion",
+			"fullTestPath": "CityCourier.Navigation.RoadProjectionAndOcclusion",
+			"state": "Success",
+			"deviceInstance": [
+				"E8F0C596494C7B4DF28C3BA612AFA367"
+			],
+			"duration": 0.0078386999666690826,
+			"dateTime": "2026.10.19-02.25.35",
+			"entries": [],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "TargetAndOffRoute",
+			"fullTestPath": "CityCourier.Navigation.TargetAndOffRoute",
+			"state": "Success",
+			"deviceInstance": [
+				"E8F0C596494C7B4DF28C3BA612AFA367"
+			],
+			"duration": 0.0076863989233970642,
+			"dateTime": "2026.10.19-02.25.35",
+			"entries": [],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "SaveRetry",
+			"fullTestPath": "CityCourier.Profile.SaveRetry",
+			"state": "Success",
+			"deviceInstance": [
+				"E8F0C596494C7B4DF28C3BA612AFA367"
+			],
+			"duration": 0.0074196010828018188,
+			"dateTime": "2026.10.19-02.25.35",
+			"entries": [],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "Transactions",
+			"fullTestPath": "CityCourier.Profile.Transactions",
+			"state": "Success",
+			"deviceInstance": [
+				"E8F0C596494C7B4DF28C3BA612AFA367"
+			],
+			"duration": 0.014282401651144028,
+			"dateTime": "2026.10.19-02.25.35",
+			"entries": [],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "Faults",
+			"fullTestPath": "CityCourier.ProfileStorage.Faults",
+			"state": "Success",
+			"deviceInstance": [
+				"E8F0C596494C7B4DF28C3BA612AFA367"
+			],
+			"duration": 0.0077884979546070099,
+			"dateTime": "2026.10.19-02.25.35",
+			"entries": [],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "RealDisk",
+			"fullTestPath": "CityCourier.ProfileStorage.RealDisk",
+			"state": "Success",
+			"deviceInstance": [
+				"E8F0C596494C7B4DF28C3BA612AFA367"
+			],
+			"duration": 0.019603200256824493,
+			"dateTime": "2026.10.19-02.25.35",
+			"entries": [],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "Recovery",
+			"fullTestPath": "CityCourier.ProfileStorage.Recovery",
+			"state": "Success",
+			"deviceInstance": [
+				"E8F0C596494C7B4DF28C3BA612AFA367"
+			],
+			"duration": 0.0080712996423244476,
+			"dateTime": "2026.10.19-02.25.35",
+			"entries": [],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "HoldPenaltyAndFallback",
+			"fullTestPath": "CityCourier.Recovery.HoldPenaltyAndFallback",
+			"state": "Success",
+			"deviceInstance": [
+				"E8F0C596494C7B4DF28C3BA612AFA367"
+			],
+			"duration": 0.011409200727939606,
+			"dateTime": "2026.10.19-02.25.35",
+			"entries": [],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "RescueAndBelowMap",
+			"fullTestPath": "CityCourier.Recovery.RescueAndBelowMap",
+			"state": "Success",
+			"deviceInstance": [
+				"E8F0C596494C7B4DF28C3BA612AFA367"
+			],
+			"duration": 0.010623302310705185,
+			"dateTime": "2026.10.19-02.25.35",
+			"entries": [],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "QualityPresets",
+			"fullTestPath": "CityCourier.Release.QualityPresets",
+			"state": "Success",
+			"deviceInstance": [
+				"E8F0C596494C7B4DF28C3BA612AFA367"
+			],
+			"duration": 0.007729802280664444,
+			"dateTime": "2026.10.19-02.25.35",
+			"entries": [],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "Routing",
+			"fullTestPath": "CityCourier.Roads.Routing",
+			"state": "Success",
+			"deviceInstance": [
+				"E8F0C596494C7B4DF28C3BA612AFA367"
+			],
+			"duration": 0.0082255005836486816,
+			"dateTime": "2026.10.19-02.25.35",
+			"entries": [],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "AuthoredRoadSurfaces",
+			"fullTestPath": "CityCourier.Scooter.AuthoredRoadSurfaces",
+			"state": "Success",
+			"deviceInstance": [
+				"E8F0C596494C7B4DF28C3BA612AFA367"
+			],
+			"duration": 4.4077568054199219,
+			"dateTime": "2026.10.19-02.25.35",
+			"entries": [
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "Traversed 50/50 authored road segments, including both shortcuts; attempted all 13 entrances.",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.10.19-02.25.39"
+				}
+			],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "DrivingBatteryImpact",
+			"fullTestPath": "CityCourier.Scooter.DrivingBatteryImpact",
+			"state": "Success",
+			"deviceInstance": [
+				"E8F0C596494C7B4DF28C3BA612AFA367"
+			],
+			"duration": 0.17165710031986237,
+			"dateTime": "2026.10.19-02.25.39",
+			"entries": [
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "10s route: 30FPS 80.81m; 60FPS 80.81m",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.10.19-02.25.39"
+				}
+			],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "MountAndSafeDismount",
+			"fullTestPath": "CityCourier.Scooter.MountAndSafeDismount",
+			"state": "Success",
+			"deviceInstance": [
+				"E8F0C596494C7B4DF28C3BA612AFA367"
+			],
+			"duration": 0.0089652985334396362,
+			"dateTime": "2026.10.19-02.25.39",
+			"entries": [],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "StartupMap",
+			"fullTestPath": "CityCourier.Smoke.StartupMap",
+			"state": "Success",
+			"deviceInstance": [
+				"E8F0C596494C7B4DF28C3BA612AFA367"
+			],
+			"duration": 0.0082449987530708313,
+			"dateTime": "2026.10.19-02.25.39",
+			"entries": [],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "ChargeAndCancel",
+			"fullTestPath": "CityCourier.Station.ChargeAndCancel",
+			"state": "Success",
+			"deviceInstance": [
+				"E8F0C596494C7B4DF28C3BA612AFA367"
+			],
+			"duration": 0.0088071003556251526,
+			"dateTime": "2026.10.19-02.25.39",
+			"entries": [],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "UpgradeAndReload",
+			"fullTestPath": "CityCourier.Station.UpgradeAndReload",
+			"state": "Success",
+			"deviceInstance": [
+				"E8F0C596494C7B4DF28C3BA612AFA367"
+			],
+			"duration": 0.016241598874330521,
+			"dateTime": "2026.10.19-02.25.39",
+			"entries": [],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "RangeAndUpgrades",
+			"fullTestPath": "CityCourier.VehicleRules.RangeAndUpgrades",
+			"state": "Success",
+			"deviceInstance": [
+				"E8F0C596494C7B4DF28C3BA612AFA367"
+			],
+			"duration": 0.0082845017313957214,
+			"dateTime": "2026.10.19-02.25.40",
+			"entries": [],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		}
+	]
+}
