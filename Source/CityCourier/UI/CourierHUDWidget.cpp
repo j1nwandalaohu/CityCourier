@@ -2,6 +2,7 @@
 #include "UI/CourierUI.h"
 #include "UI/CourierPhoneWidget.h"
 #include "UI/CourierMapWidget.h"
+#include "UI/CourierNavigationArrowWidget.h"
 #include "UI/CourierMenuWidget.h"
 #include "Components/CanvasPanel.h"
 #include "Components/CanvasPanelSlot.h"
@@ -37,6 +38,8 @@ void UCourierHUDWidget::NativeOnInitialized()
     MiniMap=CreateWidget<UCourierMapWidget>(GetOwningPlayer(),UCourierMapWidget::StaticClass()); MiniMap->bMini=true;
     MiniMap->SetVisibility(ESlateVisibility::HitTestInvisible);
     Place(MiniMap,FVector2D(0,1),FVector2D(0,1),FVector2D(32,-72),FVector2D(340,340));
+    NavigationArrow=CreateWidget<UCourierNavigationArrowWidget>(GetOwningPlayer(),UCourierNavigationArrowWidget::StaticClass(),TEXT("NavigationArrow"));
+    Place(NavigationArrow,FVector2D(0,0),FVector2D(.5,0),FVector2D(1180,28),FVector2D(260,198),1);
     auto WidgetClass=[](const TCHAR* Name,UClass* Fallback)
     { auto* C=LoadClass<UUserWidget>(nullptr,*FString::Printf(TEXT("/Game/CityCourier/UI/WBP_%s.WBP_%s_C"),Name,Name)); return C?C:Fallback; };
     Phone=CreateWidget<UCourierPhoneWidget>(GetOwningPlayer(),WidgetClass(TEXT("CourierPhone"),UCourierPhoneWidget::StaticClass()));
@@ -56,6 +59,7 @@ void UCourierHUDWidget::ShowMode(ECourierInterfaceMode Mode)
     if(!Phone || !Map || !Menu) return;
     const auto GameplayVisibility=Mode==ECourierInterfaceMode::Gameplay?ESlateVisibility::Visible:ESlateVisibility::Collapsed;
     ObjectivePanel->SetVisibility(GameplayVisibility); Controls->SetVisibility(GameplayVisibility); Prompt->SetVisibility(GameplayVisibility); SaveWarning->SetVisibility(GameplayVisibility);
+    if(NavigationArrow)NavigationArrow->SetVisibility(Mode==ECourierInterfaceMode::Gameplay?ESlateVisibility::HitTestInvisible:ESlateVisibility::Collapsed);
     Phone->SetVisibility(Mode==ECourierInterfaceMode::Phone?ESlateVisibility::Visible:ESlateVisibility::Collapsed);
     Map->SetVisibility(Mode==ECourierInterfaceMode::Map?ESlateVisibility::Visible:ESlateVisibility::Collapsed);
     MapBackButton->SetVisibility(Mode==ECourierInterfaceMode::Map?ESlateVisibility::Visible:ESlateVisibility::Collapsed);
@@ -68,7 +72,16 @@ void UCourierHUDWidget::ShowMode(ECourierInterfaceMode Mode)
 void UCourierHUDWidget::ReturnFromMap()
 { if(auto* PC=Cast<ACourierController>(GetOwningPlayer())) { if(PC->GetOfferPreview()) PC->CloseOfferPreview(); else PC->ToggleMap(); } }
 void UCourierHUDWidget::NativeTick(const FGeometry& G,float Delta)
-{ Super::NativeTick(G,Delta); RefreshTime+=Delta; if(RefreshTime>=.1) { RefreshTime=0; RefreshFromState(); } }
+{
+    Super::NativeTick(G,Delta);
+    if(NavigationArrow)if(auto* ArrowSlot=Cast<UCanvasPanelSlot>(NavigationArrow->Slot))
+    {
+        const double Width=G.GetLocalSize().X,Gap=Width-1104;
+        ArrowSlot->SetPosition(Gap>=170?FVector2D(772+Gap/2,28):FVector2D(Width/2,340));
+        ArrowSlot->SetSize(FVector2D(Gap>=170?FMath::Min(260.,Gap-12):240.,198));
+    }
+    RefreshTime+=Delta;if(RefreshTime>=.1){RefreshTime=0;RefreshFromState();}
+}
 FReply UCourierHUDWidget::NativeOnPreviewKeyDown(const FGeometry& G,const FKeyEvent& Event)
 {
     if(auto* PC=Cast<ACourierController>(GetOwningPlayer()))

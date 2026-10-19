@@ -42,16 +42,10 @@ void AAmbientTrafficManager::UpdatePopulation(FVector RiderLocation)
         FVector A=Lane.A+Forward*900+Right*Offset*Side+FVector(0,0,Height);
         FVector B=Lane.B-Forward*900+Right*Offset*Side+FVector(0,0,Height);
         FCollisionQueryParams Query(SCENE_QUERY_STAT(AmbientSpawn),false,Entity);
-        auto Ground=[&](FVector& Point)
-        {
-            FHitResult Hit;
-            if(GetWorld()->LineTraceSingleByChannel(Hit,Point+FVector(0,0,500),Point-FVector(0,0,500),ECC_WorldStatic,Query))Point.Z=Hit.ImpactPoint.Z+Height;
-        };
-        Ground(A);Ground(B);
         if(FVector::Dist2D(A,RiderLocation)<1800)return;
-        if(GetWorld()->OverlapBlockingTestByChannel(A,Forward.Rotation().Quaternion(),ECC_Pawn,FCollisionShape::MakeBox(Entity->Body->GetScaledBoxExtent()),Query))return;
         if(bPed)Entity->SetPatrol({A,B});
         else Entity->SetPatrol({A,B,B-Right*Offset*Side*2,A-Right*Offset*Side*2});
+        if(GetWorld()->OverlapBlockingTestByChannel(Entity->GetActorLocation(),Forward.Rotation().Quaternion(),ECC_Pawn,FCollisionShape::MakeBox(Entity->Body->GetScaledBoxExtent()),Query))return;
         Entity->SetPopulationActive(true);
     };
     for(int32 I=0;I<Cars.Num();++I)Update(Cars[I],I,false);

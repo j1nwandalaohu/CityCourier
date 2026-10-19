@@ -27,6 +27,7 @@ private:
     UPROPERTY() TObjectPtr<class UCourierPhoneWidget> Phone;
     UPROPERTY() TObjectPtr<class UCourierMapWidget> Map;
     UPROPERTY() TObjectPtr<class UCourierMapWidget> MiniMap;
+    UPROPERTY() TObjectPtr<class UCourierNavigationArrowWidget> NavigationArrow;
     UPROPERTY() TObjectPtr<class UCourierMenuWidget> Menu;
     double RefreshTime=0;
 };

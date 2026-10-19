@@ -1,9 +1,13 @@
 [CmdletBinding()]
-param([ValidateRange(10,120)][int]$Seconds=30)
+param(
+    [ValidateRange(10,120)][int]$Seconds=30,
+    [string]$PackageDirectory
+)
 $ErrorActionPreference='Stop'
 Import-Module (Join-Path $PSScriptRoot 'Courier.Tools.psm1') -Force
 $projectRoot=Split-Path -Parent $PSScriptRoot
-$binaries=Join-Path $projectRoot 'Artifacts/Windows/Shipping/CityCourier/Binaries/Win64'
+if(-not $PackageDirectory){$PackageDirectory=Join-Path $projectRoot 'Artifacts/Windows/Shipping'}
+$binaries=Join-Path $PackageDirectory 'CityCourier/Binaries/Win64'
 $game=@(Get-ChildItem -LiteralPath $binaries -Filter '*.exe' | Where-Object Name -Like 'CityCourier*')
 if($game.Count -ne 1){throw 'Build the Shipping package before this smoke check.'}
 $run=New-CourierRunDirectory 'Interiors-Shipping'

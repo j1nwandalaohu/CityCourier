@@ -16,6 +16,9 @@ public:
     UPROPERTY(VisibleAnywhere) TObjectPtr<class UBoxComponent> Body;
     UPROPERTY(VisibleAnywhere) TObjectPtr<class UStaticMeshComponent> Visual;
 protected:
+    bool FindStreetGround(FVector Position,double ReferenceZ,double& OutGroundZ) const;
+    double GroundClearance() const { return bPedestrian?90.:70.; }
+    double StreetGroundZ=0;
     float MaxSpeed=700,Acceleration=140,Deceleration=400;
     float Speed=0;
     bool bPopulationActive=false;
