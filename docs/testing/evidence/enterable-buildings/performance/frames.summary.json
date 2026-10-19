@@ -1,0 +1,32 @@
+﻿{
+    "capture_source":  "PackagedGame",
+    "metadata":  {
+                     "capture_source":  "PackagedGame",
+                     "cpu":  "13th Gen Intel(R) Core(TM) i5-13400F",
+                     "gpu":  "NVIDIA GeForce RTX 3060 Ti",
+                     "ram_mb":  16194,
+                     "rhi":  "D3D12",
+                     "width":  1920,
+                     "height":  1080,
+                     "quality":  1,
+                     "lumen_gi":  1,
+                     "lumen_reflections":  1,
+                     "hardware_raytracing":  0,
+                     "screen_percentage":  83.00,
+                     "warmup_seconds":  30,
+                     "performance_seconds":  180,
+                     "building":  "B_1_3_0_1_0",
+                     "route":  "real PlayerStart to sixth-floor room; stairs down; beyond 52m detail release; reenter first-floor room with preserved open doors; repeat street/reentry"
+                 },
+    "frames":  19037,
+    "duration_seconds":  180.0050574,
+    "average_fps":  105.7581399425149,
+    "one_percent_low_fps":  72.465946603185728,
+    "meets_target":  true,
+    "game_thread_mean_ms":  4.9072315543415517,
+    "render_thread_mean_ms":  9.442766790985921,
+    "gpu_mean_ms":  7.6180259126963366,
+    "process_peak_working_set_mb":  2559.45,
+    "rhi_peak_texture_memory_mb":  930.62,
+    "memory_note":  "Process working set from FPlatformMemory; RHI texture allocations exclude non-texture VRAM. GPU duration from RHI timestamp queries; zero means unavailable."
+}

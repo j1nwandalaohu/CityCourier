@@ -102,6 +102,8 @@ bool FArtAnimationTest::RunTest(const FString&)
 #include "Art/ScooterArtPawn.h"
 #include "EngineUtils.h"
 #include "FileHelpers.h"
+#include "Buildings/CourierBuildingActor.h"
+#include "Buildings/CourierBuildingDefinition.h"
 
 IMPLEMENT_SIMPLE_AUTOMATION_TEST(FCourierArtAssetsTest,"CityCourier.ArtAssets.LoadableProductionAssets",
     EAutomationTestFlags::EditorContext | EAutomationTestFlags::EngineFilter)
@@ -190,6 +192,19 @@ bool FCourierArtMapTest::RunTest(const FString& Parameters)
     UWorld* World=UEditorLoadingAndSavingUtils::LoadMap(TEXT("/Game/CityCourier/Maps/L_CourierArtPreview"));
     if(!TestNotNull(TEXT("Separate art preview map"),World)) return false;
     int32 Facades=0,CollisionBlocks=0;
+    int32 EnterableBuildings=0;
+    for(TActorIterator<ACourierBuildingActor> It(World);It;++It) ++EnterableBuildings;
+    const auto* BuildingCatalog=LoadObject<UCityBuildingCatalog>(nullptr,TEXT("/Game/CityCourier/Data/Buildings/DA_Buildings.DA_Buildings"));
+    const bool bCompleteInteriors=BuildingCatalog && EnterableBuildings==BuildingCatalog->Buildings.Num();
+    if(bCompleteInteriors)
+    {
+        for(TActorIterator<ACourierBuildingActor> It(World);It;++It)
+        {
+            const auto* Definition=It->GetDefinition();
+            if(TestNotNull(TEXT("Migrated building has canonical geometry"),Definition))
+                TestEqual(TEXT("Replacement collision includes every structural box"),It->GetStructuralBoxCount(),Definition->Boxes.Num());
+        }
+    }
     for(TActorIterator<AActor> It(World);It;++It)
     {
         for(const FName& Tag:It->Tags)
@@ -206,7 +221,9 @@ bool FCourierArtMapTest::RunTest(const FString& Parameters)
                 ++CollisionBlocks;
                 auto* Mesh=It->FindComponentByClass<UStaticMeshComponent>();
                 if(TestNotNull(TEXT("Original collision component"),Mesh))
-                    TestTrue(TEXT("Original block collision preserved"),Mesh->GetCollisionEnabled()!=ECollisionEnabled::NoCollision);
+                    if(bCompleteInteriors)
+                        TestEqual(TEXT("Solid legacy volume replaced after complete interior migration"),Mesh->GetCollisionEnabled(),ECollisionEnabled::NoCollision);
+                    else TestTrue(TEXT("Unmigrated block retains original safe collision"),Mesh->GetCollisionEnabled()!=ECollisionEnabled::NoCollision);
             }
         }
     }

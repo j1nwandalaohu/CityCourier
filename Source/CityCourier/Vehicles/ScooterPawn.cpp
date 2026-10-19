@@ -18,6 +18,7 @@ AScooterPawn::AScooterPawn()
     PrimaryActorTick.bCanEverTick = true;
     Collision = CreateDefaultSubobject<UBoxComponent>(TEXT("Collision")); RootComponent = Collision;
     Collision->SetBoxExtent(FVector(80,36,50)); Collision->SetCollisionProfileName(TEXT("Pawn"));
+    Collision->SetCollisionObjectType(ECC_GameTraceChannel1);
     VisualRoot = CreateDefaultSubobject<USceneComponent>(TEXT("VisualRoot")); VisualRoot->SetupAttachment(RootComponent);
     BodyMesh=CreateDefaultSubobject<UStaticMeshComponent>(TEXT("BodyMesh")); BodyMesh->SetupAttachment(VisualRoot);
     BodyMesh->SetRelativeLocation(FVector(0,0,-52)); BodyMesh->SetCollisionEnabled(ECollisionEnabled::NoCollision);

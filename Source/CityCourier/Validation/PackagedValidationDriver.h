@@ -1,5 +1,6 @@
 #pragma once
 #include "GameFramework/Actor.h"
+#include "World/RoadGraph.h"
 #include "PackagedValidationDriver.generated.h"
 
 // Explicit opt-in Development executable instrumentation. Never spawned in Shipping.
@@ -23,6 +24,19 @@ private:
     void RunInterfaceChecks(double Now);
     void RunFeatureChecks(double Now);
     void RunCharacterActionChecks(double Now);
+    void RunInteriorChecks(double Now,float DeltaSeconds);
+    void RunInteriorPerformance(double Now);
+    bool FollowInteriorJourney();
+    bool BeginInteriorJourney(FVector Destination);
+    FRouteResult InteriorRoute;
+    TArray<FVector> InteriorTargets;
+    TSet<FString> InteriorVisitedLayouts;
+    int32 InteriorStep=0,InteriorIndex=0,InteriorTargetIndex=0,InteriorRepeats=0;
+    double InteriorWait=0;
+    bool bInteriorOfferPrepared=false;
+    FName InteriorDeliveryTarget;
+    FVector InteriorLastPosition=FVector::ZeroVector;
+    double InteriorLastMoveTime=0;
     double FeatureWorldTime=0,FeatureWaitStart=0;
     UPROPERTY() TObjectPtr<class ACourierController> PC;
     UPROPERTY() TObjectPtr<class ACourierCharacter> Rider;

@@ -1,0 +1,1 @@
+{"physics_jump":true,"airborne_ui_gravity":true,"pause_and_menu_isolation":true,"missing_asset_count":7,"pending_art":["A_JumpStart","A_JumpLoop","A_Land","A_HitReact_Front","A_HitReact_Back","A_RunStart","A_RunStop"],"new_animation_visual_acceptance":false}

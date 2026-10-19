@@ -36,6 +36,7 @@ public:
     UPROPERTY(VisibleAnywhere, BlueprintReadOnly) TObjectPtr<class UCameraComponent> FollowCamera;
     UPROPERTY(VisibleAnywhere, BlueprintReadOnly) TArray<TObjectPtr<class UStaticMeshComponent>> PrototypeParts;
 private:
+    TArray<AActor*> InteractionCandidates() const;
     void Move(const FInputActionValue& Value);
     void Look(const FInputActionValue& Value);
     void SprintStart();

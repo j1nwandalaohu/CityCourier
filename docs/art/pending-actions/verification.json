@@ -1,0 +1,31 @@
+{
+  "source_validation": "passed",
+  "strict_ue_import_log": "EditorScript-20261019-094230-2d3bd21f",
+  "strict_ue_import_process_exit": 0,
+  "clip_capture_report": "ue-final.json",
+  "clip_capture_log": "EditorScript-20261019-094408-9833eaf4",
+  "clip_capture_checks_complete": true,
+  "clip_capture_shots": 21,
+  "clip_capture_process_exit": -1073741819,
+  "clip_capture_process_exit_note": "Late shutdown failure after CAPTURE COMPLETE and LogExit Exiting; duplicate immediate/deferred editor quit was removed. Pixels and all captured data checks completed before shutdown.",
+  "cleanup_validation_report": "ue-native-cleanup.json",
+  "cleanup_validation_log": "EditorScript-20261019-094828-f90fc31a",
+  "cleanup_validation_process_exit": 0,
+  "cleanup_validation_shots": 0,
+  "cleanup_validation_native_passed": true,
+  "capture_code_sha256": "694773d4623a64df81367a8b9b8e81153d131bc17f6598480f8aa82f3ccb1964",
+  "runtime_source_sha256": "d0ebf0d7b4011b467df0ebda2be8496a6e64add8e77706a4e521543213b36533",
+  "source_blend_sha256": "b0c6e85f4732eac875fb0e54ba0b719e9db9d8d074e14fb386ab6a532f9b642b",
+  "source_manifest_sha256": "8c5ed646b3d6001e83d782cb9992f20687ffe7b49b12fba7812649f522b835d2",
+  "final_automation_report": "automation-final.json",
+  "final_automation_process_exit": 0,
+  "final_automation_succeeded": 92,
+  "final_automation_failed": 0,
+  "image_manifest": "images.json",
+  "evidence_limits": [
+    "Still images are labeled clip-sample, not native gameplay screenshots.",
+    "Both hits have clip samples but no invoked native hit callback.",
+    "Four native release phases are measured; no claim of perfect continuity at every phase.",
+    "Existing Sprint and rigid head/neck skinning remain untouched."
+  ]
+}

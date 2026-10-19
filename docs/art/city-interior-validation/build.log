@@ -1,0 +1,31 @@
+﻿Using bundled DotNet SDK version: 8.0.300 win-x64
+Running UnrealBuildTool: dotnet "..\..\Engine\Binaries\DotNET\UnrealBuildTool\UnrealBuildTool.dll" CityCourierEditor Win64 Development -Project=D:\eleme\.worktrees\interior-art\CityCourier.uproject -WaitMutex -NoHotReloadFromIDE -NoUBTMakefiles
+Log file: C:\Users\zhang\AppData\Local\UnrealBuildTool\Log.txt
+Using 'git status' to determine working set for adaptive non-unity build (D:\eleme\.worktrees\interior-art).
+Available x64 toolchains (1):
+ * C:\Program Files (x86)\Microsoft Visual Studio\2022\BuildTools\VC\Tools\MSVC\14.44.35207
+    (Family=14.44.35207, FamilyRank=1, Version=14.44.35225, HostArchitecture=x64, ReleaseChannel=Latest, Architecture=x64)
+Visual Studio 2022 compiler version 14.44.35225 is not a preferred version. Please use the latest preferred version 14.38.33130
+Building CityCourierEditor...
+Using Visual Studio 2022 14.44.35225 toolchain (C:\Program Files (x86)\Microsoft Visual Studio\2022\BuildTools\VC\Tools\MSVC\14.44.35207) and Windows 10.0.22621.0 SDK (C:\Program Files (x86)\Windows Kits\10).
+Warning: Visual Studio 2022 compiler is not a preferred version
+[Adaptive Build] Excluded from CityCourier unity file: CourierBuildingActor.cpp, CourierBuildingSubsystem.cpp, CourierBuildingTraversal.cpp, CourierDoor.cpp, CourierInteriorFinish.cpp, BuildingRuntimeTests.cpp, InteriorFinishTests.cpp
+Determining max actions to execute in parallel (10 physical cores, 16 logical cores)
+  Executing up to 10 processes, one per physical core
+  Requested 1.5 GB memory per action, 7.27 GB available: limiting max parallel actions to 4
+Using Unreal Build Accelerator local executor to run 5 action(s)
+  Storage capacity 40Gb
+---- Starting trace: 261019_102148 ----
+UbaServer - Listening on 0.0.0.0:1345
+------ Building 5 action(s) started ------
+[1/5] Compile [x64] BuildingRuntimeTests.cpp
+[2/5] Compile [x64] Module.CityCourier.3.cpp
+[3/5] Link [x64] UnrealEditor-CityCourier.lib
+  正在创建库 D:/eleme/.worktrees/interior-art/Intermediate/Build/Win64/x64/UnrealEditor/Development/CityCourier/UnrealEditor-CityCourier.lib 和对象 D:/eleme/.worktrees/interior-art/Intermediate/Build/Win64/x64/UnrealEditor/Development/CityCourier/UnrealEditor-CityCourier.exp
+[4/5] Link [x64] UnrealEditor-CityCourier.dll
+[5/5] WriteMetadata CityCourierEditor.target (UBA disabled)
+Trace written to file C:/Users/zhang/AppData/Local/UnrealBuildTool/Log.uba with size 4.6kb
+Total time in Unreal Build Accelerator local executor: 13.17 seconds
+
+Result: Succeeded
+Total execution time: 14.98 seconds

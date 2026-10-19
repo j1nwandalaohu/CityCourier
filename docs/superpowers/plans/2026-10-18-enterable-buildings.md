@@ -49,66 +49,66 @@
 
 Produces: JSON-compatible building data with explicit centimeter geometry, stable IDs, room bounds, door links, floor heights, route nodes and structural boxes. Main entry, all rooms, stairs and roof access belong to the same graph.
 
-- [ ] Write `tests/test_interior_layout.py` first: missing compiler fails; valid A/B/C buildings have all rooms reachable and returnable; stair rise ≤17 and tread ≥28; every door references two real regions; wrong sizes／NaN／duplicate IDs／missing floors fail. Exercise all production width／depth／rotation cases from existing generator metadata.
-- [ ] Run `D:/sdk/Python/Python314/python.exe -m unittest discover -s tests -p test_interior_layout.py -v`; record expected RED for missing behavior.
-- [ ] Implement `compile_building` and `validate_building` in `tools/interiors/layout.py`; preserve source transforms, derive floors from actual visual variant, choose fitting layouts, enumerate independent expected IDs before geometry generation.
-- [ ] Run the same tests GREEN; retain a deterministic source layout sample under `AssetsSource/CityCourier/Interiors/` and commit.
+- [x] Write `tests/test_interior_layout.py` first: missing compiler fails; valid A/B/C buildings have all rooms reachable and returnable; stair rise ≤17 and tread ≥28; every door references two real regions; wrong sizes／NaN／duplicate IDs／missing floors fail. Exercise all production width／depth／rotation cases from existing generator metadata.
+- [x] Run `D:/sdk/Python/Python314/python.exe -m unittest discover -s tests -p test_interior_layout.py -v`; record expected RED for missing behavior.
+- [x] Implement `compile_building` and `validate_building` in `tools/interiors/layout.py`; preserve source transforms, derive floors from actual visual variant, choose fitting layouts, enumerate independent expected IDs before geometry generation.
+- [x] Run the same tests GREEN; retain a deterministic source layout sample under `AssetsSource/CityCourier/Interiors/` and commit.
 
 ## Task 2: Runtime data, doors and native collision behavior
 
 Consumes Task 1's field schema. Produces native serializable catalog, pure indoor route search and a doorway actor with stable data identity.
 
-- [ ] Add UE tests for absent catalog and closed/opening/open/closing behavior, two-sided E, blocked motion stopping at last safe angle, pause, duplicate edges and correct cross-floor route. Start with a runtime asset-availability failure that compiles against existing UDataAsset APIs, then add typed tests alongside the new types.
-- [ ] Build Editor and run `./scripts/Test.ps1 -Filter CityCourier.Buildings -EngineRoot D:/sdk/UE_5.6`; preserve observed RED.
-- [ ] Implement definition validation, graph route lengths, `ACourierDoor` state machine with swept blocker checks and pose-preserving proxy transition; use existing unified player admission and feedback. Closed doors block strikes; moving doors are the only ticking doors.
-- [ ] Run focused UE tests GREEN and existing action tests; commit.
+- [x] Add UE tests for absent catalog and closed/opening/open/closing behavior, two-sided E, blocked motion stopping at last safe angle, pause, duplicate edges and correct cross-floor route. Start with a runtime asset-availability failure that compiles against existing UDataAsset APIs, then add typed tests alongside the new types.
+- [x] Build Editor and run `./scripts/Test.ps1 -Filter CityCourier.Buildings -EngineRoot D:/sdk/UE_5.6`; preserve observed RED.
+- [x] Implement definition validation, graph route lengths, `ACourierDoor` state machine with swept blocker checks and pose-preserving proxy transition; use existing unified player admission and feedback. Closed doors block strikes; moving doors are the only ticking doors.
+- [x] Run focused UE tests GREEN and existing action tests; commit.
 
 ## Task 3: Formal assets and deterministic map migration
 
 Consumes building schema and catalog reflection. Produces separately named exterior／door assets, compiled cooked catalog and both maps with complete structures.
 
-- [ ] Add inventory validation first: expect every canonical building, all floors, rooms and visible entrance annexes; deliberately omit／duplicate one item and verify failures. Run against current city to capture missing-interior RED.
-- [ ] Implement `tools/art/build_enterable_assets.py` and import path: remove solid cores from new asset variants, retain external detail and materials, create door pivots, genuine openings, stairwell／roof and centimeter dimensions. No modification of original source meshes.
-- [ ] Implement `Content/Python/build_enterable_city.py` using Task 1 and native types. Keep roads and location IDs; create canonical inventory with source provenance and idempotent managed tags; replace each original solid shell only after new instance validation succeeds.
-- [ ] Build/import with serialized editor calls. Run generator twice and verify stable IDs/counts, preserved unrelated actors, no duplicate meshes／doors／rooms; commit source and generated assets.
+- [x] Add inventory validation first: expect every canonical building, all floors, rooms and visible entrance annexes; deliberately omit／duplicate one item and verify failures. Run against current city to capture missing-interior RED.
+- [x] Implement `tools/art/build_enterable_assets.py` and import path: remove solid cores from new asset variants, retain external detail and materials, create door pivots, genuine openings, stairwell／roof and centimeter dimensions. No modification of original source meshes.
+- [x] Implement `Content/Python/build_enterable_city.py` using Task 1 and native types. Keep roads and location IDs; create canonical inventory with source provenance and idempotent managed tags; replace each original solid shell only after new instance validation succeeds.
+- [x] Build/import with serialized editor calls. Run generator twice and verify stable IDs/counts, preserved unrelated actors, no duplicate meshes／doors／rooms; commit source and generated assets.
 
 ## Task 4: Spatial registry, structural rendering and detail lifecycle
 
 Consumes compiled catalog, runtime definitions and migrated maps. Produces persistent real structures, safe entry, session door state, spatial candidates and correct dynamic point registration.
 
-- [ ] Write tests for 30／45 meter hysteresis, occupied-building protection, eight inactive cache entries, deferred ready／failed states, door proxy ↔ actor transition, unload/reload angle preservation, readmission, and vehicle-only entrance blocking. Watch the relevant cases fail.
-- [ ] Implement `ACourierBuildingActor` using instanced structural meshes and existing materials; `UCourierBuildingSubsystem` owns registry, activation, detail cache and door states. Retain shell collision, all floors and stairs when details unload. Nearby-index candidates replace full world door scans.
-- [ ] Bind room-owned delivery actors when registered and unbind when removed. Keep authoritative order state outside streamed Actors; regenerate data-derived markers and room signs.
-- [ ] Run focused tests and actual doorway／stair fixture checks GREEN; commit.
+- [x] Write tests for 30／45 meter hysteresis, occupied-building protection, eight inactive cache entries, deferred ready／failed states, door proxy ↔ actor transition, unload/reload angle preservation, readmission, and vehicle-only entrance blocking. Watch the relevant cases fail.
+- [x] Implement `ACourierBuildingActor` using instanced structural meshes and existing materials; `UCourierBuildingSubsystem` owns registry, activation, detail cache and door states. Retain shell collision, all floors and stairs when details unload. Nearby-index candidates replace full world door scans.
+- [x] Bind room-owned delivery actors when registered and unbind when removed. Keep authoritative order state outside streamed Actors; regenerate data-derived markers and room signs.
+- [x] Run focused tests and actual doorway／stair fixture checks GREEN; commit.
 
 ## Task 5: Full routes, floor navigation and previews
 
 Consumes building spatial addresses and indoor paths. Produces composed room-to-room routes and full journey estimates without affecting running orders.
 
-- [ ] Write regressions for same XY different floors, room-to-street-to-other-building path, closed but openable doors, immutable preview, FindBike from upstairs and unreachable geometry. Watch RED.
-- [ ] Extend `FRouteResult` with road／indoor flat／stair meters, mandatory door count and floor/address metadata; preserve legacy length and point fields. `UCityDefinition` composes interior entry/exit segments with the existing graph; door traversability is distinct from collision-at-this-instant.
-- [ ] Adapt navigation's remaining distance and floor-aware arrival, keep independent Order／Station／ParkedBike modes, and render the current floor's schematic and stairs on map/minimap with existing corrected world projection.
-- [ ] Run routing, preview, map and functional suites GREEN; commit.
+- [x] Write regressions for same XY different floors, room-to-street-to-other-building path, closed but openable doors, immutable preview, FindBike from upstairs and unreachable geometry. Watch RED.
+- [x] Extend `FRouteResult` with road／indoor flat／stair meters, mandatory door count and floor/address metadata; preserve legacy length and point fields. `UCityDefinition` composes interior entry/exit segments with the existing graph; door traversability is distinct from collision-at-this-instant.
+- [x] Adapt navigation's remaining distance and floor-aware arrival, keep independent Order／Station／ParkedBike modes, and render the current floor's schematic and stairs on map/minimap with existing corrected world projection.
+- [x] Run routing, preview, map and functional suites GREEN; commit.
 
 ## Task 6: Physical indoor delivery and compatibility
 
 Consumes complete route snapshots and room bindings. Produces room-aware pickup/delivery, honest timing and unchanged persistent progress format.
 
-- [ ] Write regressions for wrong floor／room／closed door, newly registered pickup actor, duplicate registration, missing target resource, exact expiry and unique settlement, old v1/v2 profiles and address history. Observe missing address gating／timing RED.
-- [ ] Extend existing locations with street anchor and room interaction address; keep existing LocationId and names' 64-unit validity. Implement complete deadline formula from spec with 120–300 bounds. Offers use a single snapshot; acceptance defensively checks reachability without excluding legitimately closed doors.
-- [ ] Add spatial membership to physical interaction checks; preserve station 12 m parking and vehicle safety, character controls, pause, existing income and damage rules. Reset building membership on recovery and use existing safe external destination.
-- [ ] Run focused and complete UE suites GREEN; commit.
+- [x] Write regressions for wrong floor／room／closed door, newly registered pickup actor, duplicate registration, missing target resource, exact expiry and unique settlement, old v1/v2 profiles and address history. Observe missing address gating／timing RED.
+- [x] Extend existing locations with street anchor and room interaction address; keep existing LocationId and names' 64-unit validity. Implement complete deadline formula from spec with 120–300 bounds. Offers use a single snapshot; acceptance defensively checks reachability without excluding legitimately closed doors.
+- [x] Add spatial membership to physical interaction checks; preserve station 12 m parking and vehicle safety, character controls, pause, existing income and damage rules. Reset building membership on recovery and use existing safe external destination.
+- [x] Run focused and complete UE suites GREEN; commit.
 
 ## Task 7: Whole-city physical coverage, real play and packages
 
 Consumes all previous outputs. Produces tracked evidence, runnable game artifacts and an honest final requirements status.
 
-- [ ] First run full validation against an intentionally missing room／blocked stair／wrong transform and verify explicit failures without reducing expected totals.
-- [ ] Implement `Content/Python/validate_enterable_city.py` and opt-in Development native driver. Enumerate every building and room; verify graph return paths and capsule geometry for each actual instance, then physically traverse entrances, stairs and doors to every room. Record source hashes, exact identities, counts, failed paths and state.
-- [ ] Run complete Editor build／UE tests, Python layout tests, tooling and performance-calculation tests. Preserve final reports and RED→GREEN reproductions for new integration defects.
-- [ ] Run actual packaged play for every layout class, highest-floor delivery, return to street／bike, repeated load cycle, door anti-clipping and character actions; validate history after restart. Produce Development and Shipping builds in this worktree. Verify the production startup map contains the same complete catalog and assets.
-- [ ] Measure packaged 1080p medium on the fixed 3-minute route; report actual mean／1% low／memory and run 20-minute stability. Check ≥30 mean FPS and ≥24 FPS 1% low; optimize within scope if unmet.
-- [ ] Run one independent whole-branch review per executing-plans; address Important findings with focused RED→GREEN tests, then green suite. Update `docs/testing/enterable-buildings-validation.md`, plan and ledger; commit and keep user launch artifacts／other worktrees intact. No remote push.
+- [x] First run full validation against an intentionally missing room／blocked stair／wrong transform and verify explicit failures without reducing expected totals.
+- [x] Implement `Content/Python/validate_enterable_city.py` and opt-in Development native driver. Enumerate every building and room; verify graph return paths and capsule geometry for each actual instance, then physically traverse entrances, stairs and doors to every room. Record source hashes, exact identities, counts, failed paths and state.
+- [x] Run complete Editor build／UE tests, Python layout tests, tooling and performance-calculation tests. Preserve final reports and RED→GREEN reproductions for new integration defects.
+- [x] Run actual packaged play for every layout class, highest-floor delivery, return to street／bike, repeated load cycle, door anti-clipping and character actions; validate history after restart. Produce Development and Shipping builds in this worktree. Verify the production startup map contains the same complete catalog and assets.
+- [x] Measure packaged 1080p medium on the fixed 3-minute route; report actual mean／1% low／memory and run 20-minute stability. Check ≥30 mean FPS and ≥24 FPS 1% low; optimize within scope if unmet.
+- [x] Run one independent whole-branch review per executing-plans; address Important findings with focused RED→GREEN tests, then green suite. Update `docs/testing/enterable-buildings-validation.md`, plan and ledger; commit and keep user launch artifacts／other worktrees intact. No remote push.
 
 ## Plan self-review
 

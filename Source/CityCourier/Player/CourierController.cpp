@@ -58,7 +58,7 @@ bool ACourierController::PreviewOffer(FGuid Id)
     if(!D || !D->GetOfferPreview(Id,Offer))
     { ShowActionFeedback(FText::FromString(TEXT("订单已失效或正在配送，请返回接单页"))); return false; }
     auto* Nav=GetWorld()->GetSubsystem<UDeliveryNavigationSubsystem>();
-    if(!Nav || !Nav->IsRouteClear(Offer.PickupRoute.Points) || !Nav->IsRouteClear(Offer.DeliveryRoute.Points))
+    if(!Nav || !Nav->IsRouteClear(Offer.PickupRoute) || !Nav->IsRouteClear(Offer.DeliveryRoute))
     { ShowActionFeedback(FText::FromString(TEXT("路线暂不可用，请返回道路后刷新订单"))); return false; }
     Preview=Offer; SetInterfaceMode(ECourierInterfaceMode::Map); return true;
 }

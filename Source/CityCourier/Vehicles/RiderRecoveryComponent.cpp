@@ -10,6 +10,7 @@
 #include "Components/BoxComponent.h"
 #include "Components/CapsuleComponent.h"
 #include "GameFramework/CharacterMovementComponent.h"
+#include "Buildings/CourierBuildingSubsystem.h"
 URiderRecoveryComponent::URiderRecoveryComponent() { PrimaryComponentTick.bCanEverTick=true; }
 void URiderRecoveryComponent::Configure(UCityDefinition* Definition,AScooterPawn* Vehicle,ACourierCharacter* Courier,UDeliverySubsystem* Orders,ARiderStation* RestStation)
 { City=Definition; Bike=Vehicle; Rider=Courier; Delivery=Orders; Station=RestStation; bHasSafe=false; SetRecoverHeld(false); }
@@ -17,6 +18,7 @@ bool URiderRecoveryComponent::ValidateLocation(const FTransform& Candidate,FTran
 {
     if(!City || !Bike.IsValid() || !Rider.IsValid() || Candidate.ContainsNaN()) return false;
     const FVector Position=Candidate.GetLocation();
+    if(const auto* S=GetWorld()->GetSubsystem<UCourierBuildingSubsystem>(); S && S->IsEnabled() && S->LocateFeet(Position-FVector(0,0,52)).IsValid()) return false;
     double RoadDistance=MAX_dbl;
     for(const auto& E:City->Roads.Edges)
     {
@@ -49,6 +51,7 @@ bool URiderRecoveryComponent::ValidateLocation(const FTransform& Candidate,FTran
         if(GetWorld()->OverlapBlockingTestByChannel(FootCandidate,FQuat::Identity,ECC_Pawn,Shape,Params)) continue;
         // Mounted rider also needs head room at the seat.
         if(Rider->IsMounted() && GetWorld()->OverlapBlockingTestByChannel(BikePosition+FVector(-10,0,95),FQuat::Identity,ECC_Pawn,Shape,Params)) continue;
+        if(const auto* S=GetWorld()->GetSubsystem<UCourierBuildingSubsystem>(); S && S->IsEnabled() && S->Locate(FootCandidate).IsValid()) continue;
         Foot=FootCandidate; Out=FTransform(Rotation,BikePosition); return true;
     }
     return false;
@@ -77,6 +80,7 @@ void URiderRecoveryComponent::Relocate(const FTransform& Transform,FVector Foot)
     Rider->ClearMovementInput(); Rider->GetCharacterMovement()->StopMovementImmediately();
     if(!Rider->IsMounted()) { Rider->SetActorLocationAndRotation(Foot,Transform.Rotator(),false,nullptr,ETeleportType::TeleportPhysics); Rider->GetCharacterMovement()->SetMovementMode(MOVE_Walking); }
     if(auto* PC=Cast<ACourierController>(GetOwner())) PC->SetControlRotation(FRotator(-12,Transform.Rotator().Yaw,0));
+    if(auto* S=GetWorld()->GetSubsystem<UCourierBuildingSubsystem>(); S && S->IsEnabled()) S->UpdateResidency(Rider->GetActorLocation());
     SafeLocation=Transform; bHasSafe=true;
 }
 void URiderRecoveryComponent::SetRecoverHeld(bool Held)

@@ -2,6 +2,7 @@
 #include "Engine/DataAsset.h"
 #include "World/RoadGraph.h"
 #include "CityDefinition.generated.h"
+class UCityBuildingCatalog;
 
 UENUM(BlueprintType)
 enum class EDeliveryLocationKind : uint8 { Merchant, Destination, Station };
@@ -39,4 +40,7 @@ public:
     FRouteResult FindRouteBetween(const FCourierLocationDefinition& From, const FCourierLocationDefinition& To) const;
     FRouteResult FindRouteFrom(FVector Position, FName Destination) const;
     FRouteResult FindRouteToPosition(FVector From,FVector To) const;
+    FRouteResult FindJourneyToPosition(FVector From,FVector To,const UCityBuildingCatalog& Catalog) const;
+    FRouteResult FindJourneyFrom(FVector From,FName Destination,const UCityBuildingCatalog& Catalog) const;
+    FRouteResult FindJourneyBetween(FName From,FName To,const UCityBuildingCatalog& Catalog) const;
 };

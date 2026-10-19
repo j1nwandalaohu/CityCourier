@@ -1,0 +1,6589 @@
+{
+  "schema_version": 1,
+  "source_map": "/Game/CityCourier/Maps/L_CourierArtPreview",
+  "expected_source_tags": [
+    "CC_Art_Building_0_0_0_0_0",
+    "CC_Art_Building_0_0_0_0_1",
+    "CC_Art_Building_0_0_0_0_2",
+    "CC_Art_Building_0_0_0_0_3",
+    "CC_Art_Building_0_0_0_1_0",
+    "CC_Art_Building_0_0_0_1_1",
+    "CC_Art_Building_0_0_0_1_2",
+    "CC_Art_Building_0_0_0_1_3",
+    "CC_Art_Building_0_0_0_2_0",
+    "CC_Art_Building_0_0_0_2_1",
+    "CC_Art_Building_0_0_0_2_2",
+    "CC_Art_Building_0_0_0_2_3",
+    "CC_Art_Building_0_0_1_0_0",
+    "CC_Art_Building_0_0_1_0_1",
+    "CC_Art_Building_0_0_1_0_2",
+    "CC_Art_Building_0_0_1_0_3",
+    "CC_Art_Building_0_0_1_1_0",
+    "CC_Art_Building_0_0_1_1_1",
+    "CC_Art_Building_0_0_1_1_2",
+    "CC_Art_Building_0_0_1_1_3",
+    "CC_Art_Building_0_0_1_2_0",
+    "CC_Art_Building_0_0_1_2_1",
+    "CC_Art_Building_0_0_1_2_2",
+    "CC_Art_Building_0_0_1_2_3",
+    "CC_Art_Building_0_1_0_0_0",
+    "CC_Art_Building_0_1_0_1_0",
+    "CC_Art_Building_0_1_0_2_0",
+    "CC_Art_Building_0_1_1_0_0",
+    "CC_Art_Building_0_1_1_1_0",
+    "CC_Art_Building_0_1_1_2_0",
+    "CC_Art_Building_0_2_0_0_0",
+    "CC_Art_Building_0_2_0_1_0",
+    "CC_Art_Building_0_2_0_2_0",
+    "CC_Art_Building_0_2_1_0_0",
+    "CC_Art_Building_0_2_1_1_0",
+    "CC_Art_Building_0_2_1_2_0",
+    "CC_Art_Building_0_3_0_0_0",
+    "CC_Art_Building_0_3_0_1_0",
+    "CC_Art_Building_0_3_0_2_0",
+    "CC_Art_Building_0_3_1_0_0",
+    "CC_Art_Building_0_3_1_1_0",
+    "CC_Art_Building_0_3_1_2_0",
+    "CC_Art_Building_0_4_0_0_0",
+    "CC_Art_Building_0_4_0_1_0",
+    "CC_Art_Building_0_4_0_2_0",
+    "CC_Art_Building_0_4_1_0_0",
+    "CC_Art_Building_0_4_1_1_0",
+    "CC_Art_Building_0_4_1_2_0",
+    "CC_Art_Building_0_5_0_0_0",
+    "CC_Art_Building_0_5_0_0_1",
+    "CC_Art_Building_0_5_0_0_2",
+    "CC_Art_Building_0_5_0_0_3",
+    "CC_Art_Building_0_5_0_1_0",
+    "CC_Art_Building_0_5_0_1_1",
+    "CC_Art_Building_0_5_0_1_2",
+    "CC_Art_Building_0_5_0_1_3",
+    "CC_Art_Building_0_5_0_2_0",
+    "CC_Art_Building_0_5_0_2_1",
+    "CC_Art_Building_0_5_0_2_2",
+    "CC_Art_Building_0_5_0_2_3",
+    "CC_Art_Building_0_5_1_0_0",
+    "CC_Art_Building_0_5_1_0_1",
+    "CC_Art_Building_0_5_1_0_2",
+    "CC_Art_Building_0_5_1_0_3",
+    "CC_Art_Building_0_5_1_1_0",
+    "CC_Art_Building_0_5_1_1_1",
+    "CC_Art_Building_0_5_1_1_2",
+    "CC_Art_Building_0_5_1_1_3",
+    "CC_Art_Building_0_5_1_2_0",
+    "CC_Art_Building_0_5_1_2_1",
+    "CC_Art_Building_0_5_1_2_2",
+    "CC_Art_Building_0_5_1_2_3",
+    "CC_Art_Building_1_0_0_0_0",
+    "CC_Art_Building_1_0_0_0_1",
+    "CC_Art_Building_1_0_0_0_2",
+    "CC_Art_Building_1_0_0_0_3",
+    "CC_Art_Building_1_0_0_1_0",
+    "CC_Art_Building_1_0_0_1_1",
+    "CC_Art_Building_1_0_0_1_2",
+    "CC_Art_Building_1_0_0_1_3",
+    "CC_Art_Building_1_0_0_2_0",
+    "CC_Art_Building_1_0_0_2_1",
+    "CC_Art_Building_1_0_0_2_2",
+    "CC_Art_Building_1_0_0_2_3",
+    "CC_Art_Building_1_0_1_0_0",
+    "CC_Art_Building_1_0_1_0_1",
+    "CC_Art_Building_1_0_1_0_2",
+    "CC_Art_Building_1_0_1_0_3",
+    "CC_Art_Building_1_0_1_1_0",
+    "CC_Art_Building_1_0_1_1_1",
+    "CC_Art_Building_1_0_1_1_2",
+    "CC_Art_Building_1_0_1_1_3",
+    "CC_Art_Building_1_0_1_2_0",
+    "CC_Art_Building_1_0_1_2_1",
+    "CC_Art_Building_1_0_1_2_2",
+    "CC_Art_Building_1_0_1_2_3",
+    "CC_Art_Building_1_1_0_0_0",
+    "CC_Art_Building_1_1_0_1_0",
+    "CC_Art_Building_1_1_0_2_0",
+    "CC_Art_Building_1_1_1_0_0",
+    "CC_Art_Building_1_1_1_1_0",
+    "CC_Art_Building_1_1_1_2_0",
+    "CC_Art_Building_1_2_0_0_0",
+    "CC_Art_Building_1_2_0_1_0",
+    "CC_Art_Building_1_2_0_2_0",
+    "CC_Art_Building_1_2_1_0_0",
+    "CC_Art_Building_1_2_1_1_0",
+    "CC_Art_Building_1_2_1_2_0",
+    "CC_Art_Building_1_3_0_0_0",
+    "CC_Art_Building_1_3_0_1_0",
+    "CC_Art_Building_1_3_0_2_0",
+    "CC_Art_Building_1_3_1_0_0",
+    "CC_Art_Building_1_3_1_1_0",
+    "CC_Art_Building_1_3_1_2_0",
+    "CC_Art_Building_1_4_0_0_0",
+    "CC_Art_Building_1_4_0_1_0",
+    "CC_Art_Building_1_4_0_2_0",
+    "CC_Art_Building_1_4_1_0_0",
+    "CC_Art_Building_1_4_1_1_0",
+    "CC_Art_Building_1_4_1_2_0",
+    "CC_Art_Building_1_5_0_0_0",
+    "CC_Art_Building_1_5_0_0_1",
+    "CC_Art_Building_1_5_0_0_2",
+    "CC_Art_Building_1_5_0_0_3",
+    "CC_Art_Building_1_5_0_1_0",
+    "CC_Art_Building_1_5_0_1_1",
+    "CC_Art_Building_1_5_0_1_2",
+    "CC_Art_Building_1_5_0_1_3",
+    "CC_Art_Building_1_5_0_2_0",
+    "CC_Art_Building_1_5_0_2_1",
+    "CC_Art_Building_1_5_0_2_2",
+    "CC_Art_Building_1_5_0_2_3",
+    "CC_Art_Building_1_5_1_0_0",
+    "CC_Art_Building_1_5_1_0_1",
+    "CC_Art_Building_1_5_1_0_2",
+    "CC_Art_Building_1_5_1_0_3",
+    "CC_Art_Building_1_5_1_1_0",
+    "CC_Art_Building_1_5_1_1_1",
+    "CC_Art_Building_1_5_1_1_2",
+    "CC_Art_Building_1_5_1_1_3",
+    "CC_Art_Building_1_5_1_2_0",
+    "CC_Art_Building_1_5_1_2_1",
+    "CC_Art_Building_1_5_1_2_2",
+    "CC_Art_Building_1_5_1_2_3",
+    "CC_Art_Building_2_0_0_0_0",
+    "CC_Art_Building_2_0_0_0_1",
+    "CC_Art_Building_2_0_0_0_2",
+    "CC_Art_Building_2_0_0_0_3",
+    "CC_Art_Building_2_0_0_1_0",
+    "CC_Art_Building_2_0_0_1_1",
+    "CC_Art_Building_2_0_0_1_2",
+    "CC_Art_Building_2_0_0_1_3",
+    "CC_Art_Building_2_0_0_2_0",
+    "CC_Art_Building_2_0_0_2_1",
+    "CC_Art_Building_2_0_0_2_2",
+    "CC_Art_Building_2_0_0_2_3",
+    "CC_Art_Building_2_0_1_0_0",
+    "CC_Art_Building_2_0_1_0_1",
+    "CC_Art_Building_2_0_1_0_2",
+    "CC_Art_Building_2_0_1_0_3",
+    "CC_Art_Building_2_0_1_1_0",
+    "CC_Art_Building_2_0_1_1_1",
+    "CC_Art_Building_2_0_1_1_2",
+    "CC_Art_Building_2_0_1_1_3",
+    "CC_Art_Building_2_0_1_2_0",
+    "CC_Art_Building_2_0_1_2_1",
+    "CC_Art_Building_2_0_1_2_2",
+    "CC_Art_Building_2_0_1_2_3",
+    "CC_Art_Building_2_1_0_0_0",
+    "CC_Art_Building_2_1_0_1_0",
+    "CC_Art_Building_2_1_0_2_0",
+    "CC_Art_Building_2_1_1_0_0",
+    "CC_Art_Building_2_1_1_1_0",
+    "CC_Art_Building_2_1_1_2_0",
+    "CC_Art_Building_2_2_0_0_0",
+    "CC_Art_Building_2_2_0_1_0",
+    "CC_Art_Building_2_2_0_2_0",
+    "CC_Art_Building_2_2_1_0_0",
+    "CC_Art_Building_2_2_1_1_0",
+    "CC_Art_Building_2_2_1_2_0",
+    "CC_Art_Building_2_3_0_0_0",
+    "CC_Art_Building_2_3_0_1_0",
+    "CC_Art_Building_2_3_0_2_0",
+    "CC_Art_Building_2_3_1_0_0",
+    "CC_Art_Building_2_3_1_1_0",
+    "CC_Art_Building_2_3_1_2_0",
+    "CC_Art_Building_2_4_0_0_0",
+    "CC_Art_Building_2_4_0_1_0",
+    "CC_Art_Building_2_4_0_2_0",
+    "CC_Art_Building_2_4_1_0_0",
+    "CC_Art_Building_2_4_1_1_0",
+    "CC_Art_Building_2_4_1_2_0",
+    "CC_Art_Building_2_5_0_0_0",
+    "CC_Art_Building_2_5_0_0_1",
+    "CC_Art_Building_2_5_0_0_2",
+    "CC_Art_Building_2_5_0_0_3",
+    "CC_Art_Building_2_5_0_1_0",
+    "CC_Art_Building_2_5_0_1_1",
+    "CC_Art_Building_2_5_0_1_2",
+    "CC_Art_Building_2_5_0_1_3",
+    "CC_Art_Building_2_5_0_2_0",
+    "CC_Art_Building_2_5_0_2_1",
+    "CC_Art_Building_2_5_0_2_2",
+    "CC_Art_Building_2_5_0_2_3",
+    "CC_Art_Building_2_5_1_0_0",
+    "CC_Art_Building_2_5_1_0_1",
+    "CC_Art_Building_2_5_1_0_2",
+    "CC_Art_Building_2_5_1_0_3",
+    "CC_Art_Building_2_5_1_1_0",
+    "CC_Art_Building_2_5_1_1_1",
+    "CC_Art_Building_2_5_1_1_2",
+    "CC_Art_Building_2_5_1_1_3",
+    "CC_Art_Building_2_5_1_2_0",
+    "CC_Art_Building_2_5_1_2_1",
+    "CC_Art_Building_2_5_1_2_2",
+    "CC_Art_Building_2_5_1_2_3",
+    "CC_Art_Building_3_0_0_0_0",
+    "CC_Art_Building_3_0_0_0_1",
+    "CC_Art_Building_3_0_0_0_2",
+    "CC_Art_Building_3_0_0_0_3",
+    "CC_Art_Building_3_0_0_1_0",
+    "CC_Art_Building_3_0_0_1_1",
+    "CC_Art_Building_3_0_0_1_2",
+    "CC_Art_Building_3_0_0_1_3",
+    "CC_Art_Building_3_0_0_2_0",
+    "CC_Art_Building_3_0_0_2_1",
+    "CC_Art_Building_3_0_0_2_2",
+    "CC_Art_Building_3_0_0_2_3",
+    "CC_Art_Building_3_0_1_0_0",
+    "CC_Art_Building_3_0_1_0_1",
+    "CC_Art_Building_3_0_1_0_2",
+    "CC_Art_Building_3_0_1_0_3",
+    "CC_Art_Building_3_0_1_1_0",
+    "CC_Art_Building_3_0_1_1_1",
+    "CC_Art_Building_3_0_1_1_2",
+    "CC_Art_Building_3_0_1_1_3",
+    "CC_Art_Building_3_0_1_2_0",
+    "CC_Art_Building_3_0_1_2_1",
+    "CC_Art_Building_3_0_1_2_2",
+    "CC_Art_Building_3_0_1_2_3",
+    "CC_Art_Building_3_1_0_0_0",
+    "CC_Art_Building_3_1_0_1_0",
+    "CC_Art_Building_3_1_0_2_0",
+    "CC_Art_Building_3_1_1_0_0",
+    "CC_Art_Building_3_1_1_1_0",
+    "CC_Art_Building_3_1_1_2_0",
+    "CC_Art_Building_3_2_0_0_0",
+    "CC_Art_Building_3_2_0_1_0",
+    "CC_Art_Building_3_2_0_2_0",
+    "CC_Art_Building_3_2_1_0_0",
+    "CC_Art_Building_3_2_1_1_0",
+    "CC_Art_Building_3_2_1_2_0",
+    "CC_Art_Building_3_3_0_0_0",
+    "CC_Art_Building_3_3_0_1_0",
+    "CC_Art_Building_3_3_0_2_0",
+    "CC_Art_Building_3_3_1_0_0",
+    "CC_Art_Building_3_3_1_1_0",
+    "CC_Art_Building_3_3_1_2_0",
+    "CC_Art_Building_3_4_0_0_0",
+    "CC_Art_Building_3_4_0_1_0",
+    "CC_Art_Building_3_4_0_2_0",
+    "CC_Art_Building_3_4_1_0_0",
+    "CC_Art_Building_3_4_1_1_0",
+    "CC_Art_Building_3_4_1_2_0",
+    "CC_Art_Building_3_5_0_0_0",
+    "CC_Art_Building_3_5_0_0_1",
+    "CC_Art_Building_3_5_0_0_2",
+    "CC_Art_Building_3_5_0_0_3",
+    "CC_Art_Building_3_5_0_1_0",
+    "CC_Art_Building_3_5_0_1_1",
+    "CC_Art_Building_3_5_0_1_2",
+    "CC_Art_Building_3_5_0_1_3",
+    "CC_Art_Building_3_5_0_2_0",
+    "CC_Art_Building_3_5_0_2_1",
+    "CC_Art_Building_3_5_0_2_2",
+    "CC_Art_Building_3_5_0_2_3",
+    "CC_Art_Building_3_5_1_0_0",
+    "CC_Art_Building_3_5_1_0_1",
+    "CC_Art_Building_3_5_1_0_2",
+    "CC_Art_Building_3_5_1_0_3",
+    "CC_Art_Building_3_5_1_1_0",
+    "CC_Art_Building_3_5_1_1_1",
+    "CC_Art_Building_3_5_1_1_2",
+    "CC_Art_Building_3_5_1_1_3",
+    "CC_Art_Building_3_5_1_2_0",
+    "CC_Art_Building_3_5_1_2_1",
+    "CC_Art_Building_3_5_1_2_2",
+    "CC_Art_Building_3_5_1_2_3"
+  ],
+  "expected_building_ids": [
+    "B_0_0_0_0_0",
+    "B_0_0_0_0_1",
+    "B_0_0_0_0_2",
+    "B_0_0_0_0_3",
+    "B_0_0_0_1_0",
+    "B_0_0_0_1_1",
+    "B_0_0_0_1_2",
+    "B_0_0_0_1_3",
+    "B_0_0_0_2_0",
+    "B_0_0_0_2_1",
+    "B_0_0_0_2_2",
+    "B_0_0_0_2_3",
+    "B_0_0_1_0_0",
+    "B_0_0_1_0_1",
+    "B_0_0_1_0_2",
+    "B_0_0_1_0_3",
+    "B_0_0_1_1_0",
+    "B_0_0_1_1_1",
+    "B_0_0_1_1_2",
+    "B_0_0_1_1_3",
+    "B_0_0_1_2_0",
+    "B_0_0_1_2_1",
+    "B_0_0_1_2_2",
+    "B_0_0_1_2_3",
+    "B_0_1_0_0_0",
+    "B_0_1_0_1_0",
+    "B_0_1_0_2_0",
+    "B_0_1_1_0_0",
+    "B_0_1_1_1_0",
+    "B_0_1_1_2_0",
+    "B_0_2_0_0_0",
+    "B_0_2_0_1_0",
+    "B_0_2_0_2_0",
+    "B_0_2_1_0_0",
+    "B_0_2_1_1_0",
+    "B_0_2_1_2_0",
+    "B_0_3_0_0_0",
+    "B_0_3_0_1_0",
+    "B_0_3_0_2_0",
+    "B_0_3_1_0_0",
+    "B_0_3_1_1_0",
+    "B_0_3_1_2_0",
+    "B_0_4_0_0_0",
+    "B_0_4_0_1_0",
+    "B_0_4_0_2_0",
+    "B_0_4_1_0_0",
+    "B_0_4_1_1_0",
+    "B_0_4_1_2_0",
+    "B_0_5_0_0_0",
+    "B_0_5_0_0_1",
+    "B_0_5_0_0_2",
+    "B_0_5_0_0_3",
+    "B_0_5_0_1_0",
+    "B_0_5_0_1_1",
+    "B_0_5_0_1_2",
+    "B_0_5_0_1_3",
+    "B_0_5_0_2_0",
+    "B_0_5_0_2_1",
+    "B_0_5_0_2_2",
+    "B_0_5_0_2_3",
+    "B_0_5_1_0_0",
+    "B_0_5_1_0_1",
+    "B_0_5_1_0_2",
+    "B_0_5_1_0_3",
+    "B_0_5_1_1_0",
+    "B_0_5_1_1_1",
+    "B_0_5_1_1_2",
+    "B_0_5_1_1_3",
+    "B_0_5_1_2_0",
+    "B_0_5_1_2_1",
+    "B_0_5_1_2_2",
+    "B_0_5_1_2_3",
+    "B_1_0_0_0_0",
+    "B_1_0_0_0_1",
+    "B_1_0_0_0_2",
+    "B_1_0_0_0_3",
+    "B_1_0_0_1_0",
+    "B_1_0_0_1_1",
+    "B_1_0_0_1_2",
+    "B_1_0_0_1_3",
+    "B_1_0_0_2_0",
+    "B_1_0_0_2_1",
+    "B_1_0_0_2_2",
+    "B_1_0_0_2_3",
+    "B_1_0_1_0_0",
+    "B_1_0_1_0_1",
+    "B_1_0_1_0_2",
+    "B_1_0_1_0_3",
+    "B_1_0_1_1_0",
+    "B_1_0_1_1_1",
+    "B_1_0_1_1_2",
+    "B_1_0_1_1_3",
+    "B_1_0_1_2_0",
+    "B_1_0_1_2_1",
+    "B_1_0_1_2_2",
+    "B_1_0_1_2_3",
+    "B_1_1_0_0_0",
+    "B_1_1_0_1_0",
+    "B_1_1_0_2_0",
+    "B_1_1_1_0_0",
+    "B_1_1_1_1_0",
+    "B_1_1_1_2_0",
+    "B_1_2_0_0_0",
+    "B_1_2_0_1_0",
+    "B_1_2_0_2_0",
+    "B_1_2_1_0_0",
+    "B_1_2_1_1_0",
+    "B_1_2_1_2_0",
+    "B_1_3_0_0_0",
+    "B_1_3_0_1_0",
+    "B_1_3_0_2_0",
+    "B_1_3_1_0_0",
+    "B_1_3_1_1_0",
+    "B_1_3_1_2_0",
+    "B_1_4_0_0_0",
+    "B_1_4_0_1_0",
+    "B_1_4_0_2_0",
+    "B_1_4_1_0_0",
+    "B_1_4_1_1_0",
+    "B_1_4_1_2_0",
+    "B_1_5_0_0_0",
+    "B_1_5_0_0_1",
+    "B_1_5_0_0_2",
+    "B_1_5_0_0_3",
+    "B_1_5_0_1_0",
+    "B_1_5_0_1_1",
+    "B_1_5_0_1_2",
+    "B_1_5_0_1_3",
+    "B_1_5_0_2_0",
+    "B_1_5_0_2_1",
+    "B_1_5_0_2_2",
+    "B_1_5_0_2_3",
+    "B_1_5_1_0_0",
+    "B_1_5_1_0_1",
+    "B_1_5_1_0_2",
+    "B_1_5_1_0_3",
+    "B_1_5_1_1_0",
+    "B_1_5_1_1_1",
+    "B_1_5_1_1_2",
+    "B_1_5_1_1_3",
+    "B_1_5_1_2_0",
+    "B_1_5_1_2_1",
+    "B_1_5_1_2_2",
+    "B_1_5_1_2_3",
+    "B_2_0_0_0_0",
+    "B_2_0_0_0_1",
+    "B_2_0_0_0_2",
+    "B_2_0_0_0_3",
+    "B_2_0_0_1_0",
+    "B_2_0_0_1_1",
+    "B_2_0_0_1_2",
+    "B_2_0_0_1_3",
+    "B_2_0_0_2_0",
+    "B_2_0_0_2_1",
+    "B_2_0_0_2_2",
+    "B_2_0_0_2_3",
+    "B_2_0_1_0_0",
+    "B_2_0_1_0_1",
+    "B_2_0_1_0_2",
+    "B_2_0_1_0_3",
+    "B_2_0_1_1_0",
+    "B_2_0_1_1_1",
+    "B_2_0_1_1_2",
+    "B_2_0_1_1_3",
+    "B_2_0_1_2_0",
+    "B_2_0_1_2_1",
+    "B_2_0_1_2_2",
+    "B_2_0_1_2_3",
+    "B_2_1_0_0_0",
+    "B_2_1_0_1_0",
+    "B_2_1_0_2_0",
+    "B_2_1_1_0_0",
+    "B_2_1_1_1_0",
+    "B_2_1_1_2_0",
+    "B_2_2_0_0_0",
+    "B_2_2_0_1_0",
+    "B_2_2_0_2_0",
+    "B_2_2_1_0_0",
+    "B_2_2_1_1_0",
+    "B_2_2_1_2_0",
+    "B_2_3_0_0_0",
+    "B_2_3_0_1_0",
+    "B_2_3_0_2_0",
+    "B_2_3_1_0_0",
+    "B_2_3_1_1_0",
+    "B_2_3_1_2_0",
+    "B_2_4_0_0_0",
+    "B_2_4_0_1_0",
+    "B_2_4_0_2_0",
+    "B_2_4_1_0_0",
+    "B_2_4_1_1_0",
+    "B_2_4_1_2_0",
+    "B_2_5_0_0_0",
+    "B_2_5_0_0_1",
+    "B_2_5_0_0_2",
+    "B_2_5_0_0_3",
+    "B_2_5_0_1_0",
+    "B_2_5_0_1_1",
+    "B_2_5_0_1_2",
+    "B_2_5_0_1_3",
+    "B_2_5_0_2_0",
+    "B_2_5_0_2_1",
+    "B_2_5_0_2_2",
+    "B_2_5_0_2_3",
+    "B_2_5_1_0_0",
+    "B_2_5_1_0_1",
+    "B_2_5_1_0_2",
+    "B_2_5_1_0_3",
+    "B_2_5_1_1_0",
+    "B_2_5_1_1_1",
+    "B_2_5_1_1_2",
+    "B_2_5_1_1_3",
+    "B_2_5_1_2_0",
+    "B_2_5_1_2_1",
+    "B_2_5_1_2_2",
+    "B_2_5_1_2_3",
+    "B_3_0_0_0_0",
+    "B_3_0_0_0_1",
+    "B_3_0_0_0_2",
+    "B_3_0_0_0_3",
+    "B_3_0_0_1_0",
+    "B_3_0_0_1_1",
+    "B_3_0_0_1_2",
+    "B_3_0_0_1_3",
+    "B_3_0_0_2_0",
+    "B_3_0_0_2_1",
+    "B_3_0_0_2_2",
+    "B_3_0_0_2_3",
+    "B_3_0_1_0_0",
+    "B_3_0_1_0_1",
+    "B_3_0_1_0_2",
+    "B_3_0_1_0_3",
+    "B_3_0_1_1_0",
+    "B_3_0_1_1_1",
+    "B_3_0_1_1_2",
+    "B_3_0_1_1_3",
+    "B_3_0_1_2_0",
+    "B_3_0_1_2_1",
+    "B_3_0_1_2_2",
+    "B_3_0_1_2_3",
+    "B_3_1_0_0_0",
+    "B_3_1_0_1_0",
+    "B_3_1_0_2_0",
+    "B_3_1_1_0_0",
+    "B_3_1_1_1_0",
+    "B_3_1_1_2_0",
+    "B_3_2_0_0_0",
+    "B_3_2_0_1_0",
+    "B_3_2_0_2_0",
+    "B_3_2_1_0_0",
+    "B_3_2_1_1_0",
+    "B_3_2_1_2_0",
+    "B_3_3_0_0_0",
+    "B_3_3_0_1_0",
+    "B_3_3_0_2_0",
+    "B_3_3_1_0_0",
+    "B_3_3_1_1_0",
+    "B_3_3_1_2_0",
+    "B_3_4_0_0_0",
+    "B_3_4_0_1_0",
+    "B_3_4_0_2_0",
+    "B_3_4_1_0_0",
+    "B_3_4_1_1_0",
+    "B_3_4_1_2_0",
+    "B_3_5_0_0_0",
+    "B_3_5_0_0_1",
+    "B_3_5_0_0_2",
+    "B_3_5_0_0_3",
+    "B_3_5_0_1_0",
+    "B_3_5_0_1_1",
+    "B_3_5_0_1_2",
+    "B_3_5_0_1_3",
+    "B_3_5_0_2_0",
+    "B_3_5_0_2_1",
+    "B_3_5_0_2_2",
+    "B_3_5_0_2_3",
+    "B_3_5_1_0_0",
+    "B_3_5_1_0_1",
+    "B_3_5_1_0_2",
+    "B_3_5_1_0_3",
+    "B_3_5_1_1_0",
+    "B_3_5_1_1_1",
+    "B_3_5_1_1_2",
+    "B_3_5_1_1_3",
+    "B_3_5_1_2_0",
+    "B_3_5_1_2_1",
+    "B_3_5_1_2_2",
+    "B_3_5_1_2_3",
+    "B_Merchant_0",
+    "B_Merchant_1",
+    "B_Merchant_2",
+    "B_Merchant_3",
+    "B_Station"
+  ],
+  "buildings": [
+    {
+      "id": "B_0_0_0_0_0",
+      "source_tag": "CC_Art_Building_0_0_0_0_0",
+      "source_collision_tag": "CC_City_Block_0_0_0_0",
+      "source_asset": "/Game/CityCourier/Art/Architecture/SM_ShopHouseA.SM_ShopHouseA",
+      "source_yaw": 180.0,
+      "width": 788.3333333333334,
+      "depth": 2300.0,
+      "location": [
+        -22515.833333333332,
+        -21900.0,
+        0.0
+      ],
+      "yaw": 0.0,
+      "variant": 0,
+      "kind": "residential",
+      "external_sides": [
+        -1
+      ]
+    },
+    {
+      "id": "B_0_0_0_0_1",
+      "source_tag": "CC_Art_Building_0_0_0_0_1",
+      "source_collision_tag": "CC_City_Block_0_0_0_0",
+      "source_asset": "/Game/CityCourier/Art/Architecture/SM_ShopHouseB.SM_ShopHouseB",
+      "source_yaw": 180.0,
+      "width": 788.3333333333334,
+      "depth": 2300.0,
+      "location": [
+        -21727.5,
+        -21900.0,
+        0.0
+      ],
+      "yaw": 0.0,
+      "variant": 1,
+      "kind": "residential",
+      "external_sides": []
+    },
+    {
+      "id": "B_0_0_0_0_2",
+      "source_tag": "CC_Art_Building_0_0_0_0_2",
+      "source_collision_tag": "CC_City_Block_0_0_0_0",
+      "source_asset": "/Game/CityCourier/Art/Architecture/SM_ShopHouseC.SM_ShopHouseC",
+      "source_yaw": 180.0,
+      "width": 788.3333333333334,
+      "depth": 2300.0,
+      "location": [
+        -20939.166666666668,
+        -21900.0,
+        0.0
+      ],
+      "yaw": 0.0,
+      "variant": 2,
+      "kind": "residential",
+      "external_sides": []
+    },
+    {
+      "id": "B_0_0_0_0_3",
+      "source_tag": "CC_Art_Building_0_0_0_0_3",
+      "source_collision_tag": "CC_City_Block_0_0_0_0",
+      "source_asset": "/Game/CityCourier/Art/Architecture/SM_ShopHouseA.SM_ShopHouseA",
+      "source_yaw": 180.0,
+      "width": 788.3333333333334,
+      "depth": 2300.0,
+      "location": [
+        -20150.833333333332,
+        -21900.0,
+        0.0
+      ],
+      "yaw": 0.0,
+      "variant": 0,
+      "kind": "residential",
+      "external_sides": [
+        1
+      ]
+    },
+    {
+      "id": "B_0_0_0_1_0",
+      "source_tag": "CC_Art_Building_0_0_0_1_0",
+      "source_collision_tag": "CC_City_Block_0_0_0_1",
+      "source_asset": "/Game/CityCourier/Art/Architecture/SM_ShopHouseB.SM_ShopHouseB",
+      "source_yaw": 180.0,
+      "width": 788.3333333333334,
+      "depth": 2300.0,
+      "location": [
+        -19182.5,
+        -21900.0,
+        0.0
+      ],
+      "yaw": 0.0,
+      "variant": 1,
+      "kind": "residential",
+      "external_sides": [
+        -1
+      ]
+    },
+    {
+      "id": "B_0_0_0_1_1",
+      "source_tag": "CC_Art_Building_0_0_0_1_1",
+      "source_collision_tag": "CC_City_Block_0_0_0_1",
+      "source_asset": "/Game/CityCourier/Art/Architecture/SM_ShopHouseC.SM_ShopHouseC",
+      "source_yaw": 180.0,
+      "width": 788.3333333333334,
+      "depth": 2300.0,
+      "location": [
+        -18394.166666666668,
+        -21900.0,
+        0.0
+      ],
+      "yaw": 0.0,
+      "variant": 2,
+      "kind": "residential",
+      "external_sides": []
+    },
+    {
+      "id": "B_0_0_0_1_2",
+      "source_tag": "CC_Art_Building_0_0_0_1_2",
+      "source_collision_tag": "CC_City_Block_0_0_0_1",
+      "source_asset": "/Game/CityCourier/Art/Architecture/SM_ShopHouseA.SM_ShopHouseA",
+      "source_yaw": 180.0,
+      "width": 788.3333333333334,
+      "depth": 2300.0,
+      "location": [
+        -17605.833333333336,
+        -21900.0,
+        0.0
+      ],
+      "yaw": 0.0,
+      "variant": 0,
+      "kind": "residential",
+      "external_sides": []
+    },
+    {
+      "id": "B_0_0_0_1_3",
+      "source_tag": "CC_Art_Building_0_0_0_1_3",
+      "source_collision_tag": "CC_City_Block_0_0_0_1",
+      "source_asset": "/Game/CityCourier/Art/Architecture/SM_ShopHouseB.SM_ShopHouseB",
+      "source_yaw": 180.0,
+      "width": 788.3333333333334,
+      "depth": 2300.0,
+      "location": [
+        -16817.5,
+        -21900.0,
+        0.0
+      ],
+      "yaw": 0.0,
+      "variant": 1,
+      "kind": "residential",
+      "external_sides": [
+        1
+      ]
+    },
+    {
+      "id": "B_0_0_0_2_0",
+      "source_tag": "CC_Art_Building_0_0_0_2_0",
+      "source_collision_tag": "CC_City_Block_0_0_0_2",
+      "source_asset": "/Game/CityCourier/Art/Architecture/SM_ShopHouseC.SM_ShopHouseC",
+      "source_yaw": 180.0,
+      "width": 788.3333333333334,
+      "depth": 2300.0,
+      "location": [
+        -15849.166666666666,
+        -21900.0,
+        0.0
+      ],
+      "yaw": 0.0,
+      "variant": 2,
+      "kind": "residential",
+      "external_sides": [
+        -1
+      ]
+    },
+    {
+      "id": "B_0_0_0_2_1",
+      "source_tag": "CC_Art_Building_0_0_0_2_1",
+      "source_collision_tag": "CC_City_Block_0_0_0_2",
+      "source_asset": "/Game/CityCourier/Art/Architecture/SM_ShopHouseA.SM_ShopHouseA",
+      "source_yaw": 180.0,
+      "width": 788.3333333333334,
+      "depth": 2300.0,
+      "location": [
+        -15060.833333333332,
+        -21900.0,
+        0.0
+      ],
+      "yaw": 0.0,
+      "variant": 0,
+      "kind": "residential",
+      "external_sides": []
+    },
+    {
+      "id": "B_0_0_0_2_2",
+      "source_tag": "CC_Art_Building_0_0_0_2_2",
+      "source_collision_tag": "CC_City_Block_0_0_0_2",
+      "source_asset": "/Game/CityCourier/Art/Architecture/SM_ShopHouseB.SM_ShopHouseB",
+      "source_yaw": 180.0,
+      "width": 788.3333333333334,
+      "depth": 2300.0,
+      "location": [
+        -14272.499999999998,
+        -21900.0,
+        0.0
+      ],
+      "yaw": 0.0,
+      "variant": 1,
+      "kind": "residential",
+      "external_sides": []
+    },
+    {
+      "id": "B_0_0_0_2_3",
+      "source_tag": "CC_Art_Building_0_0_0_2_3",
+      "source_collision_tag": "CC_City_Block_0_0_0_2",
+      "source_asset": "/Game/CityCourier/Art/Architecture/SM_ShopHouseC.SM_ShopHouseC",
+      "source_yaw": 180.0,
+      "width": 788.3333333333334,
+      "depth": 2300.0,
+      "location": [
+        -13484.166666666664,
+        -21900.0,
+        0.0
+      ],
+      "yaw": 0.0,
+      "variant": 2,
+      "kind": "residential",
+      "external_sides": [
+        1
+      ]
+    },
+    {
+      "id": "B_0_0_1_0_0",
+      "source_tag": "CC_Art_Building_0_0_1_0_0",
+      "source_collision_tag": "CC_City_Block_0_0_1_0",
+      "source_asset": "/Game/CityCourier/Art/Architecture/SM_ShopHouseA.SM_ShopHouseA",
+      "source_yaw": 0.0,
+      "width": 788.3333333333334,
+      "depth": 2300.0,
+      "location": [
+        -22515.833333333332,
+        -14100.0,
+        0.0
+      ],
+      "yaw": 180.0,
+      "variant": 0,
+      "kind": "residential",
+      "external_sides": [
+        1
+      ]
+    },
+    {
+      "id": "B_0_0_1_0_1",
+      "source_tag": "CC_Art_Building_0_0_1_0_1",
+      "source_collision_tag": "CC_City_Block_0_0_1_0",
+      "source_asset": "/Game/CityCourier/Art/Architecture/SM_ShopHouseB.SM_ShopHouseB",
+      "source_yaw": 0.0,
+      "width": 788.3333333333334,
+      "depth": 2300.0,
+      "location": [
+        -21727.5,
+        -14100.0,
+        0.0
+      ],
+      "yaw": 180.0,
+      "variant": 1,
+      "kind": "residential",
+      "external_sides": []
+    },
+    {
+      "id": "B_0_0_1_0_2",
+      "source_tag": "CC_Art_Building_0_0_1_0_2",
+      "source_collision_tag": "CC_City_Block_0_0_1_0",
+      "source_asset": "/Game/CityCourier/Art/Architecture/SM_ShopHouseC.SM_ShopHouseC",
+      "source_yaw": 0.0,
+      "width": 788.3333333333334,
+      "depth": 2300.0,
+      "location": [
+        -20939.166666666668,
+        -14100.0,
+        0.0
+      ],
+      "yaw": 180.0,
+      "variant": 2,
+      "kind": "residential",
+      "external_sides": []
+    },
+    {
+      "id": "B_0_0_1_0_3",
+      "source_tag": "CC_Art_Building_0_0_1_0_3",
+      "source_collision_tag": "CC_City_Block_0_0_1_0",
+      "source_asset": "/Game/CityCourier/Art/Architecture/SM_ShopHouseA.SM_ShopHouseA",
+      "source_yaw": 0.0,
+      "width": 788.3333333333334,
+      "depth": 2300.0,
+      "location": [
+        -20150.833333333332,
+        -14100.0,
+        0.0
+      ],
+      "yaw": 180.0,
+      "variant": 0,
+      "kind": "residential",
+      "external_sides": [
+        -1
+      ]
+    },
+    {
+      "id": "B_0_0_1_1_0",
+      "source_tag": "CC_Art_Building_0_0_1_1_0",
+      "source_collision_tag": "CC_City_Block_0_0_1_1",
+      "source_asset": "/Game/CityCourier/Art/Architecture/SM_ShopHouseB.SM_ShopHouseB",
+      "source_yaw": 0.0,
+      "width": 788.3333333333334,
+      "depth": 2300.0,
+      "location": [
+        -19182.5,
+        -14100.0,
+        0.0
+      ],
+      "yaw": 180.0,
+      "variant": 1,
+      "kind": "residential",
+      "external_sides": [
+        1
+      ]
+    },
+    {
+      "id": "B_0_0_1_1_1",
+      "source_tag": "CC_Art_Building_0_0_1_1_1",
+      "source_collision_tag": "CC_City_Block_0_0_1_1",
+      "source_asset": "/Game/CityCourier/Art/Architecture/SM_ShopHouseC.SM_ShopHouseC",
+      "source_yaw": 0.0,
+      "width": 788.3333333333334,
+      "depth": 2300.0,
+      "location": [
+        -18394.166666666668,
+        -14100.0,
+        0.0
+      ],
+      "yaw": 180.0,
+      "variant": 2,
+      "kind": "residential",
+      "external_sides": []
+    },
+    {
+      "id": "B_0_0_1_1_2",
+      "source_tag": "CC_Art_Building_0_0_1_1_2",
+      "source_collision_tag": "CC_City_Block_0_0_1_1",
+      "source_asset": "/Game/CityCourier/Art/Architecture/SM_ShopHouseA.SM_ShopHouseA",
+      "source_yaw": 0.0,
+      "width": 788.3333333333334,
+      "depth": 2300.0,
+      "location": [
+        -17605.833333333336,
+        -14100.0,
+        0.0
+      ],
+      "yaw": 180.0,
+      "variant": 0,
+      "kind": "residential",
+      "external_sides": []
+    },
+    {
+      "id": "B_0_0_1_1_3",
+      "source_tag": "CC_Art_Building_0_0_1_1_3",
+      "source_collision_tag": "CC_City_Block_0_0_1_1",
+      "source_asset": "/Game/CityCourier/Art/Architecture/SM_ShopHouseB.SM_ShopHouseB",
+      "source_yaw": 0.0,
+      "width": 788.3333333333334,
+      "depth": 2300.0,
+      "location": [
+        -16817.5,
+        -14100.0,
+        0.0
+      ],
+      "yaw": 180.0,
+      "variant": 1,
+      "kind": "residential",
+      "external_sides": [
+        -1
+      ]
+    },
+    {
+      "id": "B_0_0_1_2_0",
+      "source_tag": "CC_Art_Building_0_0_1_2_0",
+      "source_collision_tag": "CC_City_Block_0_0_1_2",
+      "source_asset": "/Game/CityCourier/Art/Architecture/SM_ShopHouseC.SM_ShopHouseC",
+      "source_yaw": 0.0,
+      "width": 788.3333333333334,
+      "depth": 2300.0,
+      "location": [
+        -15849.166666666666,
+        -14100.0,
+        0.0
+      ],
+      "yaw": 180.0,
+      "variant": 2,
+      "kind": "residential",
+      "external_sides": [
+        1
+      ]
+    },
+    {
+      "id": "B_0_0_1_2_1",
+      "source_tag": "CC_Art_Building_0_0_1_2_1",
+      "source_collision_tag": "CC_City_Block_0_0_1_2",
+      "source_asset": "/Game/CityCourier/Art/Architecture/SM_ShopHouseA.SM_ShopHouseA",
+      "source_yaw": 0.0,
+      "width": 788.3333333333334,
+      "depth": 2300.0,
+      "location": [
+        -15060.833333333332,
+        -14100.0,
+        0.0
+      ],
+      "yaw": 180.0,
+      "variant": 0,
+      "kind": "residential",
+      "external_sides": []
+    },
+    {
+      "id": "B_0_0_1_2_2",
+      "source_tag": "CC_Art_Building_0_0_1_2_2",
+      "source_collision_tag": "CC_City_Block_0_0_1_2",
+      "source_asset": "/Game/CityCourier/Art/Architecture/SM_ShopHouseB.SM_ShopHouseB",
+      "source_yaw": 0.0,
+      "width": 788.3333333333334,
+      "depth": 2300.0,
+      "location": [
+        -14272.499999999998,
+        -14100.0,
+        0.0
+      ],
+      "yaw": 180.0,
+      "variant": 1,
+      "kind": "residential",
+      "external_sides": []
+    },
+    {
+      "id": "B_0_0_1_2_3",
+      "source_tag": "CC_Art_Building_0_0_1_2_3",
+      "source_collision_tag": "CC_City_Block_0_0_1_2",
+      "source_asset": "/Game/CityCourier/Art/Architecture/SM_ShopHouseC.SM_ShopHouseC",
+      "source_yaw": 0.0,
+      "width": 788.3333333333334,
+      "depth": 2300.0,
+      "location": [
+        -13484.166666666664,
+        -14100.0,
+        0.0
+      ],
+      "yaw": 180.0,
+      "variant": 2,
+      "kind": "residential",
+      "external_sides": [
+        -1
+      ]
+    },
+    {
+      "id": "B_0_1_0_0_0",
+      "source_tag": "CC_Art_Building_0_1_0_0_0",
+      "source_collision_tag": "CC_City_Block_0_1_0_0",
+      "source_asset": "/Game/CityCourier/Art/Architecture/SM_ShopHouseB.SM_ShopHouseB",
+      "source_yaw": 180.0,
+      "width": 1153.3333333333333,
+      "depth": 2300.0,
+      "location": [
+        -10333.333333333334,
+        -21900.0,
+        0.0
+      ],
+      "yaw": 0.0,
+      "variant": 1,
+      "kind": "office",
+      "external_sides": [
+        -1,
+        1
+      ]
+    },
+    {
+      "id": "B_0_1_0_1_0",
+      "source_tag": "CC_Art_Building_0_1_0_1_0",
+      "source_collision_tag": "CC_City_Block_0_1_0_1",
+      "source_asset": "/Game/CityCourier/Art/Architecture/SM_ShopHouseC.SM_ShopHouseC",
+      "source_yaw": 180.0,
+      "width": 1153.3333333333333,
+      "depth": 2300.0,
+      "location": [
+        -9000.0,
+        -21900.0,
+        0.0
+      ],
+      "yaw": 0.0,
+      "variant": 2,
+      "kind": "residential",
+      "external_sides": [
+        -1,
+        1
+      ]
+    },
+    {
+      "id": "B_0_1_0_2_0",
+      "source_tag": "CC_Art_Building_0_1_0_2_0",
+      "source_collision_tag": "CC_City_Block_0_1_0_2",
+      "source_asset": "/Game/CityCourier/Art/Architecture/SM_ShopHouseA.SM_ShopHouseA",
+      "source_yaw": 180.0,
+      "width": 1153.3333333333333,
+      "depth": 2300.0,
+      "location": [
+        -7666.666666666665,
+        -21900.0,
+        0.0
+      ],
+      "yaw": 0.0,
+      "variant": 0,
+      "kind": "residential",
+      "external_sides": [
+        -1,
+        1
+      ]
+    },
+    {
+      "id": "B_0_1_1_0_0",
+      "source_tag": "CC_Art_Building_0_1_1_0_0",
+      "source_collision_tag": "CC_City_Block_0_1_1_0",
+      "source_asset": "/Game/CityCourier/Art/Architecture/SM_ShopHouseB.SM_ShopHouseB",
+      "source_yaw": 0.0,
+      "width": 1153.3333333333333,
+      "depth": 2300.0,
+      "location": [
+        -10333.333333333334,
+        -14100.0,
+        0.0
+      ],
+      "yaw": 180.0,
+      "variant": 1,
+      "kind": "residential",
+      "external_sides": [
+        -1,
+        1
+      ]
+    },
+    {
+      "id": "B_0_1_1_1_0",
+      "source_tag": "CC_Art_Building_0_1_1_1_0",
+      "source_collision_tag": "CC_City_Block_0_1_1_1",
+      "source_asset": "/Game/CityCourier/Art/Architecture/SM_ShopHouseC.SM_ShopHouseC",
+      "source_yaw": 0.0,
+      "width": 1153.3333333333333,
+      "depth": 2300.0,
+      "location": [
+        -9000.0,
+        -14100.0,
+        0.0
+      ],
+      "yaw": 180.0,
+      "variant": 2,
+      "kind": "residential",
+      "external_sides": [
+        -1,
+        1
+      ]
+    },
+    {
+      "id": "B_0_1_1_2_0",
+      "source_tag": "CC_Art_Building_0_1_1_2_0",
+      "source_collision_tag": "CC_City_Block_0_1_1_2",
+      "source_asset": "/Game/CityCourier/Art/Architecture/SM_ShopHouseA.SM_ShopHouseA",
+      "source_yaw": 0.0,
+      "width": 1153.3333333333333,
+      "depth": 2300.0,
+      "location": [
+        -7666.666666666665,
+        -14100.0,
+        0.0
+      ],
+      "yaw": 180.0,
+      "variant": 0,
+      "kind": "residential",
+      "external_sides": [
+        -1,
+        1
+      ]
+    },
+    {
+      "id": "B_0_2_0_0_0",
+      "source_tag": "CC_Art_Building_0_2_0_0_0",
+      "source_collision_tag": "CC_City_Block_0_2_0_0",
+      "source_asset": "/Game/CityCourier/Art/Architecture/SM_ShopHouseC.SM_ShopHouseC",
+      "source_yaw": 180.0,
+      "width": 1153.3333333333333,
+      "depth": 2300.0,
+      "location": [
+        -4333.333333333333,
+        -21900.0,
+        0.0
+      ],
+      "yaw": 0.0,
+      "variant": 2,
+      "kind": "residential",
+      "external_sides": [
+        -1,
+        1
+      ]
+    },
+    {
+      "id": "B_0_2_0_1_0",
+      "source_tag": "CC_Art_Building_0_2_0_1_0",
+      "source_collision_tag": "CC_City_Block_0_2_0_1",
+      "source_asset": "/Game/CityCourier/Art/Architecture/SM_ShopHouseA.SM_ShopHouseA",
+      "source_yaw": 180.0,
+      "width": 1153.3333333333333,
+      "depth": 2300.0,
+      "location": [
+        -3000.0,
+        -21900.0,
+        0.0
+      ],
+      "yaw": 0.0,
+      "variant": 0,
+      "kind": "residential",
+      "external_sides": [
+        -1,
+        1
+      ]
+    },
+    {
+      "id": "B_0_2_0_2_0",
+      "source_tag": "CC_Art_Building_0_2_0_2_0",
+      "source_collision_tag": "CC_City_Block_0_2_0_2",
+      "source_asset": "/Game/CityCourier/Art/Architecture/SM_ShopHouseB.SM_ShopHouseB",
+      "source_yaw": 180.0,
+      "width": 1153.3333333333333,
+      "depth": 2300.0,
+      "location": [
+        -1666.6666666666665,
+        -21900.0,
+        0.0
+      ],
+      "yaw": 0.0,
+      "variant": 1,
+      "kind": "residential",
+      "external_sides": [
+        -1,
+        1
+      ]
+    },
+    {
+      "id": "B_0_2_1_0_0",
+      "source_tag": "CC_Art_Building_0_2_1_0_0",
+      "source_collision_tag": "CC_City_Block_0_2_1_0",
+      "source_asset": "/Game/CityCourier/Art/Architecture/SM_ShopHouseC.SM_ShopHouseC",
+      "source_yaw": 0.0,
+      "width": 1153.3333333333333,
+      "depth": 2300.0,
+      "location": [
+        -4333.333333333333,
+        -14100.0,
+        0.0
+      ],
+      "yaw": 180.0,
+      "variant": 2,
+      "kind": "residential",
+      "external_sides": [
+        -1,
+        1
+      ]
+    },
+    {
+      "id": "B_0_2_1_1_0",
+      "source_tag": "CC_Art_Building_0_2_1_1_0",
+      "source_collision_tag": "CC_City_Block_0_2_1_1",
+      "source_asset": "/Game/CityCourier/Art/Architecture/SM_ShopHouseA.SM_ShopHouseA",
+      "source_yaw": 0.0,
+      "width": 1153.3333333333333,
+      "depth": 2300.0,
+      "location": [
+        -3000.0,
+        -14100.0,
+        0.0
+      ],
+      "yaw": 180.0,
+      "variant": 0,
+      "kind": "residential",
+      "external_sides": [
+        -1,
+        1
+      ]
+    },
+    {
+      "id": "B_0_2_1_2_0",
+      "source_tag": "CC_Art_Building_0_2_1_2_0",
+      "source_collision_tag": "CC_City_Block_0_2_1_2",
+      "source_asset": "/Game/CityCourier/Art/Architecture/SM_ShopHouseB.SM_ShopHouseB",
+      "source_yaw": 0.0,
+      "width": 1153.3333333333333,
+      "depth": 2300.0,
+      "location": [
+        -1666.6666666666665,
+        -14100.0,
+        0.0
+      ],
+      "yaw": 180.0,
+      "variant": 1,
+      "kind": "residential",
+      "external_sides": [
+        -1,
+        1
+      ]
+    },
+    {
+      "id": "B_0_3_0_0_0",
+      "source_tag": "CC_Art_Building_0_3_0_0_0",
+      "source_collision_tag": "CC_City_Block_0_3_0_0",
+      "source_asset": "/Game/CityCourier/Art/Architecture/SM_ShopHouseA.SM_ShopHouseA",
+      "source_yaw": 180.0,
+      "width": 1153.3333333333333,
+      "depth": 2300.0,
+      "location": [
+        1666.6666666666665,
+        -21900.0,
+        0.0
+      ],
+      "yaw": 0.0,
+      "variant": 0,
+      "kind": "residential",
+      "external_sides": [
+        -1,
+        1
+      ]
+    },
+    {
+      "id": "B_0_3_0_1_0",
+      "source_tag": "CC_Art_Building_0_3_0_1_0",
+      "source_collision_tag": "CC_City_Block_0_3_0_1",
+      "source_asset": "/Game/CityCourier/Art/Architecture/SM_ShopHouseB.SM_ShopHouseB",
+      "source_yaw": 180.0,
+      "width": 1153.3333333333333,
+      "depth": 2300.0,
+      "location": [
+        3000.0,
+        -21900.0,
+        0.0
+      ],
+      "yaw": 0.0,
+      "variant": 1,
+      "kind": "residential",
+      "external_sides": [
+        -1,
+        1
+      ]
+    },
+    {
+      "id": "B_0_3_0_2_0",
+      "source_tag": "CC_Art_Building_0_3_0_2_0",
+      "source_collision_tag": "CC_City_Block_0_3_0_2",
+      "source_asset": "/Game/CityCourier/Art/Architecture/SM_ShopHouseC.SM_ShopHouseC",
+      "source_yaw": 180.0,
+      "width": 1153.3333333333333,
+      "depth": 2300.0,
+      "location": [
+        4333.333333333334,
+        -21900.0,
+        0.0
+      ],
+      "yaw": 0.0,
+      "variant": 2,
+      "kind": "residential",
+      "external_sides": [
+        -1,
+        1
+      ]
+    },
+    {
+      "id": "B_0_3_1_0_0",
+      "source_tag": "CC_Art_Building_0_3_1_0_0",
+      "source_collision_tag": "CC_City_Block_0_3_1_0",
+      "source_asset": "/Game/CityCourier/Art/Architecture/SM_ShopHouseA.SM_ShopHouseA",
+      "source_yaw": 0.0,
+      "width": 1153.3333333333333,
+      "depth": 2300.0,
+      "location": [
+        1666.6666666666665,
+        -14100.0,
+        0.0
+      ],
+      "yaw": 180.0,
+      "variant": 0,
+      "kind": "residential",
+      "external_sides": [
+        -1,
+        1
+      ]
+    },
+    {
+      "id": "B_0_3_1_1_0",
+      "source_tag": "CC_Art_Building_0_3_1_1_0",
+      "source_collision_tag": "CC_City_Block_0_3_1_1",
+      "source_asset": "/Game/CityCourier/Art/Architecture/SM_ShopHouseB.SM_ShopHouseB",
+      "source_yaw": 0.0,
+      "width": 1153.3333333333333,
+      "depth": 2300.0,
+      "location": [
+        3000.0,
+        -14100.0,
+        0.0
+      ],
+      "yaw": 180.0,
+      "variant": 1,
+      "kind": "residential",
+      "external_sides": [
+        -1,
+        1
+      ]
+    },
+    {
+      "id": "B_0_3_1_2_0",
+      "source_tag": "CC_Art_Building_0_3_1_2_0",
+      "source_collision_tag": "CC_City_Block_0_3_1_2",
+      "source_asset": "/Game/CityCourier/Art/Architecture/SM_ShopHouseC.SM_ShopHouseC",
+      "source_yaw": 0.0,
+      "width": 1153.3333333333333,
+      "depth": 2300.0,
+      "location": [
+        4333.333333333334,
+        -14100.0,
+        0.0
+      ],
+      "yaw": 180.0,
+      "variant": 2,
+      "kind": "residential",
+      "external_sides": [
+        -1,
+        1
+      ]
+    },
+    {
+      "id": "B_0_4_0_0_0",
+      "source_tag": "CC_Art_Building_0_4_0_0_0",
+      "source_collision_tag": "CC_City_Block_0_4_0_0",
+      "source_asset": "/Game/CityCourier/Art/Architecture/SM_ShopHouseB.SM_ShopHouseB",
+      "source_yaw": 180.0,
+      "width": 1153.3333333333333,
+      "depth": 2300.0,
+      "location": [
+        7666.666666666667,
+        -21900.0,
+        0.0
+      ],
+      "yaw": 0.0,
+      "variant": 1,
+      "kind": "residential",
+      "external_sides": [
+        -1,
+        1
+      ]
+    },
+    {
+      "id": "B_0_4_0_1_0",
+      "source_tag": "CC_Art_Building_0_4_0_1_0",
+      "source_collision_tag": "CC_City_Block_0_4_0_1",
+      "source_asset": "/Game/CityCourier/Art/Architecture/SM_ShopHouseC.SM_ShopHouseC",
+      "source_yaw": 180.0,
+      "width": 1153.3333333333333,
+      "depth": 2300.0,
+      "location": [
+        9000.0,
+        -21900.0,
+        0.0
+      ],
+      "yaw": 0.0,
+      "variant": 2,
+      "kind": "residential",
+      "external_sides": [
+        -1,
+        1
+      ]
+    },
+    {
+      "id": "B_0_4_0_2_0",
+      "source_tag": "CC_Art_Building_0_4_0_2_0",
+      "source_collision_tag": "CC_City_Block_0_4_0_2",
+      "source_asset": "/Game/CityCourier/Art/Architecture/SM_ShopHouseA.SM_ShopHouseA",
+      "source_yaw": 180.0,
+      "width": 1153.3333333333333,
+      "depth": 2300.0,
+      "location": [
+        10333.333333333334,
+        -21900.0,
+        0.0
+      ],
+      "yaw": 0.0,
+      "variant": 0,
+      "kind": "residential",
+      "external_sides": [
+        -1,
+        1
+      ]
+    },
+    {
+      "id": "B_0_4_1_0_0",
+      "source_tag": "CC_Art_Building_0_4_1_0_0",
+      "source_collision_tag": "CC_City_Block_0_4_1_0",
+      "source_asset": "/Game/CityCourier/Art/Architecture/SM_ShopHouseB.SM_ShopHouseB",
+      "source_yaw": 0.0,
+      "width": 1153.3333333333333,
+      "depth": 2300.0,
+      "location": [
+        7666.666666666667,
+        -14100.0,
+        0.0
+      ],
+      "yaw": 180.0,
+      "variant": 1,
+      "kind": "residential",
+      "external_sides": [
+        -1,
+        1
+      ]
+    },
+    {
+      "id": "B_0_4_1_1_0",
+      "source_tag": "CC_Art_Building_0_4_1_1_0",
+      "source_collision_tag": "CC_City_Block_0_4_1_1",
+      "source_asset": "/Game/CityCourier/Art/Architecture/SM_ShopHouseC.SM_ShopHouseC",
+      "source_yaw": 0.0,
+      "width": 1153.3333333333333,
+      "depth": 2300.0,
+      "location": [
+        9000.0,
+        -14100.0,
+        0.0
+      ],
+      "yaw": 180.0,
+      "variant": 2,
+      "kind": "residential",
+      "external_sides": [
+        -1,
+        1
+      ]
+    },
+    {
+      "id": "B_0_4_1_2_0",
+      "source_tag": "CC_Art_Building_0_4_1_2_0",
+      "source_collision_tag": "CC_City_Block_0_4_1_2",
+      "source_asset": "/Game/CityCourier/Art/Architecture/SM_ShopHouseA.SM_ShopHouseA",
+      "source_yaw": 0.0,
+      "width": 1153.3333333333333,
+      "depth": 2300.0,
+      "location": [
+        10333.333333333334,
+        -14100.0,
+        0.0
+      ],
+      "yaw": 180.0,
+      "variant": 0,
+      "kind": "residential",
+      "external_sides": [
+        -1,
+        1
+      ]
+    },
+    {
+      "id": "B_0_5_0_0_0",
+      "source_tag": "CC_Art_Building_0_5_0_0_0",
+      "source_collision_tag": "CC_City_Block_0_5_0_0",
+      "source_asset": "/Game/CityCourier/Art/Architecture/SM_ShopHouseC.SM_ShopHouseC",
+      "source_yaw": 180.0,
+      "width": 788.3333333333334,
+      "depth": 2300.0,
+      "location": [
+        13484.166666666666,
+        -21900.0,
+        0.0
+      ],
+      "yaw": 0.0,
+      "variant": 2,
+      "kind": "office",
+      "external_sides": [
+        -1
+      ]
+    },
+    {
+      "id": "B_0_5_0_0_1",
+      "source_tag": "CC_Art_Building_0_5_0_0_1",
+      "source_collision_tag": "CC_City_Block_0_5_0_0",
+      "source_asset": "/Game/CityCourier/Art/Architecture/SM_ShopHouseA.SM_ShopHouseA",
+      "source_yaw": 180.0,
+      "width": 788.3333333333334,
+      "depth": 2300.0,
+      "location": [
+        14272.5,
+        -21900.0,
+        0.0
+      ],
+      "yaw": 0.0,
+      "variant": 0,
+      "kind": "residential",
+      "external_sides": []
+    },
+    {
+      "id": "B_0_5_0_0_2",
+      "source_tag": "CC_Art_Building_0_5_0_0_2",
+      "source_collision_tag": "CC_City_Block_0_5_0_0",
+      "source_asset": "/Game/CityCourier/Art/Architecture/SM_ShopHouseB.SM_ShopHouseB",
+      "source_yaw": 180.0,
+      "width": 788.3333333333334,
+      "depth": 2300.0,
+      "location": [
+        15060.833333333334,
+        -21900.0,
+        0.0
+      ],
+      "yaw": 0.0,
+      "variant": 1,
+      "kind": "residential",
+      "external_sides": []
+    },
+    {
+      "id": "B_0_5_0_0_3",
+      "source_tag": "CC_Art_Building_0_5_0_0_3",
+      "source_collision_tag": "CC_City_Block_0_5_0_0",
+      "source_asset": "/Game/CityCourier/Art/Architecture/SM_ShopHouseC.SM_ShopHouseC",
+      "source_yaw": 180.0,
+      "width": 788.3333333333334,
+      "depth": 2300.0,
+      "location": [
+        15849.166666666668,
+        -21900.0,
+        0.0
+      ],
+      "yaw": 0.0,
+      "variant": 2,
+      "kind": "residential",
+      "external_sides": [
+        1
+      ]
+    },
+    {
+      "id": "B_0_5_0_1_0",
+      "source_tag": "CC_Art_Building_0_5_0_1_0",
+      "source_collision_tag": "CC_City_Block_0_5_0_1",
+      "source_asset": "/Game/CityCourier/Art/Architecture/SM_ShopHouseA.SM_ShopHouseA",
+      "source_yaw": 180.0,
+      "width": 788.3333333333334,
+      "depth": 2300.0,
+      "location": [
+        16817.5,
+        -21900.0,
+        0.0
+      ],
+      "yaw": 0.0,
+      "variant": 0,
+      "kind": "residential",
+      "external_sides": [
+        -1
+      ]
+    },
+    {
+      "id": "B_0_5_0_1_1",
+      "source_tag": "CC_Art_Building_0_5_0_1_1",
+      "source_collision_tag": "CC_City_Block_0_5_0_1",
+      "source_asset": "/Game/CityCourier/Art/Architecture/SM_ShopHouseB.SM_ShopHouseB",
+      "source_yaw": 180.0,
+      "width": 788.3333333333334,
+      "depth": 2300.0,
+      "location": [
+        17605.833333333332,
+        -21900.0,
+        0.0
+      ],
+      "yaw": 0.0,
+      "variant": 1,
+      "kind": "residential",
+      "external_sides": []
+    },
+    {
+      "id": "B_0_5_0_1_2",
+      "source_tag": "CC_Art_Building_0_5_0_1_2",
+      "source_collision_tag": "CC_City_Block_0_5_0_1",
+      "source_asset": "/Game/CityCourier/Art/Architecture/SM_ShopHouseC.SM_ShopHouseC",
+      "source_yaw": 180.0,
+      "width": 788.3333333333334,
+      "depth": 2300.0,
+      "location": [
+        18394.166666666664,
+        -21900.0,
+        0.0
+      ],
+      "yaw": 0.0,
+      "variant": 2,
+      "kind": "residential",
+      "external_sides": []
+    },
+    {
+      "id": "B_0_5_0_1_3",
+      "source_tag": "CC_Art_Building_0_5_0_1_3",
+      "source_collision_tag": "CC_City_Block_0_5_0_1",
+      "source_asset": "/Game/CityCourier/Art/Architecture/SM_ShopHouseA.SM_ShopHouseA",
+      "source_yaw": 180.0,
+      "width": 788.3333333333334,
+      "depth": 2300.0,
+      "location": [
+        19182.5,
+        -21900.0,
+        0.0
+      ],
+      "yaw": 0.0,
+      "variant": 0,
+      "kind": "residential",
+      "external_sides": [
+        1
+      ]
+    },
+    {
+      "id": "B_0_5_0_2_0",
+      "source_tag": "CC_Art_Building_0_5_0_2_0",
+      "source_collision_tag": "CC_City_Block_0_5_0_2",
+      "source_asset": "/Game/CityCourier/Art/Architecture/SM_ShopHouseB.SM_ShopHouseB",
+      "source_yaw": 180.0,
+      "width": 788.3333333333334,
+      "depth": 2300.0,
+      "location": [
+        20150.833333333336,
+        -21900.0,
+        0.0
+      ],
+      "yaw": 0.0,
+      "variant": 1,
+      "kind": "residential",
+      "external_sides": [
+        -1
+      ]
+    },
+    {
+      "id": "B_0_5_0_2_1",
+      "source_tag": "CC_Art_Building_0_5_0_2_1",
+      "source_collision_tag": "CC_City_Block_0_5_0_2",
+      "source_asset": "/Game/CityCourier/Art/Architecture/SM_ShopHouseC.SM_ShopHouseC",
+      "source_yaw": 180.0,
+      "width": 788.3333333333334,
+      "depth": 2300.0,
+      "location": [
+        20939.166666666668,
+        -21900.0,
+        0.0
+      ],
+      "yaw": 0.0,
+      "variant": 2,
+      "kind": "residential",
+      "external_sides": []
+    },
+    {
+      "id": "B_0_5_0_2_2",
+      "source_tag": "CC_Art_Building_0_5_0_2_2",
+      "source_collision_tag": "CC_City_Block_0_5_0_2",
+      "source_asset": "/Game/CityCourier/Art/Architecture/SM_ShopHouseA.SM_ShopHouseA",
+      "source_yaw": 180.0,
+      "width": 788.3333333333334,
+      "depth": 2300.0,
+      "location": [
+        21727.5,
+        -21900.0,
+        0.0
+      ],
+      "yaw": 0.0,
+      "variant": 0,
+      "kind": "residential",
+      "external_sides": []
+    },
+    {
+      "id": "B_0_5_0_2_3",
+      "source_tag": "CC_Art_Building_0_5_0_2_3",
+      "source_collision_tag": "CC_City_Block_0_5_0_2",
+      "source_asset": "/Game/CityCourier/Art/Architecture/SM_ShopHouseB.SM_ShopHouseB",
+      "source_yaw": 180.0,
+      "width": 788.3333333333334,
+      "depth": 2300.0,
+      "location": [
+        22515.833333333336,
+        -21900.0,
+        0.0
+      ],
+      "yaw": 0.0,
+      "variant": 1,
+      "kind": "residential",
+      "external_sides": [
+        1
+      ]
+    },
+    {
+      "id": "B_0_5_1_0_0",
+      "source_tag": "CC_Art_Building_0_5_1_0_0",
+      "source_collision_tag": "CC_City_Block_0_5_1_0",
+      "source_asset": "/Game/CityCourier/Art/Architecture/SM_ShopHouseC.SM_ShopHouseC",
+      "source_yaw": 0.0,
+      "width": 788.3333333333334,
+      "depth": 2300.0,
+      "location": [
+        13484.166666666666,
+        -14100.0,
+        0.0
+      ],
+      "yaw": 180.0,
+      "variant": 2,
+      "kind": "residential",
+      "external_sides": [
+        1
+      ]
+    },
+    {
+      "id": "B_0_5_1_0_1",
+      "source_tag": "CC_Art_Building_0_5_1_0_1",
+      "source_collision_tag": "CC_City_Block_0_5_1_0",
+      "source_asset": "/Game/CityCourier/Art/Architecture/SM_ShopHouseA.SM_ShopHouseA",
+      "source_yaw": 0.0,
+      "width": 788.3333333333334,
+      "depth": 2300.0,
+      "location": [
+        14272.5,
+        -14100.0,
+        0.0
+      ],
+      "yaw": 180.0,
+      "variant": 0,
+      "kind": "residential",
+      "external_sides": []
+    },
+    {
+      "id": "B_0_5_1_0_2",
+      "source_tag": "CC_Art_Building_0_5_1_0_2",
+      "source_collision_tag": "CC_City_Block_0_5_1_0",
+      "source_asset": "/Game/CityCourier/Art/Architecture/SM_ShopHouseB.SM_ShopHouseB",
+      "source_yaw": 0.0,
+      "width": 788.3333333333334,
+      "depth": 2300.0,
+      "location": [
+        15060.833333333334,
+        -14100.0,
+        0.0
+      ],
+      "yaw": 180.0,
+      "variant": 1,
+      "kind": "residential",
+      "external_sides": []
+    },
+    {
+      "id": "B_0_5_1_0_3",
+      "source_tag": "CC_Art_Building_0_5_1_0_3",
+      "source_collision_tag": "CC_City_Block_0_5_1_0",
+      "source_asset": "/Game/CityCourier/Art/Architecture/SM_ShopHouseC.SM_ShopHouseC",
+      "source_yaw": 0.0,
+      "width": 788.3333333333334,
+      "depth": 2300.0,
+      "location": [
+        15849.166666666668,
+        -14100.0,
+        0.0
+      ],
+      "yaw": 180.0,
+      "variant": 2,
+      "kind": "residential",
+      "external_sides": [
+        -1
+      ]
+    },
+    {
+      "id": "B_0_5_1_1_0",
+      "source_tag": "CC_Art_Building_0_5_1_1_0",
+      "source_collision_tag": "CC_City_Block_0_5_1_1",
+      "source_asset": "/Game/CityCourier/Art/Architecture/SM_ShopHouseA.SM_ShopHouseA",
+      "source_yaw": 0.0,
+      "width": 788.3333333333334,
+      "depth": 2300.0,
+      "location": [
+        16817.5,
+        -14100.0,
+        0.0
+      ],
+      "yaw": 180.0,
+      "variant": 0,
+      "kind": "residential",
+      "external_sides": [
+        1
+      ]
+    },
+    {
+      "id": "B_0_5_1_1_1",
+      "source_tag": "CC_Art_Building_0_5_1_1_1",
+      "source_collision_tag": "CC_City_Block_0_5_1_1",
+      "source_asset": "/Game/CityCourier/Art/Architecture/SM_ShopHouseB.SM_ShopHouseB",
+      "source_yaw": 0.0,
+      "width": 788.3333333333334,
+      "depth": 2300.0,
+      "location": [
+        17605.833333333332,
+        -14100.0,
+        0.0
+      ],
+      "yaw": 180.0,
+      "variant": 1,
+      "kind": "residential",
+      "external_sides": []
+    },
+    {
+      "id": "B_0_5_1_1_2",
+      "source_tag": "CC_Art_Building_0_5_1_1_2",
+      "source_collision_tag": "CC_City_Block_0_5_1_1",
+      "source_asset": "/Game/CityCourier/Art/Architecture/SM_ShopHouseC.SM_ShopHouseC",
+      "source_yaw": 0.0,
+      "width": 788.3333333333334,
+      "depth": 2300.0,
+      "location": [
+        18394.166666666664,
+        -14100.0,
+        0.0
+      ],
+      "yaw": 180.0,
+      "variant": 2,
+      "kind": "residential",
+      "external_sides": []
+    },
+    {
+      "id": "B_0_5_1_1_3",
+      "source_tag": "CC_Art_Building_0_5_1_1_3",
+      "source_collision_tag": "CC_City_Block_0_5_1_1",
+      "source_asset": "/Game/CityCourier/Art/Architecture/SM_ShopHouseA.SM_ShopHouseA",
+      "source_yaw": 0.0,
+      "width": 788.3333333333334,
+      "depth": 2300.0,
+      "location": [
+        19182.5,
+        -14100.0,
+        0.0
+      ],
+      "yaw": 180.0,
+      "variant": 0,
+      "kind": "residential",
+      "external_sides": [
+        -1
+      ]
+    },
+    {
+      "id": "B_0_5_1_2_0",
+      "source_tag": "CC_Art_Building_0_5_1_2_0",
+      "source_collision_tag": "CC_City_Block_0_5_1_2",
+      "source_asset": "/Game/CityCourier/Art/Architecture/SM_ShopHouseB.SM_ShopHouseB",
+      "source_yaw": 0.0,
+      "width": 788.3333333333334,
+      "depth": 2300.0,
+      "location": [
+        20150.833333333336,
+        -14100.0,
+        0.0
+      ],
+      "yaw": 180.0,
+      "variant": 1,
+      "kind": "residential",
+      "external_sides": [
+        1
+      ]
+    },
+    {
+      "id": "B_0_5_1_2_1",
+      "source_tag": "CC_Art_Building_0_5_1_2_1",
+      "source_collision_tag": "CC_City_Block_0_5_1_2",
+      "source_asset": "/Game/CityCourier/Art/Architecture/SM_ShopHouseC.SM_ShopHouseC",
+      "source_yaw": 0.0,
+      "width": 788.3333333333334,
+      "depth": 2300.0,
+      "location": [
+        20939.166666666668,
+        -14100.0,
+        0.0
+      ],
+      "yaw": 180.0,
+      "variant": 2,
+      "kind": "residential",
+      "external_sides": []
+    },
+    {
+      "id": "B_0_5_1_2_2",
+      "source_tag": "CC_Art_Building_0_5_1_2_2",
+      "source_collision_tag": "CC_City_Block_0_5_1_2",
+      "source_asset": "/Game/CityCourier/Art/Architecture/SM_ShopHouseA.SM_ShopHouseA",
+      "source_yaw": 0.0,
+      "width": 788.3333333333334,
+      "depth": 2300.0,
+      "location": [
+        21727.5,
+        -14100.0,
+        0.0
+      ],
+      "yaw": 180.0,
+      "variant": 0,
+      "kind": "residential",
+      "external_sides": []
+    },
+    {
+      "id": "B_0_5_1_2_3",
+      "source_tag": "CC_Art_Building_0_5_1_2_3",
+      "source_collision_tag": "CC_City_Block_0_5_1_2",
+      "source_asset": "/Game/CityCourier/Art/Architecture/SM_ShopHouseB.SM_ShopHouseB",
+      "source_yaw": 0.0,
+      "width": 788.3333333333334,
+      "depth": 2300.0,
+      "location": [
+        22515.833333333336,
+        -14100.0,
+        0.0
+      ],
+      "yaw": 180.0,
+      "variant": 1,
+      "kind": "residential",
+      "external_sides": [
+        -1
+      ]
+    },
+    {
+      "id": "B_1_0_0_0_0",
+      "source_tag": "CC_Art_Building_1_0_0_0_0",
+      "source_collision_tag": "CC_City_Block_1_0_0_0",
+      "source_asset": "/Game/CityCourier/Art/Architecture/SM_ShopHouseB.SM_ShopHouseB",
+      "source_yaw": 180.0,
+      "width": 788.3333333333334,
+      "depth": 2300.0,
+      "location": [
+        -22515.833333333332,
+        -9900.0,
+        0.0
+      ],
+      "yaw": 0.0,
+      "variant": 1,
+      "kind": "residential",
+      "external_sides": [
+        -1
+      ]
+    },
+    {
+      "id": "B_1_0_0_0_1",
+      "source_tag": "CC_Art_Building_1_0_0_0_1",
+      "source_collision_tag": "CC_City_Block_1_0_0_0",
+      "source_asset": "/Game/CityCourier/Art/Architecture/SM_ShopHouseC.SM_ShopHouseC",
+      "source_yaw": 180.0,
+      "width": 788.3333333333334,
+      "depth": 2300.0,
+      "location": [
+        -21727.5,
+        -9900.0,
+        0.0
+      ],
+      "yaw": 0.0,
+      "variant": 2,
+      "kind": "residential",
+      "external_sides": []
+    },
+    {
+      "id": "B_1_0_0_0_2",
+      "source_tag": "CC_Art_Building_1_0_0_0_2",
+      "source_collision_tag": "CC_City_Block_1_0_0_0",
+      "source_asset": "/Game/CityCourier/Art/Architecture/SM_ShopHouseA.SM_ShopHouseA",
+      "source_yaw": 180.0,
+      "width": 788.3333333333334,
+      "depth": 2300.0,
+      "location": [
+        -20939.166666666668,
+        -9900.0,
+        0.0
+      ],
+      "yaw": 0.0,
+      "variant": 0,
+      "kind": "residential",
+      "external_sides": []
+    },
+    {
+      "id": "B_1_0_0_0_3",
+      "source_tag": "CC_Art_Building_1_0_0_0_3",
+      "source_collision_tag": "CC_City_Block_1_0_0_0",
+      "source_asset": "/Game/CityCourier/Art/Architecture/SM_ShopHouseB.SM_ShopHouseB",
+      "source_yaw": 180.0,
+      "width": 788.3333333333334,
+      "depth": 2300.0,
+      "location": [
+        -20150.833333333332,
+        -9900.0,
+        0.0
+      ],
+      "yaw": 0.0,
+      "variant": 1,
+      "kind": "residential",
+      "external_sides": [
+        1
+      ]
+    },
+    {
+      "id": "B_1_0_0_1_0",
+      "source_tag": "CC_Art_Building_1_0_0_1_0",
+      "source_collision_tag": "CC_City_Block_1_0_0_1",
+      "source_asset": "/Game/CityCourier/Art/Architecture/SM_ShopHouseC.SM_ShopHouseC",
+      "source_yaw": 180.0,
+      "width": 788.3333333333334,
+      "depth": 2300.0,
+      "location": [
+        -19182.5,
+        -9900.0,
+        0.0
+      ],
+      "yaw": 0.0,
+      "variant": 2,
+      "kind": "residential",
+      "external_sides": [
+        -1
+      ]
+    },
+    {
+      "id": "B_1_0_0_1_1",
+      "source_tag": "CC_Art_Building_1_0_0_1_1",
+      "source_collision_tag": "CC_City_Block_1_0_0_1",
+      "source_asset": "/Game/CityCourier/Art/Architecture/SM_ShopHouseA.SM_ShopHouseA",
+      "source_yaw": 180.0,
+      "width": 788.3333333333334,
+      "depth": 2300.0,
+      "location": [
+        -18394.166666666668,
+        -9900.0,
+        0.0
+      ],
+      "yaw": 0.0,
+      "variant": 0,
+      "kind": "residential",
+      "external_sides": []
+    },
+    {
+      "id": "B_1_0_0_1_2",
+      "source_tag": "CC_Art_Building_1_0_0_1_2",
+      "source_collision_tag": "CC_City_Block_1_0_0_1",
+      "source_asset": "/Game/CityCourier/Art/Architecture/SM_ShopHouseB.SM_ShopHouseB",
+      "source_yaw": 180.0,
+      "width": 788.3333333333334,
+      "depth": 2300.0,
+      "location": [
+        -17605.833333333336,
+        -9900.0,
+        0.0
+      ],
+      "yaw": 0.0,
+      "variant": 1,
+      "kind": "residential",
+      "external_sides": []
+    },
+    {
+      "id": "B_1_0_0_1_3",
+      "source_tag": "CC_Art_Building_1_0_0_1_3",
+      "source_collision_tag": "CC_City_Block_1_0_0_1",
+      "source_asset": "/Game/CityCourier/Art/Architecture/SM_ShopHouseC.SM_ShopHouseC",
+      "source_yaw": 180.0,
+      "width": 788.3333333333334,
+      "depth": 2300.0,
+      "location": [
+        -16817.5,
+        -9900.0,
+        0.0
+      ],
+      "yaw": 0.0,
+      "variant": 2,
+      "kind": "residential",
+      "external_sides": [
+        1
+      ]
+    },
+    {
+      "id": "B_1_0_0_2_0",
+      "source_tag": "CC_Art_Building_1_0_0_2_0",
+      "source_collision_tag": "CC_City_Block_1_0_0_2",
+      "source_asset": "/Game/CityCourier/Art/Architecture/SM_ShopHouseA.SM_ShopHouseA",
+      "source_yaw": 180.0,
+      "width": 788.3333333333334,
+      "depth": 2300.0,
+      "location": [
+        -15849.166666666666,
+        -9900.0,
+        0.0
+      ],
+      "yaw": 0.0,
+      "variant": 0,
+      "kind": "residential",
+      "external_sides": [
+        -1
+      ]
+    },
+    {
+      "id": "B_1_0_0_2_1",
+      "source_tag": "CC_Art_Building_1_0_0_2_1",
+      "source_collision_tag": "CC_City_Block_1_0_0_2",
+      "source_asset": "/Game/CityCourier/Art/Architecture/SM_ShopHouseB.SM_ShopHouseB",
+      "source_yaw": 180.0,
+      "width": 788.3333333333334,
+      "depth": 2300.0,
+      "location": [
+        -15060.833333333332,
+        -9900.0,
+        0.0
+      ],
+      "yaw": 0.0,
+      "variant": 1,
+      "kind": "residential",
+      "external_sides": []
+    },
+    {
+      "id": "B_1_0_0_2_2",
+      "source_tag": "CC_Art_Building_1_0_0_2_2",
+      "source_collision_tag": "CC_City_Block_1_0_0_2",
+      "source_asset": "/Game/CityCourier/Art/Architecture/SM_ShopHouseC.SM_ShopHouseC",
+      "source_yaw": 180.0,
+      "width": 788.3333333333334,
+      "depth": 2300.0,
+      "location": [
+        -14272.499999999998,
+        -9900.0,
+        0.0
+      ],
+      "yaw": 0.0,
+      "variant": 2,
+      "kind": "residential",
+      "external_sides": []
+    },
+    {
+      "id": "B_1_0_0_2_3",
+      "source_tag": "CC_Art_Building_1_0_0_2_3",
+      "source_collision_tag": "CC_City_Block_1_0_0_2",
+      "source_asset": "/Game/CityCourier/Art/Architecture/SM_ShopHouseA.SM_ShopHouseA",
+      "source_yaw": 180.0,
+      "width": 788.3333333333334,
+      "depth": 2300.0,
+      "location": [
+        -13484.166666666664,
+        -9900.0,
+        0.0
+      ],
+      "yaw": 0.0,
+      "variant": 0,
+      "kind": "residential",
+      "external_sides": [
+        1
+      ]
+    },
+    {
+      "id": "B_1_0_1_0_0",
+      "source_tag": "CC_Art_Building_1_0_1_0_0",
+      "source_collision_tag": "CC_City_Block_1_0_1_0",
+      "source_asset": "/Game/CityCourier/Art/Architecture/SM_ShopHouseB.SM_ShopHouseB",
+      "source_yaw": 0.0,
+      "width": 788.3333333333334,
+      "depth": 2300.0,
+      "location": [
+        -22515.833333333332,
+        -2100.0,
+        0.0
+      ],
+      "yaw": 180.0,
+      "variant": 1,
+      "kind": "residential",
+      "external_sides": [
+        1
+      ]
+    },
+    {
+      "id": "B_1_0_1_0_1",
+      "source_tag": "CC_Art_Building_1_0_1_0_1",
+      "source_collision_tag": "CC_City_Block_1_0_1_0",
+      "source_asset": "/Game/CityCourier/Art/Architecture/SM_ShopHouseC.SM_ShopHouseC",
+      "source_yaw": 0.0,
+      "width": 788.3333333333334,
+      "depth": 2300.0,
+      "location": [
+        -21727.5,
+        -2100.0,
+        0.0
+      ],
+      "yaw": 180.0,
+      "variant": 2,
+      "kind": "residential",
+      "external_sides": []
+    },
+    {
+      "id": "B_1_0_1_0_2",
+      "source_tag": "CC_Art_Building_1_0_1_0_2",
+      "source_collision_tag": "CC_City_Block_1_0_1_0",
+      "source_asset": "/Game/CityCourier/Art/Architecture/SM_ShopHouseA.SM_ShopHouseA",
+      "source_yaw": 0.0,
+      "width": 788.3333333333334,
+      "depth": 2300.0,
+      "location": [
+        -20939.166666666668,
+        -2100.0,
+        0.0
+      ],
+      "yaw": 180.0,
+      "variant": 0,
+      "kind": "residential",
+      "external_sides": []
+    },
+    {
+      "id": "B_1_0_1_0_3",
+      "source_tag": "CC_Art_Building_1_0_1_0_3",
+      "source_collision_tag": "CC_City_Block_1_0_1_0",
+      "source_asset": "/Game/CityCourier/Art/Architecture/SM_ShopHouseB.SM_ShopHouseB",
+      "source_yaw": 0.0,
+      "width": 788.3333333333334,
+      "depth": 2300.0,
+      "location": [
+        -20150.833333333332,
+        -2100.0,
+        0.0
+      ],
+      "yaw": 180.0,
+      "variant": 1,
+      "kind": "residential",
+      "external_sides": [
+        -1
+      ]
+    },
+    {
+      "id": "B_1_0_1_1_0",
+      "source_tag": "CC_Art_Building_1_0_1_1_0",
+      "source_collision_tag": "CC_City_Block_1_0_1_1",
+      "source_asset": "/Game/CityCourier/Art/Architecture/SM_ShopHouseC.SM_ShopHouseC",
+      "source_yaw": 0.0,
+      "width": 788.3333333333334,
+      "depth": 2300.0,
+      "location": [
+        -19182.5,
+        -2100.0,
+        0.0
+      ],
+      "yaw": 180.0,
+      "variant": 2,
+      "kind": "residential",
+      "external_sides": [
+        1
+      ]
+    },
+    {
+      "id": "B_1_0_1_1_1",
+      "source_tag": "CC_Art_Building_1_0_1_1_1",
+      "source_collision_tag": "CC_City_Block_1_0_1_1",
+      "source_asset": "/Game/CityCourier/Art/Architecture/SM_ShopHouseA.SM_ShopHouseA",
+      "source_yaw": 0.0,
+      "width": 788.3333333333334,
+      "depth": 2300.0,
+      "location": [
+        -18394.166666666668,
+        -2100.0,
+        0.0
+      ],
+      "yaw": 180.0,
+      "variant": 0,
+      "kind": "residential",
+      "external_sides": []
+    },
+    {
+      "id": "B_1_0_1_1_2",
+      "source_tag": "CC_Art_Building_1_0_1_1_2",
+      "source_collision_tag": "CC_City_Block_1_0_1_1",
+      "source_asset": "/Game/CityCourier/Art/Architecture/SM_ShopHouseB.SM_ShopHouseB",
+      "source_yaw": 0.0,
+      "width": 788.3333333333334,
+      "depth": 2300.0,
+      "location": [
+        -17605.833333333336,
+        -2100.0,
+        0.0
+      ],
+      "yaw": 180.0,
+      "variant": 1,
+      "kind": "residential",
+      "external_sides": []
+    },
+    {
+      "id": "B_1_0_1_1_3",
+      "source_tag": "CC_Art_Building_1_0_1_1_3",
+      "source_collision_tag": "CC_City_Block_1_0_1_1",
+      "source_asset": "/Game/CityCourier/Art/Architecture/SM_ShopHouseC.SM_ShopHouseC",
+      "source_yaw": 0.0,
+      "width": 788.3333333333334,
+      "depth": 2300.0,
+      "location": [
+        -16817.5,
+        -2100.0,
+        0.0
+      ],
+      "yaw": 180.0,
+      "variant": 2,
+      "kind": "residential",
+      "external_sides": [
+        -1
+      ]
+    },
+    {
+      "id": "B_1_0_1_2_0",
+      "source_tag": "CC_Art_Building_1_0_1_2_0",
+      "source_collision_tag": "CC_City_Block_1_0_1_2",
+      "source_asset": "/Game/CityCourier/Art/Architecture/SM_ShopHouseA.SM_ShopHouseA",
+      "source_yaw": 0.0,
+      "width": 788.3333333333334,
+      "depth": 2300.0,
+      "location": [
+        -15849.166666666666,
+        -2100.0,
+        0.0
+      ],
+      "yaw": 180.0,
+      "variant": 0,
+      "kind": "residential",
+      "external_sides": [
+        1
+      ]
+    },
+    {
+      "id": "B_1_0_1_2_1",
+      "source_tag": "CC_Art_Building_1_0_1_2_1",
+      "source_collision_tag": "CC_City_Block_1_0_1_2",
+      "source_asset": "/Game/CityCourier/Art/Architecture/SM_ShopHouseB.SM_ShopHouseB",
+      "source_yaw": 0.0,
+      "width": 788.3333333333334,
+      "depth": 2300.0,
+      "location": [
+        -15060.833333333332,
+        -2100.0,
+        0.0
+      ],
+      "yaw": 180.0,
+      "variant": 1,
+      "kind": "residential",
+      "external_sides": []
+    },
+    {
+      "id": "B_1_0_1_2_2",
+      "source_tag": "CC_Art_Building_1_0_1_2_2",
+      "source_collision_tag": "CC_City_Block_1_0_1_2",
+      "source_asset": "/Game/CityCourier/Art/Architecture/SM_ShopHouseC.SM_ShopHouseC",
+      "source_yaw": 0.0,
+      "width": 788.3333333333334,
+      "depth": 2300.0,
+      "location": [
+        -14272.499999999998,
+        -2100.0,
+        0.0
+      ],
+      "yaw": 180.0,
+      "variant": 2,
+      "kind": "residential",
+      "external_sides": []
+    },
+    {
+      "id": "B_1_0_1_2_3",
+      "source_tag": "CC_Art_Building_1_0_1_2_3",
+      "source_collision_tag": "CC_City_Block_1_0_1_2",
+      "source_asset": "/Game/CityCourier/Art/Architecture/SM_ShopHouseA.SM_ShopHouseA",
+      "source_yaw": 0.0,
+      "width": 788.3333333333334,
+      "depth": 2300.0,
+      "location": [
+        -13484.166666666664,
+        -2100.0,
+        0.0
+      ],
+      "yaw": 180.0,
+      "variant": 0,
+      "kind": "residential",
+      "external_sides": [
+        -1
+      ]
+    },
+    {
+      "id": "B_1_1_0_0_0",
+      "source_tag": "CC_Art_Building_1_1_0_0_0",
+      "source_collision_tag": "CC_City_Block_1_1_0_0",
+      "source_asset": "/Game/CityCourier/Art/Architecture/SM_ShopHouseC.SM_ShopHouseC",
+      "source_yaw": 180.0,
+      "width": 1153.3333333333333,
+      "depth": 2300.0,
+      "location": [
+        -10333.333333333334,
+        -9900.0,
+        0.0
+      ],
+      "yaw": 0.0,
+      "variant": 2,
+      "kind": "residential",
+      "external_sides": [
+        -1,
+        1
+      ]
+    },
+    {
+      "id": "B_1_1_0_1_0",
+      "source_tag": "CC_Art_Building_1_1_0_1_0",
+      "source_collision_tag": "CC_City_Block_1_1_0_1",
+      "source_asset": "/Game/CityCourier/Art/Architecture/SM_ShopHouseA.SM_ShopHouseA",
+      "source_yaw": 180.0,
+      "width": 1153.3333333333333,
+      "depth": 2300.0,
+      "location": [
+        -9000.0,
+        -9900.0,
+        0.0
+      ],
+      "yaw": 0.0,
+      "variant": 0,
+      "kind": "residential",
+      "external_sides": [
+        -1,
+        1
+      ]
+    },
+    {
+      "id": "B_1_1_0_2_0",
+      "source_tag": "CC_Art_Building_1_1_0_2_0",
+      "source_collision_tag": "CC_City_Block_1_1_0_2",
+      "source_asset": "/Game/CityCourier/Art/Architecture/SM_ShopHouseB.SM_ShopHouseB",
+      "source_yaw": 180.0,
+      "width": 1153.3333333333333,
+      "depth": 2300.0,
+      "location": [
+        -7666.666666666665,
+        -9900.0,
+        0.0
+      ],
+      "yaw": 0.0,
+      "variant": 1,
+      "kind": "residential",
+      "external_sides": [
+        -1,
+        1
+      ]
+    },
+    {
+      "id": "B_1_1_1_0_0",
+      "source_tag": "CC_Art_Building_1_1_1_0_0",
+      "source_collision_tag": "CC_City_Block_1_1_1_0",
+      "source_asset": "/Game/CityCourier/Art/Architecture/SM_ShopHouseC.SM_ShopHouseC",
+      "source_yaw": 0.0,
+      "width": 1153.3333333333333,
+      "depth": 2300.0,
+      "location": [
+        -10333.333333333334,
+        -2100.0,
+        0.0
+      ],
+      "yaw": 180.0,
+      "variant": 2,
+      "kind": "residential",
+      "external_sides": [
+        -1,
+        1
+      ]
+    },
+    {
+      "id": "B_1_1_1_1_0",
+      "source_tag": "CC_Art_Building_1_1_1_1_0",
+      "source_collision_tag": "CC_City_Block_1_1_1_1",
+      "source_asset": "/Game/CityCourier/Art/Architecture/SM_ShopHouseA.SM_ShopHouseA",
+      "source_yaw": 0.0,
+      "width": 1153.3333333333333,
+      "depth": 2300.0,
+      "location": [
+        -9000.0,
+        -2100.0,
+        0.0
+      ],
+      "yaw": 180.0,
+      "variant": 0,
+      "kind": "residential",
+      "external_sides": [
+        -1,
+        1
+      ]
+    },
+    {
+      "id": "B_1_1_1_2_0",
+      "source_tag": "CC_Art_Building_1_1_1_2_0",
+      "source_collision_tag": "CC_City_Block_1_1_1_2",
+      "source_asset": "/Game/CityCourier/Art/Architecture/SM_ShopHouseB.SM_ShopHouseB",
+      "source_yaw": 0.0,
+      "width": 1153.3333333333333,
+      "depth": 2300.0,
+      "location": [
+        -7666.666666666665,
+        -2100.0,
+        0.0
+      ],
+      "yaw": 180.0,
+      "variant": 1,
+      "kind": "residential",
+      "external_sides": [
+        -1,
+        1
+      ]
+    },
+    {
+      "id": "B_1_2_0_0_0",
+      "source_tag": "CC_Art_Building_1_2_0_0_0",
+      "source_collision_tag": "CC_City_Block_1_2_0_0",
+      "source_asset": "/Game/CityCourier/Art/Architecture/SM_ShopHouseA.SM_ShopHouseA",
+      "source_yaw": 180.0,
+      "width": 1153.3333333333333,
+      "depth": 2300.0,
+      "location": [
+        -4333.333333333333,
+        -9900.0,
+        0.0
+      ],
+      "yaw": 0.0,
+      "variant": 0,
+      "kind": "residential",
+      "external_sides": [
+        -1,
+        1
+      ]
+    },
+    {
+      "id": "B_1_2_0_1_0",
+      "source_tag": "CC_Art_Building_1_2_0_1_0",
+      "source_collision_tag": "CC_City_Block_1_2_0_1",
+      "source_asset": "/Game/CityCourier/Art/Architecture/SM_ShopHouseB.SM_ShopHouseB",
+      "source_yaw": 180.0,
+      "width": 1153.3333333333333,
+      "depth": 2300.0,
+      "location": [
+        -3000.0,
+        -9900.0,
+        0.0
+      ],
+      "yaw": 0.0,
+      "variant": 1,
+      "kind": "residential",
+      "external_sides": [
+        -1,
+        1
+      ]
+    },
+    {
+      "id": "B_1_2_0_2_0",
+      "source_tag": "CC_Art_Building_1_2_0_2_0",
+      "source_collision_tag": "CC_City_Block_1_2_0_2",
+      "source_asset": "/Game/CityCourier/Art/Architecture/SM_ShopHouseC.SM_ShopHouseC",
+      "source_yaw": 180.0,
+      "width": 1153.3333333333333,
+      "depth": 2300.0,
+      "location": [
+        -1666.6666666666665,
+        -9900.0,
+        0.0
+      ],
+      "yaw": 0.0,
+      "variant": 2,
+      "kind": "residential",
+      "external_sides": [
+        -1,
+        1
+      ]
+    },
+    {
+      "id": "B_1_2_1_0_0",
+      "source_tag": "CC_Art_Building_1_2_1_0_0",
+      "source_collision_tag": "CC_City_Block_1_2_1_0",
+      "source_asset": "/Game/CityCourier/Art/Architecture/SM_ShopHouseA.SM_ShopHouseA",
+      "source_yaw": 0.0,
+      "width": 1153.3333333333333,
+      "depth": 2300.0,
+      "location": [
+        -4333.333333333333,
+        -2100.0,
+        0.0
+      ],
+      "yaw": 180.0,
+      "variant": 0,
+      "kind": "residential",
+      "external_sides": [
+        -1,
+        1
+      ]
+    },
+    {
+      "id": "B_1_2_1_1_0",
+      "source_tag": "CC_Art_Building_1_2_1_1_0",
+      "source_collision_tag": "CC_City_Block_1_2_1_1",
+      "source_asset": "/Game/CityCourier/Art/Architecture/SM_ShopHouseB.SM_ShopHouseB",
+      "source_yaw": 0.0,
+      "width": 1153.3333333333333,
+      "depth": 2300.0,
+      "location": [
+        -3000.0,
+        -2100.0,
+        0.0
+      ],
+      "yaw": 180.0,
+      "variant": 1,
+      "kind": "residential",
+      "external_sides": [
+        -1,
+        1
+      ]
+    },
+    {
+      "id": "B_1_2_1_2_0",
+      "source_tag": "CC_Art_Building_1_2_1_2_0",
+      "source_collision_tag": "CC_City_Block_1_2_1_2",
+      "source_asset": "/Game/CityCourier/Art/Architecture/SM_ShopHouseC.SM_ShopHouseC",
+      "source_yaw": 0.0,
+      "width": 1153.3333333333333,
+      "depth": 2300.0,
+      "location": [
+        -1666.6666666666665,
+        -2100.0,
+        0.0
+      ],
+      "yaw": 180.0,
+      "variant": 2,
+      "kind": "residential",
+      "external_sides": [
+        -1,
+        1
+      ]
+    },
+    {
+      "id": "B_1_3_0_0_0",
+      "source_tag": "CC_Art_Building_1_3_0_0_0",
+      "source_collision_tag": "CC_City_Block_1_3_0_0",
+      "source_asset": "/Game/CityCourier/Art/Architecture/SM_ShopHouseB.SM_ShopHouseB",
+      "source_yaw": 180.0,
+      "width": 1153.3333333333333,
+      "depth": 2300.0,
+      "location": [
+        1666.6666666666665,
+        -9900.0,
+        0.0
+      ],
+      "yaw": 0.0,
+      "variant": 1,
+      "kind": "residential",
+      "external_sides": [
+        -1,
+        1
+      ]
+    },
+    {
+      "id": "B_1_3_0_1_0",
+      "source_tag": "CC_Art_Building_1_3_0_1_0",
+      "source_collision_tag": "CC_City_Block_1_3_0_1",
+      "source_asset": "/Game/CityCourier/Art/Architecture/SM_ShopHouseC.SM_ShopHouseC",
+      "source_yaw": 180.0,
+      "width": 1153.3333333333333,
+      "depth": 2300.0,
+      "location": [
+        3000.0,
+        -9900.0,
+        0.0
+      ],
+      "yaw": 0.0,
+      "variant": 2,
+      "kind": "residential",
+      "external_sides": [
+        -1,
+        1
+      ]
+    },
+    {
+      "id": "B_1_3_0_2_0",
+      "source_tag": "CC_Art_Building_1_3_0_2_0",
+      "source_collision_tag": "CC_City_Block_1_3_0_2",
+      "source_asset": "/Game/CityCourier/Art/Architecture/SM_ShopHouseA.SM_ShopHouseA",
+      "source_yaw": 180.0,
+      "width": 1153.3333333333333,
+      "depth": 2300.0,
+      "location": [
+        4333.333333333334,
+        -9900.0,
+        0.0
+      ],
+      "yaw": 0.0,
+      "variant": 0,
+      "kind": "residential",
+      "external_sides": [
+        -1,
+        1
+      ]
+    },
+    {
+      "id": "B_1_3_1_0_0",
+      "source_tag": "CC_Art_Building_1_3_1_0_0",
+      "source_collision_tag": "CC_City_Block_1_3_1_0",
+      "source_asset": "/Game/CityCourier/Art/Architecture/SM_ShopHouseB.SM_ShopHouseB",
+      "source_yaw": 0.0,
+      "width": 1153.3333333333333,
+      "depth": 2300.0,
+      "location": [
+        1666.6666666666665,
+        -2100.0,
+        0.0
+      ],
+      "yaw": 180.0,
+      "variant": 1,
+      "kind": "residential",
+      "external_sides": [
+        -1,
+        1
+      ]
+    },
+    {
+      "id": "B_1_3_1_1_0",
+      "source_tag": "CC_Art_Building_1_3_1_1_0",
+      "source_collision_tag": "CC_City_Block_1_3_1_1",
+      "source_asset": "/Game/CityCourier/Art/Architecture/SM_ShopHouseC.SM_ShopHouseC",
+      "source_yaw": 0.0,
+      "width": 1153.3333333333333,
+      "depth": 2300.0,
+      "location": [
+        3000.0,
+        -2100.0,
+        0.0
+      ],
+      "yaw": 180.0,
+      "variant": 2,
+      "kind": "residential",
+      "external_sides": [
+        -1,
+        1
+      ]
+    },
+    {
+      "id": "B_1_3_1_2_0",
+      "source_tag": "CC_Art_Building_1_3_1_2_0",
+      "source_collision_tag": "CC_City_Block_1_3_1_2",
+      "source_asset": "/Game/CityCourier/Art/Architecture/SM_ShopHouseA.SM_ShopHouseA",
+      "source_yaw": 0.0,
+      "width": 1153.3333333333333,
+      "depth": 2300.0,
+      "location": [
+        4333.333333333334,
+        -2100.0,
+        0.0
+      ],
+      "yaw": 180.0,
+      "variant": 0,
+      "kind": "residential",
+      "external_sides": [
+        -1,
+        1
+      ]
+    },
+    {
+      "id": "B_1_4_0_0_0",
+      "source_tag": "CC_Art_Building_1_4_0_0_0",
+      "source_collision_tag": "CC_City_Block_1_4_0_0",
+      "source_asset": "/Game/CityCourier/Art/Architecture/SM_ShopHouseC.SM_ShopHouseC",
+      "source_yaw": 180.0,
+      "width": 1153.3333333333333,
+      "depth": 2300.0,
+      "location": [
+        7666.666666666667,
+        -9900.0,
+        0.0
+      ],
+      "yaw": 0.0,
+      "variant": 2,
+      "kind": "residential",
+      "external_sides": [
+        -1,
+        1
+      ]
+    },
+    {
+      "id": "B_1_4_0_1_0",
+      "source_tag": "CC_Art_Building_1_4_0_1_0",
+      "source_collision_tag": "CC_City_Block_1_4_0_1",
+      "source_asset": "/Game/CityCourier/Art/Architecture/SM_ShopHouseA.SM_ShopHouseA",
+      "source_yaw": 180.0,
+      "width": 1153.3333333333333,
+      "depth": 2300.0,
+      "location": [
+        9000.0,
+        -9900.0,
+        0.0
+      ],
+      "yaw": 0.0,
+      "variant": 0,
+      "kind": "residential",
+      "external_sides": [
+        -1,
+        1
+      ]
+    },
+    {
+      "id": "B_1_4_0_2_0",
+      "source_tag": "CC_Art_Building_1_4_0_2_0",
+      "source_collision_tag": "CC_City_Block_1_4_0_2",
+      "source_asset": "/Game/CityCourier/Art/Architecture/SM_ShopHouseB.SM_ShopHouseB",
+      "source_yaw": 180.0,
+      "width": 1153.3333333333333,
+      "depth": 2300.0,
+      "location": [
+        10333.333333333334,
+        -9900.0,
+        0.0
+      ],
+      "yaw": 0.0,
+      "variant": 1,
+      "kind": "residential",
+      "external_sides": [
+        -1,
+        1
+      ]
+    },
+    {
+      "id": "B_1_4_1_0_0",
+      "source_tag": "CC_Art_Building_1_4_1_0_0",
+      "source_collision_tag": "CC_City_Block_1_4_1_0",
+      "source_asset": "/Game/CityCourier/Art/Architecture/SM_ShopHouseC.SM_ShopHouseC",
+      "source_yaw": 0.0,
+      "width": 1153.3333333333333,
+      "depth": 2300.0,
+      "location": [
+        7666.666666666667,
+        -2100.0,
+        0.0
+      ],
+      "yaw": 180.0,
+      "variant": 2,
+      "kind": "residential",
+      "external_sides": [
+        -1,
+        1
+      ]
+    },
+    {
+      "id": "B_1_4_1_1_0",
+      "source_tag": "CC_Art_Building_1_4_1_1_0",
+      "source_collision_tag": "CC_City_Block_1_4_1_1",
+      "source_asset": "/Game/CityCourier/Art/Architecture/SM_ShopHouseA.SM_ShopHouseA",
+      "source_yaw": 0.0,
+      "width": 1153.3333333333333,
+      "depth": 2300.0,
+      "location": [
+        9000.0,
+        -2100.0,
+        0.0
+      ],
+      "yaw": 180.0,
+      "variant": 0,
+      "kind": "residential",
+      "external_sides": [
+        -1,
+        1
+      ]
+    },
+    {
+      "id": "B_1_4_1_2_0",
+      "source_tag": "CC_Art_Building_1_4_1_2_0",
+      "source_collision_tag": "CC_City_Block_1_4_1_2",
+      "source_asset": "/Game/CityCourier/Art/Architecture/SM_ShopHouseB.SM_ShopHouseB",
+      "source_yaw": 0.0,
+      "width": 1153.3333333333333,
+      "depth": 2300.0,
+      "location": [
+        10333.333333333334,
+        -2100.0,
+        0.0
+      ],
+      "yaw": 180.0,
+      "variant": 1,
+      "kind": "residential",
+      "external_sides": [
+        -1,
+        1
+      ]
+    },
+    {
+      "id": "B_1_5_0_0_0",
+      "source_tag": "CC_Art_Building_1_5_0_0_0",
+      "source_collision_tag": "CC_City_Block_1_5_0_0",
+      "source_asset": "/Game/CityCourier/Art/Architecture/SM_ShopHouseA.SM_ShopHouseA",
+      "source_yaw": 180.0,
+      "width": 788.3333333333334,
+      "depth": 2300.0,
+      "location": [
+        13484.166666666666,
+        -9900.0,
+        0.0
+      ],
+      "yaw": 0.0,
+      "variant": 0,
+      "kind": "residential",
+      "external_sides": [
+        -1
+      ]
+    },
+    {
+      "id": "B_1_5_0_0_1",
+      "source_tag": "CC_Art_Building_1_5_0_0_1",
+      "source_collision_tag": "CC_City_Block_1_5_0_0",
+      "source_asset": "/Game/CityCourier/Art/Architecture/SM_ShopHouseB.SM_ShopHouseB",
+      "source_yaw": 180.0,
+      "width": 788.3333333333334,
+      "depth": 2300.0,
+      "location": [
+        14272.5,
+        -9900.0,
+        0.0
+      ],
+      "yaw": 0.0,
+      "variant": 1,
+      "kind": "residential",
+      "external_sides": []
+    },
+    {
+      "id": "B_1_5_0_0_2",
+      "source_tag": "CC_Art_Building_1_5_0_0_2",
+      "source_collision_tag": "CC_City_Block_1_5_0_0",
+      "source_asset": "/Game/CityCourier/Art/Architecture/SM_ShopHouseC.SM_ShopHouseC",
+      "source_yaw": 180.0,
+      "width": 788.3333333333334,
+      "depth": 2300.0,
+      "location": [
+        15060.833333333334,
+        -9900.0,
+        0.0
+      ],
+      "yaw": 0.0,
+      "variant": 2,
+      "kind": "residential",
+      "external_sides": []
+    },
+    {
+      "id": "B_1_5_0_0_3",
+      "source_tag": "CC_Art_Building_1_5_0_0_3",
+      "source_collision_tag": "CC_City_Block_1_5_0_0",
+      "source_asset": "/Game/CityCourier/Art/Architecture/SM_ShopHouseA.SM_ShopHouseA",
+      "source_yaw": 180.0,
+      "width": 788.3333333333334,
+      "depth": 2300.0,
+      "location": [
+        15849.166666666668,
+        -9900.0,
+        0.0
+      ],
+      "yaw": 0.0,
+      "variant": 0,
+      "kind": "residential",
+      "external_sides": [
+        1
+      ]
+    },
+    {
+      "id": "B_1_5_0_1_0",
+      "source_tag": "CC_Art_Building_1_5_0_1_0",
+      "source_collision_tag": "CC_City_Block_1_5_0_1",
+      "source_asset": "/Game/CityCourier/Art/Architecture/SM_ShopHouseB.SM_ShopHouseB",
+      "source_yaw": 180.0,
+      "width": 788.3333333333334,
+      "depth": 2300.0,
+      "location": [
+        16817.5,
+        -9900.0,
+        0.0
+      ],
+      "yaw": 0.0,
+      "variant": 1,
+      "kind": "residential",
+      "external_sides": [
+        -1
+      ]
+    },
+    {
+      "id": "B_1_5_0_1_1",
+      "source_tag": "CC_Art_Building_1_5_0_1_1",
+      "source_collision_tag": "CC_City_Block_1_5_0_1",
+      "source_asset": "/Game/CityCourier/Art/Architecture/SM_ShopHouseC.SM_ShopHouseC",
+      "source_yaw": 180.0,
+      "width": 788.3333333333334,
+      "depth": 2300.0,
+      "location": [
+        17605.833333333332,
+        -9900.0,
+        0.0
+      ],
+      "yaw": 0.0,
+      "variant": 2,
+      "kind": "residential",
+      "external_sides": []
+    },
+    {
+      "id": "B_1_5_0_1_2",
+      "source_tag": "CC_Art_Building_1_5_0_1_2",
+      "source_collision_tag": "CC_City_Block_1_5_0_1",
+      "source_asset": "/Game/CityCourier/Art/Architecture/SM_ShopHouseA.SM_ShopHouseA",
+      "source_yaw": 180.0,
+      "width": 788.3333333333334,
+      "depth": 2300.0,
+      "location": [
+        18394.166666666664,
+        -9900.0,
+        0.0
+      ],
+      "yaw": 0.0,
+      "variant": 0,
+      "kind": "residential",
+      "external_sides": []
+    },
+    {
+      "id": "B_1_5_0_1_3",
+      "source_tag": "CC_Art_Building_1_5_0_1_3",
+      "source_collision_tag": "CC_City_Block_1_5_0_1",
+      "source_asset": "/Game/CityCourier/Art/Architecture/SM_ShopHouseB.SM_ShopHouseB",
+      "source_yaw": 180.0,
+      "width": 788.3333333333334,
+      "depth": 2300.0,
+      "location": [
+        19182.5,
+        -9900.0,
+        0.0
+      ],
+      "yaw": 0.0,
+      "variant": 1,
+      "kind": "residential",
+      "external_sides": [
+        1
+      ]
+    },
+    {
+      "id": "B_1_5_0_2_0",
+      "source_tag": "CC_Art_Building_1_5_0_2_0",
+      "source_collision_tag": "CC_City_Block_1_5_0_2",
+      "source_asset": "/Game/CityCourier/Art/Architecture/SM_ShopHouseC.SM_ShopHouseC",
+      "source_yaw": 180.0,
+      "width": 788.3333333333334,
+      "depth": 2300.0,
+      "location": [
+        20150.833333333336,
+        -9900.0,
+        0.0
+      ],
+      "yaw": 0.0,
+      "variant": 2,
+      "kind": "residential",
+      "external_sides": [
+        -1
+      ]
+    },
+    {
+      "id": "B_1_5_0_2_1",
+      "source_tag": "CC_Art_Building_1_5_0_2_1",
+      "source_collision_tag": "CC_City_Block_1_5_0_2",
+      "source_asset": "/Game/CityCourier/Art/Architecture/SM_ShopHouseA.SM_ShopHouseA",
+      "source_yaw": 180.0,
+      "width": 788.3333333333334,
+      "depth": 2300.0,
+      "location": [
+        20939.166666666668,
+        -9900.0,
+        0.0
+      ],
+      "yaw": 0.0,
+      "variant": 0,
+      "kind": "residential",
+      "external_sides": []
+    },
+    {
+      "id": "B_1_5_0_2_2",
+      "source_tag": "CC_Art_Building_1_5_0_2_2",
+      "source_collision_tag": "CC_City_Block_1_5_0_2",
+      "source_asset": "/Game/CityCourier/Art/Architecture/SM_ShopHouseB.SM_ShopHouseB",
+      "source_yaw": 180.0,
+      "width": 788.3333333333334,
+      "depth": 2300.0,
+      "location": [
+        21727.5,
+        -9900.0,
+        0.0
+      ],
+      "yaw": 0.0,
+      "variant": 1,
+      "kind": "residential",
+      "external_sides": []
+    },
+    {
+      "id": "B_1_5_0_2_3",
+      "source_tag": "CC_Art_Building_1_5_0_2_3",
+      "source_collision_tag": "CC_City_Block_1_5_0_2",
+      "source_asset": "/Game/CityCourier/Art/Architecture/SM_ShopHouseC.SM_ShopHouseC",
+      "source_yaw": 180.0,
+      "width": 788.3333333333334,
+      "depth": 2300.0,
+      "location": [
+        22515.833333333336,
+        -9900.0,
+        0.0
+      ],
+      "yaw": 0.0,
+      "variant": 2,
+      "kind": "residential",
+      "external_sides": [
+        1
+      ]
+    },
+    {
+      "id": "B_1_5_1_0_0",
+      "source_tag": "CC_Art_Building_1_5_1_0_0",
+      "source_collision_tag": "CC_City_Block_1_5_1_0",
+      "source_asset": "/Game/CityCourier/Art/Architecture/SM_ShopHouseA.SM_ShopHouseA",
+      "source_yaw": 0.0,
+      "width": 788.3333333333334,
+      "depth": 2300.0,
+      "location": [
+        13484.166666666666,
+        -2100.0,
+        0.0
+      ],
+      "yaw": 180.0,
+      "variant": 0,
+      "kind": "residential",
+      "external_sides": [
+        1
+      ]
+    },
+    {
+      "id": "B_1_5_1_0_1",
+      "source_tag": "CC_Art_Building_1_5_1_0_1",
+      "source_collision_tag": "CC_City_Block_1_5_1_0",
+      "source_asset": "/Game/CityCourier/Art/Architecture/SM_ShopHouseB.SM_ShopHouseB",
+      "source_yaw": 0.0,
+      "width": 788.3333333333334,
+      "depth": 2300.0,
+      "location": [
+        14272.5,
+        -2100.0,
+        0.0
+      ],
+      "yaw": 180.0,
+      "variant": 1,
+      "kind": "residential",
+      "external_sides": []
+    },
+    {
+      "id": "B_1_5_1_0_2",
+      "source_tag": "CC_Art_Building_1_5_1_0_2",
+      "source_collision_tag": "CC_City_Block_1_5_1_0",
+      "source_asset": "/Game/CityCourier/Art/Architecture/SM_ShopHouseC.SM_ShopHouseC",
+      "source_yaw": 0.0,
+      "width": 788.3333333333334,
+      "depth": 2300.0,
+      "location": [
+        15060.833333333334,
+        -2100.0,
+        0.0
+      ],
+      "yaw": 180.0,
+      "variant": 2,
+      "kind": "residential",
+      "external_sides": []
+    },
+    {
+      "id": "B_1_5_1_0_3",
+      "source_tag": "CC_Art_Building_1_5_1_0_3",
+      "source_collision_tag": "CC_City_Block_1_5_1_0",
+      "source_asset": "/Game/CityCourier/Art/Architecture/SM_ShopHouseA.SM_ShopHouseA",
+      "source_yaw": 0.0,
+      "width": 788.3333333333334,
+      "depth": 2300.0,
+      "location": [
+        15849.166666666668,
+        -2100.0,
+        0.0
+      ],
+      "yaw": 180.0,
+      "variant": 0,
+      "kind": "residential",
+      "external_sides": [
+        -1
+      ]
+    },
+    {
+      "id": "B_1_5_1_1_0",
+      "source_tag": "CC_Art_Building_1_5_1_1_0",
+      "source_collision_tag": "CC_City_Block_1_5_1_1",
+      "source_asset": "/Game/CityCourier/Art/Architecture/SM_ShopHouseB.SM_ShopHouseB",
+      "source_yaw": 0.0,
+      "width": 788.3333333333334,
+      "depth": 2300.0,
+      "location": [
+        16817.5,
+        -2100.0,
+        0.0
+      ],
+      "yaw": 180.0,
+      "variant": 1,
+      "kind": "residential",
+      "external_sides": [
+        1
+      ]
+    },
+    {
+      "id": "B_1_5_1_1_1",
+      "source_tag": "CC_Art_Building_1_5_1_1_1",
+      "source_collision_tag": "CC_City_Block_1_5_1_1",
+      "source_asset": "/Game/CityCourier/Art/Architecture/SM_ShopHouseC.SM_ShopHouseC",
+      "source_yaw": 0.0,
+      "width": 788.3333333333334,
+      "depth": 2300.0,
+      "location": [
+        17605.833333333332,
+        -2100.0,
+        0.0
+      ],
+      "yaw": 180.0,
+      "variant": 2,
+      "kind": "residential",
+      "external_sides": []
+    },
+    {
+      "id": "B_1_5_1_1_2",
+      "source_tag": "CC_Art_Building_1_5_1_1_2",
+      "source_collision_tag": "CC_City_Block_1_5_1_1",
+      "source_asset": "/Game/CityCourier/Art/Architecture/SM_ShopHouseA.SM_ShopHouseA",
+      "source_yaw": 0.0,
+      "width": 788.3333333333334,
+      "depth": 2300.0,
+      "location": [
+        18394.166666666664,
+        -2100.0,
+        0.0
+      ],
+      "yaw": 180.0,
+      "variant": 0,
+      "kind": "residential",
+      "external_sides": []
+    },
+    {
+      "id": "B_1_5_1_1_3",
+      "source_tag": "CC_Art_Building_1_5_1_1_3",
+      "source_collision_tag": "CC_City_Block_1_5_1_1",
+      "source_asset": "/Game/CityCourier/Art/Architecture/SM_ShopHouseB.SM_ShopHouseB",
+      "source_yaw": 0.0,
+      "width": 788.3333333333334,
+      "depth": 2300.0,
+      "location": [
+        19182.5,
+        -2100.0,
+        0.0
+      ],
+      "yaw": 180.0,
+      "variant": 1,
+      "kind": "residential",
+      "external_sides": [
+        -1
+      ]
+    },
+    {
+      "id": "B_1_5_1_2_0",
+      "source_tag": "CC_Art_Building_1_5_1_2_0",
+      "source_collision_tag": "CC_City_Block_1_5_1_2",
+      "source_asset": "/Game/CityCourier/Art/Architecture/SM_ShopHouseC.SM_ShopHouseC",
+      "source_yaw": 0.0,
+      "width": 788.3333333333334,
+      "depth": 2300.0,
+      "location": [
+        20150.833333333336,
+        -2100.0,
+        0.0
+      ],
+      "yaw": 180.0,
+      "variant": 2,
+      "kind": "residential",
+      "external_sides": [
+        1
+      ]
+    },
+    {
+      "id": "B_1_5_1_2_1",
+      "source_tag": "CC_Art_Building_1_5_1_2_1",
+      "source_collision_tag": "CC_City_Block_1_5_1_2",
+      "source_asset": "/Game/CityCourier/Art/Architecture/SM_ShopHouseA.SM_ShopHouseA",
+      "source_yaw": 0.0,
+      "width": 788.3333333333334,
+      "depth": 2300.0,
+      "location": [
+        20939.166666666668,
+        -2100.0,
+        0.0
+      ],
+      "yaw": 180.0,
+      "variant": 0,
+      "kind": "residential",
+      "external_sides": []
+    },
+    {
+      "id": "B_1_5_1_2_2",
+      "source_tag": "CC_Art_Building_1_5_1_2_2",
+      "source_collision_tag": "CC_City_Block_1_5_1_2",
+      "source_asset": "/Game/CityCourier/Art/Architecture/SM_ShopHouseB.SM_ShopHouseB",
+      "source_yaw": 0.0,
+      "width": 788.3333333333334,
+      "depth": 2300.0,
+      "location": [
+        21727.5,
+        -2100.0,
+        0.0
+      ],
+      "yaw": 180.0,
+      "variant": 1,
+      "kind": "residential",
+      "external_sides": []
+    },
+    {
+      "id": "B_1_5_1_2_3",
+      "source_tag": "CC_Art_Building_1_5_1_2_3",
+      "source_collision_tag": "CC_City_Block_1_5_1_2",
+      "source_asset": "/Game/CityCourier/Art/Architecture/SM_ShopHouseC.SM_ShopHouseC",
+      "source_yaw": 0.0,
+      "width": 788.3333333333334,
+      "depth": 2300.0,
+      "location": [
+        22515.833333333336,
+        -2100.0,
+        0.0
+      ],
+      "yaw": 180.0,
+      "variant": 2,
+      "kind": "residential",
+      "external_sides": [
+        -1
+      ]
+    },
+    {
+      "id": "B_2_0_0_0_0",
+      "source_tag": "CC_Art_Building_2_0_0_0_0",
+      "source_collision_tag": "CC_City_Block_2_0_0_0",
+      "source_asset": "/Game/CityCourier/Art/Architecture/SM_ShopHouseC.SM_ShopHouseC",
+      "source_yaw": 180.0,
+      "width": 788.3333333333334,
+      "depth": 2300.0,
+      "location": [
+        -22515.833333333332,
+        2100.0,
+        0.0
+      ],
+      "yaw": 0.0,
+      "variant": 2,
+      "kind": "residential",
+      "external_sides": [
+        -1
+      ]
+    },
+    {
+      "id": "B_2_0_0_0_1",
+      "source_tag": "CC_Art_Building_2_0_0_0_1",
+      "source_collision_tag": "CC_City_Block_2_0_0_0",
+      "source_asset": "/Game/CityCourier/Art/Architecture/SM_ShopHouseA.SM_ShopHouseA",
+      "source_yaw": 180.0,
+      "width": 788.3333333333334,
+      "depth": 2300.0,
+      "location": [
+        -21727.5,
+        2100.0,
+        0.0
+      ],
+      "yaw": 0.0,
+      "variant": 0,
+      "kind": "residential",
+      "external_sides": []
+    },
+    {
+      "id": "B_2_0_0_0_2",
+      "source_tag": "CC_Art_Building_2_0_0_0_2",
+      "source_collision_tag": "CC_City_Block_2_0_0_0",
+      "source_asset": "/Game/CityCourier/Art/Architecture/SM_ShopHouseB.SM_ShopHouseB",
+      "source_yaw": 180.0,
+      "width": 788.3333333333334,
+      "depth": 2300.0,
+      "location": [
+        -20939.166666666668,
+        2100.0,
+        0.0
+      ],
+      "yaw": 0.0,
+      "variant": 1,
+      "kind": "residential",
+      "external_sides": []
+    },
+    {
+      "id": "B_2_0_0_0_3",
+      "source_tag": "CC_Art_Building_2_0_0_0_3",
+      "source_collision_tag": "CC_City_Block_2_0_0_0",
+      "source_asset": "/Game/CityCourier/Art/Architecture/SM_ShopHouseC.SM_ShopHouseC",
+      "source_yaw": 180.0,
+      "width": 788.3333333333334,
+      "depth": 2300.0,
+      "location": [
+        -20150.833333333332,
+        2100.0,
+        0.0
+      ],
+      "yaw": 0.0,
+      "variant": 2,
+      "kind": "residential",
+      "external_sides": [
+        1
+      ]
+    },
+    {
+      "id": "B_2_0_0_1_0",
+      "source_tag": "CC_Art_Building_2_0_0_1_0",
+      "source_collision_tag": "CC_City_Block_2_0_0_1",
+      "source_asset": "/Game/CityCourier/Art/Architecture/SM_ShopHouseA.SM_ShopHouseA",
+      "source_yaw": 180.0,
+      "width": 788.3333333333334,
+      "depth": 2300.0,
+      "location": [
+        -19182.5,
+        2100.0,
+        0.0
+      ],
+      "yaw": 0.0,
+      "variant": 0,
+      "kind": "residential",
+      "external_sides": [
+        -1
+      ]
+    },
+    {
+      "id": "B_2_0_0_1_1",
+      "source_tag": "CC_Art_Building_2_0_0_1_1",
+      "source_collision_tag": "CC_City_Block_2_0_0_1",
+      "source_asset": "/Game/CityCourier/Art/Architecture/SM_ShopHouseB.SM_ShopHouseB",
+      "source_yaw": 180.0,
+      "width": 788.3333333333334,
+      "depth": 2300.0,
+      "location": [
+        -18394.166666666668,
+        2100.0,
+        0.0
+      ],
+      "yaw": 0.0,
+      "variant": 1,
+      "kind": "residential",
+      "external_sides": []
+    },
+    {
+      "id": "B_2_0_0_1_2",
+      "source_tag": "CC_Art_Building_2_0_0_1_2",
+      "source_collision_tag": "CC_City_Block_2_0_0_1",
+      "source_asset": "/Game/CityCourier/Art/Architecture/SM_ShopHouseC.SM_ShopHouseC",
+      "source_yaw": 180.0,
+      "width": 788.3333333333334,
+      "depth": 2300.0,
+      "location": [
+        -17605.833333333336,
+        2100.0,
+        0.0
+      ],
+      "yaw": 0.0,
+      "variant": 2,
+      "kind": "residential",
+      "external_sides": []
+    },
+    {
+      "id": "B_2_0_0_1_3",
+      "source_tag": "CC_Art_Building_2_0_0_1_3",
+      "source_collision_tag": "CC_City_Block_2_0_0_1",
+      "source_asset": "/Game/CityCourier/Art/Architecture/SM_ShopHouseA.SM_ShopHouseA",
+      "source_yaw": 180.0,
+      "width": 788.3333333333334,
+      "depth": 2300.0,
+      "location": [
+        -16817.5,
+        2100.0,
+        0.0
+      ],
+      "yaw": 0.0,
+      "variant": 0,
+      "kind": "residential",
+      "external_sides": [
+        1
+      ]
+    },
+    {
+      "id": "B_2_0_0_2_0",
+      "source_tag": "CC_Art_Building_2_0_0_2_0",
+      "source_collision_tag": "CC_City_Block_2_0_0_2",
+      "source_asset": "/Game/CityCourier/Art/Architecture/SM_ShopHouseB.SM_ShopHouseB",
+      "source_yaw": 180.0,
+      "width": 788.3333333333334,
+      "depth": 2300.0,
+      "location": [
+        -15849.166666666666,
+        2100.0,
+        0.0
+      ],
+      "yaw": 0.0,
+      "variant": 1,
+      "kind": "residential",
+      "external_sides": [
+        -1
+      ]
+    },
+    {
+      "id": "B_2_0_0_2_1",
+      "source_tag": "CC_Art_Building_2_0_0_2_1",
+      "source_collision_tag": "CC_City_Block_2_0_0_2",
+      "source_asset": "/Game/CityCourier/Art/Architecture/SM_ShopHouseC.SM_ShopHouseC",
+      "source_yaw": 180.0,
+      "width": 788.3333333333334,
+      "depth": 2300.0,
+      "location": [
+        -15060.833333333332,
+        2100.0,
+        0.0
+      ],
+      "yaw": 0.0,
+      "variant": 2,
+      "kind": "residential",
+      "external_sides": []
+    },
+    {
+      "id": "B_2_0_0_2_2",
+      "source_tag": "CC_Art_Building_2_0_0_2_2",
+      "source_collision_tag": "CC_City_Block_2_0_0_2",
+      "source_asset": "/Game/CityCourier/Art/Architecture/SM_ShopHouseA.SM_ShopHouseA",
+      "source_yaw": 180.0,
+      "width": 788.3333333333334,
+      "depth": 2300.0,
+      "location": [
+        -14272.499999999998,
+        2100.0,
+        0.0
+      ],
+      "yaw": 0.0,
+      "variant": 0,
+      "kind": "residential",
+      "external_sides": []
+    },
+    {
+      "id": "B_2_0_0_2_3",
+      "source_tag": "CC_Art_Building_2_0_0_2_3",
+      "source_collision_tag": "CC_City_Block_2_0_0_2",
+      "source_asset": "/Game/CityCourier/Art/Architecture/SM_ShopHouseB.SM_ShopHouseB",
+      "source_yaw": 180.0,
+      "width": 788.3333333333334,
+      "depth": 2300.0,
+      "location": [
+        -13484.166666666664,
+        2100.0,
+        0.0
+      ],
+      "yaw": 0.0,
+      "variant": 1,
+      "kind": "residential",
+      "external_sides": [
+        1
+      ]
+    },
+    {
+      "id": "B_2_0_1_0_0",
+      "source_tag": "CC_Art_Building_2_0_1_0_0",
+      "source_collision_tag": "CC_City_Block_2_0_1_0",
+      "source_asset": "/Game/CityCourier/Art/Architecture/SM_ShopHouseC.SM_ShopHouseC",
+      "source_yaw": 0.0,
+      "width": 788.3333333333334,
+      "depth": 2300.0,
+      "location": [
+        -22515.833333333332,
+        9900.0,
+        0.0
+      ],
+      "yaw": 180.0,
+      "variant": 2,
+      "kind": "residential",
+      "external_sides": [
+        1
+      ]
+    },
+    {
+      "id": "B_2_0_1_0_1",
+      "source_tag": "CC_Art_Building_2_0_1_0_1",
+      "source_collision_tag": "CC_City_Block_2_0_1_0",
+      "source_asset": "/Game/CityCourier/Art/Architecture/SM_ShopHouseA.SM_ShopHouseA",
+      "source_yaw": 0.0,
+      "width": 788.3333333333334,
+      "depth": 2300.0,
+      "location": [
+        -21727.5,
+        9900.0,
+        0.0
+      ],
+      "yaw": 180.0,
+      "variant": 0,
+      "kind": "residential",
+      "external_sides": []
+    },
+    {
+      "id": "B_2_0_1_0_2",
+      "source_tag": "CC_Art_Building_2_0_1_0_2",
+      "source_collision_tag": "CC_City_Block_2_0_1_0",
+      "source_asset": "/Game/CityCourier/Art/Architecture/SM_ShopHouseB.SM_ShopHouseB",
+      "source_yaw": 0.0,
+      "width": 788.3333333333334,
+      "depth": 2300.0,
+      "location": [
+        -20939.166666666668,
+        9900.0,
+        0.0
+      ],
+      "yaw": 180.0,
+      "variant": 1,
+      "kind": "residential",
+      "external_sides": []
+    },
+    {
+      "id": "B_2_0_1_0_3",
+      "source_tag": "CC_Art_Building_2_0_1_0_3",
+      "source_collision_tag": "CC_City_Block_2_0_1_0",
+      "source_asset": "/Game/CityCourier/Art/Architecture/SM_ShopHouseC.SM_ShopHouseC",
+      "source_yaw": 0.0,
+      "width": 788.3333333333334,
+      "depth": 2300.0,
+      "location": [
+        -20150.833333333332,
+        9900.0,
+        0.0
+      ],
+      "yaw": 180.0,
+      "variant": 2,
+      "kind": "residential",
+      "external_sides": [
+        -1
+      ]
+    },
+    {
+      "id": "B_2_0_1_1_0",
+      "source_tag": "CC_Art_Building_2_0_1_1_0",
+      "source_collision_tag": "CC_City_Block_2_0_1_1",
+      "source_asset": "/Game/CityCourier/Art/Architecture/SM_ShopHouseA.SM_ShopHouseA",
+      "source_yaw": 0.0,
+      "width": 788.3333333333334,
+      "depth": 2300.0,
+      "location": [
+        -19182.5,
+        9900.0,
+        0.0
+      ],
+      "yaw": 180.0,
+      "variant": 0,
+      "kind": "residential",
+      "external_sides": [
+        1
+      ]
+    },
+    {
+      "id": "B_2_0_1_1_1",
+      "source_tag": "CC_Art_Building_2_0_1_1_1",
+      "source_collision_tag": "CC_City_Block_2_0_1_1",
+      "source_asset": "/Game/CityCourier/Art/Architecture/SM_ShopHouseB.SM_ShopHouseB",
+      "source_yaw": 0.0,
+      "width": 788.3333333333334,
+      "depth": 2300.0,
+      "location": [
+        -18394.166666666668,
+        9900.0,
+        0.0
+      ],
+      "yaw": 180.0,
+      "variant": 1,
+      "kind": "residential",
+      "external_sides": []
+    },
+    {
+      "id": "B_2_0_1_1_2",
+      "source_tag": "CC_Art_Building_2_0_1_1_2",
+      "source_collision_tag": "CC_City_Block_2_0_1_1",
+      "source_asset": "/Game/CityCourier/Art/Architecture/SM_ShopHouseC.SM_ShopHouseC",
+      "source_yaw": 0.0,
+      "width": 788.3333333333334,
+      "depth": 2300.0,
+      "location": [
+        -17605.833333333336,
+        9900.0,
+        0.0
+      ],
+      "yaw": 180.0,
+      "variant": 2,
+      "kind": "residential",
+      "external_sides": []
+    },
+    {
+      "id": "B_2_0_1_1_3",
+      "source_tag": "CC_Art_Building_2_0_1_1_3",
+      "source_collision_tag": "CC_City_Block_2_0_1_1",
+      "source_asset": "/Game/CityCourier/Art/Architecture/SM_ShopHouseA.SM_ShopHouseA",
+      "source_yaw": 0.0,
+      "width": 788.3333333333334,
+      "depth": 2300.0,
+      "location": [
+        -16817.5,
+        9900.0,
+        0.0
+      ],
+      "yaw": 180.0,
+      "variant": 0,
+      "kind": "residential",
+      "external_sides": [
+        -1
+      ]
+    },
+    {
+      "id": "B_2_0_1_2_0",
+      "source_tag": "CC_Art_Building_2_0_1_2_0",
+      "source_collision_tag": "CC_City_Block_2_0_1_2",
+      "source_asset": "/Game/CityCourier/Art/Architecture/SM_ShopHouseB.SM_ShopHouseB",
+      "source_yaw": 0.0,
+      "width": 788.3333333333334,
+      "depth": 2300.0,
+      "location": [
+        -15849.166666666666,
+        9900.0,
+        0.0
+      ],
+      "yaw": 180.0,
+      "variant": 1,
+      "kind": "residential",
+      "external_sides": [
+        1
+      ]
+    },
+    {
+      "id": "B_2_0_1_2_1",
+      "source_tag": "CC_Art_Building_2_0_1_2_1",
+      "source_collision_tag": "CC_City_Block_2_0_1_2",
+      "source_asset": "/Game/CityCourier/Art/Architecture/SM_ShopHouseC.SM_ShopHouseC",
+      "source_yaw": 0.0,
+      "width": 788.3333333333334,
+      "depth": 2300.0,
+      "location": [
+        -15060.833333333332,
+        9900.0,
+        0.0
+      ],
+      "yaw": 180.0,
+      "variant": 2,
+      "kind": "residential",
+      "external_sides": []
+    },
+    {
+      "id": "B_2_0_1_2_2",
+      "source_tag": "CC_Art_Building_2_0_1_2_2",
+      "source_collision_tag": "CC_City_Block_2_0_1_2",
+      "source_asset": "/Game/CityCourier/Art/Architecture/SM_ShopHouseA.SM_ShopHouseA",
+      "source_yaw": 0.0,
+      "width": 788.3333333333334,
+      "depth": 2300.0,
+      "location": [
+        -14272.499999999998,
+        9900.0,
+        0.0
+      ],
+      "yaw": 180.0,
+      "variant": 0,
+      "kind": "residential",
+      "external_sides": []
+    },
+    {
+      "id": "B_2_0_1_2_3",
+      "source_tag": "CC_Art_Building_2_0_1_2_3",
+      "source_collision_tag": "CC_City_Block_2_0_1_2",
+      "source_asset": "/Game/CityCourier/Art/Architecture/SM_ShopHouseB.SM_ShopHouseB",
+      "source_yaw": 0.0,
+      "width": 788.3333333333334,
+      "depth": 2300.0,
+      "location": [
+        -13484.166666666664,
+        9900.0,
+        0.0
+      ],
+      "yaw": 180.0,
+      "variant": 1,
+      "kind": "residential",
+      "external_sides": [
+        -1
+      ]
+    },
+    {
+      "id": "B_2_1_0_0_0",
+      "source_tag": "CC_Art_Building_2_1_0_0_0",
+      "source_collision_tag": "CC_City_Block_2_1_0_0",
+      "source_asset": "/Game/CityCourier/Art/Architecture/SM_ShopHouseA.SM_ShopHouseA",
+      "source_yaw": 180.0,
+      "width": 1153.3333333333333,
+      "depth": 2300.0,
+      "location": [
+        -10333.333333333334,
+        2100.0,
+        0.0
+      ],
+      "yaw": 0.0,
+      "variant": 0,
+      "kind": "residential",
+      "external_sides": [
+        -1,
+        1
+      ]
+    },
+    {
+      "id": "B_2_1_0_1_0",
+      "source_tag": "CC_Art_Building_2_1_0_1_0",
+      "source_collision_tag": "CC_City_Block_2_1_0_1",
+      "source_asset": "/Game/CityCourier/Art/Architecture/SM_ShopHouseB.SM_ShopHouseB",
+      "source_yaw": 180.0,
+      "width": 1153.3333333333333,
+      "depth": 2300.0,
+      "location": [
+        -9000.0,
+        2100.0,
+        0.0
+      ],
+      "yaw": 0.0,
+      "variant": 1,
+      "kind": "residential",
+      "external_sides": [
+        -1,
+        1
+      ]
+    },
+    {
+      "id": "B_2_1_0_2_0",
+      "source_tag": "CC_Art_Building_2_1_0_2_0",
+      "source_collision_tag": "CC_City_Block_2_1_0_2",
+      "source_asset": "/Game/CityCourier/Art/Architecture/SM_ShopHouseC.SM_ShopHouseC",
+      "source_yaw": 180.0,
+      "width": 1153.3333333333333,
+      "depth": 2300.0,
+      "location": [
+        -7666.666666666665,
+        2100.0,
+        0.0
+      ],
+      "yaw": 0.0,
+      "variant": 2,
+      "kind": "residential",
+      "external_sides": [
+        -1,
+        1
+      ]
+    },
+    {
+      "id": "B_2_1_1_0_0",
+      "source_tag": "CC_Art_Building_2_1_1_0_0",
+      "source_collision_tag": "CC_City_Block_2_1_1_0",
+      "source_asset": "/Game/CityCourier/Art/Architecture/SM_ShopHouseA.SM_ShopHouseA",
+      "source_yaw": 0.0,
+      "width": 1153.3333333333333,
+      "depth": 2300.0,
+      "location": [
+        -10333.333333333334,
+        9900.0,
+        0.0
+      ],
+      "yaw": 180.0,
+      "variant": 0,
+      "kind": "residential",
+      "external_sides": [
+        -1,
+        1
+      ]
+    },
+    {
+      "id": "B_2_1_1_1_0",
+      "source_tag": "CC_Art_Building_2_1_1_1_0",
+      "source_collision_tag": "CC_City_Block_2_1_1_1",
+      "source_asset": "/Game/CityCourier/Art/Architecture/SM_ShopHouseB.SM_ShopHouseB",
+      "source_yaw": 0.0,
+      "width": 1153.3333333333333,
+      "depth": 2300.0,
+      "location": [
+        -9000.0,
+        9900.0,
+        0.0
+      ],
+      "yaw": 180.0,
+      "variant": 1,
+      "kind": "residential",
+      "external_sides": [
+        -1,
+        1
+      ]
+    },
+    {
+      "id": "B_2_1_1_2_0",
+      "source_tag": "CC_Art_Building_2_1_1_2_0",
+      "source_collision_tag": "CC_City_Block_2_1_1_2",
+      "source_asset": "/Game/CityCourier/Art/Architecture/SM_ShopHouseC.SM_ShopHouseC",
+      "source_yaw": 0.0,
+      "width": 1153.3333333333333,
+      "depth": 2300.0,
+      "location": [
+        -7666.666666666665,
+        9900.0,
+        0.0
+      ],
+      "yaw": 180.0,
+      "variant": 2,
+      "kind": "residential",
+      "external_sides": [
+        -1,
+        1
+      ]
+    },
+    {
+      "id": "B_2_2_0_0_0",
+      "source_tag": "CC_Art_Building_2_2_0_0_0",
+      "source_collision_tag": "CC_City_Block_2_2_0_0",
+      "source_asset": "/Game/CityCourier/Art/Architecture/SM_ShopHouseB.SM_ShopHouseB",
+      "source_yaw": 180.0,
+      "width": 1153.3333333333333,
+      "depth": 2300.0,
+      "location": [
+        -4333.333333333333,
+        2100.0,
+        0.0
+      ],
+      "yaw": 0.0,
+      "variant": 1,
+      "kind": "residential",
+      "external_sides": [
+        -1,
+        1
+      ]
+    },
+    {
+      "id": "B_2_2_0_1_0",
+      "source_tag": "CC_Art_Building_2_2_0_1_0",
+      "source_collision_tag": "CC_City_Block_2_2_0_1",
+      "source_asset": "/Game/CityCourier/Art/Architecture/SM_ShopHouseC.SM_ShopHouseC",
+      "source_yaw": 180.0,
+      "width": 1153.3333333333333,
+      "depth": 2300.0,
+      "location": [
+        -3000.0,
+        2100.0,
+        0.0
+      ],
+      "yaw": 0.0,
+      "variant": 2,
+      "kind": "residential",
+      "external_sides": [
+        -1,
+        1
+      ]
+    },
+    {
+      "id": "B_2_2_0_2_0",
+      "source_tag": "CC_Art_Building_2_2_0_2_0",
+      "source_collision_tag": "CC_City_Block_2_2_0_2",
+      "source_asset": "/Game/CityCourier/Art/Architecture/SM_ShopHouseA.SM_ShopHouseA",
+      "source_yaw": 180.0,
+      "width": 1153.3333333333333,
+      "depth": 2300.0,
+      "location": [
+        -1666.6666666666665,
+        2100.0,
+        0.0
+      ],
+      "yaw": 0.0,
+      "variant": 0,
+      "kind": "residential",
+      "external_sides": [
+        -1,
+        1
+      ]
+    },
+    {
+      "id": "B_2_2_1_0_0",
+      "source_tag": "CC_Art_Building_2_2_1_0_0",
+      "source_collision_tag": "CC_City_Block_2_2_1_0",
+      "source_asset": "/Game/CityCourier/Art/Architecture/SM_ShopHouseB.SM_ShopHouseB",
+      "source_yaw": 0.0,
+      "width": 1153.3333333333333,
+      "depth": 2300.0,
+      "location": [
+        -4333.333333333333,
+        9900.0,
+        0.0
+      ],
+      "yaw": 180.0,
+      "variant": 1,
+      "kind": "residential",
+      "external_sides": [
+        -1,
+        1
+      ]
+    },
+    {
+      "id": "B_2_2_1_1_0",
+      "source_tag": "CC_Art_Building_2_2_1_1_0",
+      "source_collision_tag": "CC_City_Block_2_2_1_1",
+      "source_asset": "/Game/CityCourier/Art/Architecture/SM_ShopHouseC.SM_ShopHouseC",
+      "source_yaw": 0.0,
+      "width": 1153.3333333333333,
+      "depth": 2300.0,
+      "location": [
+        -3000.0,
+        9900.0,
+        0.0
+      ],
+      "yaw": 180.0,
+      "variant": 2,
+      "kind": "residential",
+      "external_sides": [
+        -1,
+        1
+      ]
+    },
+    {
+      "id": "B_2_2_1_2_0",
+      "source_tag": "CC_Art_Building_2_2_1_2_0",
+      "source_collision_tag": "CC_City_Block_2_2_1_2",
+      "source_asset": "/Game/CityCourier/Art/Architecture/SM_ShopHouseA.SM_ShopHouseA",
+      "source_yaw": 0.0,
+      "width": 1153.3333333333333,
+      "depth": 2300.0,
+      "location": [
+        -1666.6666666666665,
+        9900.0,
+        0.0
+      ],
+      "yaw": 180.0,
+      "variant": 0,
+      "kind": "residential",
+      "external_sides": [
+        -1,
+        1
+      ]
+    },
+    {
+      "id": "B_2_3_0_0_0",
+      "source_tag": "CC_Art_Building_2_3_0_0_0",
+      "source_collision_tag": "CC_City_Block_2_3_0_0",
+      "source_asset": "/Game/CityCourier/Art/Architecture/SM_ShopHouseC.SM_ShopHouseC",
+      "source_yaw": 180.0,
+      "width": 1153.3333333333333,
+      "depth": 2300.0,
+      "location": [
+        1666.6666666666665,
+        2100.0,
+        0.0
+      ],
+      "yaw": 0.0,
+      "variant": 2,
+      "kind": "residential",
+      "external_sides": [
+        -1,
+        1
+      ]
+    },
+    {
+      "id": "B_2_3_0_1_0",
+      "source_tag": "CC_Art_Building_2_3_0_1_0",
+      "source_collision_tag": "CC_City_Block_2_3_0_1",
+      "source_asset": "/Game/CityCourier/Art/Architecture/SM_ShopHouseA.SM_ShopHouseA",
+      "source_yaw": 180.0,
+      "width": 1153.3333333333333,
+      "depth": 2300.0,
+      "location": [
+        3000.0,
+        2100.0,
+        0.0
+      ],
+      "yaw": 0.0,
+      "variant": 0,
+      "kind": "residential",
+      "external_sides": [
+        -1,
+        1
+      ]
+    },
+    {
+      "id": "B_2_3_0_2_0",
+      "source_tag": "CC_Art_Building_2_3_0_2_0",
+      "source_collision_tag": "CC_City_Block_2_3_0_2",
+      "source_asset": "/Game/CityCourier/Art/Architecture/SM_ShopHouseB.SM_ShopHouseB",
+      "source_yaw": 180.0,
+      "width": 1153.3333333333333,
+      "depth": 2300.0,
+      "location": [
+        4333.333333333334,
+        2100.0,
+        0.0
+      ],
+      "yaw": 0.0,
+      "variant": 1,
+      "kind": "residential",
+      "external_sides": [
+        -1,
+        1
+      ]
+    },
+    {
+      "id": "B_2_3_1_0_0",
+      "source_tag": "CC_Art_Building_2_3_1_0_0",
+      "source_collision_tag": "CC_City_Block_2_3_1_0",
+      "source_asset": "/Game/CityCourier/Art/Architecture/SM_ShopHouseC.SM_ShopHouseC",
+      "source_yaw": 0.0,
+      "width": 1153.3333333333333,
+      "depth": 2300.0,
+      "location": [
+        1666.6666666666665,
+        9900.0,
+        0.0
+      ],
+      "yaw": 180.0,
+      "variant": 2,
+      "kind": "residential",
+      "external_sides": [
+        -1,
+        1
+      ]
+    },
+    {
+      "id": "B_2_3_1_1_0",
+      "source_tag": "CC_Art_Building_2_3_1_1_0",
+      "source_collision_tag": "CC_City_Block_2_3_1_1",
+      "source_asset": "/Game/CityCourier/Art/Architecture/SM_ShopHouseA.SM_ShopHouseA",
+      "source_yaw": 0.0,
+      "width": 1153.3333333333333,
+      "depth": 2300.0,
+      "location": [
+        3000.0,
+        9900.0,
+        0.0
+      ],
+      "yaw": 180.0,
+      "variant": 0,
+      "kind": "residential",
+      "external_sides": [
+        -1,
+        1
+      ]
+    },
+    {
+      "id": "B_2_3_1_2_0",
+      "source_tag": "CC_Art_Building_2_3_1_2_0",
+      "source_collision_tag": "CC_City_Block_2_3_1_2",
+      "source_asset": "/Game/CityCourier/Art/Architecture/SM_ShopHouseB.SM_ShopHouseB",
+      "source_yaw": 0.0,
+      "width": 1153.3333333333333,
+      "depth": 2300.0,
+      "location": [
+        4333.333333333334,
+        9900.0,
+        0.0
+      ],
+      "yaw": 180.0,
+      "variant": 1,
+      "kind": "residential",
+      "external_sides": [
+        -1,
+        1
+      ]
+    },
+    {
+      "id": "B_2_4_0_0_0",
+      "source_tag": "CC_Art_Building_2_4_0_0_0",
+      "source_collision_tag": "CC_City_Block_2_4_0_0",
+      "source_asset": "/Game/CityCourier/Art/Architecture/SM_ShopHouseA.SM_ShopHouseA",
+      "source_yaw": 180.0,
+      "width": 1153.3333333333333,
+      "depth": 2300.0,
+      "location": [
+        7666.666666666667,
+        2100.0,
+        0.0
+      ],
+      "yaw": 0.0,
+      "variant": 0,
+      "kind": "residential",
+      "external_sides": [
+        -1,
+        1
+      ]
+    },
+    {
+      "id": "B_2_4_0_1_0",
+      "source_tag": "CC_Art_Building_2_4_0_1_0",
+      "source_collision_tag": "CC_City_Block_2_4_0_1",
+      "source_asset": "/Game/CityCourier/Art/Architecture/SM_ShopHouseB.SM_ShopHouseB",
+      "source_yaw": 180.0,
+      "width": 1153.3333333333333,
+      "depth": 2300.0,
+      "location": [
+        9000.0,
+        2100.0,
+        0.0
+      ],
+      "yaw": 0.0,
+      "variant": 1,
+      "kind": "residential",
+      "external_sides": [
+        -1,
+        1
+      ]
+    },
+    {
+      "id": "B_2_4_0_2_0",
+      "source_tag": "CC_Art_Building_2_4_0_2_0",
+      "source_collision_tag": "CC_City_Block_2_4_0_2",
+      "source_asset": "/Game/CityCourier/Art/Architecture/SM_ShopHouseC.SM_ShopHouseC",
+      "source_yaw": 180.0,
+      "width": 1153.3333333333333,
+      "depth": 2300.0,
+      "location": [
+        10333.333333333334,
+        2100.0,
+        0.0
+      ],
+      "yaw": 0.0,
+      "variant": 2,
+      "kind": "residential",
+      "external_sides": [
+        -1,
+        1
+      ]
+    },
+    {
+      "id": "B_2_4_1_0_0",
+      "source_tag": "CC_Art_Building_2_4_1_0_0",
+      "source_collision_tag": "CC_City_Block_2_4_1_0",
+      "source_asset": "/Game/CityCourier/Art/Architecture/SM_ShopHouseA.SM_ShopHouseA",
+      "source_yaw": 0.0,
+      "width": 1153.3333333333333,
+      "depth": 2300.0,
+      "location": [
+        7666.666666666667,
+        9900.0,
+        0.0
+      ],
+      "yaw": 180.0,
+      "variant": 0,
+      "kind": "residential",
+      "external_sides": [
+        -1,
+        1
+      ]
+    },
+    {
+      "id": "B_2_4_1_1_0",
+      "source_tag": "CC_Art_Building_2_4_1_1_0",
+      "source_collision_tag": "CC_City_Block_2_4_1_1",
+      "source_asset": "/Game/CityCourier/Art/Architecture/SM_ShopHouseB.SM_ShopHouseB",
+      "source_yaw": 0.0,
+      "width": 1153.3333333333333,
+      "depth": 2300.0,
+      "location": [
+        9000.0,
+        9900.0,
+        0.0
+      ],
+      "yaw": 180.0,
+      "variant": 1,
+      "kind": "residential",
+      "external_sides": [
+        -1,
+        1
+      ]
+    },
+    {
+      "id": "B_2_4_1_2_0",
+      "source_tag": "CC_Art_Building_2_4_1_2_0",
+      "source_collision_tag": "CC_City_Block_2_4_1_2",
+      "source_asset": "/Game/CityCourier/Art/Architecture/SM_ShopHouseC.SM_ShopHouseC",
+      "source_yaw": 0.0,
+      "width": 1153.3333333333333,
+      "depth": 2300.0,
+      "location": [
+        10333.333333333334,
+        9900.0,
+        0.0
+      ],
+      "yaw": 180.0,
+      "variant": 2,
+      "kind": "residential",
+      "external_sides": [
+        -1,
+        1
+      ]
+    },
+    {
+      "id": "B_2_5_0_0_0",
+      "source_tag": "CC_Art_Building_2_5_0_0_0",
+      "source_collision_tag": "CC_City_Block_2_5_0_0",
+      "source_asset": "/Game/CityCourier/Art/Architecture/SM_ShopHouseB.SM_ShopHouseB",
+      "source_yaw": 180.0,
+      "width": 788.3333333333334,
+      "depth": 2300.0,
+      "location": [
+        13484.166666666666,
+        2100.0,
+        0.0
+      ],
+      "yaw": 0.0,
+      "variant": 1,
+      "kind": "residential",
+      "external_sides": [
+        -1
+      ]
+    },
+    {
+      "id": "B_2_5_0_0_1",
+      "source_tag": "CC_Art_Building_2_5_0_0_1",
+      "source_collision_tag": "CC_City_Block_2_5_0_0",
+      "source_asset": "/Game/CityCourier/Art/Architecture/SM_ShopHouseC.SM_ShopHouseC",
+      "source_yaw": 180.0,
+      "width": 788.3333333333334,
+      "depth": 2300.0,
+      "location": [
+        14272.5,
+        2100.0,
+        0.0
+      ],
+      "yaw": 0.0,
+      "variant": 2,
+      "kind": "residential",
+      "external_sides": []
+    },
+    {
+      "id": "B_2_5_0_0_2",
+      "source_tag": "CC_Art_Building_2_5_0_0_2",
+      "source_collision_tag": "CC_City_Block_2_5_0_0",
+      "source_asset": "/Game/CityCourier/Art/Architecture/SM_ShopHouseA.SM_ShopHouseA",
+      "source_yaw": 180.0,
+      "width": 788.3333333333334,
+      "depth": 2300.0,
+      "location": [
+        15060.833333333334,
+        2100.0,
+        0.0
+      ],
+      "yaw": 0.0,
+      "variant": 0,
+      "kind": "residential",
+      "external_sides": []
+    },
+    {
+      "id": "B_2_5_0_0_3",
+      "source_tag": "CC_Art_Building_2_5_0_0_3",
+      "source_collision_tag": "CC_City_Block_2_5_0_0",
+      "source_asset": "/Game/CityCourier/Art/Architecture/SM_ShopHouseB.SM_ShopHouseB",
+      "source_yaw": 180.0,
+      "width": 788.3333333333334,
+      "depth": 2300.0,
+      "location": [
+        15849.166666666668,
+        2100.0,
+        0.0
+      ],
+      "yaw": 0.0,
+      "variant": 1,
+      "kind": "residential",
+      "external_sides": [
+        1
+      ]
+    },
+    {
+      "id": "B_2_5_0_1_0",
+      "source_tag": "CC_Art_Building_2_5_0_1_0",
+      "source_collision_tag": "CC_City_Block_2_5_0_1",
+      "source_asset": "/Game/CityCourier/Art/Architecture/SM_ShopHouseC.SM_ShopHouseC",
+      "source_yaw": 180.0,
+      "width": 788.3333333333334,
+      "depth": 2300.0,
+      "location": [
+        16817.5,
+        2100.0,
+        0.0
+      ],
+      "yaw": 0.0,
+      "variant": 2,
+      "kind": "residential",
+      "external_sides": [
+        -1
+      ]
+    },
+    {
+      "id": "B_2_5_0_1_1",
+      "source_tag": "CC_Art_Building_2_5_0_1_1",
+      "source_collision_tag": "CC_City_Block_2_5_0_1",
+      "source_asset": "/Game/CityCourier/Art/Architecture/SM_ShopHouseA.SM_ShopHouseA",
+      "source_yaw": 180.0,
+      "width": 788.3333333333334,
+      "depth": 2300.0,
+      "location": [
+        17605.833333333332,
+        2100.0,
+        0.0
+      ],
+      "yaw": 0.0,
+      "variant": 0,
+      "kind": "residential",
+      "external_sides": []
+    },
+    {
+      "id": "B_2_5_0_1_2",
+      "source_tag": "CC_Art_Building_2_5_0_1_2",
+      "source_collision_tag": "CC_City_Block_2_5_0_1",
+      "source_asset": "/Game/CityCourier/Art/Architecture/SM_ShopHouseB.SM_ShopHouseB",
+      "source_yaw": 180.0,
+      "width": 788.3333333333334,
+      "depth": 2300.0,
+      "location": [
+        18394.166666666664,
+        2100.0,
+        0.0
+      ],
+      "yaw": 0.0,
+      "variant": 1,
+      "kind": "residential",
+      "external_sides": []
+    },
+    {
+      "id": "B_2_5_0_1_3",
+      "source_tag": "CC_Art_Building_2_5_0_1_3",
+      "source_collision_tag": "CC_City_Block_2_5_0_1",
+      "source_asset": "/Game/CityCourier/Art/Architecture/SM_ShopHouseC.SM_ShopHouseC",
+      "source_yaw": 180.0,
+      "width": 788.3333333333334,
+      "depth": 2300.0,
+      "location": [
+        19182.5,
+        2100.0,
+        0.0
+      ],
+      "yaw": 0.0,
+      "variant": 2,
+      "kind": "residential",
+      "external_sides": [
+        1
+      ]
+    },
+    {
+      "id": "B_2_5_0_2_0",
+      "source_tag": "CC_Art_Building_2_5_0_2_0",
+      "source_collision_tag": "CC_City_Block_2_5_0_2",
+      "source_asset": "/Game/CityCourier/Art/Architecture/SM_ShopHouseA.SM_ShopHouseA",
+      "source_yaw": 180.0,
+      "width": 788.3333333333334,
+      "depth": 2300.0,
+      "location": [
+        20150.833333333336,
+        2100.0,
+        0.0
+      ],
+      "yaw": 0.0,
+      "variant": 0,
+      "kind": "residential",
+      "external_sides": [
+        -1
+      ]
+    },
+    {
+      "id": "B_2_5_0_2_1",
+      "source_tag": "CC_Art_Building_2_5_0_2_1",
+      "source_collision_tag": "CC_City_Block_2_5_0_2",
+      "source_asset": "/Game/CityCourier/Art/Architecture/SM_ShopHouseB.SM_ShopHouseB",
+      "source_yaw": 180.0,
+      "width": 788.3333333333334,
+      "depth": 2300.0,
+      "location": [
+        20939.166666666668,
+        2100.0,
+        0.0
+      ],
+      "yaw": 0.0,
+      "variant": 1,
+      "kind": "residential",
+      "external_sides": []
+    },
+    {
+      "id": "B_2_5_0_2_2",
+      "source_tag": "CC_Art_Building_2_5_0_2_2",
+      "source_collision_tag": "CC_City_Block_2_5_0_2",
+      "source_asset": "/Game/CityCourier/Art/Architecture/SM_ShopHouseC.SM_ShopHouseC",
+      "source_yaw": 180.0,
+      "width": 788.3333333333334,
+      "depth": 2300.0,
+      "location": [
+        21727.5,
+        2100.0,
+        0.0
+      ],
+      "yaw": 0.0,
+      "variant": 2,
+      "kind": "residential",
+      "external_sides": []
+    },
+    {
+      "id": "B_2_5_0_2_3",
+      "source_tag": "CC_Art_Building_2_5_0_2_3",
+      "source_collision_tag": "CC_City_Block_2_5_0_2",
+      "source_asset": "/Game/CityCourier/Art/Architecture/SM_ShopHouseA.SM_ShopHouseA",
+      "source_yaw": 180.0,
+      "width": 788.3333333333334,
+      "depth": 2300.0,
+      "location": [
+        22515.833333333336,
+        2100.0,
+        0.0
+      ],
+      "yaw": 0.0,
+      "variant": 0,
+      "kind": "residential",
+      "external_sides": [
+        1
+      ]
+    },
+    {
+      "id": "B_2_5_1_0_0",
+      "source_tag": "CC_Art_Building_2_5_1_0_0",
+      "source_collision_tag": "CC_City_Block_2_5_1_0",
+      "source_asset": "/Game/CityCourier/Art/Architecture/SM_ShopHouseB.SM_ShopHouseB",
+      "source_yaw": 0.0,
+      "width": 788.3333333333334,
+      "depth": 2300.0,
+      "location": [
+        13484.166666666666,
+        9900.0,
+        0.0
+      ],
+      "yaw": 180.0,
+      "variant": 1,
+      "kind": "residential",
+      "external_sides": [
+        1
+      ]
+    },
+    {
+      "id": "B_2_5_1_0_1",
+      "source_tag": "CC_Art_Building_2_5_1_0_1",
+      "source_collision_tag": "CC_City_Block_2_5_1_0",
+      "source_asset": "/Game/CityCourier/Art/Architecture/SM_ShopHouseC.SM_ShopHouseC",
+      "source_yaw": 0.0,
+      "width": 788.3333333333334,
+      "depth": 2300.0,
+      "location": [
+        14272.5,
+        9900.0,
+        0.0
+      ],
+      "yaw": 180.0,
+      "variant": 2,
+      "kind": "residential",
+      "external_sides": []
+    },
+    {
+      "id": "B_2_5_1_0_2",
+      "source_tag": "CC_Art_Building_2_5_1_0_2",
+      "source_collision_tag": "CC_City_Block_2_5_1_0",
+      "source_asset": "/Game/CityCourier/Art/Architecture/SM_ShopHouseA.SM_ShopHouseA",
+      "source_yaw": 0.0,
+      "width": 788.3333333333334,
+      "depth": 2300.0,
+      "location": [
+        15060.833333333334,
+        9900.0,
+        0.0
+      ],
+      "yaw": 180.0,
+      "variant": 0,
+      "kind": "residential",
+      "external_sides": []
+    },
+    {
+      "id": "B_2_5_1_0_3",
+      "source_tag": "CC_Art_Building_2_5_1_0_3",
+      "source_collision_tag": "CC_City_Block_2_5_1_0",
+      "source_asset": "/Game/CityCourier/Art/Architecture/SM_ShopHouseB.SM_ShopHouseB",
+      "source_yaw": 0.0,
+      "width": 788.3333333333334,
+      "depth": 2300.0,
+      "location": [
+        15849.166666666668,
+        9900.0,
+        0.0
+      ],
+      "yaw": 180.0,
+      "variant": 1,
+      "kind": "residential",
+      "external_sides": [
+        -1
+      ]
+    },
+    {
+      "id": "B_2_5_1_1_0",
+      "source_tag": "CC_Art_Building_2_5_1_1_0",
+      "source_collision_tag": "CC_City_Block_2_5_1_1",
+      "source_asset": "/Game/CityCourier/Art/Architecture/SM_ShopHouseC.SM_ShopHouseC",
+      "source_yaw": 0.0,
+      "width": 788.3333333333334,
+      "depth": 2300.0,
+      "location": [
+        16817.5,
+        9900.0,
+        0.0
+      ],
+      "yaw": 180.0,
+      "variant": 2,
+      "kind": "residential",
+      "external_sides": [
+        1
+      ]
+    },
+    {
+      "id": "B_2_5_1_1_1",
+      "source_tag": "CC_Art_Building_2_5_1_1_1",
+      "source_collision_tag": "CC_City_Block_2_5_1_1",
+      "source_asset": "/Game/CityCourier/Art/Architecture/SM_ShopHouseA.SM_ShopHouseA",
+      "source_yaw": 0.0,
+      "width": 788.3333333333334,
+      "depth": 2300.0,
+      "location": [
+        17605.833333333332,
+        9900.0,
+        0.0
+      ],
+      "yaw": 180.0,
+      "variant": 0,
+      "kind": "residential",
+      "external_sides": []
+    },
+    {
+      "id": "B_2_5_1_1_2",
+      "source_tag": "CC_Art_Building_2_5_1_1_2",
+      "source_collision_tag": "CC_City_Block_2_5_1_1",
+      "source_asset": "/Game/CityCourier/Art/Architecture/SM_ShopHouseB.SM_ShopHouseB",
+      "source_yaw": 0.0,
+      "width": 788.3333333333334,
+      "depth": 2300.0,
+      "location": [
+        18394.166666666664,
+        9900.0,
+        0.0
+      ],
+      "yaw": 180.0,
+      "variant": 1,
+      "kind": "residential",
+      "external_sides": []
+    },
+    {
+      "id": "B_2_5_1_1_3",
+      "source_tag": "CC_Art_Building_2_5_1_1_3",
+      "source_collision_tag": "CC_City_Block_2_5_1_1",
+      "source_asset": "/Game/CityCourier/Art/Architecture/SM_ShopHouseC.SM_ShopHouseC",
+      "source_yaw": 0.0,
+      "width": 788.3333333333334,
+      "depth": 2300.0,
+      "location": [
+        19182.5,
+        9900.0,
+        0.0
+      ],
+      "yaw": 180.0,
+      "variant": 2,
+      "kind": "residential",
+      "external_sides": [
+        -1
+      ]
+    },
+    {
+      "id": "B_2_5_1_2_0",
+      "source_tag": "CC_Art_Building_2_5_1_2_0",
+      "source_collision_tag": "CC_City_Block_2_5_1_2",
+      "source_asset": "/Game/CityCourier/Art/Architecture/SM_ShopHouseA.SM_ShopHouseA",
+      "source_yaw": 0.0,
+      "width": 788.3333333333334,
+      "depth": 2300.0,
+      "location": [
+        20150.833333333336,
+        9900.0,
+        0.0
+      ],
+      "yaw": 180.0,
+      "variant": 0,
+      "kind": "residential",
+      "external_sides": [
+        1
+      ]
+    },
+    {
+      "id": "B_2_5_1_2_1",
+      "source_tag": "CC_Art_Building_2_5_1_2_1",
+      "source_collision_tag": "CC_City_Block_2_5_1_2",
+      "source_asset": "/Game/CityCourier/Art/Architecture/SM_ShopHouseB.SM_ShopHouseB",
+      "source_yaw": 0.0,
+      "width": 788.3333333333334,
+      "depth": 2300.0,
+      "location": [
+        20939.166666666668,
+        9900.0,
+        0.0
+      ],
+      "yaw": 180.0,
+      "variant": 1,
+      "kind": "residential",
+      "external_sides": []
+    },
+    {
+      "id": "B_2_5_1_2_2",
+      "source_tag": "CC_Art_Building_2_5_1_2_2",
+      "source_collision_tag": "CC_City_Block_2_5_1_2",
+      "source_asset": "/Game/CityCourier/Art/Architecture/SM_ShopHouseC.SM_ShopHouseC",
+      "source_yaw": 0.0,
+      "width": 788.3333333333334,
+      "depth": 2300.0,
+      "location": [
+        21727.5,
+        9900.0,
+        0.0
+      ],
+      "yaw": 180.0,
+      "variant": 2,
+      "kind": "residential",
+      "external_sides": []
+    },
+    {
+      "id": "B_2_5_1_2_3",
+      "source_tag": "CC_Art_Building_2_5_1_2_3",
+      "source_collision_tag": "CC_City_Block_2_5_1_2",
+      "source_asset": "/Game/CityCourier/Art/Architecture/SM_ShopHouseA.SM_ShopHouseA",
+      "source_yaw": 0.0,
+      "width": 788.3333333333334,
+      "depth": 2300.0,
+      "location": [
+        22515.833333333336,
+        9900.0,
+        0.0
+      ],
+      "yaw": 180.0,
+      "variant": 0,
+      "kind": "residential",
+      "external_sides": [
+        -1
+      ]
+    },
+    {
+      "id": "B_3_0_0_0_0",
+      "source_tag": "CC_Art_Building_3_0_0_0_0",
+      "source_collision_tag": "CC_City_Block_3_0_0_0",
+      "source_asset": "/Game/CityCourier/Art/Architecture/SM_ShopHouseA.SM_ShopHouseA",
+      "source_yaw": 180.0,
+      "width": 788.3333333333334,
+      "depth": 2300.0,
+      "location": [
+        -22515.833333333332,
+        14100.0,
+        0.0
+      ],
+      "yaw": 0.0,
+      "variant": 0,
+      "kind": "residential",
+      "external_sides": [
+        -1
+      ]
+    },
+    {
+      "id": "B_3_0_0_0_1",
+      "source_tag": "CC_Art_Building_3_0_0_0_1",
+      "source_collision_tag": "CC_City_Block_3_0_0_0",
+      "source_asset": "/Game/CityCourier/Art/Architecture/SM_ShopHouseB.SM_ShopHouseB",
+      "source_yaw": 180.0,
+      "width": 788.3333333333334,
+      "depth": 2300.0,
+      "location": [
+        -21727.5,
+        14100.0,
+        0.0
+      ],
+      "yaw": 0.0,
+      "variant": 1,
+      "kind": "residential",
+      "external_sides": []
+    },
+    {
+      "id": "B_3_0_0_0_2",
+      "source_tag": "CC_Art_Building_3_0_0_0_2",
+      "source_collision_tag": "CC_City_Block_3_0_0_0",
+      "source_asset": "/Game/CityCourier/Art/Architecture/SM_ShopHouseC.SM_ShopHouseC",
+      "source_yaw": 180.0,
+      "width": 788.3333333333334,
+      "depth": 2300.0,
+      "location": [
+        -20939.166666666668,
+        14100.0,
+        0.0
+      ],
+      "yaw": 0.0,
+      "variant": 2,
+      "kind": "residential",
+      "external_sides": []
+    },
+    {
+      "id": "B_3_0_0_0_3",
+      "source_tag": "CC_Art_Building_3_0_0_0_3",
+      "source_collision_tag": "CC_City_Block_3_0_0_0",
+      "source_asset": "/Game/CityCourier/Art/Architecture/SM_ShopHouseA.SM_ShopHouseA",
+      "source_yaw": 180.0,
+      "width": 788.3333333333334,
+      "depth": 2300.0,
+      "location": [
+        -20150.833333333332,
+        14100.0,
+        0.0
+      ],
+      "yaw": 0.0,
+      "variant": 0,
+      "kind": "residential",
+      "external_sides": [
+        1
+      ]
+    },
+    {
+      "id": "B_3_0_0_1_0",
+      "source_tag": "CC_Art_Building_3_0_0_1_0",
+      "source_collision_tag": "CC_City_Block_3_0_0_1",
+      "source_asset": "/Game/CityCourier/Art/Architecture/SM_ShopHouseB.SM_ShopHouseB",
+      "source_yaw": 180.0,
+      "width": 788.3333333333334,
+      "depth": 2300.0,
+      "location": [
+        -19182.5,
+        14100.0,
+        0.0
+      ],
+      "yaw": 0.0,
+      "variant": 1,
+      "kind": "residential",
+      "external_sides": [
+        -1
+      ]
+    },
+    {
+      "id": "B_3_0_0_1_1",
+      "source_tag": "CC_Art_Building_3_0_0_1_1",
+      "source_collision_tag": "CC_City_Block_3_0_0_1",
+      "source_asset": "/Game/CityCourier/Art/Architecture/SM_ShopHouseC.SM_ShopHouseC",
+      "source_yaw": 180.0,
+      "width": 788.3333333333334,
+      "depth": 2300.0,
+      "location": [
+        -18394.166666666668,
+        14100.0,
+        0.0
+      ],
+      "yaw": 0.0,
+      "variant": 2,
+      "kind": "residential",
+      "external_sides": []
+    },
+    {
+      "id": "B_3_0_0_1_2",
+      "source_tag": "CC_Art_Building_3_0_0_1_2",
+      "source_collision_tag": "CC_City_Block_3_0_0_1",
+      "source_asset": "/Game/CityCourier/Art/Architecture/SM_ShopHouseA.SM_ShopHouseA",
+      "source_yaw": 180.0,
+      "width": 788.3333333333334,
+      "depth": 2300.0,
+      "location": [
+        -17605.833333333336,
+        14100.0,
+        0.0
+      ],
+      "yaw": 0.0,
+      "variant": 0,
+      "kind": "residential",
+      "external_sides": []
+    },
+    {
+      "id": "B_3_0_0_1_3",
+      "source_tag": "CC_Art_Building_3_0_0_1_3",
+      "source_collision_tag": "CC_City_Block_3_0_0_1",
+      "source_asset": "/Game/CityCourier/Art/Architecture/SM_ShopHouseB.SM_ShopHouseB",
+      "source_yaw": 180.0,
+      "width": 788.3333333333334,
+      "depth": 2300.0,
+      "location": [
+        -16817.5,
+        14100.0,
+        0.0
+      ],
+      "yaw": 0.0,
+      "variant": 1,
+      "kind": "residential",
+      "external_sides": [
+        1
+      ]
+    },
+    {
+      "id": "B_3_0_0_2_0",
+      "source_tag": "CC_Art_Building_3_0_0_2_0",
+      "source_collision_tag": "CC_City_Block_3_0_0_2",
+      "source_asset": "/Game/CityCourier/Art/Architecture/SM_ShopHouseC.SM_ShopHouseC",
+      "source_yaw": 180.0,
+      "width": 788.3333333333334,
+      "depth": 2300.0,
+      "location": [
+        -15849.166666666666,
+        14100.0,
+        0.0
+      ],
+      "yaw": 0.0,
+      "variant": 2,
+      "kind": "residential",
+      "external_sides": [
+        -1
+      ]
+    },
+    {
+      "id": "B_3_0_0_2_1",
+      "source_tag": "CC_Art_Building_3_0_0_2_1",
+      "source_collision_tag": "CC_City_Block_3_0_0_2",
+      "source_asset": "/Game/CityCourier/Art/Architecture/SM_ShopHouseA.SM_ShopHouseA",
+      "source_yaw": 180.0,
+      "width": 788.3333333333334,
+      "depth": 2300.0,
+      "location": [
+        -15060.833333333332,
+        14100.0,
+        0.0
+      ],
+      "yaw": 0.0,
+      "variant": 0,
+      "kind": "residential",
+      "external_sides": []
+    },
+    {
+      "id": "B_3_0_0_2_2",
+      "source_tag": "CC_Art_Building_3_0_0_2_2",
+      "source_collision_tag": "CC_City_Block_3_0_0_2",
+      "source_asset": "/Game/CityCourier/Art/Architecture/SM_ShopHouseB.SM_ShopHouseB",
+      "source_yaw": 180.0,
+      "width": 788.3333333333334,
+      "depth": 2300.0,
+      "location": [
+        -14272.499999999998,
+        14100.0,
+        0.0
+      ],
+      "yaw": 0.0,
+      "variant": 1,
+      "kind": "residential",
+      "external_sides": []
+    },
+    {
+      "id": "B_3_0_0_2_3",
+      "source_tag": "CC_Art_Building_3_0_0_2_3",
+      "source_collision_tag": "CC_City_Block_3_0_0_2",
+      "source_asset": "/Game/CityCourier/Art/Architecture/SM_ShopHouseC.SM_ShopHouseC",
+      "source_yaw": 180.0,
+      "width": 788.3333333333334,
+      "depth": 2300.0,
+      "location": [
+        -13484.166666666664,
+        14100.0,
+        0.0
+      ],
+      "yaw": 0.0,
+      "variant": 2,
+      "kind": "residential",
+      "external_sides": [
+        1
+      ]
+    },
+    {
+      "id": "B_3_0_1_0_0",
+      "source_tag": "CC_Art_Building_3_0_1_0_0",
+      "source_collision_tag": "CC_City_Block_3_0_1_0",
+      "source_asset": "/Game/CityCourier/Art/Architecture/SM_ShopHouseA.SM_ShopHouseA",
+      "source_yaw": 0.0,
+      "width": 788.3333333333334,
+      "depth": 2300.0,
+      "location": [
+        -22515.833333333332,
+        21900.0,
+        0.0
+      ],
+      "yaw": 180.0,
+      "variant": 0,
+      "kind": "residential",
+      "external_sides": [
+        1
+      ]
+    },
+    {
+      "id": "B_3_0_1_0_1",
+      "source_tag": "CC_Art_Building_3_0_1_0_1",
+      "source_collision_tag": "CC_City_Block_3_0_1_0",
+      "source_asset": "/Game/CityCourier/Art/Architecture/SM_ShopHouseB.SM_ShopHouseB",
+      "source_yaw": 0.0,
+      "width": 788.3333333333334,
+      "depth": 2300.0,
+      "location": [
+        -21727.5,
+        21900.0,
+        0.0
+      ],
+      "yaw": 180.0,
+      "variant": 1,
+      "kind": "residential",
+      "external_sides": []
+    },
+    {
+      "id": "B_3_0_1_0_2",
+      "source_tag": "CC_Art_Building_3_0_1_0_2",
+      "source_collision_tag": "CC_City_Block_3_0_1_0",
+      "source_asset": "/Game/CityCourier/Art/Architecture/SM_ShopHouseC.SM_ShopHouseC",
+      "source_yaw": 0.0,
+      "width": 788.3333333333334,
+      "depth": 2300.0,
+      "location": [
+        -20939.166666666668,
+        21900.0,
+        0.0
+      ],
+      "yaw": 180.0,
+      "variant": 2,
+      "kind": "residential",
+      "external_sides": []
+    },
+    {
+      "id": "B_3_0_1_0_3",
+      "source_tag": "CC_Art_Building_3_0_1_0_3",
+      "source_collision_tag": "CC_City_Block_3_0_1_0",
+      "source_asset": "/Game/CityCourier/Art/Architecture/SM_ShopHouseA.SM_ShopHouseA",
+      "source_yaw": 0.0,
+      "width": 788.3333333333334,
+      "depth": 2300.0,
+      "location": [
+        -20150.833333333332,
+        21900.0,
+        0.0
+      ],
+      "yaw": 180.0,
+      "variant": 0,
+      "kind": "residential",
+      "external_sides": [
+        -1
+      ]
+    },
+    {
+      "id": "B_3_0_1_1_0",
+      "source_tag": "CC_Art_Building_3_0_1_1_0",
+      "source_collision_tag": "CC_City_Block_3_0_1_1",
+      "source_asset": "/Game/CityCourier/Art/Architecture/SM_ShopHouseB.SM_ShopHouseB",
+      "source_yaw": 0.0,
+      "width": 788.3333333333334,
+      "depth": 2300.0,
+      "location": [
+        -19182.5,
+        21900.0,
+        0.0
+      ],
+      "yaw": 180.0,
+      "variant": 1,
+      "kind": "residential",
+      "external_sides": [
+        1
+      ]
+    },
+    {
+      "id": "B_3_0_1_1_1",
+      "source_tag": "CC_Art_Building_3_0_1_1_1",
+      "source_collision_tag": "CC_City_Block_3_0_1_1",
+      "source_asset": "/Game/CityCourier/Art/Architecture/SM_ShopHouseC.SM_ShopHouseC",
+      "source_yaw": 0.0,
+      "width": 788.3333333333334,
+      "depth": 2300.0,
+      "location": [
+        -18394.166666666668,
+        21900.0,
+        0.0
+      ],
+      "yaw": 180.0,
+      "variant": 2,
+      "kind": "residential",
+      "external_sides": []
+    },
+    {
+      "id": "B_3_0_1_1_2",
+      "source_tag": "CC_Art_Building_3_0_1_1_2",
+      "source_collision_tag": "CC_City_Block_3_0_1_1",
+      "source_asset": "/Game/CityCourier/Art/Architecture/SM_ShopHouseA.SM_ShopHouseA",
+      "source_yaw": 0.0,
+      "width": 788.3333333333334,
+      "depth": 2300.0,
+      "location": [
+        -17605.833333333336,
+        21900.0,
+        0.0
+      ],
+      "yaw": 180.0,
+      "variant": 0,
+      "kind": "residential",
+      "external_sides": []
+    },
+    {
+      "id": "B_3_0_1_1_3",
+      "source_tag": "CC_Art_Building_3_0_1_1_3",
+      "source_collision_tag": "CC_City_Block_3_0_1_1",
+      "source_asset": "/Game/CityCourier/Art/Architecture/SM_ShopHouseB.SM_ShopHouseB",
+      "source_yaw": 0.0,
+      "width": 788.3333333333334,
+      "depth": 2300.0,
+      "location": [
+        -16817.5,
+        21900.0,
+        0.0
+      ],
+      "yaw": 180.0,
+      "variant": 1,
+      "kind": "residential",
+      "external_sides": [
+        -1
+      ]
+    },
+    {
+      "id": "B_3_0_1_2_0",
+      "source_tag": "CC_Art_Building_3_0_1_2_0",
+      "source_collision_tag": "CC_City_Block_3_0_1_2",
+      "source_asset": "/Game/CityCourier/Art/Architecture/SM_ShopHouseC.SM_ShopHouseC",
+      "source_yaw": 0.0,
+      "width": 788.3333333333334,
+      "depth": 2300.0,
+      "location": [
+        -15849.166666666666,
+        21900.0,
+        0.0
+      ],
+      "yaw": 180.0,
+      "variant": 2,
+      "kind": "residential",
+      "external_sides": [
+        1
+      ]
+    },
+    {
+      "id": "B_3_0_1_2_1",
+      "source_tag": "CC_Art_Building_3_0_1_2_1",
+      "source_collision_tag": "CC_City_Block_3_0_1_2",
+      "source_asset": "/Game/CityCourier/Art/Architecture/SM_ShopHouseA.SM_ShopHouseA",
+      "source_yaw": 0.0,
+      "width": 788.3333333333334,
+      "depth": 2300.0,
+      "location": [
+        -15060.833333333332,
+        21900.0,
+        0.0
+      ],
+      "yaw": 180.0,
+      "variant": 0,
+      "kind": "residential",
+      "external_sides": []
+    },
+    {
+      "id": "B_3_0_1_2_2",
+      "source_tag": "CC_Art_Building_3_0_1_2_2",
+      "source_collision_tag": "CC_City_Block_3_0_1_2",
+      "source_asset": "/Game/CityCourier/Art/Architecture/SM_ShopHouseB.SM_ShopHouseB",
+      "source_yaw": 0.0,
+      "width": 788.3333333333334,
+      "depth": 2300.0,
+      "location": [
+        -14272.499999999998,
+        21900.0,
+        0.0
+      ],
+      "yaw": 180.0,
+      "variant": 1,
+      "kind": "residential",
+      "external_sides": []
+    },
+    {
+      "id": "B_3_0_1_2_3",
+      "source_tag": "CC_Art_Building_3_0_1_2_3",
+      "source_collision_tag": "CC_City_Block_3_0_1_2",
+      "source_asset": "/Game/CityCourier/Art/Architecture/SM_ShopHouseC.SM_ShopHouseC",
+      "source_yaw": 0.0,
+      "width": 788.3333333333334,
+      "depth": 2300.0,
+      "location": [
+        -13484.166666666664,
+        21900.0,
+        0.0
+      ],
+      "yaw": 180.0,
+      "variant": 2,
+      "kind": "residential",
+      "external_sides": [
+        -1
+      ]
+    },
+    {
+      "id": "B_3_1_0_0_0",
+      "source_tag": "CC_Art_Building_3_1_0_0_0",
+      "source_collision_tag": "CC_City_Block_3_1_0_0",
+      "source_asset": "/Game/CityCourier/Art/Architecture/SM_ShopHouseB.SM_ShopHouseB",
+      "source_yaw": 180.0,
+      "width": 1153.3333333333333,
+      "depth": 2300.0,
+      "location": [
+        -10333.333333333334,
+        14100.0,
+        0.0
+      ],
+      "yaw": 0.0,
+      "variant": 1,
+      "kind": "residential",
+      "external_sides": [
+        -1,
+        1
+      ]
+    },
+    {
+      "id": "B_3_1_0_1_0",
+      "source_tag": "CC_Art_Building_3_1_0_1_0",
+      "source_collision_tag": "CC_City_Block_3_1_0_1",
+      "source_asset": "/Game/CityCourier/Art/Architecture/SM_ShopHouseC.SM_ShopHouseC",
+      "source_yaw": 180.0,
+      "width": 1153.3333333333333,
+      "depth": 2300.0,
+      "location": [
+        -9000.0,
+        14100.0,
+        0.0
+      ],
+      "yaw": 0.0,
+      "variant": 2,
+      "kind": "residential",
+      "external_sides": [
+        -1,
+        1
+      ]
+    },
+    {
+      "id": "B_3_1_0_2_0",
+      "source_tag": "CC_Art_Building_3_1_0_2_0",
+      "source_collision_tag": "CC_City_Block_3_1_0_2",
+      "source_asset": "/Game/CityCourier/Art/Architecture/SM_ShopHouseA.SM_ShopHouseA",
+      "source_yaw": 180.0,
+      "width": 1153.3333333333333,
+      "depth": 2300.0,
+      "location": [
+        -7666.666666666665,
+        14100.0,
+        0.0
+      ],
+      "yaw": 0.0,
+      "variant": 0,
+      "kind": "residential",
+      "external_sides": [
+        -1,
+        1
+      ]
+    },
+    {
+      "id": "B_3_1_1_0_0",
+      "source_tag": "CC_Art_Building_3_1_1_0_0",
+      "source_collision_tag": "CC_City_Block_3_1_1_0",
+      "source_asset": "/Game/CityCourier/Art/Architecture/SM_ShopHouseB.SM_ShopHouseB",
+      "source_yaw": 0.0,
+      "width": 1153.3333333333333,
+      "depth": 2300.0,
+      "location": [
+        -10333.333333333334,
+        21900.0,
+        0.0
+      ],
+      "yaw": 180.0,
+      "variant": 1,
+      "kind": "residential",
+      "external_sides": [
+        -1,
+        1
+      ]
+    },
+    {
+      "id": "B_3_1_1_1_0",
+      "source_tag": "CC_Art_Building_3_1_1_1_0",
+      "source_collision_tag": "CC_City_Block_3_1_1_1",
+      "source_asset": "/Game/CityCourier/Art/Architecture/SM_ShopHouseC.SM_ShopHouseC",
+      "source_yaw": 0.0,
+      "width": 1153.3333333333333,
+      "depth": 2300.0,
+      "location": [
+        -9000.0,
+        21900.0,
+        0.0
+      ],
+      "yaw": 180.0,
+      "variant": 2,
+      "kind": "residential",
+      "external_sides": [
+        -1,
+        1
+      ]
+    },
+    {
+      "id": "B_3_1_1_2_0",
+      "source_tag": "CC_Art_Building_3_1_1_2_0",
+      "source_collision_tag": "CC_City_Block_3_1_1_2",
+      "source_asset": "/Game/CityCourier/Art/Architecture/SM_ShopHouseA.SM_ShopHouseA",
+      "source_yaw": 0.0,
+      "width": 1153.3333333333333,
+      "depth": 2300.0,
+      "location": [
+        -7666.666666666665,
+        21900.0,
+        0.0
+      ],
+      "yaw": 180.0,
+      "variant": 0,
+      "kind": "residential",
+      "external_sides": [
+        -1,
+        1
+      ]
+    },
+    {
+      "id": "B_3_2_0_0_0",
+      "source_tag": "CC_Art_Building_3_2_0_0_0",
+      "source_collision_tag": "CC_City_Block_3_2_0_0",
+      "source_asset": "/Game/CityCourier/Art/Architecture/SM_ShopHouseC.SM_ShopHouseC",
+      "source_yaw": 180.0,
+      "width": 1153.3333333333333,
+      "depth": 2300.0,
+      "location": [
+        -4333.333333333333,
+        14100.0,
+        0.0
+      ],
+      "yaw": 0.0,
+      "variant": 2,
+      "kind": "residential",
+      "external_sides": [
+        -1,
+        1
+      ]
+    },
+    {
+      "id": "B_3_2_0_1_0",
+      "source_tag": "CC_Art_Building_3_2_0_1_0",
+      "source_collision_tag": "CC_City_Block_3_2_0_1",
+      "source_asset": "/Game/CityCourier/Art/Architecture/SM_ShopHouseA.SM_ShopHouseA",
+      "source_yaw": 180.0,
+      "width": 1153.3333333333333,
+      "depth": 2300.0,
+      "location": [
+        -3000.0,
+        14100.0,
+        0.0
+      ],
+      "yaw": 0.0,
+      "variant": 0,
+      "kind": "residential",
+      "external_sides": [
+        -1,
+        1
+      ]
+    },
+    {
+      "id": "B_3_2_0_2_0",
+      "source_tag": "CC_Art_Building_3_2_0_2_0",
+      "source_collision_tag": "CC_City_Block_3_2_0_2",
+      "source_asset": "/Game/CityCourier/Art/Architecture/SM_ShopHouseB.SM_ShopHouseB",
+      "source_yaw": 180.0,
+      "width": 1153.3333333333333,
+      "depth": 2300.0,
+      "location": [
+        -1666.6666666666665,
+        14100.0,
+        0.0
+      ],
+      "yaw": 0.0,
+      "variant": 1,
+      "kind": "residential",
+      "external_sides": [
+        -1,
+        1
+      ]
+    },
+    {
+      "id": "B_3_2_1_0_0",
+      "source_tag": "CC_Art_Building_3_2_1_0_0",
+      "source_collision_tag": "CC_City_Block_3_2_1_0",
+      "source_asset": "/Game/CityCourier/Art/Architecture/SM_ShopHouseC.SM_ShopHouseC",
+      "source_yaw": 0.0,
+      "width": 1153.3333333333333,
+      "depth": 2300.0,
+      "location": [
+        -4333.333333333333,
+        21900.0,
+        0.0
+      ],
+      "yaw": 180.0,
+      "variant": 2,
+      "kind": "residential",
+      "external_sides": [
+        -1,
+        1
+      ]
+    },
+    {
+      "id": "B_3_2_1_1_0",
+      "source_tag": "CC_Art_Building_3_2_1_1_0",
+      "source_collision_tag": "CC_City_Block_3_2_1_1",
+      "source_asset": "/Game/CityCourier/Art/Architecture/SM_ShopHouseA.SM_ShopHouseA",
+      "source_yaw": 0.0,
+      "width": 1153.3333333333333,
+      "depth": 2300.0,
+      "location": [
+        -3000.0,
+        21900.0,
+        0.0
+      ],
+      "yaw": 180.0,
+      "variant": 0,
+      "kind": "residential",
+      "external_sides": [
+        -1,
+        1
+      ]
+    },
+    {
+      "id": "B_3_2_1_2_0",
+      "source_tag": "CC_Art_Building_3_2_1_2_0",
+      "source_collision_tag": "CC_City_Block_3_2_1_2",
+      "source_asset": "/Game/CityCourier/Art/Architecture/SM_ShopHouseB.SM_ShopHouseB",
+      "source_yaw": 0.0,
+      "width": 1153.3333333333333,
+      "depth": 2300.0,
+      "location": [
+        -1666.6666666666665,
+        21900.0,
+        0.0
+      ],
+      "yaw": 180.0,
+      "variant": 1,
+      "kind": "residential",
+      "external_sides": [
+        -1,
+        1
+      ]
+    },
+    {
+      "id": "B_3_3_0_0_0",
+      "source_tag": "CC_Art_Building_3_3_0_0_0",
+      "source_collision_tag": "CC_City_Block_3_3_0_0",
+      "source_asset": "/Game/CityCourier/Art/Architecture/SM_ShopHouseA.SM_ShopHouseA",
+      "source_yaw": 180.0,
+      "width": 1153.3333333333333,
+      "depth": 2300.0,
+      "location": [
+        1666.6666666666665,
+        14100.0,
+        0.0
+      ],
+      "yaw": 0.0,
+      "variant": 0,
+      "kind": "residential",
+      "external_sides": [
+        -1,
+        1
+      ]
+    },
+    {
+      "id": "B_3_3_0_1_0",
+      "source_tag": "CC_Art_Building_3_3_0_1_0",
+      "source_collision_tag": "CC_City_Block_3_3_0_1",
+      "source_asset": "/Game/CityCourier/Art/Architecture/SM_ShopHouseB.SM_ShopHouseB",
+      "source_yaw": 180.0,
+      "width": 1153.3333333333333,
+      "depth": 2300.0,
+      "location": [
+        3000.0,
+        14100.0,
+        0.0
+      ],
+      "yaw": 0.0,
+      "variant": 1,
+      "kind": "residential",
+      "external_sides": [
+        -1,
+        1
+      ]
+    },
+    {
+      "id": "B_3_3_0_2_0",
+      "source_tag": "CC_Art_Building_3_3_0_2_0",
+      "source_collision_tag": "CC_City_Block_3_3_0_2",
+      "source_asset": "/Game/CityCourier/Art/Architecture/SM_ShopHouseC.SM_ShopHouseC",
+      "source_yaw": 180.0,
+      "width": 1153.3333333333333,
+      "depth": 2300.0,
+      "location": [
+        4333.333333333334,
+        14100.0,
+        0.0
+      ],
+      "yaw": 0.0,
+      "variant": 2,
+      "kind": "residential",
+      "external_sides": [
+        -1,
+        1
+      ]
+    },
+    {
+      "id": "B_3_3_1_0_0",
+      "source_tag": "CC_Art_Building_3_3_1_0_0",
+      "source_collision_tag": "CC_City_Block_3_3_1_0",
+      "source_asset": "/Game/CityCourier/Art/Architecture/SM_ShopHouseA.SM_ShopHouseA",
+      "source_yaw": 0.0,
+      "width": 1153.3333333333333,
+      "depth": 2300.0,
+      "location": [
+        1666.6666666666665,
+        21900.0,
+        0.0
+      ],
+      "yaw": 180.0,
+      "variant": 0,
+      "kind": "residential",
+      "external_sides": [
+        -1,
+        1
+      ]
+    },
+    {
+      "id": "B_3_3_1_1_0",
+      "source_tag": "CC_Art_Building_3_3_1_1_0",
+      "source_collision_tag": "CC_City_Block_3_3_1_1",
+      "source_asset": "/Game/CityCourier/Art/Architecture/SM_ShopHouseB.SM_ShopHouseB",
+      "source_yaw": 0.0,
+      "width": 1153.3333333333333,
+      "depth": 2300.0,
+      "location": [
+        3000.0,
+        21900.0,
+        0.0
+      ],
+      "yaw": 180.0,
+      "variant": 1,
+      "kind": "residential",
+      "external_sides": [
+        -1,
+        1
+      ]
+    },
+    {
+      "id": "B_3_3_1_2_0",
+      "source_tag": "CC_Art_Building_3_3_1_2_0",
+      "source_collision_tag": "CC_City_Block_3_3_1_2",
+      "source_asset": "/Game/CityCourier/Art/Architecture/SM_ShopHouseC.SM_ShopHouseC",
+      "source_yaw": 0.0,
+      "width": 1153.3333333333333,
+      "depth": 2300.0,
+      "location": [
+        4333.333333333334,
+        21900.0,
+        0.0
+      ],
+      "yaw": 180.0,
+      "variant": 2,
+      "kind": "residential",
+      "external_sides": [
+        -1,
+        1
+      ]
+    },
+    {
+      "id": "B_3_4_0_0_0",
+      "source_tag": "CC_Art_Building_3_4_0_0_0",
+      "source_collision_tag": "CC_City_Block_3_4_0_0",
+      "source_asset": "/Game/CityCourier/Art/Architecture/SM_ShopHouseB.SM_ShopHouseB",
+      "source_yaw": 180.0,
+      "width": 1153.3333333333333,
+      "depth": 2300.0,
+      "location": [
+        7666.666666666667,
+        14100.0,
+        0.0
+      ],
+      "yaw": 0.0,
+      "variant": 1,
+      "kind": "residential",
+      "external_sides": [
+        -1,
+        1
+      ]
+    },
+    {
+      "id": "B_3_4_0_1_0",
+      "source_tag": "CC_Art_Building_3_4_0_1_0",
+      "source_collision_tag": "CC_City_Block_3_4_0_1",
+      "source_asset": "/Game/CityCourier/Art/Architecture/SM_ShopHouseC.SM_ShopHouseC",
+      "source_yaw": 180.0,
+      "width": 1153.3333333333333,
+      "depth": 2300.0,
+      "location": [
+        9000.0,
+        14100.0,
+        0.0
+      ],
+      "yaw": 0.0,
+      "variant": 2,
+      "kind": "residential",
+      "external_sides": [
+        -1,
+        1
+      ]
+    },
+    {
+      "id": "B_3_4_0_2_0",
+      "source_tag": "CC_Art_Building_3_4_0_2_0",
+      "source_collision_tag": "CC_City_Block_3_4_0_2",
+      "source_asset": "/Game/CityCourier/Art/Architecture/SM_ShopHouseA.SM_ShopHouseA",
+      "source_yaw": 180.0,
+      "width": 1153.3333333333333,
+      "depth": 2300.0,
+      "location": [
+        10333.333333333334,
+        14100.0,
+        0.0
+      ],
+      "yaw": 0.0,
+      "variant": 0,
+      "kind": "residential",
+      "external_sides": [
+        -1,
+        1
+      ]
+    },
+    {
+      "id": "B_3_4_1_0_0",
+      "source_tag": "CC_Art_Building_3_4_1_0_0",
+      "source_collision_tag": "CC_City_Block_3_4_1_0",
+      "source_asset": "/Game/CityCourier/Art/Architecture/SM_ShopHouseB.SM_ShopHouseB",
+      "source_yaw": 0.0,
+      "width": 1153.3333333333333,
+      "depth": 2300.0,
+      "location": [
+        7666.666666666667,
+        21900.0,
+        0.0
+      ],
+      "yaw": 180.0,
+      "variant": 1,
+      "kind": "residential",
+      "external_sides": [
+        -1,
+        1
+      ]
+    },
+    {
+      "id": "B_3_4_1_1_0",
+      "source_tag": "CC_Art_Building_3_4_1_1_0",
+      "source_collision_tag": "CC_City_Block_3_4_1_1",
+      "source_asset": "/Game/CityCourier/Art/Architecture/SM_ShopHouseC.SM_ShopHouseC",
+      "source_yaw": 0.0,
+      "width": 1153.3333333333333,
+      "depth": 2300.0,
+      "location": [
+        9000.0,
+        21900.0,
+        0.0
+      ],
+      "yaw": 180.0,
+      "variant": 2,
+      "kind": "residential",
+      "external_sides": [
+        -1,
+        1
+      ]
+    },
+    {
+      "id": "B_3_4_1_2_0",
+      "source_tag": "CC_Art_Building_3_4_1_2_0",
+      "source_collision_tag": "CC_City_Block_3_4_1_2",
+      "source_asset": "/Game/CityCourier/Art/Architecture/SM_ShopHouseA.SM_ShopHouseA",
+      "source_yaw": 0.0,
+      "width": 1153.3333333333333,
+      "depth": 2300.0,
+      "location": [
+        10333.333333333334,
+        21900.0,
+        0.0
+      ],
+      "yaw": 180.0,
+      "variant": 0,
+      "kind": "residential",
+      "external_sides": [
+        -1,
+        1
+      ]
+    },
+    {
+      "id": "B_3_5_0_0_0",
+      "source_tag": "CC_Art_Building_3_5_0_0_0",
+      "source_collision_tag": "CC_City_Block_3_5_0_0",
+      "source_asset": "/Game/CityCourier/Art/Architecture/SM_ShopHouseC.SM_ShopHouseC",
+      "source_yaw": 180.0,
+      "width": 788.3333333333334,
+      "depth": 2300.0,
+      "location": [
+        13484.166666666666,
+        14100.0,
+        0.0
+      ],
+      "yaw": 0.0,
+      "variant": 2,
+      "kind": "residential",
+      "external_sides": [
+        -1
+      ]
+    },
+    {
+      "id": "B_3_5_0_0_1",
+      "source_tag": "CC_Art_Building_3_5_0_0_1",
+      "source_collision_tag": "CC_City_Block_3_5_0_0",
+      "source_asset": "/Game/CityCourier/Art/Architecture/SM_ShopHouseA.SM_ShopHouseA",
+      "source_yaw": 180.0,
+      "width": 788.3333333333334,
+      "depth": 2300.0,
+      "location": [
+        14272.5,
+        14100.0,
+        0.0
+      ],
+      "yaw": 0.0,
+      "variant": 0,
+      "kind": "residential",
+      "external_sides": []
+    },
+    {
+      "id": "B_3_5_0_0_2",
+      "source_tag": "CC_Art_Building_3_5_0_0_2",
+      "source_collision_tag": "CC_City_Block_3_5_0_0",
+      "source_asset": "/Game/CityCourier/Art/Architecture/SM_ShopHouseB.SM_ShopHouseB",
+      "source_yaw": 180.0,
+      "width": 788.3333333333334,
+      "depth": 2300.0,
+      "location": [
+        15060.833333333334,
+        14100.0,
+        0.0
+      ],
+      "yaw": 0.0,
+      "variant": 1,
+      "kind": "residential",
+      "external_sides": []
+    },
+    {
+      "id": "B_3_5_0_0_3",
+      "source_tag": "CC_Art_Building_3_5_0_0_3",
+      "source_collision_tag": "CC_City_Block_3_5_0_0",
+      "source_asset": "/Game/CityCourier/Art/Architecture/SM_ShopHouseC.SM_ShopHouseC",
+      "source_yaw": 180.0,
+      "width": 788.3333333333334,
+      "depth": 2300.0,
+      "location": [
+        15849.166666666668,
+        14100.0,
+        0.0
+      ],
+      "yaw": 0.0,
+      "variant": 2,
+      "kind": "residential",
+      "external_sides": [
+        1
+      ]
+    },
+    {
+      "id": "B_3_5_0_1_0",
+      "source_tag": "CC_Art_Building_3_5_0_1_0",
+      "source_collision_tag": "CC_City_Block_3_5_0_1",
+      "source_asset": "/Game/CityCourier/Art/Architecture/SM_ShopHouseA.SM_ShopHouseA",
+      "source_yaw": 180.0,
+      "width": 788.3333333333334,
+      "depth": 2300.0,
+      "location": [
+        16817.5,
+        14100.0,
+        0.0
+      ],
+      "yaw": 0.0,
+      "variant": 0,
+      "kind": "residential",
+      "external_sides": [
+        -1
+      ]
+    },
+    {
+      "id": "B_3_5_0_1_1",
+      "source_tag": "CC_Art_Building_3_5_0_1_1",
+      "source_collision_tag": "CC_City_Block_3_5_0_1",
+      "source_asset": "/Game/CityCourier/Art/Architecture/SM_ShopHouseB.SM_ShopHouseB",
+      "source_yaw": 180.0,
+      "width": 788.3333333333334,
+      "depth": 2300.0,
+      "location": [
+        17605.833333333332,
+        14100.0,
+        0.0
+      ],
+      "yaw": 0.0,
+      "variant": 1,
+      "kind": "residential",
+      "external_sides": []
+    },
+    {
+      "id": "B_3_5_0_1_2",
+      "source_tag": "CC_Art_Building_3_5_0_1_2",
+      "source_collision_tag": "CC_City_Block_3_5_0_1",
+      "source_asset": "/Game/CityCourier/Art/Architecture/SM_ShopHouseC.SM_ShopHouseC",
+      "source_yaw": 180.0,
+      "width": 788.3333333333334,
+      "depth": 2300.0,
+      "location": [
+        18394.166666666664,
+        14100.0,
+        0.0
+      ],
+      "yaw": 0.0,
+      "variant": 2,
+      "kind": "residential",
+      "external_sides": []
+    },
+    {
+      "id": "B_3_5_0_1_3",
+      "source_tag": "CC_Art_Building_3_5_0_1_3",
+      "source_collision_tag": "CC_City_Block_3_5_0_1",
+      "source_asset": "/Game/CityCourier/Art/Architecture/SM_ShopHouseA.SM_ShopHouseA",
+      "source_yaw": 180.0,
+      "width": 788.3333333333334,
+      "depth": 2300.0,
+      "location": [
+        19182.5,
+        14100.0,
+        0.0
+      ],
+      "yaw": 0.0,
+      "variant": 0,
+      "kind": "residential",
+      "external_sides": [
+        1
+      ]
+    },
+    {
+      "id": "B_3_5_0_2_0",
+      "source_tag": "CC_Art_Building_3_5_0_2_0",
+      "source_collision_tag": "CC_City_Block_3_5_0_2",
+      "source_asset": "/Game/CityCourier/Art/Architecture/SM_ShopHouseB.SM_ShopHouseB",
+      "source_yaw": 180.0,
+      "width": 788.3333333333334,
+      "depth": 2300.0,
+      "location": [
+        20150.833333333336,
+        14100.0,
+        0.0
+      ],
+      "yaw": 0.0,
+      "variant": 1,
+      "kind": "residential",
+      "external_sides": [
+        -1
+      ]
+    },
+    {
+      "id": "B_3_5_0_2_1",
+      "source_tag": "CC_Art_Building_3_5_0_2_1",
+      "source_collision_tag": "CC_City_Block_3_5_0_2",
+      "source_asset": "/Game/CityCourier/Art/Architecture/SM_ShopHouseC.SM_ShopHouseC",
+      "source_yaw": 180.0,
+      "width": 788.3333333333334,
+      "depth": 2300.0,
+      "location": [
+        20939.166666666668,
+        14100.0,
+        0.0
+      ],
+      "yaw": 0.0,
+      "variant": 2,
+      "kind": "residential",
+      "external_sides": []
+    },
+    {
+      "id": "B_3_5_0_2_2",
+      "source_tag": "CC_Art_Building_3_5_0_2_2",
+      "source_collision_tag": "CC_City_Block_3_5_0_2",
+      "source_asset": "/Game/CityCourier/Art/Architecture/SM_ShopHouseA.SM_ShopHouseA",
+      "source_yaw": 180.0,
+      "width": 788.3333333333334,
+      "depth": 2300.0,
+      "location": [
+        21727.5,
+        14100.0,
+        0.0
+      ],
+      "yaw": 0.0,
+      "variant": 0,
+      "kind": "residential",
+      "external_sides": []
+    },
+    {
+      "id": "B_3_5_0_2_3",
+      "source_tag": "CC_Art_Building_3_5_0_2_3",
+      "source_collision_tag": "CC_City_Block_3_5_0_2",
+      "source_asset": "/Game/CityCourier/Art/Architecture/SM_ShopHouseB.SM_ShopHouseB",
+      "source_yaw": 180.0,
+      "width": 788.3333333333334,
+      "depth": 2300.0,
+      "location": [
+        22515.833333333336,
+        14100.0,
+        0.0
+      ],
+      "yaw": 0.0,
+      "variant": 1,
+      "kind": "residential",
+      "external_sides": [
+        1
+      ]
+    },
+    {
+      "id": "B_3_5_1_0_0",
+      "source_tag": "CC_Art_Building_3_5_1_0_0",
+      "source_collision_tag": "CC_City_Block_3_5_1_0",
+      "source_asset": "/Game/CityCourier/Art/Architecture/SM_ShopHouseC.SM_ShopHouseC",
+      "source_yaw": 0.0,
+      "width": 788.3333333333334,
+      "depth": 2300.0,
+      "location": [
+        13484.166666666666,
+        21900.0,
+        0.0
+      ],
+      "yaw": 180.0,
+      "variant": 2,
+      "kind": "office",
+      "external_sides": [
+        1
+      ]
+    },
+    {
+      "id": "B_3_5_1_0_1",
+      "source_tag": "CC_Art_Building_3_5_1_0_1",
+      "source_collision_tag": "CC_City_Block_3_5_1_0",
+      "source_asset": "/Game/CityCourier/Art/Architecture/SM_ShopHouseA.SM_ShopHouseA",
+      "source_yaw": 0.0,
+      "width": 788.3333333333334,
+      "depth": 2300.0,
+      "location": [
+        14272.5,
+        21900.0,
+        0.0
+      ],
+      "yaw": 180.0,
+      "variant": 0,
+      "kind": "residential",
+      "external_sides": []
+    },
+    {
+      "id": "B_3_5_1_0_2",
+      "source_tag": "CC_Art_Building_3_5_1_0_2",
+      "source_collision_tag": "CC_City_Block_3_5_1_0",
+      "source_asset": "/Game/CityCourier/Art/Architecture/SM_ShopHouseB.SM_ShopHouseB",
+      "source_yaw": 0.0,
+      "width": 788.3333333333334,
+      "depth": 2300.0,
+      "location": [
+        15060.833333333334,
+        21900.0,
+        0.0
+      ],
+      "yaw": 180.0,
+      "variant": 1,
+      "kind": "residential",
+      "external_sides": []
+    },
+    {
+      "id": "B_3_5_1_0_3",
+      "source_tag": "CC_Art_Building_3_5_1_0_3",
+      "source_collision_tag": "CC_City_Block_3_5_1_0",
+      "source_asset": "/Game/CityCourier/Art/Architecture/SM_ShopHouseC.SM_ShopHouseC",
+      "source_yaw": 0.0,
+      "width": 788.3333333333334,
+      "depth": 2300.0,
+      "location": [
+        15849.166666666668,
+        21900.0,
+        0.0
+      ],
+      "yaw": 180.0,
+      "variant": 2,
+      "kind": "residential",
+      "external_sides": [
+        -1
+      ]
+    },
+    {
+      "id": "B_3_5_1_1_0",
+      "source_tag": "CC_Art_Building_3_5_1_1_0",
+      "source_collision_tag": "CC_City_Block_3_5_1_1",
+      "source_asset": "/Game/CityCourier/Art/Architecture/SM_ShopHouseA.SM_ShopHouseA",
+      "source_yaw": 0.0,
+      "width": 788.3333333333334,
+      "depth": 2300.0,
+      "location": [
+        16817.5,
+        21900.0,
+        0.0
+      ],
+      "yaw": 180.0,
+      "variant": 0,
+      "kind": "residential",
+      "external_sides": [
+        1
+      ]
+    },
+    {
+      "id": "B_3_5_1_1_1",
+      "source_tag": "CC_Art_Building_3_5_1_1_1",
+      "source_collision_tag": "CC_City_Block_3_5_1_1",
+      "source_asset": "/Game/CityCourier/Art/Architecture/SM_ShopHouseB.SM_ShopHouseB",
+      "source_yaw": 0.0,
+      "width": 788.3333333333334,
+      "depth": 2300.0,
+      "location": [
+        17605.833333333332,
+        21900.0,
+        0.0
+      ],
+      "yaw": 180.0,
+      "variant": 1,
+      "kind": "residential",
+      "external_sides": []
+    },
+    {
+      "id": "B_3_5_1_1_2",
+      "source_tag": "CC_Art_Building_3_5_1_1_2",
+      "source_collision_tag": "CC_City_Block_3_5_1_1",
+      "source_asset": "/Game/CityCourier/Art/Architecture/SM_ShopHouseC.SM_ShopHouseC",
+      "source_yaw": 0.0,
+      "width": 788.3333333333334,
+      "depth": 2300.0,
+      "location": [
+        18394.166666666664,
+        21900.0,
+        0.0
+      ],
+      "yaw": 180.0,
+      "variant": 2,
+      "kind": "residential",
+      "external_sides": []
+    },
+    {
+      "id": "B_3_5_1_1_3",
+      "source_tag": "CC_Art_Building_3_5_1_1_3",
+      "source_collision_tag": "CC_City_Block_3_5_1_1",
+      "source_asset": "/Game/CityCourier/Art/Architecture/SM_ShopHouseA.SM_ShopHouseA",
+      "source_yaw": 0.0,
+      "width": 788.3333333333334,
+      "depth": 2300.0,
+      "location": [
+        19182.5,
+        21900.0,
+        0.0
+      ],
+      "yaw": 180.0,
+      "variant": 0,
+      "kind": "residential",
+      "external_sides": [
+        -1
+      ]
+    },
+    {
+      "id": "B_3_5_1_2_0",
+      "source_tag": "CC_Art_Building_3_5_1_2_0",
+      "source_collision_tag": "CC_City_Block_3_5_1_2",
+      "source_asset": "/Game/CityCourier/Art/Architecture/SM_ShopHouseB.SM_ShopHouseB",
+      "source_yaw": 0.0,
+      "width": 788.3333333333334,
+      "depth": 2300.0,
+      "location": [
+        20150.833333333336,
+        21900.0,
+        0.0
+      ],
+      "yaw": 180.0,
+      "variant": 1,
+      "kind": "residential",
+      "external_sides": [
+        1
+      ]
+    },
+    {
+      "id": "B_3_5_1_2_1",
+      "source_tag": "CC_Art_Building_3_5_1_2_1",
+      "source_collision_tag": "CC_City_Block_3_5_1_2",
+      "source_asset": "/Game/CityCourier/Art/Architecture/SM_ShopHouseC.SM_ShopHouseC",
+      "source_yaw": 0.0,
+      "width": 788.3333333333334,
+      "depth": 2300.0,
+      "location": [
+        20939.166666666668,
+        21900.0,
+        0.0
+      ],
+      "yaw": 180.0,
+      "variant": 2,
+      "kind": "residential",
+      "external_sides": []
+    },
+    {
+      "id": "B_3_5_1_2_2",
+      "source_tag": "CC_Art_Building_3_5_1_2_2",
+      "source_collision_tag": "CC_City_Block_3_5_1_2",
+      "source_asset": "/Game/CityCourier/Art/Architecture/SM_ShopHouseA.SM_ShopHouseA",
+      "source_yaw": 0.0,
+      "width": 788.3333333333334,
+      "depth": 2300.0,
+      "location": [
+        21727.5,
+        21900.0,
+        0.0
+      ],
+      "yaw": 180.0,
+      "variant": 0,
+      "kind": "residential",
+      "external_sides": []
+    },
+    {
+      "id": "B_3_5_1_2_3",
+      "source_tag": "CC_Art_Building_3_5_1_2_3",
+      "source_collision_tag": "CC_City_Block_3_5_1_2",
+      "source_asset": "/Game/CityCourier/Art/Architecture/SM_ShopHouseB.SM_ShopHouseB",
+      "source_yaw": 0.0,
+      "width": 788.3333333333334,
+      "depth": 2300.0,
+      "location": [
+        22515.833333333336,
+        21900.0,
+        0.0
+      ],
+      "yaw": 180.0,
+      "variant": 1,
+      "kind": "residential",
+      "external_sides": [
+        -1
+      ]
+    },
+    {
+      "id": "B_Merchant_0",
+      "source_tag": "CC_Art_Entrance_0",
+      "source_collision_tag": "CC_Art_Entrance_0",
+      "source_asset": "/Game/CityCourier/Art/Architecture/SM_ShopHouseA",
+      "source_yaw": 180,
+      "width": 800,
+      "depth": 1150,
+      "location": [
+        -10600.0,
+        -7874.0,
+        0
+      ],
+      "yaw": 0,
+      "variant": 0,
+      "kind": "shop",
+      "source_location": [
+        -11200.0,
+        -10574.0,
+        0
+      ],
+      "source_width": 800,
+      "placement_reason": "same_block_courtyard_replaces_overlapping_visual_annex_site",
+      "external_sides": [
+        -1,
+        1
+      ]
+    },
+    {
+      "id": "B_Merchant_1",
+      "source_tag": "CC_Art_Entrance_1",
+      "source_collision_tag": "CC_Art_Entrance_1",
+      "source_asset": "/Game/CityCourier/Art/Architecture/SM_ShopHouseC",
+      "source_yaw": 180,
+      "width": 800,
+      "depth": 1150,
+      "location": [
+        13400.0,
+        -7874.0,
+        0
+      ],
+      "yaw": 0,
+      "variant": 2,
+      "kind": "shop",
+      "source_location": [
+        12800.0,
+        -10574.0,
+        0
+      ],
+      "source_width": 800,
+      "placement_reason": "same_block_courtyard_replaces_overlapping_visual_annex_site",
+      "external_sides": [
+        -1,
+        1
+      ]
+    },
+    {
+      "id": "B_Merchant_2",
+      "source_tag": "CC_Art_Entrance_2",
+      "source_collision_tag": "CC_Art_Entrance_2",
+      "source_asset": "/Game/CityCourier/Art/Architecture/SM_ShopHouseB",
+      "source_yaw": 180,
+      "width": 800,
+      "depth": 1150,
+      "location": [
+        -10600.0,
+        16126.0,
+        0
+      ],
+      "yaw": 0,
+      "variant": 1,
+      "kind": "shop",
+      "source_location": [
+        -11200.0,
+        13426.0,
+        0
+      ],
+      "source_width": 800,
+      "placement_reason": "same_block_courtyard_replaces_overlapping_visual_annex_site",
+      "external_sides": [
+        -1,
+        1
+      ]
+    },
+    {
+      "id": "B_Merchant_3",
+      "source_tag": "CC_Art_Entrance_3",
+      "source_collision_tag": "CC_Art_Entrance_3",
+      "source_asset": "/Game/CityCourier/Art/Architecture/SM_ShopHouseA",
+      "source_yaw": 180,
+      "width": 800,
+      "depth": 1150,
+      "location": [
+        13400.0,
+        16126.0,
+        0
+      ],
+      "yaw": 0,
+      "variant": 0,
+      "kind": "shop",
+      "source_location": [
+        12800.0,
+        13426.0,
+        0
+      ],
+      "source_width": 800,
+      "placement_reason": "same_block_courtyard_replaces_overlapping_visual_annex_site",
+      "external_sides": [
+        -1,
+        1
+      ]
+    },
+    {
+      "id": "B_Station",
+      "source_tag": "CC_Art_Entrance_12",
+      "source_collision_tag": "CC_Art_Entrance_12",
+      "source_asset": "/Game/CityCourier/Art/Architecture/SM_Shop",
+      "source_yaw": 180,
+      "width": 550,
+      "depth": 500,
+      "location": [
+        800.0,
+        -10900.0,
+        0
+      ],
+      "yaw": 0,
+      "variant": 0,
+      "kind": "station",
+      "storeys": 1,
+      "height": 400,
+      "source_location": [
+        800.0,
+        -10900.0,
+        0
+      ],
+      "source_width": 650,
+      "placement_reason": "fit_single_storey_station_between_existing_road_and_neighbor",
+      "external_sides": []
+    }
+  ],
+  "bindings": [
+    {
+      "location_id": "merchant_noodle",
+      "building_id": "B_Merchant_0",
+      "room_suffix": "F01_A01",
+      "street_position": [
+        -11200.0,
+        -11350.0,
+        20.0
+      ],
+      "role": "merchant"
+    },
+    {
+      "location_id": "merchant_rice",
+      "building_id": "B_Merchant_1",
+      "room_suffix": "F01_A01",
+      "street_position": [
+        12800.0,
+        -11350.0,
+        20.0
+      ],
+      "role": "merchant"
+    },
+    {
+      "location_id": "merchant_tea",
+      "building_id": "B_Merchant_2",
+      "room_suffix": "F01_A01",
+      "street_position": [
+        -11200.0,
+        12650.0,
+        20.0
+      ],
+      "role": "merchant"
+    },
+    {
+      "location_id": "merchant_market",
+      "building_id": "B_Merchant_3",
+      "room_suffix": "F01_A01",
+      "street_position": [
+        12800.0,
+        12650.0,
+        20.0
+      ],
+      "role": "merchant"
+    },
+    {
+      "location_id": "home_west",
+      "building_id": "B_1_0_0_0_0",
+      "room_suffix": "F04_A02",
+      "street_position": [
+        -23200.0,
+        -11350.0,
+        20.0
+      ],
+      "role": "destination"
+    },
+    {
+      "location_id": "home_east",
+      "building_id": "B_1_5_0_2_3",
+      "room_suffix": "F06_A02",
+      "street_position": [
+        24800.0,
+        -11350.0,
+        20.0
+      ],
+      "role": "destination"
+    },
+    {
+      "location_id": "office_south",
+      "building_id": "B_0_1_0_0_0",
+      "room_suffix": "F04_B02",
+      "street_position": [
+        -11200.0,
+        -23350.0,
+        20.0
+      ],
+      "role": "destination"
+    },
+    {
+      "location_id": "office_north",
+      "building_id": "B_3_5_1_0_0",
+      "room_suffix": "F06_B02",
+      "street_position": [
+        12800.0,
+        24650.0,
+        20.0
+      ],
+      "role": "destination"
+    },
+    {
+      "location_id": "home_northwest",
+      "building_id": "B_3_0_0_0_0",
+      "room_suffix": "F05_A02",
+      "street_position": [
+        -23200.0,
+        12650.0,
+        20.0
+      ],
+      "role": "destination"
+    },
+    {
+      "location_id": "home_northeast",
+      "building_id": "B_3_5_0_2_3",
+      "room_suffix": "F04_A02",
+      "street_position": [
+        24800.0,
+        12650.0,
+        20.0
+      ],
+      "role": "destination"
+    },
+    {
+      "location_id": "shop_center",
+      "building_id": "B_2_3_0_0_0",
+      "room_suffix": "F06_A02",
+      "street_position": [
+        800.0,
+        650.0,
+        20.0
+      ],
+      "role": "destination"
+    },
+    {
+      "location_id": "studio_south",
+      "building_id": "B_0_5_0_0_0",
+      "room_suffix": "F06_B02",
+      "street_position": [
+        12800.0,
+        -23350.0,
+        20.0
+      ],
+      "role": "destination"
+    },
+    {
+      "location_id": "station",
+      "building_id": "B_Station",
+      "room_suffix": "F01_A01",
+      "street_position": [
+        800.0,
+        -11350.0,
+        20.0
+      ],
+      "role": "station"
+    }
+  ],
+  "gateways": [
+    {
+      "source_tag": "CC_Art_Entrance_4",
+      "building_id": "B_1_0_0_0_0",
+      "role": "address_gateway",
+      "enclosed_storeys": 0
+    },
+    {
+      "source_tag": "CC_Art_Entrance_5",
+      "building_id": "B_1_5_0_2_3",
+      "role": "address_gateway",
+      "enclosed_storeys": 0
+    },
+    {
+      "source_tag": "CC_Art_Entrance_6",
+      "building_id": "B_0_1_0_0_0",
+      "role": "address_gateway",
+      "enclosed_storeys": 0
+    },
+    {
+      "source_tag": "CC_Art_Entrance_7",
+      "building_id": "B_3_5_1_0_0",
+      "role": "address_gateway",
+      "enclosed_storeys": 0
+    },
+    {
+      "source_tag": "CC_Art_Entrance_8",
+      "building_id": "B_3_0_0_0_0",
+      "role": "address_gateway",
+      "enclosed_storeys": 0
+    },
+    {
+      "source_tag": "CC_Art_Entrance_9",
+      "building_id": "B_3_5_0_2_3",
+      "role": "address_gateway",
+      "enclosed_storeys": 0
+    },
+    {
+      "source_tag": "CC_Art_Entrance_10",
+      "building_id": "B_2_3_0_0_0",
+      "role": "address_gateway",
+      "enclosed_storeys": 0
+    },
+    {
+      "source_tag": "CC_Art_Entrance_11",
+      "building_id": "B_0_5_0_0_0",
+      "role": "address_gateway",
+      "enclosed_storeys": 0
+    }
+  ]
+}

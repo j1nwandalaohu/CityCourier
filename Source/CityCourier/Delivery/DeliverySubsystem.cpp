@@ -8,6 +8,7 @@
 #include "Vehicles/ScooterPawn.h"
 #include "EngineUtils.h"
 #include "GameFramework/PlayerController.h"
+#include "Buildings/CourierBuildingSubsystem.h"
 
 bool UDeliverySubsystem::DoesSupportWorldType(EWorldType::Type Type) const
 { return Type == EWorldType::Game || Type == EWorldType::PIE; }
@@ -20,14 +21,25 @@ bool UDeliverySubsystem::Configure(UCityDefinition* Definition,UProfileSubsystem
     Profile->OnProfileChanged.AddWeakLambda(this,[this]() { if (Scooter.IsValid()) Scooter->ApplyUpgrades(Profile->GetProfile()); });
     Vehicle->OnEffectiveImpact.AddUObject(this,&UDeliverySubsystem::HandleImpact);
     for (TActorIterator<ADeliveryLocation> It(GetWorld()); It; ++It)
-    {
-        if (It->LocationKind == EDeliveryLocationKind::Station) continue;
-        const FName Id = It->LocationId;
-        const auto Kind = It->LocationKind;
-        It->OnInteraction.BindWeakLambda(this,[this,Id,Kind](ACourierCharacter* Courier)
-        { return Kind == EDeliveryLocationKind::Merchant ? TryPickup(Id,Courier) : TryDeliver(Id,Courier); });
-    }
+        RegisterLocation(*It);
     RefreshOffers(CurrentRiderLocation()); return true;
+}
+void UDeliverySubsystem::RegisterLocation(ADeliveryLocation* Location)
+{
+    if(!IsValid(Location) || Location->GetWorld()!=GetWorld() || Location->LocationKind==EDeliveryLocationKind::Station) return;
+    if(auto* S=GetWorld()->GetSubsystem<UCourierBuildingSubsystem>(); S && S->IsEnabled())
+        if(!S->RegisterIndoorLocation(Location)) return;
+    if(City) Location->CityDefinition=City;
+    const FName Id=Location->LocationId; const auto Kind=Location->LocationKind;
+    Location->OnInteraction.BindWeakLambda(this,[this,Id,Kind](ACourierCharacter* Courier)
+    { return Kind==EDeliveryLocationKind::Merchant?TryPickup(Id,Courier):TryDeliver(Id,Courier); });
+    Location->bActiveOrderTarget=Id==GetTargetId();
+}
+void UDeliverySubsystem::UnregisterLocation(ADeliveryLocation* Location)
+{
+    if(!Location) return;
+    if(auto* S=GetWorld()->GetSubsystem<UCourierBuildingSubsystem>()) S->UnregisterIndoorLocation(Location);
+    if(Location->LocationKind!=EDeliveryLocationKind::Station) { Location->OnInteraction.Unbind(); Location->bActiveOrderTarget=false; }
 }
 double UDeliverySubsystem::ReadClock() const
 {
@@ -55,14 +67,24 @@ bool UDeliverySubsystem::RefreshOffers(FVector RiderLocation)
     if (!bConfigured || State.IsActive() || RiderLocation.ContainsNaN()) return false;
     LastRiderLocation = RiderLocation;
     TArray<FDeliveryOffer> Candidates;
+    const auto* Buildings=GetBuildings(); TMap<FName,FRouteResult> PickupRoutes;
     for (const auto& Fee : City->Fees)
     {
-        const auto ToShop = City->FindRouteFrom(RiderLocation,Fee.MerchantId);
+        if(!PickupRoutes.Contains(Fee.MerchantId)) PickupRoutes.Add(Fee.MerchantId,Buildings?City->FindJourneyFrom(RiderLocation,Fee.MerchantId,*Buildings):City->FindRouteFrom(RiderLocation,Fee.MerchantId));
+        const auto& ToShop=PickupRoutes[Fee.MerchantId];
         const auto* Shop = City->FindLocation(Fee.MerchantId); const auto* Customer = City->FindLocation(Fee.DestinationId);
         if (!Shop || !Customer || !ToShop.bReachable) continue;
-        const auto ToCustomer = City->FindRouteBetween(*Shop,*Customer); if (!ToCustomer.bReachable) continue;
+        FRouteResult ToCustomer;
+        if(Buildings)
+        {
+            const FString Key=Fee.MerchantId.ToString()+TEXT("/")+Fee.DestinationId.ToString();
+            if(!IndoorDeliveryRoutes.Contains(Key)) IndoorDeliveryRoutes.Add(Key,City->FindJourneyBetween(Fee.MerchantId,Fee.DestinationId,*Buildings));
+            ToCustomer=IndoorDeliveryRoutes[Key];
+        }
+        else ToCustomer=City->FindRouteBetween(*Shop,*Customer);
+        if (!ToCustomer.bReachable) continue;
         FDeliveryOffer Offer{FGuid::NewGuid(),Fee.MerchantId,Fee.DestinationId,Fee.FeeCents,
-            FDeliveryRules::CalculateDeadline(ToShop.LengthMeters+ToCustomer.LengthMeters)};
+            Buildings?FDeliveryRules::CalculateDeadline(ToShop,ToCustomer):FDeliveryRules::CalculateDeadline(ToShop.LengthMeters+ToCustomer.LengthMeters)};
         Offer.EstimateOrigin=RiderLocation; Offer.PickupRoute=ToShop; Offer.DeliveryRoute=ToCustomer;
         if(!AreRoutesClear(Offer)) continue;
         Candidates.Add(MoveTemp(Offer));
@@ -87,8 +109,25 @@ bool UDeliverySubsystem::TryAccept(FGuid InstanceId)
 { return TryAcceptWithFeedback(InstanceId).bSucceeded; }
 bool UDeliverySubsystem::AreRoutesClear(const FDeliveryOffer& Offer) const
 {
+    if(const auto* S=GetWorld()->GetSubsystem<UCourierBuildingSubsystem>(); S && S->IsEnabled())
+        if(!S->CanPrepareLocation(Offer.MerchantId) || !S->CanPrepareLocation(Offer.DestinationId)) return false;
     const auto* Navigation=GetWorld()->GetSubsystem<UDeliveryNavigationSubsystem>();
-    return Navigation && Navigation->IsRouteClear(Offer.PickupRoute.Points) && Navigation->IsRouteClear(Offer.DeliveryRoute.Points);
+    return Navigation && Navigation->IsRouteClear(Offer.PickupRoute) && Navigation->IsRouteClear(Offer.DeliveryRoute);
+}
+const UCityBuildingCatalog* UDeliverySubsystem::GetBuildings() const
+{
+    const auto* S=GetWorld()?GetWorld()->GetSubsystem<UCourierBuildingSubsystem>():nullptr;
+    return S && S->IsEnabled()?S->GetCatalog():nullptr;
+}
+FText UDeliverySubsystem::GetLocationLabel(FName Id) const
+{
+    const auto* L=City?City->FindLocation(Id):nullptr; if(!L) return FText::GetEmpty();
+    const auto* C=GetBuildings(); const auto* Binding=C?C->FindBinding(Id):nullptr;
+    if(!Binding) return L->DisplayName;
+    const int32 I=C->FindBuilding(Binding->BuildingId); if(I==INDEX_NONE) return L->DisplayName;
+    const auto& B=C->Buildings[I]; const int32 R=B.FindRoom(Binding->RoomId); if(R==INDEX_NONE) return L->DisplayName;
+    const FString Address=C->RoomAddress(I,R);
+    return FText::FromString(L->DisplayName.ToString().Left(FMath::Max(0,64-Address.Len()-3))+TEXT(" · ")+Address);
 }
 FCourierActionResult UDeliverySubsystem::TryAcceptWithFeedback(FGuid InstanceId)
 {
@@ -103,12 +142,16 @@ FCourierActionResult UDeliverySubsystem::TryAcceptWithFeedback(FGuid InstanceId)
 }
 ADeliveryLocation* UDeliverySubsystem::FindLocationActor(FName Id) const
 {
+    if(const auto* S=GetWorld()->GetSubsystem<UCourierBuildingSubsystem>(); S && S->IsEnabled())
+        return S->GetManagedLocation(Id);
     for (TActorIterator<ADeliveryLocation> It(GetWorld()); It; ++It) if (It->LocationId == Id) return *It;
     return nullptr;
 }
 bool UDeliverySubsystem::ValidateCourier(FName Id,ACourierCharacter* Courier) const
 {
     if (!IsValid(Courier) || Courier->GetWorld() != GetWorld() || Courier->IsMounted()) return false;
+    if(const auto* S=GetWorld()->GetSubsystem<UCourierBuildingSubsystem>(); S && S->IsEnabled())
+    { FText Reason; if(!S->CanUseLocation(Id,Courier->GetActorLocation(),Reason)) return false; }
     auto* Location = FindLocationActor(Id); FText Reason;
     return Location && Courier->CanReachInteraction(Location,Location->GetInteractionLocation(),Reason);
 }
@@ -158,8 +201,8 @@ void UDeliverySubsystem::FinishOnce(int64 PayoutCents)
     Finished.Add(State.Offer.InstanceId);
     LastSettlement = {State.Offer.InstanceId,State.Status == EDeliveryStatus::Completed,PayoutCents};
     const auto* Merchant=City->FindLocation(State.Offer.MerchantId); const auto* Destination=City->FindLocation(State.Offer.DestinationId);
-    LastSettlement.History=FOrderHistoryRules::MakeEntry(State,PayoutCents,Merchant?Merchant->DisplayName.ToString():State.Offer.MerchantId.ToString(),
-        Destination?Destination->DisplayName.ToString():State.Offer.DestinationId.ToString(),FDateTime::UtcNow());
+    LastSettlement.History=FOrderHistoryRules::MakeEntry(State,PayoutCents,GetLocationLabel(State.Offer.MerchantId).ToString(),
+        GetLocationLabel(State.Offer.DestinationId).ToString(),FDateTime::UtcNow());
     Profile->ApplySettlement(LastSettlement); UpdateTargets(); RefreshOffers(CurrentRiderLocation());
     OnDeliveryFinished.Broadcast(LastSettlement);
 }

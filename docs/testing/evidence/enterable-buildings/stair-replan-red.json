@@ -1,0 +1,70 @@
+﻿{
+	"devices": [
+		{
+			"deviceName": "DESKTOP-JPFMANM",
+			"instance": "DC14A10D4DB94BA7C57FFFB9603B1D95",
+			"instanceName": "DESKTOP-JPFMANM-18972",
+			"platform": "WindowsEditor",
+			"oSVersion": "Windows 11 (25H2) [10.0.26200.9711] ",
+			"model": "Default",
+			"gPU": "NVIDIA GeForce RTX 3060 Ti",
+			"cPUModel": "13th Gen Intel(R) Core(TM) i5-13400F",
+			"rAMInGB": 16,
+			"renderMode": "SM6",
+			"rHI": "",
+			"appInstanceLog": ""
+		}
+	],
+	"reportCreatedOn": "2026.10.18-17.19.23",
+	"succeeded": 1,
+	"succeededWithWarnings": 0,
+	"failed": 1,
+	"notRun": 0,
+	"inProcess": 0,
+	"totalDuration": 0.48101219534873962,
+	"comparisonExported": false,
+	"comparisonExportDirectory": "",
+	"tests": [
+		{
+			"testDisplayName": "ComposedFloorAndRoomRoutes",
+			"fullTestPath": "CityCourier.Buildings.Journey.ComposedFloorAndRoomRoutes",
+			"state": "Success",
+			"deviceInstance": [
+				"DC14A10D4DB94BA7C57FFFB9603B1D95"
+			],
+			"duration": 0.38093370199203491,
+			"dateTime": "2026.10.18-17.19.22",
+			"entries": [],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "FloorAwareNavigationAndPreviewSnapshot",
+			"fullTestPath": "CityCourier.Buildings.Journey.FloorAwareNavigationAndPreviewSnapshot",
+			"state": "Fail",
+			"deviceInstance": [
+				"DC14A10D4DB94BA7C57FFFB9603B1D95"
+			],
+			"duration": 0.10007850080728531,
+			"dateTime": "2026.10.18-17.19.23",
+			"entries": [
+				{
+					"event":
+					{
+						"type": "Error",
+						"message": "Expected 'Live stair replan preserves foot height and joins the actual tread' to be true.",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "D:\\eleme\\.worktrees\\enterable-buildings\\Source\\CityCourier\\Tests\\BuildingJourneyTests.cpp",
+					"lineNumber": 88,
+					"timestamp": "2026.10.18-17.19.23"
+				}
+			],
+			"warnings": 0,
+			"errors": 1,
+			"artifacts": []
+		}
+	]
+}

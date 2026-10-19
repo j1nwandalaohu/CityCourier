@@ -3,6 +3,8 @@
 #include "Components/SceneComponent.h"
 #include "Components/StaticMeshComponent.h"
 #include "UObject/ConstructorHelpers.h"
+#include "Delivery/DeliverySubsystem.h"
+#include "Buildings/CourierBuildingSubsystem.h"
 
 ADeliveryLocation::ADeliveryLocation()
 {
@@ -14,8 +16,14 @@ ADeliveryLocation::ADeliveryLocation()
 }
 
 FVector ADeliveryLocation::GetInteractionLocation() const { return InteractionPoint->GetComponentLocation(); }
+void ADeliveryLocation::BeginPlay()
+{ Super::BeginPlay(); if(auto* D=GetWorld()->GetSubsystem<UDeliverySubsystem>()) D->RegisterLocation(this); }
+void ADeliveryLocation::EndPlay(const EEndPlayReason::Type Reason)
+{ if(auto* D=GetWorld()->GetSubsystem<UDeliverySubsystem>()) D->UnregisterLocation(this); Super::EndPlay(Reason); }
 bool ADeliveryLocation::CanInteract(ACourierCharacter* Courier, FText& OutReason) const
 {
+    if(IsValid(Courier)) if(const auto* S=GetWorld()->GetSubsystem<UCourierBuildingSubsystem>(); S && S->IsEnabled())
+        if(!S->CanUseLocation(LocationId,Courier->GetActorLocation(),OutReason)) return false;
     return IsValid(Courier) && Courier->CanReachInteraction(this, GetInteractionLocation(), OutReason);
 }
 bool ADeliveryLocation::Interact(ACourierCharacter* Courier)

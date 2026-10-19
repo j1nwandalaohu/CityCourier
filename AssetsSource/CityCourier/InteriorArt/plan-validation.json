@@ -1,0 +1,134 @@
+{
+  "schema_version": 1,
+  "passed": true,
+  "errors": [],
+  "validation_scope": "pure_python_source_geometry_only_not_UE_runtime_or_visual_acceptance",
+  "no_city_maps_written": true,
+  "inventory_sha256": "e32efe7e16c831681ae244bda638ad228d7eb93e35afa4eccb0bdf68ca9f9224",
+  "asset_manifest_sha256": "f14f6112ba9566dd7b956099441f1c33660d046dc1b4de6789b637cd33f56196",
+  "planner_sha256": "b6a21c8be239910fab0010530aa7a76523b4ac78f3cd8752374a6e473fea651d",
+  "geometry_tolerance_cm": 0.0001,
+  "clearance_cm": {
+    "capsule_radius": 34,
+    "route_allowance": 11,
+    "route_total": 45,
+    "central_standing_square": 120
+  },
+  "checks": [
+    "Canonical compile_building record, all IDs/transforms/doors/nodes/edges unchanged",
+    "All non-roof usable rooms have blocking furniture fitted to actual exported mesh bounds",
+    "120cm central standing square and every graph edge's 34cm capsule +11cm allowance retained",
+    "Furniture avoids full closed-to-open door sweeps, including rear storage approaches",
+    "Handrails include actual base shoes and remain strictly between the original 120cm-wide flights",
+    "Non-frame trim/fixtures avoid clear door apertures and route swept AABBs",
+    "Frames follow canonical hinge/yaw/width/height; the asset generator owns the internal U-shaped hole",
+    "Blank plates; no numeric per-room text actors; no decorative closed door leaves"
+  ],
+  "samples": [
+    {
+      "building_id": "B_Merchant_0",
+      "kind": "shop",
+      "room_count": 43,
+      "furnished_room_count": 30,
+      "door_count": 35,
+      "route_node_count": 194,
+      "placement_count": 562,
+      "placement_categories": {
+        "dado": 59,
+        "door_frame": 35,
+        "exit_sign": 4,
+        "furniture": 36,
+        "handrail": 90,
+        "light_fixture": 45,
+        "number_plate": 35,
+        "outlet": 35,
+        "skirting": 188,
+        "switch": 35
+      },
+      "preview_room_ids": [
+        "B_Merchant_0_F01_Hall",
+        "B_Merchant_0_F01_Stairs",
+        "B_Merchant_0_F01_A01",
+        "B_Merchant_0_F01_B01",
+        "B_Merchant_0_F01_A02",
+        "B_Merchant_0_F01_B02",
+        "B_Merchant_0_F01_AStore",
+        "B_Merchant_0_F01_BStore"
+      ]
+    },
+    {
+      "building_id": "B_1_0_0_0_0",
+      "kind": "residential",
+      "room_count": 51,
+      "furnished_room_count": 40,
+      "door_count": 44,
+      "route_node_count": 181,
+      "placement_count": 674,
+      "placement_categories": {
+        "dado": 79,
+        "door_frame": 44,
+        "exit_sign": 3,
+        "furniture": 62,
+        "handrail": 72,
+        "light_fixture": 52,
+        "number_plate": 44,
+        "outlet": 44,
+        "skirting": 230,
+        "switch": 44
+      },
+      "preview_room_ids": [
+        "B_1_0_0_0_0_F01_Hall",
+        "B_1_0_0_0_0_F01_Stairs",
+        "B_1_0_0_0_0_F02_Hall",
+        "B_1_0_0_0_0_F02_Stairs",
+        "B_1_0_0_0_0_F02_A01",
+        "B_1_0_0_0_0_F02_B01",
+        "B_1_0_0_0_0_F02_A02",
+        "B_1_0_0_0_0_F02_B02",
+        "B_1_0_0_0_0_F02_A03",
+        "B_1_0_0_0_0_F02_B03",
+        "B_1_0_0_0_0_F02_A04",
+        "B_1_0_0_0_0_F02_B04",
+        "B_1_0_0_0_0_F02_AStore",
+        "B_1_0_0_0_0_F02_BStore"
+      ]
+    },
+    {
+      "building_id": "B_0_1_0_0_0",
+      "kind": "office",
+      "room_count": 51,
+      "furnished_room_count": 40,
+      "door_count": 45,
+      "route_node_count": 182,
+      "placement_count": 691,
+      "placement_categories": {
+        "dado": 79,
+        "door_frame": 45,
+        "exit_sign": 4,
+        "furniture": 56,
+        "handrail": 72,
+        "light_fixture": 52,
+        "number_plate": 45,
+        "outlet": 45,
+        "skirting": 248,
+        "switch": 45
+      },
+      "preview_room_ids": [
+        "B_0_1_0_0_0_F01_Hall",
+        "B_0_1_0_0_0_F01_Stairs",
+        "B_0_1_0_0_0_F02_Hall",
+        "B_0_1_0_0_0_F02_Stairs",
+        "B_0_1_0_0_0_F02_A01",
+        "B_0_1_0_0_0_F02_B01",
+        "B_0_1_0_0_0_F02_A02",
+        "B_0_1_0_0_0_F02_B02",
+        "B_0_1_0_0_0_F02_A03",
+        "B_0_1_0_0_0_F02_B03",
+        "B_0_1_0_0_0_F02_A04",
+        "B_0_1_0_0_0_F02_B04",
+        "B_0_1_0_0_0_F02_AStore",
+        "B_0_1_0_0_0_F02_BStore"
+      ]
+    }
+  ]
+}

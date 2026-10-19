@@ -27,6 +27,16 @@ struct FRouteResult
     bool bReachable = false;
     double LengthMeters = 0;
     TArray<FVector> Points;
+    double RoadMeters=0;
+    double IndoorFlatMeters=0;
+    double StairMeters=0;
+    TArray<FName> RequiredDoors;
+    // One kind per segment; absent on legacy road-only results.
+    TArray<FName> SegmentKinds;
+    FName TargetBuilding;
+    FName TargetRoom;
+    int32 TargetFloor=0;
+    bool bHasInteriors=false;
 };
 USTRUCT(BlueprintType)
 struct CITYCOURIER_API FRoadGraph

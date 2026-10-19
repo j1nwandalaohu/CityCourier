@@ -1,0 +1,86 @@
+{
+  "run_id": "20261019T015707Z",
+  "method": "Byte-identical copies of real Unreal editor viewport PNGs; no image editing",
+  "images": [
+    {
+      "name": "shop-counter",
+      "file": "shop-counter.png",
+      "source_file": "Saved/Validation/InteriorArt/Captures/runs/20261019T015707Z/shop-counter.png",
+      "sha256": "49e3ef2a95842e13b9188e282da5b8357145ba282114ccb39029407a00df81f1",
+      "dimensions": [
+        1600,
+        1000
+      ]
+    },
+    {
+      "name": "residential-living",
+      "file": "residential-living.png",
+      "source_file": "Saved/Validation/InteriorArt/Captures/runs/20261019T015707Z/residential-living.png",
+      "sha256": "88e60304397813fd68db29b5c7bbc7c5d87e4c6ae896b98ef18ec826b42620e9",
+      "dimensions": [
+        1600,
+        1000
+      ]
+    },
+    {
+      "name": "residential-bedroom",
+      "file": "residential-bedroom.png",
+      "source_file": "Saved/Validation/InteriorArt/Captures/runs/20261019T015707Z/residential-bedroom.png",
+      "sha256": "36cfc7342ad9d80b549a8a0af1eb9baefebcbe6a051cf6001621d4d6356cf6fa",
+      "dimensions": [
+        1600,
+        1000
+      ]
+    },
+    {
+      "name": "residential-kitchen",
+      "file": "residential-kitchen.png",
+      "source_file": "Saved/Validation/InteriorArt/Captures/runs/20261019T015707Z/residential-kitchen.png",
+      "sha256": "e1d83982b1f3d03a8f70f63524129a53222ca4d4b9ab7aac1d7d3530a932dd88",
+      "dimensions": [
+        1600,
+        1000
+      ]
+    },
+    {
+      "name": "office-workspace",
+      "file": "office-workspace.png",
+      "source_file": "Saved/Validation/InteriorArt/Captures/runs/20261019T015707Z/office-workspace.png",
+      "sha256": "ebfb20f4ca371efee985dcd9214cd490cc27d8b83ecf9037d50f6ae281a817b7",
+      "dimensions": [
+        1600,
+        1000
+      ]
+    },
+    {
+      "name": "office-meeting",
+      "file": "office-meeting.png",
+      "source_file": "Saved/Validation/InteriorArt/Captures/runs/20261019T015707Z/office-meeting.png",
+      "sha256": "7950988aced97e942b941780d12b35f7475cf659c8a5ae24344810ecc0b4d2c3",
+      "dimensions": [
+        1600,
+        1000
+      ]
+    },
+    {
+      "name": "residential-corridor",
+      "file": "residential-corridor.png",
+      "source_file": "Saved/Validation/InteriorArt/Captures/runs/20261019T015707Z/residential-corridor.png",
+      "sha256": "6f83d6f6e478684854dacee7e1910c4ab52a1f9ca8e371c5fe603558938ee27a",
+      "dimensions": [
+        1600,
+        1000
+      ]
+    },
+    {
+      "name": "stair-handrail-detail",
+      "file": "stair-handrail-detail.png",
+      "source_file": "Saved/Validation/InteriorArt/Captures/runs/20261019T015707Z/stair-handrail-detail.png",
+      "sha256": "0e0636df22f92f709b0a85af4d310c9476543b1dce704fa86c7be98ea094c99b",
+      "dimensions": [
+        1600,
+        1000
+      ]
+    }
+  ]
+}

@@ -87,3 +87,11 @@ double FDeliveryRules::CalculateDeadline(double RouteMeters)
     if (!FMath::IsFinite(RouteMeters) || RouteMeters < 0.0) return -1.0;
     return FMath::Clamp(FMath::CeilToDouble(90.0 + FMath::Min(RouteMeters, 1050.0) / 5.0), 120.0, 300.0);
 }
+double FDeliveryRules::CalculateDeadline(const FRouteResult& A,const FRouteResult& B)
+{
+    if(!A.bReachable || !B.bReachable) return -1;
+    for(const auto* R:{&A,&B}) for(double M:{R->RoadMeters,R->IndoorFlatMeters,R->StairMeters})
+        if(!FMath::IsFinite(M) || M<0) return -1;
+    return FMath::Clamp(FMath::CeilToDouble(90+(A.RoadMeters+B.RoadMeters)/5+(A.IndoorFlatMeters+B.IndoorFlatMeters)/2.5+
+        (A.StairMeters+B.StairMeters)/1.5+(A.RequiredDoors.Num()+B.RequiredDoors.Num())*2),120.,300.);
+}

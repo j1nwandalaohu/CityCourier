@@ -13,6 +13,8 @@
 #include "Vehicles/RiderRecoveryComponent.h"
 #include "Ambient/AmbientTrafficManager.h"
 #include "Ambient/CourierAudioComponent.h"
+#include "Buildings/CourierBuildingSubsystem.h"
+#include "Buildings/CourierBuildingActor.h"
 #if !UE_BUILD_SHIPPING
 #include "Validation/PackagedValidationDriver.h"
 #include "Misc/CommandLine.h"
@@ -28,6 +30,8 @@ void ACourierGameMode::StartPlay()
 {
     Super::StartPlay();
     auto* City = LoadObject<UCityDefinition>(nullptr,TEXT("/Game/CityCourier/Data/DA_CityDefinition.DA_CityDefinition"));
+    for(TActorIterator<ACourierBuildingActor> It(GetWorld());It;++It)
+    { GetWorld()->GetSubsystem<UCourierBuildingSubsystem>()->Configure(It->Catalog); break; }
     auto* Traffic=GetWorld()->SpawnActor<AAmbientTrafficManager>();Traffic->Configure(City);
     auto* Audio=NewObject<UCourierAudioComponent>(this);AddInstanceComponent(Audio);Audio->RegisterComponent();
     for (TActorIterator<AScooterPawn> It(GetWorld()); It; ++It)
@@ -36,6 +40,7 @@ void ACourierGameMode::StartPlay()
         GetWorld()->GetSubsystem<UDeliveryNavigationSubsystem>()->Configure(GetWorld()->GetSubsystem<UDeliverySubsystem>());
         for(TActorIterator<ARiderStation> Station(GetWorld());Station;++Station)
         {
+            if(Station->LocationId!=City->Station.LocationId) continue;
             Station->Configure(GetGameInstance()->GetSubsystem<UProfileSubsystem>(),*It);
             if(auto* PC=Cast<ACourierController>(GetWorld()->GetFirstPlayerController()))
                 PC->GetRecovery()->Configure(City,*It,PC->GetCourier(),GetWorld()->GetSubsystem<UDeliverySubsystem>(),*Station);

@@ -1,0 +1,9 @@
+[2026.10.18-17.26.09:932][  0]LogMaterial: Warning: Material /Game/CityCourier/Art/Materials/M_PaintedMetal.M_PaintedMetal missing bUsedWithInstancedStaticMeshes=True! Default Material will be used in game.
+[2026.10.18-17.26.09:932][  0]LogMaterial: Warning: Material /Game/CityCourier/Art/Materials/M_Plaster.M_Plaster missing bUsedWithInstancedStaticMeshes=True! Default Material will be used in game.
+[2026.10.18-17.26.09:933][  0]LogMaterial: Warning: Material /Game/CityCourier/Art/Materials/M_Wood.M_Wood missing bUsedWithInstancedStaticMeshes=True! Default Material will be used in game.
+[2026.10.18-17.26.09:933][  0]LogMaterial: Warning: Material /Game/CityCourier/Art/Materials/M_Concrete.M_Concrete missing bUsedWithInstancedStaticMeshes=True! Default Material will be used in game.
+[2026.10.18-17.26.11:536][  2]LogMaterial: Warning: Material /Game/CityCourier/Art/Materials/M_CreamPaint.M_CreamPaint missing bUsedWithInstancedStaticMeshes=True! Default Material will be used in game.
+[2026.10.18-17.26.11:536][  2]LogMaterial: Warning: Material /Game/CityCourier/Art/Materials/M_Aluminum.M_Aluminum missing bUsedWithInstancedStaticMeshes=True! Default Material will be used in game.
+[2026.10.18-17.26.11:537][  2]LogMaterial: Warning: Material /Game/CityCourier/Art/Materials/M_SignGreen.M_SignGreen missing bUsedWithInstancedStaticMeshes=True! Default Material will be used in game.
+[2026.10.18-17.26.11:537][  2]LogMaterial: Warning: Material /Game/CityCourier/Art/Materials/M_LetterWhite.M_LetterWhite missing bUsedWithInstancedStaticMeshes=True! Default Material will be used in game.
+[2026.10.18-17.26.12:326][  3]LogMaterial: Warning: Material /Game/CityCourier/Art/Materials/M_SignRed.M_SignRed missing bUsedWithInstancedStaticMeshes=True! Default Material will be used in game.

@@ -88,7 +88,7 @@ void UCourierHUDWidget::RefreshFromState()
     if(S.IsActive() && D->GetCity())
     {
         const auto* L=D->GetCity()->FindLocation(D->GetTargetId());
-        Goal=(S.Status==EDeliveryStatus::AwaitingPickup?FString(TEXT("取餐 · ")):FString(TEXT("送达 · ")))+(L?L->DisplayName.ToString():TEXT(""));
+        Goal=(S.Status==EDeliveryStatus::AwaitingPickup?FString(TEXT("取餐 · ")):FString(TEXT("送达 · ")))+D->GetLocationLabel(D->GetTargetId()).ToString();
         const bool Late=S.ElapsedSeconds>=S.Offer.DeadlineSeconds;
         const int32 Remaining=FMath::CeilToInt(S.Offer.DeadlineSeconds+(Late?60:0)-S.ElapsedSeconds);
         Clock=FString::Printf(TEXT("%s %02d:%02d    餐品完整度 %d%%"),Late?TEXT("宽限期"):TEXT("剩余"),Remaining/60,Remaining%60,S.IntegrityPercent);

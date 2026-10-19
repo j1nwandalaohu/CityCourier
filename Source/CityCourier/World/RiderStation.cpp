@@ -4,6 +4,7 @@
 #include "Vehicles/ScooterPawn.h"
 #include "Profile/ProfileSubsystem.h"
 #include "Profile/ProfileRules.h"
+#include "Buildings/CourierBuildingSubsystem.h"
 ARiderStation::ARiderStation() { PrimaryActorTick.bCanEverTick=true; LocationKind=EDeliveryLocationKind::Station; }
 void ARiderStation::Configure(UProfileSubsystem* Profile,AScooterPawn* Vehicle) { PlayerProfile=Profile; Bike=Vehicle; CancelCharge(); }
 FCourierActionResult ARiderStation::CheckService(ACourierCharacter* Courier) const
@@ -12,10 +13,12 @@ FCourierActionResult ARiderStation::CheckService(ACourierCharacter* Courier) con
     if(!Bike.IsValid()) return FCourierActionResult::Failure(TEXT("车辆不可用"));
     if(!IsValid(Courier)) return FCourierActionResult::Failure(TEXT("骑手不可用"));
     FText Reason;
+    if(const auto* S=GetWorld()->GetSubsystem<UCourierBuildingSubsystem>(); S && S->IsEnabled())
+        if(!S->CanUseLocation(LocationId,Courier->GetActorLocation(),Reason)) return {false,Reason};
     if(!Courier->CanReachInteraction(this,GetInteractionLocation(),Reason,true)) return {false,Reason};
     if(Bike->GetRider()) return FCourierActionResult::Failure(TEXT("请先将车辆停好并下车"));
     if(Bike->GetSpeedKmh()>=.1f) return FCourierActionResult::Failure(TEXT("请先将车辆停稳"));
-    if(FVector::Distance(Bike->GetActorLocation(),GetInteractionLocation())>1200) return FCourierActionResult::Failure(TEXT("请将车辆停在驿站入口 12 米内"));
+    if(FVector::Distance(Bike->GetActorLocation(),BuildingId.IsNone()?GetInteractionLocation():StreetAnchor)>1200) return FCourierActionResult::Failure(TEXT("请将车辆停在驿站入口 12 米内"));
     return FCourierActionResult::Success();
 }
 bool ARiderStation::Interact(ACourierCharacter* Courier)

@@ -1,6 +1,7 @@
 #include "Validation/PackagedValidationDriver.h"
 #if !UE_BUILD_SHIPPING
 #include "Player/CourierController.h"
+#include "Buildings/CourierBuildingSubsystem.h"
 #include "Player/CourierCharacter.h"
 #include "Vehicles/ScooterPawn.h"
 #include "Vehicles/ScooterMovementComponent.h"
@@ -67,7 +68,7 @@ void APackagedValidationDriver::BeginPlay()
     GEngine->GetGameUserSettings()->SetVSyncEnabled(false);GEngine->GetGameUserSettings()->SetFrameRateLimit(0);
     GEngine->GetGameUserSettings()->ApplyResolutionSettings(false);
     PC->ConsoleCommand(TEXT("t.MaxFPS 0"));PC->ConsoleCommand(TEXT("r.VSync 0"));
-    Frames=TEXT("CaptureSource,ElapsedSeconds,FrameMs,GameThreadMs,RenderThreadMs,GpuMs,WorkingSetMB,TextureMemoryMB,Phase\n");
+    Frames=TEXT("CaptureSource,ElapsedSeconds,FrameMs,GameThreadMs,RenderThreadMs,GpuMs,WorkingSetMB,TextureMemoryMB,Phase,ReadyBuildings,ActiveDoors,MaxDetailPreparationMs\n");
     Events=TEXT("ElapsedSeconds,Event,Merchant,Destination,PayoutCents,BalanceCents\n");
     if(Mode==TEXT("Reload"))Stage=EStage::Reload;
     WriteStatus(TEXT("progress.json"));
@@ -270,10 +271,13 @@ void APackagedValidationDriver::Tick(float DeltaSeconds)
         FTextureMemoryStats Stats;RHIGetTextureMemoryStats(Stats);TextureMB=(Stats.StreamingMemorySize+Stats.NonStreamingMemorySize)/(1024.*1024.);
     }
     const FString Phase=Stage==EStage::Performance?TEXT("performance"):Stage==EStage::Warmup?TEXT("warmup"):TEXT("delivery");
-    Frames+=FString::Printf(TEXT("%s,%.6f,%.6f,%.4f,%.4f,%.4f,%.2f,%.2f,%s\n"),FPlatformProperties::RequiresCookedData()?TEXT("PackagedGame"):TEXT("EditorGame"),Elapsed,FrameMs,FPlatformTime::ToMilliseconds(GGameThreadTime),FPlatformTime::ToMilliseconds(GRenderThreadTime),FPlatformTime::ToMilliseconds(RHIGetGPUFrameCycles()),MemoryMB,TextureMB,*Phase);
+    const auto* Interiors=GetWorld()->GetSubsystem<UCourierBuildingSubsystem>();
+    Frames+=FString::Printf(TEXT("%s,%.6f,%.6f,%.4f,%.4f,%.4f,%.2f,%.2f,%s,%d,%d,%.3f\n"),FPlatformProperties::RequiresCookedData()?TEXT("PackagedGame"):TEXT("EditorGame"),Elapsed,FrameMs,FPlatformTime::ToMilliseconds(GGameThreadTime),FPlatformTime::ToMilliseconds(GRenderThreadTime),FPlatformTime::ToMilliseconds(RHIGetGPUFrameCycles()),MemoryMB,TextureMB,*Phase,Interiors?Interiors->GetReadyCount():0,Interiors?Interiors->GetActiveDoorCount():0,Interiors?Interiors->GetMaxPreparationMs():0);
     if(Now-LastStatus>5){LastStatus=Now;WriteStatus(TEXT("progress.json"));}
     if(Mode==TEXT("Checks")){RunInterfaceChecks(Now);return;}
     if(Mode==TEXT("CharacterActions")){RunCharacterActionChecks(Now);return;}
+    if(Mode==TEXT("InteriorsPerformance") || Mode==TEXT("InteriorsEntryCheck")){RunInteriorPerformance(Now);return;}
+    if(Mode==TEXT("Interiors") || Mode==TEXT("InteriorsReload") || Mode==TEXT("InteriorsBikeCheck")){RunInteriorChecks(Now,DeltaSeconds);return;}
     if(Mode==TEXT("FeatureUI") || Mode==TEXT("FeatureReload") || Mode==TEXT("FeatureRouteReload") || Mode==TEXT("LegacyCheck") || Mode==TEXT("FutureEnvelopeCheck")){RunFeatureChecks(Now);return;}
     if(Stage==EStage::Preview)
     {
