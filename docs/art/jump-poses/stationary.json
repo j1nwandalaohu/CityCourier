@@ -1,0 +1,3006 @@
+{
+  "complete": true,
+  "error": null,
+  "input": "Production Enhanced Input",
+  "paused_for_pose_screenshots": true,
+  "stationary_jump": true,
+  "single_node_playback": false,
+  "map_or_asset_saved": false,
+  "protected_packages_unchanged": true,
+  "shots": [
+    {
+      "name": "native-idle-front",
+      "actor_z": 90.0,
+      "vertical_speed": 0.0,
+      "montage": null,
+      "montage_seconds": null,
+      "clips": [
+        "A_IdleRelaxed",
+        "A_Jog",
+        "A_Sprint",
+        "A_Ride"
+      ]
+    },
+    {
+      "name": "native-idle-side",
+      "actor_z": 90.0,
+      "vertical_speed": 0.0,
+      "montage": null,
+      "montage_seconds": null,
+      "clips": [
+        "A_IdleRelaxed",
+        "A_Jog",
+        "A_Sprint",
+        "A_Ride"
+      ]
+    },
+    {
+      "name": "jump-00-0.050",
+      "actor_z": 103.45561971778983,
+      "vertical_speed": 387.33317099511623,
+      "montage": "A_JumpStart",
+      "montage_seconds": 0.03333349898457527,
+      "clips": [
+        "A_IdleRelaxed",
+        "A_Jog",
+        "A_Sprint",
+        "A_Ride"
+      ]
+    },
+    {
+      "name": "jump-01-0.133",
+      "actor_z": 132.33068779615002,
+      "vertical_speed": 305.6662426888943,
+      "montage": "A_JumpStart",
+      "montage_seconds": 0.11666710674762726,
+      "clips": [
+        "A_IdleRelaxed",
+        "A_Jog",
+        "A_Sprint",
+        "A_Ride"
+      ]
+    },
+    {
+      "name": "jump-02-0.200",
+      "actor_z": 150.53071587577182,
+      "vertical_speed": 240.33267959952354,
+      "montage": "A_JumpLoop",
+      "montage_seconds": 0.0033339858055114746,
+      "clips": [
+        "A_IdleRelaxed",
+        "A_Jog",
+        "A_Sprint",
+        "A_Ride"
+      ]
+    },
+    {
+      "name": "jump-03-0.300",
+      "actor_z": 169.6640264662165,
+      "vertical_speed": 142.33238607645035,
+      "montage": "A_JumpLoop",
+      "montage_seconds": 0.10333427786827087,
+      "clips": [
+        "A_IdleRelaxed",
+        "A_Jog",
+        "A_Sprint",
+        "A_Ride"
+      ]
+    },
+    {
+      "name": "jump-04-0.433",
+      "actor_z": 179.93057343165924,
+      "vertical_speed": 11.665164977312088,
+      "montage": "A_JumpLoop",
+      "montage_seconds": 0.2366681694984436,
+      "clips": [
+        "A_IdleRelaxed",
+        "A_Jog",
+        "A_Sprint",
+        "A_Ride"
+      ]
+    },
+    {
+      "name": "jump-05-0.567",
+      "actor_z": 172.77476224564037,
+      "vertical_speed": -119.00195794180036,
+      "montage": "A_JumpFall",
+      "montage_seconds": 0.05000009760260582,
+      "clips": [
+        "A_IdleRelaxed",
+        "A_Jog",
+        "A_Sprint",
+        "A_Ride"
+      ]
+    },
+    {
+      "name": "jump-06-0.700",
+      "actor_z": 148.19653193452976,
+      "vertical_speed": -249.6693761833012,
+      "montage": "A_JumpFall",
+      "montage_seconds": 0.18333418667316437,
+      "clips": [
+        "A_IdleRelaxed",
+        "A_Jog",
+        "A_Sprint",
+        "A_Ride"
+      ]
+    },
+    {
+      "name": "jump-07-0.850",
+      "actor_z": 99.72088818686139,
+      "vertical_speed": -396.6699624992907,
+      "montage": "A_JumpFall",
+      "montage_seconds": 0.20000000298023224,
+      "clips": [
+        "A_IdleRelaxed",
+        "A_Jog",
+        "A_Sprint",
+        "A_Ride"
+      ]
+    },
+    {
+      "name": "jump-08-0.983",
+      "actor_z": 90.1499986386992,
+      "vertical_speed": 0.0,
+      "montage": "A_Land",
+      "montage_seconds": 0.11666709184646606,
+      "clips": [
+        "A_IdleRelaxed",
+        "A_Jog",
+        "A_Sprint",
+        "A_Ride"
+      ]
+    }
+  ],
+  "native_frames": [
+    {
+      "stage": "jump",
+      "wall_seconds": 9.780999999959022,
+      "tick_delta_s": 0.01662210002541542,
+      "actor_cm": [
+        0.0,
+        0.0,
+        90.0
+      ],
+      "speed": 0.0,
+      "airborne": false,
+      "landed": false,
+      "movement_clip": null,
+      "index": 0,
+      "feet_component_cm": {
+        "foot_l": [
+          12.772320409692064,
+          1.298937628647142,
+          8.471578475840076
+        ],
+        "foot_r": [
+          -12.772323570775603,
+          1.2989375959088072,
+          8.471578423271737
+        ]
+      }
+    },
+    {
+      "stage": "jump",
+      "wall_seconds": 9.796999999962281,
+      "tick_delta_s": 0.01688249781727791,
+      "actor_cm": [
+        0.0,
+        0.0,
+        96.86390202186122
+      ],
+      "speed": 0.0,
+      "airborne": true,
+      "landed": false,
+      "movement_clip": "A_JumpStart",
+      "index": 0,
+      "feet_component_cm": {
+        "foot_l": [
+          12.772322093936907,
+          1.298938201757334,
+          8.471571368524252
+        ],
+        "foot_r": [
+          -12.772320452884294,
+          1.2989394474633507,
+          8.471570678326678
+        ]
+      }
+    },
+    {
+      "stage": "jump",
+      "wall_seconds": 9.812999999965541,
+      "tick_delta_s": 0.016583800315856934,
+      "actor_cm": [
+        0.0,
+        0.0,
+        103.45561971778983
+      ],
+      "speed": 0.0,
+      "airborne": true,
+      "landed": false,
+      "movement_clip": "A_JumpStart",
+      "index": 0,
+      "feet_component_cm": {
+        "foot_l": [
+          12.736788476320704,
+          1.0558824246207834,
+          8.836643510679977
+        ],
+        "foot_r": [
+          -12.748666428237147,
+          1.3514346176412548,
+          8.963053111235638
+        ]
+      }
+    },
+    {
+      "stage": "jump",
+      "wall_seconds": 10.812999999965541,
+      "tick_delta_s": 0.016324203461408615,
+      "actor_cm": [
+        0.0,
+        0.0,
+        103.45561971778983
+      ],
+      "speed": 0.0,
+      "airborne": true,
+      "landed": false,
+      "movement_clip": "A_JumpStart",
+      "index": 0,
+      "feet_component_cm": {
+        "foot_l": [
+          12.736788476320704,
+          1.0558824246207834,
+          8.836643510679977
+        ],
+        "foot_r": [
+          -12.748666428237147,
+          1.3514346176412548,
+          8.963053111235638
+        ]
+      }
+    },
+    {
+      "stage": "jump",
+      "wall_seconds": 10.84399999998277,
+      "tick_delta_s": 0.0168582983314991,
+      "actor_cm": [
+        0.0,
+        0.0,
+        109.77511084298887
+      ],
+      "speed": 0.0,
+      "airborne": true,
+      "landed": false,
+      "movement_clip": "A_JumpStart",
+      "index": 0,
+      "feet_component_cm": {
+        "foot_l": [
+          12.614433799351604,
+          0.26474530127774765,
+          9.916661631461352
+        ],
+        "foot_r": [
+          -12.659833734950013,
+          1.5083280209876975,
+          10.45601437754452
+        ]
+      }
+    },
+    {
+      "stage": "jump",
+      "wall_seconds": 10.85999999998603,
+      "tick_delta_s": 0.01759060099720955,
+      "actor_cm": [
+        0.0,
+        0.0,
+        115.82233972411606
+      ],
+      "speed": 0.0,
+      "airborne": true,
+      "landed": false,
+      "movement_clip": "A_JumpStart",
+      "index": 0,
+      "feet_component_cm": {
+        "foot_l": [
+          12.359944673359367,
+          -1.3725428206906365,
+          12.207169709911874
+        ],
+        "foot_r": [
+          -12.458311288920903,
+          1.731155995872296,
+          13.74962114871655
+        ]
+      }
+    },
+    {
+      "stage": "jump",
+      "wall_seconds": 10.875,
+      "tick_delta_s": 0.016906600445508957,
+      "actor_cm": [
+        0.0,
+        0.0,
+        121.59734532023607
+      ],
+      "speed": 0.0,
+      "airborne": true,
+      "landed": false,
+      "movement_clip": "A_JumpStart",
+      "index": 0,
+      "feet_component_cm": {
+        "foot_l": [
+          11.992711098226303,
+          -3.9147696818360984,
+          16.365193187305792
+        ],
+        "foot_r": [
+          -12.136001162403744,
+          1.9830435302214688,
+          19.89034801561764
+        ]
+      }
+    },
+    {
+      "stage": "jump",
+      "wall_seconds": 10.89100000000326,
+      "tick_delta_s": 0.017009899020195007,
+      "actor_cm": [
+        0.0,
+        0.0,
+        127.10012883089091
+      ],
+      "speed": 0.0,
+      "airborne": true,
+      "landed": false,
+      "movement_clip": "A_JumpStart",
+      "index": 0,
+      "feet_component_cm": {
+        "foot_l": [
+          11.605972844065722,
+          -6.994885083243965,
+          22.942297091897053
+        ],
+        "foot_r": [
+          -11.735536149218149,
+          2.460703257410689,
+          29.685957438375326
+        ]
+      }
+    },
+    {
+      "stage": "jump",
+      "wall_seconds": 10.905999999959022,
+      "tick_delta_s": 0.016220800578594208,
+      "actor_cm": [
+        0.0,
+        0.0,
+        132.33068779615002
+      ],
+      "speed": 0.0,
+      "airborne": true,
+      "landed": false,
+      "movement_clip": "A_JumpStart",
+      "index": 0,
+      "feet_component_cm": {
+        "foot_l": [
+          11.334008487660455,
+          -9.758203757230795,
+          31.833207712537316
+        ],
+        "foot_r": [
+          -11.33391136333637,
+          3.5590335008461693,
+          42.76969822910165
+        ]
+      }
+    },
+    {
+      "stage": "jump",
+      "wall_seconds": 11.905999999959022,
+      "tick_delta_s": 0.014558598399162292,
+      "actor_cm": [
+        0.0,
+        0.0,
+        132.33068779615002
+      ],
+      "speed": 0.0,
+      "airborne": true,
+      "landed": false,
+      "movement_clip": "A_JumpStart",
+      "index": 0,
+      "feet_component_cm": {
+        "foot_l": [
+          11.334008487660455,
+          -9.758203757230795,
+          31.833207712537316
+        ],
+        "foot_r": [
+          -11.33391136333637,
+          3.5590335008461693,
+          42.76969822910165
+        ]
+      }
+    },
+    {
+      "stage": "jump",
+      "wall_seconds": 11.921999999962281,
+      "tick_delta_s": 0.0172526016831398,
+      "actor_cm": [
+        0.0,
+        0.0,
+        137.28902347640192
+      ],
+      "speed": 0.0,
+      "airborne": true,
+      "landed": false,
+      "movement_clip": "A_JumpStart",
+      "index": 0,
+      "feet_component_cm": {
+        "foot_l": [
+          11.1009326874029,
+          -11.559936953211682,
+          35.66494518579283
+        ],
+        "foot_r": [
+          -11.099696828894901,
+          3.9295281360247714,
+          48.3941828386282
+        ]
+      }
+    },
+    {
+      "stage": "jump",
+      "wall_seconds": 11.937999999965541,
+      "tick_delta_s": 0.01755790039896965,
+      "actor_cm": [
+        0.0,
+        0.0,
+        141.9751633307074
+      ],
+      "speed": 0.0,
+      "airborne": true,
+      "landed": false,
+      "movement_clip": "A_JumpStart",
+      "index": 0,
+      "feet_component_cm": {
+        "foot_l": [
+          10.915451141335325,
+          -12.994367230212767,
+          38.73522814308966
+        ],
+        "foot_r": [
+          -10.91227545986859,
+          4.226285932833584,
+          52.90030459719958
+        ]
+      }
+    },
+    {
+      "stage": "jump",
+      "wall_seconds": 11.952999999979511,
+      "tick_delta_s": 0.016698196530342102,
+      "actor_cm": [
+        0.0,
+        0.0,
+        146.3890507980887
+      ],
+      "speed": 0.0,
+      "airborne": true,
+      "landed": false,
+      "movement_clip": "A_JumpStart",
+      "index": 0,
+      "feet_component_cm": {
+        "foot_l": [
+          10.801368191095357,
+          -13.87179163624931,
+          40.58752145638309
+        ],
+        "foot_r": [
+          -10.798287201574608,
+          4.405435948558818,
+          55.61972884979721
+        ]
+      }
+    },
+    {
+      "stage": "jump",
+      "wall_seconds": 11.96899999998277,
+      "tick_delta_s": 0.01694600284099579,
+      "actor_cm": [
+        0.0,
+        0.0,
+        150.53071587577182
+      ],
+      "speed": 0.0,
+      "airborne": true,
+      "landed": false,
+      "movement_clip": "A_JumpLoop",
+      "index": 0,
+      "feet_component_cm": {
+        "foot_l": [
+          10.766998431410151,
+          -14.13709156529336,
+          41.154794204154726
+        ],
+        "foot_r": [
+          -10.76356386338157,
+          4.460315434287629,
+          56.452296007694116
+        ]
+      }
+    },
+    {
+      "stage": "jump",
+      "wall_seconds": 12.96899999998277,
+      "tick_delta_s": 0.016699299216270447,
+      "actor_cm": [
+        0.0,
+        0.0,
+        150.53071587577182
+      ],
+      "speed": 0.0,
+      "airborne": true,
+      "landed": false,
+      "movement_clip": "A_JumpLoop",
+      "index": 0,
+      "feet_component_cm": {
+        "foot_l": [
+          10.766998431410151,
+          -14.13709156529336,
+          41.154794204154726
+        ],
+        "foot_r": [
+          -10.76356386338157,
+          4.460315434287629,
+          56.452296007694116
+        ]
+      }
+    },
+    {
+      "stage": "jump",
+      "wall_seconds": 12.98499999998603,
+      "tick_delta_s": 0.016241200268268585,
+      "actor_cm": [
+        0.0,
+        0.0,
+        154.40015671229222
+      ],
+      "speed": 0.0,
+      "airborne": true,
+      "landed": false,
+      "movement_clip": "A_JumpLoop",
+      "index": 0,
+      "feet_component_cm": {
+        "foot_l": [
+          10.766709113456834,
+          -14.137235075155203,
+          41.147922688080854
+        ],
+        "foot_r": [
+          -10.764224772971335,
+          4.460414596858229,
+          56.45047997416168
+        ]
+      }
+    },
+    {
+      "stage": "jump",
+      "wall_seconds": 13.0,
+      "tick_delta_s": 0.017716899514198303,
+      "actor_cm": [
+        0.0,
+        0.0,
+        157.99737426380543
+      ],
+      "speed": 0.0,
+      "airborne": true,
+      "landed": false,
+      "movement_clip": "A_JumpLoop",
+      "index": 0,
+      "feet_component_cm": {
+        "foot_l": [
+          10.765138209435158,
+          -14.137560093671585,
+          41.107711044646265
+        ],
+        "foot_r": [
+          -10.768059187319977,
+          4.460848043163857,
+          56.43844748926048
+        ]
+      }
+    },
+    {
+      "stage": "jump",
+      "wall_seconds": 13.01600000000326,
+      "tick_delta_s": 0.01742679998278618,
+      "actor_cm": [
+        0.0,
+        0.0,
+        161.32236924308086
+      ],
+      "speed": 0.0,
+      "airborne": true,
+      "landed": false,
+      "movement_clip": "A_JumpLoop",
+      "index": 0,
+      "feet_component_cm": {
+        "foot_l": [
+          10.761323028514001,
+          -14.137898772223942,
+          41.01048044945854
+        ],
+        "foot_r": [
+          -10.7773342903337,
+          4.461856565880389,
+          56.4089723878574
+        ]
+      }
+    },
+    {
+      "stage": "jump",
+      "wall_seconds": 13.030999999959022,
+      "tick_delta_s": 0.015441600233316422,
+      "actor_cm": [
+        0.0,
+        0.0,
+        164.37514016373316
+      ],
+      "speed": 0.0,
+      "airborne": true,
+      "landed": false,
+      "movement_clip": "A_JumpLoop",
+      "index": 0,
+      "feet_component_cm": {
+        "foot_l": [
+          10.754777655921796,
+          -14.138445370801747,
+          40.83277646222578
+        ],
+        "foot_r": [
+          -10.793850905596996,
+          4.4635176569099,
+          56.35366498312132
+        ]
+      }
+    },
+    {
+      "stage": "jump",
+      "wall_seconds": 13.046999999962281,
+      "tick_delta_s": 0.01718520000576973,
+      "actor_cm": [
+        0.0,
+        0.0,
+        167.15568779937828
+      ],
+      "speed": 0.0,
+      "airborne": true,
+      "landed": false,
+      "movement_clip": "A_JumpLoop",
+      "index": 0,
+      "feet_component_cm": {
+        "foot_l": [
+          10.749521921190265,
+          -14.146335023555,
+          40.48438473039883
+        ],
+        "foot_r": [
+          -10.81951647984274,
+          4.464908259188164,
+          56.228391306921
+        ]
+      }
+    },
+    {
+      "stage": "jump",
+      "wall_seconds": 13.062999999965541,
+      "tick_delta_s": 0.01655399799346924,
+      "actor_cm": [
+        0.0,
+        0.0,
+        169.6640264662165
+      ],
+      "speed": 0.0,
+      "airborne": true,
+      "landed": false,
+      "movement_clip": "A_JumpLoop",
+      "index": 0,
+      "feet_component_cm": {
+        "foot_l": [
+          10.742444644482859,
+          -14.153652757197733,
+          40.01332044765502
+        ],
+        "foot_r": [
+          -10.85397714275955,
+          4.466648998752106,
+          56.056751771669894
+        ]
+      }
+    },
+    {
+      "stage": "jump",
+      "wall_seconds": 14.062999999965541,
+      "tick_delta_s": 0.0168628990650177,
+      "actor_cm": [
+        0.0,
+        0.0,
+        169.6640264662165
+      ],
+      "speed": 0.0,
+      "airborne": true,
+      "landed": false,
+      "movement_clip": "A_JumpLoop",
+      "index": 0,
+      "feet_component_cm": {
+        "foot_l": [
+          10.742444644482859,
+          -14.153652757197733,
+          40.01332044765502
+        ],
+        "foot_r": [
+          -10.85397714275955,
+          4.466648998752106,
+          56.056751771669894
+        ]
+      }
+    },
+    {
+      "stage": "jump",
+      "wall_seconds": 14.077999999979511,
+      "tick_delta_s": 0.016567900776863098,
+      "actor_cm": [
+        0.0,
+        0.0,
+        171.90012588899103
+      ],
+      "speed": 0.0,
+      "airborne": true,
+      "landed": false,
+      "movement_clip": "A_JumpLoop",
+      "index": 0,
+      "feet_component_cm": {
+        "foot_l": [
+          10.738756895553063,
+          -14.157019677429194,
+          39.679715464266934
+        ],
+        "foot_r": [
+          -10.87712593239319,
+          4.46748804425723,
+          55.93124272013276
+        ]
+      }
+    },
+    {
+      "stage": "jump",
+      "wall_seconds": 14.10999999998603,
+      "tick_delta_s": 0.017517801374197006,
+      "actor_cm": [
+        0.0,
+        0.0,
+        173.86401305723626
+      ],
+      "speed": 0.0,
+      "airborne": true,
+      "landed": false,
+      "movement_clip": "A_JumpLoop",
+      "index": 0,
+      "feet_component_cm": {
+        "foot_l": [
+          10.734975690300207,
+          -14.157308597522512,
+          39.37597212523772
+        ],
+        "foot_r": [
+          -10.898442122302386,
+          4.468319075799883,
+          55.81689097240661
+        ]
+      }
+    },
+    {
+      "stage": "jump",
+      "wall_seconds": 14.125,
+      "tick_delta_s": 0.01718520000576973,
+      "actor_cm": [
+        0.0,
+        0.0,
+        175.55566426714014
+      ],
+      "speed": 0.0,
+      "airborne": true,
+      "landed": false,
+      "movement_clip": "A_JumpLoop",
+      "index": 0,
+      "feet_component_cm": {
+        "foot_l": [
+          10.731457951571976,
+          -14.155733897668348,
+          39.11965453278353
+        ],
+        "foot_r": [
+          -10.916613919522668,
+          4.469073302640076,
+          55.72030877829437
+        ]
+      }
+    },
+    {
+      "stage": "jump",
+      "wall_seconds": 14.14100000000326,
+      "tick_delta_s": 0.01669500023126602,
+      "actor_cm": [
+        0.0,
+        0.0,
+        176.97509247887982
+      ],
+      "speed": 0.0,
+      "airborne": true,
+      "landed": false,
+      "movement_clip": "A_JumpLoop",
+      "index": 0,
+      "feet_component_cm": {
+        "foot_l": [
+          10.729793457577886,
+          -14.157736653221061,
+          38.909862678924895
+        ],
+        "foot_r": [
+          -10.930508847789485,
+          4.469048090516424,
+          55.634136201702546
+        ]
+      }
+    },
+    {
+      "stage": "jump",
+      "wall_seconds": 14.155999999959022,
+      "tick_delta_s": 0.01646849885582924,
+      "actor_cm": [
+        0.0,
+        0.0,
+        178.12230315982177
+      ],
+      "speed": 0.0,
+      "airborne": true,
+      "landed": false,
+      "movement_clip": "A_JumpLoop",
+      "index": 0,
+      "feet_component_cm": {
+        "foot_l": [
+          10.730171053027952,
+          -14.163283847093211,
+          38.773226892875186
+        ],
+        "foot_r": [
+          -10.938419503690268,
+          4.4684288417255615,
+          55.57046488473176
+        ]
+      }
+    },
+    {
+      "stage": "jump",
+      "wall_seconds": 14.171999999962281,
+      "tick_delta_s": 0.016185898333787918,
+      "actor_cm": [
+        0.0,
+        0.0,
+        178.99728727003415
+      ],
+      "speed": 0.0,
+      "airborne": true,
+      "landed": false,
+      "movement_clip": "A_JumpLoop",
+      "index": 0,
+      "feet_component_cm": {
+        "foot_l": [
+          10.730247896321854,
+          -14.16457868521271,
+          38.74022284190656
+        ],
+        "foot_r": [
+          -10.940337027650036,
+          4.4682809975927995,
+          55.55507223353413
+        ]
+      }
+    },
+    {
+      "stage": "jump",
+      "wall_seconds": 14.187999999965541,
+      "tick_delta_s": 0.017097599804401398,
+      "actor_cm": [
+        0.0,
+        0.0,
+        179.6000419933503
+      ],
+      "speed": 0.0,
+      "airborne": true,
+      "landed": false,
+      "movement_clip": "A_JumpLoop",
+      "index": 0,
+      "feet_component_cm": {
+        "foot_l": [
+          10.730073335401174,
+          -14.161769321067716,
+          38.81276943027029
+        ],
+        "foot_r": [
+          -10.936128385862457,
+          4.4686160610365775,
+          55.58886353794938
+        ]
+      }
+    },
+    {
+      "stage": "jump",
+      "wall_seconds": 14.202999999979511,
+      "tick_delta_s": 0.016269702464342117,
+      "actor_cm": [
+        0.0,
+        0.0,
+        179.93057343165924
+      ],
+      "speed": 0.0,
+      "airborne": true,
+      "landed": false,
+      "movement_clip": "A_JumpLoop",
+      "index": 0,
+      "feet_component_cm": {
+        "foot_l": [
+          10.730062589593524,
+          -14.155805366891649,
+          38.99114294819864
+        ],
+        "foot_r": [
+          -10.925422097632712,
+          4.469220316358481,
+          55.66949681492193
+        ]
+      }
+    },
+    {
+      "stage": "jump",
+      "wall_seconds": 15.202999999979511,
+      "tick_delta_s": 0.01670210063457489,
+      "actor_cm": [
+        0.0,
+        0.0,
+        179.93057343165924
+      ],
+      "speed": 0.0,
+      "airborne": true,
+      "landed": false,
+      "movement_clip": "A_JumpLoop",
+      "index": 0,
+      "feet_component_cm": {
+        "foot_l": [
+          10.730062589593524,
+          -14.155805366891649,
+          38.99114294819864
+        ],
+        "foot_r": [
+          -10.925422097632712,
+          4.469220316358481,
+          55.66949681492193
+        ]
+      }
+    },
+    {
+      "stage": "jump",
+      "wall_seconds": 15.21899999998277,
+      "tick_delta_s": 0.016494400799274445,
+      "actor_cm": [
+        0.0,
+        0.0,
+        179.98888158076974
+      ],
+      "speed": 0.0,
+      "airborne": true,
+      "landed": false,
+      "movement_clip": "A_JumpLoop",
+      "index": 0,
+      "feet_component_cm": {
+        "foot_l": [
+          10.732805982288976,
+          -14.156526246650607,
+          39.21516485725732
+        ],
+        "foot_r": [
+          -10.90981967478193,
+          4.468796736813985,
+          55.756296438291855
+        ]
+      }
+    },
+    {
+      "stage": "jump",
+      "wall_seconds": 15.23499999998603,
+      "tick_delta_s": 0.017776399850845337,
+      "actor_cm": [
+        0.0,
+        0.0,
+        179.774964330143
+      ],
+      "speed": 0.0,
+      "airborne": true,
+      "landed": false,
+      "movement_clip": "A_JumpLoop",
+      "index": 0,
+      "feet_component_cm": {
+        "foot_l": [
+          10.73645454332586,
+          -14.157474815172165,
+          39.49164384710599
+        ],
+        "foot_r": [
+          -10.89029204483106,
+          4.468041870226131,
+          55.860431218643356
+        ]
+      }
+    },
+    {
+      "stage": "jump",
+      "wall_seconds": 15.25,
+      "tick_delta_s": 0.017056800425052643,
+      "actor_cm": [
+        0.0,
+        0.0,
+        179.2888205087867
+      ],
+      "speed": 0.0,
+      "airborne": true,
+      "landed": false,
+      "movement_clip": "A_JumpLoop",
+      "index": 0,
+      "feet_component_cm": {
+        "foot_l": [
+          10.740277127780624,
+          -14.156032512834841,
+          39.81183175950045
+        ],
+        "foot_r": [
+          -10.867926814680832,
+          4.467115974507372,
+          55.980960406446144
+        ]
+      }
+    },
+    {
+      "stage": "jump",
+      "wall_seconds": 15.26600000000326,
+      "tick_delta_s": 0.016311898827552795,
+      "actor_cm": [
+        0.0,
+        0.0,
+        178.53045551483518
+      ],
+      "speed": 0.0,
+      "airborne": true,
+      "landed": false,
+      "movement_clip": "A_JumpLoop",
+      "index": 0,
+      "feet_component_cm": {
+        "foot_l": [
+          10.743807152249298,
+          -14.151469661876405,
+          40.14897509845042
+        ],
+        "foot_r": [
+          -10.84464537994885,
+          4.466335093547826,
+          56.10777712549748
+        ]
+      }
+    },
+    {
+      "stage": "jump",
+      "wall_seconds": 15.280999999959022,
+      "tick_delta_s": 0.016547001898288727,
+      "actor_cm": [
+        0.0,
+        0.0,
+        177.49986697509922
+      ],
+      "speed": 0.0,
+      "airborne": true,
+      "landed": false,
+      "movement_clip": "A_JumpLoop",
+      "index": 0,
+      "feet_component_cm": {
+        "foot_l": [
+          10.746836473083505,
+          -14.143943105607462,
+          40.4832456584717
+        ],
+        "foot_r": [
+          -10.821845455251863,
+          4.46556678452442,
+          56.233424493172436
+        ]
+      }
+    },
+    {
+      "stage": "jump",
+      "wall_seconds": 15.296999999962281,
+      "tick_delta_s": 0.016336999833583832,
+      "actor_cm": [
+        0.0,
+        0.0,
+        176.1970553502868
+      ],
+      "speed": 0.0,
+      "airborne": true,
+      "landed": false,
+      "movement_clip": "A_JumpFall",
+      "index": 0,
+      "feet_component_cm": {
+        "foot_l": [
+          10.751263362720701,
+          -14.138285524776531,
+          40.75543943923995
+        ],
+        "foot_r": [
+          -10.801560114478743,
+          4.464448560250645,
+          56.33109999514818
+        ]
+      }
+    },
+    {
+      "stage": "jump",
+      "wall_seconds": 15.312999999965541,
+      "tick_delta_s": 0.016987700015306473,
+      "actor_cm": [
+        0.0,
+        0.0,
+        174.6220204404672
+      ],
+      "speed": 0.0,
+      "airborne": true,
+      "landed": false,
+      "movement_clip": "A_JumpFall",
+      "index": 0,
+      "feet_component_cm": {
+        "foot_l": [
+          10.789499362507843,
+          -14.150299695260113,
+          40.803474557143176
+        ],
+        "foot_r": [
+          -10.817838220675892,
+          4.406565940325628,
+          55.79413703574306
+        ]
+      }
+    },
+    {
+      "stage": "jump",
+      "wall_seconds": 15.327999999979511,
+      "tick_delta_s": 0.016628697514533997,
+      "actor_cm": [
+        0.0,
+        0.0,
+        172.77476224564037
+      ],
+      "speed": 0.0,
+      "airborne": true,
+      "landed": false,
+      "movement_clip": "A_JumpFall",
+      "index": 0,
+      "feet_component_cm": {
+        "foot_l": [
+          10.891063148268007,
+          -14.191972673207268,
+          40.405830053005616
+        ],
+        "foot_r": [
+          -10.91783453055586,
+          4.232245396078355,
+          53.911911332706836
+        ]
+      }
+    },
+    {
+      "stage": "jump",
+      "wall_seconds": 16.32799999997951,
+      "tick_delta_s": 0.016594301909208298,
+      "actor_cm": [
+        0.0,
+        0.0,
+        172.77476224564037
+      ],
+      "speed": 0.0,
+      "airborne": true,
+      "landed": false,
+      "movement_clip": "A_JumpFall",
+      "index": 0,
+      "feet_component_cm": {
+        "foot_l": [
+          10.891063148268007,
+          -14.191972673207268,
+          40.405830053005616
+        ],
+        "foot_r": [
+          -10.91783453055586,
+          4.232245396078355,
+          53.911911332706836
+        ]
+      }
+    },
+    {
+      "stage": "jump",
+      "wall_seconds": 16.34399999998277,
+      "tick_delta_s": 0.01692049950361252,
+      "actor_cm": [
+        0.0,
+        0.0,
+        170.65528026164301
+      ],
+      "speed": 0.0,
+      "airborne": true,
+      "landed": false,
+      "movement_clip": "A_JumpFall",
+      "index": 0,
+      "feet_component_cm": {
+        "foot_l": [
+          11.087349041848686,
+          -14.279390720981851,
+          39.42695204508806
+        ],
+        "foot_r": [
+          -11.118794012029126,
+          3.8928626301940596,
+          50.10494403581421
+        ]
+      }
+    },
+    {
+      "stage": "jump",
+      "wall_seconds": 16.35999999998603,
+      "tick_delta_s": 0.017737198621034622,
+      "actor_cm": [
+        0.0,
+        0.0,
+        168.26356018068284
+      ],
+      "speed": 0.0,
+      "airborne": true,
+      "landed": false,
+      "movement_clip": "A_JumpFall",
+      "index": 0,
+      "feet_component_cm": {
+        "foot_l": [
+          11.389498180098762,
+          -14.40870747873581,
+          37.83389853742989
+        ],
+        "foot_r": [
+          -11.418307112498816,
+          3.3580998890166,
+          44.14635133717306
+        ]
+      }
+    },
+    {
+      "stage": "jump",
+      "wall_seconds": 16.375,
+      "tick_delta_s": 0.016676198691129684,
+      "actor_cm": [
+        0.0,
+        0.0,
+        165.59961352899313
+      ],
+      "speed": 0.0,
+      "airborne": true,
+      "landed": false,
+      "movement_clip": "A_JumpFall",
+      "index": 0,
+      "feet_component_cm": {
+        "foot_l": [
+          11.786645917025709,
+          -14.556536267942661,
+          35.64936035801212
+        ],
+        "foot_r": [
+          -11.852819069101534,
+          2.606358589258061,
+          36.137450438429454
+        ]
+      }
+    },
+    {
+      "stage": "jump",
+      "wall_seconds": 16.39100000000326,
+      "tick_delta_s": 0.01616770029067993,
+      "actor_cm": [
+        0.0,
+        0.0,
+        162.66345884757857
+      ],
+      "speed": 0.0,
+      "airborne": true,
+      "landed": false,
+      "movement_clip": "A_JumpFall",
+      "index": 0,
+      "feet_component_cm": {
+        "foot_l": [
+          12.239116652286707,
+          -14.68997487843086,
+          32.975372254256584
+        ],
+        "foot_r": [
+          -12.520092382651463,
+          1.5795486739830622,
+          26.72536538148458
+        ]
+      }
+    },
+    {
+      "stage": "jump",
+      "wall_seconds": 16.42199999996228,
+      "tick_delta_s": 0.016871903091669083,
+      "actor_cm": [
+        0.0,
+        0.0,
+        159.45506069729586
+      ],
+      "speed": 0.0,
+      "airborne": true,
+      "landed": false,
+      "movement_clip": "A_JumpFall",
+      "index": 0,
+      "feet_component_cm": {
+        "foot_l": [
+          12.513858017739473,
+          -14.792545626099923,
+          31.446354388078333
+        ],
+        "foot_r": [
+          -12.849878820841752,
+          1.0397867291718423,
+          21.164760311848937
+        ]
+      }
+    },
+    {
+      "stage": "jump",
+      "wall_seconds": 16.43799999996554,
+      "tick_delta_s": 0.016616597771644592,
+      "actor_cm": [
+        0.0,
+        0.0,
+        155.9744359762836
+      ],
+      "speed": 0.0,
+      "airborne": true,
+      "landed": false,
+      "movement_clip": "A_JumpFall",
+      "index": 0,
+      "feet_component_cm": {
+        "foot_l": [
+          12.756431683987476,
+          -14.882698458675055,
+          30.089126010765398
+        ],
+        "foot_r": [
+          -13.153216221717368,
+          0.5624054078279572,
+          16.270818610026197
+        ]
+      }
+    },
+    {
+      "stage": "jump",
+      "wall_seconds": 16.45299999997951,
+      "tick_delta_s": 0.017327599227428436,
+      "actor_cm": [
+        0.0,
+        0.0,
+        152.22158468454177
+      ],
+      "speed": 0.0,
+      "airborne": true,
+      "landed": false,
+      "movement_clip": "A_JumpFall",
+      "index": 0,
+      "feet_component_cm": {
+        "foot_l": [
+          12.948451038290205,
+          -14.954809746402166,
+          29.02487428272353
+        ],
+        "foot_r": [
+          -13.377070265352405,
+          0.18652447781019732,
+          12.36153648605432
+        ]
+      }
+    },
+    {
+      "stage": "jump",
+      "wall_seconds": 16.46899999998277,
+      "tick_delta_s": 0.01609020307660103,
+      "actor_cm": [
+        0.0,
+        0.0,
+        148.19653193452976
+      ],
+      "speed": 0.0,
+      "airborne": true,
+      "landed": false,
+      "movement_clip": "A_JumpFall",
+      "index": 0,
+      "feet_component_cm": {
+        "foot_l": [
+          13.07533541583339,
+          -15.00213239805548,
+          28.316064043485625
+        ],
+        "foot_r": [
+          -13.534673377126156,
+          -0.06306621336267437,
+          9.80389080492175
+        ]
+      }
+    },
+    {
+      "stage": "jump",
+      "wall_seconds": 17.46899999998277,
+      "tick_delta_s": 0.016246601939201355,
+      "actor_cm": [
+        0.0,
+        0.0,
+        148.19653193452976
+      ],
+      "speed": 0.0,
+      "airborne": true,
+      "landed": false,
+      "movement_clip": "A_JumpFall",
+      "index": 0,
+      "feet_component_cm": {
+        "foot_l": [
+          13.07533541583339,
+          -15.00213239805548,
+          28.316064043485625
+        ],
+        "foot_r": [
+          -13.534673377126156,
+          -0.06306621336267437,
+          9.80389080492175
+        ]
+      }
+    },
+    {
+      "stage": "jump",
+      "wall_seconds": 17.5,
+      "tick_delta_s": 0.01640009880065918,
+      "actor_cm": [
+        0.0,
+        0.0,
+        143.89925589951056
+      ],
+      "speed": 0.0,
+      "airborne": true,
+      "landed": false,
+      "movement_clip": "A_JumpFall",
+      "index": 0,
+      "feet_component_cm": {
+        "foot_l": [
+          13.124756452069526,
+          -15.020566064099587,
+          28.04019230941283
+        ],
+        "foot_r": [
+          -13.595639523697482,
+          -0.15925402040434222,
+          8.83125198951575
+        ]
+      }
+    },
+    {
+      "stage": "jump",
+      "wall_seconds": 17.51600000000326,
+      "tick_delta_s": 0.017641600221395493,
+      "actor_cm": [
+        0.0,
+        0.0,
+        139.32975657948418
+      ],
+      "speed": 0.0,
+      "airborne": true,
+      "landed": false,
+      "movement_clip": "A_JumpFall",
+      "index": 0,
+      "feet_component_cm": {
+        "foot_l": [
+          13.12484078429274,
+          -15.020597823769716,
+          28.039717029821773
+        ],
+        "foot_r": [
+          -13.595744839935264,
+          -0.1594261840658604,
+          8.829652379868428
+        ]
+      }
+    },
+    {
+      "stage": "jump",
+      "wall_seconds": 17.530999999959022,
+      "tick_delta_s": 0.017541199922561646,
+      "actor_cm": [
+        0.0,
+        0.0,
+        134.48803397445062
+      ],
+      "speed": 0.0,
+      "airborne": true,
+      "landed": false,
+      "movement_clip": "A_JumpFall",
+      "index": 0,
+      "feet_component_cm": {
+        "foot_l": [
+          13.12484078429274,
+          -15.020597823769716,
+          28.039717029821773
+        ],
+        "foot_r": [
+          -13.595744839935264,
+          -0.1594261840658604,
+          8.829652379868428
+        ]
+      }
+    },
+    {
+      "stage": "jump",
+      "wall_seconds": 17.54699999996228,
+      "tick_delta_s": 0.01608629897236824,
+      "actor_cm": [
+        0.0,
+        0.0,
+        129.37405522704816
+      ],
+      "speed": 0.0,
+      "airborne": true,
+      "landed": false,
+      "movement_clip": "A_JumpFall",
+      "index": 0,
+      "feet_component_cm": {
+        "foot_l": [
+          13.12484078429274,
+          -15.020597823769716,
+          28.039717029821773
+        ],
+        "foot_r": [
+          -13.595744839935264,
+          -0.1594261840658604,
+          8.829652379868428
+        ]
+      }
+    },
+    {
+      "stage": "jump",
+      "wall_seconds": 17.56299999996554,
+      "tick_delta_s": 0.016612201929092407,
+      "actor_cm": [
+        0.0,
+        0.0,
+        123.98785102154665
+      ],
+      "speed": 0.0,
+      "airborne": true,
+      "landed": false,
+      "movement_clip": "A_JumpFall",
+      "index": 0,
+      "feet_component_cm": {
+        "foot_l": [
+          13.12484078429274,
+          -15.020597823769716,
+          28.039717029821773
+        ],
+        "foot_r": [
+          -13.595744839935264,
+          -0.1594261840658604,
+          8.829652379868428
+        ]
+      }
+    },
+    {
+      "stage": "jump",
+      "wall_seconds": 17.57799999997951,
+      "tick_delta_s": 0.016587600111961365,
+      "actor_cm": [
+        0.0,
+        0.0,
+        118.32945521493252
+      ],
+      "speed": 0.0,
+      "airborne": true,
+      "landed": false,
+      "movement_clip": "A_JumpFall",
+      "index": 0,
+      "feet_component_cm": {
+        "foot_l": [
+          13.12484078429274,
+          -15.020597823769716,
+          28.039717029821773
+        ],
+        "foot_r": [
+          -13.595744839935264,
+          -0.1594261840658604,
+          8.829652379868428
+        ]
+      }
+    },
+    {
+      "stage": "jump",
+      "wall_seconds": 17.59399999998277,
+      "tick_delta_s": 0.016625098884105682,
+      "actor_cm": [
+        0.0,
+        0.0,
+        112.39883612331121
+      ],
+      "speed": 0.0,
+      "airborne": true,
+      "landed": false,
+      "movement_clip": "A_JumpFall",
+      "index": 0,
+      "feet_component_cm": {
+        "foot_l": [
+          13.12484078429274,
+          -15.020597823769716,
+          28.039717029821773
+        ],
+        "foot_r": [
+          -13.595744839935264,
+          -0.1594261840658604,
+          8.829652379868428
+        ]
+      }
+    },
+    {
+      "stage": "jump",
+      "wall_seconds": 17.60999999998603,
+      "tick_delta_s": 0.01662829890847206,
+      "actor_cm": [
+        0.0,
+        0.0,
+        106.19599374668272
+      ],
+      "speed": 0.0,
+      "airborne": true,
+      "landed": false,
+      "movement_clip": "A_JumpFall",
+      "index": 0,
+      "feet_component_cm": {
+        "foot_l": [
+          13.12484078429274,
+          -15.020597823769716,
+          28.039717029821773
+        ],
+        "foot_r": [
+          -13.595744839935264,
+          -0.1594261840658604,
+          8.829652379868428
+        ]
+      }
+    },
+    {
+      "stage": "jump",
+      "wall_seconds": 17.625,
+      "tick_delta_s": 0.017034299671649933,
+      "actor_cm": [
+        0.0,
+        0.0,
+        99.72088818686139
+      ],
+      "speed": 0.0,
+      "airborne": true,
+      "landed": false,
+      "movement_clip": "A_JumpFall",
+      "index": 0,
+      "feet_component_cm": {
+        "foot_l": [
+          13.12484078429274,
+          -15.020597823769716,
+          28.039717029821773
+        ],
+        "foot_r": [
+          -13.595744839935264,
+          -0.1594261840658604,
+          8.829652379868428
+        ]
+      }
+    },
+    {
+      "stage": "jump",
+      "wall_seconds": 18.625,
+      "tick_delta_s": 0.01663690060377121,
+      "actor_cm": [
+        0.0,
+        0.0,
+        99.72088818686139
+      ],
+      "speed": 0.0,
+      "airborne": true,
+      "landed": false,
+      "movement_clip": "A_JumpFall",
+      "index": 0,
+      "feet_component_cm": {
+        "foot_l": [
+          13.12484078429274,
+          -15.020597823769716,
+          28.039717029821773
+        ],
+        "foot_r": [
+          -13.595744839935264,
+          -0.1594261840658604,
+          8.829652379868428
+        ]
+      }
+    },
+    {
+      "stage": "jump",
+      "wall_seconds": 18.64100000000326,
+      "tick_delta_s": 0.01664379984140396,
+      "actor_cm": [
+        0.0,
+        0.0,
+        92.9735560563105
+      ],
+      "speed": 0.0,
+      "airborne": true,
+      "landed": false,
+      "movement_clip": "A_JumpFall",
+      "index": 0,
+      "feet_component_cm": {
+        "foot_l": [
+          13.12484078429274,
+          -15.020597823769716,
+          28.039717029821773
+        ],
+        "foot_r": [
+          -13.595744839935264,
+          -0.1594261840658604,
+          8.829652379868428
+        ]
+      }
+    },
+    {
+      "stage": "jump",
+      "wall_seconds": 18.655999999959022,
+      "tick_delta_s": 0.0181955024600029,
+      "actor_cm": [
+        0.0,
+        0.0,
+        90.1499986386992
+      ],
+      "speed": 0.0,
+      "airborne": false,
+      "landed": true,
+      "movement_clip": "A_Land",
+      "index": 0,
+      "feet_component_cm": {
+        "foot_l": [
+          13.12484078429274,
+          -15.020597823769716,
+          28.039717029821777
+        ],
+        "foot_r": [
+          -13.595744839935264,
+          -0.1594261840658604,
+          8.829652379868428
+        ]
+      }
+    },
+    {
+      "stage": "jump",
+      "wall_seconds": 18.67199999996228,
+      "tick_delta_s": 0.016982797533273697,
+      "actor_cm": [
+        0.0,
+        0.0,
+        90.1499986386992
+      ],
+      "speed": 0.0,
+      "airborne": false,
+      "landed": true,
+      "movement_clip": "A_Land",
+      "index": 0,
+      "feet_component_cm": {
+        "foot_l": [
+          11.877554847160479,
+          -12.9610777236901,
+          24.196194706719307
+        ],
+        "foot_r": [
+          -13.770615180970525,
+          0.06967705316083628,
+          8.264047225993245
+        ]
+      }
+    },
+    {
+      "stage": "jump",
+      "wall_seconds": 18.68799999996554,
+      "tick_delta_s": 0.016951698809862137,
+      "actor_cm": [
+        0.0,
+        0.0,
+        90.1499986386992
+      ],
+      "speed": 0.0,
+      "airborne": false,
+      "landed": true,
+      "movement_clip": "A_Land",
+      "index": 0,
+      "feet_component_cm": {
+        "foot_l": [
+          11.201668373938912,
+          -10.107708012287073,
+          20.76645002902799
+        ],
+        "foot_r": [
+          -14.133445613004557,
+          0.3984909879104892,
+          7.016664579172193
+        ]
+      }
+    },
+    {
+      "stage": "jump",
+      "wall_seconds": 18.70299999997951,
+      "tick_delta_s": 0.015641503036022186,
+      "actor_cm": [
+        0.0,
+        0.0,
+        90.1499986386992
+      ],
+      "speed": 0.0,
+      "airborne": false,
+      "landed": true,
+      "movement_clip": "A_Land",
+      "index": 0,
+      "feet_component_cm": {
+        "foot_l": [
+          11.01765035114359,
+          -7.075623519001105,
+          17.352435735877403
+        ],
+        "foot_r": [
+          -14.397359606666953,
+          0.8495088335701002,
+          6.2470449760791595
+        ]
+      }
+    },
+    {
+      "stage": "jump",
+      "wall_seconds": 18.71899999998277,
+      "tick_delta_s": 0.016531899571418762,
+      "actor_cm": [
+        0.0,
+        0.0,
+        90.1499986386992
+      ],
+      "speed": 0.0,
+      "airborne": false,
+      "landed": true,
+      "movement_clip": "A_Land",
+      "index": 0,
+      "feet_component_cm": {
+        "foot_l": [
+          11.19353115740206,
+          -4.206939251814038,
+          14.173664403243496
+        ],
+        "foot_r": [
+          -14.094551828936341,
+          1.2066122898127407,
+          6.540620612010791
+        ]
+      }
+    },
+    {
+      "stage": "jump",
+      "wall_seconds": 18.73499999998603,
+      "tick_delta_s": 0.016459200531244278,
+      "actor_cm": [
+        0.0,
+        0.0,
+        90.1499986386992
+      ],
+      "speed": 0.0,
+      "airborne": false,
+      "landed": true,
+      "movement_clip": "A_Land",
+      "index": 0,
+      "feet_component_cm": {
+        "foot_l": [
+          11.76745656510453,
+          -1.4428192079508246,
+          11.21932200911121
+        ],
+        "foot_r": [
+          -13.479795833404605,
+          1.3590149546441506,
+          7.39555853132314
+        ]
+      }
+    },
+    {
+      "stage": "jump",
+      "wall_seconds": 18.75,
+      "tick_delta_s": 0.016577400267124176,
+      "actor_cm": [
+        0.0,
+        0.0,
+        90.1499986386992
+      ],
+      "speed": 0.0,
+      "airborne": false,
+      "landed": true,
+      "movement_clip": "A_Land",
+      "index": 0,
+      "feet_component_cm": {
+        "foot_l": [
+          12.773845257341145,
+          1.299691244927983,
+          8.467524583085641
+        ],
+        "foot_r": [
+          -12.775591802536114,
+          1.2995256682928673,
+          8.46770106250132
+        ]
+      }
+    },
+    {
+      "stage": "jump",
+      "wall_seconds": 19.75,
+      "tick_delta_s": 0.016734100878238678,
+      "actor_cm": [
+        0.0,
+        0.0,
+        90.1499986386992
+      ],
+      "speed": 0.0,
+      "airborne": false,
+      "landed": true,
+      "movement_clip": "A_Land",
+      "index": 0,
+      "feet_component_cm": {
+        "foot_l": [
+          12.773845257341145,
+          1.299691244927983,
+          8.467524583085641
+        ],
+        "foot_r": [
+          -12.775591802536114,
+          1.2995256682928673,
+          8.46770106250132
+        ]
+      }
+    },
+    {
+      "stage": "jump",
+      "wall_seconds": 19.76600000000326,
+      "tick_delta_s": 0.016746599227190018,
+      "actor_cm": [
+        0.0,
+        0.0,
+        90.1499986386992
+      ],
+      "speed": 0.0,
+      "airborne": false,
+      "landed": true,
+      "movement_clip": null,
+      "index": 0,
+      "feet_component_cm": {
+        "foot_l": [
+          12.774641085677823,
+          1.3000423597281365,
+          8.464133711019237
+        ],
+        "foot_r": [
+          -12.777368123345767,
+          1.2996595685746701,
+          8.464365880771552
+        ]
+      }
+    },
+    {
+      "stage": "jump",
+      "wall_seconds": 19.780999999959022,
+      "tick_delta_s": 0.017586801201105118,
+      "actor_cm": [
+        0.0,
+        0.0,
+        90.1499986386992
+      ],
+      "speed": 0.0,
+      "airborne": false,
+      "landed": true,
+      "movement_clip": null,
+      "index": 0,
+      "feet_component_cm": {
+        "foot_l": [
+          12.807416812053749,
+          1.298504598166124,
+          7.875849250848425
+        ],
+        "foot_r": [
+          -12.903655473287126,
+          1.294618850611494,
+          7.870571819119341
+        ]
+      }
+    },
+    {
+      "stage": "jump",
+      "wall_seconds": 19.79699999996228,
+      "tick_delta_s": 0.01750839874148369,
+      "actor_cm": [
+        0.0,
+        0.0,
+        90.1499986386992
+      ],
+      "speed": 0.0,
+      "airborne": false,
+      "landed": true,
+      "movement_clip": null,
+      "index": 0,
+      "feet_component_cm": {
+        "foot_l": [
+          12.786703720404683,
+          1.3031220907097705,
+          7.762146957841921
+        ],
+        "foot_r": [
+          -12.89306893048001,
+          1.300803542570094,
+          7.752097321076349
+        ]
+      }
+    },
+    {
+      "stage": "jump",
+      "wall_seconds": 19.81299999996554,
+      "tick_delta_s": 0.015800300985574722,
+      "actor_cm": [
+        0.0,
+        0.0,
+        90.1499986386992
+      ],
+      "speed": 0.0,
+      "airborne": false,
+      "landed": true,
+      "movement_clip": null,
+      "index": 0,
+      "feet_component_cm": {
+        "foot_l": [
+          12.758114484313786,
+          1.3046598986815905,
+          7.9674803254396025
+        ],
+        "foot_r": [
+          -12.828469827840681,
+          1.303832317056255,
+          7.956662185546513
+        ]
+      }
+    },
+    {
+      "stage": "jump",
+      "wall_seconds": 19.82799999997951,
+      "tick_delta_s": 0.016550399363040924,
+      "actor_cm": [
+        0.0,
+        0.0,
+        90.1499986386992
+      ],
+      "speed": 0.0,
+      "airborne": false,
+      "landed": true,
+      "movement_clip": null,
+      "index": 0,
+      "feet_component_cm": {
+        "foot_l": [
+          12.750780868132077,
+          1.3018486100968225,
+          8.261939048957252
+        ],
+        "foot_r": [
+          -12.77715512138698,
+          1.3013616412752604,
+          8.254190679261846
+        ]
+      }
+    },
+    {
+      "stage": "jump",
+      "wall_seconds": 19.84399999998277,
+      "tick_delta_s": 0.016506098210811615,
+      "actor_cm": [
+        0.0,
+        0.0,
+        90.1499986386992
+      ],
+      "speed": 0.0,
+      "airborne": false,
+      "landed": true,
+      "movement_clip": null,
+      "index": 0,
+      "feet_component_cm": {
+        "foot_l": [
+          12.764085053792396,
+          1.2994580354077927,
+          8.43457624090702
+        ],
+        "foot_r": [
+          -12.767738465057919,
+          1.2993448823849167,
+          8.43180253998267
+        ]
+      }
+    },
+    {
+      "stage": "jump",
+      "wall_seconds": 19.85999999998603,
+      "tick_delta_s": 0.016875602304935455,
+      "actor_cm": [
+        0.0,
+        0.0,
+        90.1499986386992
+      ],
+      "speed": 0.0,
+      "airborne": false,
+      "landed": true,
+      "movement_clip": null,
+      "index": 0,
+      "feet_component_cm": {
+        "foot_l": [
+          12.77409273471254,
+          1.298740689910634,
+          8.46142955097249
+        ],
+        "foot_r": [
+          -12.774810526554184,
+          1.2988795512048785,
+          8.462332434494293
+        ]
+      }
+    },
+    {
+      "stage": "jump",
+      "wall_seconds": 19.875,
+      "tick_delta_s": 0.016408398747444153,
+      "actor_cm": [
+        0.0,
+        0.0,
+        90.1499986386992
+      ],
+      "speed": 0.0,
+      "airborne": false,
+      "landed": true,
+      "movement_clip": null,
+      "index": 0,
+      "feet_component_cm": {
+        "foot_l": [
+          12.772324214570887,
+          1.2988999677282003,
+          8.471575878250441
+        ],
+        "foot_r": [
+          -12.772321911730504,
+          1.2989409524804039,
+          8.471574136337225
+        ]
+      }
+    },
+    {
+      "stage": "jump",
+      "wall_seconds": 19.905999999959022,
+      "tick_delta_s": 0.01664000004529953,
+      "actor_cm": [
+        0.0,
+        0.0,
+        90.1499986386992
+      ],
+      "speed": 0.0,
+      "airborne": false,
+      "landed": true,
+      "movement_clip": null,
+      "index": 0,
+      "feet_component_cm": {
+        "foot_l": [
+          12.772322267926963,
+          1.2989156459508457,
+          8.471574793619027
+        ],
+        "foot_r": [
+          -12.772321046055744,
+          1.2989281286640129,
+          8.471571346965206
+        ]
+      }
+    },
+    {
+      "stage": "jump",
+      "wall_seconds": 19.92199999996228,
+      "tick_delta_s": 0.01671069860458374,
+      "actor_cm": [
+        0.0,
+        0.0,
+        90.1499986386992
+      ],
+      "speed": 0.0,
+      "airborne": false,
+      "landed": true,
+      "movement_clip": null,
+      "index": 0,
+      "feet_component_cm": {
+        "foot_l": [
+          12.772320457233803,
+          1.298931844605729,
+          8.471581017847875
+        ],
+        "foot_r": [
+          -12.772321152488107,
+          1.2989136567564081,
+          8.471576268344066
+        ]
+      }
+    },
+    {
+      "stage": "jump",
+      "wall_seconds": 19.93799999996554,
+      "tick_delta_s": 0.01674950122833252,
+      "actor_cm": [
+        0.0,
+        0.0,
+        90.1499986386992
+      ],
+      "speed": 0.0,
+      "airborne": false,
+      "landed": true,
+      "movement_clip": null,
+      "index": 0,
+      "feet_component_cm": {
+        "foot_l": [
+          12.7723216013919,
+          1.298934919211522,
+          8.471570413995728
+        ],
+        "foot_r": [
+          -12.772321792107473,
+          1.2989142966208398,
+          8.471565934167089
+        ]
+      }
+    },
+    {
+      "stage": "jump",
+      "wall_seconds": 19.95299999997951,
+      "tick_delta_s": 0.016589801758527756,
+      "actor_cm": [
+        0.0,
+        0.0,
+        90.1499986386992
+      ],
+      "speed": 0.0,
+      "airborne": false,
+      "landed": true,
+      "movement_clip": null,
+      "index": 0,
+      "feet_component_cm": {
+        "foot_l": [
+          12.772322836458889,
+          1.2989406682186804,
+          8.47157006915021
+        ],
+        "foot_r": [
+          -12.772323370664427,
+          1.2989175384137859,
+          8.471566253568454
+        ]
+      }
+    },
+    {
+      "stage": "jump",
+      "wall_seconds": 19.96899999998277,
+      "tick_delta_s": 0.016662899404764175,
+      "actor_cm": [
+        0.0,
+        0.0,
+        90.1499986386992
+      ],
+      "speed": 0.0,
+      "airborne": false,
+      "landed": true,
+      "movement_clip": null,
+      "index": 0,
+      "feet_component_cm": {
+        "foot_l": [
+          12.772321112865818,
+          1.2989536178825496,
+          8.471567049426504
+        ],
+        "foot_r": [
+          -12.772323608492421,
+          1.2989163773448915,
+          8.471562694975297
+        ]
+      }
+    },
+    {
+      "stage": "jump",
+      "wall_seconds": 19.98499999998603,
+      "tick_delta_s": 0.016708597540855408,
+      "actor_cm": [
+        0.0,
+        0.0,
+        90.1499986386992
+      ],
+      "speed": 0.0,
+      "airborne": false,
+      "landed": true,
+      "movement_clip": null,
+      "index": 0,
+      "feet_component_cm": {
+        "foot_l": [
+          12.772319201520386,
+          1.2989647811125629,
+          8.471578185128855
+        ],
+        "foot_r": [
+          -12.772326251094269,
+          1.2989106769779148,
+          8.471573661163575
+        ]
+      }
+    },
+    {
+      "stage": "jump",
+      "wall_seconds": 20.0,
+      "tick_delta_s": 0.016820400953292847,
+      "actor_cm": [
+        0.0,
+        0.0,
+        90.1499986386992
+      ],
+      "speed": 0.0,
+      "airborne": false,
+      "landed": true,
+      "movement_clip": null,
+      "index": 0,
+      "feet_component_cm": {
+        "foot_l": [
+          12.772320771699542,
+          1.298946772570357,
+          8.471575625350852
+        ],
+        "foot_r": [
+          -12.772321656444268,
+          1.2989085314391282,
+          8.471571760398199
+        ]
+      }
+    },
+    {
+      "stage": "jump",
+      "wall_seconds": 20.01600000000326,
+      "tick_delta_s": 0.016434401273727417,
+      "actor_cm": [
+        0.0,
+        0.0,
+        90.1499986386992
+      ],
+      "speed": 0.0,
+      "airborne": false,
+      "landed": true,
+      "movement_clip": null,
+      "index": 0,
+      "feet_component_cm": {
+        "foot_l": [
+          12.772322653081227,
+          1.2989250022533732,
+          8.471575351826928
+        ],
+        "foot_r": [
+          -12.772320119259378,
+          1.2989010556880096,
+          8.47157306324091
+        ]
+      }
+    },
+    {
+      "stage": "jump",
+      "wall_seconds": 20.030999999959022,
+      "tick_delta_s": 0.016750898212194443,
+      "actor_cm": [
+        0.0,
+        0.0,
+        90.1499986386992
+      ],
+      "speed": 0.0,
+      "airborne": false,
+      "landed": true,
+      "movement_clip": null,
+      "index": 0,
+      "feet_component_cm": {
+        "foot_l": [
+          12.772321442598148,
+          1.298927250942338,
+          8.471570887398748
+        ],
+        "foot_r": [
+          -12.77231829844735,
+          1.2989199858515086,
+          8.471566960432227
+        ]
+      }
+    },
+    {
+      "stage": "jump",
+      "wall_seconds": 20.04699999996228,
+      "tick_delta_s": 0.01675179973244667,
+      "actor_cm": [
+        0.0,
+        0.0,
+        90.1499986386992
+      ],
+      "speed": 0.0,
+      "airborne": false,
+      "landed": true,
+      "movement_clip": null,
+      "index": 0,
+      "feet_component_cm": {
+        "foot_l": [
+          12.772320002177125,
+          1.2989295422723934,
+          8.471569223072393
+        ],
+        "foot_r": [
+          -12.77231917077817,
+          1.298937642284148,
+          8.471564485346612
+        ]
+      }
+    },
+    {
+      "stage": "jump",
+      "wall_seconds": 20.06299999996554,
+      "tick_delta_s": 0.017021700739860535,
+      "actor_cm": [
+        0.0,
+        0.0,
+        90.1499986386992
+      ],
+      "speed": 0.0,
+      "airborne": false,
+      "landed": true,
+      "movement_clip": null,
+      "index": 0,
+      "feet_component_cm": {
+        "foot_l": [
+          12.772323738116393,
+          1.2989163381019289,
+          8.471570225286342
+        ],
+        "foot_r": [
+          -12.772320801035313,
+          1.2989069239548137,
+          8.4715660542062
+        ]
+      }
+    },
+    {
+      "stage": "jump",
+      "wall_seconds": 20.07799999997951,
+      "tick_delta_s": 0.01668969914317131,
+      "actor_cm": [
+        0.0,
+        0.0,
+        90.1499986386992
+      ],
+      "speed": 0.0,
+      "airborne": false,
+      "landed": true,
+      "movement_clip": null,
+      "index": 0,
+      "feet_component_cm": {
+        "foot_l": [
+          12.772327310067734,
+          1.2989056556395404,
+          8.471574171388042
+        ],
+        "foot_r": [
+          -12.772324847376055,
+          1.2988781090016381,
+          8.47157109967413
+        ]
+      }
+    },
+    {
+      "stage": "jump",
+      "wall_seconds": 20.09399999998277,
+      "tick_delta_s": 0.016530603170394897,
+      "actor_cm": [
+        0.0,
+        0.0,
+        90.1499986386992
+      ],
+      "speed": 0.0,
+      "airborne": false,
+      "landed": true,
+      "movement_clip": null,
+      "index": 0,
+      "feet_component_cm": {
+        "foot_l": [
+          12.772322952191583,
+          1.298972650446398,
+          8.471568703469629
+        ],
+        "foot_r": [
+          -12.772320581952908,
+          1.2988951512594902,
+          8.47156520934557
+        ]
+      }
+    },
+    {
+      "stage": "jump",
+      "wall_seconds": 20.10999999998603,
+      "tick_delta_s": 0.016247697174549103,
+      "actor_cm": [
+        0.0,
+        0.0,
+        90.1499986386992
+      ],
+      "speed": 0.0,
+      "airborne": false,
+      "landed": true,
+      "movement_clip": null,
+      "index": 0,
+      "feet_component_cm": {
+        "foot_l": [
+          12.772318422195607,
+          1.2990411281207592,
+          8.471567951882285
+        ],
+        "foot_r": [
+          -12.772319218596323,
+          1.2989144516256452,
+          8.471564665741226
+        ]
+      }
+    },
+    {
+      "stage": "jump",
+      "wall_seconds": 20.14100000000326,
+      "tick_delta_s": 0.016857601702213287,
+      "actor_cm": [
+        0.0,
+        0.0,
+        90.1499986386992
+      ],
+      "speed": 0.0,
+      "airborne": false,
+      "landed": true,
+      "movement_clip": null,
+      "index": 0,
+      "feet_component_cm": {
+        "foot_l": [
+          12.772321421695782,
+          1.2989803189812186,
+          8.471563953237066
+        ],
+        "foot_r": [
+          -12.772319075806532,
+          1.2989127332105959,
+          8.471561624079158
+        ]
+      }
+    },
+    {
+      "stage": "jump",
+      "wall_seconds": 20.155999999959022,
+      "tick_delta_s": 0.016823600977659225,
+      "actor_cm": [
+        0.0,
+        0.0,
+        90.1499986386992
+      ],
+      "speed": 0.0,
+      "airborne": false,
+      "landed": true,
+      "movement_clip": null,
+      "index": 0,
+      "feet_component_cm": {
+        "foot_l": [
+          12.772325098947844,
+          1.2989118456159225,
+          8.471569370594153
+        ],
+        "foot_r": [
+          -12.772321772563625,
+          1.2989142216832725,
+          8.471568690311571
+        ]
+      }
+    },
+    {
+      "stage": "jump",
+      "wall_seconds": 20.17199999996228,
+      "tick_delta_s": 0.01623309776186943,
+      "actor_cm": [
+        0.0,
+        0.0,
+        90.1499986386992
+      ],
+      "speed": 0.0,
+      "airborne": false,
+      "landed": true,
+      "movement_clip": null,
+      "index": 0,
+      "feet_component_cm": {
+        "foot_l": [
+          12.772325533955918,
+          1.2989200640935685,
+          8.4715639756065
+        ],
+        "foot_r": [
+          -12.772319952032055,
+          1.2989251489322804,
+          8.47156310248193
+        ]
+      }
+    },
+    {
+      "stage": "jump",
+      "wall_seconds": 20.18799999996554,
+      "tick_delta_s": 0.01691640168428421,
+      "actor_cm": [
+        0.0,
+        0.0,
+        90.1499986386992
+      ],
+      "speed": 0.0,
+      "airborne": false,
+      "landed": true,
+      "movement_clip": null,
+      "index": 0,
+      "feet_component_cm": {
+        "foot_l": [
+          12.77232573134574,
+          1.2989318601355286,
+          8.471573401289213
+        ],
+        "foot_r": [
+          -12.772321573170759,
+          1.2989388445964671,
+          8.471572847869275
+        ]
+      }
+    },
+    {
+      "stage": "jump",
+      "wall_seconds": 20.20299999997951,
+      "tick_delta_s": 0.016648199409246445,
+      "actor_cm": [
+        0.0,
+        0.0,
+        90.1499986386992
+      ],
+      "speed": 0.0,
+      "airborne": false,
+      "landed": true,
+      "movement_clip": null,
+      "index": 0,
+      "feet_component_cm": {
+        "foot_l": [
+          12.772326772369636,
+          1.2989447289316125,
+          8.47156756072819
+        ],
+        "foot_r": [
+          -12.772318179250844,
+          1.2989201379210122,
+          8.47156500400203
+        ]
+      }
+    },
+    {
+      "stage": "jump",
+      "wall_seconds": 20.21899999998277,
+      "tick_delta_s": 0.01666019856929779,
+      "actor_cm": [
+        0.0,
+        0.0,
+        90.1499986386992
+      ],
+      "speed": 0.0,
+      "airborne": false,
+      "landed": true,
+      "movement_clip": null,
+      "index": 0,
+      "feet_component_cm": {
+        "foot_l": [
+          12.772328001197215,
+          1.2989581049837078,
+          8.471576400944564
+        ],
+        "foot_r": [
+          -12.772318825745815,
+          1.2988986560017644,
+          8.471572384023759
+        ]
+      }
+    },
+    {
+      "stage": "jump",
+      "wall_seconds": 20.23499999998603,
+      "tick_delta_s": 0.016648899763822556,
+      "actor_cm": [
+        0.0,
+        0.0,
+        90.1499986386992
+      ],
+      "speed": 0.0,
+      "airborne": false,
+      "landed": true,
+      "movement_clip": null,
+      "index": 0,
+      "feet_component_cm": {
+        "foot_l": [
+          12.772327567957507,
+          1.2989413654323805,
+          8.471571307135228
+        ],
+        "foot_r": [
+          -12.772317261428533,
+          1.2989265197661233,
+          8.471568364816072
+        ]
+      }
+    },
+    {
+      "stage": "jump",
+      "wall_seconds": 20.25,
+      "tick_delta_s": 0.0166127011179924,
+      "actor_cm": [
+        0.0,
+        0.0,
+        90.1499986386992
+      ],
+      "speed": 0.0,
+      "airborne": false,
+      "landed": true,
+      "movement_clip": null,
+      "index": 0,
+      "feet_component_cm": {
+        "foot_l": [
+          12.772327233605932,
+          1.2989202940835618,
+          8.471574673435548
+        ],
+        "foot_r": [
+          -12.772319307432696,
+          1.2989542796715163,
+          8.471573614127365
+        ]
+      }
+    },
+    {
+      "stage": "jump",
+      "wall_seconds": 20.26600000000326,
+      "tick_delta_s": 0.016627199947834015,
+      "actor_cm": [
+        0.0,
+        0.0,
+        90.1499986386992
+      ],
+      "speed": 0.0,
+      "airborne": false,
+      "landed": true,
+      "movement_clip": null,
+      "index": 0,
+      "feet_component_cm": {
+        "foot_l": [
+          12.772327933580927,
+          1.2989186034883353,
+          8.471570262387054
+        ],
+        "foot_r": [
+          -12.772318515125644,
+          1.2989367636818407,
+          8.471568143903745
+        ]
+      }
+    },
+    {
+      "stage": "jump",
+      "wall_seconds": 20.280999999959022,
+      "tick_delta_s": 0.01687059924006462,
+      "actor_cm": [
+        0.0,
+        0.0,
+        90.1499986386992
+      ],
+      "speed": 0.0,
+      "airborne": false,
+      "landed": true,
+      "movement_clip": null,
+      "index": 0,
+      "feet_component_cm": {
+        "foot_l": [
+          12.772328732943294,
+          1.2989116142504251,
+          8.471579626848971
+        ],
+        "foot_r": [
+          -12.772320795171932,
+          1.2989200903173987,
+          8.471577098847213
+        ]
+      }
+    },
+    {
+      "stage": "jump",
+      "wall_seconds": 20.29699999996228,
+      "tick_delta_s": 0.016477201133966446,
+      "actor_cm": [
+        0.0,
+        0.0,
+        90.1499986386992
+      ],
+      "speed": 0.0,
+      "airborne": false,
+      "landed": true,
+      "movement_clip": null,
+      "index": 0,
+      "feet_component_cm": {
+        "foot_l": [
+          12.77232569074911,
+          1.2989275947601193,
+          8.4715674676943
+        ],
+        "foot_r": [
+          -12.772318419618122,
+          1.298924435291422,
+          8.471563809411457
+        ]
+      }
+    },
+    {
+      "stage": "jump",
+      "wall_seconds": 20.31299999996554,
+      "tick_delta_s": 0.017152700573205948,
+      "actor_cm": [
+        0.0,
+        0.0,
+        90.1499986386992
+      ],
+      "speed": 0.0,
+      "airborne": false,
+      "landed": true,
+      "movement_clip": null,
+      "index": 0,
+      "feet_component_cm": {
+        "foot_l": [
+          12.772322652822844,
+          1.2989451507528749,
+          8.471567879914524
+        ],
+        "foot_r": [
+          -12.772319533910863,
+          1.2989298274487062,
+          8.47156392523236
+        ]
+      }
+    },
+    {
+      "stage": "jump",
+      "wall_seconds": 20.32799999997951,
+      "tick_delta_s": 0.01728760078549385,
+      "actor_cm": [
+        0.0,
+        0.0,
+        90.1499986386992
+      ],
+      "speed": 0.0,
+      "airborne": false,
+      "landed": true,
+      "movement_clip": null,
+      "index": 0,
+      "feet_component_cm": {
+        "foot_l": [
+          12.772322170710822,
+          1.2989479115382743,
+          8.471568012517928
+        ],
+        "foot_r": [
+          -12.772322374740966,
+          1.298902062088363,
+          8.471564021890735
+        ]
+      }
+    },
+    {
+      "stage": "jump",
+      "wall_seconds": 20.34399999998277,
+      "tick_delta_s": 0.01600099727511406,
+      "actor_cm": [
+        0.0,
+        0.0,
+        90.1499986386992
+      ],
+      "speed": 0.0,
+      "airborne": false,
+      "landed": true,
+      "movement_clip": null,
+      "index": 0,
+      "feet_component_cm": {
+        "foot_l": [
+          12.77232158685402,
+          1.2989514282319412,
+          8.47157341874037
+        ],
+        "foot_r": [
+          -12.772328217084675,
+          1.2988772914758862,
+          8.471570172653244
+        ]
+      }
+    },
+    {
+      "stage": "jump",
+      "wall_seconds": 20.35999999998603,
+      "tick_delta_s": 0.016211099922657013,
+      "actor_cm": [
+        0.0,
+        0.0,
+        90.1499986386992
+      ],
+      "speed": 0.0,
+      "airborne": false,
+      "landed": true,
+      "movement_clip": null,
+      "index": 0,
+      "feet_component_cm": {
+        "foot_l": [
+          12.77232208782478,
+          1.2989347345542193,
+          8.471569633993504
+        ],
+        "foot_r": [
+          -12.772319400539784,
+          1.2989126365343573,
+          8.47156646634263
+        ]
+      }
+    }
+  ],
+  "visual_acceptance": "Manual image review required",
+  "code_sha256": "b7a401c80c71a4e37887f11c224f25784288b2e1ec5ccdd8adcc0c028c008815",
+  "jump": {
+    "saw_airborne": true,
+    "saw_landing": true,
+    "minimum_landing_speed_cm_s": 0.0,
+    "observed_movement_clips": [
+      "A_JumpFall",
+      "A_JumpLoop",
+      "A_JumpStart",
+      "A_Land"
+    ],
+    "height_above_start_cm": 89.98888158076974
+  }
+}

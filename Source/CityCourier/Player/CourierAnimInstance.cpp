@@ -1,5 +1,6 @@
 #include "Player/CourierAnimInstance.h"
 #include "Player/CourierCharacter.h"
+#include "Player/CourierActionComponent.h"
 #include "Animation/AnimInstanceProxy.h"
 #include "Animation/AnimSequence.h"
 #include "Animation/AnimationPoseData.h"
@@ -11,7 +12,8 @@ struct FCourierAnimProxy final : FAnimInstanceProxy
     using FAnimInstanceProxy::FAnimInstanceProxy;
     UAnimSequence* Clips[4]={};
     int32 Active=0,Previous=0;
-    float Clock=0,PreviousClock=0,Blend=1,Rate=1;
+    float Clock=0,PreviousClock=0,Blend=1,Rate=1,PreviousRate=1;
+    float MovementInfluence=1;
     float SlotWeight=0,SourceWeight=1,TotalWeight=0;
     virtual void PreUpdate(UAnimInstance* Instance,float Delta) override
     {
@@ -21,12 +23,27 @@ struct FCourierAnimProxy final : FAnimInstanceProxy
         Anim->NativeUpdateAnimation(Delta);
         for(int32 I=0;I<4;++I) Clips[I]=Anim->Clips.IsValidIndex(I)?Anim->Clips[I].Get():nullptr;
         const int32 Next=Anim->AnimationIndex;
-        if(Next!=Active) { Previous=Active; PreviousClock=Clock; Active=Next; Clock=0; Blend=0; }
+        if(Next!=Active)
+        {
+            Previous=Active; PreviousClock=Clock; PreviousRate=Rate;
+            // Jog and sprint share left/right foot phases. Keep the same step
+            // when accelerating instead of snapping to the first sprint frame.
+            const bool bGait=(Active==1 || Active==2) && (Next==1 || Next==2);
+            Clock=bGait && Clips[Active] && Clips[Next] && Clips[Active]->GetPlayLength()>0
+                ? FMath::Fmod(Clock,Clips[Active]->GetPlayLength())/Clips[Active]->GetPlayLength()*Clips[Next]->GetPlayLength() : 0;
+            Active=Next; Blend=0;
+        }
         Rate=Active==1?FMath::Clamp(Anim->GroundSpeed/473.2f,.5f,1.5f):Active==2?FMath::Clamp(Anim->GroundSpeed/715.9f,.5f,1.5f):1;
+        // The short land clip has planted feet. At running speed retain the
+        // stride underneath its compression; combat still uses the full slot.
+        const bool bLanding=Rider && !Anim->bAirborne && Anim->CurrentAction==ECourierAction::None
+            && Rider->GetActions()->GetLandingElapsed()<.37f;
+        const float LandingEnvelope=bLanding?FMath::Clamp((.37f-Rider->GetActions()->GetLandingElapsed())/.12f,0.f,1.f):0.f;
+        MovementInfluence=FMath::Lerp(1.f,.3f,FMath::Clamp(Anim->GroundSpeed/420.f,0.f,1.f)*LandingEnvelope);
     }
     virtual void Update(float Delta) override
     {
-        Clock+=Delta*Rate; PreviousClock+=Delta; Blend=FMath::Min(1.f,Blend+Delta/.18f);
+        Clock+=Delta*Rate; PreviousClock+=Delta*PreviousRate; Blend=FMath::Min(1.f,Blend+Delta/.18f);
         // The authored graph registers FullBodyAction. Keep its montage weights
         // in sync while the native proxy supplies the locomotion source pose.
         GetSlotWeight(TEXT("FullBodyAction"),SlotWeight,SourceWeight,TotalWeight);
@@ -50,7 +67,14 @@ struct FCourierAnimProxy final : FAnimInstanceProxy
         // A custom Evaluate bypasses the generated AnimGraph, including its slot.
         // Evaluate that slot explicitly so visible poses agree with strike timing.
         if(SlotWeight>ZERO_ANIMWEIGHT_THRESH)
-            SlotEvaluatePose(TEXT("FullBodyAction"),Source,SourceWeight,Result,SlotWeight,TotalWeight);
+        {
+            FPoseContext ActionPose(Output);
+            FAnimationPoseData ActionData(ActionPose);
+            // Slot evaluation reads montage instance weights internally. Blend
+            // its normalized result, rather than changing only its source weight.
+            SlotEvaluatePose(TEXT("FullBodyAction"),Source,SourceWeight,ActionData,SlotWeight,TotalWeight);
+            FAnimationRuntime::BlendTwoPosesTogether(ActionData,Source,MovementInfluence,Result);
+        }
         else Output=Locomotion;
         return true;
     }

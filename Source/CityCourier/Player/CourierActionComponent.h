@@ -21,7 +21,7 @@ public:
     void JumpStarted();
     bool IsGroundActionBlocked() const;
     const FCourierActionTimeline& GetTimeline() const { return Timeline; }
-    bool IsMovementLocked() const { return Timeline.IsReacting() || LandingElapsed<.12; }
+    bool IsMovementLocked() const { return Timeline.IsReacting(); }
     bool IsSuppressed() const { return bSuppressed; }
     bool ReceiveStrike(FGuid InstanceId,const FVector& Origin);
     bool HasAttackAnimation(bool bHeavy) const;
@@ -53,5 +53,5 @@ private:
     FRotator AttackFacing;
     uint8 PendingEdges=0;
     bool bSuppressed=false,bPreserve=false,bJumpStarted=false;
-    float JumpElapsed=0,LandingElapsed=1;
+    float JumpElapsed=0,FallElapsed=0,LandingElapsed=1;
 };

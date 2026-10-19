@@ -32,7 +32,7 @@ for name in names:
     assert assets.save_loaded_asset(clip)
 bp=unreal.load_asset('/Game/CityCourier/Blueprints/ABP_Courier')
 assert unreal.CourierArtBuilder.build_animation_blueprint(bp)
-clips=[unreal.load_asset(folder+'/'+name) for name in ['A_Idle','A_Jog','A_Sprint','A_Ride']]
+clips=[unreal.load_asset(folder+'/'+name) for name in ['A_IdleRelaxed','A_Jog','A_Sprint','A_Ride']]
 assert all(clips)
 unreal.get_default_object(bp.generated_class()).set_editor_property('clips',clips)
 unreal.BlueprintEditorLibrary.compile_blueprint(bp)

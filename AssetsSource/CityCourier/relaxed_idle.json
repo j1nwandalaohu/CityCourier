@@ -1,0 +1,70 @@
+{
+  "license": "CC0-1.0",
+  "upstream": "https://github.com/Mesh2Motion/mesh2motion-app",
+  "source_revision": "653a9698f5f315523072f1c3ff3496100401317b",
+  "source_action": "Idle_Subtle",
+  "source_glb_sha256": "a0d64d555e0d492026b72d58bf8e16c5e86779295f9093e376dcc001915c2c95",
+  "fps": 30,
+  "source_duration_s": 2.5416666666666665,
+  "samples": 77,
+  "duration_s": 2.533333333333333,
+  "skeleton_reference_unchanged": true,
+  "rider_mesh_unchanged": true,
+  "mesh_signature": "25d92866bbb5597fa8dd9c328bf5137cb8d47d9c74b0691a4e7e2e836fa31533",
+  "root_motion": false,
+  "fbx_sha256": "c2e6b50c03aa2fd50bce1c564a2896626ea780cd468a1329c6866740898e40a3",
+  "joint_motion_cm": {
+    "pelvis": 0.2361658583935904,
+    "head": 0.2361716349493941,
+    "hand_l": 0.6673014058246927,
+    "hand_r": 0.6508214523487357,
+    "foot_l": 1.1921292747407888e-05,
+    "foot_r": 1.1920928955078125e-05
+  },
+  "loop_error_cm": 0.0,
+  "validation": {
+    "status": "passed",
+    "lowest_sole_cm": 0.19999234937131405,
+    "foot_drift_cm": 1.1921292747407888e-05,
+    "samples_checked": 77
+  },
+  "ue_import": {
+    "status": "passed",
+    "loop_error_cm": 1.1090145847059575e-05,
+    "foot_drift_cm": 0.00015709460837190573,
+    "raw_compressed_error_cm": 9.7062365389618e-05,
+    "protected_package_count": 23,
+    "protected_package_sha256": {
+      "Content\\CityCourier\\Art\\Characters\\A_HeavyPunch_R.uasset": "d5c9ff12497ef5db6c80377978ad61e98002f4d4ed620173ba0531d734ab0aaa",
+      "Content\\CityCourier\\Art\\Characters\\A_HitReact_Back.uasset": "d47c3f6ae1eba89d1290d8a106a690607f8bf9617935ae0fa734e20936d870df",
+      "Content\\CityCourier\\Art\\Characters\\A_HitReact_Front.uasset": "bc4bfa5bd85679f600c658bebd8e526f748270f2bcbf5c99dc13de699e9111c4",
+      "Content\\CityCourier\\Art\\Characters\\A_Idle.uasset": "2da6714183855fbfe2a0bc8403fa46bcfa9cf9ad57af8e1714768c2f418b4a7c",
+      "Content\\CityCourier\\Art\\Characters\\A_Jog.uasset": "6605cf7040b3875e47e85ecab2f96fc1d6ad95559b0d4f94dd783b4f62aa5576",
+      "Content\\CityCourier\\Art\\Characters\\A_JumpLoop.uasset": "ddc9ecb52e792814a000e6a6d30e82293de71db16f53dcfc8ef09bd0c104dc9b",
+      "Content\\CityCourier\\Art\\Characters\\A_JumpStart.uasset": "74539f0ec94de3b5f03551072f18b7c0cbadf96f69f03e7fd0f61086e6873dfb",
+      "Content\\CityCourier\\Art\\Characters\\A_Land.uasset": "98f5b8e0822d759a523e8f61cca66d35e7232d34fbb55ea1e4ee16869219ce45",
+      "Content\\CityCourier\\Art\\Characters\\A_LightPunch_L.uasset": "b03da5bfd9588379a9debfe6aa15ab8ceeda62c45c8666045648c69fc30559c4",
+      "Content\\CityCourier\\Art\\Characters\\A_LightPunch_R.uasset": "6fbf462f2fd9431aa045c8caeeece361703f843cce14c8af9bab833f33e7a8ea",
+      "Content\\CityCourier\\Art\\Characters\\A_Ride.uasset": "6ef51a5611b880e1a1aa127b87014340b9a810801d6b2825f8a67d1ae0ebbeaa",
+      "Content\\CityCourier\\Art\\Characters\\A_Run.uasset": "2bcfc3001c81fe9e96f6785198e53b9a4f77706aca654b8b2fbec4766bb96460",
+      "Content\\CityCourier\\Art\\Characters\\A_RunStart.uasset": "a6709881a91cf9409955c5ba7158751f8eb794c72d8becef74170f696c9876c2",
+      "Content\\CityCourier\\Art\\Characters\\A_RunStop.uasset": "ecfc20def200cd4b01f8f96fd72d6b1895190ad7a8c0a7fe173d4cd1e023c3ee",
+      "Content\\CityCourier\\Art\\Characters\\A_Sprint.uasset": "acbcbcde2d7abfea337543c74a0c49c73faf4a4a4f39bd6590b3740d227dd720",
+      "Content\\CityCourier\\Art\\Characters\\A_Walk.uasset": "58c89d431c03aefac335fff3be5d2658465b07e252084e550f4bb06912b8c182",
+      "Content\\CityCourier\\Art\\Characters\\SK_Courier.uasset": "d3457137cdd29cefe5793ba57727dc3519db5be3dd018e6587cb35cb3a8a08fd",
+      "Content\\CityCourier\\Art\\Characters\\SK_Courier_Skeleton.uasset": "9eafb77f9c36826f053c7121ee94217da933bfaf3419db56c76e274d1c62ad7c",
+      "Content\\CityCourier\\Blueprints\\BP_AmbientPedestrian.uasset": "75c879127ff5ea1411e3e1049766fcd9ffac7578c3a0a1018d884b7121185832",
+      "Content\\CityCourier\\Blueprints\\BP_AmbientVehicle.uasset": "2892248546d356509d9a9aaf2b9636785f8713feef8109fbe7caf51a25d3da77",
+      "Content\\CityCourier\\Blueprints\\BP_CourierCharacter.uasset": "1a170d252b73fcce14501cacb0d531b098e2a071b412494170aa5322e943898c",
+      "Content\\CityCourier\\Blueprints\\BP_CourierGameMode.uasset": "5598755fe869a69a06d99bbb4f9849db186f4b320cbb7f41c8f494a827745c91",
+      "Content\\CityCourier\\Blueprints\\BP_Scooter.uasset": "a282f913b48ecd99ce485cc85b5fed7a386f844a4711d1030db2549e445e9124"
+    },
+    "existing_packages_unchanged": true,
+    "bound_clips": [
+      "A_IdleRelaxed",
+      "A_Jog",
+      "A_Sprint",
+      "A_Ride"
+    ]
+  }
+}

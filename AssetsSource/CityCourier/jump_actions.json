@@ -1,0 +1,92 @@
+{
+  "upstream": "https://github.com/Mesh2Motion/mesh2motion-app",
+  "source_revision": "653a9698f5f315523072f1c3ff3496100401317b",
+  "license": "CC0-1.0",
+  "source_action": "Jump_2",
+  "source_glb_sha256": "a0d64d555e0d492026b72d58bf8e16c5e86779295f9093e376dcc001915c2c95",
+  "edits": "FK-only proportional retarget; fixed pelvis/root trajectory; relaxed wrists/fingers; 80% anatomical motion; takeoff, small tuck loop, extension for descent",
+  "rider_mesh_unchanged": true,
+  "skeleton_reference_unchanged": true,
+  "clips": {
+    "A_JumpStart": {
+      "duration_s": 0.18,
+      "fps": 100,
+      "loop": false,
+      "samples": 19,
+      "max_joint_length_error_cm": 3.105013333948303e-05,
+      "fbx_sha256": "f118f501c96b28277ddeabce89bf2ec653c9ef478464fee2284a80ec939576fe"
+    },
+    "A_JumpLoop": {
+      "duration_s": 0.4,
+      "fps": 100,
+      "loop": true,
+      "samples": 41,
+      "max_joint_length_error_cm": 3.3708619746886104e-05,
+      "fbx_sha256": "50aab0216911a1d49c3b73f83b76f67fa1e233da8a307fa2041ec40f8800de7c"
+    },
+    "A_JumpFall": {
+      "duration_s": 0.2,
+      "fps": 100,
+      "loop": false,
+      "samples": 21,
+      "max_joint_length_error_cm": 6.181204075736413e-05,
+      "fbx_sha256": "b42ab499f02903c1fdce3a7aaabc0783e0f3ed6602e28dec0c1da5c6c3c48506"
+    }
+  },
+  "validation": {
+    "status": "passed",
+    "root_motion": false
+  },
+  "ue_import": {
+    "status": "passed",
+    "clips": {
+      "A_JumpStart": {
+        "raw_pose_samples": 21,
+        "raw_compressed_pose_error_cm": 0.0015571447128597705,
+        "root_translation_cm": 0.0,
+        "root_quaternion_component_error": 0.0,
+        "endpoint_joint_error_cm": 48.12884670240832
+      },
+      "A_JumpLoop": {
+        "raw_pose_samples": 21,
+        "raw_compressed_pose_error_cm": 0.07799592426004454,
+        "root_translation_cm": 0.0,
+        "root_quaternion_component_error": 0.0,
+        "endpoint_joint_error_cm": 8.495806062740326e-06
+      },
+      "A_JumpFall": {
+        "raw_pose_samples": 21,
+        "raw_compressed_pose_error_cm": 0.0002873380826225315,
+        "root_translation_cm": 0.0,
+        "root_quaternion_component_error": 0.0,
+        "endpoint_joint_error_cm": 47.93209071665348
+      }
+    },
+    "existing_packages_unchanged": true,
+    "protected_package_sha256": {
+      "Content\\CityCourier\\Art\\Characters\\A_HeavyPunch_R.uasset": "d5c9ff12497ef5db6c80377978ad61e98002f4d4ed620173ba0531d734ab0aaa",
+      "Content\\CityCourier\\Art\\Characters\\A_HitReact_Back.uasset": "d47c3f6ae1eba89d1290d8a106a690607f8bf9617935ae0fa734e20936d870df",
+      "Content\\CityCourier\\Art\\Characters\\A_HitReact_Front.uasset": "bc4bfa5bd85679f600c658bebd8e526f748270f2bcbf5c99dc13de699e9111c4",
+      "Content\\CityCourier\\Art\\Characters\\A_Idle.uasset": "2da6714183855fbfe2a0bc8403fa46bcfa9cf9ad57af8e1714768c2f418b4a7c",
+      "Content\\CityCourier\\Art\\Characters\\A_IdleRelaxed.uasset": "12f99fce4be57e33f784062733ae42ba23000a82c18b8ea951db11f0c66f3f07",
+      "Content\\CityCourier\\Art\\Characters\\A_Jog.uasset": "6605cf7040b3875e47e85ecab2f96fc1d6ad95559b0d4f94dd783b4f62aa5576",
+      "Content\\CityCourier\\Art\\Characters\\A_Land.uasset": "98f5b8e0822d759a523e8f61cca66d35e7232d34fbb55ea1e4ee16869219ce45",
+      "Content\\CityCourier\\Art\\Characters\\A_LightPunch_L.uasset": "b03da5bfd9588379a9debfe6aa15ab8ceeda62c45c8666045648c69fc30559c4",
+      "Content\\CityCourier\\Art\\Characters\\A_LightPunch_R.uasset": "6fbf462f2fd9431aa045c8caeeece361703f843cce14c8af9bab833f33e7a8ea",
+      "Content\\CityCourier\\Art\\Characters\\A_Ride.uasset": "6ef51a5611b880e1a1aa127b87014340b9a810801d6b2825f8a67d1ae0ebbeaa",
+      "Content\\CityCourier\\Art\\Characters\\A_Run.uasset": "2bcfc3001c81fe9e96f6785198e53b9a4f77706aca654b8b2fbec4766bb96460",
+      "Content\\CityCourier\\Art\\Characters\\A_RunStart.uasset": "a6709881a91cf9409955c5ba7158751f8eb794c72d8becef74170f696c9876c2",
+      "Content\\CityCourier\\Art\\Characters\\A_RunStop.uasset": "ecfc20def200cd4b01f8f96fd72d6b1895190ad7a8c0a7fe173d4cd1e023c3ee",
+      "Content\\CityCourier\\Art\\Characters\\A_Sprint.uasset": "acbcbcde2d7abfea337543c74a0c49c73faf4a4a4f39bd6590b3740d227dd720",
+      "Content\\CityCourier\\Art\\Characters\\A_Walk.uasset": "58c89d431c03aefac335fff3be5d2658465b07e252084e550f4bb06912b8c182",
+      "Content\\CityCourier\\Art\\Characters\\SK_Courier.uasset": "d3457137cdd29cefe5793ba57727dc3519db5be3dd018e6587cb35cb3a8a08fd",
+      "Content\\CityCourier\\Art\\Characters\\SK_Courier_Skeleton.uasset": "9eafb77f9c36826f053c7121ee94217da933bfaf3419db56c76e274d1c62ad7c",
+      "Content\\CityCourier\\Blueprints\\ABP_Courier.uasset": "7eed0efe7e6eb707ea44ae3a55c310f9f4eb8b273a4dde8fd261a8cd664ebfe7",
+      "Content\\CityCourier\\Blueprints\\BP_AmbientPedestrian.uasset": "75c879127ff5ea1411e3e1049766fcd9ffac7578c3a0a1018d884b7121185832",
+      "Content\\CityCourier\\Blueprints\\BP_AmbientVehicle.uasset": "2892248546d356509d9a9aaf2b9636785f8713feef8109fbe7caf51a25d3da77",
+      "Content\\CityCourier\\Blueprints\\BP_CourierCharacter.uasset": "1a170d252b73fcce14501cacb0d531b098e2a071b412494170aa5322e943898c",
+      "Content\\CityCourier\\Blueprints\\BP_CourierGameMode.uasset": "5598755fe869a69a06d99bbb4f9849db186f4b320cbb7f41c8f494a827745c91",
+      "Content\\CityCourier\\Blueprints\\BP_Scooter.uasset": "a282f913b48ecd99ce485cc85b5fed7a386f844a4711d1030db2549e445e9124"
+    }
+  }
+}
