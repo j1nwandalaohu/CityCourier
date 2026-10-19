@@ -101,7 +101,11 @@ bool UCourierInteriorFinish::Apply(ACourierBuildingActor* Actor) const
             // Light +X points out through fixture local -Z, including wall lamps.
             Light->SetRelativeLocation(T.TransformPosition(FVector(0,0,-1.5)));
             Light->SetRelativeRotation(FRotationMatrix::MakeFromXY(T.TransformVectorNoScale(-FVector::UpVector),T.TransformVectorNoScale(FVector::ForwardVector)).Rotator());
-            Light->SetIntensityUnits(ELightUnits::Lumens); Light->SetIntensity(1800); Light->SetAttenuationRadius(650);
+            // The city uses a fixed gameplay exposure. A full 1800 lm per small
+            // room clipped plaster and furniture to white, especially where
+            // ceiling and landing fixtures overlap. Keep use-specific contrast.
+            const float Lumens=B->Kind==TEXT("office")?300.f:B->Kind==TEXT("shop")?240.f:180.f;
+            Light->SetIntensityUnits(ELightUnits::Lumens); Light->SetIntensity(Lumens); Light->SetAttenuationRadius(650);
             Light->SetSourceWidth(90); Light->SetSourceHeight(14); Light->SetCastShadows(true);
             Light->MaxDrawDistance=2500; Light->MaxDistanceFadeRange=500;
             Light->SetUseTemperature(true); Light->SetTemperature(B->Kind==TEXT("shop")?4500:B->Kind==TEXT("office")?5000:3800);

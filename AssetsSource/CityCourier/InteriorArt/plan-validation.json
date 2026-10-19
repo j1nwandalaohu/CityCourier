@@ -6,7 +6,7 @@
   "no_city_maps_written": true,
   "inventory_sha256": "e32efe7e16c831681ae244bda638ad228d7eb93e35afa4eccb0bdf68ca9f9224",
   "asset_manifest_sha256": "f14f6112ba9566dd7b956099441f1c33660d046dc1b4de6789b637cd33f56196",
-  "planner_sha256": "b6a21c8be239910fab0010530aa7a76523b4ac78f3cd8752374a6e473fea651d",
+  "planner_sha256": "ea37ce92a5f49162f48301bd5e9ac2c4e188938ec6d7aa50223e7f96be98d917",
   "geometry_tolerance_cm": 0.0001,
   "clearance_cm": {
     "capsule_radius": 34,
@@ -32,10 +32,11 @@
       "furnished_room_count": 30,
       "door_count": 35,
       "route_node_count": 194,
-      "placement_count": 562,
+      "placement_count": 689,
       "placement_categories": {
         "dado": 59,
         "door_frame": 35,
+        "existing_facade_window": 12,
         "exit_sign": 4,
         "furniture": 36,
         "handrail": 90,
@@ -43,7 +44,9 @@
         "number_plate": 35,
         "outlet": 35,
         "skirting": 188,
-        "switch": 35
+        "stair_nosing": 106,
+        "switch": 35,
+        "wall_aircon": 9
       },
       "preview_room_ids": [
         "B_Merchant_0_F01_Hall",
@@ -63,10 +66,11 @@
       "furnished_room_count": 40,
       "door_count": 44,
       "route_node_count": 181,
-      "placement_count": 674,
+      "placement_count": 783,
       "placement_categories": {
         "dado": 79,
         "door_frame": 44,
+        "existing_facade_window": 9,
         "exit_sign": 3,
         "furniture": 62,
         "handrail": 72,
@@ -74,7 +78,9 @@
         "number_plate": 44,
         "outlet": 44,
         "skirting": 230,
-        "switch": 44
+        "stair_nosing": 86,
+        "switch": 44,
+        "wall_aircon": 14
       },
       "preview_room_ids": [
         "B_1_0_0_0_0_F01_Hall",
@@ -100,10 +106,11 @@
       "furnished_room_count": 40,
       "door_count": 45,
       "route_node_count": 182,
-      "placement_count": 691,
+      "placement_count": 800,
       "placement_categories": {
         "dado": 79,
         "door_frame": 45,
+        "existing_facade_window": 9,
         "exit_sign": 4,
         "furniture": 56,
         "handrail": 72,
@@ -111,7 +118,9 @@
         "number_plate": 45,
         "outlet": 45,
         "skirting": 248,
-        "switch": 45
+        "stair_nosing": 86,
+        "switch": 45,
+        "wall_aircon": 14
       },
       "preview_room_ids": [
         "B_0_1_0_0_0_F01_Hall",

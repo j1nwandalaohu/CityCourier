@@ -318,6 +318,52 @@ def _handrails(building, bounds):
     return result
 
 
+def _remaining_finishes(building, bounds):
+    """Attach the delivered kit to actual treads, high walls and existing glazing."""
+    result = []
+    if 'SM_IF_StairNosing' in bounds:
+        for step in building['boxes']:
+            if step['kind'] != 'step' or not any(t in step['id'] for t in ('_up_', '_return_')):
+                continue
+            # Flight direction reverses on the return; sit inside the riser edge.
+            direction = 1 if '_return_' in step['id'] else -1
+            location = [step['center'][0], step['center'][1] + direction*(step['size'][1]/2-2),
+                        step['center'][2] + step['size'][2]/2 + .05]
+            floor = next(f['number'] for f in building['floors'] if '_'+f['id']+'_' in step['id'])
+            result.append(_placement(building, step['id']+'_Nosing', 'StairNosing', location, floor,
+                category='stair_nosing', scale=[step['size'][0]/100, 1, 1], step_id=step['id']))
+    if 'SM_IF_AirconWall' in bounds:
+        for room in building['rooms']:
+            if room['kind'] not in ('living', 'bedroom', 'office', 'meeting', 'shop', 'service'):
+                continue
+            side = -1 if room['center'][0] < 0 else 1
+            # Back on the outer side wall; local -Y faces inward after rotation.
+            x = room['minimum'][0] if side < 0 else room['maximum'][0]
+            p = _placement(building, room['id']+'_Aircon', 'AirconWall',
+                [x-side*11, room['center'][1], room['maximum'][2]-36], room['floor'], room,
+                'wall_aircon', rotation=[0, 90 if side < 0 else -90, 0])
+            lo, hi = placement_bounds(p, bounds[p['asset']])
+            if not _route_blocked(lo, hi, building) and not any(intersects_door_sweep(lo, hi, d) for d in building['doors']):
+                result.append(p)
+    if 'SM_IF_WindowReturn' in bounds and len(building['floors']) > 1:
+        # Match build_environment.building's existing CLOSED facade windows.
+        # These are exterior glazing surrounds, not new walkable wall openings.
+        variant = building['variant']
+        for floor in building['floors'][1:]:
+            if floor['kind'] == 'roof':
+                continue
+            index = floor['number']-2
+            for col, x in enumerate((-265, 0, 265)):
+                x += (3.5, -6.5, 4)[(index+variant+col)%3]
+                width = (173, 182, 163)[(col+variant)%3]
+                height = 192 if variant != 1 else 182
+                result.append(_placement(building, floor['id']+'_Window_'+str(col), 'WindowReturn',
+                    [x*building['width']/800, -building['depth']/2-4*building['depth']/1150-18,
+                     530+index*330-height/2], floor['number'], category='existing_facade_window',
+                    scale=[width/120*building['width']/800, 1, height/135]))
+    return result
+
+
 def _sample(seed, bounds):
     building = compile_building(seed)
     sample = dict(building_id=building["id"], kind=seed["kind"], source_seed=copy.deepcopy(seed), building=building,
@@ -369,6 +415,7 @@ def _sample(seed, bounds):
                                            integration="replace_existing_moving_leaf_mesh"))
     placements.extend(_wall_finishes(building, bounds))
     placements.extend(_handrails(building, bounds))
+    placements.extend(_remaining_finishes(building, bounds))
     return sample
 
 
@@ -458,7 +505,14 @@ def validate_plan(plan: dict, mesh_bounds: dict) -> list[str]:
                     errors.append(prefix + "handrail blocks route capsule")
             if p["category"] == "skirting" and any(intersects_door_aperture(lo, hi, door) for door in building["doors"]):
                 errors.append(prefix + "skirting spans door aperture")
-            if p["category"] not in ("door_frame", "furniture", "handrail"):
+            if p['category'] == 'stair_nosing':
+                step = next((s for s in building['boxes'] if s['id'] == p.get('step_id') and s['kind'] == 'step'), None)
+                if (not step or p['collision'] != 'NoCollision' or
+                        abs(p['location_cm'][2] - step['center'][2] - step['size'][2]/2 - .05) > EPS or
+                        hi[2]-lo[2] > 1 or lo[0] < step['center'][0]-step['size'][0]/2-EPS or
+                        hi[0] > step['center'][0]+step['size'][0]/2+EPS):
+                    errors.append(prefix + 'nosing differs from real tread surface')
+            if p["category"] not in ("door_frame", "furniture", "handrail", "stair_nosing"):
                 if _route_blocked(lo, hi, building):
                     errors.append(prefix + "finish intrudes into route capsule")
                 if any(intersects_door_aperture(lo, hi, door) for door in building["doors"]):

@@ -17,7 +17,7 @@ function Invoke-InteriorCheck([string]$Mode,[string]$Name,[int]$Timeout) {
     Invoke-CourierExecutable -FilePath $game -Arguments $arguments -LogDirectory $output -TimeoutSeconds $Timeout
     $result=Get-Content -LiteralPath (Join-Path $output 'result.json') -Raw | ConvertFrom-Json
     if(-not ($result.PSObject.Properties.Name -contains 'error') -or $result.error){throw "Native validation failed: $($result.error). See $output"}
-    if(Select-String -LiteralPath (Join-Path $output 'game.log') -Pattern 'Default Material will be used in game|Fatal error:|Assertion failed:' -Quiet){throw "Packaged rendering/runtime failure. See $output"}
+    if(Select-String -LiteralPath (Join-Path $output 'game.log') -Pattern 'Default Material will be used in game|Fatal error:|Assertion failed:|Virtual Shadow Map Page Pool overflow' -Quiet){throw "Packaged rendering/runtime failure. See $output"}
     return $output
 }
 if($Checks -ne 'Play'){
