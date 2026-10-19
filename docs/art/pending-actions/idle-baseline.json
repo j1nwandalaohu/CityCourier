@@ -1,0 +1,504 @@
+{
+  "run_id": "20261019T012221Z-85acd9a3",
+  "complete": true,
+  "capture_complete": true,
+  "error": null,
+  "planned_shots": 2,
+  "dimensions": [
+    1800,
+    1200
+  ],
+  "shots": [
+    {
+      "clip": "A_Idle",
+      "sample": 0.7,
+      "angle": "front",
+      "evidence": "existing-idle-baseline",
+      "run_id": "20261019T012221Z-85acd9a3",
+      "sections": {
+        "forced_lod": 0,
+        "hidden_materials": [],
+        "slots": [
+          "M_PortraitSkinHead",
+          "M_WorkClothes",
+          "M_WorkShoes",
+          "M_Helmet",
+          "M_Rubber",
+          "M_ReflectiveStrip",
+          "M_PortraitCornea",
+          "M_PortraitIris",
+          "M_PortraitPupil",
+          "M_PortraitHair",
+          "M_PortraitTearline",
+          "M_PortraitSclera",
+          "M_PortraitMouth",
+          "M_PortraitSkinBody"
+        ]
+      },
+      "camera": {
+        "position_cm": [
+          90.0,
+          -550.0,
+          150.0
+        ],
+        "target_cm": [
+          0.0,
+          0.0,
+          91.0
+        ],
+        "fov_degrees": 40.0,
+        "constrain_aspect_ratio": false
+      },
+      "sequence": "/Game/CityCourier/Art/Characters/A_Idle.A_Idle",
+      "mesh": "/Game/CityCourier/Art/Characters/SK_Courier.SK_Courier",
+      "skeleton": "/Game/CityCourier/Art/Characters/SK_Courier_Skeleton.SK_Courier_Skeleton",
+      "bone_count": 51,
+      "root_motion": false,
+      "animation_length_seconds": 2.0,
+      "actor_rotation_pyr_degrees": [
+        0.0,
+        180.0,
+        0.0
+      ],
+      "rendered_compressed_pose_error_cm": 1.8037467847668626e-05,
+      "raw_compressed_pose_error_cm": 0.16183612887446894,
+      "bones": {
+        "root": {
+          "rendered_component_cm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "raw_component_cm": [
+            0.0,
+            0.0,
+            0.16180339735001326
+          ],
+          "compressed_component_cm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "world_cm": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        "pelvis": {
+          "rendered_component_cm": [
+            -4.649393535640272e-15,
+            1.526631508022545,
+            93.96917819976807
+          ],
+          "raw_component_cm": [
+            0.0,
+            1.526644020775521,
+            94.13098139383399
+          ],
+          "compressed_component_cm": [
+            -4.6493933671479694e-15,
+            1.5266282393405959,
+            93.96917503559484
+          ],
+          "world_cm": [
+            4.462435096662544e-15,
+            -1.5266315080225459,
+            93.96917819976807
+          ]
+        },
+        "head": {
+          "rendered_component_cm": [
+            -1.381425315060522e-14,
+            4.426226132999275,
+            159.96002069172022
+          ],
+          "raw_component_cm": [
+            0.0,
+            4.426245358628191,
+            160.12184637731426
+          ],
+          "compressed_component_cm": [
+            -1.3814251771632812e-14,
+            4.426215096496186,
+            159.96001025126918
+          ],
+          "world_cm": [
+            1.3272196783997233e-14,
+            -4.426226132999279,
+            159.96002069172022
+          ]
+        },
+        "hand_l": {
+          "rendered_component_cm": [
+            21.052827184707397,
+            8.131699333387761,
+            94.53724429130058
+          ],
+          "raw_component_cm": [
+            21.052887552381677,
+            8.131731073237713,
+            94.69904213926692
+          ],
+          "compressed_component_cm": [
+            21.052824922797186,
+            8.131681617078243,
+            94.53724176813083
+          ],
+          "world_cm": [
+            -21.05282718470741,
+            -8.131699333387767,
+            94.53724429130058
+          ]
+        },
+        "hand_r": {
+          "rendered_component_cm": [
+            -21.052827184707454,
+            8.131699333387633,
+            94.53724429130054
+          ],
+          "raw_component_cm": [
+            -21.052887552381677,
+            8.131731073237713,
+            94.69904213926692
+          ],
+          "compressed_component_cm": [
+            -21.052824922797242,
+            8.131681617078115,
+            94.5372417681308
+          ],
+          "world_cm": [
+            21.052827184707468,
+            -8.131699333387642,
+            94.53724429130054
+          ]
+        },
+        "foot_l": {
+          "rendered_component_cm": [
+            12.772318265109984,
+            1.2990031458816633,
+            6.602704284959316
+          ],
+          "raw_component_cm": [
+            12.77232480928839,
+            1.298984609299032,
+            6.7645347883862925
+          ],
+          "compressed_component_cm": [
+            12.772318152516295,
+            1.2989935915920017,
+            6.602707709504259
+          ],
+          "world_cm": [
+            -12.772318265109991,
+            -1.2990031458816627,
+            6.602704284959316
+          ]
+        },
+        "foot_r": {
+          "rendered_component_cm": [
+            -12.772318265109995,
+            1.299003145881554,
+            6.602704284959323
+          ],
+          "raw_component_cm": [
+            -12.77232480928839,
+            1.298984609299032,
+            6.7645347883862925
+          ],
+          "compressed_component_cm": [
+            -12.772318152516304,
+            1.2989935915918995,
+            6.602707709504266
+          ],
+          "world_cm": [
+            12.772318265110002,
+            -1.2990031458815565,
+            6.602704284959323
+          ]
+        }
+      },
+      "rendered_sample_seconds": 0.699999988079071,
+      "root_offset_cm": [
+        0.0,
+        0.0,
+        0.16180339735001326
+      ],
+      "root_quaternion_drift_from_first_frame": 4.707848322293984e-08,
+      "file": "Saved\\PendingActions\\UE\\runs\\20261019T012221Z-85acd9a3\\A_Idle-front.png",
+      "png_sha256": "c12b569c0f4e4a08f6d96cac1fcd85be41bd39a7d342f22c58908e097d727f60",
+      "png_bytes": 1420658,
+      "dimensions": [
+        1800,
+        1200
+      ],
+      "screenshot_task_complete": true
+    },
+    {
+      "clip": "A_Idle",
+      "sample": 0.7,
+      "angle": "side",
+      "evidence": "existing-idle-baseline",
+      "run_id": "20261019T012221Z-85acd9a3",
+      "sections": {
+        "forced_lod": 0,
+        "hidden_materials": [],
+        "slots": [
+          "M_PortraitSkinHead",
+          "M_WorkClothes",
+          "M_WorkShoes",
+          "M_Helmet",
+          "M_Rubber",
+          "M_ReflectiveStrip",
+          "M_PortraitCornea",
+          "M_PortraitIris",
+          "M_PortraitPupil",
+          "M_PortraitHair",
+          "M_PortraitTearline",
+          "M_PortraitSclera",
+          "M_PortraitMouth",
+          "M_PortraitSkinBody"
+        ]
+      },
+      "camera": {
+        "position_cm": [
+          550.0,
+          -35.0,
+          150.0
+        ],
+        "target_cm": [
+          0.0,
+          0.0,
+          91.0
+        ],
+        "fov_degrees": 40.0,
+        "constrain_aspect_ratio": false
+      },
+      "sequence": "/Game/CityCourier/Art/Characters/A_Idle.A_Idle",
+      "mesh": "/Game/CityCourier/Art/Characters/SK_Courier.SK_Courier",
+      "skeleton": "/Game/CityCourier/Art/Characters/SK_Courier_Skeleton.SK_Courier_Skeleton",
+      "bone_count": 51,
+      "root_motion": false,
+      "animation_length_seconds": 2.0,
+      "actor_rotation_pyr_degrees": [
+        0.0,
+        180.0,
+        0.0
+      ],
+      "rendered_compressed_pose_error_cm": 1.8037467847668626e-05,
+      "raw_compressed_pose_error_cm": 0.16183612887446894,
+      "bones": {
+        "root": {
+          "rendered_component_cm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "raw_component_cm": [
+            0.0,
+            0.0,
+            0.16180339735001326
+          ],
+          "compressed_component_cm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "world_cm": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        "pelvis": {
+          "rendered_component_cm": [
+            -4.649393535640272e-15,
+            1.526631508022545,
+            93.96917819976807
+          ],
+          "raw_component_cm": [
+            0.0,
+            1.526644020775521,
+            94.13098139383399
+          ],
+          "compressed_component_cm": [
+            -4.6493933671479694e-15,
+            1.5266282393405959,
+            93.96917503559484
+          ],
+          "world_cm": [
+            4.462435096662544e-15,
+            -1.5266315080225459,
+            93.96917819976807
+          ]
+        },
+        "head": {
+          "rendered_component_cm": [
+            -1.381425315060522e-14,
+            4.426226132999275,
+            159.96002069172022
+          ],
+          "raw_component_cm": [
+            0.0,
+            4.426245358628191,
+            160.12184637731426
+          ],
+          "compressed_component_cm": [
+            -1.3814251771632812e-14,
+            4.426215096496186,
+            159.96001025126918
+          ],
+          "world_cm": [
+            1.3272196783997233e-14,
+            -4.426226132999279,
+            159.96002069172022
+          ]
+        },
+        "hand_l": {
+          "rendered_component_cm": [
+            21.052827184707397,
+            8.131699333387761,
+            94.53724429130058
+          ],
+          "raw_component_cm": [
+            21.052887552381677,
+            8.131731073237713,
+            94.69904213926692
+          ],
+          "compressed_component_cm": [
+            21.052824922797186,
+            8.131681617078243,
+            94.53724176813083
+          ],
+          "world_cm": [
+            -21.05282718470741,
+            -8.131699333387767,
+            94.53724429130058
+          ]
+        },
+        "hand_r": {
+          "rendered_component_cm": [
+            -21.052827184707454,
+            8.131699333387633,
+            94.53724429130054
+          ],
+          "raw_component_cm": [
+            -21.052887552381677,
+            8.131731073237713,
+            94.69904213926692
+          ],
+          "compressed_component_cm": [
+            -21.052824922797242,
+            8.131681617078115,
+            94.5372417681308
+          ],
+          "world_cm": [
+            21.052827184707468,
+            -8.131699333387642,
+            94.53724429130054
+          ]
+        },
+        "foot_l": {
+          "rendered_component_cm": [
+            12.772318265109984,
+            1.2990031458816633,
+            6.602704284959316
+          ],
+          "raw_component_cm": [
+            12.77232480928839,
+            1.298984609299032,
+            6.7645347883862925
+          ],
+          "compressed_component_cm": [
+            12.772318152516295,
+            1.2989935915920017,
+            6.602707709504259
+          ],
+          "world_cm": [
+            -12.772318265109991,
+            -1.2990031458816627,
+            6.602704284959316
+          ]
+        },
+        "foot_r": {
+          "rendered_component_cm": [
+            -12.772318265109995,
+            1.299003145881554,
+            6.602704284959323
+          ],
+          "raw_component_cm": [
+            -12.77232480928839,
+            1.298984609299032,
+            6.7645347883862925
+          ],
+          "compressed_component_cm": [
+            -12.772318152516304,
+            1.2989935915918995,
+            6.602707709504266
+          ],
+          "world_cm": [
+            12.772318265110002,
+            -1.2990031458815565,
+            6.602704284959323
+          ]
+        }
+      },
+      "rendered_sample_seconds": 0.699999988079071,
+      "root_offset_cm": [
+        0.0,
+        0.0,
+        0.16180339735001326
+      ],
+      "root_quaternion_drift_from_first_frame": 4.707848322293984e-08,
+      "file": "Saved\\PendingActions\\UE\\runs\\20261019T012221Z-85acd9a3\\A_Idle-side.png",
+      "png_sha256": "55730dcffb7675b702ac46ae31a6a4d5a669330f245c058b3a909f1d95744354",
+      "png_bytes": 1339803,
+      "dimensions": [
+        1800,
+        1200
+      ],
+      "screenshot_task_complete": true
+    }
+  ],
+  "native_runtime": {
+    "status": "disabled",
+    "evidence": "Enhanced Input and forced AddMovementInput on real CourierCharacter/ABP; no single-node playback",
+    "visual_acceptance": false,
+    "run_stop_phase_limitation": "A_RunStop starts at authored Sprint phase zero. Fixed-pose source matching alone does not validate arbitrary live release phases; native trajectories are reported separately.",
+    "hit_reactions": "clip-sample only; no public native strike callback invoked"
+  },
+  "native_samples": [],
+  "protected_package_count": 25,
+  "existing_packages_unchanged": true,
+  "protected_package_sha256": {
+    "Content\\CityCourier\\Art\\Characters\\A_HeavyPunch_R.uasset": "d5c9ff12497ef5db6c80377978ad61e98002f4d4ed620173ba0531d734ab0aaa",
+    "Content\\CityCourier\\Art\\Characters\\A_HitReact_Back.uasset": "99155ce689a444a2b48ee6cafbe8a3a7f7f5b5ada3d61a88475328d425d661b1",
+    "Content\\CityCourier\\Art\\Characters\\A_HitReact_Front.uasset": "9c3a0b135dfd4ef5a6fca786125ea1915fff328e3dabf652d40bc74938d19f04",
+    "Content\\CityCourier\\Art\\Characters\\A_Idle.uasset": "2da6714183855fbfe2a0bc8403fa46bcfa9cf9ad57af8e1714768c2f418b4a7c",
+    "Content\\CityCourier\\Art\\Characters\\A_Jog.uasset": "6605cf7040b3875e47e85ecab2f96fc1d6ad95559b0d4f94dd783b4f62aa5576",
+    "Content\\CityCourier\\Art\\Characters\\A_JumpLoop.uasset": "da24320ae6d73bf8730f69197c13c21bd7c3fbe44bda2e7352f07c4a5754e12f",
+    "Content\\CityCourier\\Art\\Characters\\A_JumpStart.uasset": "56890fb8a4b703a3994e6d1a528cf27a10050903dc79690b0d44555ee20c6867",
+    "Content\\CityCourier\\Art\\Characters\\A_Land.uasset": "2d3849eee4dc3e5e9fde0ea66e6f29b4d3873a1c0fca0234b37b27c6b9f742fa",
+    "Content\\CityCourier\\Art\\Characters\\A_LightPunch_L.uasset": "b03da5bfd9588379a9debfe6aa15ab8ceeda62c45c8666045648c69fc30559c4",
+    "Content\\CityCourier\\Art\\Characters\\A_LightPunch_R.uasset": "6fbf462f2fd9431aa045c8caeeece361703f843cce14c8af9bab833f33e7a8ea",
+    "Content\\CityCourier\\Art\\Characters\\A_Ride.uasset": "6ef51a5611b880e1a1aa127b87014340b9a810801d6b2825f8a67d1ae0ebbeaa",
+    "Content\\CityCourier\\Art\\Characters\\A_Run.uasset": "2bcfc3001c81fe9e96f6785198e53b9a4f77706aca654b8b2fbec4766bb96460",
+    "Content\\CityCourier\\Art\\Characters\\A_RunStart.uasset": "6c8e978973e5eeb79b7d14fbf84911731e4824c7250d1f89c6daa787c37366fc",
+    "Content\\CityCourier\\Art\\Characters\\A_RunStop.uasset": "4eaa6d3bf0af412a56b1ca69b43ed8dd7cf8c6d0fb13ed074d149e292cc88194",
+    "Content\\CityCourier\\Art\\Characters\\A_Sprint.uasset": "acbcbcde2d7abfea337543c74a0c49c73faf4a4a4f39bd6590b3740d227dd720",
+    "Content\\CityCourier\\Art\\Characters\\A_Walk.uasset": "58c89d431c03aefac335fff3be5d2658465b07e252084e550f4bb06912b8c182",
+    "Content\\CityCourier\\Art\\Characters\\SK_Courier.uasset": "d3457137cdd29cefe5793ba57727dc3519db5be3dd018e6587cb35cb3a8a08fd",
+    "Content\\CityCourier\\Art\\Characters\\SK_Courier_Skeleton.uasset": "9eafb77f9c36826f053c7121ee94217da933bfaf3419db56c76e274d1c62ad7c",
+    "Content\\CityCourier\\Blueprints\\ABP_Courier.uasset": "06fe86249ad101b735da63b53a6f9ced272c69db1adda99268a6b6be5584e57c",
+    "Content\\CityCourier\\Blueprints\\BP_AmbientPedestrian.uasset": "75c879127ff5ea1411e3e1049766fcd9ffac7578c3a0a1018d884b7121185832",
+    "Content\\CityCourier\\Blueprints\\BP_AmbientVehicle.uasset": "2892248546d356509d9a9aaf2b9636785f8713feef8109fbe7caf51a25d3da77",
+    "Content\\CityCourier\\Blueprints\\BP_CourierCharacter.uasset": "1a170d252b73fcce14501cacb0d531b098e2a071b412494170aa5322e943898c",
+    "Content\\CityCourier\\Blueprints\\BP_CourierGameMode.uasset": "5598755fe869a69a06d99bbb4f9849db186f4b320cbb7f41c8f494a827745c91",
+    "Content\\CityCourier\\Blueprints\\BP_Scooter.uasset": "a282f913b48ecd99ce485cc85b5fed7a386f844a4711d1030db2549e445e9124",
+    "Content\\CityCourier\\Maps\\L_CharacterProbe.umap": "1429c3d6fb99e45d21b2474c1a6988b9b90899766e04b5829a812d87c2ee191a"
+  },
+  "no_map_or_asset_save": true,
+  "interpretation": "Actual PIE clip-sample stills; native movement checks are recorded separately when enabled. Hit reactions remain clip-sample evidence.",
+  "failed_job": null,
+  "elapsed_seconds": 9.952999999979511
+}

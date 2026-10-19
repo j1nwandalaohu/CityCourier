@@ -1,0 +1,621 @@
+{
+  "schema_version": 1,
+  "asset_root": "/Game/CityCourier/Art/Interiors",
+  "assets": [
+    {
+      "name": "SM_IF_Bed",
+      "fbx": "Exports/InteriorArt/SM_IF_Bed.fbx",
+      "blend": "InteriorArt/Blender/SM_IF_Bed.blend",
+      "minimum_cm": [
+        -39.500001072883606,
+        -86.50000095367432,
+        0.0
+      ],
+      "maximum_cm": [
+        39.500001072883606,
+        88.25000524520874,
+        108.99999141693115
+      ],
+      "triangles": 11492,
+      "collision": "BlockAll",
+      "material_names": [
+        "M_IF_FabricBeige",
+        "M_IF_FabricTeal",
+        "M_IF_Paper",
+        "M_IF_WoodDark",
+        "M_IF_WoodLight"
+      ],
+      "export_axis_adapter": "FBX-only Y reflection and reversed winding; canonical Blender geometry unchanged",
+      "family": "furniture",
+      "kind": "Bed"
+    },
+    {
+      "name": "SM_IF_Desk",
+      "fbx": "Exports/InteriorArt/SM_IF_Desk.fbx",
+      "blend": "InteriorArt/Blender/SM_IF_Desk.blend",
+      "minimum_cm": [
+        -51.249998807907104,
+        -28.999999165534973,
+        0.0
+      ],
+      "maximum_cm": [
+        51.249998807907104,
+        28.999999165534973,
+        123.69999885559082
+      ],
+      "triangles": 13040,
+      "collision": "BlockAll",
+      "material_names": [
+        "M_IF_EmissiveWarm",
+        "M_IF_FabricTeal",
+        "M_IF_Glass",
+        "M_IF_LaminateWhite",
+        "M_IF_MetalBrushed",
+        "M_IF_MetalDark",
+        "M_IF_PaintGreen",
+        "M_IF_Paper",
+        "M_IF_PlasticBlue",
+        "M_IF_Rubber",
+        "M_IF_WoodLight"
+      ],
+      "export_axis_adapter": "FBX-only Y reflection and reversed winding; canonical Blender geometry unchanged",
+      "family": "furniture",
+      "kind": "Desk"
+    },
+    {
+      "name": "SM_IF_Kitchen",
+      "fbx": "Exports/InteriorArt/SM_IF_Kitchen.fbx",
+      "blend": "InteriorArt/Blender/SM_IF_Kitchen.blend",
+      "minimum_cm": [
+        -62.00000047683716,
+        -27.09999978542328,
+        0.0
+      ],
+      "maximum_cm": [
+        62.00000047683716,
+        26.30000114440918,
+        126.50001049041748
+      ],
+      "triangles": 8536,
+      "collision": "BlockAll",
+      "material_names": [
+        "M_IF_FabricBeige",
+        "M_IF_Glass",
+        "M_IF_LaminateWhite",
+        "M_IF_MetalBrushed",
+        "M_IF_MetalDark",
+        "M_IF_PaintGreen",
+        "M_IF_Paper",
+        "M_IF_PlasticBlue",
+        "M_IF_TileGrey",
+        "M_IF_TileIvory",
+        "M_IF_WoodLight"
+      ],
+      "export_axis_adapter": "FBX-only Y reflection and reversed winding; canonical Blender geometry unchanged",
+      "family": "furniture",
+      "kind": "Kitchen"
+    },
+    {
+      "name": "SM_IF_Toilet",
+      "fbx": "Exports/InteriorArt/SM_IF_Toilet.fbx",
+      "blend": "InteriorArt/Blender/SM_IF_Toilet.blend",
+      "minimum_cm": [
+        -20.900000631809235,
+        -38.89999985694885,
+        0.0
+      ],
+      "maximum_cm": [
+        29.600000381469727,
+        35.79999804496765,
+        81.70000314712524
+      ],
+      "triangles": 4588,
+      "collision": "BlockAll",
+      "material_names": [
+        "M_IF_Ceramic",
+        "M_IF_Glass",
+        "M_IF_LaminateWhite",
+        "M_IF_MetalBrushed",
+        "M_IF_Rubber"
+      ],
+      "export_axis_adapter": "FBX-only Y reflection and reversed winding; canonical Blender geometry unchanged",
+      "family": "furniture",
+      "kind": "Toilet"
+    },
+    {
+      "name": "SM_IF_Shelf",
+      "fbx": "Exports/InteriorArt/SM_IF_Shelf.fbx",
+      "blend": "InteriorArt/Blender/SM_IF_Shelf.blend",
+      "minimum_cm": [
+        -61.69999837875366,
+        -21.299999952316284,
+        0.0
+      ],
+      "maximum_cm": [
+        61.69999837875366,
+        20.82977592945099,
+        182.45000839233398
+      ],
+      "triangles": 12996,
+      "collision": "BlockAll",
+      "material_names": [
+        "M_IF_AccentRed",
+        "M_IF_Carton",
+        "M_IF_FabricBeige",
+        "M_IF_MetalBrushed",
+        "M_IF_MetalDark",
+        "M_IF_PaintGreen",
+        "M_IF_Paper",
+        "M_IF_PlasticBlue",
+        "M_IF_Rubber",
+        "M_IF_WoodDark",
+        "M_IF_WoodLight"
+      ],
+      "export_axis_adapter": "FBX-only Y reflection and reversed winding; canonical Blender geometry unchanged",
+      "family": "furniture",
+      "kind": "Shelf"
+    },
+    {
+      "name": "SM_IF_Sofa",
+      "fbx": "Exports/InteriorArt/SM_IF_Sofa.fbx",
+      "blend": "InteriorArt/Blender/SM_IF_Sofa.blend",
+      "minimum_cm": [
+        -61.29999756813049,
+        -30.250000953674316,
+        0.0
+      ],
+      "maximum_cm": [
+        61.29999756813049,
+        30.500000715255737,
+        92.00000166893005
+      ],
+      "triangles": 8372,
+      "collision": "BlockAll",
+      "material_names": [
+        "M_IF_FabricBeige",
+        "M_IF_FabricTeal",
+        "M_IF_WoodDark"
+      ],
+      "export_axis_adapter": "FBX-only Y reflection and reversed winding; canonical Blender geometry unchanged",
+      "family": "furniture",
+      "kind": "Sofa"
+    },
+    {
+      "name": "SM_IF_Counter",
+      "fbx": "Exports/InteriorArt/SM_IF_Counter.fbx",
+      "blend": "InteriorArt/Blender/SM_IF_Counter.blend",
+      "minimum_cm": [
+        -61.500000953674316,
+        -27.09999978542328,
+        0.0
+      ],
+      "maximum_cm": [
+        61.500000953674316,
+        25.999999046325684,
+        114.21999931335449
+      ],
+      "triangles": 8164,
+      "collision": "BlockAll",
+      "material_names": [
+        "M_IF_Carton",
+        "M_IF_Glass",
+        "M_IF_LaminateWhite",
+        "M_IF_MetalBrushed",
+        "M_IF_MetalDark",
+        "M_IF_PaintGreen",
+        "M_IF_Paper",
+        "M_IF_PlasticBlue",
+        "M_IF_Rubber",
+        "M_IF_WoodDark",
+        "M_IF_WoodLight"
+      ],
+      "export_axis_adapter": "FBX-only Y reflection and reversed winding; canonical Blender geometry unchanged",
+      "family": "furniture",
+      "kind": "Counter"
+    },
+    {
+      "name": "SM_IF_DoorResidential",
+      "fbx": "Exports/InteriorArt/SM_IF_DoorResidential.fbx",
+      "blend": "InteriorArt/Blender/SM_IF_DoorResidential.blend",
+      "minimum_cm": [
+        -0.9999999776482582,
+        -8.054516464471817,
+        0.0
+      ],
+      "maximum_cm": [
+        100.0,
+        8.054516464471817,
+        220.00000476837158
+      ],
+      "triangles": 3388,
+      "collision": "BlockAll",
+      "material_names": [
+        "M_IF_MetalBrushed",
+        "M_IF_Rubber",
+        "M_IF_WoodDark",
+        "M_IF_WoodLight"
+      ],
+      "export_axis_adapter": "FBX-only Y reflection and reversed winding; canonical Blender geometry unchanged",
+      "family": "door",
+      "hinge_origin_cm": [
+        0,
+        0,
+        0
+      ],
+      "clear_width_cm": 100,
+      "clear_height_cm": 220
+    },
+    {
+      "name": "SM_IF_DoorShop",
+      "fbx": "Exports/InteriorArt/SM_IF_DoorShop.fbx",
+      "blend": "InteriorArt/Blender/SM_IF_DoorShop.blend",
+      "minimum_cm": [
+        -0.9999999776482582,
+        -8.700000494718552,
+        0.0
+      ],
+      "maximum_cm": [
+        100.0,
+        8.700000494718552,
+        220.00000476837158
+      ],
+      "triangles": 2016,
+      "collision": "BlockAll",
+      "material_names": [
+        "M_IF_Glass",
+        "M_IF_MetalBrushed",
+        "M_IF_MetalDark"
+      ],
+      "export_axis_adapter": "FBX-only Y reflection and reversed winding; canonical Blender geometry unchanged",
+      "family": "door",
+      "hinge_origin_cm": [
+        0,
+        0,
+        0
+      ],
+      "clear_width_cm": 100,
+      "clear_height_cm": 220
+    },
+    {
+      "name": "SM_IF_DoorOffice",
+      "fbx": "Exports/InteriorArt/SM_IF_DoorOffice.fbx",
+      "blend": "InteriorArt/Blender/SM_IF_DoorOffice.blend",
+      "minimum_cm": [
+        -0.9999999776482582,
+        -8.054516464471817,
+        0.0
+      ],
+      "maximum_cm": [
+        100.0,
+        8.054516464471817,
+        220.00000476837158
+      ],
+      "triangles": 2740,
+      "collision": "BlockAll",
+      "material_names": [
+        "M_IF_Glass",
+        "M_IF_LaminateWhite",
+        "M_IF_MetalBrushed",
+        "M_IF_Rubber"
+      ],
+      "export_axis_adapter": "FBX-only Y reflection and reversed winding; canonical Blender geometry unchanged",
+      "family": "door",
+      "hinge_origin_cm": [
+        0,
+        0,
+        0
+      ],
+      "clear_width_cm": 100,
+      "clear_height_cm": 220
+    },
+    {
+      "name": "SM_IF_DoorFrame",
+      "fbx": "Exports/InteriorArt/SM_IF_DoorFrame.fbx",
+      "blend": "InteriorArt/Blender/SM_IF_DoorFrame.blend",
+      "minimum_cm": [
+        -10.000002384185791,
+        -13.300000131130219,
+        0.0
+      ],
+      "maximum_cm": [
+        110.00000238418579,
+        13.300000131130219,
+        229.50000762939453
+      ],
+      "triangles": 972,
+      "collision": "NoCollision",
+      "material_names": [
+        "M_IF_WoodDark",
+        "M_IF_WoodLight"
+      ],
+      "export_axis_adapter": "FBX-only Y reflection and reversed winding; canonical Blender geometry unchanged",
+      "family": "frame",
+      "clear_width_cm": 100,
+      "clear_height_cm": 220
+    },
+    {
+      "name": "SM_IF_Skirting",
+      "fbx": "Exports/InteriorArt/SM_IF_Skirting.fbx",
+      "blend": "InteriorArt/Blender/SM_IF_Skirting.blend",
+      "minimum_cm": [
+        0.0,
+        -0.8000021800398827,
+        0.0
+      ],
+      "maximum_cm": [
+        100.0,
+        0.800000037997961,
+        9.50000286102295
+      ],
+      "triangles": 248,
+      "collision": "NoCollision",
+      "material_names": [
+        "M_IF_WoodDark",
+        "M_IF_WoodLight"
+      ],
+      "export_axis_adapter": "FBX-only Y reflection and reversed winding; canonical Blender geometry unchanged",
+      "family": "fixture"
+    },
+    {
+      "name": "SM_IF_DadoPanel",
+      "fbx": "Exports/InteriorArt/SM_IF_DadoPanel.fbx",
+      "blend": "InteriorArt/Blender/SM_IF_DadoPanel.blend",
+      "minimum_cm": [
+        0.0,
+        -0.7500000298023224,
+        0.0
+      ],
+      "maximum_cm": [
+        100.0,
+        1.7500000074505806,
+        110.00000238418579
+      ],
+      "triangles": 216,
+      "collision": "NoCollision",
+      "material_names": [
+        "M_IF_LaminateWhite",
+        "M_IF_PaintGreen"
+      ],
+      "export_axis_adapter": "FBX-only Y reflection and reversed winding; canonical Blender geometry unchanged",
+      "family": "fixture"
+    },
+    {
+      "name": "SM_IF_HandrailPost",
+      "fbx": "Exports/InteriorArt/SM_IF_HandrailPost.fbx",
+      "blend": "InteriorArt/Blender/SM_IF_HandrailPost.blend",
+      "minimum_cm": [
+        -3.500000014901161,
+        -3.500000014901161,
+        0.0
+      ],
+      "maximum_cm": [
+        3.500000014901161,
+        3.500000014901161,
+        89.99999761581421
+      ],
+      "triangles": 1128,
+      "collision": "BlockAll",
+      "material_names": [
+        "M_IF_MetalBrushed",
+        "M_IF_MetalDark"
+      ],
+      "export_axis_adapter": "FBX-only Y reflection and reversed winding; canonical Blender geometry unchanged",
+      "family": "fixture"
+    },
+    {
+      "name": "SM_IF_HandrailBar",
+      "fbx": "Exports/InteriorArt/SM_IF_HandrailBar.fbx",
+      "blend": "InteriorArt/Blender/SM_IF_HandrailBar.blend",
+      "minimum_cm": [
+        0.0,
+        -2.20000222325325,
+        -2.20000222325325
+      ],
+      "maximum_cm": [
+        100.0,
+        2.20000222325325,
+        2.20000222325325
+      ],
+      "triangles": 188,
+      "collision": "BlockAll",
+      "material_names": [
+        "M_IF_MetalBrushed"
+      ],
+      "export_axis_adapter": "FBX-only Y reflection and reversed winding; canonical Blender geometry unchanged",
+      "family": "fixture"
+    },
+    {
+      "name": "SM_IF_NumberPlate",
+      "fbx": "Exports/InteriorArt/SM_IF_NumberPlate.fbx",
+      "blend": "InteriorArt/Blender/SM_IF_NumberPlate.blend",
+      "minimum_cm": [
+        -11.999999731779099,
+        -0.8500000461935997,
+        0.0
+      ],
+      "maximum_cm": [
+        11.999999731779099,
+        0.6500000134110451,
+        7.999999821186066
+      ],
+      "triangles": 216,
+      "collision": "NoCollision",
+      "material_names": [
+        "M_IF_MetalBrushed",
+        "M_IF_WoodDark"
+      ],
+      "export_axis_adapter": "FBX-only Y reflection and reversed winding; canonical Blender geometry unchanged",
+      "family": "fixture"
+    },
+    {
+      "name": "SM_IF_LightPanel",
+      "fbx": "Exports/InteriorArt/SM_IF_LightPanel.fbx",
+      "blend": "InteriorArt/Blender/SM_IF_LightPanel.blend",
+      "minimum_cm": [
+        -50.0,
+        -9.000000357627869,
+        0.0
+      ],
+      "maximum_cm": [
+        50.0,
+        9.000000357627869,
+        4.29999977350235
+      ],
+      "triangles": 432,
+      "collision": "NoCollision",
+      "material_names": [
+        "M_IF_EmissiveWarm",
+        "M_IF_LaminateWhite",
+        "M_IF_MetalDark"
+      ],
+      "export_axis_adapter": "FBX-only Y reflection and reversed winding; canonical Blender geometry unchanged",
+      "family": "fixture"
+    },
+    {
+      "name": "SM_IF_ExitSign",
+      "fbx": "Exports/InteriorArt/SM_IF_ExitSign.fbx",
+      "blend": "InteriorArt/Blender/SM_IF_ExitSign.blend",
+      "minimum_cm": [
+        -20.000000298023224,
+        -3.148539736866951,
+        0.0
+      ],
+      "maximum_cm": [
+        20.000000298023224,
+        1.9999999552965164,
+        15.000000596046448
+      ],
+      "triangles": 8728,
+      "collision": "NoCollision",
+      "material_names": [
+        "M_IF_LaminateWhite",
+        "M_IF_MetalDark",
+        "M_IF_SignGreen"
+      ],
+      "export_axis_adapter": "FBX-only Y reflection and reversed winding; canonical Blender geometry unchanged",
+      "family": "fixture"
+    },
+    {
+      "name": "SM_IF_SwitchPlate",
+      "fbx": "Exports/InteriorArt/SM_IF_SwitchPlate.fbx",
+      "blend": "InteriorArt/Blender/SM_IF_SwitchPlate.blend",
+      "minimum_cm": [
+        -4.250000044703484,
+        -1.2000000104308128,
+        0.0
+      ],
+      "maximum_cm": [
+        4.250000044703484,
+        0.7000000216066837,
+        8.500000089406967
+      ],
+      "triangles": 216,
+      "collision": "NoCollision",
+      "material_names": [
+        "M_IF_Ceramic",
+        "M_IF_LaminateWhite"
+      ],
+      "export_axis_adapter": "FBX-only Y reflection and reversed winding; canonical Blender geometry unchanged",
+      "family": "fixture"
+    },
+    {
+      "name": "SM_IF_Outlet",
+      "fbx": "Exports/InteriorArt/SM_IF_Outlet.fbx",
+      "blend": "InteriorArt/Blender/SM_IF_Outlet.blend",
+      "minimum_cm": [
+        -4.250000044703484,
+        -0.950000062584877,
+        0.0
+      ],
+      "maximum_cm": [
+        4.250000044703484,
+        0.7000000216066837,
+        8.500000089406967
+      ],
+      "triangles": 540,
+      "collision": "NoCollision",
+      "material_names": [
+        "M_IF_LaminateWhite",
+        "M_IF_Rubber"
+      ],
+      "export_axis_adapter": "FBX-only Y reflection and reversed winding; canonical Blender geometry unchanged",
+      "family": "fixture"
+    },
+    {
+      "name": "SM_IF_StairNosing",
+      "fbx": "Exports/InteriorArt/SM_IF_StairNosing.fbx",
+      "blend": "InteriorArt/Blender/SM_IF_StairNosing.blend",
+      "minimum_cm": [
+        -50.0,
+        -1.4999999664723873,
+        0.0
+      ],
+      "maximum_cm": [
+        50.0,
+        1.4999999664723873,
+        0.7500000298023224
+      ],
+      "triangles": 144,
+      "collision": "NoCollision",
+      "material_names": [
+        "M_IF_MetalBrushed",
+        "M_IF_Rubber"
+      ],
+      "export_axis_adapter": "FBX-only Y reflection and reversed winding; canonical Blender geometry unchanged",
+      "family": "fixture"
+    },
+    {
+      "name": "SM_IF_WindowReturn",
+      "fbx": "Exports/InteriorArt/SM_IF_WindowReturn.fbx",
+      "blend": "InteriorArt/Blender/SM_IF_WindowReturn.blend",
+      "minimum_cm": [
+        -63.999998569488525,
+        -18.50000023841858,
+        0.0
+      ],
+      "maximum_cm": [
+        63.999998569488525,
+        9.49999988079071,
+        135.0000023841858
+      ],
+      "triangles": 756,
+      "collision": "NoCollision",
+      "material_names": [
+        "M_IF_Glass",
+        "M_IF_LaminateWhite",
+        "M_IF_MetalDark",
+        "M_IF_TileIvory"
+      ],
+      "export_axis_adapter": "FBX-only Y reflection and reversed winding; canonical Blender geometry unchanged",
+      "family": "fixture"
+    },
+    {
+      "name": "SM_IF_AirconWall",
+      "fbx": "Exports/InteriorArt/SM_IF_AirconWall.fbx",
+      "blend": "InteriorArt/Blender/SM_IF_AirconWall.blend",
+      "minimum_cm": [
+        -42.500001192092896,
+        -10.749999433755875,
+        0.0
+      ],
+      "maximum_cm": [
+        42.500001192092896,
+        10.000000149011612,
+        28.00000011920929
+      ],
+      "triangles": 540,
+      "collision": "NoCollision",
+      "material_names": [
+        "M_IF_LaminateWhite",
+        "M_IF_MetalDark",
+        "M_IF_PlasticBlue"
+      ],
+      "export_axis_adapter": "FBX-only Y reflection and reversed winding; canonical Blender geometry unchanged",
+      "family": "fixture"
+    }
+  ],
+  "license": "Original project geometry; existing CC0 Poly Haven scans; Noto Sans CJK OFL exit label",
+  "generator_sha256": "c8a852a394c17c45547c2ec3460e47dc8621548b5a5d42c158e1a2349c8d8986",
+  "no_city_maps_written": true,
+  "unit": "centimeters in exported metadata; meters in Blender"
+}

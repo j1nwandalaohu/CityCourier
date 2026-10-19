@@ -1,0 +1,286 @@
+{
+  "materials": [
+    {
+      "key": "plaster",
+      "name": "M_IF_Plaster",
+      "color": [
+        0.7,
+        0.69,
+        0.62
+      ],
+      "roughness": 0.78,
+      "metallic": 0,
+      "kind": "plaster",
+      "tile_cm": 200.0,
+      "emission": 0.0,
+      "scan": "painted_plaster_wall"
+    },
+    {
+      "key": "paint_green",
+      "name": "M_IF_PaintGreen",
+      "color": [
+        0.24,
+        0.34,
+        0.27
+      ],
+      "roughness": 0.62,
+      "metallic": 0,
+      "kind": "plaster",
+      "tile_cm": 200.0,
+      "emission": 0.0,
+      "scan": "painted_plaster_wall"
+    },
+    {
+      "key": "tile_ivory",
+      "name": "M_IF_TileIvory",
+      "color": [
+        0.64,
+        0.61,
+        0.51
+      ],
+      "roughness": 0.28,
+      "metallic": 0,
+      "kind": "tile",
+      "tile_cm": 50.0,
+      "emission": 0.0
+    },
+    {
+      "key": "tile_grey",
+      "name": "M_IF_TileGrey",
+      "color": [
+        0.29,
+        0.32,
+        0.32
+      ],
+      "roughness": 0.38,
+      "metallic": 0,
+      "kind": "tile",
+      "tile_cm": 50.0,
+      "emission": 0.0
+    },
+    {
+      "key": "wood_light",
+      "name": "M_IF_WoodLight",
+      "color": [
+        0.38,
+        0.23,
+        0.105
+      ],
+      "roughness": 0.51,
+      "metallic": 0,
+      "kind": "wood",
+      "tile_cm": 200.0,
+      "emission": 0.0
+    },
+    {
+      "key": "wood_dark",
+      "name": "M_IF_WoodDark",
+      "color": [
+        0.105,
+        0.048,
+        0.022
+      ],
+      "roughness": 0.55,
+      "metallic": 0,
+      "kind": "wood",
+      "tile_cm": 200.0,
+      "emission": 0.0
+    },
+    {
+      "key": "laminate_white",
+      "name": "M_IF_LaminateWhite",
+      "color": [
+        0.7,
+        0.71,
+        0.67
+      ],
+      "roughness": 0.42,
+      "metallic": 0,
+      "kind": "plain",
+      "tile_cm": 200.0,
+      "emission": 0.0
+    },
+    {
+      "key": "metal_brushed",
+      "name": "M_IF_MetalBrushed",
+      "color": [
+        0.47,
+        0.49,
+        0.48
+      ],
+      "roughness": 0.28,
+      "metallic": 0.86,
+      "kind": "metal",
+      "tile_cm": 200.0,
+      "emission": 0.0
+    },
+    {
+      "key": "metal_dark",
+      "name": "M_IF_MetalDark",
+      "color": [
+        0.027,
+        0.032,
+        0.031
+      ],
+      "roughness": 0.4,
+      "metallic": 0.72,
+      "kind": "metal",
+      "tile_cm": 200.0,
+      "emission": 0.0
+    },
+    {
+      "key": "glass",
+      "name": "M_IF_Glass",
+      "color": [
+        0.29,
+        0.39,
+        0.39
+      ],
+      "roughness": 0.19,
+      "metallic": 0,
+      "kind": "glass",
+      "tile_cm": 200.0,
+      "emission": 0.0
+    },
+    {
+      "key": "fabric_teal",
+      "name": "M_IF_FabricTeal",
+      "color": [
+        0.045,
+        0.16,
+        0.15
+      ],
+      "roughness": 0.86,
+      "metallic": 0,
+      "kind": "fabric",
+      "tile_cm": 200.0,
+      "emission": 0.0
+    },
+    {
+      "key": "fabric_beige",
+      "name": "M_IF_FabricBeige",
+      "color": [
+        0.49,
+        0.43,
+        0.33
+      ],
+      "roughness": 0.87,
+      "metallic": 0,
+      "kind": "fabric",
+      "tile_cm": 200.0,
+      "emission": 0.0
+    },
+    {
+      "key": "paper",
+      "name": "M_IF_Paper",
+      "color": [
+        0.76,
+        0.74,
+        0.65
+      ],
+      "roughness": 0.88,
+      "metallic": 0,
+      "kind": "plain",
+      "tile_cm": 200.0,
+      "emission": 0.0
+    },
+    {
+      "key": "carton",
+      "name": "M_IF_Carton",
+      "color": [
+        0.34,
+        0.22,
+        0.105
+      ],
+      "roughness": 0.91,
+      "metallic": 0,
+      "kind": "wood",
+      "tile_cm": 200.0,
+      "emission": 0.0
+    },
+    {
+      "key": "ceramic",
+      "name": "M_IF_Ceramic",
+      "color": [
+        0.76,
+        0.78,
+        0.73
+      ],
+      "roughness": 0.18,
+      "metallic": 0,
+      "kind": "plain",
+      "tile_cm": 200.0,
+      "emission": 0.0
+    },
+    {
+      "key": "rubber",
+      "name": "M_IF_Rubber",
+      "color": [
+        0.012,
+        0.014,
+        0.012
+      ],
+      "roughness": 0.86,
+      "metallic": 0,
+      "kind": "plain",
+      "tile_cm": 200.0,
+      "emission": 0.0
+    },
+    {
+      "key": "accent_red",
+      "name": "M_IF_AccentRed",
+      "color": [
+        0.38,
+        0.035,
+        0.018
+      ],
+      "roughness": 0.5,
+      "metallic": 0,
+      "kind": "plain",
+      "tile_cm": 200.0,
+      "emission": 0.0
+    },
+    {
+      "key": "plastic_blue",
+      "name": "M_IF_PlasticBlue",
+      "color": [
+        0.028,
+        0.14,
+        0.24
+      ],
+      "roughness": 0.42,
+      "metallic": 0,
+      "kind": "plain",
+      "tile_cm": 200.0,
+      "emission": 0.0
+    },
+    {
+      "key": "emissive_warm",
+      "name": "M_IF_EmissiveWarm",
+      "color": [
+        0.9,
+        0.76,
+        0.48
+      ],
+      "roughness": 0.35,
+      "metallic": 0,
+      "kind": "emissive",
+      "tile_cm": 200.0,
+      "emission": 2.5
+    },
+    {
+      "key": "sign_green",
+      "name": "M_IF_SignGreen",
+      "color": [
+        0.018,
+        0.24,
+        0.1
+      ],
+      "roughness": 0.4,
+      "metallic": 0,
+      "kind": "emissive",
+      "tile_cm": 200.0,
+      "emission": 2.5
+    }
+  ]
+}

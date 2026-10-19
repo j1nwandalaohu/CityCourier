@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="zh-CN">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>城市骑手 · 室内美术样板</title>
+<style>
+  :root { color-scheme:dark; font:15px/1.6 system-ui,"Microsoft YaHei",sans-serif; background:#131a17; color:#e6ede7; }
+  * { box-sizing:border-box; } body { margin:0; } main { max-width:1500px; margin:auto; padding:48px 30px; }
+  .eyebrow { color:#a4bfad; letter-spacing:.16em; font-size:12px; } h1 { font-size:clamp(26px,4vw,46px); font-weight:550; line-height:1.2; margin:12px 0; }
+  .intro { color:#b7c4bb; max-width:780px; } .facts { display:flex; flex-wrap:wrap; gap:10px; margin:25px 0; }
+  .facts span { border:1px solid #384a3e; border-radius:30px; padding:5px 13px; color:#bfdbca; }
+  nav { display:flex; flex-wrap:wrap; gap:8px; margin:32px 0 20px; } button { font:inherit; cursor:pointer; color:inherit; }
+  nav button { background:transparent; border:1px solid #405145; padding:7px 17px; border-radius:5px; }
+  nav button[aria-pressed="true"] { background:#b6d0bd; color:#14241a; border-color:#b6d0bd; }
+  button:focus-visible { outline:3px solid #e7cd90; outline-offset:4px; }
+  .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,400px),1fr)); gap:24px; }
+  figure { margin:0; border:1px solid #334039; border-radius:8px; overflow:hidden; background:#1b2520; }
+  figure[hidden] { display:none; } figure button { display:block; width:100%; padding:0; border:0; background:#0d130f; }
+  figure img { display:block; width:100%; aspect-ratio:8/5; object-fit:contain; } figcaption { padding:16px 18px; }
+  figcaption strong { display:block; font-weight:550; font-size:17px; } figcaption small { color:#a4b4aa; }
+  footer { color:#a4b4aa; font-size:13px; margin-top:32px; } a { color:#c8dccb; }
+  dialog { width:min(96vw,1660px); max-width:none; padding:14px; border:1px solid #657568; background:#111713; color:inherit; }
+  dialog::backdrop { background:#000d; } dialog img { display:block; max-width:100%; max-height:85vh; margin:auto; object-fit:contain; }
+  .dialog-head { display:flex; align-items:center; justify-content:space-between; gap:20px; margin:0 0 12px; }
+  .dialog-head button { border:1px solid #617266; border-radius:4px; padding:5px 14px; background:#26352b; }
+  @media(max-width:600px) { main { padding:28px 16px; } }
+</style>
+<main>
+  <div class="eyebrow">CITY COURIER / INTERIOR ART</div>
+  <h1>南方街区 · 室内样板</h1>
+  <p class="intro">商铺、住宅与办公楼的 Unreal Engine 5.6 实际渲染。保留完整墙体、天花板和开启的门扇，点击图片可放大检查材质、陈设与公共区域细节。</p>
+  <div class="facts"><span>3 栋现有建筑</span><span>145 个房间通行验证</span><span>124 扇门开启验证</span><span>免费来源与原创资产</span></div>
+  <nav aria-label="筛选场景">
+    <button type="button" aria-pressed="true" data-filter="all">全部</button>
+    <button type="button" aria-pressed="false" data-filter="shop">商铺</button>
+    <button type="button" aria-pressed="false" data-filter="home">住宅</button>
+    <button type="button" aria-pressed="false" data-filter="office">办公</button>
+    <button type="button" aria-pressed="false" data-filter="public">公共区域</button>
+  </nav>
+  <div class="grid" id="gallery"></div>
+  <footer>
+    <p>这些图片来自未保存临时关卡的编辑器视口，用于美术评审。物理通行采用原生角色运动与真实门碰撞的加速固定步长检查；图片及检查均不等于全城实机性能验收。共享地图与建筑编号保持原样。</p>
+    <p><a href="../interior-finish-kit.md">交付说明与集成接口</a> · <a href="capture-results.json">截图参数、相机与 PNG 校验记录</a></p>
+  </footer>
+</main>
+<dialog aria-labelledby="zoom-title"><div class="dialog-head"><span id="zoom-title"></span><button type="button" id="close">关闭 · Esc</button></div><img alt="" id="zoom"></dialog>
+<script>
+const scenes = [
+  ['shop-counter','shop','商铺 · 取餐柜台','B_Merchant_0 / 一层'],
+  ['residential-living','home','住宅 · 起居区','B_1_0_0_0_0 / 二层'],
+  ['residential-bedroom','home','住宅 · 卧室','B_1_0_0_0_0 / 二层'],
+  ['residential-kitchen','home','住宅 · 厨房','B_1_0_0_0_0 / 二层'],
+  ['office-workspace','office','办公楼 · 工作区','B_0_1_0_0_0 / 二层'],
+  ['office-meeting','office','办公楼 · 会议区','B_0_1_0_0_0 / 二层'],
+  ['residential-corridor','public','公共区域 · 走廊','B_1_0_0_0_0 / 二层'],
+  ['stair-handrail-detail','public','公共区域 · 楼梯与扶手','B_1_0_0_0_0 / 一层至二层']
+];
+const gallery = document.getElementById('gallery'), dialog = document.querySelector('dialog');
+for (const [name,category,title,detail] of scenes) {
+  const figure = document.createElement('figure'); figure.dataset.category = category;
+  const button = document.createElement('button'); button.type = 'button'; button.setAttribute('aria-label','放大：'+title);
+  const img = document.createElement('img'); img.src = name+'.png'; img.alt = title+'，UE 实际渲染'; img.loading = 'lazy'; button.append(img);
+  const caption = document.createElement('figcaption'), strong = document.createElement('strong'), small = document.createElement('small');
+  strong.textContent = title; small.textContent = detail; caption.append(strong,small); figure.append(button,caption); gallery.append(figure);
+  button.addEventListener('click',()=>{document.getElementById('zoom-title').textContent=title; const zoom=document.getElementById('zoom'); zoom.src=img.src; zoom.alt=img.alt; dialog.showModal();});
+}
+for (const button of document.querySelectorAll('nav button')) button.addEventListener('click',()=>{
+  for (const other of document.querySelectorAll('nav button')) other.setAttribute('aria-pressed',String(other===button));
+  for (const figure of gallery.children) figure.hidden=button.dataset.filter!=='all' && figure.dataset.category!==button.dataset.filter;
+});
+document.getElementById('close').addEventListener('click',()=>dialog.close());
+</script>
+</html>

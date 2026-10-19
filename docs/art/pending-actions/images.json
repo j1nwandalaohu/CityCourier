@@ -1,0 +1,182 @@
+{
+  "evidence": "Real UE clip-sample stills; Blender source previews explicitly separate.",
+  "final_run": "20261019T014419Z-86b693ef",
+  "files": {
+    "idle-baseline-side.png": {
+      "sha256": "55730dcffb7675b702ac46ae31a6a4d5a669330f245c058b3a909f1d95744354",
+      "bytes": 1339803,
+      "dimensions": [
+        1800,
+        1200
+      ]
+    },
+    "source/A_HitReact_Back-front.png": {
+      "sha256": "6f72eef6221679bfde2666cce3b0848ce62c4374a7035f319690ab5a8d12b12c",
+      "bytes": 523953,
+      "dimensions": [
+        840,
+        1200
+      ]
+    },
+    "source/A_HitReact_Back-side.png": {
+      "sha256": "a688c610827ab49ae53281f4670b63b9dd36c8e6d20b03531a49563954796444",
+      "bytes": 482661,
+      "dimensions": [
+        840,
+        1200
+      ]
+    },
+    "source/A_HitReact_Front-front.png": {
+      "sha256": "d0c25ba5a0c0a2d3875f4d5c4d809427e94c25cf3195106d484659da3d73ea8c",
+      "bytes": 535019,
+      "dimensions": [
+        840,
+        1200
+      ]
+    },
+    "source/A_HitReact_Front-side.png": {
+      "sha256": "472ffaef8e8ce55b82f563608d3b4101117073a396444aa5aa89a45b23a7544a",
+      "bytes": 474458,
+      "dimensions": [
+        840,
+        1200
+      ]
+    },
+    "source/A_JumpLoop-front.png": {
+      "sha256": "a063848ef98c2a3f92104db8a83885208a23e2b0584c31cc5688ce85a44babf9",
+      "bytes": 542247,
+      "dimensions": [
+        840,
+        1200
+      ]
+    },
+    "source/A_JumpLoop-side.png": {
+      "sha256": "3f25fd9e26595d7290a31b61516d3b05e93561cae4f476f92d51f51147994f76",
+      "bytes": 491829,
+      "dimensions": [
+        840,
+        1200
+      ]
+    },
+    "source/A_JumpStart-front.png": {
+      "sha256": "cd952ba5e9fc232564efcc8e63649a8987c2136000619679491c1d7c4f94f928",
+      "bytes": 523427,
+      "dimensions": [
+        840,
+        1200
+      ]
+    },
+    "source/A_JumpStart-side.png": {
+      "sha256": "268fab2b47c4964b0d1b7453fc611cef70d0aeedb47c1bd6b2ff31ae51e36fa6",
+      "bytes": 477216,
+      "dimensions": [
+        840,
+        1200
+      ]
+    },
+    "source/A_Land-front.png": {
+      "sha256": "8a05d2a2c3c0977c4c43b415c515ee03baa7325acf7558247ed7ebe456b9fc65",
+      "bytes": 512706,
+      "dimensions": [
+        840,
+        1200
+      ]
+    },
+    "source/A_Land-side.png": {
+      "sha256": "9de3e8a51bdab7ffb2f0f38c88486cb85cb3dad5d75f5a3e421d1bab57d98377",
+      "bytes": 468811,
+      "dimensions": [
+        840,
+        1200
+      ]
+    },
+    "source/A_RunStart-front.png": {
+      "sha256": "140ae0d72e6568e4890bcc9a5b9ff0abd1787e76083b2314f0567b9db134a927",
+      "bytes": 505745,
+      "dimensions": [
+        840,
+        1200
+      ]
+    },
+    "source/A_RunStart-side.png": {
+      "sha256": "cbf7396304c7a1d63d51684ed8327fb9bf78ba8a75a8e4eae868599f01b74136",
+      "bytes": 500615,
+      "dimensions": [
+        840,
+        1200
+      ]
+    },
+    "source/A_RunStop-front.png": {
+      "sha256": "8d0524566b89d02b01d1c03b8dbeaef2bdb2563f8540a01a338733a880ec9b4c",
+      "bytes": 527910,
+      "dimensions": [
+        840,
+        1200
+      ]
+    },
+    "source/A_RunStop-side.png": {
+      "sha256": "c21f9a9c2edfcf61fce43091eec19e11417854331cf26d73b7e6d82968790983",
+      "bytes": 470939,
+      "dimensions": [
+        840,
+        1200
+      ]
+    },
+    "ue/A_HitReact_Back-side.png": {
+      "sha256": "42e873ef8a3e1bcc96dd8d2e7b719ae65a06fd6e2855feaa99f5190d31a69d4e",
+      "bytes": 1333940,
+      "dimensions": [
+        1800,
+        1200
+      ]
+    },
+    "ue/A_HitReact_Front-side.png": {
+      "sha256": "42665a44188a99f3ca9ec86fa8f167690cb8d71ab5ba5cd8f46d5abee4c30c2e",
+      "bytes": 1334176,
+      "dimensions": [
+        1800,
+        1200
+      ]
+    },
+    "ue/A_JumpLoop-side.png": {
+      "sha256": "c24e2b80c2406734b8d5f459233ba6c28e4d42db1b6d604f7987d690d347eb34",
+      "bytes": 1349411,
+      "dimensions": [
+        1800,
+        1200
+      ]
+    },
+    "ue/A_JumpStart-side.png": {
+      "sha256": "b3bae03d81af5bf8ff6603cc65b283bb089e39a6c823dce07e9ccbbf060cdb9f",
+      "bytes": 1348334,
+      "dimensions": [
+        1800,
+        1200
+      ]
+    },
+    "ue/A_Land-side.png": {
+      "sha256": "77be59edf91290559767a6ee9f1fa4b1cf2a5c2aa259a546bd15087e0c60866d",
+      "bytes": 1324485,
+      "dimensions": [
+        1800,
+        1200
+      ]
+    },
+    "ue/A_RunStart-side.png": {
+      "sha256": "d1e882c6af3e1c3f1edc8a7f9719561ccd3200ebdad306025b862eeab21d0c42",
+      "bytes": 1355224,
+      "dimensions": [
+        1800,
+        1200
+      ]
+    },
+    "ue/A_RunStop-side.png": {
+      "sha256": "7f78cc5981f50e1de9218c3ab9d09fd37a7725486e3daecb546b68cc855c748c",
+      "bytes": 1311749,
+      "dimensions": [
+        1800,
+        1200
+      ]
+    }
+  }
+}

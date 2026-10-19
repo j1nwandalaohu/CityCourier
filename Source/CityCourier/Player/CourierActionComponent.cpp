@@ -222,7 +222,7 @@ void UCourierActionComponent::SyncAnimation(float Delta)
     {
         TGuardValue<bool> Changing(bChangingMontage,true);
         bPlaybackFinishedNaturally=false;
-        PlayingMontage=Anim->PlaySlotAnimationAsDynamicMontage(Desired,TEXT("FullBodyAction"),.03f,.06f,1,bLoop?100000:1,-1,bLoop?FMath::Fmod(Time,Desired->GetPlayLength()):Time);
+        PlayingMontage=Anim->PlaySlotAnimationAsDynamicMontage(Desired,TEXT("FullBodyAction"),Movement==TEXT("A_RunStop")?.15f:.03f,.06f,1,bLoop?100000:1,-1,bLoop?FMath::Fmod(Time,Desired->GetPlayLength()):Time);
         if(!PlayingMontage) { Cancel(); Feedback(FText::FromString(TEXT("动作播放失败，请检查动画资源"))); return; }
         FOnMontageBlendingOutStarted BlendOut;
         BlendOut.BindUObject(this,&UCourierActionComponent::MontageBlendingOut);

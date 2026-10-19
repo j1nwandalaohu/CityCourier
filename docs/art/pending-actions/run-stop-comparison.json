@@ -1,0 +1,503 @@
+{
+  "baseline_run": "20261019T011947Z-1a676c01",
+  "after_blend_run": "20261019T013915Z-4b2fba06",
+  "isolated_change": "CourierActionComponent.cpp: RunStop dynamic montage BlendIn 0.03 -> 0.15 seconds; no other runtime behavior changed.",
+  "baseline_git_revision": "138ff52",
+  "baseline_git_blob_sha256": "daada3859f10e15e2e43034bfd8166e6e29862ec492fa44208dfd00fdc7f62fe",
+  "hash_limitation": "These two older reports predate capture-code/runtime-source hash metadata. The git blob identifies the reference source, not a contemporaneously measured workspace hash.",
+  "same_animation_package_hashes": true,
+  "trials": [
+    {
+      "before": {
+        "trial": 0,
+        "target_sprint_phase": 0.05,
+        "measured_sprint_phase": 0.025,
+        "phase_fit_error_cm": 0.18682474703187577,
+        "phase_method": "Nearest two-foot compressed Sprint pose, 240 phase candidates; private native clock is not exposed",
+        "pre_release": {
+          "elapsed_s": 4.204000000027008,
+          "phase": "run",
+          "release_trial": 0,
+          "actor_cm": [
+            0.0,
+            -1271.1796903209843,
+            90.14999853475373
+          ],
+          "velocity_cm_s": [
+            0.0,
+            -700.0,
+            0.0
+          ],
+          "feet_component_cm": {
+            "foot_l": [
+              22.995772054612903,
+              34.38819088342509,
+              16.463742204947813
+            ],
+            "foot_r": [
+              -23.193288610938097,
+              -44.900354337290786,
+              44.033159773864035
+            ]
+          },
+          "feet_world_cm": {
+            "foot_l": [
+              -22.995772054612882,
+              -1305.5678812044093,
+              18.613740739701548
+            ],
+            "foot_r": [
+              23.193288610938072,
+              -1226.2793359836935,
+              46.18315830861777
+            ]
+          },
+          "falling": false,
+          "anim_airborne": false,
+          "animation_index": 2,
+          "montage": null,
+          "actual_montage_sequence": null
+        },
+        "samples": 21,
+        "observed_actual_run_stop": true,
+        "trajectory_measurements": {
+          "feet_component_cm_foot_l_max_frame_step_cm": 16.69850064450414,
+          "feet_component_cm_foot_r_max_frame_step_cm": 20.410481699778252,
+          "feet_world_cm_foot_l_max_frame_step_cm": 16.698500644504126,
+          "feet_world_cm_foot_r_max_frame_step_cm": 31.209641618038503
+        },
+        "interpretation": "Observed native transition trajectory, not an automated visual-acceptance verdict. Component-space motion includes natural leg swing; world-space data includes physical deceleration."
+      },
+      "after": {
+        "trial": 0,
+        "target_sprint_phase": 0.025,
+        "measured_sprint_phase": 0.020833333333333332,
+        "target_phase_error": 0.004166666666666669,
+        "phase_fit_error_cm": 0.24286413919532232,
+        "phase_method": "Nearest two-foot compressed Sprint pose, 240 phase candidates; private native clock is not exposed",
+        "pre_release": {
+          "elapsed_s": 4.217999999993481,
+          "phase": "run",
+          "release_trial": 0,
+          "actor_cm": [
+            0.0,
+            -1268.527541252851,
+            90.14999929052937
+          ],
+          "velocity_cm_s": [
+            0.0,
+            -700.0,
+            0.0
+          ],
+          "feet_component_cm": {
+            "foot_l": [
+              22.952096330910386,
+              34.38542061408318,
+              16.82301714666727
+            ],
+            "foot_r": [
+              -23.19512916548861,
+              -45.70379930141669,
+              44.093653334861145
+            ]
+          },
+          "feet_world_cm": {
+            "foot_l": [
+              -22.952096330910365,
+              -1302.9129618669342,
+              18.973016437196634
+            ],
+            "foot_r": [
+              23.195129165488584,
+              -1222.8237419514344,
+              46.24365262539051
+            ]
+          },
+          "falling": false,
+          "anim_airborne": false,
+          "animation_index": 2,
+          "montage": null,
+          "actual_montage_sequence": null
+        },
+        "samples": 21,
+        "observed_actual_run_stop": true,
+        "trajectory_measurements": {
+          "feet_component_cm_foot_l_max_frame_step_cm": 16.69839545037702,
+          "feet_component_cm_foot_r_max_frame_step_cm": 20.410415784561216,
+          "feet_world_cm_foot_l_max_frame_step_cm": 16.698395450377006,
+          "feet_world_cm_foot_r_max_frame_step_cm": 31.050226155295643
+        },
+        "interpretation": "Observed native transition trajectory, not an automated visual-acceptance verdict. Component-space motion includes natural leg swing; world-space data includes physical deceleration."
+      }
+    },
+    {
+      "before": {
+        "trial": 1,
+        "target_sprint_phase": 0.3,
+        "measured_sprint_phase": 0.25833333333333336,
+        "phase_fit_error_cm": 0.46947425713424523,
+        "phase_method": "Nearest two-foot compressed Sprint pose, 240 phase candidates; private native clock is not exposed",
+        "pre_release": {
+          "elapsed_s": 7.110000000044238,
+          "phase": "run",
+          "release_trial": 1,
+          "actor_cm": [
+            0.0,
+            -1410.1687501223619,
+            90.0
+          ],
+          "velocity_cm_s": [
+            0.0,
+            -700.0,
+            0.0
+          ],
+          "feet_component_cm": {
+            "foot_l": [
+              23.087690528117577,
+              -55.60625311849419,
+              32.621409732629175
+            ],
+            "foot_r": [
+              -23.415014781461466,
+              16.614369614764218,
+              40.37562012995054
+            ]
+          },
+          "feet_world_cm": {
+            "foot_l": [
+              -23.087690528117573,
+              -1354.5624970038677,
+              34.621409732629175
+            ],
+            "foot_r": [
+              23.415014781461455,
+              -1426.783119737126,
+              42.37562012995054
+            ]
+          },
+          "falling": false,
+          "anim_airborne": false,
+          "animation_index": 2,
+          "montage": null,
+          "actual_montage_sequence": null
+        },
+        "samples": 22,
+        "observed_actual_run_stop": true,
+        "trajectory_measurements": {
+          "feet_component_cm_foot_l_max_frame_step_cm": 65.73658164130885,
+          "feet_component_cm_foot_r_max_frame_step_cm": 53.88189250446292,
+          "feet_world_cm_foot_l_max_frame_step_cm": 69.94775060125787,
+          "feet_world_cm_foot_r_max_frame_step_cm": 49.62481673189965
+        },
+        "interpretation": "Observed native transition trajectory, not an automated visual-acceptance verdict. Component-space motion includes natural leg swing; world-space data includes physical deceleration."
+      },
+      "after": {
+        "trial": 1,
+        "target_sprint_phase": 0.25833333333333336,
+        "measured_sprint_phase": 0.25416666666666665,
+        "target_phase_error": 0.004166666666666707,
+        "phase_fit_error_cm": 0.011497317687590955,
+        "phase_method": "Nearest two-foot compressed Sprint pose, 240 phase candidates; private native clock is not exposed",
+        "pre_release": {
+          "elapsed_s": 7.10899999999674,
+          "phase": "run",
+          "release_trial": 1,
+          "actor_cm": [
+            0.0,
+            -1408.4942159685484,
+            90.0
+          ],
+          "velocity_cm_s": [
+            0.0,
+            -700.0,
+            0.0
+          ],
+          "feet_component_cm": {
+            "foot_l": [
+              23.084399104684405,
+              -55.12600313934292,
+              31.861755771209552
+            ],
+            "foot_r": [
+              -23.413454336358164,
+              15.679854683645564,
+              40.450848953996804
+            ]
+          },
+          "feet_world_cm": {
+            "foot_l": [
+              -23.0843991046844,
+              -1353.3682128292055,
+              33.86175577120955
+            ],
+            "foot_r": [
+              23.413454336358154,
+              -1424.174070652194,
+              42.450848953996804
+            ]
+          },
+          "falling": false,
+          "anim_airborne": false,
+          "animation_index": 2,
+          "montage": null,
+          "actual_montage_sequence": null
+        },
+        "samples": 21,
+        "observed_actual_run_stop": true,
+        "trajectory_measurements": {
+          "feet_component_cm_foot_l_max_frame_step_cm": 29.076494750101606,
+          "feet_component_cm_foot_r_max_frame_step_cm": 31.768682519359537,
+          "feet_world_cm_foot_l_max_frame_step_cm": 33.055427200639876,
+          "feet_world_cm_foot_r_max_frame_step_cm": 36.37651510835851
+        },
+        "interpretation": "Observed native transition trajectory, not an automated visual-acceptance verdict. Component-space motion includes natural leg swing; world-space data includes physical deceleration."
+      }
+    },
+    {
+      "before": {
+        "trial": 2,
+        "target_sprint_phase": 0.55,
+        "measured_sprint_phase": 0.5875,
+        "phase_fit_error_cm": 0.4784842966829219,
+        "phase_method": "Nearest two-foot compressed Sprint pose, 240 phase candidates; private native clock is not exposed",
+        "pre_release": {
+          "elapsed_s": 9.469000000040978,
+          "phase": "run",
+          "release_trial": 2,
+          "actor_cm": [
+            0.0,
+            -1011.8253451365061,
+            90.0
+          ],
+          "velocity_cm_s": [
+            0.0,
+            -700.0,
+            0.0
+          ],
+          "feet_component_cm": {
+            "foot_l": [
+              23.250527924020126,
+              -21.86844971353766,
+              55.145312591747214
+            ],
+            "foot_r": [
+              -23.097955744621864,
+              36.55786276884593,
+              18.374311417943296
+            ]
+          },
+          "feet_world_cm": {
+            "foot_l": [
+              -23.250527924020115,
+              -989.9568954229685,
+              57.145312591747214
+            ],
+            "foot_r": [
+              23.097955744621856,
+              -1048.383207905352,
+              20.374311417943296
+            ]
+          },
+          "falling": false,
+          "anim_airborne": false,
+          "animation_index": 2,
+          "montage": null,
+          "actual_montage_sequence": null
+        },
+        "samples": 21,
+        "observed_actual_run_stop": true,
+        "trajectory_measurements": {
+          "feet_component_cm_foot_l_max_frame_step_cm": 22.87430902810121,
+          "feet_component_cm_foot_r_max_frame_step_cm": 35.365588179469114,
+          "feet_world_cm_foot_l_max_frame_step_cm": 35.13534408604296,
+          "feet_world_cm_foot_r_max_frame_step_cm": 24.36250258677375
+        },
+        "interpretation": "Observed native transition trajectory, not an automated visual-acceptance verdict. Component-space motion includes natural leg swing; world-space data includes physical deceleration."
+      },
+      "after": {
+        "trial": 2,
+        "target_sprint_phase": 0.5875,
+        "measured_sprint_phase": 0.5875,
+        "target_phase_error": 0.0,
+        "phase_fit_error_cm": 0.4787173231867054,
+        "phase_method": "Nearest two-foot compressed Sprint pose, 240 phase candidates; private native clock is not exposed",
+        "pre_release": {
+          "elapsed_s": 9.452999999979511,
+          "phase": "run",
+          "release_trial": 2,
+          "actor_cm": [
+            0.0,
+            -1011.8259853647586,
+            90.0
+          ],
+          "velocity_cm_s": [
+            0.0,
+            -700.0,
+            0.0
+          ],
+          "feet_component_cm": {
+            "foot_l": [
+              23.250530104918482,
+              -21.86821829975567,
+              55.14528523212566
+            ],
+            "foot_r": [
+              -23.09795638894579,
+              36.55786685278387,
+              18.37437118478566
+            ]
+          },
+          "feet_world_cm": {
+            "foot_l": [
+              -23.25053010491847,
+              -989.9577670650029,
+              57.14528523212566
+            ],
+            "foot_r": [
+              23.097956388945782,
+              -1048.3838522175424,
+              20.37437118478566
+            ]
+          },
+          "falling": false,
+          "anim_airborne": false,
+          "animation_index": 2,
+          "montage": null,
+          "actual_montage_sequence": null
+        },
+        "samples": 21,
+        "observed_actual_run_stop": true,
+        "trajectory_measurements": {
+          "feet_component_cm_foot_l_max_frame_step_cm": 22.874313600860397,
+          "feet_component_cm_foot_r_max_frame_step_cm": 35.36555109819723,
+          "feet_world_cm_foot_l_max_frame_step_cm": 35.135526338122716,
+          "feet_world_cm_foot_r_max_frame_step_cm": 24.36246617516548
+        },
+        "interpretation": "Observed native transition trajectory, not an automated visual-acceptance verdict. Component-space motion includes natural leg swing; world-space data includes physical deceleration."
+      }
+    },
+    {
+      "before": {
+        "trial": 3,
+        "target_sprint_phase": 0.8,
+        "measured_sprint_phase": 0.7458333333333333,
+        "phase_fit_error_cm": 0.07796821205220239,
+        "phase_method": "Nearest two-foot compressed Sprint pose, 240 phase candidates; private native clock is not exposed",
+        "pre_release": {
+          "elapsed_s": 11.938000000023749,
+          "phase": "run",
+          "release_trial": 3,
+          "actor_cm": [
+            0.0,
+            -1105.1587974145855,
+            90.0
+          ],
+          "velocity_cm_s": [
+            0.0,
+            -700.0,
+            0.0
+          ],
+          "feet_component_cm": {
+            "foot_l": [
+              23.256478740240045,
+              29.820254896745862,
+              37.61512057176134
+            ],
+            "foot_r": [
+              -23.15338673889813,
+              -43.58532723276564,
+              23.51996698104403
+            ]
+          },
+          "feet_world_cm": {
+            "foot_l": [
+              -23.256478740240023,
+              -1134.9790523113313,
+              39.61512057176134
+            ],
+            "foot_r": [
+              23.153386738898107,
+              -1061.5734701818199,
+              25.51996698104403
+            ]
+          },
+          "falling": false,
+          "anim_airborne": false,
+          "animation_index": 2,
+          "montage": null,
+          "actual_montage_sequence": null
+        },
+        "samples": 21,
+        "observed_actual_run_stop": true,
+        "trajectory_measurements": {
+          "feet_component_cm_foot_l_max_frame_step_cm": 34.72965599255754,
+          "feet_component_cm_foot_r_max_frame_step_cm": 30.258707413378087,
+          "feet_world_cm_foot_l_max_frame_step_cm": 35.17451907732186,
+          "feet_world_cm_foot_r_max_frame_step_cm": 34.608077570957576
+        },
+        "interpretation": "Observed native transition trajectory, not an automated visual-acceptance verdict. Component-space motion includes natural leg swing; world-space data includes physical deceleration."
+      },
+      "after": {
+        "trial": 3,
+        "target_sprint_phase": 0.7458333333333333,
+        "measured_sprint_phase": 0.7458333333333333,
+        "target_phase_error": 0.0,
+        "phase_fit_error_cm": 0.24481783226244017,
+        "phase_method": "Nearest two-foot compressed Sprint pose, 240 phase candidates; private native clock is not exposed",
+        "pre_release": {
+          "elapsed_s": 11.920999999972992,
+          "phase": "run",
+          "release_trial": 3,
+          "actor_cm": [
+            0.0,
+            -1105.541633032285,
+            90.0
+          ],
+          "velocity_cm_s": [
+            0.0,
+            -700.0,
+            0.0
+          ],
+          "feet_component_cm": {
+            "foot_l": [
+              23.253766603227987,
+              30.044025298295562,
+              37.59100585631534
+            ],
+            "foot_r": [
+              -23.154802856008352,
+              -43.8662512789165,
+              23.678932347794333
+            ]
+          },
+          "feet_world_cm": {
+            "foot_l": [
+              -23.253766603227966,
+              -1135.5856583305806,
+              39.59100585631534
+            ],
+            "foot_r": [
+              23.154802856008327,
+              -1061.6753817533686,
+              25.678932347794333
+            ]
+          },
+          "falling": false,
+          "anim_airborne": false,
+          "animation_index": 2,
+          "montage": null,
+          "actual_montage_sequence": null
+        },
+        "samples": 22,
+        "observed_actual_run_stop": true,
+        "trajectory_measurements": {
+          "feet_component_cm_foot_l_max_frame_step_cm": 18.673830124013797,
+          "feet_component_cm_foot_r_max_frame_step_cm": 20.41051308222047,
+          "feet_world_cm_foot_l_max_frame_step_cm": 35.12082540855502,
+          "feet_world_cm_foot_r_max_frame_step_cm": 20.410513082220454
+        },
+        "interpretation": "Observed native transition trajectory, not an automated visual-acceptance verdict. Component-space motion includes natural leg swing; world-space data includes physical deceleration."
+      }
+    }
+  ]
+}
