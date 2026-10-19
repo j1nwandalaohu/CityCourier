@@ -31,3 +31,11 @@
 32 个安装文件的校验、安装后的 Shipping 无窗口启动检查、新测试存档初始化、卸载和原有玩家文件保留均通过。证据：`Saved/Validation/Installer-Smoke-20261019-214810-2cb8d159/installer-smoke.json`、`Saved/Validation/Interiors-Shipping-20261019-214819-908d8a06/shipping-startup.json`。
 
 SHA256：`0752e5dee5f30e6331e5154227d82cc171e5ce073226bd1b51a0bf8648b111ec`。
+
+## 引擎盖、车顶攀跳版
+
+`CityCourier-Setup-20261019-car-roof.exe`（698,368,350 字节）包含两段汽车攀跳、随车转弯与跳下时的车速继承，同时保留此前的导航和贴地修复。
+
+安装、32 个文件校验、安装后的 Shipping 启动、新测试存档初始化、卸载和现有存档保留均通过。证据：`Saved/Validation/Installer-Smoke-20261019-222815-726a898f/installer-smoke.json`、`Saved/Validation/Interiors-Shipping-20261019-222823-37a622f7/shipping-startup.json`。
+
+SHA256：`3fb4dd7629491771a9a679638822efee586fad719908fc9fe869f1f569adbd3e`。

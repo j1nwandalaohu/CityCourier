@@ -10,10 +10,13 @@ public:
     virtual void BeginPlay() override;
     virtual void Tick(float DeltaSeconds) override;
     UFUNCTION(BlueprintCallable) void SetPatrol(const TArray<FVector>& Points);
-    UFUNCTION(BlueprintCallable) void SetPopulationActive(bool bActive);
+    UFUNCTION(BlueprintCallable) virtual void SetPopulationActive(bool bActive);
     UFUNCTION(BlueprintPure) float GetSpeedCm() const { return Speed; }
     bool IsPopulationActive() const { return bPopulationActive; }
     UPROPERTY(VisibleAnywhere) TObjectPtr<class UBoxComponent> Body;
+    UPROPERTY(VisibleAnywhere) TObjectPtr<class UBoxComponent> Chassis;
+    UPROPERTY(VisibleAnywhere) TObjectPtr<class UBoxComponent> Hood;
+    UPROPERTY(VisibleAnywhere) TObjectPtr<class UBoxComponent> Roof;
     UPROPERTY(VisibleAnywhere) TObjectPtr<class UStaticMeshComponent> Visual;
 protected:
     bool FindStreetGround(FVector Position,double ReferenceZ,double& OutGroundZ) const;

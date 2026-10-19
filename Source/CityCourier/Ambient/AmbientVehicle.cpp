@@ -2,11 +2,33 @@
 #include "Components/BoxComponent.h"
 #include "Components/StaticMeshComponent.h"
 #include "Engine/World.h"
+#include "EngineUtils.h"
+#include "GameFramework/Character.h"
+#include "Misc/ScopeExit.h"
 AAmbientVehicle::AAmbientVehicle()
 {
     PrimaryActorTick.bCanEverTick=true;
     Body=CreateDefaultSubobject<UBoxComponent>(TEXT("TrafficCollision")); SetRootComponent(Body);
     Body->SetBoxExtent(FVector(205,88,65)); Body->SetCollisionProfileName(TEXT("BlockAllDynamic"));
+    // Keep the broad traffic/world sweep, but give characters the actual
+    // stepped surfaces instead of standing on an invisible full-car box.
+    Body->SetCollisionResponseToChannel(ECC_Pawn,ECR_Ignore);
+    Body->CanCharacterStepUpOn=ECB_No;
+    auto Surface=[this](const TCHAR* Name,FVector Center,FVector Extent)
+    {
+        auto* Shape=CreateDefaultSubobject<UBoxComponent>(Name);Shape->SetupAttachment(Body);
+        Shape->SetRelativeLocation(Center);Shape->SetBoxExtent(Extent);
+        Shape->SetCollisionEnabled(ECollisionEnabled::QueryOnly);
+        Shape->SetCollisionObjectType(ECC_WorldDynamic);
+        Shape->SetCollisionResponseToAllChannels(ECR_Ignore);
+        Shape->SetCollisionResponseToChannel(ECC_Pawn,ECR_Block);
+        Shape->CanCharacterStepUpOn=ECB_Yes;
+        return Shape;
+    };
+    // Mesh origin is the street; actor origin is 70cm above it.
+    Chassis=Surface(TEXT("WalkableChassis"),FVector(0,0,-5),FVector(212,88,35));
+    Hood=Surface(TEXT("WalkableHood"),FVector(130,0,30),FVector(62.5,86,15));
+    Roof=Surface(TEXT("WalkableRoof"),FVector(-20,0,57),FVector(94,60,40));
     Visual=CreateDefaultSubobject<UStaticMeshComponent>(TEXT("CarBody")); Visual->SetupAttachment(Body);
     Visual->SetCollisionEnabled(ECollisionEnabled::NoCollision); Visual->SetRelativeLocation(FVector(0,0,-70));
 }
@@ -18,6 +40,7 @@ void AAmbientVehicle::BeginPlay()
 void AAmbientVehicle::SetPatrol(const TArray<FVector>& Points)
 {
     Patrol=Points;NextPoint=1;Speed=0;
+    for(auto* Shape:{Body.Get(),Chassis.Get(),Hood.Get(),Roof.Get()})Shape->ComponentVelocity=FVector::ZeroVector;
     if(Patrol.Num()>1)
     {
         StreetGroundZ=Patrol[0].Z-GroundClearance();
@@ -68,12 +91,28 @@ void AAmbientVehicle::SetPopulationActive(bool bActive)
         }
     }
     SetActorHiddenInGame(!bPopulationActive); SetActorEnableCollision(bPopulationActive); SetActorTickEnabled(bPopulationActive);
-    if(!bPopulationActive) Speed=0;
+    if(!bPopulationActive)
+    {
+        Speed=0;
+        for(auto* Shape:{Body.Get(),Chassis.Get(),Hood.Get(),Roof.Get()})Shape->ComponentVelocity=FVector::ZeroVector;
+    }
 }
 void AAmbientVehicle::Tick(float DeltaSeconds)
 {
     Super::Tick(DeltaSeconds);
     if(!bPopulationActive || DeltaSeconds<=0 || !FMath::IsFinite(DeltaSeconds))return;
+    const TArray<UBoxComponent*> Shapes={Body,Chassis,Hood,Roof};
+    TArray<FVector> Previous;for(const auto* Shape:Shapes)Previous.Add(Shape->GetComponentLocation());
+    ON_SCOPE_EXIT
+    {
+        // Native based movement uses these velocities when jumping/walking
+        // off a manually driven vehicle. External pool teleports are excluded.
+        for(int32 I=0;I<Shapes.Num();++I)
+            Shapes[I]->ComponentVelocity=bPopulationActive?(Shapes[I]->GetComponentLocation()-Previous[I])/FMath::Max(DeltaSeconds,.001f):FVector::ZeroVector;
+    };
+    TArray<ACharacter*> Passengers;
+    for(TActorIterator<ACharacter> It(GetWorld());It;++It)
+        if(It->GetMovementBase() && It->GetMovementBase()->GetOwner()==this)Passengers.Add(*It);
     double Ground;
     if(!FindStreetGround(GetActorLocation(),StreetGroundZ,Ground)){SetPopulationActive(false);return;}
     StreetGroundZ=Ground;
@@ -89,6 +128,7 @@ void AAmbientVehicle::Tick(float DeltaSeconds)
         const FRotator Desired=Direction.Rotation();
         const FRotator Rotation=FMath::RInterpConstantTo(GetActorRotation(),Desired,Dt,bPedestrian?180.f:75.f);
         FCollisionQueryParams Query(SCENE_QUERY_STAT(AmbientObstacle),false,this);
+        for(ACharacter* Passenger:Passengers)Query.AddIgnoredActor(Passenger);
         FHitResult Hit;
         const FVector Extent=Body->GetScaledBoxExtent();
         const float StopDistance=70+Speed*.3f+Speed*Speed/(2*Deceleration);

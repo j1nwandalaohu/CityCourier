@@ -1,0 +1,37 @@
+{
+  "head": "CharMorph-Vitruvian c252d1fc7f00ba59d87b66b3d32fa3471fc6ee44 CC0",
+  "body_clothes": "Retained MakeHuman CC0 casual suit and shoes",
+  "helmet_removed": true,
+  "reflective_accessories_removed": true,
+  "source_reference_unchanged": true,
+  "bones": 50,
+  "vertices": 56764,
+  "triangles": 93292,
+  "materials": [
+    "M_PortraitSkinBody",
+    "M_WorkClothes",
+    "M_WorkShoes",
+    "M_PortraitSkinHead",
+    "M_PortraitIris",
+    "M_PortraitMouth",
+    "M_PortraitSclera",
+    "M_PortraitPupil",
+    "M_PortraitCornea",
+    "M_PortraitHair",
+    "M_PortraitTearline"
+  ],
+  "retained_hair_strands_fraction": "1/6",
+  "fbx_sha256": "9233444ed8ce30c1e43388b1833ff7a9a4d58e8480a381e4866ad4b019f2de37",
+  "limitations": [
+    "One adult male appearance; no crowd face/age variations yet",
+    "Shared retained portrait materials; simplified strand geometry"
+  ],
+  "ue_import": {
+    "status": "passed",
+    "mesh": "/Game/CityCourier/Art/Ambient/CharMorph/SK_CitizenCharMorph.SK_CitizenCharMorph",
+    "skeleton": "/Game/CityCourier/Art/Ambient/CharMorph/SK_CitizenCharMorph_Skeleton.SK_CitizenCharMorph_Skeleton",
+    "independent_from_player": true,
+    "protected_existing_packages_unchanged": true,
+    "material_count": 11
+  }
+}

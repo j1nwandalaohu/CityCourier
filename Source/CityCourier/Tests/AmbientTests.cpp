@@ -4,6 +4,7 @@
 #include "Ambient/AmbientTrafficManager.h"
 #include "Ambient/AmbientVehicle.h"
 #include "Ambient/AmbientPedestrian.h"
+#include "Ambient/CitizenAnimInstance.h"
 #include "Ambient/CourierAudioComponent.h"
 #include "EngineUtils.h"
 #include "Sound/SoundWave.h"
@@ -111,10 +112,11 @@ bool FAmbientSourceTest::RunTest(const FString& Parameters)
         if(TestNotNull(Name,Sound))TestTrue(TEXT("Real nonempty waveform"),Sound->Duration>.2f);
     }
     TestNotNull(TEXT("Original car"),LoadObject<UStaticMesh>(nullptr,TEXT("/Game/CityCourier/Art/Ambient/SM_CityCar.SM_CityCar")));
-    auto* Person=LoadObject<USkeletalMesh>(nullptr,TEXT("/Game/CityCourier/Art/Ambient/SK_Citizen.SK_Citizen"));
+    auto* Person=LoadObject<USkeletalMesh>(nullptr,TEXT("/Game/CityCourier/Art/Ambient/CharMorph/SK_CitizenCharMorph.SK_CitizenCharMorph"));
     if(TestNotNull(TEXT("Original ordinary clothes"),Person) && TestNotNull(TEXT("Citizen skeleton"),Person->GetSkeleton()))
     {
         const auto& MeshBones=Person->GetRefSkeleton();
+        TestTrue(TEXT("NPC skeleton is independent of the player"),Person->GetSkeleton()!=LoadObject<USkeleton>(nullptr,TEXT("/Game/CityCourier/Art/Characters/SK_Courier_Skeleton.SK_Courier_Skeleton")));
         const auto& SkeletonBones=Person->GetSkeleton()->GetReferenceSkeleton();
         for(int32 Bone=0;Bone<MeshBones.GetNum();++Bone)
         {
@@ -126,10 +128,10 @@ bool FAmbientSourceTest::RunTest(const FString& Parameters)
         }
         FStationFixture F;
         auto* Walker=F.World->SpawnActor<AAmbientPedestrian>();Walker->DispatchBeginPlay();
-        auto* Animation=Walker->Person->GetSingleNodeInstance();
+        auto* Animation=Cast<UCitizenAnimInstance>(Walker->Person->GetAnimInstance());
         if(TestNotNull(TEXT("Citizen runtime walk player"),Animation))
         {
-            auto* Walk=Cast<UAnimSequence>(Animation->GetCurrentAsset());
+            auto* Walk=Animation->Clips.IsValidIndex(1)?Animation->Clips[1].Get():nullptr;
             if(TestNotNull(TEXT("Citizen runtime walk clip"),Walk))
                 TestEqual(TEXT("Citizen runtime animation matches its own skeleton"),Walk->GetSkeleton(),Person->GetSkeleton());
         }

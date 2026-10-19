@@ -13,6 +13,8 @@
 #include "Components/SkeletalMeshComponent.h"
 #include "Player/CourierActionComponent.h"
 #include "Buildings/CourierBuildingSubsystem.h"
+#include "Ambient/AmbientVehicle.h"
+#include "Components/BoxComponent.h"
 
 ACourierCharacter::ACourierCharacter()
 {
@@ -151,6 +153,22 @@ FCourierActionResult ACourierCharacter::TryJumpWithFeedback()
     if(GetWorld()->SweepSingleByChannel(Hit,GetActorLocation()+FVector(0,0,2),GetActorLocation()+FVector(0,0,50),FQuat::Identity,ECC_Pawn,
         FCollisionShape::MakeCapsule(Capsule->GetScaledCapsuleRadius()-1,Capsule->GetScaledCapsuleHalfHeight()-1),Params))
         return FCourierActionResult::Failure(TEXT("头顶空间不足，无法跳跃"));
+    auto* Movement=GetCharacterMovement();
+    float JumpSpeed=Movement->JumpZVelocity;
+    const FVector Feet=GetActorLocation()-FVector(0,0,Capsule->GetScaledCapsuleHalfHeight());
+    FHitResult Ahead;
+    if(GetWorld()->LineTraceSingleByChannel(Ahead,Feet+FVector(0,0,60),Feet+GetActorForwardVector()*180+FVector(0,0,60),ECC_Pawn,Params))
+        if(const auto* Car=Cast<AAmbientVehicle>(Ahead.GetActor()))
+            if(Car->Hood->GetCollisionEnabled()!=ECollisionEnabled::NoCollision)
+            {
+                const FVector Local=Car->GetActorTransform().InverseTransformPosition(Feet);
+                const double Height=Car->Hood->GetComponentLocation().Z+Car->Hood->GetScaledBoxExtent().Z-Feet.Z;
+                // A small contextual lift at the front makes the authored
+                // 115cm hood reachable, without changing normal 90cm jumps.
+                if(Local.X>Car->Hood->GetRelativeLocation().X && FMath::Abs(Local.Y)<120 && Height>0 && Height<140)
+                    JumpSpeed=FMath::Max(JumpSpeed,float(FMath::Min(520.,FMath::Sqrt(2*FMath::Abs(Movement->GetGravityZ())*(Height+20)))));
+            }
+    TGuardValue<float> RestoreJumpSpeed(Movement->JumpZVelocity,JumpSpeed);
     Jump(); CheckJumpInput(0); StopJumping();
     return GetCharacterMovement()->IsFalling()?FCourierActionResult::Success():FCourierActionResult::Failure(TEXT("当前无法起跳"));
 }
