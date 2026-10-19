@@ -1,0 +1,316 @@
+{
+  "schema_version": 1,
+  "assets": [
+    {
+      "id": "food_apple_01",
+      "provider": "Poly Haven",
+      "source": "https://polyhaven.com/a/food_apple_01",
+      "license": "CC0-1.0",
+      "files": [
+        {
+          "path": "food_apple_01/metadata.json",
+          "url": "https://api.polyhaven.com/files/food_apple_01",
+          "sha256": "4c249f909fe1f409542b1f2ec215eabc8036a150325efe634190e2624d83a111",
+          "bytes": 25322,
+          "provider_md5": null
+        },
+        {
+          "path": "food_apple_01/food_apple_01_1k.gltf",
+          "url": "https://dl.polyhaven.org/file/ph-assets/Models/gltf/1k/food_apple_01/food_apple_01_1k.gltf",
+          "sha256": "6a7dc1cda1271c8b08e36e2b9fd44371b7149cca6262c71bc36d971cdac4325f",
+          "bytes": 2705,
+          "provider_md5": "222a8e136b40f36c1acb87a6036c1106"
+        },
+        {
+          "path": "food_apple_01/textures/food_apple_01_diff_1k.jpg",
+          "url": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/1k/food_apple_01/food_apple_01_diff_1k.jpg",
+          "sha256": "b7fc17cfb5013958167bbc089ea4d1c193fb1c61ea4f3c974a9894ed9ba82e8a",
+          "bytes": 183791,
+          "provider_md5": "3ddf2b8313f20c95f3e04fb057b32d7b"
+        },
+        {
+          "path": "food_apple_01/food_apple_01.bin",
+          "url": "https://dl.polyhaven.org/file/ph-assets/Models/gltf/8k/food_apple_01/food_apple_01.bin",
+          "sha256": "f14ff9647fdd9f5a59ef325f94154e91f1f14cc2563cd3fb572c4fe9ce5756ca",
+          "bytes": 170680,
+          "provider_md5": "26b23e40de43097b0185a0d93cd72d3b"
+        },
+        {
+          "path": "food_apple_01/textures/food_apple_01_nor_gl_1k.jpg",
+          "url": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/1k/food_apple_01/food_apple_01_nor_gl_1k.jpg",
+          "sha256": "c81b1e51ce7e789b65bfde2f046dcb5ba5773b5c6be3e572313be0600c51721b",
+          "bytes": 63513,
+          "provider_md5": "e456cb63d6a4c298c826b63be0adfaf7"
+        },
+        {
+          "path": "food_apple_01/textures/food_apple_01_rough_1k.jpg",
+          "url": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/1k/food_apple_01/food_apple_01_rough_1k.jpg",
+          "sha256": "2e5a503af38df7b570b0e81cc9563125f0913b466e01140d4e24ea5ebdbec587",
+          "bytes": 53123,
+          "provider_md5": "e46e242f52a3c2138a1e8c6ce0d82438"
+        }
+      ]
+    },
+    {
+      "id": "food_ginger_01",
+      "provider": "Poly Haven",
+      "source": "https://polyhaven.com/a/food_ginger_01",
+      "license": "CC0-1.0",
+      "files": [
+        {
+          "path": "food_ginger_01/metadata.json",
+          "url": "https://api.polyhaven.com/files/food_ginger_01",
+          "sha256": "b0b23e8062be7624c3591b4b7788cbbd67caac52550867176846953f3f2997d2",
+          "bytes": 25671,
+          "provider_md5": null
+        },
+        {
+          "path": "food_ginger_01/food_ginger_01_1k.gltf",
+          "url": "https://dl.polyhaven.org/file/ph-assets/Models/gltf/1k/food_ginger_01/food_ginger_01_1k.gltf",
+          "sha256": "d08d23765047a58ba29dcebd72a4aa481690cc7774179e42a4af5cb66b2c9ffb",
+          "bytes": 2715,
+          "provider_md5": "fcd801cc9d49fe6e757d44b037fd92a8"
+        },
+        {
+          "path": "food_ginger_01/textures/food_ginger_01_diff_1k.jpg",
+          "url": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/1k/food_ginger_01/food_ginger_01_diff_1k.jpg",
+          "sha256": "3f2117a9f5718a797bcbb22557cad1599ffb6eec50232b71ee4be3c7cf304890",
+          "bytes": 201419,
+          "provider_md5": "a52194196f9ed0e196ad81edcbccfe24"
+        },
+        {
+          "path": "food_ginger_01/food_ginger_01.bin",
+          "url": "https://dl.polyhaven.org/file/ph-assets/Models/gltf/8k/food_ginger_01/food_ginger_01.bin",
+          "sha256": "b1967c29b2f38dbc63ca2374486c9eb1d90870795b40bc1c2728ffcc760ebcd4",
+          "bytes": 175232,
+          "provider_md5": "527a57b696cb4d40c8b3f286b587006a"
+        },
+        {
+          "path": "food_ginger_01/textures/food_ginger_01_rough_1k.jpg",
+          "url": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/1k/food_ginger_01/food_ginger_01_rough_1k.jpg",
+          "sha256": "19eba8b9048838849a4cb033d83b43efcaaf45bff14364285fa19b0c9aa12951",
+          "bytes": 55655,
+          "provider_md5": "9a794479505c0c5745271476e16921b9"
+        },
+        {
+          "path": "food_ginger_01/textures/food_ginger_01_nor_gl_1k.jpg",
+          "url": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/1k/food_ginger_01/food_ginger_01_nor_gl_1k.jpg",
+          "sha256": "0bcef5efbb8c14fe758278a42713dfd6a5cc25c5eaaaffa9ff594fcaee0a5910",
+          "bytes": 151771,
+          "provider_md5": "2bd05ffea56c8e0d140e7af7ccaf9e57"
+        }
+      ]
+    },
+    {
+      "id": "wooden_cutting_board",
+      "provider": "Poly Haven",
+      "source": "https://polyhaven.com/a/wooden_cutting_board",
+      "license": "CC0-1.0",
+      "files": [
+        {
+          "path": "wooden_cutting_board/metadata.json",
+          "url": "https://api.polyhaven.com/files/wooden_cutting_board",
+          "sha256": "0834a5c098f2de05ca8b6a3818a6def04d0470f64e65153a10e493eebf61ed66",
+          "bytes": 27710,
+          "provider_md5": null
+        },
+        {
+          "path": "wooden_cutting_board/wooden_cutting_board_1k.gltf",
+          "url": "https://dl.polyhaven.org/file/ph-assets/Models/gltf/1k/wooden_cutting_board/wooden_cutting_board_1k.gltf",
+          "sha256": "89fa89f6987c5087c0c7a8ac8ccbe451cfa8976ae46377d83a423e658cff9de4",
+          "bytes": 2852,
+          "provider_md5": "557750a30841a91f5d9a8f734bd9ee20"
+        },
+        {
+          "path": "wooden_cutting_board/textures/wooden_cutting_board_arm_1k.jpg",
+          "url": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/1k/wooden_cutting_board/wooden_cutting_board_arm_1k.jpg",
+          "sha256": "f35dec51ff94e279a9d43a4ee64b75235cc3d6701107ae22a1eea797e3d236d3",
+          "bytes": 401619,
+          "provider_md5": "b391b4029d163e0bde43096d7b39013d"
+        },
+        {
+          "path": "wooden_cutting_board/textures/wooden_cutting_board_diff_1k.jpg",
+          "url": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/1k/wooden_cutting_board/wooden_cutting_board_diff_1k.jpg",
+          "sha256": "79274fb86cc7f62363e4448b4597f06933d640a79c746ff6f823d2e4e27ad143",
+          "bytes": 788732,
+          "provider_md5": "11be431e04b3a108eb74d3dd0559a9a4"
+        },
+        {
+          "path": "wooden_cutting_board/textures/wooden_cutting_board_nor_gl_1k.jpg",
+          "url": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/1k/wooden_cutting_board/wooden_cutting_board_nor_gl_1k.jpg",
+          "sha256": "b123d7ca0d0be01a31686240c925e85a1d2499172586f119482924b06b0b0c93",
+          "bytes": 677881,
+          "provider_md5": "c57c50618d604c9a742847f4333f3058"
+        },
+        {
+          "path": "wooden_cutting_board/wooden_cutting_board.bin",
+          "url": "https://dl.polyhaven.org/file/ph-assets/Models/gltf/8k/wooden_cutting_board/wooden_cutting_board.bin",
+          "sha256": "d7fa7549afcae99eb4739dfb13039f1e56f03327c2936cb021bfd05c3afad839",
+          "bytes": 94688,
+          "provider_md5": "ce582ea49488bb7def153bdf37082016"
+        }
+      ]
+    },
+    {
+      "id": "tiled_floor_001",
+      "provider": "Poly Haven",
+      "source": "https://polyhaven.com/a/tiled_floor_001",
+      "license": "CC0-1.0",
+      "files": [
+        {
+          "path": "tiled_floor_001/metadata.json",
+          "url": "https://api.polyhaven.com/files/tiled_floor_001",
+          "sha256": "3616121787d8d6eb4b7fbf11bd51c1ab6df58874dd4c282e22516c5725a84e61",
+          "bytes": 27190,
+          "provider_md5": null
+        },
+        {
+          "path": "tiled_floor_001/tiled_floor_001_diffuse_2k.jpg",
+          "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/tiled_floor_001/tiled_floor_001_diffuse_2k.jpg",
+          "sha256": "7894d75e30480ec6770dfc00e2710c4c6acbb594922799f31712a4020698dee0",
+          "bytes": 2020168,
+          "provider_md5": "7c32b37278dd38a08661b4426104feb4"
+        },
+        {
+          "path": "tiled_floor_001/tiled_floor_001_rough_2k.jpg",
+          "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/tiled_floor_001/tiled_floor_001_rough_2k.jpg",
+          "sha256": "a0d28f099721c4b51be6765fc9921813781e21f9b9dc3e1c8669889394fd9f9f",
+          "bytes": 1615225,
+          "provider_md5": "fad4715f116fad89c8ec2aebb2c8844a"
+        },
+        {
+          "path": "tiled_floor_001/tiled_floor_001_nor_gl_2k.jpg",
+          "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/tiled_floor_001/tiled_floor_001_nor_gl_2k.jpg",
+          "sha256": "08fa921e453a168765231e8a9b3487fc9b9ec6620375d1bdfb0fa94b0f8c0e1b",
+          "bytes": 1484004,
+          "provider_md5": "46abb9d88d5036479c9de4b27fcce165"
+        }
+      ]
+    },
+    {
+      "id": "wood_table_001",
+      "provider": "Poly Haven",
+      "source": "https://polyhaven.com/a/wood_table_001",
+      "license": "CC0-1.0",
+      "files": [
+        {
+          "path": "wood_table_001/metadata.json",
+          "url": "https://api.polyhaven.com/files/wood_table_001",
+          "sha256": "e047bb4fed24f5200cbf8743fd193aa02ce08f36489e6decb1a17a11d90ef809",
+          "bytes": 33284,
+          "provider_md5": null
+        },
+        {
+          "path": "wood_table_001/wood_table_001_diff_2k.jpg",
+          "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/wood_table_001/wood_table_001_diff_2k.jpg",
+          "sha256": "63ae5cd186197b40f18bc020fe2b652bb08df4d9fc6240c6cbf8a7e3bc32c096",
+          "bytes": 924532,
+          "provider_md5": "a36483628b915dabf82961ab2a62a85c"
+        },
+        {
+          "path": "wood_table_001/wood_table_001_rough_2k.jpg",
+          "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/wood_table_001/wood_table_001_rough_2k.jpg",
+          "sha256": "c788876d80e4d96598590631f8de92447fb1b0ba1265a812514ee717d270ac3e",
+          "bytes": 963377,
+          "provider_md5": "a291ec6bc35b9827175cdd1592c62e03"
+        },
+        {
+          "path": "wood_table_001/wood_table_001_nor_gl_2k.jpg",
+          "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/wood_table_001/wood_table_001_nor_gl_2k.jpg",
+          "sha256": "d56f02c911391267ddc6adc92e8a5bc29b9803196e8d57ad5b9702e6c842dc28",
+          "bytes": 385020,
+          "provider_md5": "50dbc9fe086df00f6bce819eae6091d1"
+        }
+      ]
+    },
+    {
+      "id": "Metal009",
+      "provider": "ambientCG",
+      "source": "https://ambientcg.com/a/Metal009",
+      "license": "CC0-1.0",
+      "files": [
+        {
+          "path": "Metal009/asset-metadata.json",
+          "url": "https://ambientcg.com/api/v2/full_json?id=Metal009&include=downloadData",
+          "sha256": "89971a874931fdef710cbfecbf6fbbc58945f18e15179474f258821246601d60",
+          "bytes": 12840,
+          "provider_md5": null
+        },
+        {
+          "path": "Metal009/Metal009_2K-JPG.zip",
+          "url": "https://ambientcg.com/get?file=Metal009_2K-JPG.zip",
+          "sha256": "6f79f53d5073e65707c5765316fa9257f4604e1790093be5a51ed8226761a7f0",
+          "bytes": 16660145,
+          "provider_md5": null
+        },
+        {
+          "path": "Metal009/Metal009_2K-JPG_Color.jpg",
+          "url": "https://ambientcg.com/get?file=Metal009_2K-JPG.zip",
+          "sha256": "209d3bb050be9f58c5af179d9712fa7799567a4cd50afd338d37674bdcff765b",
+          "bytes": 2439272,
+          "archive_member": "Metal009_2K-JPG_Color.jpg"
+        },
+        {
+          "path": "Metal009/Metal009_2K-JPG_Displacement.jpg",
+          "url": "https://ambientcg.com/get?file=Metal009_2K-JPG.zip",
+          "sha256": "8a7dc69978932952ac0155d7475480b3d9f860cdedd5ccc51db9d202e8f583aa",
+          "bytes": 2738842,
+          "archive_member": "Metal009_2K-JPG_Displacement.jpg"
+        },
+        {
+          "path": "Metal009/Metal009_2K-JPG_Metalness.jpg",
+          "url": "https://ambientcg.com/get?file=Metal009_2K-JPG.zip",
+          "sha256": "b65d6b9091747bd81ee58adedcb6209d8ee21b2bde9298d7216989ada85ef622",
+          "bytes": 16545,
+          "archive_member": "Metal009_2K-JPG_Metalness.jpg"
+        },
+        {
+          "path": "Metal009/Metal009_2K-JPG_NormalDX.jpg",
+          "url": "https://ambientcg.com/get?file=Metal009_2K-JPG.zip",
+          "sha256": "4c6fcb10e980b3f73e6e942959d33b90d8f0fdd0191850271ac1cc6de5a91513",
+          "bytes": 4121087,
+          "archive_member": "Metal009_2K-JPG_NormalDX.jpg"
+        },
+        {
+          "path": "Metal009/Metal009_2K-JPG_NormalGL.jpg",
+          "url": "https://ambientcg.com/get?file=Metal009_2K-JPG.zip",
+          "sha256": "8773d9e97a4b057ced3e538d8ecc6069d27c8948191d61daf79b9ad93d93e3b3",
+          "bytes": 4120356,
+          "archive_member": "Metal009_2K-JPG_NormalGL.jpg"
+        },
+        {
+          "path": "Metal009/Metal009_2K-JPG_Roughness.jpg",
+          "url": "https://ambientcg.com/get?file=Metal009_2K-JPG.zip",
+          "sha256": "e802f013b93cb1bd4b55cd91f02a1863233475a7f8bd0e6755cfaa447a729674",
+          "bytes": 1891607,
+          "archive_member": "Metal009_2K-JPG_Roughness.jpg"
+        }
+      ]
+    }
+  ],
+  "license_files": [
+    {
+      "path": "polyhaven-license.html",
+      "url": "https://polyhaven.com/license",
+      "sha256": "46158a6b319ae8ef55acd18bd96d986c9261fb0cc8086124e97bcbefe779a623",
+      "bytes": 72685,
+      "provider_md5": null
+    },
+    {
+      "path": "ambientcg-license.html",
+      "url": "https://docs.ambientcg.com/license/",
+      "sha256": "60138e09b277c89977841462634b36e99d7bae5b77174777813502069c59461c",
+      "bytes": 34106,
+      "provider_md5": null
+    }
+  ],
+  "unavailable": [
+    {
+      "id": "45f6d12dc97d41a0a8f405171579d5b7",
+      "name": "Whole Roasted Chicken",
+      "source": "https://sketchfab.com/3d-models/whole-roasted-chicken-45f6d12dc97d41a0a8f405171579d5b7",
+      "license": "CC-BY-4.0",
+      "reason": "Official download API requires user authentication; not bundled"
+    }
+  ]
+}

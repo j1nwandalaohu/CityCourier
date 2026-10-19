@@ -86,6 +86,28 @@ def palette():
                         metallic=metal,kind=kind,tile_cm=50. if kind=='tile' else 200.,emission=emission)
         if scan:definition['scan']=scan
         PALETTE.append(definition)
+    if (SOURCE/'External/RealisticInteriors/sources.json').is_file():
+        from realistic_shop_props import palette_definitions
+        PALETTE[:] = palette_definitions(PALETTE)
+        for definition in PALETTE:
+            key=definition['key']
+            if key not in result:
+                result[key]=material(definition['name'],definition['color'],
+                                     definition['roughness'],definition['metallic'])
+            # Editable Blender sources show the same scans as the game.
+            maps=definition.get('pbr_maps',{})
+            mat=result[key];principled=mat.node_tree.nodes.get('Principled BSDF')
+            for channel,pin in [('color','Base Color'),('rough','Roughness'),('normal','Normal')]:
+                if channel not in maps:continue
+                texture=mat.node_tree.nodes.new('ShaderNodeTexImage')
+                texture.image=bpy.data.images.load(str(SOURCE/maps[channel]),check_existing=True)
+                if channel!='color':texture.image.colorspace_settings.name='Non-Color'
+                output=texture.outputs['Color']
+                if channel=='normal':
+                    normal=mat.node_tree.nodes.new('ShaderNodeNormalMap')
+                    normal.inputs['Strength'].default_value=definition.get('normal_strength',1)
+                    mat.node_tree.links.new(output,normal.inputs['Color']);output=normal.outputs['Normal']
+                mat.node_tree.links.new(output,principled.inputs[pin])
     return result
 
 
@@ -111,6 +133,7 @@ def finish_asset(name, objects, collision='NoCollision', **metadata):
             assert not(overlaps_x and overlaps_z), 'Frame trim intrudes into clear aperture'
     export_canonical(obj,name)
     blend=OUT/'Blender'/(name+'.blend');blend.parent.mkdir(parents=True,exist_ok=True)
+    bpy.ops.wm.save_as_mainfile(filepath=str(blend))
     bpy.ops.file.make_paths_relative()
     bpy.ops.wm.save_as_mainfile(filepath=str(blend))
     ASSETS.append(dict(name=name,fbx='Exports/InteriorArt/'+name+'.fbx',

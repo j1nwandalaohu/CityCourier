@@ -12,7 +12,7 @@
     "SM_IF_ShopRoastDisplay": 193
   },
   "layout_sha256": "bd475aaf640ddd2245bead4b485bfff4dcefa5844cb17335a4a886df5c7a600b",
-  "manifest_sha256": "d29325f9407a87f528a239950ac0c2545720d9a9b9f9c54d3a08baa6730c873a",
+  "manifest_sha256": "345cf4f1ac89f1ba4a3111a75a4d8e023dd5f2096f13c49e4a76c02a0b132aa5",
   "checks": [
     "real exported bounds",
     "room containment",

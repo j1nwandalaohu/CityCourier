@@ -13,7 +13,18 @@
       "kind": "plaster",
       "tile_cm": 200.0,
       "emission": 0.0,
-      "scan": "painted_plaster_wall"
+      "scan": "painted_plaster_wall",
+      "pbr_maps": {
+        "color": "External/PolyHaven/painted_plaster_wall_diff_2k.jpg",
+        "rough": "External/PolyHaven/painted_plaster_wall_rough_2k.jpg",
+        "normal": "External/PolyHaven/painted_plaster_wall_nor_gl_2k.jpg"
+      },
+      "normal_strength": 0.25,
+      "color_tint": [
+        1.0,
+        1.0,
+        0.96
+      ]
     },
     {
       "key": "paint_green",
@@ -28,7 +39,18 @@
       "kind": "plaster",
       "tile_cm": 200.0,
       "emission": 0.0,
-      "scan": "painted_plaster_wall"
+      "scan": "painted_plaster_wall",
+      "pbr_maps": {
+        "color": "External/PolyHaven/painted_plaster_wall_diff_2k.jpg",
+        "rough": "External/PolyHaven/painted_plaster_wall_rough_2k.jpg",
+        "normal": "External/PolyHaven/painted_plaster_wall_nor_gl_2k.jpg"
+      },
+      "normal_strength": 0.25,
+      "color_tint": [
+        0.38,
+        0.55,
+        0.43
+      ]
     },
     {
       "key": "tile_ivory",
@@ -41,8 +63,19 @@
       "roughness": 0.28,
       "metallic": 0,
       "kind": "tile",
-      "tile_cm": 50.0,
-      "emission": 0.0
+      "tile_cm": 150.0,
+      "emission": 0.0,
+      "pbr_maps": {
+        "color": "External/RealisticInteriors/tiled_floor_001/tiled_floor_001_diffuse_2k.jpg",
+        "normal": "External/RealisticInteriors/tiled_floor_001/tiled_floor_001_nor_gl_2k.jpg",
+        "rough": "External/RealisticInteriors/tiled_floor_001/tiled_floor_001_rough_2k.jpg"
+      },
+      "normal_strength": 0.5,
+      "color_tint": [
+        1.15,
+        1.15,
+        1.12
+      ]
     },
     {
       "key": "tile_grey",
@@ -55,8 +88,15 @@
       "roughness": 0.38,
       "metallic": 0,
       "kind": "tile",
-      "tile_cm": 50.0,
-      "emission": 0.0
+      "tile_cm": 150.0,
+      "emission": 0.0,
+      "pbr_maps": {
+        "color": "External/RealisticInteriors/tiled_floor_001/tiled_floor_001_diffuse_2k.jpg",
+        "normal": "External/RealisticInteriors/tiled_floor_001/tiled_floor_001_nor_gl_2k.jpg",
+        "rough": "External/RealisticInteriors/tiled_floor_001/tiled_floor_001_rough_2k.jpg"
+      },
+      "normal_strength": 0.65,
+      "paint_soffit": true
     },
     {
       "key": "wood_light",
@@ -69,8 +109,14 @@
       "roughness": 0.51,
       "metallic": 0,
       "kind": "wood",
-      "tile_cm": 200.0,
-      "emission": 0.0
+      "tile_cm": 120.0,
+      "emission": 0.0,
+      "pbr_maps": {
+        "color": "External/RealisticInteriors/wood_table_001/wood_table_001_diff_2k.jpg",
+        "normal": "External/RealisticInteriors/wood_table_001/wood_table_001_nor_gl_2k.jpg",
+        "rough": "External/RealisticInteriors/wood_table_001/wood_table_001_rough_2k.jpg"
+      },
+      "normal_strength": 0.5
     },
     {
       "key": "wood_dark",
@@ -83,8 +129,19 @@
       "roughness": 0.55,
       "metallic": 0,
       "kind": "wood",
-      "tile_cm": 200.0,
-      "emission": 0.0
+      "tile_cm": 120.0,
+      "emission": 0.0,
+      "pbr_maps": {
+        "color": "External/RealisticInteriors/wood_table_001/wood_table_001_diff_2k.jpg",
+        "normal": "External/RealisticInteriors/wood_table_001/wood_table_001_nor_gl_2k.jpg",
+        "rough": "External/RealisticInteriors/wood_table_001/wood_table_001_rough_2k.jpg"
+      },
+      "normal_strength": 0.5,
+      "color_tint": [
+        0.42,
+        0.32,
+        0.25
+      ]
     },
     {
       "key": "laminate_white",
@@ -111,8 +168,16 @@
       "roughness": 0.28,
       "metallic": 0.86,
       "kind": "metal",
-      "tile_cm": 200.0,
-      "emission": 0.0
+      "tile_cm": 80.0,
+      "emission": 0.0,
+      "pbr_maps": {
+        "color": "External/RealisticInteriors/Metal009/Metal009_2K-JPG_Color.jpg",
+        "normal": "External/RealisticInteriors/Metal009/Metal009_2K-JPG_NormalGL.jpg",
+        "rough": "External/RealisticInteriors/Metal009/Metal009_2K-JPG_Roughness.jpg",
+        "metal": "External/RealisticInteriors/Metal009/Metal009_2K-JPG_Metalness.jpg"
+      },
+      "normal_strength": 0.35,
+      "rough_min": 0.25
     },
     {
       "key": "metal_dark",
@@ -281,6 +346,105 @@
       "kind": "emissive",
       "tile_cm": 200.0,
       "emission": 2.5
+    },
+    {
+      "key": "ph_food_apple_01_0",
+      "name": "M_IF_PHFoodApple010",
+      "kind": "plain",
+      "color": [
+        1,
+        1,
+        1
+      ],
+      "roughness": 1,
+      "metallic": 0,
+      "tile_cm": 100.0,
+      "emission": 0,
+      "uv_mode": "authored",
+      "pbr_maps": {
+        "color": "External/RealisticInteriors/food_apple_01/textures/food_apple_01_diff_1k.jpg",
+        "normal": "External/RealisticInteriors/food_apple_01/textures/food_apple_01_nor_gl_1k.jpg",
+        "arm": "External/RealisticInteriors/food_apple_01/textures/food_apple_01_rough_1k.jpg"
+      },
+      "normal_strength": 1,
+      "source": "https://polyhaven.com/a/food_apple_01",
+      "license": "CC0-1.0"
+    },
+    {
+      "key": "ph_food_ginger_01_0",
+      "name": "M_IF_PHFoodGinger010",
+      "kind": "plain",
+      "color": [
+        1,
+        1,
+        1
+      ],
+      "roughness": 1,
+      "metallic": 0,
+      "tile_cm": 100.0,
+      "emission": 0,
+      "uv_mode": "authored",
+      "pbr_maps": {
+        "color": "External/RealisticInteriors/food_ginger_01/textures/food_ginger_01_diff_1k.jpg",
+        "normal": "External/RealisticInteriors/food_ginger_01/textures/food_ginger_01_nor_gl_1k.jpg",
+        "arm": "External/RealisticInteriors/food_ginger_01/textures/food_ginger_01_rough_1k.jpg"
+      },
+      "normal_strength": 1,
+      "source": "https://polyhaven.com/a/food_ginger_01",
+      "license": "CC0-1.0"
+    },
+    {
+      "key": "ph_wooden_cutting_board_0",
+      "name": "M_IF_PHWoodenCuttingBoard0",
+      "kind": "plain",
+      "color": [
+        1,
+        1,
+        1
+      ],
+      "roughness": 1,
+      "metallic": 0,
+      "tile_cm": 100.0,
+      "emission": 0,
+      "uv_mode": "authored",
+      "pbr_maps": {
+        "color": "External/RealisticInteriors/wooden_cutting_board/textures/wooden_cutting_board_diff_1k.jpg",
+        "normal": "External/RealisticInteriors/wooden_cutting_board/textures/wooden_cutting_board_nor_gl_1k.jpg",
+        "arm": "External/RealisticInteriors/wooden_cutting_board/textures/wooden_cutting_board_arm_1k.jpg"
+      },
+      "normal_strength": 1,
+      "source": "https://polyhaven.com/a/wooden_cutting_board",
+      "license": "CC0-1.0"
+    },
+    {
+      "key": "roast_skin",
+      "name": "M_IF_RoastSkin",
+      "kind": "plain",
+      "color": [
+        0.2,
+        0.052,
+        0.012
+      ],
+      "roughness": 0.32,
+      "metallic": 0,
+      "tile_cm": 40.0,
+      "emission": 0,
+      "procedural_skin": true,
+      "source": "Original CityCourier procedural roasted-skin material"
+    },
+    {
+      "key": "roast_char",
+      "name": "M_IF_RoastChar",
+      "kind": "plain",
+      "color": [
+        0.045,
+        0.009,
+        0.003
+      ],
+      "roughness": 0.43,
+      "metallic": 0,
+      "tile_cm": 40.0,
+      "emission": 0
     }
   ]
 }

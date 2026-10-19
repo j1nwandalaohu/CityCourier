@@ -22,6 +22,7 @@ import json
 import math
 import os
 import re
+import sys
 import traceback
 from datetime import datetime, timezone
 from pathlib import Path
@@ -243,6 +244,10 @@ class InteriorImporter:
         material.set_editor_property('shading_model', unreal.MaterialShadingModel.MSM_DEFAULT_LIT)
         E.set_material_usage(material, unreal.MaterialUsage.MATUSAGE_INSTANCED_STATIC_MESHES)
         E.set_material_usage(material, unreal.MaterialUsage.MATUSAGE_NANITE)
+        if definition.get('pbr_maps') or definition.get('procedural_skin'):
+            from realistic_interior_materials import apply_surface
+            apply_surface(self,material,definition)
+            return
         uv, position = _world_uv(material, float(definition.get('tile_cm', 200)))
         base = _color(material, definition['color'])
         rough = _scalar(material, definition['roughness'])
@@ -440,6 +445,13 @@ class InteriorImporter:
     def _preflight(self):
         manifest = json.loads((SOURCE_KIT/'asset-manifest.json').read_text(encoding='utf-8'))
         palette = json.loads((SOURCE_KIT/'palette.json').read_text(encoding='utf-8'))['materials']
+        if any(d.get('pbr_maps') for d in palette):
+            sys.path.insert(0,str(ROOT))
+            from tools.art.realism_sources import validate_sources
+            external = SOURCE/'External/RealisticInteriors'
+            errors = validate_sources(json.loads((external/'sources.json').read_text()),external)
+            if errors:
+                raise RuntimeError('External source verification failed: '+str(errors))
         if manifest['schema_version'] != 1 or not manifest['assets']:
             raise RuntimeError('Unsupported or empty interior manifest')
         if manifest.get('asset_root',DEST) != DEST:
@@ -456,6 +468,14 @@ class InteriorImporter:
                 raise RuntimeError('Invalid palette color')
             if float(definition.get('tile_cm',200)) <= 0:
                 raise RuntimeError('Invalid material physical scale')
+            if definition.get('pbr_maps'):
+                maps = definition['pbr_maps']
+                if 'color' not in maps or set(maps)-{'color','normal','rough','metal','arm'}:
+                    raise RuntimeError('Invalid PBR channel contract: '+definition['name'])
+                for relative in maps.values():
+                    file = (SOURCE/relative).resolve()
+                    if not file.is_relative_to(SOURCE) or not file.is_file():
+                        raise RuntimeError('Missing or unauthorized PBR map: '+str(file))
             if definition.get('scan'):
                 if not re.fullmatch('[a-z0-9_]+', definition['scan']):
                     raise RuntimeError('Invalid scan identifier')

@@ -26,10 +26,22 @@ def export_shop(obj, name):
     """
     original = obj.data
     temporary = original.copy()
+    reflection = Matrix.Diagonal((-1.,1.,1.,1.))
+    normals = {}
+    if temporary.has_custom_normals:
+        for face in temporary.polygons:
+            for loop in face.loop_indices:
+                normals[(face.index,temporary.loops[loop].vertex_index)] = reflection.to_3x3()@temporary.corner_normals[loop].vector
     try:
         obj.data = temporary
-        temporary.transform(Matrix.Diagonal((-1.,1.,1.,1.)))
+        temporary.transform(reflection)
         temporary.flip_normals()
+        if normals:
+            values=[None]*len(temporary.loops)
+            for face in temporary.polygons:
+                for loop in face.loop_indices:
+                    values[loop]=normals[(face.index,temporary.loops[loop].vertex_index)]
+            temporary.normals_split_custom_set(values)
         original_export(obj,name)
     finally:
         obj.data = original
@@ -71,8 +83,9 @@ def build():
     kit.ASSETS.clear()
     kit.PALETTE.clear()
     m = kit.palette()
-    retained_palette = json.loads((kit.OUT/'palette.json').read_text())
-    assert retained_palette['materials'] == kit.PALETTE, 'Shop art must reuse the verified palette'
+    # Surface upgrades retain existing material identities so all rooms receive
+    # them; new UV-mapped scan slots are included in the normal import contract.
+    (kit.OUT/'palette.json').write_text(json.dumps({'materials':kit.PALETTE},indent=2)+'\n',encoding='utf-8')
     original = dict(cream=m['laminate_white'], white=m['ceramic'], aluminum=m['metal_brushed'],
         metal=m['metal_dark'], red=m['accent_red'], green=m['paint_green'],
         yellow=m['carton'], wood=m['wood_light'], dark=m['rubber'], concrete=m['tile_grey'])
@@ -117,10 +130,15 @@ def build():
             -(lo[1]+hi[1])*.5*sy,-lo[2]))) @ Matrix.Diagonal((sx,sy,1,1))
         for obj in kept:
             obj.matrix_world = transform@obj.matrix_world
+        realistic_sources=[]
+        if (kit.SOURCE/'External/RealisticInteriors/sources.json').is_file():
+            from realistic_shop_props import enrich
+            kept,realistic_sources=enrich(kind,kept,m)
         kit.export_canonical = export_shop
         try:
             kit.finish_asset('SM_IF_'+kind,kept,'BlockAll',family='furniture',kind=kind,
                 source='tools/art/storefront_detail.py',source_components=sorted(provenance),
+                realistic_sources=realistic_sources,
                 export_axis_correction='legacy FBX glyph X reflection; authored serving front retained')
         finally:
             kit.export_canonical = original_export

@@ -627,7 +627,7 @@
         22.500017285346985,
         250.99999904632568
       ],
-      "triangles": 22920,
+      "triangles": 29919,
       "collision": "BlockAll",
       "material_names": [
         "M_IF_AccentRed",
@@ -636,6 +636,8 @@
         "M_IF_LaminateWhite",
         "M_IF_MetalBrushed",
         "M_IF_MetalDark",
+        "M_IF_PHFoodGinger010",
+        "M_IF_PHWoodenCuttingBoard0",
         "M_IF_Rubber",
         "M_IF_TileGrey"
       ],
@@ -675,6 +677,10 @@
         "Stainless_worktop",
         "Wall_menu_board"
       ],
+      "realistic_sources": [
+        "wooden_cutting_board",
+        "food_ginger_01"
+      ],
       "export_axis_correction": "legacy FBX glyph X reflection; authored serving front retained"
     },
     {
@@ -691,13 +697,15 @@
         32.50000476837158,
         102.10518836975098
       ],
-      "triangles": 804,
+      "triangles": 1948,
       "collision": "BlockAll",
       "material_names": [
         "M_IF_AccentRed",
+        "M_IF_Ceramic",
         "M_IF_LaminateWhite",
         "M_IF_MetalDark",
         "M_IF_PaintGreen",
+        "M_IF_WoodDark",
         "M_IF_WoodLight"
       ],
       "export_axis_adapter": "FBX-only Y reflection and reversed winding; canonical Blender geometry unchanged",
@@ -735,6 +743,9 @@
         "Stool_leg.018",
         "Stool_leg.019"
       ],
+      "realistic_sources": [
+        "original_ceramic_tableware"
+      ],
       "export_axis_correction": "legacy FBX glyph X reflection; authored serving front retained"
     },
     {
@@ -751,12 +762,13 @@
         22.499996423721313,
         139.64970111846924
       ],
-      "triangles": 388,
+      "triangles": 17996,
       "collision": "BlockAll",
       "material_names": [
         "M_IF_Carton",
         "M_IF_LaminateWhite",
         "M_IF_MetalDark",
+        "M_IF_PHFoodApple010",
         "M_IF_Rubber",
         "M_IF_WoodLight"
       ],
@@ -776,6 +788,9 @@
         "Till_base",
         "Till_screen",
         "Till_stand"
+      ],
+      "realistic_sources": [
+        "food_apple_01"
       ],
       "export_axis_correction": "legacy FBX glyph X reflection; authored serving front retained"
     },
@@ -985,6 +1000,7 @@
         "Shop_shelf_upright",
         "Shop_shelf_upright.001"
       ],
+      "realistic_sources": [],
       "export_axis_correction": "legacy FBX glyph X reflection; authored serving front retained"
     },
     {
@@ -1001,11 +1017,15 @@
         22.499990463256836,
         202.25000381469727
       ],
-      "triangles": 1398,
+      "triangles": 33168,
       "collision": "BlockAll",
       "material_names": [
         "M_IF_MetalBrushed",
         "M_IF_MetalDark",
+        "M_IF_PHWoodenCuttingBoard0",
+        "M_IF_RoastChar",
+        "M_IF_RoastSkin",
+        "M_IF_Rubber",
         "M_IF_WoodLight"
       ],
       "export_axis_adapter": "FBX-only Y reflection and reversed winding; canonical Blender geometry unchanged",
@@ -1050,6 +1070,10 @@
         "Roast_wing.013",
         "Roast_worktop"
       ],
+      "realistic_sources": [
+        "original_anatomical_hanging_ducks",
+        "wooden_cutting_board"
+      ],
       "export_axis_correction": "legacy FBX glyph X reflection; authored serving front retained"
     },
     {
@@ -1066,12 +1090,14 @@
         32.49996900558472,
         102.10518836975098
       ],
-      "triangles": 636,
+      "triangles": 1780,
       "collision": "BlockAll",
       "material_names": [
         "M_IF_AccentRed",
+        "M_IF_Ceramic",
         "M_IF_LaminateWhite",
         "M_IF_MetalDark",
+        "M_IF_WoodDark",
         "M_IF_WoodLight"
       ],
       "export_axis_adapter": "FBX-only Y reflection and reversed winding; canonical Blender geometry unchanged",
@@ -1103,6 +1129,9 @@
         "Stool_leg.006",
         "Stool_leg.007"
       ],
+      "realistic_sources": [
+        "original_ceramic_tableware"
+      ],
       "export_axis_correction": "legacy FBX glyph X reflection; authored serving front retained"
     }
   ],
@@ -1110,6 +1139,6 @@
   "generator_sha256": "c8a852a394c17c45547c2ec3460e47dc8621548b5a5d42c158e1a2349c8d8986",
   "no_city_maps_written": true,
   "unit": "centimeters in exported metadata; meters in Blender",
-  "shop_generator_sha256": "7cf142a6f6fb684516427eb4521c82f5fce6455b4105f4ecbeb83fe3c12e7ee2",
+  "shop_generator_sha256": "bc3743a5dc1da01822e01d87b3b9785faed236743e5cd8a3988aada84ff70b3f",
   "storefront_source_sha256": "54489a2e31ec5b4db6dfd84131e7fab7c1402fc4b69f9d3fa2ef1c0db427e78c"
 }

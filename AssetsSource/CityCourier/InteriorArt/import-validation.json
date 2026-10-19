@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "asset_root": "/Game/CityCourier/Art/Interiors",
-  "started_utc": "2026-10-19T01:28:41.050342+00:00",
+  "started_utc": "2026-10-19T06:33:34.434399+00:00",
   "assets": [
     {
       "name": "SM_IF_Bed",
@@ -1112,6 +1112,313 @@
       ],
       "source_fbx_sha256": "b1d7bc0d5e39cf2321dfbdb5850e5fe8bb3976a014a01d46e43b4e556d11735d",
       "pivot_preserved": true
+    },
+    {
+      "name": "SM_IF_ShopNoodleCooking",
+      "asset": "/Game/CityCourier/Art/Interiors/SM_IF_ShopNoodleCooking.SM_IF_ShopNoodleCooking",
+      "minimum_cm": [
+        -75.00000762939453,
+        -22.500009536743164,
+        0.0
+      ],
+      "maximum_cm": [
+        74.99999237060547,
+        22.50002098083496,
+        251.0
+      ],
+      "source_minimum_cm": [
+        -74.99998807907104,
+        -22.50000387430191,
+        0.0
+      ],
+      "source_maximum_cm": [
+        75.00001192092896,
+        22.500017285346985,
+        250.99999904632568
+      ],
+      "maximum_bounds_error_cm": 1.9550323486328125e-05,
+      "triangles": 29887,
+      "source_triangles": 29919,
+      "raw_import_minimum_cm": [
+        -75.00000762939453,
+        -22.500009536743164,
+        0.0
+      ],
+      "raw_import_maximum_cm": [
+        74.99999237060547,
+        22.50002098083496,
+        251.0
+      ],
+      "axis_normalization": "FBX export adapter; canonical authored axes retained",
+      "collision_profile": "BlockAll",
+      "collision_trace": "CTF_USE_COMPLEX_AS_SIMPLE",
+      "materials": [
+        "M_IF_LaminateWhite",
+        "M_IF_MetalBrushed",
+        "M_IF_Rubber",
+        "M_IF_Ceramic",
+        "M_IF_TileGrey",
+        "M_IF_MetalDark",
+        "M_IF_AccentRed",
+        "M_IF_Carton",
+        "M_IF_PHWoodenCuttingBoard0",
+        "M_IF_PHFoodGinger010"
+      ],
+      "source_fbx_sha256": "97a6a9e0aa19bbbe980937d44b7fdca6d25907cf2f6af4782e4e07dae84bc214",
+      "pivot_preserved": true
+    },
+    {
+      "name": "SM_IF_ShopNoodleDining",
+      "asset": "/Game/CityCourier/Art/Interiors/SM_IF_ShopNoodleDining.SM_IF_ShopNoodleDining",
+      "minimum_cm": [
+        -52.499996185302734,
+        -32.49996566772461,
+        0.0
+      ],
+      "maximum_cm": [
+        52.5000114440918,
+        32.50000762939453,
+        102.10518646240234
+      ],
+      "source_minimum_cm": [
+        -52.500009536743164,
+        -32.49996602535248,
+        0.0
+      ],
+      "source_maximum_cm": [
+        52.49999761581421,
+        32.50000476837158,
+        102.10518836975098
+      ],
+      "maximum_bounds_error_cm": 1.3828277587890625e-05,
+      "triangles": 1948,
+      "source_triangles": 1948,
+      "raw_import_minimum_cm": [
+        -52.499996185302734,
+        -32.49996566772461,
+        0.0
+      ],
+      "raw_import_maximum_cm": [
+        52.5000114440918,
+        32.50000762939453,
+        102.10518646240234
+      ],
+      "axis_normalization": "FBX export adapter; canonical authored axes retained",
+      "collision_profile": "BlockAll",
+      "collision_trace": "CTF_USE_COMPLEX_AS_SIMPLE",
+      "materials": [
+        "M_IF_LaminateWhite",
+        "M_IF_MetalDark",
+        "M_IF_AccentRed",
+        "M_IF_WoodLight",
+        "M_IF_PaintGreen",
+        "M_IF_Ceramic",
+        "M_IF_WoodDark"
+      ],
+      "source_fbx_sha256": "eedf0d6cbabceaff8d200285b59771fb1bfd5fa059ef8ca02ce08d06eeb13738",
+      "pivot_preserved": true
+    },
+    {
+      "name": "SM_IF_ShopGroceryCheckout",
+      "asset": "/Game/CityCourier/Art/Interiors/SM_IF_ShopGroceryCheckout.SM_IF_ShopGroceryCheckout",
+      "minimum_cm": [
+        -74.99999237060547,
+        -22.500015258789062,
+        0.0
+      ],
+      "maximum_cm": [
+        75.00000762939453,
+        22.500003814697266,
+        139.6497039794922
+      ],
+      "source_minimum_cm": [
+        -75.00000596046448,
+        -22.50000834465027,
+        0.0
+      ],
+      "source_maximum_cm": [
+        74.99999403953552,
+        22.499996423721313,
+        139.64970111846924
+      ],
+      "maximum_bounds_error_cm": 1.3589859008789062e-05,
+      "triangles": 17996,
+      "source_triangles": 17996,
+      "raw_import_minimum_cm": [
+        -74.99999237060547,
+        -22.500015258789062,
+        0.0
+      ],
+      "raw_import_maximum_cm": [
+        75.00000762939453,
+        22.500003814697266,
+        139.6497039794922
+      ],
+      "axis_normalization": "FBX export adapter; canonical authored axes retained",
+      "collision_profile": "BlockAll",
+      "collision_trace": "CTF_USE_COMPLEX_AS_SIMPLE",
+      "materials": [
+        "M_IF_WoodLight",
+        "M_IF_LaminateWhite",
+        "M_IF_MetalDark",
+        "M_IF_Rubber",
+        "M_IF_Carton",
+        "M_IF_PHFoodApple010"
+      ],
+      "source_fbx_sha256": "8e3ab1880b84aa6f36caa2aea86af2efb2d5df71696e5fb9342dd2719173866e",
+      "pivot_preserved": true
+    },
+    {
+      "name": "SM_IF_ShopGroceryShelf",
+      "asset": "/Game/CityCourier/Art/Interiors/SM_IF_ShopGroceryShelf.SM_IF_ShopGroceryShelf",
+      "minimum_cm": [
+        -75.0,
+        -22.50000762939453,
+        0.0
+      ],
+      "maximum_cm": [
+        75.0,
+        22.49999237060547,
+        216.5
+      ],
+      "source_minimum_cm": [
+        -75.0,
+        -22.50000387430191,
+        0.0
+      ],
+      "source_maximum_cm": [
+        75.0,
+        22.499993443489075,
+        216.49999618530273
+      ],
+      "maximum_bounds_error_cm": 3.814697265625e-06,
+      "triangles": 17396,
+      "source_triangles": 17396,
+      "raw_import_minimum_cm": [
+        -75.0,
+        -22.50000762939453,
+        0.0
+      ],
+      "raw_import_maximum_cm": [
+        75.0,
+        22.49999237060547,
+        216.5
+      ],
+      "axis_normalization": "FBX export adapter; canonical authored axes retained",
+      "collision_profile": "BlockAll",
+      "collision_trace": "CTF_USE_COMPLEX_AS_SIMPLE",
+      "materials": [
+        "M_IF_MetalDark",
+        "M_IF_LaminateWhite",
+        "M_IF_AccentRed",
+        "M_IF_Ceramic",
+        "M_IF_PaintGreen",
+        "M_IF_Carton",
+        "M_IF_MetalBrushed"
+      ],
+      "source_fbx_sha256": "96dbc82a14c8991f6ba8dc834ec5beec164fbfaa3f5e7dd5b2ffe14f9496236e",
+      "pivot_preserved": true
+    },
+    {
+      "name": "SM_IF_ShopRoastDisplay",
+      "asset": "/Game/CityCourier/Art/Interiors/SM_IF_ShopRoastDisplay.SM_IF_ShopRoastDisplay",
+      "minimum_cm": [
+        -75.0,
+        -22.500051498413086,
+        0.0
+      ],
+      "maximum_cm": [
+        75.0,
+        22.4999942779541,
+        202.25
+      ],
+      "source_minimum_cm": [
+        -75.0,
+        -22.500044107437134,
+        0.0
+      ],
+      "source_maximum_cm": [
+        75.0,
+        22.499990463256836,
+        202.25000381469727
+      ],
+      "maximum_bounds_error_cm": 7.3909759521484375e-06,
+      "triangles": 33040,
+      "source_triangles": 33168,
+      "raw_import_minimum_cm": [
+        -75.0,
+        -22.500051498413086,
+        0.0
+      ],
+      "raw_import_maximum_cm": [
+        75.0,
+        22.4999942779541,
+        202.25
+      ],
+      "axis_normalization": "FBX export adapter; canonical authored axes retained",
+      "collision_profile": "BlockAll",
+      "collision_trace": "CTF_USE_COMPLEX_AS_SIMPLE",
+      "materials": [
+        "M_IF_MetalDark",
+        "M_IF_MetalBrushed",
+        "M_IF_WoodLight",
+        "M_IF_RoastSkin",
+        "M_IF_RoastChar",
+        "M_IF_Rubber",
+        "M_IF_PHWoodenCuttingBoard0"
+      ],
+      "source_fbx_sha256": "e343c111c29632ac8fc96982ace424dfd9819a1bcd2212e70ffb38d79c443236",
+      "pivot_preserved": true
+    },
+    {
+      "name": "SM_IF_ShopRoastDining",
+      "asset": "/Game/CityCourier/Art/Interiors/SM_IF_ShopRoastDining.SM_IF_ShopRoastDining",
+      "minimum_cm": [
+        -52.5000114440918,
+        -32.49997329711914,
+        0.0
+      ],
+      "maximum_cm": [
+        52.499996185302734,
+        32.49997329711914,
+        102.10518646240234
+      ],
+      "source_minimum_cm": [
+        -52.49999761581421,
+        -32.49996900558472,
+        0.0
+      ],
+      "source_maximum_cm": [
+        52.500009536743164,
+        32.49996900558472,
+        102.10518836975098
+      ],
+      "maximum_bounds_error_cm": 1.3828277587890625e-05,
+      "triangles": 1780,
+      "source_triangles": 1780,
+      "raw_import_minimum_cm": [
+        -52.5000114440918,
+        -32.49997329711914,
+        0.0
+      ],
+      "raw_import_maximum_cm": [
+        52.499996185302734,
+        32.49997329711914,
+        102.10518646240234
+      ],
+      "axis_normalization": "FBX export adapter; canonical authored axes retained",
+      "collision_profile": "BlockAll",
+      "collision_trace": "CTF_USE_COMPLEX_AS_SIMPLE",
+      "materials": [
+        "M_IF_LaminateWhite",
+        "M_IF_MetalDark",
+        "M_IF_AccentRed",
+        "M_IF_WoodLight",
+        "M_IF_Ceramic",
+        "M_IF_WoodDark"
+      ],
+      "source_fbx_sha256": "00b3c6e5a83a1462a133fe978bbad195b141b5d823e2c9ad91dee83384f03e3f",
+      "pivot_preserved": true
     }
   ],
   "materials": [
@@ -1121,11 +1428,21 @@
       "asset": "/Game/CityCourier/Art/Interiors/Materials/M_IF_Plaster.M_IF_Plaster",
       "instanced_static_meshes": true,
       "nanite_usage": true,
+      "pixel_shader_instructions": 296,
+      "uv_mode": "world_planar",
       "world_planar_tile_cm": 200.0,
-      "pixel_shader_instructions": 386,
-      "component_masks_explicit": true,
-      "scan": "painted_plaster_wall",
-      "glass_mode": null
+      "pbr_maps": {
+        "color": "External/PolyHaven/painted_plaster_wall_diff_2k.jpg",
+        "rough": "External/PolyHaven/painted_plaster_wall_rough_2k.jpg",
+        "normal": "External/PolyHaven/painted_plaster_wall_nor_gl_2k.jpg"
+      },
+      "textures": [
+        "/Game/CityCourier/Art/Interiors/Textures/T_RI_painted_plaster_wall_diff_2k.T_RI_painted_plaster_wall_diff_2k",
+        "/Game/CityCourier/Art/Interiors/Textures/T_RI_painted_plaster_wall_nor_gl_2k.T_RI_painted_plaster_wall_nor_gl_2k",
+        "/Game/CityCourier/Art/Interiors/Textures/T_RI_painted_plaster_wall_rough_2k.T_RI_painted_plaster_wall_rough_2k"
+      ],
+      "normal_strength": 0.25,
+      "procedural_skin": false
     },
     {
       "name": "M_IF_PaintGreen",
@@ -1133,11 +1450,21 @@
       "asset": "/Game/CityCourier/Art/Interiors/Materials/M_IF_PaintGreen.M_IF_PaintGreen",
       "instanced_static_meshes": true,
       "nanite_usage": true,
+      "pixel_shader_instructions": 296,
+      "uv_mode": "world_planar",
       "world_planar_tile_cm": 200.0,
-      "pixel_shader_instructions": 386,
-      "component_masks_explicit": true,
-      "scan": "painted_plaster_wall",
-      "glass_mode": null
+      "pbr_maps": {
+        "color": "External/PolyHaven/painted_plaster_wall_diff_2k.jpg",
+        "rough": "External/PolyHaven/painted_plaster_wall_rough_2k.jpg",
+        "normal": "External/PolyHaven/painted_plaster_wall_nor_gl_2k.jpg"
+      },
+      "textures": [
+        "/Game/CityCourier/Art/Interiors/Textures/T_RI_painted_plaster_wall_diff_2k.T_RI_painted_plaster_wall_diff_2k",
+        "/Game/CityCourier/Art/Interiors/Textures/T_RI_painted_plaster_wall_nor_gl_2k.T_RI_painted_plaster_wall_nor_gl_2k",
+        "/Game/CityCourier/Art/Interiors/Textures/T_RI_painted_plaster_wall_rough_2k.T_RI_painted_plaster_wall_rough_2k"
+      ],
+      "normal_strength": 0.25,
+      "procedural_skin": false
     },
     {
       "name": "M_IF_TileIvory",
@@ -1145,11 +1472,21 @@
       "asset": "/Game/CityCourier/Art/Interiors/Materials/M_IF_TileIvory.M_IF_TileIvory",
       "instanced_static_meshes": true,
       "nanite_usage": true,
-      "world_planar_tile_cm": 50.0,
-      "pixel_shader_instructions": 386,
-      "component_masks_explicit": true,
-      "scan": null,
-      "glass_mode": null
+      "pixel_shader_instructions": 296,
+      "uv_mode": "world_planar",
+      "world_planar_tile_cm": 150.0,
+      "pbr_maps": {
+        "color": "External/RealisticInteriors/tiled_floor_001/tiled_floor_001_diffuse_2k.jpg",
+        "normal": "External/RealisticInteriors/tiled_floor_001/tiled_floor_001_nor_gl_2k.jpg",
+        "rough": "External/RealisticInteriors/tiled_floor_001/tiled_floor_001_rough_2k.jpg"
+      },
+      "textures": [
+        "/Game/CityCourier/Art/Interiors/Textures/T_RI_tiled_floor_001_diffuse_2k.T_RI_tiled_floor_001_diffuse_2k",
+        "/Game/CityCourier/Art/Interiors/Textures/T_RI_tiled_floor_001_nor_gl_2k.T_RI_tiled_floor_001_nor_gl_2k",
+        "/Game/CityCourier/Art/Interiors/Textures/T_RI_tiled_floor_001_rough_2k.T_RI_tiled_floor_001_rough_2k"
+      ],
+      "normal_strength": 0.5,
+      "procedural_skin": false
     },
     {
       "name": "M_IF_TileGrey",
@@ -1157,11 +1494,21 @@
       "asset": "/Game/CityCourier/Art/Interiors/Materials/M_IF_TileGrey.M_IF_TileGrey",
       "instanced_static_meshes": true,
       "nanite_usage": true,
-      "world_planar_tile_cm": 50.0,
-      "pixel_shader_instructions": 389,
-      "component_masks_explicit": true,
-      "scan": null,
-      "glass_mode": null
+      "pixel_shader_instructions": 300,
+      "uv_mode": "world_planar",
+      "world_planar_tile_cm": 150.0,
+      "pbr_maps": {
+        "color": "External/RealisticInteriors/tiled_floor_001/tiled_floor_001_diffuse_2k.jpg",
+        "normal": "External/RealisticInteriors/tiled_floor_001/tiled_floor_001_nor_gl_2k.jpg",
+        "rough": "External/RealisticInteriors/tiled_floor_001/tiled_floor_001_rough_2k.jpg"
+      },
+      "textures": [
+        "/Game/CityCourier/Art/Interiors/Textures/T_RI_tiled_floor_001_diffuse_2k.T_RI_tiled_floor_001_diffuse_2k",
+        "/Game/CityCourier/Art/Interiors/Textures/T_RI_tiled_floor_001_nor_gl_2k.T_RI_tiled_floor_001_nor_gl_2k",
+        "/Game/CityCourier/Art/Interiors/Textures/T_RI_tiled_floor_001_rough_2k.T_RI_tiled_floor_001_rough_2k"
+      ],
+      "normal_strength": 0.65,
+      "procedural_skin": false
     },
     {
       "name": "M_IF_WoodLight",
@@ -1169,11 +1516,21 @@
       "asset": "/Game/CityCourier/Art/Interiors/Materials/M_IF_WoodLight.M_IF_WoodLight",
       "instanced_static_meshes": true,
       "nanite_usage": true,
-      "world_planar_tile_cm": 200.0,
-      "pixel_shader_instructions": 365,
-      "component_masks_explicit": true,
-      "scan": null,
-      "glass_mode": null
+      "pixel_shader_instructions": 294,
+      "uv_mode": "world_planar",
+      "world_planar_tile_cm": 120.0,
+      "pbr_maps": {
+        "color": "External/RealisticInteriors/wood_table_001/wood_table_001_diff_2k.jpg",
+        "normal": "External/RealisticInteriors/wood_table_001/wood_table_001_nor_gl_2k.jpg",
+        "rough": "External/RealisticInteriors/wood_table_001/wood_table_001_rough_2k.jpg"
+      },
+      "textures": [
+        "/Game/CityCourier/Art/Interiors/Textures/T_RI_wood_table_001_diff_2k.T_RI_wood_table_001_diff_2k",
+        "/Game/CityCourier/Art/Interiors/Textures/T_RI_wood_table_001_nor_gl_2k.T_RI_wood_table_001_nor_gl_2k",
+        "/Game/CityCourier/Art/Interiors/Textures/T_RI_wood_table_001_rough_2k.T_RI_wood_table_001_rough_2k"
+      ],
+      "normal_strength": 0.5,
+      "procedural_skin": false
     },
     {
       "name": "M_IF_WoodDark",
@@ -1181,11 +1538,21 @@
       "asset": "/Game/CityCourier/Art/Interiors/Materials/M_IF_WoodDark.M_IF_WoodDark",
       "instanced_static_meshes": true,
       "nanite_usage": true,
-      "world_planar_tile_cm": 200.0,
-      "pixel_shader_instructions": 365,
-      "component_masks_explicit": true,
-      "scan": null,
-      "glass_mode": null
+      "pixel_shader_instructions": 296,
+      "uv_mode": "world_planar",
+      "world_planar_tile_cm": 120.0,
+      "pbr_maps": {
+        "color": "External/RealisticInteriors/wood_table_001/wood_table_001_diff_2k.jpg",
+        "normal": "External/RealisticInteriors/wood_table_001/wood_table_001_nor_gl_2k.jpg",
+        "rough": "External/RealisticInteriors/wood_table_001/wood_table_001_rough_2k.jpg"
+      },
+      "textures": [
+        "/Game/CityCourier/Art/Interiors/Textures/T_RI_wood_table_001_diff_2k.T_RI_wood_table_001_diff_2k",
+        "/Game/CityCourier/Art/Interiors/Textures/T_RI_wood_table_001_nor_gl_2k.T_RI_wood_table_001_nor_gl_2k",
+        "/Game/CityCourier/Art/Interiors/Textures/T_RI_wood_table_001_rough_2k.T_RI_wood_table_001_rough_2k"
+      ],
+      "normal_strength": 0.5,
+      "procedural_skin": false
     },
     {
       "name": "M_IF_LaminateWhite",
@@ -1205,11 +1572,23 @@
       "asset": "/Game/CityCourier/Art/Interiors/Materials/M_IF_MetalBrushed.M_IF_MetalBrushed",
       "instanced_static_meshes": true,
       "nanite_usage": true,
-      "world_planar_tile_cm": 200.0,
-      "pixel_shader_instructions": 353,
-      "component_masks_explicit": true,
-      "scan": null,
-      "glass_mode": null
+      "pixel_shader_instructions": 299,
+      "uv_mode": "world_planar",
+      "world_planar_tile_cm": 80.0,
+      "pbr_maps": {
+        "color": "External/RealisticInteriors/Metal009/Metal009_2K-JPG_Color.jpg",
+        "normal": "External/RealisticInteriors/Metal009/Metal009_2K-JPG_NormalGL.jpg",
+        "rough": "External/RealisticInteriors/Metal009/Metal009_2K-JPG_Roughness.jpg",
+        "metal": "External/RealisticInteriors/Metal009/Metal009_2K-JPG_Metalness.jpg"
+      },
+      "textures": [
+        "/Game/CityCourier/Art/Interiors/Textures/T_RI_Metal009_2K-JPG_Color.T_RI_Metal009_2K-JPG_Color",
+        "/Game/CityCourier/Art/Interiors/Textures/T_RI_Metal009_2K-JPG_Metalness.T_RI_Metal009_2K-JPG_Metalness",
+        "/Game/CityCourier/Art/Interiors/Textures/T_RI_Metal009_2K-JPG_NormalGL.T_RI_Metal009_2K-JPG_NormalGL",
+        "/Game/CityCourier/Art/Interiors/Textures/T_RI_Metal009_2K-JPG_Roughness.T_RI_Metal009_2K-JPG_Roughness"
+      ],
+      "normal_strength": 0.35,
+      "procedural_skin": false
     },
     {
       "name": "M_IF_MetalDark",
@@ -1354,31 +1733,258 @@
       "component_masks_explicit": true,
       "scan": null,
       "glass_mode": null
+    },
+    {
+      "name": "M_IF_PHWoodenCuttingBoard0",
+      "kind": "plain",
+      "asset": "/Game/CityCourier/Art/Interiors/Materials/M_IF_PHWoodenCuttingBoard0.M_IF_PHWoodenCuttingBoard0",
+      "instanced_static_meshes": true,
+      "nanite_usage": true,
+      "pixel_shader_instructions": 287,
+      "uv_mode": "authored",
+      "world_planar_tile_cm": 100.0,
+      "pbr_maps": {
+        "color": "External/RealisticInteriors/wooden_cutting_board/textures/wooden_cutting_board_diff_1k.jpg",
+        "normal": "External/RealisticInteriors/wooden_cutting_board/textures/wooden_cutting_board_nor_gl_1k.jpg",
+        "arm": "External/RealisticInteriors/wooden_cutting_board/textures/wooden_cutting_board_arm_1k.jpg"
+      },
+      "textures": [
+        "/Game/CityCourier/Art/Interiors/Textures/T_RI_wooden_cutting_board_arm_1k.T_RI_wooden_cutting_board_arm_1k",
+        "/Game/CityCourier/Art/Interiors/Textures/T_RI_wooden_cutting_board_diff_1k.T_RI_wooden_cutting_board_diff_1k",
+        "/Game/CityCourier/Art/Interiors/Textures/T_RI_wooden_cutting_board_nor_gl_1k.T_RI_wooden_cutting_board_nor_gl_1k"
+      ],
+      "normal_strength": 1,
+      "procedural_skin": false
+    },
+    {
+      "name": "M_IF_RoastSkin",
+      "kind": "plain",
+      "asset": "/Game/CityCourier/Art/Interiors/Materials/M_IF_RoastSkin.M_IF_RoastSkin",
+      "instanced_static_meshes": true,
+      "nanite_usage": true,
+      "pixel_shader_instructions": 613,
+      "uv_mode": "world_planar",
+      "world_planar_tile_cm": 40.0,
+      "pbr_maps": {},
+      "textures": [],
+      "normal_strength": null,
+      "procedural_skin": true
+    },
+    {
+      "name": "M_IF_RoastChar",
+      "kind": "plain",
+      "asset": "/Game/CityCourier/Art/Interiors/Materials/M_IF_RoastChar.M_IF_RoastChar",
+      "instanced_static_meshes": true,
+      "nanite_usage": true,
+      "world_planar_tile_cm": 40.0,
+      "pixel_shader_instructions": 355,
+      "component_masks_explicit": true,
+      "scan": null,
+      "glass_mode": null
+    },
+    {
+      "name": "M_IF_PHFoodApple010",
+      "kind": "plain",
+      "asset": "/Game/CityCourier/Art/Interiors/Materials/M_IF_PHFoodApple010.M_IF_PHFoodApple010",
+      "instanced_static_meshes": true,
+      "nanite_usage": true,
+      "pixel_shader_instructions": 286,
+      "uv_mode": "authored",
+      "world_planar_tile_cm": 100.0,
+      "pbr_maps": {
+        "color": "External/RealisticInteriors/food_apple_01/textures/food_apple_01_diff_1k.jpg",
+        "normal": "External/RealisticInteriors/food_apple_01/textures/food_apple_01_nor_gl_1k.jpg",
+        "arm": "External/RealisticInteriors/food_apple_01/textures/food_apple_01_rough_1k.jpg"
+      },
+      "textures": [
+        "/Game/CityCourier/Art/Interiors/Textures/T_RI_food_apple_01_diff_1k.T_RI_food_apple_01_diff_1k",
+        "/Game/CityCourier/Art/Interiors/Textures/T_RI_food_apple_01_nor_gl_1k.T_RI_food_apple_01_nor_gl_1k",
+        "/Game/CityCourier/Art/Interiors/Textures/T_RI_food_apple_01_rough_1k.T_RI_food_apple_01_rough_1k"
+      ],
+      "normal_strength": 1,
+      "procedural_skin": false
+    },
+    {
+      "name": "M_IF_PHFoodGinger010",
+      "kind": "plain",
+      "asset": "/Game/CityCourier/Art/Interiors/Materials/M_IF_PHFoodGinger010.M_IF_PHFoodGinger010",
+      "instanced_static_meshes": true,
+      "nanite_usage": true,
+      "pixel_shader_instructions": 286,
+      "uv_mode": "authored",
+      "world_planar_tile_cm": 100.0,
+      "pbr_maps": {
+        "color": "External/RealisticInteriors/food_ginger_01/textures/food_ginger_01_diff_1k.jpg",
+        "normal": "External/RealisticInteriors/food_ginger_01/textures/food_ginger_01_nor_gl_1k.jpg",
+        "arm": "External/RealisticInteriors/food_ginger_01/textures/food_ginger_01_rough_1k.jpg"
+      },
+      "textures": [
+        "/Game/CityCourier/Art/Interiors/Textures/T_RI_food_ginger_01_diff_1k.T_RI_food_ginger_01_diff_1k",
+        "/Game/CityCourier/Art/Interiors/Textures/T_RI_food_ginger_01_nor_gl_1k.T_RI_food_ginger_01_nor_gl_1k",
+        "/Game/CityCourier/Art/Interiors/Textures/T_RI_food_ginger_01_rough_1k.T_RI_food_ginger_01_rough_1k"
+      ],
+      "normal_strength": 1,
+      "procedural_skin": false
     }
   ],
   "textures": [
     {
-      "asset": "/Game/CityCourier/Art/Interiors/Textures/T_IF_painted_plaster_wall_diff_2k.T_IF_painted_plaster_wall_diff_2k",
+      "asset": "/Game/CityCourier/Art/Interiors/Textures/T_RI_painted_plaster_wall_diff_2k.T_RI_painted_plaster_wall_diff_2k",
       "source": "External/PolyHaven/painted_plaster_wall_diff_2k.jpg",
       "source_sha256": "6fd812ed8dd5be1873c29aeef38ce9bf1fb30a22c6d4b3a12db725e98c26a1be",
       "srgb": true,
       "flip_green_channel": false
     },
     {
-      "asset": "/Game/CityCourier/Art/Interiors/Textures/T_IF_painted_plaster_wall_rough_2k.T_IF_painted_plaster_wall_rough_2k",
+      "asset": "/Game/CityCourier/Art/Interiors/Textures/T_RI_painted_plaster_wall_rough_2k.T_RI_painted_plaster_wall_rough_2k",
       "source": "External/PolyHaven/painted_plaster_wall_rough_2k.jpg",
       "source_sha256": "35aad595469533cc3b7cc209cc6c7e065d660211f02c867f4492d3b371b1fee1",
       "srgb": false,
       "flip_green_channel": false
     },
     {
-      "asset": "/Game/CityCourier/Art/Interiors/Textures/T_IF_painted_plaster_wall_nor_gl_2k.T_IF_painted_plaster_wall_nor_gl_2k",
+      "asset": "/Game/CityCourier/Art/Interiors/Textures/T_RI_painted_plaster_wall_nor_gl_2k.T_RI_painted_plaster_wall_nor_gl_2k",
       "source": "External/PolyHaven/painted_plaster_wall_nor_gl_2k.jpg",
       "source_sha256": "2d601a46ed5ce2af866741c53cafa3cba472620c272e633b6484d4de16a80eb1",
       "srgb": false,
       "flip_green_channel": true
+    },
+    {
+      "asset": "/Game/CityCourier/Art/Interiors/Textures/T_RI_tiled_floor_001_diffuse_2k.T_RI_tiled_floor_001_diffuse_2k",
+      "source": "External/RealisticInteriors/tiled_floor_001/tiled_floor_001_diffuse_2k.jpg",
+      "source_sha256": "7894d75e30480ec6770dfc00e2710c4c6acbb594922799f31712a4020698dee0",
+      "srgb": true,
+      "flip_green_channel": false
+    },
+    {
+      "asset": "/Game/CityCourier/Art/Interiors/Textures/T_RI_tiled_floor_001_rough_2k.T_RI_tiled_floor_001_rough_2k",
+      "source": "External/RealisticInteriors/tiled_floor_001/tiled_floor_001_rough_2k.jpg",
+      "source_sha256": "a0d28f099721c4b51be6765fc9921813781e21f9b9dc3e1c8669889394fd9f9f",
+      "srgb": false,
+      "flip_green_channel": false
+    },
+    {
+      "asset": "/Game/CityCourier/Art/Interiors/Textures/T_RI_tiled_floor_001_nor_gl_2k.T_RI_tiled_floor_001_nor_gl_2k",
+      "source": "External/RealisticInteriors/tiled_floor_001/tiled_floor_001_nor_gl_2k.jpg",
+      "source_sha256": "08fa921e453a168765231e8a9b3487fc9b9ec6620375d1bdfb0fa94b0f8c0e1b",
+      "srgb": false,
+      "flip_green_channel": true
+    },
+    {
+      "asset": "/Game/CityCourier/Art/Interiors/Textures/T_RI_wood_table_001_diff_2k.T_RI_wood_table_001_diff_2k",
+      "source": "External/RealisticInteriors/wood_table_001/wood_table_001_diff_2k.jpg",
+      "source_sha256": "63ae5cd186197b40f18bc020fe2b652bb08df4d9fc6240c6cbf8a7e3bc32c096",
+      "srgb": true,
+      "flip_green_channel": false
+    },
+    {
+      "asset": "/Game/CityCourier/Art/Interiors/Textures/T_RI_wood_table_001_rough_2k.T_RI_wood_table_001_rough_2k",
+      "source": "External/RealisticInteriors/wood_table_001/wood_table_001_rough_2k.jpg",
+      "source_sha256": "c788876d80e4d96598590631f8de92447fb1b0ba1265a812514ee717d270ac3e",
+      "srgb": false,
+      "flip_green_channel": false
+    },
+    {
+      "asset": "/Game/CityCourier/Art/Interiors/Textures/T_RI_wood_table_001_nor_gl_2k.T_RI_wood_table_001_nor_gl_2k",
+      "source": "External/RealisticInteriors/wood_table_001/wood_table_001_nor_gl_2k.jpg",
+      "source_sha256": "d56f02c911391267ddc6adc92e8a5bc29b9803196e8d57ad5b9702e6c842dc28",
+      "srgb": false,
+      "flip_green_channel": true
+    },
+    {
+      "asset": "/Game/CityCourier/Art/Interiors/Textures/T_RI_Metal009_2K-JPG_Color.T_RI_Metal009_2K-JPG_Color",
+      "source": "External/RealisticInteriors/Metal009/Metal009_2K-JPG_Color.jpg",
+      "source_sha256": "209d3bb050be9f58c5af179d9712fa7799567a4cd50afd338d37674bdcff765b",
+      "srgb": true,
+      "flip_green_channel": false
+    },
+    {
+      "asset": "/Game/CityCourier/Art/Interiors/Textures/T_RI_Metal009_2K-JPG_Roughness.T_RI_Metal009_2K-JPG_Roughness",
+      "source": "External/RealisticInteriors/Metal009/Metal009_2K-JPG_Roughness.jpg",
+      "source_sha256": "e802f013b93cb1bd4b55cd91f02a1863233475a7f8bd0e6755cfaa447a729674",
+      "srgb": false,
+      "flip_green_channel": false
+    },
+    {
+      "asset": "/Game/CityCourier/Art/Interiors/Textures/T_RI_Metal009_2K-JPG_Metalness.T_RI_Metal009_2K-JPG_Metalness",
+      "source": "External/RealisticInteriors/Metal009/Metal009_2K-JPG_Metalness.jpg",
+      "source_sha256": "b65d6b9091747bd81ee58adedcb6209d8ee21b2bde9298d7216989ada85ef622",
+      "srgb": false,
+      "flip_green_channel": false
+    },
+    {
+      "asset": "/Game/CityCourier/Art/Interiors/Textures/T_RI_Metal009_2K-JPG_NormalGL.T_RI_Metal009_2K-JPG_NormalGL",
+      "source": "External/RealisticInteriors/Metal009/Metal009_2K-JPG_NormalGL.jpg",
+      "source_sha256": "8773d9e97a4b057ced3e538d8ecc6069d27c8948191d61daf79b9ad93d93e3b3",
+      "srgb": false,
+      "flip_green_channel": true
+    },
+    {
+      "asset": "/Game/CityCourier/Art/Interiors/Textures/T_RI_food_apple_01_diff_1k.T_RI_food_apple_01_diff_1k",
+      "source": "External/RealisticInteriors/food_apple_01/textures/food_apple_01_diff_1k.jpg",
+      "source_sha256": "b7fc17cfb5013958167bbc089ea4d1c193fb1c61ea4f3c974a9894ed9ba82e8a",
+      "srgb": true,
+      "flip_green_channel": false
+    },
+    {
+      "asset": "/Game/CityCourier/Art/Interiors/Textures/T_RI_food_apple_01_rough_1k.T_RI_food_apple_01_rough_1k",
+      "source": "External/RealisticInteriors/food_apple_01/textures/food_apple_01_rough_1k.jpg",
+      "source_sha256": "2e5a503af38df7b570b0e81cc9563125f0913b466e01140d4e24ea5ebdbec587",
+      "srgb": false,
+      "flip_green_channel": false
+    },
+    {
+      "asset": "/Game/CityCourier/Art/Interiors/Textures/T_RI_food_apple_01_nor_gl_1k.T_RI_food_apple_01_nor_gl_1k",
+      "source": "External/RealisticInteriors/food_apple_01/textures/food_apple_01_nor_gl_1k.jpg",
+      "source_sha256": "c81b1e51ce7e789b65bfde2f046dcb5ba5773b5c6be3e572313be0600c51721b",
+      "srgb": false,
+      "flip_green_channel": true
+    },
+    {
+      "asset": "/Game/CityCourier/Art/Interiors/Textures/T_RI_food_ginger_01_diff_1k.T_RI_food_ginger_01_diff_1k",
+      "source": "External/RealisticInteriors/food_ginger_01/textures/food_ginger_01_diff_1k.jpg",
+      "source_sha256": "3f2117a9f5718a797bcbb22557cad1599ffb6eec50232b71ee4be3c7cf304890",
+      "srgb": true,
+      "flip_green_channel": false
+    },
+    {
+      "asset": "/Game/CityCourier/Art/Interiors/Textures/T_RI_food_ginger_01_rough_1k.T_RI_food_ginger_01_rough_1k",
+      "source": "External/RealisticInteriors/food_ginger_01/textures/food_ginger_01_rough_1k.jpg",
+      "source_sha256": "19eba8b9048838849a4cb033d83b43efcaaf45bff14364285fa19b0c9aa12951",
+      "srgb": false,
+      "flip_green_channel": false
+    },
+    {
+      "asset": "/Game/CityCourier/Art/Interiors/Textures/T_RI_food_ginger_01_nor_gl_1k.T_RI_food_ginger_01_nor_gl_1k",
+      "source": "External/RealisticInteriors/food_ginger_01/textures/food_ginger_01_nor_gl_1k.jpg",
+      "source_sha256": "0bcef5efbb8c14fe758278a42713dfd6a5cc25c5eaaaffa9ff594fcaee0a5910",
+      "srgb": false,
+      "flip_green_channel": true
+    },
+    {
+      "asset": "/Game/CityCourier/Art/Interiors/Textures/T_RI_wooden_cutting_board_diff_1k.T_RI_wooden_cutting_board_diff_1k",
+      "source": "External/RealisticInteriors/wooden_cutting_board/textures/wooden_cutting_board_diff_1k.jpg",
+      "source_sha256": "79274fb86cc7f62363e4448b4597f06933d640a79c746ff6f823d2e4e27ad143",
+      "srgb": true,
+      "flip_green_channel": false
+    },
+    {
+      "asset": "/Game/CityCourier/Art/Interiors/Textures/T_RI_wooden_cutting_board_arm_1k.T_RI_wooden_cutting_board_arm_1k",
+      "source": "External/RealisticInteriors/wooden_cutting_board/textures/wooden_cutting_board_arm_1k.jpg",
+      "source_sha256": "f35dec51ff94e279a9d43a4ee64b75235cc3d6701107ae22a1eea797e3d236d3",
+      "srgb": false,
+      "flip_green_channel": false
+    },
+    {
+      "asset": "/Game/CityCourier/Art/Interiors/Textures/T_RI_wooden_cutting_board_nor_gl_1k.T_RI_wooden_cutting_board_nor_gl_1k",
+      "source": "External/RealisticInteriors/wooden_cutting_board/textures/wooden_cutting_board_nor_gl_1k.jpg",
+      "source_sha256": "b123d7ca0d0be01a31686240c925e85a1d2499172586f119482924b06b0b0c93",
+      "srgb": false,
+      "flip_green_channel": true
     }
   ],
+  "reused_verified_palette": true,
+  "status": "passed",
   "protected_before_sha256": {
     "AssetsSource/CityCourier/Interiors/asset-manifest.json": "42ba588a1595a3321e12d37dcf8fd6405110120ee7df5508ac2e1aab09aee2b9",
     "AssetsSource/CityCourier/Interiors/inventory.json": "e32efe7e16c831681ae244bda638ad228d7eb93e35afa4eccb0bdf68ca9f9224",
@@ -1405,6 +2011,7 @@
     "Content/CityCourier/Art/Buildings/Materials/M_Plaster.uasset": "32cadb76790c9e3cec18c30c7e83924294b3a3767c4a5074382f60c2d74ea640",
     "Content/CityCourier/Art/Buildings/Materials/M_Recess.uasset": "ef23dc14b67d537269b51eaad89c9f7485bcafd0d93cc69ec81b9c92e6c907d5",
     "Content/CityCourier/Art/Buildings/Materials/M_Rubber.uasset": "9f29e2a45c39bd82761d452a83323423b8c0ccc4c0cf1172b4671584a8740c12",
+    "Content/CityCourier/Art/Buildings/Materials/M_ShopGlass.uasset": "81366e019d33699226be97edd60cb6cf050f60636f5e1f4a3755f6e335e68100",
     "Content/CityCourier/Art/Buildings/Materials/M_SignGreen.uasset": "068173bed72ddf2e6dc4af829bd0879d9877d9c557c3527692ad29fbbf6a3ab7",
     "Content/CityCourier/Art/Buildings/Materials/M_SignRed.uasset": "766226cbc1f723a57590f3542b5045ca2b531aaee71d376e5d3235ba534d421b",
     "Content/CityCourier/Art/Buildings/Materials/M_WindowGlass.uasset": "124468b0e1fccc546c0f06bcaebccd965ab12aec7a4dfa122a3d78769ccd2c7a",
@@ -1423,19 +2030,19 @@
     "Content/CityCourier/Art/Buildings/SM_InteriorSofa.uasset": "6d232082d88d69b4d99078418049c9c8803060f2a4e29f494fbcde31f3273ee7",
     "Content/CityCourier/Art/Buildings/SM_InteriorToilet.uasset": "6a8749ef71749e306f3674236a547e1140be62e1004653633ea8ff4e6b539280",
     "Content/CityCourier/Art/Characters/A_HeavyPunch_R.uasset": "d5c9ff12497ef5db6c80377978ad61e98002f4d4ed620173ba0531d734ab0aaa",
-    "Content/CityCourier/Art/Characters/A_HitReact_Back.uasset": "99155ce689a444a2b48ee6cafbe8a3a7f7f5b5ada3d61a88475328d425d661b1",
-    "Content/CityCourier/Art/Characters/A_HitReact_Front.uasset": "9c3a0b135dfd4ef5a6fca786125ea1915fff328e3dabf652d40bc74938d19f04",
+    "Content/CityCourier/Art/Characters/A_HitReact_Back.uasset": "d47c3f6ae1eba89d1290d8a106a690607f8bf9617935ae0fa734e20936d870df",
+    "Content/CityCourier/Art/Characters/A_HitReact_Front.uasset": "bc4bfa5bd85679f600c658bebd8e526f748270f2bcbf5c99dc13de699e9111c4",
     "Content/CityCourier/Art/Characters/A_Idle.uasset": "2da6714183855fbfe2a0bc8403fa46bcfa9cf9ad57af8e1714768c2f418b4a7c",
     "Content/CityCourier/Art/Characters/A_Jog.uasset": "6605cf7040b3875e47e85ecab2f96fc1d6ad95559b0d4f94dd783b4f62aa5576",
-    "Content/CityCourier/Art/Characters/A_JumpLoop.uasset": "da24320ae6d73bf8730f69197c13c21bd7c3fbe44bda2e7352f07c4a5754e12f",
-    "Content/CityCourier/Art/Characters/A_JumpStart.uasset": "56890fb8a4b703a3994e6d1a528cf27a10050903dc79690b0d44555ee20c6867",
-    "Content/CityCourier/Art/Characters/A_Land.uasset": "2d3849eee4dc3e5e9fde0ea66e6f29b4d3873a1c0fca0234b37b27c6b9f742fa",
+    "Content/CityCourier/Art/Characters/A_JumpLoop.uasset": "ddc9ecb52e792814a000e6a6d30e82293de71db16f53dcfc8ef09bd0c104dc9b",
+    "Content/CityCourier/Art/Characters/A_JumpStart.uasset": "74539f0ec94de3b5f03551072f18b7c0cbadf96f69f03e7fd0f61086e6873dfb",
+    "Content/CityCourier/Art/Characters/A_Land.uasset": "98f5b8e0822d759a523e8f61cca66d35e7232d34fbb55ea1e4ee16869219ce45",
     "Content/CityCourier/Art/Characters/A_LightPunch_L.uasset": "b03da5bfd9588379a9debfe6aa15ab8ceeda62c45c8666045648c69fc30559c4",
     "Content/CityCourier/Art/Characters/A_LightPunch_R.uasset": "6fbf462f2fd9431aa045c8caeeece361703f843cce14c8af9bab833f33e7a8ea",
     "Content/CityCourier/Art/Characters/A_Ride.uasset": "6ef51a5611b880e1a1aa127b87014340b9a810801d6b2825f8a67d1ae0ebbeaa",
     "Content/CityCourier/Art/Characters/A_Run.uasset": "2bcfc3001c81fe9e96f6785198e53b9a4f77706aca654b8b2fbec4766bb96460",
-    "Content/CityCourier/Art/Characters/A_RunStart.uasset": "6c8e978973e5eeb79b7d14fbf84911731e4824c7250d1f89c6daa787c37366fc",
-    "Content/CityCourier/Art/Characters/A_RunStop.uasset": "4eaa6d3bf0af412a56b1ca69b43ed8dd7cf8c6d0fb13ed074d149e292cc88194",
+    "Content/CityCourier/Art/Characters/A_RunStart.uasset": "a6709881a91cf9409955c5ba7158751f8eb794c72d8becef74170f696c9876c2",
+    "Content/CityCourier/Art/Characters/A_RunStop.uasset": "ecfc20def200cd4b01f8f96fd72d6b1895190ad7a8c0a7fe173d4cd1e023c3ee",
     "Content/CityCourier/Art/Characters/A_Sprint.uasset": "acbcbcde2d7abfea337543c74a0c49c73faf4a4a4f39bd6590b3740d227dd720",
     "Content/CityCourier/Art/Characters/A_Walk.uasset": "58c89d431c03aefac335fff3be5d2658465b07e252084e550f4bb06912b8c182",
     "Content/CityCourier/Art/Characters/SK_Courier.uasset": "d3457137cdd29cefe5793ba57727dc3519db5be3dd018e6587cb35cb3a8a08fd",
@@ -1657,11 +2264,11 @@
     "Content/CityCourier/Blueprints/BP_CourierCharacter.uasset": "1a170d252b73fcce14501cacb0d531b098e2a071b412494170aa5322e943898c",
     "Content/CityCourier/Blueprints/BP_CourierGameMode.uasset": "5598755fe869a69a06d99bbb4f9849db186f4b320cbb7f41c8f494a827745c91",
     "Content/CityCourier/Blueprints/BP_Scooter.uasset": "a282f913b48ecd99ce485cc85b5fed7a386f844a4711d1030db2549e445e9124",
-    "Content/CityCourier/Data/Buildings/DA_Buildings.uasset": "9c405dbca04a07f54e45cd56a7511fbcf025b6a92b67f316a95f9384b7a1605d",
+    "Content/CityCourier/Data/Buildings/DA_Buildings.uasset": "41e39268562532d2d0e949505bb6a49cbe3a87a3e91481c9f8233d287c2b2f31",
     "Content/CityCourier/Data/DA_CityDefinition.uasset": "6b95076cf44221f912cb1269658878281eed5b5c842a4d0adab8fc1a8bc4cfee",
     "Content/CityCourier/Maps/L_CharacterProbe.umap": "1429c3d6fb99e45d21b2474c1a6988b9b90899766e04b5829a812d87c2ee191a",
-    "Content/CityCourier/Maps/L_CourierArtPreview.umap": "801050d1b8fae035ccb93045f3ac9887725d3b659c559e06ba3de9f7fe023b4f",
-    "Content/CityCourier/Maps/L_CourierCity.umap": "6fb7ff00ff77c81fc0839e33f339cfdcbc9c992a376654a10e623fe58f394e0d",
+    "Content/CityCourier/Maps/L_CourierArtPreview.umap": "af2260ebac46f0449303abb704a1c7ea4599d09b537531aba1db1a351ac2a371",
+    "Content/CityCourier/Maps/L_CourierCity.umap": "9b1a50609f552949611440d24b397ff242112db412ee8232a487f72e2e1bfabf",
     "Content/CityCourier/Maps/L_MovementTest.umap": "bfce6573337d451435699da54fde72d44b5834df965939cb576600e78616c5f6",
     "Source/CityCourier/Ambient/AmbientPedestrian.cpp": "125f6d49fca175e4901294bdaf47dff0a6e76a00bc8da626cd47934b74d32e34",
     "Source/CityCourier/Ambient/AmbientPedestrian.h": "148a3ecc8eee05d346145e93bcf64a4a9f55f0a39e00557ecd5fd4c29f38a4b0",
@@ -1675,17 +2282,19 @@
     "Source/CityCourier/Art/CourierArtCharacter.h": "76e3ca1f9d30b5d526fd3a479fdea7787a28569a9f5c5ae684cc5da1c5520f25",
     "Source/CityCourier/Art/ScooterArtPawn.cpp": "21503f9c85ec9c309265a1fa53a7163ff5bfcd29c9c99f284f96f9a65e86df32",
     "Source/CityCourier/Art/ScooterArtPawn.h": "43758819b8fe78b3c44b34af7111fb23452e1458b642b99c3d699f1851f0f226",
-    "Source/CityCourier/Buildings/CourierBuildingActor.cpp": "e6ee01e602167b764d4fc606ed408edfc28744df7c6b4472d7b1bfb07568513b",
-    "Source/CityCourier/Buildings/CourierBuildingActor.h": "49bb16ca1f78d824137e97c261898e82be727e95ef8bf0207be446d08be9783e",
+    "Source/CityCourier/Buildings/CourierBuildingActor.cpp": "cdc317f9b6ed494a70d4a740424692c35e56d30a11863ce9272ad97ff2ca1eed",
+    "Source/CityCourier/Buildings/CourierBuildingActor.h": "46461f3bd2be247f874de981f574020556d7a78755ec823d2b2a2f55f77b3844",
     "Source/CityCourier/Buildings/CourierBuildingDefinition.cpp": "c6396a958b7418d5056fc6f1bec098d8c5056343b500b4c7b9d95c93dd4a6119",
     "Source/CityCourier/Buildings/CourierBuildingDefinition.h": "5905409af0d5809735e4dc8af09ce1188552ab56143334df3e813e54bb48ada0",
     "Source/CityCourier/Buildings/CourierBuildingResidency.cpp": "b095fe909b3a12f13419952711223e80428a384fb54a26de6a2daace48517655",
     "Source/CityCourier/Buildings/CourierBuildingResidency.h": "ede7268c03e72301d1146546247cd97c47d09d2b5c83d8911f9d812985603b46",
-    "Source/CityCourier/Buildings/CourierBuildingSubsystem.cpp": "2e8c28c855371207a7db9ded83c663eea3e424ca1e2dd43893c300d1dae1388b",
+    "Source/CityCourier/Buildings/CourierBuildingSubsystem.cpp": "acd1d5c7aa9115df40ca103212376e739ce4aa46fde08f3b1f2804525b53a769",
     "Source/CityCourier/Buildings/CourierBuildingSubsystem.h": "350e1d89abc5e3d3ba63f91dd9d1562dae8e8a2f69d5e7c6713182b9e3e4c406",
-    "Source/CityCourier/Buildings/CourierBuildingTraversal.cpp": "5c2cedc8f8d15a4eb50966bff7c535083423950f889461c29ba1e227e01c09ca",
-    "Source/CityCourier/Buildings/CourierDoor.cpp": "2b43ad1d46683ac567beb71439a0b152ad91fe3955dd826cd010ac408c829baa",
+    "Source/CityCourier/Buildings/CourierBuildingTraversal.cpp": "02d5db679ddc200b6a87a97715bc53b4a3f25e888cab479b6bd81eb35a59da67",
+    "Source/CityCourier/Buildings/CourierDoor.cpp": "ed9f6d2ecbb88ca0f2ee6e8f556e648a776a8a6421b1fcccd4b3e97ebea72dd8",
     "Source/CityCourier/Buildings/CourierDoor.h": "958470517105e5ec39e259afb5f48d73e07eefc3f28faae40967f2384b6cf928",
+    "Source/CityCourier/Buildings/CourierInteriorFinish.cpp": "cba1dac28760252f053caad98af90e1c76bd708073b7c93b0e0cbb2e020bd286",
+    "Source/CityCourier/Buildings/CourierInteriorFinish.h": "85a77295144ffa0ede10a5dc20f8cc9c0c235d01a1e4a41f391419300af6864e",
     "Source/CityCourier/Buildings/CourierInteriorRouting.cpp": "ca80e77d68f8f26a9e20b1f78f170c60bf99434ebd367a26d0b1d1853d19e45d",
     "Source/CityCourier/Buildings/CourierInteriorRouting.h": "dbac64d1e7e0a1b170f955972183e5cdf626cc7328eb95b83ac62a3f3ab7bab1",
     "Source/CityCourier/CityCourier.Build.cs": "7ba1eb5cf851e4ec87e66984b5a8f1c6e4ee90a24942cd7fdaf0f948691a9127",
@@ -1737,7 +2346,7 @@
     "Source/CityCourier/Tests/BuildingJourneyTests.cpp": "ca7bae4e52d210d116594dfb0951f176f5dfe838e67c194acada9390bd33a604",
     "Source/CityCourier/Tests/BuildingProductionTests.cpp": "ee07499d64dc239be2fc78a5a6ed9641ca32530804f8ffdc7835cbbd566fad37",
     "Source/CityCourier/Tests/BuildingRulesTests.cpp": "3069120ccc378225a7b77ab84d89be8346228f2b66dc5bd88c2652816901f9ba",
-    "Source/CityCourier/Tests/BuildingRuntimeTests.cpp": "0007c37ee0e32751e78bb8bde8cd72c21ca32da85aa7e901f0f4503037f50f92",
+    "Source/CityCourier/Tests/BuildingRuntimeTests.cpp": "6de8bb0e9e66c02b375cc78f5a41fce515beea28be5182f328f83294816c85e8",
     "Source/CityCourier/Tests/BuildingTraversalTests.cpp": "2234f73beee3bc932591163f204e7be4cd26d9acce4fa30339bc4a2e5602cba6",
     "Source/CityCourier/Tests/CharacterActionContactTests.cpp": "16d3939a8a78520d845320850e37f4d6b7136f532af506183454476ae1cfd640",
     "Source/CityCourier/Tests/CharacterActionTimelineTests.cpp": "23ab49babf3e800eedd807b4ef422f0ad6a3d57736a3ac6a43cbe1816eb47f88",
@@ -1752,12 +2361,13 @@
     "Source/CityCourier/Tests/HistoryTestSupport.h": "b45b56f5777cfcfda372368530c5baf87f2469eccc534cabb3dfe9047fd82943",
     "Source/CityCourier/Tests/InputModeTests.cpp": "14929f24e22eabb7e7c98f141b8ec886929db750ea0682f13ab84480c7d36be8",
     "Source/CityCourier/Tests/InteractionTests.cpp": "f33af3cbeb709abe2bd439df56a99fa41a220b1c423cb0de4de01fb76f76b6dc",
-    "Source/CityCourier/Tests/MapProjectionTests.cpp": "373870eaf2723c5ea16a03308cd46353099d56bfe3129e5bfa1cb60ac2405595",
+    "Source/CityCourier/Tests/InteriorFinishTests.cpp": "c70cbe2ad5d9b6bb5eb3bc3b6d0e0b205d414f1d853a4e371843bb2ef979d311",
+    "Source/CityCourier/Tests/MapProjectionTests.cpp": "cdfa01f40cf213ce721dd69f655de2e907e461ee0e15264db39de5b444f40afb",
     "Source/CityCourier/Tests/NavigationModeTests.cpp": "5196e43bd65dd92c4186575630f17a9b8dcd14303bad32795da0894b528ea813",
     "Source/CityCourier/Tests/NavigationTests.cpp": "50ddccdba443502355c90668c95b8f92b2d51858b2c52b7a9f91b97469d775c5",
     "Source/CityCourier/Tests/OfferPreviewTests.cpp": "a1e3a7fd8b3cdee0c49ff1bb008fccad6bf763f85f8dd4c50ba60edef080d1f9",
     "Source/CityCourier/Tests/OrderHistoryTests.cpp": "de82459ca9191113bdd07c262ccfe7b22b0641ed6b35749324119be9ff891d05",
-    "Source/CityCourier/Tests/ProductionAnimationTests.cpp": "97186f89f26aa911f93e963cf726c4c11255f931cdb32340145857bb7e2ffb66",
+    "Source/CityCourier/Tests/ProductionAnimationTests.cpp": "62b400440d2f03e138df3c80fffc6681448bbab4f7a96d897a80a0e5df1440b4",
     "Source/CityCourier/Tests/ProfileMigrationTests.cpp": "147e4b51c077aa0738e2ae72f288d4434cfe42024744da39b0ab59a869bfe86d",
     "Source/CityCourier/Tests/ProfileRepositoryTests.cpp": "1aa859177c2328e6ff9b6d533fd36f7c01d5fdcb337392ae2dfbde75ea1028a1",
     "Source/CityCourier/Tests/ProfileTests.cpp": "291fc621190ca78189111a56a0ed6d416687401fca7179a822920e1f6b40773c",
@@ -1814,12 +2424,8 @@
     "Source/CityCourier/World/RoadGraph.h": "3ec6e7d9ba1af9deda492e416ba67fa7b94e4a3e88eafd76742e37f3c635f6cd",
     "Source/CityCourier.Target.cs": "0ca574f595074edb504b9fdf5c3719e03c937f17d1e88ecb0dbdee4e82f50c6d",
     "Source/CityCourierEditor.Target.cs": "0e3e716b554c6c9e21f21fd1e545ee512367b2aeda7a7ef3b771f3fb698f08ca",
-    "tools/interiors/layout.py": "ce0d2d222b06e1d22db7ca1bc3a35501d7be4dc733953b7e24e572d0a909d10c"
+    "tools/interiors/layout.py": "9c1146d1b5467613063c094eba408b59421c7cae47a33ee3566f7c34eb524194"
   },
-  "manifest_sha256": "f14f6112ba9566dd7b956099441f1c33660d046dc1b4de6789b637cd33f56196",
-  "palette_sha256": "cb26da24b3f56acd650c97b2e3b42e19d28c96641074b36eb362ef4b71c3c740",
-  "status": "passed",
-  "reused_verified_palette": true,
   "protected_after_sha256": {
     "AssetsSource/CityCourier/Interiors/asset-manifest.json": "42ba588a1595a3321e12d37dcf8fd6405110120ee7df5508ac2e1aab09aee2b9",
     "AssetsSource/CityCourier/Interiors/inventory.json": "e32efe7e16c831681ae244bda638ad228d7eb93e35afa4eccb0bdf68ca9f9224",
@@ -1846,6 +2452,7 @@
     "Content/CityCourier/Art/Buildings/Materials/M_Plaster.uasset": "32cadb76790c9e3cec18c30c7e83924294b3a3767c4a5074382f60c2d74ea640",
     "Content/CityCourier/Art/Buildings/Materials/M_Recess.uasset": "ef23dc14b67d537269b51eaad89c9f7485bcafd0d93cc69ec81b9c92e6c907d5",
     "Content/CityCourier/Art/Buildings/Materials/M_Rubber.uasset": "9f29e2a45c39bd82761d452a83323423b8c0ccc4c0cf1172b4671584a8740c12",
+    "Content/CityCourier/Art/Buildings/Materials/M_ShopGlass.uasset": "81366e019d33699226be97edd60cb6cf050f60636f5e1f4a3755f6e335e68100",
     "Content/CityCourier/Art/Buildings/Materials/M_SignGreen.uasset": "068173bed72ddf2e6dc4af829bd0879d9877d9c557c3527692ad29fbbf6a3ab7",
     "Content/CityCourier/Art/Buildings/Materials/M_SignRed.uasset": "766226cbc1f723a57590f3542b5045ca2b531aaee71d376e5d3235ba534d421b",
     "Content/CityCourier/Art/Buildings/Materials/M_WindowGlass.uasset": "124468b0e1fccc546c0f06bcaebccd965ab12aec7a4dfa122a3d78769ccd2c7a",
@@ -1864,19 +2471,19 @@
     "Content/CityCourier/Art/Buildings/SM_InteriorSofa.uasset": "6d232082d88d69b4d99078418049c9c8803060f2a4e29f494fbcde31f3273ee7",
     "Content/CityCourier/Art/Buildings/SM_InteriorToilet.uasset": "6a8749ef71749e306f3674236a547e1140be62e1004653633ea8ff4e6b539280",
     "Content/CityCourier/Art/Characters/A_HeavyPunch_R.uasset": "d5c9ff12497ef5db6c80377978ad61e98002f4d4ed620173ba0531d734ab0aaa",
-    "Content/CityCourier/Art/Characters/A_HitReact_Back.uasset": "99155ce689a444a2b48ee6cafbe8a3a7f7f5b5ada3d61a88475328d425d661b1",
-    "Content/CityCourier/Art/Characters/A_HitReact_Front.uasset": "9c3a0b135dfd4ef5a6fca786125ea1915fff328e3dabf652d40bc74938d19f04",
+    "Content/CityCourier/Art/Characters/A_HitReact_Back.uasset": "d47c3f6ae1eba89d1290d8a106a690607f8bf9617935ae0fa734e20936d870df",
+    "Content/CityCourier/Art/Characters/A_HitReact_Front.uasset": "bc4bfa5bd85679f600c658bebd8e526f748270f2bcbf5c99dc13de699e9111c4",
     "Content/CityCourier/Art/Characters/A_Idle.uasset": "2da6714183855fbfe2a0bc8403fa46bcfa9cf9ad57af8e1714768c2f418b4a7c",
     "Content/CityCourier/Art/Characters/A_Jog.uasset": "6605cf7040b3875e47e85ecab2f96fc1d6ad95559b0d4f94dd783b4f62aa5576",
-    "Content/CityCourier/Art/Characters/A_JumpLoop.uasset": "da24320ae6d73bf8730f69197c13c21bd7c3fbe44bda2e7352f07c4a5754e12f",
-    "Content/CityCourier/Art/Characters/A_JumpStart.uasset": "56890fb8a4b703a3994e6d1a528cf27a10050903dc79690b0d44555ee20c6867",
-    "Content/CityCourier/Art/Characters/A_Land.uasset": "2d3849eee4dc3e5e9fde0ea66e6f29b4d3873a1c0fca0234b37b27c6b9f742fa",
+    "Content/CityCourier/Art/Characters/A_JumpLoop.uasset": "ddc9ecb52e792814a000e6a6d30e82293de71db16f53dcfc8ef09bd0c104dc9b",
+    "Content/CityCourier/Art/Characters/A_JumpStart.uasset": "74539f0ec94de3b5f03551072f18b7c0cbadf96f69f03e7fd0f61086e6873dfb",
+    "Content/CityCourier/Art/Characters/A_Land.uasset": "98f5b8e0822d759a523e8f61cca66d35e7232d34fbb55ea1e4ee16869219ce45",
     "Content/CityCourier/Art/Characters/A_LightPunch_L.uasset": "b03da5bfd9588379a9debfe6aa15ab8ceeda62c45c8666045648c69fc30559c4",
     "Content/CityCourier/Art/Characters/A_LightPunch_R.uasset": "6fbf462f2fd9431aa045c8caeeece361703f843cce14c8af9bab833f33e7a8ea",
     "Content/CityCourier/Art/Characters/A_Ride.uasset": "6ef51a5611b880e1a1aa127b87014340b9a810801d6b2825f8a67d1ae0ebbeaa",
     "Content/CityCourier/Art/Characters/A_Run.uasset": "2bcfc3001c81fe9e96f6785198e53b9a4f77706aca654b8b2fbec4766bb96460",
-    "Content/CityCourier/Art/Characters/A_RunStart.uasset": "6c8e978973e5eeb79b7d14fbf84911731e4824c7250d1f89c6daa787c37366fc",
-    "Content/CityCourier/Art/Characters/A_RunStop.uasset": "4eaa6d3bf0af412a56b1ca69b43ed8dd7cf8c6d0fb13ed074d149e292cc88194",
+    "Content/CityCourier/Art/Characters/A_RunStart.uasset": "a6709881a91cf9409955c5ba7158751f8eb794c72d8becef74170f696c9876c2",
+    "Content/CityCourier/Art/Characters/A_RunStop.uasset": "ecfc20def200cd4b01f8f96fd72d6b1895190ad7a8c0a7fe173d4cd1e023c3ee",
     "Content/CityCourier/Art/Characters/A_Sprint.uasset": "acbcbcde2d7abfea337543c74a0c49c73faf4a4a4f39bd6590b3740d227dd720",
     "Content/CityCourier/Art/Characters/A_Walk.uasset": "58c89d431c03aefac335fff3be5d2658465b07e252084e550f4bb06912b8c182",
     "Content/CityCourier/Art/Characters/SK_Courier.uasset": "d3457137cdd29cefe5793ba57727dc3519db5be3dd018e6587cb35cb3a8a08fd",
@@ -2098,11 +2705,11 @@
     "Content/CityCourier/Blueprints/BP_CourierCharacter.uasset": "1a170d252b73fcce14501cacb0d531b098e2a071b412494170aa5322e943898c",
     "Content/CityCourier/Blueprints/BP_CourierGameMode.uasset": "5598755fe869a69a06d99bbb4f9849db186f4b320cbb7f41c8f494a827745c91",
     "Content/CityCourier/Blueprints/BP_Scooter.uasset": "a282f913b48ecd99ce485cc85b5fed7a386f844a4711d1030db2549e445e9124",
-    "Content/CityCourier/Data/Buildings/DA_Buildings.uasset": "9c405dbca04a07f54e45cd56a7511fbcf025b6a92b67f316a95f9384b7a1605d",
+    "Content/CityCourier/Data/Buildings/DA_Buildings.uasset": "41e39268562532d2d0e949505bb6a49cbe3a87a3e91481c9f8233d287c2b2f31",
     "Content/CityCourier/Data/DA_CityDefinition.uasset": "6b95076cf44221f912cb1269658878281eed5b5c842a4d0adab8fc1a8bc4cfee",
     "Content/CityCourier/Maps/L_CharacterProbe.umap": "1429c3d6fb99e45d21b2474c1a6988b9b90899766e04b5829a812d87c2ee191a",
-    "Content/CityCourier/Maps/L_CourierArtPreview.umap": "801050d1b8fae035ccb93045f3ac9887725d3b659c559e06ba3de9f7fe023b4f",
-    "Content/CityCourier/Maps/L_CourierCity.umap": "6fb7ff00ff77c81fc0839e33f339cfdcbc9c992a376654a10e623fe58f394e0d",
+    "Content/CityCourier/Maps/L_CourierArtPreview.umap": "af2260ebac46f0449303abb704a1c7ea4599d09b537531aba1db1a351ac2a371",
+    "Content/CityCourier/Maps/L_CourierCity.umap": "9b1a50609f552949611440d24b397ff242112db412ee8232a487f72e2e1bfabf",
     "Content/CityCourier/Maps/L_MovementTest.umap": "bfce6573337d451435699da54fde72d44b5834df965939cb576600e78616c5f6",
     "Source/CityCourier/Ambient/AmbientPedestrian.cpp": "125f6d49fca175e4901294bdaf47dff0a6e76a00bc8da626cd47934b74d32e34",
     "Source/CityCourier/Ambient/AmbientPedestrian.h": "148a3ecc8eee05d346145e93bcf64a4a9f55f0a39e00557ecd5fd4c29f38a4b0",
@@ -2116,17 +2723,19 @@
     "Source/CityCourier/Art/CourierArtCharacter.h": "76e3ca1f9d30b5d526fd3a479fdea7787a28569a9f5c5ae684cc5da1c5520f25",
     "Source/CityCourier/Art/ScooterArtPawn.cpp": "21503f9c85ec9c309265a1fa53a7163ff5bfcd29c9c99f284f96f9a65e86df32",
     "Source/CityCourier/Art/ScooterArtPawn.h": "43758819b8fe78b3c44b34af7111fb23452e1458b642b99c3d699f1851f0f226",
-    "Source/CityCourier/Buildings/CourierBuildingActor.cpp": "e6ee01e602167b764d4fc606ed408edfc28744df7c6b4472d7b1bfb07568513b",
-    "Source/CityCourier/Buildings/CourierBuildingActor.h": "49bb16ca1f78d824137e97c261898e82be727e95ef8bf0207be446d08be9783e",
+    "Source/CityCourier/Buildings/CourierBuildingActor.cpp": "cdc317f9b6ed494a70d4a740424692c35e56d30a11863ce9272ad97ff2ca1eed",
+    "Source/CityCourier/Buildings/CourierBuildingActor.h": "46461f3bd2be247f874de981f574020556d7a78755ec823d2b2a2f55f77b3844",
     "Source/CityCourier/Buildings/CourierBuildingDefinition.cpp": "c6396a958b7418d5056fc6f1bec098d8c5056343b500b4c7b9d95c93dd4a6119",
     "Source/CityCourier/Buildings/CourierBuildingDefinition.h": "5905409af0d5809735e4dc8af09ce1188552ab56143334df3e813e54bb48ada0",
     "Source/CityCourier/Buildings/CourierBuildingResidency.cpp": "b095fe909b3a12f13419952711223e80428a384fb54a26de6a2daace48517655",
     "Source/CityCourier/Buildings/CourierBuildingResidency.h": "ede7268c03e72301d1146546247cd97c47d09d2b5c83d8911f9d812985603b46",
-    "Source/CityCourier/Buildings/CourierBuildingSubsystem.cpp": "2e8c28c855371207a7db9ded83c663eea3e424ca1e2dd43893c300d1dae1388b",
+    "Source/CityCourier/Buildings/CourierBuildingSubsystem.cpp": "acd1d5c7aa9115df40ca103212376e739ce4aa46fde08f3b1f2804525b53a769",
     "Source/CityCourier/Buildings/CourierBuildingSubsystem.h": "350e1d89abc5e3d3ba63f91dd9d1562dae8e8a2f69d5e7c6713182b9e3e4c406",
-    "Source/CityCourier/Buildings/CourierBuildingTraversal.cpp": "5c2cedc8f8d15a4eb50966bff7c535083423950f889461c29ba1e227e01c09ca",
-    "Source/CityCourier/Buildings/CourierDoor.cpp": "2b43ad1d46683ac567beb71439a0b152ad91fe3955dd826cd010ac408c829baa",
+    "Source/CityCourier/Buildings/CourierBuildingTraversal.cpp": "02d5db679ddc200b6a87a97715bc53b4a3f25e888cab479b6bd81eb35a59da67",
+    "Source/CityCourier/Buildings/CourierDoor.cpp": "ed9f6d2ecbb88ca0f2ee6e8f556e648a776a8a6421b1fcccd4b3e97ebea72dd8",
     "Source/CityCourier/Buildings/CourierDoor.h": "958470517105e5ec39e259afb5f48d73e07eefc3f28faae40967f2384b6cf928",
+    "Source/CityCourier/Buildings/CourierInteriorFinish.cpp": "cba1dac28760252f053caad98af90e1c76bd708073b7c93b0e0cbb2e020bd286",
+    "Source/CityCourier/Buildings/CourierInteriorFinish.h": "85a77295144ffa0ede10a5dc20f8cc9c0c235d01a1e4a41f391419300af6864e",
     "Source/CityCourier/Buildings/CourierInteriorRouting.cpp": "ca80e77d68f8f26a9e20b1f78f170c60bf99434ebd367a26d0b1d1853d19e45d",
     "Source/CityCourier/Buildings/CourierInteriorRouting.h": "dbac64d1e7e0a1b170f955972183e5cdf626cc7328eb95b83ac62a3f3ab7bab1",
     "Source/CityCourier/CityCourier.Build.cs": "7ba1eb5cf851e4ec87e66984b5a8f1c6e4ee90a24942cd7fdaf0f948691a9127",
@@ -2178,7 +2787,7 @@
     "Source/CityCourier/Tests/BuildingJourneyTests.cpp": "ca7bae4e52d210d116594dfb0951f176f5dfe838e67c194acada9390bd33a604",
     "Source/CityCourier/Tests/BuildingProductionTests.cpp": "ee07499d64dc239be2fc78a5a6ed9641ca32530804f8ffdc7835cbbd566fad37",
     "Source/CityCourier/Tests/BuildingRulesTests.cpp": "3069120ccc378225a7b77ab84d89be8346228f2b66dc5bd88c2652816901f9ba",
-    "Source/CityCourier/Tests/BuildingRuntimeTests.cpp": "0007c37ee0e32751e78bb8bde8cd72c21ca32da85aa7e901f0f4503037f50f92",
+    "Source/CityCourier/Tests/BuildingRuntimeTests.cpp": "6de8bb0e9e66c02b375cc78f5a41fce515beea28be5182f328f83294816c85e8",
     "Source/CityCourier/Tests/BuildingTraversalTests.cpp": "2234f73beee3bc932591163f204e7be4cd26d9acce4fa30339bc4a2e5602cba6",
     "Source/CityCourier/Tests/CharacterActionContactTests.cpp": "16d3939a8a78520d845320850e37f4d6b7136f532af506183454476ae1cfd640",
     "Source/CityCourier/Tests/CharacterActionTimelineTests.cpp": "23ab49babf3e800eedd807b4ef422f0ad6a3d57736a3ac6a43cbe1816eb47f88",
@@ -2193,12 +2802,13 @@
     "Source/CityCourier/Tests/HistoryTestSupport.h": "b45b56f5777cfcfda372368530c5baf87f2469eccc534cabb3dfe9047fd82943",
     "Source/CityCourier/Tests/InputModeTests.cpp": "14929f24e22eabb7e7c98f141b8ec886929db750ea0682f13ab84480c7d36be8",
     "Source/CityCourier/Tests/InteractionTests.cpp": "f33af3cbeb709abe2bd439df56a99fa41a220b1c423cb0de4de01fb76f76b6dc",
-    "Source/CityCourier/Tests/MapProjectionTests.cpp": "373870eaf2723c5ea16a03308cd46353099d56bfe3129e5bfa1cb60ac2405595",
+    "Source/CityCourier/Tests/InteriorFinishTests.cpp": "c70cbe2ad5d9b6bb5eb3bc3b6d0e0b205d414f1d853a4e371843bb2ef979d311",
+    "Source/CityCourier/Tests/MapProjectionTests.cpp": "cdfa01f40cf213ce721dd69f655de2e907e461ee0e15264db39de5b444f40afb",
     "Source/CityCourier/Tests/NavigationModeTests.cpp": "5196e43bd65dd92c4186575630f17a9b8dcd14303bad32795da0894b528ea813",
     "Source/CityCourier/Tests/NavigationTests.cpp": "50ddccdba443502355c90668c95b8f92b2d51858b2c52b7a9f91b97469d775c5",
     "Source/CityCourier/Tests/OfferPreviewTests.cpp": "a1e3a7fd8b3cdee0c49ff1bb008fccad6bf763f85f8dd4c50ba60edef080d1f9",
     "Source/CityCourier/Tests/OrderHistoryTests.cpp": "de82459ca9191113bdd07c262ccfe7b22b0641ed6b35749324119be9ff891d05",
-    "Source/CityCourier/Tests/ProductionAnimationTests.cpp": "97186f89f26aa911f93e963cf726c4c11255f931cdb32340145857bb7e2ffb66",
+    "Source/CityCourier/Tests/ProductionAnimationTests.cpp": "62b400440d2f03e138df3c80fffc6681448bbab4f7a96d897a80a0e5df1440b4",
     "Source/CityCourier/Tests/ProfileMigrationTests.cpp": "147e4b51c077aa0738e2ae72f288d4434cfe42024744da39b0ab59a869bfe86d",
     "Source/CityCourier/Tests/ProfileRepositoryTests.cpp": "1aa859177c2328e6ff9b6d533fd36f7c01d5fdcb337392ae2dfbde75ea1028a1",
     "Source/CityCourier/Tests/ProfileTests.cpp": "291fc621190ca78189111a56a0ed6d416687401fca7179a822920e1f6b40773c",
@@ -2255,35 +2865,11 @@
     "Source/CityCourier/World/RoadGraph.h": "3ec6e7d9ba1af9deda492e416ba67fa7b94e4a3e88eafd76742e37f3c635f6cd",
     "Source/CityCourier.Target.cs": "0ca574f595074edb504b9fdf5c3719e03c937f17d1e88ecb0dbdee4e82f50c6d",
     "Source/CityCourierEditor.Target.cs": "0e3e716b554c6c9e21f21fd1e545ee512367b2aeda7a7ef3b771f3fb698f08ca",
-    "tools/interiors/layout.py": "ce0d2d222b06e1d22db7ca1bc3a35501d7be4dc733953b7e24e572d0a909d10c"
+    "tools/interiors/layout.py": "9c1146d1b5467613063c094eba408b59421c7cae47a33ee3566f7c34eb524194"
   },
   "protected_changed": [],
   "protected_unchanged": true,
-  "saved_assets": [
-    "/Game/CityCourier/Art/Interiors/SM_IF_Bed.SM_IF_Bed",
-    "/Game/CityCourier/Art/Interiors/SM_IF_Desk.SM_IF_Desk",
-    "/Game/CityCourier/Art/Interiors/SM_IF_Kitchen.SM_IF_Kitchen",
-    "/Game/CityCourier/Art/Interiors/SM_IF_Toilet.SM_IF_Toilet",
-    "/Game/CityCourier/Art/Interiors/SM_IF_Shelf.SM_IF_Shelf",
-    "/Game/CityCourier/Art/Interiors/SM_IF_Sofa.SM_IF_Sofa",
-    "/Game/CityCourier/Art/Interiors/SM_IF_Counter.SM_IF_Counter",
-    "/Game/CityCourier/Art/Interiors/SM_IF_DoorResidential.SM_IF_DoorResidential",
-    "/Game/CityCourier/Art/Interiors/SM_IF_DoorShop.SM_IF_DoorShop",
-    "/Game/CityCourier/Art/Interiors/SM_IF_DoorOffice.SM_IF_DoorOffice",
-    "/Game/CityCourier/Art/Interiors/SM_IF_DoorFrame.SM_IF_DoorFrame",
-    "/Game/CityCourier/Art/Interiors/SM_IF_Skirting.SM_IF_Skirting",
-    "/Game/CityCourier/Art/Interiors/SM_IF_DadoPanel.SM_IF_DadoPanel",
-    "/Game/CityCourier/Art/Interiors/SM_IF_HandrailPost.SM_IF_HandrailPost",
-    "/Game/CityCourier/Art/Interiors/SM_IF_HandrailBar.SM_IF_HandrailBar",
-    "/Game/CityCourier/Art/Interiors/SM_IF_NumberPlate.SM_IF_NumberPlate",
-    "/Game/CityCourier/Art/Interiors/SM_IF_LightPanel.SM_IF_LightPanel",
-    "/Game/CityCourier/Art/Interiors/SM_IF_ExitSign.SM_IF_ExitSign",
-    "/Game/CityCourier/Art/Interiors/SM_IF_SwitchPlate.SM_IF_SwitchPlate",
-    "/Game/CityCourier/Art/Interiors/SM_IF_Outlet.SM_IF_Outlet",
-    "/Game/CityCourier/Art/Interiors/SM_IF_StairNosing.SM_IF_StairNosing",
-    "/Game/CityCourier/Art/Interiors/SM_IF_WindowReturn.SM_IF_WindowReturn",
-    "/Game/CityCourier/Art/Interiors/SM_IF_AirconWall.SM_IF_AirconWall"
-  ],
-  "finished_utc": "2026-10-19T01:28:48.139445+00:00",
+  "manifest_sha256": "345cf4f1ac89f1ba4a3111a75a4d8e023dd5f2096f13c49e4a76c02a0b132aa5",
+  "palette_sha256": "481d673266566933d1e1a122efe78f2f7dead5e7d75919918c0805377565435f",
   "error": null
 }
