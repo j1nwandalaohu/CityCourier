@@ -1,0 +1,572 @@
+{
+  "schema_version": 1,
+  "asset_root": "/Game/CityCourier/Art/Interiors",
+  "started_utc": "2026-10-19T04:01:00.269592+00:00",
+  "assets": [
+    {
+      "name": "SM_IF_ShopNoodleCooking",
+      "asset": "/Game/CityCourier/Art/Interiors/SM_IF_ShopNoodleCooking.SM_IF_ShopNoodleCooking",
+      "minimum_cm": [
+        -75.00000762939453,
+        -22.500009536743164,
+        0.0
+      ],
+      "maximum_cm": [
+        74.99999237060547,
+        22.50002098083496,
+        251.0
+      ],
+      "source_minimum_cm": [
+        -74.99998807907104,
+        -22.50000387430191,
+        0.0
+      ],
+      "source_maximum_cm": [
+        75.00001192092896,
+        22.500017285346985,
+        250.99999904632568
+      ],
+      "maximum_bounds_error_cm": 1.9550323486328125e-05,
+      "triangles": 22888,
+      "source_triangles": 22920,
+      "raw_import_minimum_cm": [
+        -75.00000762939453,
+        -22.500009536743164,
+        0.0
+      ],
+      "raw_import_maximum_cm": [
+        74.99999237060547,
+        22.50002098083496,
+        251.0
+      ],
+      "axis_normalization": "FBX export adapter; canonical authored axes retained",
+      "collision_profile": "BlockAll",
+      "collision_trace": "CTF_USE_COMPLEX_AS_SIMPLE",
+      "materials": [
+        "M_IF_LaminateWhite",
+        "M_IF_MetalBrushed",
+        "M_IF_Rubber",
+        "M_IF_Ceramic",
+        "M_IF_TileGrey",
+        "M_IF_MetalDark",
+        "M_IF_AccentRed",
+        "M_IF_Carton"
+      ],
+      "source_fbx_sha256": "f6443aca8a3eeb68c9a1439142611957db0f857ab5e4e049d21498da4a1956e8",
+      "pivot_preserved": true
+    },
+    {
+      "name": "SM_IF_ShopNoodleDining",
+      "asset": "/Game/CityCourier/Art/Interiors/SM_IF_ShopNoodleDining.SM_IF_ShopNoodleDining",
+      "minimum_cm": [
+        -52.499996185302734,
+        -32.49996566772461,
+        0.0
+      ],
+      "maximum_cm": [
+        52.5000114440918,
+        32.50000762939453,
+        102.10518646240234
+      ],
+      "source_minimum_cm": [
+        -52.500009536743164,
+        -32.49996602535248,
+        0.0
+      ],
+      "source_maximum_cm": [
+        52.49999761581421,
+        32.50000476837158,
+        102.10518836975098
+      ],
+      "maximum_bounds_error_cm": 1.3828277587890625e-05,
+      "triangles": 804,
+      "source_triangles": 804,
+      "raw_import_minimum_cm": [
+        -52.499996185302734,
+        -32.49996566772461,
+        0.0
+      ],
+      "raw_import_maximum_cm": [
+        52.5000114440918,
+        32.50000762939453,
+        102.10518646240234
+      ],
+      "axis_normalization": "FBX export adapter; canonical authored axes retained",
+      "collision_profile": "BlockAll",
+      "collision_trace": "CTF_USE_COMPLEX_AS_SIMPLE",
+      "materials": [
+        "M_IF_LaminateWhite",
+        "M_IF_MetalDark",
+        "M_IF_AccentRed",
+        "M_IF_WoodLight",
+        "M_IF_PaintGreen"
+      ],
+      "source_fbx_sha256": "4e6a5161869b0ccce6475a3d7fd2f9ec352b87752c2230b5bb1315882e225f58",
+      "pivot_preserved": true
+    },
+    {
+      "name": "SM_IF_ShopGroceryCheckout",
+      "asset": "/Game/CityCourier/Art/Interiors/SM_IF_ShopGroceryCheckout.SM_IF_ShopGroceryCheckout",
+      "minimum_cm": [
+        -74.99999237060547,
+        -22.500015258789062,
+        0.0
+      ],
+      "maximum_cm": [
+        75.00000762939453,
+        22.500003814697266,
+        139.6497039794922
+      ],
+      "source_minimum_cm": [
+        -75.00000596046448,
+        -22.50000834465027,
+        0.0
+      ],
+      "source_maximum_cm": [
+        74.99999403953552,
+        22.499996423721313,
+        139.64970111846924
+      ],
+      "maximum_bounds_error_cm": 1.3589859008789062e-05,
+      "triangles": 388,
+      "source_triangles": 388,
+      "raw_import_minimum_cm": [
+        -74.99999237060547,
+        -22.500015258789062,
+        0.0
+      ],
+      "raw_import_maximum_cm": [
+        75.00000762939453,
+        22.500003814697266,
+        139.6497039794922
+      ],
+      "axis_normalization": "FBX export adapter; canonical authored axes retained",
+      "collision_profile": "BlockAll",
+      "collision_trace": "CTF_USE_COMPLEX_AS_SIMPLE",
+      "materials": [
+        "M_IF_WoodLight",
+        "M_IF_LaminateWhite",
+        "M_IF_MetalDark",
+        "M_IF_Rubber",
+        "M_IF_Carton"
+      ],
+      "source_fbx_sha256": "706ce12e330d67666eedc8f25a0281a4b814885283aba8ce029d2ef6bea10d8e",
+      "pivot_preserved": true
+    },
+    {
+      "name": "SM_IF_ShopGroceryShelf",
+      "asset": "/Game/CityCourier/Art/Interiors/SM_IF_ShopGroceryShelf.SM_IF_ShopGroceryShelf",
+      "minimum_cm": [
+        -75.0,
+        -22.50000762939453,
+        0.0
+      ],
+      "maximum_cm": [
+        75.0,
+        22.49999237060547,
+        216.5
+      ],
+      "source_minimum_cm": [
+        -75.0,
+        -22.50000387430191,
+        0.0
+      ],
+      "source_maximum_cm": [
+        75.0,
+        22.499993443489075,
+        216.49999618530273
+      ],
+      "maximum_bounds_error_cm": 3.814697265625e-06,
+      "triangles": 17396,
+      "source_triangles": 17396,
+      "raw_import_minimum_cm": [
+        -75.0,
+        -22.50000762939453,
+        0.0
+      ],
+      "raw_import_maximum_cm": [
+        75.0,
+        22.49999237060547,
+        216.5
+      ],
+      "axis_normalization": "FBX export adapter; canonical authored axes retained",
+      "collision_profile": "BlockAll",
+      "collision_trace": "CTF_USE_COMPLEX_AS_SIMPLE",
+      "materials": [
+        "M_IF_MetalDark",
+        "M_IF_LaminateWhite",
+        "M_IF_AccentRed",
+        "M_IF_Ceramic",
+        "M_IF_PaintGreen",
+        "M_IF_Carton",
+        "M_IF_MetalBrushed"
+      ],
+      "source_fbx_sha256": "2b6fb64f7555ef98af0bf804f94f84b4f05d5393599b12aec00b4d3bcf3c15d8",
+      "pivot_preserved": true
+    },
+    {
+      "name": "SM_IF_ShopRoastDisplay",
+      "asset": "/Game/CityCourier/Art/Interiors/SM_IF_ShopRoastDisplay.SM_IF_ShopRoastDisplay",
+      "minimum_cm": [
+        -75.0,
+        -22.500051498413086,
+        0.0
+      ],
+      "maximum_cm": [
+        75.0,
+        22.4999942779541,
+        202.25
+      ],
+      "source_minimum_cm": [
+        -75.0,
+        -22.500044107437134,
+        0.0
+      ],
+      "source_maximum_cm": [
+        75.0,
+        22.499990463256836,
+        202.25000381469727
+      ],
+      "maximum_bounds_error_cm": 7.3909759521484375e-06,
+      "triangles": 1398,
+      "source_triangles": 1398,
+      "raw_import_minimum_cm": [
+        -75.0,
+        -22.500051498413086,
+        0.0
+      ],
+      "raw_import_maximum_cm": [
+        75.0,
+        22.4999942779541,
+        202.25
+      ],
+      "axis_normalization": "FBX export adapter; canonical authored axes retained",
+      "collision_profile": "BlockAll",
+      "collision_trace": "CTF_USE_COMPLEX_AS_SIMPLE",
+      "materials": [
+        "M_IF_MetalDark",
+        "M_IF_MetalBrushed",
+        "M_IF_WoodLight"
+      ],
+      "source_fbx_sha256": "c6148747061cd0651f4639e2771d82159678d1f7359a120cc42be07f018eb42f",
+      "pivot_preserved": true
+    },
+    {
+      "name": "SM_IF_ShopRoastDining",
+      "asset": "/Game/CityCourier/Art/Interiors/SM_IF_ShopRoastDining.SM_IF_ShopRoastDining",
+      "minimum_cm": [
+        -52.5000114440918,
+        -32.49997329711914,
+        0.0
+      ],
+      "maximum_cm": [
+        52.499996185302734,
+        32.49997329711914,
+        102.10518646240234
+      ],
+      "source_minimum_cm": [
+        -52.49999761581421,
+        -32.49996900558472,
+        0.0
+      ],
+      "source_maximum_cm": [
+        52.500009536743164,
+        32.49996900558472,
+        102.10518836975098
+      ],
+      "maximum_bounds_error_cm": 1.3828277587890625e-05,
+      "triangles": 636,
+      "source_triangles": 636,
+      "raw_import_minimum_cm": [
+        -52.5000114440918,
+        -32.49997329711914,
+        0.0
+      ],
+      "raw_import_maximum_cm": [
+        52.499996185302734,
+        32.49997329711914,
+        102.10518646240234
+      ],
+      "axis_normalization": "FBX export adapter; canonical authored axes retained",
+      "collision_profile": "BlockAll",
+      "collision_trace": "CTF_USE_COMPLEX_AS_SIMPLE",
+      "materials": [
+        "M_IF_LaminateWhite",
+        "M_IF_MetalDark",
+        "M_IF_AccentRed",
+        "M_IF_WoodLight"
+      ],
+      "source_fbx_sha256": "92648e68c827a54aafda59e1c5396164a15a719a29f4a1d4772fcd020fddee3a",
+      "pivot_preserved": true
+    }
+  ],
+  "materials": [
+    {
+      "name": "M_IF_Plaster",
+      "kind": "plaster",
+      "asset": "/Game/CityCourier/Art/Interiors/Materials/M_IF_Plaster.M_IF_Plaster",
+      "instanced_static_meshes": true,
+      "nanite_usage": true,
+      "world_planar_tile_cm": 200.0,
+      "pixel_shader_instructions": 386,
+      "component_masks_explicit": true,
+      "scan": "painted_plaster_wall",
+      "glass_mode": null
+    },
+    {
+      "name": "M_IF_PaintGreen",
+      "kind": "plaster",
+      "asset": "/Game/CityCourier/Art/Interiors/Materials/M_IF_PaintGreen.M_IF_PaintGreen",
+      "instanced_static_meshes": true,
+      "nanite_usage": true,
+      "world_planar_tile_cm": 200.0,
+      "pixel_shader_instructions": 386,
+      "component_masks_explicit": true,
+      "scan": "painted_plaster_wall",
+      "glass_mode": null
+    },
+    {
+      "name": "M_IF_TileIvory",
+      "kind": "tile",
+      "asset": "/Game/CityCourier/Art/Interiors/Materials/M_IF_TileIvory.M_IF_TileIvory",
+      "instanced_static_meshes": true,
+      "nanite_usage": true,
+      "world_planar_tile_cm": 50.0,
+      "pixel_shader_instructions": 386,
+      "component_masks_explicit": true,
+      "scan": null,
+      "glass_mode": null
+    },
+    {
+      "name": "M_IF_TileGrey",
+      "kind": "tile",
+      "asset": "/Game/CityCourier/Art/Interiors/Materials/M_IF_TileGrey.M_IF_TileGrey",
+      "instanced_static_meshes": true,
+      "nanite_usage": true,
+      "world_planar_tile_cm": 50.0,
+      "pixel_shader_instructions": 389,
+      "component_masks_explicit": true,
+      "scan": null,
+      "glass_mode": null
+    },
+    {
+      "name": "M_IF_WoodLight",
+      "kind": "wood",
+      "asset": "/Game/CityCourier/Art/Interiors/Materials/M_IF_WoodLight.M_IF_WoodLight",
+      "instanced_static_meshes": true,
+      "nanite_usage": true,
+      "world_planar_tile_cm": 200.0,
+      "pixel_shader_instructions": 365,
+      "component_masks_explicit": true,
+      "scan": null,
+      "glass_mode": null
+    },
+    {
+      "name": "M_IF_WoodDark",
+      "kind": "wood",
+      "asset": "/Game/CityCourier/Art/Interiors/Materials/M_IF_WoodDark.M_IF_WoodDark",
+      "instanced_static_meshes": true,
+      "nanite_usage": true,
+      "world_planar_tile_cm": 200.0,
+      "pixel_shader_instructions": 365,
+      "component_masks_explicit": true,
+      "scan": null,
+      "glass_mode": null
+    },
+    {
+      "name": "M_IF_LaminateWhite",
+      "kind": "plain",
+      "asset": "/Game/CityCourier/Art/Interiors/Materials/M_IF_LaminateWhite.M_IF_LaminateWhite",
+      "instanced_static_meshes": true,
+      "nanite_usage": true,
+      "world_planar_tile_cm": 200.0,
+      "pixel_shader_instructions": 355,
+      "component_masks_explicit": true,
+      "scan": null,
+      "glass_mode": null
+    },
+    {
+      "name": "M_IF_MetalBrushed",
+      "kind": "metal",
+      "asset": "/Game/CityCourier/Art/Interiors/Materials/M_IF_MetalBrushed.M_IF_MetalBrushed",
+      "instanced_static_meshes": true,
+      "nanite_usage": true,
+      "world_planar_tile_cm": 200.0,
+      "pixel_shader_instructions": 353,
+      "component_masks_explicit": true,
+      "scan": null,
+      "glass_mode": null
+    },
+    {
+      "name": "M_IF_MetalDark",
+      "kind": "metal",
+      "asset": "/Game/CityCourier/Art/Interiors/Materials/M_IF_MetalDark.M_IF_MetalDark",
+      "instanced_static_meshes": true,
+      "nanite_usage": true,
+      "world_planar_tile_cm": 200.0,
+      "pixel_shader_instructions": 353,
+      "component_masks_explicit": true,
+      "scan": null,
+      "glass_mode": null
+    },
+    {
+      "name": "M_IF_Glass",
+      "kind": "glass",
+      "asset": "/Game/CityCourier/Art/Interiors/Materials/M_IF_Glass.M_IF_Glass",
+      "instanced_static_meshes": true,
+      "nanite_usage": true,
+      "world_planar_tile_cm": 200.0,
+      "pixel_shader_instructions": 268,
+      "component_masks_explicit": true,
+      "scan": null,
+      "glass_mode": "opaque_frosted"
+    },
+    {
+      "name": "M_IF_FabricTeal",
+      "kind": "fabric",
+      "asset": "/Game/CityCourier/Art/Interiors/Materials/M_IF_FabricTeal.M_IF_FabricTeal",
+      "instanced_static_meshes": true,
+      "nanite_usage": true,
+      "world_planar_tile_cm": 200.0,
+      "pixel_shader_instructions": 375,
+      "component_masks_explicit": true,
+      "scan": null,
+      "glass_mode": null
+    },
+    {
+      "name": "M_IF_FabricBeige",
+      "kind": "fabric",
+      "asset": "/Game/CityCourier/Art/Interiors/Materials/M_IF_FabricBeige.M_IF_FabricBeige",
+      "instanced_static_meshes": true,
+      "nanite_usage": true,
+      "world_planar_tile_cm": 200.0,
+      "pixel_shader_instructions": 375,
+      "component_masks_explicit": true,
+      "scan": null,
+      "glass_mode": null
+    },
+    {
+      "name": "M_IF_Paper",
+      "kind": "plain",
+      "asset": "/Game/CityCourier/Art/Interiors/Materials/M_IF_Paper.M_IF_Paper",
+      "instanced_static_meshes": true,
+      "nanite_usage": true,
+      "world_planar_tile_cm": 200.0,
+      "pixel_shader_instructions": 355,
+      "component_masks_explicit": true,
+      "scan": null,
+      "glass_mode": null
+    },
+    {
+      "name": "M_IF_Carton",
+      "kind": "wood",
+      "asset": "/Game/CityCourier/Art/Interiors/Materials/M_IF_Carton.M_IF_Carton",
+      "instanced_static_meshes": true,
+      "nanite_usage": true,
+      "world_planar_tile_cm": 200.0,
+      "pixel_shader_instructions": 365,
+      "component_masks_explicit": true,
+      "scan": null,
+      "glass_mode": null
+    },
+    {
+      "name": "M_IF_Ceramic",
+      "kind": "plain",
+      "asset": "/Game/CityCourier/Art/Interiors/Materials/M_IF_Ceramic.M_IF_Ceramic",
+      "instanced_static_meshes": true,
+      "nanite_usage": true,
+      "world_planar_tile_cm": 200.0,
+      "pixel_shader_instructions": 355,
+      "component_masks_explicit": true,
+      "scan": null,
+      "glass_mode": null
+    },
+    {
+      "name": "M_IF_Rubber",
+      "kind": "plain",
+      "asset": "/Game/CityCourier/Art/Interiors/Materials/M_IF_Rubber.M_IF_Rubber",
+      "instanced_static_meshes": true,
+      "nanite_usage": true,
+      "world_planar_tile_cm": 200.0,
+      "pixel_shader_instructions": 353,
+      "component_masks_explicit": true,
+      "scan": null,
+      "glass_mode": null
+    },
+    {
+      "name": "M_IF_AccentRed",
+      "kind": "plain",
+      "asset": "/Game/CityCourier/Art/Interiors/Materials/M_IF_AccentRed.M_IF_AccentRed",
+      "instanced_static_meshes": true,
+      "nanite_usage": true,
+      "world_planar_tile_cm": 200.0,
+      "pixel_shader_instructions": 355,
+      "component_masks_explicit": true,
+      "scan": null,
+      "glass_mode": null
+    },
+    {
+      "name": "M_IF_PlasticBlue",
+      "kind": "plain",
+      "asset": "/Game/CityCourier/Art/Interiors/Materials/M_IF_PlasticBlue.M_IF_PlasticBlue",
+      "instanced_static_meshes": true,
+      "nanite_usage": true,
+      "world_planar_tile_cm": 200.0,
+      "pixel_shader_instructions": 355,
+      "component_masks_explicit": true,
+      "scan": null,
+      "glass_mode": null
+    },
+    {
+      "name": "M_IF_EmissiveWarm",
+      "kind": "emissive",
+      "asset": "/Game/CityCourier/Art/Interiors/Materials/M_IF_EmissiveWarm.M_IF_EmissiveWarm",
+      "instanced_static_meshes": true,
+      "nanite_usage": true,
+      "world_planar_tile_cm": 200.0,
+      "pixel_shader_instructions": 360,
+      "component_masks_explicit": true,
+      "scan": null,
+      "glass_mode": null
+    },
+    {
+      "name": "M_IF_SignGreen",
+      "kind": "emissive",
+      "asset": "/Game/CityCourier/Art/Interiors/Materials/M_IF_SignGreen.M_IF_SignGreen",
+      "instanced_static_meshes": true,
+      "nanite_usage": true,
+      "world_planar_tile_cm": 200.0,
+      "pixel_shader_instructions": 360,
+      "component_masks_explicit": true,
+      "scan": null,
+      "glass_mode": null
+    }
+  ],
+  "textures": [
+    {
+      "asset": "/Game/CityCourier/Art/Interiors/Textures/T_IF_painted_plaster_wall_diff_2k.T_IF_painted_plaster_wall_diff_2k",
+      "source": "External/PolyHaven/painted_plaster_wall_diff_2k.jpg",
+      "source_sha256": "6fd812ed8dd5be1873c29aeef38ce9bf1fb30a22c6d4b3a12db725e98c26a1be",
+      "srgb": true,
+      "flip_green_channel": false
+    },
+    {
+      "asset": "/Game/CityCourier/Art/Interiors/Textures/T_IF_painted_plaster_wall_rough_2k.T_IF_painted_plaster_wall_rough_2k",
+      "source": "External/PolyHaven/painted_plaster_wall_rough_2k.jpg",
+      "source_sha256": "35aad595469533cc3b7cc209cc6c7e065d660211f02c867f4492d3b371b1fee1",
+      "srgb": false,
+      "flip_green_channel": false
+    },
+    {
+      "asset": "/Game/CityCourier/Art/Interiors/Textures/T_IF_painted_plaster_wall_nor_gl_2k.T_IF_painted_plaster_wall_nor_gl_2k",
+      "source": "External/PolyHaven/painted_plaster_wall_nor_gl_2k.jpg",
+      "source_sha256": "2d601a46ed5ce2af866741c53cafa3cba472620c272e633b6484d4de16a80eb1",
+      "srgb": false,
+      "flip_green_channel": true
+    }
+  ],
+  "reused_verified_palette": true,
+  "status": "passed",
+  "protected_unchanged": true,
+  "manifest_sha256": "d29325f9407a87f528a239950ac0c2545720d9a9b9f9c54d3a08baa6730c873a"
+}

@@ -17,6 +17,27 @@ else:
 
 
 class InteriorLayoutTests(unittest.TestCase):
+    def test_wide_stairs_and_deep_turns_in_every_variant(self):
+        for variant in (0,1,2):
+            b = self.make(variant=variant)
+            flights = [x for x in b['boxes'] if x['kind']=='step' and any(t in x['id'] for t in ('_up_','_return_'))]
+            self.assertTrue(flights)
+            self.assertTrue(all(x['size'][0]>=160 for x in flights))
+            turns = [x for x in b['boxes'] if x['id'].endswith('_half_landing')]
+            self.assertTrue(all(x['size'][1]>=180 for x in turns))
+            for step in flights:
+                self.assertEqual(step['size'][1],28)
+                self.assertEqual(step['size'][2],20)
+                self.assertGreater(abs(step['center'][0])-step['size'][0]/2,4)
+            nodes = {n['id']:n for n in b['nodes']}
+            for door in b['doors']:
+                if door['id'].endswith('Store_Door'):
+                    a,c = nodes[door['node_a']]['position'],nodes[door['node_b']]['position']
+                    self.assertAlmostEqual(a[0],door['hinge'][0]+door['width']/2,delta=1e-6)
+                    self.assertAlmostEqual(a[0],c[0])
+                    self.assertLess(a[1],door['hinge'][1])
+                    self.assertGreater(c[1],door['hinge'][1])
+
     def make(self, **overrides):
         self.assertIsNotNone(layout, "The canonical enterable-building layout compiler is not implemented")
         seed = dict(id="B_0_0_0_0_0", width=788.333333, depth=2300.0,

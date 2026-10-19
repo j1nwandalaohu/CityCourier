@@ -14,7 +14,7 @@ import hashlib
 import json
 import math
 
-from tools.interiors.layout import compile_building
+from tools.interiors.layout import compile_building, STAIR_CENTER_GAP
 
 SCHEMA_VERSION = 1
 ROUTE_CLEARANCE_CM = 45.0  # 34 cm courier capsule + 11 cm fitting allowance.
@@ -22,6 +22,8 @@ STANDING_HALF_CM = 60.0
 FURNITURE = {"bedroom": "Bed", "living": "Sofa", "kitchen": "Kitchen",
              "bathroom": "Toilet", "storage": "Shelf", "office": "Desk",
              "meeting": "Desk", "shop": "Counter", "service": "Counter"}
+SHOP_PRIMARY = ('ShopNoodleCooking', 'ShopGroceryCheckout', 'ShopRoastDisplay')
+SHOP_SECONDARY = ('ShopNoodleDining', 'ShopGroceryShelf', 'ShopRoastDining')
 PREFERRED_IDS = {"shop": "B_Merchant_0", "residential": "B_1_0_0_0_0",
                  "office": "B_0_1_0_0_0"}
 # Blender single-precision coordinates carry sub-micron cm noise at flush
@@ -164,19 +166,30 @@ def _placement(building, suffix, asset, location, floor, room=None, category="tr
     return result
 
 
-def _fit_furniture(building, room, bounds, kind=None, existing=()):
+def _fit_furniture(building, room, bounds, kind=None, existing=(), wall_gap=6, street_facing=False):
     kind = kind or FURNITURE[room["kind"]]
     asset = "SM_IF_" + kind
     candidates = []
-    for yaw in (0, 90, 180, 270):
+    for yaw in ((0,) if street_facing else (0, 90, 180, 270)):
         suffix = "_Furniture" if not existing else "_Furniture_" + kind
         base = _placement(building, room["id"] + suffix, kind, [0, 0, 0], room["floor"], room,
                           "furniture", rotation=[0, yaw, 0], collision="BlockAll",
                           scale=[.85, .50 if kind == "Toilet" else .60, 1] if len(building["floors"]) == 1 else None)
+        if street_facing:
+            raw_lo,raw_hi = _bounds(bounds[asset])
+            available = (room['maximum'][1]-room['minimum'][1]-120)/2-wall_gap-.1
+            depth_scale = min(1,available/(raw_hi[1]-raw_lo[1]))
+            if depth_scale<.8:
+                raise ValueError('Shop display cannot face street safely: '+room['id'])
+            base['scale3'] = [1,depth_scale,1]
+            base['street_facing'] = True
         lo, hi = placement_bounds(base, bounds[asset])
         for corner in range(4):
-            translation = [room["maximum"][0] - hi[0] - 6 if corner & 1 else room["minimum"][0] - lo[0] + 6,
-                           room["maximum"][1] - hi[1] - 6 if corner & 2 else room["minimum"][1] - lo[1] + 6,
+            # Keep slim utility-room furniture close to its skirting while
+            # preserving the full central square, capsule route and door arcs.
+            gap = wall_gap
+            translation = [room["maximum"][0] - hi[0] - gap if corner & 1 else room["minimum"][0] - lo[0] + gap,
+                           room["maximum"][1] - hi[1] - gap if corner & 2 else room["minimum"][1] - lo[1] + gap,
                            room["minimum"][2] - lo[2]]
             candidate = {**base, "location_cm": translation}
             if not _furniture_errors(candidate, room, building, bounds[asset]):
@@ -191,6 +204,8 @@ def _fit_furniture(building, room, bounds, kind=None, existing=()):
                 candidates.append((facing, candidate))
     if candidates:
         return max(candidates, key=lambda value: value[0])[1]
+    if wall_gap > 2:
+        return _fit_furniture(building,room,bounds,kind,existing,wall_gap=2,street_facing=street_facing)
     if existing:
         return None
     raise ValueError("Cannot fit " + kind + " in " + room["id"] + " with actual bounds, standing square, all route capsules and door sweeps")
@@ -288,9 +303,9 @@ def _handrails(building, bounds):
     post_lo, post_hi = _bounds(bounds["SM_IF_HandrailPost"])
     bar_lo, bar_hi = _bounds(bounds["SM_IF_HandrailBar"])
     radius = max(abs(post_lo[0]), abs(post_hi[0]), abs(bar_lo[1]), abs(bar_hi[1]))
-    rail_x = 25 - radius - .5
+    rail_x = STAIR_CENTER_GAP/2 - radius - .5
     if rail_x - radius <= 4:
-        raise ValueError("Actual handrail shoe cannot fit between partition and original 120 cm treads")
+        raise ValueError("Actual handrail shoe cannot fit between partition and stair flights")
     for index, (low, high) in enumerate(zip(building["floors"], building["floors"][1:])):
         partition = next(b for b in building["boxes"] if b["id"] == building["id"] + "_F%02d_stair_partition" % (index + 1))
         start = partition["center"][1] - partition["size"][1] / 2
@@ -298,8 +313,7 @@ def _handrails(building, bounds):
         count = round(run / 28)
         rise = (high["z"] - low["z"]) / (2 * count)
         room_id = building["id"] + "_F%02d_Stairs" % (index + 1)
-        # Original flights cover [-145,-25] and [25,145]. Both rail faces stay
-        # inside the 50 cm center gap, entirely outside those 120 cm treads.
+        # Both rail faces remain in the center gap, outside the walking treads.
         for side in (-1, 1):
             points = []
             for step in sorted(set([0, count] + list(range(3, count, 3)))):
@@ -373,10 +387,12 @@ def _sample(seed, bounds):
         if building["floors"][room["floor"]-1]["kind"] == "roof":
             continue
         if room["kind"] in FURNITURE:
-            group = [_fit_furniture(building, room, bounds)]
+            shop = room['floor'] == 1 and room['kind'] == 'shop'
+            primary = SHOP_PRIMARY[building['variant']] if shop else None
+            group = [_fit_furniture(building, room, bounds, primary,wall_gap=2 if shop else 6,street_facing=shop)]
             # Reusable room assemblies adapt to actual room dimensions. A
             # secondary piece is omitted when its true envelope cannot fit.
-            extra = {"shop": "Shelf", "service": "Shelf", "office": "Shelf",
+            extra = SHOP_SECONDARY[building['variant']] if shop else {"shop": "Shelf", "service": "Shelf", "office": "Shelf",
                      "meeting": "Shelf", "living": "Desk", "bedroom": "Desk",
                      "kitchen": "Shelf"}.get(room["kind"])
             if extra:
@@ -422,11 +438,11 @@ def _sample(seed, bounds):
 def plan_samples(inventory: dict, mesh_bounds: dict) -> dict:
     """Return three deterministic overlays or reject an unsafe actual kit.
 
-    Optional finish meshes may be omitted; all seven furniture bounds are
+    Optional finish meshes may be omitted; base and shop furniture bounds are
     required.  The input must contain the three original building uses.  IDs,
     transforms, door apertures and every route anchor remain canonical.
     """
-    for kind in sorted(set(FURNITURE.values())):
+    for kind in sorted(set(FURNITURE.values()) | set(SHOP_PRIMARY+SHOP_SECONDARY)):
         name = "SM_IF_" + kind
         if name not in mesh_bounds:
             raise ValueError("Missing actual bounds: " + name)
@@ -452,7 +468,7 @@ def plan_samples(inventory: dict, mesh_bounds: dict) -> dict:
 
 def plan_city(inventory: dict, mesh_bounds: dict) -> dict:
     """Apply approved assemblies to every canonical building, including annexes."""
-    for name in FURNITURE.values():
+    for name in set(FURNITURE.values()) | set(SHOP_PRIMARY+SHOP_SECONDARY):
         if "SM_IF_" + name not in mesh_bounds:
             raise ValueError("Missing actual bounds: SM_IF_" + name)
     for bounds in mesh_bounds.values():
@@ -556,7 +572,7 @@ def _main():
                           "All non-roof usable rooms have blocking furniture fitted to actual exported mesh bounds",
                           "120cm central standing square and every graph edge's 34cm capsule +11cm allowance retained",
                           "Furniture avoids full closed-to-open door sweeps, including rear storage approaches",
-                          "Handrails include actual base shoes and remain strictly between the original 120cm-wide flights",
+                          "Handrails include actual base shoes and remain strictly between the 160cm-wide flights",
                           "Non-frame trim/fixtures avoid clear door apertures and route swept AABBs",
                           "Frames follow canonical hinge/yaw/width/height; the asset generator owns the internal U-shaped hole",
                           "Blank plates; no numeric per-room text actors; no decorative closed door leaves"], samples=[])

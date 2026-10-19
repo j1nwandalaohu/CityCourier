@@ -10,6 +10,12 @@ import re
 
 SCHEMA_VERSION = 1
 HEIGHTS = (1770.0, 1440.0, 2090.0)
+STAIR_FLIGHT_WIDTH = 160.0
+STAIR_CENTER_GAP = 26.0  # 8cm partition plus both actual handrail base shoes.
+STAIR_CORE_HALF = (2*STAIR_FLIGHT_WIDTH+STAIR_CENTER_GAP+20)/2
+STAIR_FLIGHT_CENTER = (STAIR_CENTER_GAP+STAIR_FLIGHT_WIDTH)/2
+STAIR_SHAFT_DEPTH = 680.0
+STAIR_TURN_DEPTH = 180.0
 ROOM_LABELS = {
     "living": "起居室", "bedroom": "卧室", "kitchen": "厨房", "bathroom": "卫生间",
     "shop": "营业区", "storage": "储藏间", "office": "办公室", "meeting": "会议室",
@@ -48,9 +54,9 @@ def compile_building(seed: dict) -> dict:
              floors=[], rooms=[], doors=[], nodes=[], edges=[], boxes=[], placements=[],
              expected_floor_ids=["F01"] if one_storey else [f"F{n + 1:02}" for n in range(len(levels) - 1)] + ["Roof"])
     front, rear = -depth / 2, depth / 2
-    core_front = rear - (140 if one_storey else 650)
+    core_front = rear - (140 if one_storey else STAIR_SHAFT_DEPTH)
     rows = 2 if depth < 1900 else 4
-    outer, core_half = width / 2 - 20, 165.0
+    outer, core_half = width / 2 - 20, STAIR_CORE_HALF
     node_positions = {}
 
     def node(key, position, floor, room):
@@ -135,7 +141,7 @@ def compile_building(seed: dict) -> dict:
         if not one_storey:
             stair_id, stair_node = room(fid + "_Stairs", n + 1, "stairs", "Public",
                                         [-core_half, core_front, z], [core_half, rear - 20, top],
-                                        [-85, core_front + 70, z])
+                                        [-STAIR_FLIGHT_CENTER, core_front + 70, z])
             edge(root, stair_node)
         box(fid + "_front_slab", [0, (front + core_front + 140) / 2, z - 10],
             [width, core_front + 140 - front, 20], "floor", "M_Concrete")
@@ -149,14 +155,14 @@ def compile_building(seed: dict) -> dict:
                                       [0, core_front - 150, z])
             # Remove the unused public-hall envelope on the roof from locating;
             # its actual node remains the inside landing of the roof stairwell.
-            b["rooms"][-3]["minimum"] = [-145, core_front + 10, z]
-            b["rooms"][-3]["maximum"] = [145, core_front + 140, top]
+            b["rooms"][-3]["minimum"] = [-core_half+20, core_front + 10, z]
+            b["rooms"][-3]["maximum"] = [core_half-20, core_front + 140, top]
             door("Roof_Door", stair_id, roof_id, [-60, core_front, z], 0, -90, 120, root, roof_node)
             wall("Roof_front", "y", core_front, -core_half, core_half, z, top, (0, 120))
             wall("Roof_left", "x", -core_half, core_front, rear, z, top)
             wall("Roof_right", "x", core_half, core_front, rear, z, top)
             wall("Roof_back", "y", rear - 10, -core_half, core_half, z, top)
-            box("Roof_cover", [0, (core_front + rear) / 2, top + 10], [330, rear - core_front, 20], "roof", "M_Concrete")
+            box("Roof_cover", [0, (core_front + rear) / 2, top + 10], [2*core_half, rear - core_front, 20], "roof", "M_Concrete")
             for side in [-1, 1]:
                 wall(f"Roof_parapet_x{side}", "x", side * (width / 2 - 10), front, rear, z, z + 110)
             wall("Roof_parapet_front", "y", front + 10, -width / 2, width / 2, z, z + 110)
@@ -207,11 +213,43 @@ def compile_building(seed: dict) -> dict:
                 door_x = x - side * 35
                 near = node(f"{fid}_{unit}Store_approach", [door_x, core_front - 85, z], n + 1, prev_id)
                 edge(prev_node, near)
-                door(f"{fid}_{unit}Store_Door", prev_id, rid, [door_x - 50, core_front, z], 0, 90, 100, near, rn)
+                # Cross the utility doorway squarely before turning toward its
+                # standing point. A long diagonal cuts the bedroom furniture
+                # corner when the neighboring stair shaft grows wider.
+                inside = node(f"{fid}_{unit}Store_inside", [door_x,core_front+85,z], n+1, rid)
+                door(f"{fid}_{unit}Store_Door", prev_id, rid, [door_x - 50, core_front, z], 0, 90, 100, near, inside)
+                edge(inside,rn)
                 wall(f"{fid}_{unit}_rear_room_front", "y", core_front, xlo - 10, xhi + 10, z, top, (door_x, 100))
                 floor_data.append((n, side, rid, rn, x))
             # Ground-level main/side/back external doors, not painted door panels.
-            wall(fid + "_front", "y", front + 10, -width / 2, width / 2, z, top, (0, 120) if n == 0 else None)
+            front_shops = [r for r in b['rooms'] if n==0 and r['floor']==1 and r['kind']=='shop']
+            if front_shops:
+                # Keep the real central entrance and open the actual shop
+                # envelopes toward the street, rather than hiding their art
+                # behind a solid ground-floor wall. Glazing remains blocking.
+                openings = [(-65,65,z,z+220,None)]
+                for r in front_shops:
+                    openings.append((r['minimum'][0]+10,r['maximum'][0]-10,z+55,z+240,r))
+                cursor = -width/2
+                for index,(a,c,low,high,r) in enumerate(sorted(openings,key=lambda o:o[0])):
+                    wall(fid+'_front_pier_'+str(index),'y',front+10,cursor,a,z,top)
+                    if low>z:
+                        box(fid+'_shop_sill_'+str(index),[(a+c)/2,front+10,(z+low)/2],[c-a,20,low-z])
+                    box(fid+'_front_header_'+str(index),[(a+c)/2,front+10,(high+top)/2],[c-a,20,top-high])
+                    if r:
+                        suffix = r['id'][len(ident)+1:]
+                        box(suffix+'_ShopGlass',[(a+c)/2,front+10,(low+high)/2],
+                            [c-a,3,high-low],'shop_glass','M_ShopGlass')
+                        for side,x in (('left',a),('right',c)):
+                            box(suffix+'_ShopFrame_'+side,[x,front-1,(low+high)/2],
+                                [4,6,high-low+4],'shop_frame','M_PaintedMetal')
+                        for side,zz in (('sill',low),('head',high)):
+                            box(suffix+'_ShopFrame_'+side,[(a+c)/2,front-1,zz],
+                                [c-a,6,4],'shop_frame','M_PaintedMetal')
+                    cursor = c
+                wall(fid+'_front_end','y',front+10,cursor,width/2,z,top)
+            else:
+                wall(fid + "_front", "y", front + 10, -width / 2, width / 2, z, top, (0, 120) if n == 0 else None)
             side_door_y = (core_front + rear) / 2
             for side in [-1, 1]:
                 wall(fid + f"_outer_{side}", "x", side * (width / 2 - 10), front, rear, z, top,
@@ -259,7 +297,7 @@ def compile_building(seed: dict) -> dict:
     for n, (low, high) in enumerate(zip(levels, levels[1:])):
         count = math.ceil((high - low) / 17 / 2)
         rise, run = (high - low) / (2 * count), count * 28
-        if 140 + run + 140 > 640:
+        if 140 + run + STAIR_TURN_DEPTH > STAIR_SHAFT_DEPTH-10:
             raise ValueError("Floor rise does not fit stair shaft")
         prefix = f"F{n + 1:02}"
         stair_id = f"{ident}_{prefix}_Stairs"
@@ -267,28 +305,28 @@ def compile_building(seed: dict) -> dict:
         previous = first
         for i in range(count):
             y, z = core_front + 140 + (i + .5) * 28, low + (i + 1) * rise
-            step = node(f"{prefix}_up_{i}", [-85, y, z], n + 1, stair_id)
+            step = node(f"{prefix}_up_{i}", [-STAIR_FLIGHT_CENTER, y, z], n + 1, stair_id)
             edge(previous, step, "stairs")
-            box(f"{prefix}_up_{i}", [-85, y, z - 10], [120, 28, 20], "step", "M_Concrete")
+            box(f"{prefix}_up_{i}", [-STAIR_FLIGHT_CENTER, y, z - 10], [STAIR_FLIGHT_WIDTH, 28, 20], "step", "M_Concrete")
             previous = step
-        mid_z, mid_y = low + count * rise, core_front + 140 + run + 70
-        for i, p in enumerate([[-85, mid_y, mid_z], [85, mid_y, mid_z], [85, core_front + 140 + run + 14, mid_z]]):
+        mid_z, mid_y = low + count * rise, core_front + 140 + run + STAIR_TURN_DEPTH/2
+        for i, p in enumerate([[-STAIR_FLIGHT_CENTER, mid_y, mid_z], [STAIR_FLIGHT_CENTER, mid_y, mid_z], [STAIR_FLIGHT_CENTER, core_front + 140 + run + 14, mid_z]]):
             nxt = node(f"{prefix}_turn_{i}", p, n + 1, stair_id)
             edge(previous, nxt)
             previous = nxt
-        box(prefix + "_half_landing", [0, mid_y, mid_z - 10], [330, 140, 20], "floor", "M_Concrete")
+        box(prefix + "_half_landing", [0, mid_y, mid_z - 10], [2*core_half, STAIR_TURN_DEPTH, 20], "floor", "M_Concrete")
         for i in range(count):
             y, z = core_front + 140 + (count - i - .5) * 28, low + (count + i + 1) * rise
-            step = node(f"{prefix}_return_{i}", [85, y, z], n + 1, stair_id)
+            step = node(f"{prefix}_return_{i}", [STAIR_FLIGHT_CENTER, y, z], n + 1, stair_id)
             edge(previous, step, "stairs")
-            box(f"{prefix}_return_{i}", [85, y, z - 10], [120, 28, 20], "step", "M_Concrete")
+            box(f"{prefix}_return_{i}", [STAIR_FLIGHT_CENTER, y, z - 10], [STAIR_FLIGHT_WIDTH, 28, 20], "step", "M_Concrete")
             previous = step
-        top = node(prefix + "_top", [85, core_front + 70, high], n + 2, f"{ident}_{b['floors'][n + 1]['id']}_Hall")
+        top = node(prefix + "_top", [STAIR_FLIGHT_CENTER, core_front + 70, high], n + 2, f"{ident}_{b['floors'][n + 1]['id']}_Hall")
         edge(previous, top)
         edge(top, roots[n + 1])
         # The center partition prevents stepping sideways into the lower flight.
         box(prefix + "_stair_partition", [0, core_front + 140 + run / 2, (low + high) / 2], [8, run, high - low], "wall")
-        box(prefix + "_back_rail", [0, mid_y + 72, mid_z + 55], [330, 5, 110], "rail", "M_PaintedMetal")
+        box(prefix + "_back_rail", [0, mid_y + STAIR_TURN_DEPTH/2+2, mid_z + 55], [2*core_half, 5, 110], "rail", "M_PaintedMetal")
     b["expected_room_ids"] = sorted(expected)
     errors = validate_building(b)
     if errors:

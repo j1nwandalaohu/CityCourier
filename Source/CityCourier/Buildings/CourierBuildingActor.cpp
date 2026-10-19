@@ -76,6 +76,9 @@ bool ACourierBuildingActor::RebuildStructure()
         C->SetupAttachment(BuildingRoot); C->SetMobility(EComponentMobility::Static); C->SetStaticMesh(Cube);
         C->SetMaterial(0,Materials.FindChecked(Pair.Value.Material)); C->SetCanEverAffectNavigation(false);
         C->SetCollisionProfileName(Pair.Value.bSolid?TEXT("BlockAll"):TEXT("NoCollision"));
+        const bool bShopGlass=Pair.Value.Material==TEXT("M_ShopGlass");
+        C->SetCastShadow(!bShopGlass); C->SetAffectDistanceFieldLighting(!bShopGlass);
+        if(bShopGlass) C->SetForceDisableNanite(true);
         C->SetVisibility(Pair.Value.bSolid || !Finish); // Independent art U-frames replace the old visual strips.
         C->bAutoRebuildTreeOnInstanceChanges=false;
         C->AddInstances(Pair.Value.Instances,false,false,false);

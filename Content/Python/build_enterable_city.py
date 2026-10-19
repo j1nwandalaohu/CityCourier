@@ -20,7 +20,10 @@ def protected_snapshot(actors, exempt):
         if not any(t.startswith(('CC_City_', 'CC_Bootstrap')) for t in tags):
             continue
         comp = actor.get_component_by_class(unreal.StaticMeshComponent)
-        result[actor.get_actor_label()] = dict(transform=str(actor.get_actor_transform()),
+        t = actor.get_actor_transform()
+        pose = [t.translation.x,t.translation.y,t.translation.z,t.rotation.x,t.rotation.y,t.rotation.z,t.rotation.w,
+                t.scale3d.x,t.scale3d.y,t.scale3d.z]
+        result[actor.get_actor_label()] = dict(transform=pose,
             mesh=comp.static_mesh.get_path_name() if comp and comp.static_mesh else None,
             collision=str(comp.get_collision_enabled()) if comp else None,
             location_id=str(actor.get_editor_property('location_id')) if isinstance(actor,unreal.DeliveryLocation) else None)

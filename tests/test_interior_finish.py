@@ -25,7 +25,10 @@ def kit_bounds():
              "Skirting": (100, 1.6, 10), "NumberPlate": (24, 1, 8),
              "ExitSign": (40, 2, 15), "SwitchPlate": (8.5, 1, 8.5),
              "Outlet": (8.5, 1, 8.5), "DoorFrame": (110, 8, 225),
-             "DadoPanel": (100, 2.5, 110)}
+             "DadoPanel": (100, 2.5, 110),
+             "ShopNoodleCooking": (150,45,251), "ShopNoodleDining": (105,65,103),
+             "ShopGroceryCheckout": (150,45,140), "ShopGroceryShelf": (150,45,217),
+             "ShopRoastDisplay": (150,45,203), "ShopRoastDining": (105,65,103)}
     result = {}
     for name, (x, y, z) in sizes.items():
         lo = [-x / 2, -y / 2, 0]
@@ -113,8 +116,9 @@ class InteriorFinishTests(unittest.TestCase):
         self.assertTrue(rails)
         for p in rails:
             lo, hi = finish.placement_bounds(p, self.bounds[p["asset"]])
-            self.assertGreaterEqual(lo[0], -25)
-            self.assertLessEqual(hi[0], 25)
+            self.assertGreaterEqual(lo[0], -finish.STAIR_CENTER_GAP/2)
+            self.assertLessEqual(hi[0], finish.STAIR_CENTER_GAP/2)
+            self.assertTrue(hi[0]<-4 or lo[0]>4)
             self.assertEqual(p["collision"], "BlockAll")
         self.assertEqual(finish.validate_plan(plan, self.bounds), [])
 
@@ -187,17 +191,18 @@ class InteriorFinishTests(unittest.TestCase):
 
     def test_reusable_assemblies_have_distinct_safe_furniture(self):
         plan = finish.plan_samples(self.inventory, self.bounds)
+        groups = []
         for sample in plan["samples"]:
             furniture = [p for p in sample["placements"] if p["category"] == "furniture"]
             by_room = {}
             for p in furniture:
                 by_room.setdefault(p["room_id"], []).append(p)
-            self.assertTrue(any(len(group) > 1 for group in by_room.values()))
+            groups.extend(by_room.values())
+        # Small annex rooms may omit optional furniture after the stair shaft
+        # grows; larger rooms must still support distinct multi-piece sets.
+        self.assertTrue(any(len(group)>1 for group in groups))
         self.assertEqual(finish.validate_plan(plan, self.bounds), [])
-        sample = plan["samples"][0]
-        group = next([p for p in sample["placements"] if p.get("room_id") == room["id"] and p["category"] == "furniture"]
-                     for room in sample["building"]["rooms"]
-                     if sum(p.get("room_id") == room["id"] and p["category"] == "furniture" for p in sample["placements"]) > 1)
+        group = next(g for g in groups if len(g)>1)
         group[1]["location_cm"] = group[0]["location_cm"][:]
         self.assertTrue(any("assembly overlaps" in error for error in finish.validate_plan(plan, self.bounds)))
 

@@ -233,6 +233,9 @@ def build():
             'no_city_maps_written':True,'unit':'centimeters in exported metadata; meters in Blender'}
     (OUT/'asset-manifest.json').write_text(json.dumps(record,indent=2)+'\n',encoding='utf-8')
     print('INTERIOR FINISH KIT',len(ASSETS),'assets',sum(a['triangles'] for a in ASSETS),'triangles',flush=True)
+    # Room-sized retained storefront assemblies are part of a full rebuild.
+    from build_shop_furnishings import build as build_shops
+    build_shops()
 
 
 if __name__=='__main__':build()

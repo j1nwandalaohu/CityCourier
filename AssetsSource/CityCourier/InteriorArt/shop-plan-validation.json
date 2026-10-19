@@ -1,0 +1,25 @@
+{
+  "passed": true,
+  "errors": [],
+  "buildings": 293,
+  "shops": 580,
+  "assemblies": {
+    "SM_IF_ShopNoodleCooking": 194,
+    "SM_IF_ShopNoodleDining": 194,
+    "SM_IF_ShopGroceryCheckout": 193,
+    "SM_IF_ShopGroceryShelf": 193,
+    "SM_IF_ShopRoastDining": 193,
+    "SM_IF_ShopRoastDisplay": 193
+  },
+  "layout_sha256": "bd475aaf640ddd2245bead4b485bfff4dcefa5844cb17335a4a886df5c7a600b",
+  "manifest_sha256": "d29325f9407a87f528a239950ac0c2545720d9a9b9f9c54d3a08baa6730c873a",
+  "checks": [
+    "real exported bounds",
+    "room containment",
+    "120cm standing square",
+    "all route capsule sweeps",
+    "full door sweep",
+    "blocking collision",
+    "furniture separation"
+  ]
+}
