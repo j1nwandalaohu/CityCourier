@@ -1,0 +1,126 @@
+{
+  "complete": true,
+  "error": null,
+  "input": "Production Enhanced Input",
+  "single_node_animation": false,
+  "map_saved": false,
+  "frames": [
+    {
+      "time": 5.759346250444651,
+      "position": [
+        0.0,
+        0.0,
+        36.0
+      ],
+      "speed": 0.0,
+      "prone": true,
+      "animation_index": 6,
+      "head_above_floor_cm": 18.277345960494678,
+      "mesh_relative_z": -34.0
+    },
+    {
+      "time": 6.159346256405115,
+      "position": [
+        -8.7609343894107e-07,
+        -23.999999910593015,
+        36.0
+      ],
+      "speed": 59.99999999999997,
+      "prone": true,
+      "animation_index": 7,
+      "head_above_floor_cm": 22.269973060552957,
+      "mesh_relative_z": -34.0
+    },
+    {
+      "time": 6.55934626236558,
+      "position": [
+        -1.7521868778821394e-06,
+        -47.99999982118604,
+        36.0
+      ],
+      "speed": 60.0,
+      "prone": true,
+      "animation_index": 7,
+      "head_above_floor_cm": 20.18149219641152,
+      "mesh_relative_z": -34.0
+    },
+    {
+      "time": 6.576013062149286,
+      "position": [
+        -1.7886910628647526e-06,
+        -49.00000780820844,
+        36.0
+      ],
+      "speed": 60.0,
+      "prone": true,
+      "animation_index": 7,
+      "head_above_floor_cm": 20.181492196409824,
+      "mesh_relative_z": -34.0
+    },
+    {
+      "time": 6.592679761350155,
+      "position": [
+        -1.8251950275474537e-06,
+        -50.00000976026055,
+        36.0
+      ],
+      "speed": 60.0,
+      "prone": true,
+      "animation_index": 7,
+      "head_above_floor_cm": 20.1814921964109,
+      "mesh_relative_z": -34.0
+    },
+    {
+      "time": 6.612873259931803,
+      "position": [
+        -1.8694235067538362e-06,
+        -51.211619675159426,
+        36.0
+      ],
+      "speed": 60.0,
+      "prone": true,
+      "animation_index": 7,
+      "head_above_floor_cm": 20.181492196410748,
+      "mesh_relative_z": -34.0
+    },
+    {
+      "time": 6.999662552028894,
+      "position": [
+        -2.7165823962385427e-06,
+        -74.41897675395009,
+        36.0
+      ],
+      "speed": 60.0,
+      "prone": true,
+      "animation_index": 7,
+      "head_above_floor_cm": 31.34101533238873,
+      "mesh_relative_z": -34.0
+    },
+    {
+      "time": 7.328791651874781,
+      "position": [
+        -3.437452019432151e-06,
+        -94.16672296822068,
+        36.0
+      ],
+      "speed": 60.0,
+      "prone": true,
+      "animation_index": 7,
+      "head_above_floor_cm": 20.18151627153054,
+      "mesh_relative_z": -34.0
+    },
+    {
+      "time": 7.604390535503626,
+      "position": [
+        -4.041077988634644e-06,
+        -110.70265688002107,
+        36.0
+      ],
+      "speed": 60.0,
+      "prone": true,
+      "animation_index": 7,
+      "head_above_floor_cm": 20.181516271531,
+      "mesh_relative_z": -34.0
+    }
+  ]
+}

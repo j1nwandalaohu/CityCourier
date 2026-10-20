@@ -26,7 +26,9 @@ Windows 单人 3D 外卖配送游戏，基于 Unreal Engine 5.6.1。首版街区
 | --- | --- |
 | W A S D | 步行 / 驾驶；停车后 S 倒车 |
 | 鼠标移动 | 转动镜头 |
-| Shift | 步行奔跑 |
+| 左 Shift（按住） | 趴下，配合 WASD 匍匐移动；松开且空间足够时起身 |
+| 右 Shift | 步行奔跑 |
+| Ctrl（按住） | 蹲下，配合 WASD 蹲行 |
 | E | 交互、上下车、取餐、交付 |
 | 空格 | 步行跳跃 / 电动车刹车 |
 | 鼠标左键 / 右键 | 轻拳 / 重拳；对应动画未交付时提示未就绪，不产生不可见命中 |
@@ -67,7 +69,7 @@ Esc 菜单提供总音量和低 / 中 / 高画质。中档使用软件 Lumen，1
 
 本次更新见 [功能完善版验证](docs/testing/function-improvements-validation.md)；首版历史证据见 [验收记录](docs/testing/acceptance.md)、[发行检查](docs/testing/release-checklist.md) 和 [性能报告](docs/testing/performance.md)。运行时不需要 Python、Blender 或 UE 编辑器。
 
-正式角色现已切换新版慢跑／快跑，接入真实左右轻拳与右手重拳。WASD 慢跑、Shift 快跑、左键轻拳（连击窗口内再按一次接右拳）、右键重拳；骑乘和界面中不触发出拳。来源、重建与验证见 [正式动作接入记录](docs/art/production-actions.md)。跳跃、落地、受击和起停过渡的其余七段专用动画仍待制作。
+正式角色使用新版慢跑／快跑、左右轻拳、右手重拳及跳跃动作。WASD 慢跑、右 Shift 快跑、左键轻拳（连击窗口内再按一次接右拳，跳跃中可出拳）、右键重拳；骑乘和界面中不触发出拳。按住左 Shift 趴下并用 WASD 匍匐移动，按住 Ctrl 蹲下并蹲行。来源与重建见 [正式动作接入记录](docs/art/production-actions.md) 和 [蹲姿与匍匐动作](docs/art/posture-actions.md)。
 
 ## 首版范围
 

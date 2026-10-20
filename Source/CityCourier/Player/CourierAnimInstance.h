@@ -8,8 +8,10 @@ class CITYCOURIER_API UCourierAnimInstance : public UAnimInstance
     GENERATED_BODY()
 public:
     UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category="Courier") TArray<TObjectPtr<class UAnimSequence>> Clips;
+    UPROPERTY(Transient) TArray<TObjectPtr<class UAnimSequence>> PostureClips;
     static int32 SelectClip(float Speed,bool bMounted) { return bMounted?3:Speed<8?0:Speed<520?1:2; }
     virtual void NativeUpdateAnimation(float DeltaSeconds) override;
+    virtual void NativeInitializeAnimation() override;
     UPROPERTY(BlueprintReadOnly,Category="Courier") float GroundSpeed=0;
     UPROPERTY(BlueprintReadOnly,Category="Courier") bool bRiding=false;
     UPROPERTY(BlueprintReadOnly,Category="Courier") float SteeringAmount=0;

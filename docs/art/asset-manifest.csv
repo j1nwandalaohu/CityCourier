@@ -1,4 +1,8 @@
 asset_id,source_path,ue_path,author,source_url,license,is_placeholder
+posture_crouch_idle,AssetsSource/CityCourier/Exports/PostureActions/A_CrouchIdle.fbx,/Game/CityCourier/Art/Characters/A_CrouchIdle,Mesh2Motion contributors and CityCourier,https://github.com/Mesh2Motion/mesh2motion-app/tree/653a9698f5f315523072f1c3ff3496100401317b,CC0-1.0 retargeted in place,false
+posture_crouch_walk,AssetsSource/CityCourier/Exports/PostureActions/A_CrouchWalk.fbx,/Game/CityCourier/Art/Characters/A_CrouchWalk,Mesh2Motion contributors and CityCourier,https://github.com/Mesh2Motion/mesh2motion-app/tree/653a9698f5f315523072f1c3ff3496100401317b,CC0-1.0 retargeted in place,false
+posture_prone_idle,AssetsSource/CityCourier/Exports/PostureActions/A_ProneIdle.fbx,/Game/CityCourier/Art/Characters/A_ProneIdle,Mesh2Motion contributors and CityCourier,https://github.com/Mesh2Motion/mesh2motion-app/tree/653a9698f5f315523072f1c3ff3496100401317b,CC0-1.0 retargeted in place,false
+posture_prone_crawl,AssetsSource/CityCourier/Exports/PostureActions/A_ProneCrawl.fbx,/Game/CityCourier/Art/Characters/A_ProneCrawl,Mesh2Motion contributors and CityCourier,https://github.com/Mesh2Motion/mesh2motion-app/tree/653a9698f5f315523072f1c3ff3496100401317b,CC0-1.0 retargeted in place,false
 courier_idle,AssetsSource/CityCourier/Exports/A_Idle.fbx,/Game/CityCourier/Art/Characters/A_Idle,CityCourier project,,Original project artwork,false
 courier_walk,AssetsSource/CityCourier/Exports/A_Walk.fbx,/Game/CityCourier/Art/Characters/A_Walk,CityCourier project,,Original project artwork,false
 courier_run,AssetsSource/CityCourier/Exports/A_Run.fbx,/Game/CityCourier/Art/Characters/A_Run,CityCourier project,,Original project artwork,false

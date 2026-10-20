@@ -36,12 +36,21 @@ bool UCourierActionComponent::IsPlaybackReady() const
 bool UCourierActionComponent::QueueAttack(bool bHeavy)
 {
     auto* Rider=Cast<ACourierCharacter>(GetOwner()); FText Reason;
+    if(Rider && Rider->GetCharacterMovement()->IsFalling()) return bHeavy?false:QueueJumpPunch();
     if(bSuppressed || !Rider || !Rider->CanPerformGroundAction(Reason,true)) { if(!Reason.IsEmpty()) Feedback(Reason); return false; }
     const auto Next=bHeavy?ECourierAction::Heavy:Timeline.GetAction()==ECourierAction::LightL?ECourierAction::LightR:ECourierAction::LightL;
     auto* Ptr=ActionAnimations.Find(Next);
     if(!IsPlaybackReady() || !Ptr || !FCourierActionAnimation::Compatible(Rider->GetMesh(),Ptr->Get(),bHeavy?.95:.55))
     { Feedback(FText::FromString(TEXT("出拳动画尚未就绪，请等待美术资源接入"))); return false; }
     PendingEdges|=bHeavy?2:1; return true;
+}
+bool UCourierActionComponent::QueueJumpPunch()
+{
+    auto* Rider=Cast<ACourierCharacter>(GetOwner());
+    if(bSuppressed || !Rider || !Rider->GetCharacterMovement()->IsFalling() || Rider->IsMounted() || Rider->IsProne() || Timeline.GetAction()!=ECourierAction::None) return false;
+    const auto* Ptr=ActionAnimations.Find(ECourierAction::LightL);
+    if(!IsPlaybackReady() || !Ptr || !FCourierActionAnimation::Compatible(Rider->GetMesh(),Ptr->Get(),.55)) return false;
+    return Timeline.RequestAttack(false);
 }
 void UCourierActionComponent::Cancel()
 {
@@ -203,8 +212,8 @@ void UCourierActionComponent::SyncAnimation(float Delta)
             Time=IsJumpStart()?JumpElapsed:bDescending?FallElapsed:FMath::Max(0.f,JumpElapsed-.18f);
             bLoop=Movement==TEXT("A_JumpLoop");
         }
-        else if(LandingElapsed<.25f) { Movement=TEXT("A_Land"); Time=LandingElapsed; }
-        else
+        else if(LandingElapsed<.25f && !Rider->IsProne() && !Rider->IsCrouched()) { Movement=TEXT("A_Land"); Time=LandingElapsed; }
+        else if(!Rider->IsProne() && !Rider->IsCrouched())
         {
             const float Speed=Rider->GetVelocity().Size2D(); const bool bMoving=!Rider->GetLastMovementInputVector().IsNearlyZero() || !Rider->GetPendingMovementInputVector().IsNearlyZero();
             if(bMoving && !bWasMoving && PreviousSpeed<10 && Rider->GetCharacterMovement()->MaxWalkSpeed>500) { RunTransition=TEXT("A_RunStart"); RunTransitionElapsed=0; }

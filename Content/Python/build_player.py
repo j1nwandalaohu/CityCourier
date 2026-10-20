@@ -21,6 +21,8 @@ def data_factory(cls):
 
 for name, value_type in [("Move", unreal.InputActionValueType.AXIS2D), ("Look", unreal.InputActionValueType.AXIS2D),
                          ("Sprint", unreal.InputActionValueType.BOOLEAN), ("Interact", unreal.InputActionValueType.BOOLEAN),
+                         ("Crouch", unreal.InputActionValueType.BOOLEAN),
+                         ("Prone", unreal.InputActionValueType.BOOLEAN),
                          ("Brake", unreal.InputActionValueType.BOOLEAN), ("Phone", unreal.InputActionValueType.BOOLEAN),
                          ("Map", unreal.InputActionValueType.BOOLEAN), ("Pause", unreal.InputActionValueType.BOOLEAN),
                          ("Recover", unreal.InputActionValueType.BOOLEAN),
@@ -39,7 +41,7 @@ mappings = []
 for name, key, swizzle, negate in [("Move", "W", True, False), ("Move", "S", True, True),
         ("Move", "D", False, False), ("Move", "A", False, True),
         ("Look", "MouseX", False, False), ("Look", "MouseY", True, True),
-        ("Sprint", "LeftShift", False, False), ("Interact", "E", False, False), ("Brake", "SpaceBar", False, False),
+        ("Sprint", "RightShift", False, False), ("Prone", "LeftShift", False, False), ("Crouch", "LeftControl", False, False), ("Interact", "E", False, False), ("Brake", "SpaceBar", False, False),
         ("Jump", "SpaceBar", False, False), ("LightPunch", "LeftMouseButton", False, False), ("HeavyPunch", "RightMouseButton", False, False),
         ("Phone", "Tab", False, False), ("Map", "M", False, False), ("Pause", "Escape", False, False), ("Recover", "R", False, False)]:
     modifiers = []

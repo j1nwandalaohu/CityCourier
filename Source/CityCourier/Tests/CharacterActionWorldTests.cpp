@@ -4,6 +4,7 @@
 #include "GameFramework/CharacterMovementComponent.h"
 #include "Animation/AnimSequence.h"
 #include "Components/SkeletalMeshComponent.h"
+#include "Components/CapsuleComponent.h"
 #include "Player/CourierActionComponent.h"
 
 IMPLEMENT_SIMPLE_AUTOMATION_TEST(FCharacterJumpTest,"CityCourier.CharacterActions.World.JumpAndHeadroom",EAutomationTestFlags::EditorContext|EAutomationTestFlags::EngineFilter)
@@ -58,6 +59,36 @@ bool FCharacterActionModesTest::RunTest(const FString&)
     A->TickComponent(.01f,LEVELTICK_All,nullptr);
     F.Controller->SetInterfaceMode(ECourierInterfaceMode::Settlement);
     TestTrue(TEXT("Settlement closes action"),A->GetTimeline().GetAction()==ECourierAction::None);
+    return true;
+}
+IMPLEMENT_SIMPLE_AUTOMATION_TEST(FCourierCrouchCrawlTest,"CityCourier.CharacterActions.World.CrouchAndCrawl",EAutomationTestFlags::EditorContext|EAutomationTestFlags::EngineFilter)
+bool FCourierCrouchCrawlTest::RunTest(const FString&)
+{
+    FStationFixture F; auto* Rider=F.Rider; auto* Movement=Rider->GetCharacterMovement();
+    Movement->SetMovementMode(MOVE_Walking);
+    const float StandingHalfHeight=Rider->GetCapsuleComponent()->GetUnscaledCapsuleHalfHeight();
+    Rider->SetCrouching(true);
+    Movement->TickComponent(.016f,LEVELTICK_All,nullptr);
+    TestTrue(TEXT("Crouch reduces collision capsule height"),Rider->IsCrouched() && Rider->GetCapsuleComponent()->GetUnscaledCapsuleHalfHeight()<StandingHalfHeight);
+    TestEqual(TEXT("Crouched movement uses crawl speed"),Movement->MaxWalkSpeed,100.f);
+    Rider->SetCrouching(false);
+    Movement->TickComponent(.016f,LEVELTICK_All,nullptr);
+    Rider->UpdateActionMovement();
+    TestFalse(TEXT("Releasing crouch stands up when clear"),Rider->IsCrouched());
+    TestEqual(TEXT("Standing movement speed is restored"),Movement->MaxWalkSpeed,420.f);
+    return true;
+}
+IMPLEMENT_SIMPLE_AUTOMATION_TEST(FCourierJumpPunchTest,"CityCourier.CharacterActions.World.JumpPunch",EAutomationTestFlags::EditorContext|EAutomationTestFlags::EngineFilter)
+bool FCourierJumpPunchTest::RunTest(const FString&)
+{
+    FStationFixture F; F.Rider->DispatchBeginPlay(); auto* Actions=F.Rider->GetActions();
+    auto* Fixture=LoadObject<UAnimSequence>(nullptr,TEXT("/Game/CityCourier/Art/Characters/A_Walk.A_Walk"));
+    Actions->ActionAnimations.Add(ECourierAction::LightL,Fixture);
+    F.Rider->GetMesh()->TickAnimation(.01f,false); F.Rider->GetMesh()->RefreshBoneTransforms();
+    auto* Movement=F.Rider->GetCharacterMovement(); Movement->SetMovementMode(MOVE_Falling);
+    TestTrue(TEXT("Light punch starts while airborne"),Actions->QueueAttack(false));
+    TestTrue(TEXT("Jump punch uses the light punch timeline"),Actions->GetTimeline().GetAction()==ECourierAction::LightL);
+    TestFalse(TEXT("Heavy punch remains grounded-only"),Actions->QueueAttack(true));
     return true;
 }
 #endif

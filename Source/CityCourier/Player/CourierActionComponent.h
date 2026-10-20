@@ -15,6 +15,7 @@ public:
     virtual void TickComponent(float Delta,ELevelTick TickType,FActorComponentTickFunction* Function) override;
     virtual void EndPlay(EEndPlayReason::Type Reason) override;
     bool QueueAttack(bool bHeavy);
+    bool QueueJumpPunch();
     void Cancel();
     void SetSuppressed(bool bValue,bool bPreserveAction);
     void MovementModeChanged(bool bAirborne);

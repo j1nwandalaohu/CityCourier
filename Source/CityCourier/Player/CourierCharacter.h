@@ -32,6 +32,11 @@ public:
     void SetInputSuppressed(bool bValue,bool bPreserveAction=false);
     void ClearMovementInput();
     void SetSprinting(bool bValue);
+    void SetCrouching(bool bValue);
+    UFUNCTION(BlueprintCallable) bool SetProne(bool bValue);
+    UFUNCTION(BlueprintPure) bool IsProne() const { return bProne; }
+    virtual void OnStartCrouch(float HeightAdjust,float ScaledHeightAdjust) override;
+    virtual void OnEndCrouch(float HeightAdjust,float ScaledHeightAdjust) override;
     UPROPERTY(VisibleAnywhere, BlueprintReadOnly) TObjectPtr<class USpringArmComponent> CameraBoom;
     UPROPERTY(VisibleAnywhere, BlueprintReadOnly) TObjectPtr<class UCameraComponent> FollowCamera;
     UPROPERTY(VisibleAnywhere, BlueprintReadOnly) TArray<TObjectPtr<class UStaticMeshComponent>> PrototypeParts;
@@ -41,6 +46,11 @@ private:
     void Look(const FInputActionValue& Value);
     void SprintStart();
     void SprintStop();
+    void CrouchStart();
+    void CrouchStop();
+    void ProneStart();
+    void ProneStop();
+    bool HasProneClearance(FVector Location,FRotator Rotation,FVector Displacement=FVector::ZeroVector) const;
     void InteractPressed();
     void JumpPressed();
     void JumpReleased();
@@ -53,5 +63,8 @@ private:
     bool bMounted = false;
     bool bInputSuppressed = false;
     bool bSprintHeld = false;
+    bool bCrouchHeld = false;
+    bool bProne = false;
+    bool bProneHeld = false;
     float InteractionRefreshTime = 0;
 };

@@ -21,11 +21,15 @@ ACourierCharacter::ACourierCharacter()
     PrimaryActorTick.bCanEverTick = true;
     Actions=CreateDefaultSubobject<UCourierActionComponent>(TEXT("CharacterActions"));
     GetCapsuleComponent()->InitCapsuleSize(34, 88);
+    GetMesh()->SetRelativeLocation(FVector(0,0,-88));
     bUseControllerRotationYaw = false;
     auto* Movement = GetCharacterMovement();
     Movement->bOrientRotationToMovement = true; Movement->RotationRate = FRotator(0,540,0);
     Movement->MaxWalkSpeed = 420; Movement->MaxStepHeight = 35; Movement->BrakingDecelerationWalking = 1600;
     Movement->JumpZVelocity=420; Movement->AirControl=.25; JumpMaxCount=1; JumpMaxHoldTime=0;
+    Movement->GetNavAgentPropertiesRef().bCanCrouch=true;
+    Movement->SetCrouchedHalfHeight(55.f);
+    Movement->MaxWalkSpeedCrouched=100.f;
     CameraBoom = CreateDefaultSubobject<USpringArmComponent>(TEXT("CameraBoom"));
     CameraBoom->SetupAttachment(RootComponent); CameraBoom->TargetArmLength = 380;
     CameraBoom->SocketOffset = FVector(0,55,65); CameraBoom->bUsePawnControlRotation = true;
@@ -56,7 +60,13 @@ void ACourierCharacter::BeginPlay()
 }
 void ACourierCharacter::Tick(float DeltaSeconds)
 {
-    Super::Tick(DeltaSeconds); InteractionRefreshTime += DeltaSeconds;
+    Super::Tick(DeltaSeconds);
+    if(bProne && !bProneHeld) SetProne(false);
+    if(bProne && !HasProneClearance(GetActorLocation(),GetActorRotation(),GetVelocity()*DeltaSeconds))
+    { GetCharacterMovement()->Velocity.X=0; GetCharacterMovement()->Velocity.Y=0; ConsumeMovementInputVector(); }
+    UpdateActionMovement();
+    CameraBoom->SocketOffset.Z=FMath::FInterpTo(CameraBoom->SocketOffset.Z,bProne?0.f:IsCrouched()?35.f:65.f,DeltaSeconds,8.f);
+    InteractionRefreshTime += DeltaSeconds;
     if (InteractionRefreshTime >= 0.1f) { InteractionRefreshTime = 0; RefreshInteraction(); }
 }
 void ACourierCharacter::SetupPlayerInputComponent(UInputComponent* Input)
@@ -76,6 +86,18 @@ void ACourierCharacter::SetupPlayerInputComponent(UInputComponent* Input)
         Enhanced->BindAction(A, ETriggerEvent::Completed, this, &ACourierCharacter::SprintStop);
         Enhanced->BindAction(A, ETriggerEvent::Canceled, this, &ACourierCharacter::SprintStop);
     }
+    if(auto* A=Action(TEXT("Crouch")))
+    {
+        Enhanced->BindAction(A,ETriggerEvent::Started,this,&ACourierCharacter::CrouchStart);
+        Enhanced->BindAction(A,ETriggerEvent::Completed,this,&ACourierCharacter::CrouchStop);
+        Enhanced->BindAction(A,ETriggerEvent::Canceled,this,&ACourierCharacter::CrouchStop);
+    }
+    if(auto* A=Action(TEXT("Prone")))
+    {
+        Enhanced->BindAction(A,ETriggerEvent::Started,this,&ACourierCharacter::ProneStart);
+        Enhanced->BindAction(A,ETriggerEvent::Completed,this,&ACourierCharacter::ProneStop);
+        Enhanced->BindAction(A,ETriggerEvent::Canceled,this,&ACourierCharacter::ProneStop);
+    }
     if (auto* A = Action(TEXT("Interact"))) Enhanced->BindAction(A, ETriggerEvent::Started, this, &ACourierCharacter::InteractPressed);
     if(auto* A=Action(TEXT("Jump")))
     {
@@ -90,6 +112,15 @@ void ACourierCharacter::Move(const FInputActionValue& Value)
 {
     if (bInputSuppressed || bMounted || !Controller || Actions->IsMovementLocked()) return;
     const FVector2D Axis = Value.Get<FVector2D>(); const FRotator Yaw(0, Controller->GetControlRotation().Yaw, 0);
+    if(bProne)
+    {
+        const FVector Direction=(FRotationMatrix(Yaw).GetUnitAxis(EAxis::X)*Axis.Y+FRotationMatrix(Yaw).GetUnitAxis(EAxis::Y)*Axis.X).GetSafeNormal2D();
+        if(Direction.IsNearlyZero()) return;
+        const FRotator Facing=FMath::RInterpConstantTo(GetActorRotation(),Direction.Rotation(),GetWorld()->GetDeltaSeconds(),120.f);
+        if(!HasProneClearance(GetActorLocation(),Facing,Direction*FMath::Max(8.f,60.f*GetWorld()->GetDeltaSeconds()+2.f)))
+        { GetCharacterMovement()->Velocity.X=0; GetCharacterMovement()->Velocity.Y=0; return; }
+        SetActorRotation(Facing);
+    }
     AddMovementInput(FRotationMatrix(Yaw).GetUnitAxis(EAxis::X), Axis.Y);
     AddMovementInput(FRotationMatrix(Yaw).GetUnitAxis(EAxis::Y), Axis.X);
 }
@@ -106,17 +137,92 @@ void ACourierCharacter::SetSprinting(bool bValue)
 {
     bSprintHeld=bValue; UpdateActionMovement();
 }
+void ACourierCharacter::CrouchStart() { SetCrouching(true); }
+void ACourierCharacter::CrouchStop() { SetCrouching(false); }
+void ACourierCharacter::ProneStart() { SetProne(true); }
+void ACourierCharacter::ProneStop() { SetProne(false); }
+bool ACourierCharacter::HasProneClearance(FVector Location,FRotator Rotation,FVector Displacement) const
+{
+    // The normal upright capsule covers the torso. Check the prone body's full length too.
+    const FVector Center=Location-FVector(0,0,GetCapsuleComponent()->GetScaledCapsuleHalfHeight())+FVector(0,0,30);
+    FHitResult Hit; FCollisionQueryParams Params(SCENE_QUERY_STAT(CourierProneBody),false,this);
+    const auto Shape=FCollisionShape::MakeBox(FVector(90,34,24));
+    return !GetWorld()->OverlapBlockingTestByChannel(Center,Rotation.Quaternion(),ECC_Pawn,Shape,Params)
+        && !GetWorld()->SweepSingleByChannel(Hit,Center,Center+Displacement,Rotation.Quaternion(),ECC_Pawn,Shape,Params);
+}
+bool ACourierCharacter::SetProne(bool bValue)
+{
+    auto* Movement=GetCharacterMovement();
+    if(bValue)
+    {
+        if(bMounted || bInputSuppressed) return false;
+        if(bProne) { bProneHeld=true; return true; }
+        if(!Movement->IsMovingOnGround() || Actions->IsGroundActionBlocked()
+            || !HasProneClearance(GetActorLocation(),GetActorRotation())) return false;
+        Movement->SetCrouchedHalfHeight(34.f); Movement->bWantsToCrouch=true; Movement->Crouch(false);
+        if(!IsCrouched()) { Movement->SetCrouchedHalfHeight(55.f); return false; }
+        bProne=bProneHeld=true;
+    }
+    else
+    {
+        bProneHeld=false;
+        if(!bProne) return true;
+        if(bCrouchHeld)
+        {
+            Movement->SetCrouchedHalfHeight(55.f); Movement->Crouch(false);
+            if(GetCapsuleComponent()->GetUnscaledCapsuleHalfHeight()<54.f)
+            { Movement->SetCrouchedHalfHeight(34.f); return false; }
+        }
+        else
+        {
+            Movement->UnCrouch(false);
+            if(IsCrouched()) { Movement->bWantsToCrouch=true; return false; }
+            Movement->bWantsToCrouch=false;
+        }
+        bProne=false; Movement->SetCrouchedHalfHeight(55.f);
+    }
+    UpdateActionMovement(); return true;
+}
+void ACourierCharacter::OnStartCrouch(float HeightAdjust,float ScaledHeightAdjust)
+{
+    Super::OnStartCrouch(HeightAdjust,ScaledHeightAdjust);
+    FVector Location=GetMesh()->GetRelativeLocation(); Location.Z=-GetCapsuleComponent()->GetUnscaledCapsuleHalfHeight();
+    GetMesh()->SetRelativeLocation(Location);
+    // Super writes the relative transform directly. Refresh even when the
+    // setter sees an identical value, so stationary crouch has a current world pose.
+    GetMesh()->UpdateComponentToWorld();
+}
+void ACourierCharacter::OnEndCrouch(float HeightAdjust,float ScaledHeightAdjust)
+{
+    Super::OnEndCrouch(HeightAdjust,ScaledHeightAdjust);
+    FVector Location=GetMesh()->GetRelativeLocation(); Location.Z=-GetCapsuleComponent()->GetUnscaledCapsuleHalfHeight();
+    GetMesh()->SetRelativeLocation(Location);
+    GetMesh()->UpdateComponentToWorld();
+}
+void ACourierCharacter::SetCrouching(bool bValue)
+{
+    if(bValue && (bMounted || bInputSuppressed)) return;
+    if(bProne) { bCrouchHeld=bValue; return; }
+    if(bValue)
+    {
+        if(!bMounted && !bInputSuppressed && GetCharacterMovement()->IsMovingOnGround() && !Actions->IsGroundActionBlocked())
+        { bCrouchHeld=true; Crouch(); }
+    }
+    else { bCrouchHeld=false; UnCrouch(); }
+    UpdateActionMovement();
+}
 void ACourierCharacter::UpdateActionMovement()
 {
     const auto& State=Actions->GetTimeline();
-    const float Limit=Actions->IsMovementLocked()?0.f:State.IsAttacking()?120.f:bSprintHeld && !bMounted && !bInputSuppressed?700.f:420.f;
+    const float Limit=Actions->IsMovementLocked()?0.f:bProne?60.f:State.IsAttacking()?120.f:(IsCrouched()||bCrouchHeld)?100.f:bSprintHeld && !bMounted && !bInputSuppressed?700.f:420.f;
     auto* Movement=GetCharacterMovement(); Movement->MaxWalkSpeed=Limit;
-    if(State.IsAttacking() || Actions->IsMovementLocked())
+    Movement->MaxWalkSpeedCrouched=bProne?60.f:100.f; Movement->MaxStepHeight=bProne?10.f:35.f;
+    if(State.IsAttacking() || Actions->IsMovementLocked() || bProne)
     {
         FVector Horizontal=Movement->Velocity; Horizontal.Z=0;
         Horizontal=Horizontal.GetClampedToMaxSize(Limit); Horizontal.Z=Movement->Velocity.Z; Movement->Velocity=Horizontal;
     }
-    Movement->bOrientRotationToMovement=!State.IsAttacking() && !State.IsReacting();
+    Movement->bOrientRotationToMovement=!bProne && !State.IsAttacking() && !State.IsReacting();
 }
 void ACourierCharacter::ClearMovementInput()
 {
@@ -127,9 +233,9 @@ void ACourierCharacter::ClearMovementInput()
     StopJumping(); SetSprinting(false);
 }
 void ACourierCharacter::SetMounted(bool bValue)
-{ bMounted=bValue; Actions->Cancel(); ClearMovementInput(); RefreshInteraction(); }
+{ bMounted=bValue; bCrouchHeld=false; SetProne(false); UnCrouch(); Actions->Cancel(); ClearMovementInput(); RefreshInteraction(); }
 void ACourierCharacter::SetInputSuppressed(bool bValue,bool bPreserveAction)
-{ bInputSuppressed=bValue; Actions->SetSuppressed(bValue,bPreserveAction); ClearMovementInput(); RefreshInteraction(); }
+{ bInputSuppressed=bValue; if(bValue && !bPreserveAction) { bCrouchHeld=false; SetProne(false); if(!bProne) UnCrouch(); } Actions->SetSuppressed(bValue,bPreserveAction); ClearMovementInput(); RefreshInteraction(); }
 void ACourierCharacter::OnMovementModeChanged(EMovementMode Prev,uint8 Custom)
 {
     Super::OnMovementModeChanged(Prev,Custom);
@@ -139,6 +245,7 @@ void ACourierCharacter::OnJumped_Implementation()
 { Super::OnJumped_Implementation(); Actions->JumpStarted(); }
 bool ACourierCharacter::CanPerformGroundAction(FText& Reason,bool bAllowAttack) const
 {
+    if(bProne) { Reason=FText::FromString(TEXT("请先起身")); return false; }
     if(bMounted || bInputSuppressed) { Reason=FText::FromString(TEXT("请先下车并关闭界面")); return false; }
     if(!GetCharacterMovement()->IsMovingOnGround()) { Reason=FText::FromString(TEXT("请落地后再操作")); return false; }
     if(Actions->IsGroundActionBlocked() && !(bAllowAttack && Actions->GetTimeline().IsAttacking()))
@@ -182,6 +289,7 @@ bool ACourierCharacter::ReceiveCourierStrike(FGuid Id,const FVector& Origin,ECou
 bool ACourierCharacter::CanReachInteraction(const AActor* Target, FVector Point, FText& Reason, bool bAllowSuppressed) const
 {
     Reason = FText::GetEmpty();
+    if(bProne) { Reason=FText::FromString(TEXT("请先起身")); return false; }
     if(GetCharacterMovement()->IsFalling() || Actions->IsGroundActionBlocked()) { Reason=FText::FromString(TEXT("请落地并等待当前动作结束")); return false; }
     if (!IsValid(Target) || bMounted || (bInputSuppressed && !bAllowSuppressed)) { Reason = FText::FromString(TEXT("请先下车并关闭界面")); return false; }
     if (FVector::DistSquared(GetActorLocation(), Point) > 200.0 * 200.0) { Reason = FText::FromString(TEXT("请靠近至2米内")); return false; }

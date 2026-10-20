@@ -1,6 +1,7 @@
 #include "Player/CourierAnimInstance.h"
 #include "Player/CourierCharacter.h"
 #include "Player/CourierActionComponent.h"
+#include "Player/CourierActionAnimation.h"
 #include "Animation/AnimInstanceProxy.h"
 #include "Animation/AnimSequence.h"
 #include "Animation/AnimationPoseData.h"
@@ -10,7 +11,7 @@
 struct FCourierAnimProxy final : FAnimInstanceProxy
 {
     using FAnimInstanceProxy::FAnimInstanceProxy;
-    UAnimSequence* Clips[4]={};
+    UAnimSequence* Clips[8]={};
     int32 Active=0,Previous=0;
     float Clock=0,PreviousClock=0,Blend=1,Rate=1,PreviousRate=1;
     float MovementInfluence=1;
@@ -22,6 +23,7 @@ struct FCourierAnimProxy final : FAnimInstanceProxy
         const auto* Rider=Cast<ACourierCharacter>(Anim->GetOwningActor());
         Anim->NativeUpdateAnimation(Delta);
         for(int32 I=0;I<4;++I) Clips[I]=Anim->Clips.IsValidIndex(I)?Anim->Clips[I].Get():nullptr;
+        for(int32 I=0;I<4;++I) Clips[I+4]=Anim->PostureClips.IsValidIndex(I)?Anim->PostureClips[I].Get():nullptr;
         const int32 Next=Anim->AnimationIndex;
         if(Next!=Active)
         {
@@ -33,7 +35,8 @@ struct FCourierAnimProxy final : FAnimInstanceProxy
                 ? FMath::Fmod(Clock,Clips[Active]->GetPlayLength())/Clips[Active]->GetPlayLength()*Clips[Next]->GetPlayLength() : 0;
             Active=Next; Blend=0;
         }
-        Rate=Active==1?FMath::Clamp(Anim->GroundSpeed/473.2f,.5f,1.5f):Active==2?FMath::Clamp(Anim->GroundSpeed/715.9f,.5f,1.5f):1;
+        Rate=Active==1?FMath::Clamp(Anim->GroundSpeed/473.2f,.5f,1.5f):Active==2?FMath::Clamp(Anim->GroundSpeed/715.9f,.5f,1.5f)
+            :Active==5?FMath::Clamp(Anim->GroundSpeed/100.f,.3f,1.3f):Active==7?FMath::Clamp(Anim->GroundSpeed/60.f,.3f,1.3f):1;
         // The short land clip has planted feet. At running speed retain the
         // stride underneath its compression; combat still uses the full slot.
         const bool bLanding=Rider && !Anim->bAirborne && Anim->CurrentAction==ECourierAction::None
@@ -87,6 +90,13 @@ void UCourierAnimInstance::DestroyAnimInstanceProxy(FAnimInstanceProxy* Proxy) {
 #include "Vehicles/ScooterPawn.h"
 #include "Player/CourierActionComponent.h"
 #include "GameFramework/CharacterMovementComponent.h"
+void UCourierAnimInstance::NativeInitializeAnimation()
+{
+    Super::NativeInitializeAnimation();
+    PostureClips.Reset();
+    for(FName Name:{FName(TEXT("A_CrouchIdle")),FName(TEXT("A_CrouchWalk")),FName(TEXT("A_ProneIdle")),FName(TEXT("A_ProneCrawl"))})
+        PostureClips.Add(FCourierActionAnimation::Load(Name));
+}
 void UCourierAnimInstance::NativeUpdateAnimation(float Delta)
 {
     Super::NativeUpdateAnimation(Delta);
@@ -97,4 +107,9 @@ void UCourierAnimInstance::NativeUpdateAnimation(float Delta)
     if(auto* Bike=Cast<AScooterPawn>(Rider->GetAttachParentActor()))
     { GroundSpeed=Bike->GetSpeedKmh()/ .036f; SteeringAmount=FMath::Clamp(-Bike->VisualRoot->GetRelativeRotation().Roll/12.f,-1.f,1.f); }
     AnimationIndex=bRiding?3:GroundSpeed>500?2:GroundSpeed>10?1:0;
+    if(!bRiding && !bAirborne && PostureClips.Num()==4)
+    {
+        const int32 Posture=Rider->IsProne()?(GroundSpeed>5?7:6):Rider->IsCrouched()?(GroundSpeed>5?5:4):-1;
+        if(Posture>=4 && PostureClips[Posture-4]) AnimationIndex=Posture;
+    }
 }

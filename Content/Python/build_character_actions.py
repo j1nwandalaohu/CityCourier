@@ -7,7 +7,7 @@ root = '/Game/CityCourier/Input'
 context = unreal.load_asset(root + '/IMC_Courier')
 assert context, 'Existing courier input context is required'
 new_actions = {}
-for name in ['Jump', 'LightPunch', 'HeavyPunch']:
+for name in ['Jump', 'LightPunch', 'HeavyPunch', 'Crouch', 'Prone', 'Sprint']:
     path = root + '/IA_' + name
     action = unreal.load_asset(path) if assets.does_asset_exist(path) else None
     if not action:
@@ -20,7 +20,7 @@ for name in ['Jump', 'LightPunch', 'HeavyPunch']:
 
 mappings = [m for m in context.get_editor_property('mappings')
             if m.get_editor_property('action') not in new_actions.values()]
-for name, key_name in [('Jump', 'SpaceBar'), ('LightPunch', 'LeftMouseButton'), ('HeavyPunch', 'RightMouseButton')]:
+for name, key_name in [('Jump', 'SpaceBar'), ('LightPunch', 'LeftMouseButton'), ('HeavyPunch', 'RightMouseButton'), ('Crouch', 'LeftControl'), ('Prone', 'LeftShift'), ('Sprint', 'RightShift')]:
     key = unreal.Key()
     key.import_text(key_name)
     mappings.append(unreal.EnhancedActionKeyMapping(action=new_actions[name], key=key))
