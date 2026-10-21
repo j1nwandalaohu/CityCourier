@@ -124,13 +124,21 @@ void UCourierActionComponent::TickComponent(float Delta,ELevelTick TickType,FAct
     SyncAnimation(Delta);
 }
 void UCourierActionComponent::EndPlay(EEndPlayReason::Type Reason)
-{ Cancel(); Super::EndPlay(Reason); }
+{ Cancel(); Received.Empty(); Super::EndPlay(Reason); }
 
 bool UCourierActionComponent::ReceiveStrike(FGuid Id,const FVector& Origin)
 {
     auto* Rider=Cast<ACourierCharacter>(GetOwner());
-    if(!Id.IsValid() || Received.Contains(Id) || Origin.ContainsNaN() || !Rider || bSuppressed || !Rider->GetCharacterMovement()->IsMovingOnGround()) return false;
-    Received.Add(Id);
+    const double Now=GetWorld()?GetWorld()->GetTimeSeconds():0;
+    for(auto It=Received.CreateIterator();It;++It)if(Now-It.Value()>10)It.RemoveCurrent();
+    if(!Id.IsValid() || Received.Contains(Id) || Origin.ContainsNaN() || !Rider || bSuppressed || Rider->IsMounted()) return false;
+    if(Received.Num()>=256)
+    {
+        FGuid Oldest;double Time=MAX_dbl;
+        for(const auto& Pair:Received)if(Pair.Value<Time){Oldest=Pair.Key;Time=Pair.Value;}
+        Received.Remove(Oldest);
+    }
+    Received.Add(Id,Now);
     ++InterruptionGeneration;
     const bool bFront=FVector::DotProduct((Origin-Rider->GetActorLocation()).GetSafeNormal2D(),Rider->GetActorForwardVector())>=0;
     const auto Action=bFront?ECourierAction::HitFront:ECourierAction::HitBack;
@@ -138,7 +146,7 @@ bool UCourierActionComponent::ReceiveStrike(FGuid Id,const FVector& Origin)
     auto* Ptr=ActionAnimations.Find(Action);
     if(Ptr && FCourierActionAnimation::Compatible(Rider->GetMesh(),Ptr->Get(),.4)) Timeline.ReceiveHit(bFront);
     else Cancel();
-    Rider->UpdateActionMovement(); return true;
+    Rider->UpdateActionMovement(); Feedback(FText::FromString(TEXT("遭到反击"))); return true;
 }
 bool UCourierActionComponent::CanProcessStrike(uint64 Generation) const
 {
@@ -182,7 +190,7 @@ void UCourierActionComponent::TraceSlice(const FActionSlice& Slice,uint64 Genera
                     if(!bBlocked || Obstacle.GetActor()==Target)
                     {
                         Struck.FindOrAdd(Slice.InstanceId).Add(Target);
-                        const bool bReceived=Receiver->ReceiveCourierStrike(Slice.InstanceId,Rider->GetActorLocation(),Slice.Action);
+                        const bool bReceived=Receiver->ReceiveCourierStrikeContext({Slice.InstanceId,Rider,Rider->GetActorLocation(),Slice.Action});
                         if(!CanProcessStrike(Generation)) return;
                         if(bReceived) OnStrike.Broadcast(Target,Slice.InstanceId,Slice.Action);
                         if(!CanProcessStrike(Generation)) return;

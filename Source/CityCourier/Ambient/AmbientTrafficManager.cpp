@@ -5,6 +5,9 @@
 #include "GameFramework/PlayerController.h"
 #include "Engine/World.h"
 #include "Components/BoxComponent.h"
+#include "NavigationSystem.h"
+#include "NavigationData.h"
+#include "NavigationPath.h"
 AAmbientTrafficManager::AAmbientTrafficManager(){PrimaryActorTick.bCanEverTick=true;}
 void AAmbientTrafficManager::Configure(UCityDefinition* Definition)
 {
@@ -14,7 +17,10 @@ void AAmbientTrafficManager::Configure(UCityDefinition* Definition)
 }
 void AAmbientTrafficManager::Tick(float DeltaSeconds)
 {
-    Super::Tick(DeltaSeconds);RefreshTime-=DeltaSeconds;if(RefreshTime>0)return;RefreshTime=.5f;
+    Super::Tick(DeltaSeconds);
+    if(GetWorld()->IsPaused())return;
+    ProcessOneCitizenPath();Coordination.Prune(GetWorld()->GetTimeSeconds());
+    RefreshTime-=DeltaSeconds;if(RefreshTime>0)return;RefreshTime=.5f;
     if(auto* PC=GetWorld()->GetFirstPlayerController())if(APawn* Pawn=PC->GetPawn())UpdatePopulation(Pawn->GetActorLocation());
 }
 void AAmbientTrafficManager::UpdatePopulation(FVector RiderLocation)
@@ -47,9 +53,71 @@ void AAmbientTrafficManager::UpdatePopulation(FVector RiderLocation)
         else Entity->SetPatrol({A,B,B-Right*Offset*Side*2,A-Right*Offset*Side*2});
         if(GetWorld()->OverlapBlockingTestByChannel(Entity->GetActorLocation(),Forward.Rotation().Quaternion(),ECC_Pawn,FCollisionShape::MakeBox(Entity->Body->GetScaledBoxExtent()),Query))return;
         Entity->SetPopulationActive(true);
+        if(bPed && Entity->IsPopulationActive())CastChecked<AAmbientPedestrian>(Entity)->InitializeCitizen(this,Slot);
     };
     for(int32 I=0;I<Cars.Num();++I)Update(Cars[I],I,false);
     for(int32 I=0;I<Walkers.Num();++I)Update(Walkers[I],I,true);
 }
 int32 AAmbientTrafficManager::GetActiveVehicleCount()const{int32 N=0;for(AAmbientVehicle* Car:Cars)if(Car->IsPopulationActive())++N;return N;}
 int32 AAmbientTrafficManager::GetActivePedestrianCount()const{int32 N=0;for(AAmbientPedestrian* Walker:Walkers)if(Walker->IsPopulationActive())++N;return N;}
+void AAmbientTrafficManager::QueueCitizenPath(const FCitizenPathRequest& R)
+{
+    if(!R.Citizen.IsValid() || R.Goal.ContainsNaN())return;
+    PathRequests.RemoveAll([&](const auto& Pending){return !Pending.Citizen.IsValid() || Pending.Citizen==R.Citizen;});
+    PathRequests.Add(R);
+}
+void AAmbientTrafficManager::ProcessOneCitizenPath()
+{
+    if(PathRequests.IsEmpty())return;
+    const auto R=PathRequests[0];PathRequests.RemoveAt(0);
+    auto* P=R.Citizen.Get();
+    if(!P || !P->IsPopulationActive() || P->GetActivationGeneration()!=R.ActivationGeneration || P->PathSerial!=R.RequestSerial)return;
+    FCitizenPathResult Result;Result.ActivationGeneration=R.ActivationGeneration;Result.RequestSerial=R.RequestSerial;
+    auto* Nav=FNavigationSystem::GetCurrent<UNavigationSystemV1>(GetWorld());
+    FNavAgentProperties Agent(40,180);
+    const auto* Data=Nav?Nav->GetNavDataForProps(Agent,P->GetActorLocation()):nullptr;
+    if(!Data)Result.Status=ECitizenPathStatus::NoNavigation;
+    else
+    {
+        FNavLocation From,To;
+        if(Nav->ProjectPointToNavigation(P->GetActorLocation()-FVector(0,0,90),From,FVector(100,100,150),Data)
+            && Nav->ProjectPointToNavigation(R.Goal-FVector(0,0,90),To,FVector(100,100,150),Data))
+        {
+            FPathFindingQuery Query(P,*Data,From.Location,To.Location);
+            Query.SetAllowPartialPaths(false);
+            const FPathFindingResult Found=Nav->FindPathSync(Agent,Query);
+            if(Found.IsSuccessful() && Found.Path.IsValid())
+            {
+                Result.Status=Found.Path->IsPartial()?ECitizenPathStatus::Partial:ECitizenPathStatus::Complete;
+                for(const auto& Point:Found.Path->GetPathPoints())Result.Points.Add(Point.Location+FVector(0,0,90));
+            }
+        }
+    }
+    P->ApplyCitizenPath(Result);
+}
+void AAmbientTrafficManager::NotifyCitizenAssault(AAmbientPedestrian& Victim,const FCourierStrikeContext& C)
+{
+    auto* Attacker=C.Instigator.Get();
+    if(!IsValid(Attacker) || !Coordination.RememberEvent(C.InstanceId,GetWorld()->GetTimeSeconds()))return;
+    TArray<AAmbientPedestrian*> Nearby;
+    for(AAmbientPedestrian* P:Walkers)
+        if(IsValid(P) && P!=&Victim && P!=Attacker && P->IsPopulationActive()
+            && FVector::DistSquared2D(P->GetActorLocation(),Victim.GetActorLocation())<=FMath::Square(1200.))Nearby.Add(P);
+    Nearby.Sort([&](const auto& A,const auto& B){return FVector::DistSquared2D(A.GetActorLocation(),Victim.GetActorLocation())<
+        FVector::DistSquared2D(B.GetActorLocation(),Victim.GetActorLocation());});
+    int32 Count=0;
+    for(auto* P:Nearby)
+    {
+        if(!P->CanSeeTarget(&Victim) || !P->CanSeeTarget(Attacker))continue;
+        P->ReceiveWitnessEvent({C.InstanceId,Attacker,&Victim,C.Origin,1});
+        if(++Count>=4)break;
+    }
+}
+bool AAmbientTrafficManager::TryAcquireCitizenAttack(AAmbientPedestrian& P,AActor& Target)
+{return P.IsReadyForAttackToken() && P.GetThreat()==&Target && Coordination.TryAcquire(P,Target,GetWorld()->GetTimeSeconds());}
+bool AAmbientTrafficManager::TryJoinCitizenFight(AAmbientPedestrian& P,AActor& Target)
+{return P.CanParticipateInFight() && P.GetThreat()==&Target && Coordination.TryJoin(P,Target,GetWorld()->GetTimeSeconds());}
+void AAmbientTrafficManager::ReleaseCitizenAttack(AAmbientPedestrian& P,bool bLeaveGroup)
+{Coordination.Release(P,bLeaveGroup);}
+bool AAmbientTrafficManager::OwnsCitizenAttack(const AAmbientPedestrian& P,const AActor& Target) const
+{return Coordination.Owns(P,Target,GetWorld()->GetTimeSeconds());}

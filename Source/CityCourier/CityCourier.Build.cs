@@ -14,5 +14,6 @@ public class CityCourier : ModuleRules
         PrivateDependencyModuleNames.Add("RHI");
         PrivateDependencyModuleNames.Add("RenderCore");
         PrivateDependencyModuleNames.Add("AudioMixer");
+        PrivateDependencyModuleNames.Add("NavigationSystem");
     }
 }

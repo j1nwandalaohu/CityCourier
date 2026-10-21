@@ -21,6 +21,7 @@ ACourierCharacter::ACourierCharacter()
     PrimaryActorTick.bCanEverTick = true;
     Actions=CreateDefaultSubobject<UCourierActionComponent>(TEXT("CharacterActions"));
     GetCapsuleComponent()->InitCapsuleSize(34, 88);
+    GetCapsuleComponent()->SetCollisionResponseToChannel(ECC_Visibility,ECR_Overlap);
     GetMesh()->SetRelativeLocation(FVector(0,0,-88));
     bUseControllerRotationYaw = false;
     auto* Movement = GetCharacterMovement();
@@ -51,6 +52,8 @@ ACourierCharacter::ACourierCharacter()
 void ACourierCharacter::BeginPlay()
 {
     Super::BeginPlay();
+    // Existing Blueprints may have serialized the old Pawn response profile.
+    GetCapsuleComponent()->SetCollisionResponseToChannel(ECC_Visibility,ECR_Overlap);
     if(auto* RiderAsset=LoadObject<USkeletalMesh>(nullptr,TEXT("/Game/CityCourier/Art/Characters/SK_Courier.SK_Courier")))
     {
         GetMesh()->SetSkeletalMesh(RiderAsset); GetMesh()->SetRelativeLocation(FVector(0,0,-88));

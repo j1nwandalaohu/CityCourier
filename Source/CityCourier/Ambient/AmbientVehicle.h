@@ -9,7 +9,7 @@ public:
     AAmbientVehicle();
     virtual void BeginPlay() override;
     virtual void Tick(float DeltaSeconds) override;
-    UFUNCTION(BlueprintCallable) void SetPatrol(const TArray<FVector>& Points);
+    UFUNCTION(BlueprintCallable) virtual void SetPatrol(const TArray<FVector>& Points);
     UFUNCTION(BlueprintCallable) virtual void SetPopulationActive(bool bActive);
     UFUNCTION(BlueprintPure) float GetSpeedCm() const { return Speed; }
     bool IsPopulationActive() const { return bPopulationActive; }

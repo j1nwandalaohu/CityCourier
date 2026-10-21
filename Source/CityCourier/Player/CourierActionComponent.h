@@ -41,7 +41,7 @@ private:
     void Feedback(const FText& Message) const;
     FCourierActionTimeline Timeline;
     TMap<FGuid,TSet<TWeakObjectPtr<AActor>>> Struck;
-    TSet<FGuid> Received;
+    TMap<FGuid,double> Received;
     UPROPERTY() TObjectPtr<class UAnimMontage> PlayingMontage;
     UPROPERTY() TObjectPtr<class UAnimSequence> PlayingSequence;
     FGuid PlayingInstance;

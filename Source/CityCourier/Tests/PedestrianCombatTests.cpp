@@ -145,7 +145,7 @@ bool FCitizenPoseTest::RunTest(const FString&)
     FCitizenCombatFixture F;auto* P=F.Ped;
     auto* Anim=Cast<UCitizenAnimInstance>(P->Person->GetAnimInstance());
     if(!TestNotNull(TEXT("Citizen native animation bridge"),Anim))return false;
-    TestEqual(TEXT("All five citizen clips retained"),Anim->Clips.Num(),5);
+    TestEqual(TEXT("Reactions and behavior clips retained"),Anim->Clips.Num(),int32(ECitizenClip::Count));
     for(const auto& Clip:Anim->Clips)
         if(TestNotNull(TEXT("Authored citizen clip"),Clip.Get()))TestEqual(TEXT("Clip matches citizen skeleton"),Clip->GetSkeleton(),P->Person->GetSkeletalMeshAsset()->GetSkeleton());
     TGuardValue<uint64> FrameGuard(GFrameCounter,GFrameCounter);

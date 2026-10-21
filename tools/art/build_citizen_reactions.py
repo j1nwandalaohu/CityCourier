@@ -49,14 +49,18 @@ def import_actions(filename, names):
     return rig, hashlib.sha256(data).hexdigest()
 
 
-def build():
+def build(behavior=False):
+    output = SOURCE/'Ambient/CharMorph/Behavior' if behavior else OUT
+    output.mkdir(parents=True, exist_ok=True)
     bpy.ops.wm.open_mainfile(filepath=str(SOURCE/'Ambient/CharMorph/CitizenCharMorph.blend'))
     target, mesh = bpy.data.objects['CourierRig'], bpy.data.objects['SK_CitizenCharMorph']
     rest = {b.name: b.matrix_local.copy() for b in target.data.bones}
     signature = {n: [list(row) for row in m] for n, m in rest.items()}
     mesh_signature = [(tuple(v.co), [(g.group, g.weight) for g in v.groups]) for v in mesh.data.vertices]
-    addon, addon_hash = import_actions('human-addon-animations.glb', ['Death_C', 'Zombie_Rise'])
-    base, base_hash = import_actions('human-base-animations.glb', ['Hit_Chest', 'Idle_A', 'Walk'])
+    addon_names = ['Fighting Idle', 'Fighting Left Jab', 'Fighting Right Jab', 'Shivering'] if behavior else ['Death_C', 'Zombie_Rise']
+    base_names = ['Idle_A', 'Sprint'] if behavior else ['Hit_Chest', 'Idle_A', 'Walk']
+    addon, addon_hash = import_actions('human-addon-animations.glb', addon_names)
+    base, base_hash = import_actions('human-base-animations.glb', base_names)
     scene = bpy.context.scene
     scene.render.fps = 60
     # The independent modern citizen retains the validated portrait rig's
@@ -136,16 +140,84 @@ def build():
                 matrix.translation.z += .004-lowest
         return pose
 
+    def direct_punch(pose, guard_pose, name, time):
+        """Original two-bone direction edit: Blender -Y becomes actor +X after
+        FBX handedness conversion and the citizen mesh's existing -90 yaw.
+        Rotate whole arm subtrees to retain every authored bone length.
+        """
+        side = 'l' if name.endswith('PunchL') else 'r'
+        upper, fore, hand = 'upperarm_'+side, 'forearm_'+side, 'hand_'+side
+        a, b, c = (pose[n].translation.copy() for n in (upper, fore, hand))
+        first, second = (b-a).length, (c-b).length
+        reach = smooth(time/.30) if time <= .30 else smooth((.8-time)/.5)
+        goal = guard_pose[hand].translation.lerp(Vector((.15 if side=='l' else -.15, -.65, 1.32)), reach)
+        direction = (goal-a).normalized()
+        distance = max(abs(first-second)+.001, min((goal-a).length, first+second-.002))
+        goal = a+direction*distance
+        along = (first*first-second*second+distance*distance)/(2*distance)
+        pole = Vector((1 if side=='l' else -1, 0, -.15))
+        pole = (pole-direction*pole.dot(direction)).normalized()
+        elbow = a+direction*along+pole*math.sqrt(max(0., first*first-along*along))
+
+        def rotate_subtree(bone_name, origin, rotation):
+            transform = Matrix.Translation(origin)@rotation.to_matrix().to_4x4()@Matrix.Translation(-origin)
+            for bone in target.data.bones:
+                if bone.name==bone_name or bone_name in [p.name for p in bone.parent_recursive]:
+                    pose[bone.name] = transform@pose[bone.name]
+
+        rotate_subtree(upper, a, (b-a).rotation_difference(elbow-a))
+        origin = pose[fore].translation.copy()
+        rotate_subtree(fore, origin, (pose[hand].translation-origin).rotation_difference(goal-origin))
+        return pose
+
     idle = ground(retarget(base, 'Idle_A', 0.))
-    fallen = ground(retarget(addon, 'Death_C', 1.))
+    fallen = None if behavior else ground(retarget(addon, 'Death_C', 1.))
+    guard = ground(retarget(addon, 'Fighting Idle', 0.)) if behavior else None
+    definitions = [('A_CitizenGuard', 2.), ('A_CitizenPunchL', .8), ('A_CitizenPunchR', .8),
+                   ('A_CitizenRun', .65), ('A_CitizenCower', 1.5)] if behavior else [
+                   ('A_CitizenIdle', 2.), ('A_CitizenWalk', 1.), ('A_CitizenHit', .48),
+                   ('A_CitizenFall', 1.05), ('A_CitizenGetUp', 2.7)]
+    source_actions = {'A_CitizenGuard': 'Fighting Idle', 'A_CitizenPunchL': 'Fighting Left Jab',
+                      'A_CitizenPunchR': 'Fighting Left Jab', 'A_CitizenRun': 'Sprint', 'A_CitizenCower': 'Shivering'}
+    reflection = Matrix.Diagonal((-1., 1., 1., 1.))
+
+    def behavior_pose(name, u):
+        pose = retarget(base if name.endswith('Run') else addon, source_actions[name], u)
+        if name.endswith('PunchR'):
+            # Mirror the working jab's deformation, preserving the independent
+            # rig's original (possibly asymmetric) reference bone transforms.
+            pose = {n: reflection@pose[n[:-1]+'l' if n.endswith('_r') else n[:-1]+'r' if n.endswith('_l') else n]@
+                    rest[n[:-1]+'l' if n.endswith('_r') else n[:-1]+'r' if n.endswith('_l') else n].inverted()@
+                    reflection@rest[n] for n in rest}
+        return pose
+    peaks = {}
+    if behavior:
+        for name, bone in [('A_CitizenPunchL', 'hand_l'), ('A_CitizenPunchR', 'hand_r')]:
+            # Align the actual forward-most hand sample with the authoritative contact window.
+            peak = max(range(41), key=lambda i: behavior_pose(name, i/40)[bone].translation.y)
+            peaks[name] = max(.025, min(.975, peak/40))
     clips = {}
-    for name, duration in [('A_CitizenIdle', 2.), ('A_CitizenWalk', 1.), ('A_CitizenHit', .48),
-                           ('A_CitizenFall', 1.05), ('A_CitizenGetUp', 2.7)]:
+    for name, duration in definitions:
         samples = []
         for i in range(round(duration*60)+1):
             t = i/60
             u = t/duration
-            if name.endswith('Idle'):
+            if behavior:
+                if name in peaks:
+                    peak = peaks[name]
+                    contact_u = .30/.8
+                    sample_u = u/contact_u*peak if u < contact_u else peak+(u-contact_u)/(1-contact_u)*(1-peak)
+                    pose = behavior_pose(name, sample_u)
+                    pose = mix(guard, pose, smooth(t/.08)*smooth((duration-t)/.12))
+                    pose = direct_punch(pose, guard, name, t)
+                else:
+                    pose = behavior_pose(name, u)
+                drift = pose['pelvis'].translation-idle['pelvis'].translation
+                for bone, matrix in pose.items():
+                    if bone != 'root':
+                        matrix.translation.x -= drift.x
+                        matrix.translation.y -= drift.y
+            elif name.endswith('Idle'):
                 pose = retarget(base, 'Idle_A', u)
             elif name.endswith('Walk'):
                 pose = retarget(base, 'Walk', u)
@@ -161,7 +233,7 @@ def build():
                 pose = mix(fallen, pose, smooth(t/.22))
                 pose = mix(pose, idle, smooth((t-2.35)/.35))
             samples.append(ground(pose))
-        if name.endswith(('Idle', 'Walk')):
+        if name.endswith(('Idle', 'Walk', 'Guard', 'Run', 'Cower')):
             samples[-1] = {n: m.copy() for n, m in samples[0].items()}
         target.hide_set(False)
         target.animation_data_create()
@@ -171,7 +243,7 @@ def build():
         bpy.ops.object.select_all(action='DESELECT')
         target.select_set(True)
         bpy.context.view_layer.objects.active = target
-        path = OUT/(name+'.fbx')
+        path = output/(name+'.fbx')
         bpy.ops.export_scene.fbx(filepath=str(path), use_selection=True,
             object_types={'ARMATURE'}, axis_forward='-Y', axis_up='Z', global_scale=1,
             apply_unit_scale=True, add_leaf_bones=False, use_armature_deform_only=True,
@@ -181,6 +253,13 @@ def build():
                        'fbx_sha256': hashlib.sha256(path.read_bytes()).hexdigest(),
                        'head_end_cm': [x*100 for x in samples[-1]['head'].translation],
                        'pelvis_end_cm': [x*100 for x in samples[-1]['pelvis'].translation]}
+        if behavior:
+            clips[name]['source_action'] = source_actions[name]
+            clips[name]['mirrored'] = name.endswith('PunchR')
+            if name in peaks:
+                clips[name]['direction_edit'] = 'Original two-bone IK: Blender -Y / UE actor +X, forward apex at 0.30s, preserved limb lengths'
+            clips[name]['hand_samples_cm'] = [{'t': i/60, 'left': list(p['hand_l'].translation*100),
+                                               'right': list(p['hand_r'].translation*100)} for i,p in enumerate(samples)]
     assert signature == {b.name: [list(row) for row in b.matrix_local] for b in target.data.bones}
     assert mesh_signature == [(tuple(v.co), [(g.group, g.weight) for g in v.groups]) for v in mesh.data.vertices]
     for obj in (base, addon):
@@ -189,17 +268,17 @@ def build():
         if obj not in (target, mesh):
             bpy.data.objects.remove(obj, do_unlink=True)
     mesh.hide_set(False)
-    target.animation_data.action = bpy.data.actions['A_CitizenIdle']
+    target.animation_data.action = bpy.data.actions['A_CitizenGuard' if behavior else 'A_CitizenIdle']
     scene.frame_start, scene.frame_end = 1, 121
     scene.frame_set(1)
-    bpy.ops.wm.save_as_mainfile(filepath=str(OUT/'CitizenReactions.blend'))
+    bpy.ops.wm.save_as_mainfile(filepath=str(output/('CitizenBehavior.blend' if behavior else 'CitizenReactions.blend')))
     report = {'license': 'CC0-1.0', 'upstream': 'https://github.com/Mesh2Motion/mesh2motion-app',
         'revision': '653a9698f5f315523072f1c3ff3496100401317b',
         'source_sha256': {'human-base-animations.glb': base_hash, 'human-addon-animations.glb': addon_hash},
         'clips': clips, 'reference_skeleton_unchanged': True, 'mesh_unchanged': True,
         'grounding': 'All skinned mesh vertices, 0.4 cm clearance; root remains fixed.',
         'mapping': mapping}
-    (OUT/'manifest.json').write_text(json.dumps(report, indent=2)+'\n', encoding='utf-8')
+    (output/'manifest.json').write_text(json.dumps(report, indent=2)+'\n', encoding='utf-8')
     print('CITIZEN_REACTIONS', json.dumps(report), flush=True)
 
 

@@ -1,5 +1,11 @@
 # Editing citizen reactions
 
+The original five reaction clips remain unchanged. The newer behavior layer
+adds counterpunches, pursuit, fleeing and disengagement; see
+[citizen behavior](citizen-behavior.md) for current implementation and validation
+status. The automation/PIE results below describe the earlier reaction-only
+version and do not validate the new behavior layer.
+
 The editable animation source is `AssetsSource/CityCourier/Ambient/CharMorph/Reactions/CitizenReactions.blend`.
 It contains the CharMorph citizen mesh and independent reference skeleton plus five separate actions:
 `A_CitizenIdle`, `A_CitizenWalk`, `A_CitizenHit`, `A_CitizenFall`, `A_CitizenGetUp`.

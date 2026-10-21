@@ -25,12 +25,12 @@ void AAmbientPedestrian::BeginPlay()
 }
 void AAmbientPedestrian::Tick(float DeltaSeconds)
 {
-    if(!IsPopulationActive() || !FMath::IsFinite(DeltaSeconds) || DeltaSeconds<=0)return;
+    if(!IsPopulationActive() || !FMath::IsFinite(DeltaSeconds) || DeltaSeconds<=0 || GetWorld()->IsPaused())return;
     CombatClock+=DeltaSeconds;
     float Remaining=FMath::Min(DeltaSeconds,10.f);
     while(Remaining>SMALL_NUMBER)
     {
-        if(Reaction==ECitizenReaction::Walking){Super::Tick(Remaining);break;}
+        if(Reaction==ECitizenReaction::Walking)break;
         const float Duration=Reaction==ECitizenReaction::Staggering?29.f/60.f:
             Reaction==ECitizenReaction::Falling?1.05f:Reaction==ECitizenReaction::Down?2.f:2.7f;
         const float Step=FMath::Min(Remaining,FMath::Max(0.f,Duration-ReactionElapsed));
@@ -41,6 +41,12 @@ void AAmbientPedestrian::Tick(float DeltaSeconds)
         else if(Reaction==ECitizenReaction::Falling)SetReaction(ECitizenReaction::Down);
         else if(CanStandUp())SetReaction(ECitizenReaction::GettingUp);
         else {ReactionElapsed=Duration;break;} // Retry clearance without restarting the down pose.
+    }
+    AdvanceBehavior(DeltaSeconds);
+    if(IsBodyAvailable())
+    {
+        AdvanceCombat(Remaining);
+        if(!Combat.bActive)MoveBehavior(Remaining);
     }
 }
 void AAmbientPedestrian::SetStandingCollision(bool bStanding)
@@ -66,6 +72,7 @@ bool AAmbientPedestrian::CanStandUp() const
 }
 void AAmbientPedestrian::SetReaction(ECitizenReaction Next)
 {
+    if(Next!=ECitizenReaction::Walking)CancelCombat();
     Reaction=Next;ReactionElapsed=0;Speed=0;Body->ComponentVelocity=FVector::ZeroVector;
     if(Next==ECitizenReaction::Down)SetStandingCollision(false);
     else if(Next==ECitizenReaction::GettingUp || Next==ECitizenReaction::Walking)SetStandingCollision(true);
@@ -74,6 +81,7 @@ void AAmbientPedestrian::SetPopulationActive(bool bActive)
 {
     if(!bActive)
     {
+        ResetCitizenRuntime();
         SetReaction(ECitizenReaction::Walking);
         RecentStrikes.Empty();CombatClock=0;LastLightTime=-100;
     }
