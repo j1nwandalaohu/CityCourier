@@ -105,17 +105,19 @@ bool FProneInputMappingTest::RunTest(const FString&)
 {
     auto* Context=LoadObject<UInputMappingContext>(nullptr,TEXT("/Game/CityCourier/Input/IMC_Courier.IMC_Courier"));
     if(!TestNotNull(TEXT("Production input context"),Context)) return false;
-    bool Prone=false,Sprint=false,ConflictingSprint=false;
+    bool Prone=false,Sprint=false,RightSprint=false,ConflictingProne=false;
     for(const auto& Mapping:Context->GetMappings())
     {
         if(!Mapping.Action) continue;
-        Prone|=Mapping.Key==EKeys::LeftShift && Mapping.Action->GetName()==TEXT("IA_Prone");
-        Sprint|=Mapping.Key==EKeys::RightShift && Mapping.Action->GetName()==TEXT("IA_Sprint");
-        ConflictingSprint|=Mapping.Key==EKeys::LeftShift && Mapping.Action->GetName()==TEXT("IA_Sprint");
+        Prone|=Mapping.Key==EKeys::Z && Mapping.Action->GetName()==TEXT("IA_Prone");
+        Sprint|=Mapping.Key==EKeys::LeftShift && Mapping.Action->GetName()==TEXT("IA_Sprint");
+        RightSprint|=Mapping.Key==EKeys::RightShift && Mapping.Action->GetName()==TEXT("IA_Sprint");
+        ConflictingProne|=(Mapping.Key==EKeys::LeftShift || Mapping.Key==EKeys::RightShift) && Mapping.Action->GetName()==TEXT("IA_Prone");
     }
-    TestTrue(TEXT("Left Shift is prone"),Prone);
-    TestTrue(TEXT("Right Shift is sprint"),Sprint);
-    TestFalse(TEXT("Left Shift cannot trigger sprint simultaneously"),ConflictingSprint);
+    TestTrue(TEXT("Z is prone"),Prone);
+    TestTrue(TEXT("Left Shift is sprint"),Sprint);
+    TestTrue(TEXT("Right Shift remains sprint"),RightSprint);
+    TestFalse(TEXT("Shift cannot trigger prone simultaneously"),ConflictingProne);
     return true;
 }
 #endif

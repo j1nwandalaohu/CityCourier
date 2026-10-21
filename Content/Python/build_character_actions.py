@@ -20,7 +20,7 @@ for name in ['Jump', 'LightPunch', 'HeavyPunch', 'Crouch', 'Prone', 'Sprint']:
 
 mappings = [m for m in context.get_editor_property('mappings')
             if m.get_editor_property('action') not in new_actions.values()]
-for name, key_name in [('Jump', 'SpaceBar'), ('LightPunch', 'LeftMouseButton'), ('HeavyPunch', 'RightMouseButton'), ('Crouch', 'LeftControl'), ('Prone', 'LeftShift'), ('Sprint', 'RightShift')]:
+for name, key_name in [('Jump', 'SpaceBar'), ('LightPunch', 'LeftMouseButton'), ('HeavyPunch', 'RightMouseButton'), ('Crouch', 'LeftControl'), ('Prone', 'Z'), ('Sprint', 'LeftShift'), ('Sprint', 'RightShift')]:
     key = unreal.Key()
     key.import_text(key_name)
     mappings.append(unreal.EnhancedActionKeyMapping(action=new_actions[name], key=key))

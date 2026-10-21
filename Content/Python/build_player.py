@@ -41,7 +41,7 @@ mappings = []
 for name, key, swizzle, negate in [("Move", "W", True, False), ("Move", "S", True, True),
         ("Move", "D", False, False), ("Move", "A", False, True),
         ("Look", "MouseX", False, False), ("Look", "MouseY", True, True),
-        ("Sprint", "RightShift", False, False), ("Prone", "LeftShift", False, False), ("Crouch", "LeftControl", False, False), ("Interact", "E", False, False), ("Brake", "SpaceBar", False, False),
+        ("Sprint", "LeftShift", False, False), ("Sprint", "RightShift", False, False), ("Prone", "Z", False, False), ("Crouch", "LeftControl", False, False), ("Interact", "E", False, False), ("Brake", "SpaceBar", False, False),
         ("Jump", "SpaceBar", False, False), ("LightPunch", "LeftMouseButton", False, False), ("HeavyPunch", "RightMouseButton", False, False),
         ("Phone", "Tab", False, False), ("Map", "M", False, False), ("Pause", "Escape", False, False), ("Recover", "R", False, False)]:
     modifiers = []

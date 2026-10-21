@@ -27,6 +27,10 @@ $env:CITYCOURIER_UE_ROOT = 'D:/sdk/UE_5.6'
 
 These build Development editor/game targets, run focused/full automation suites, and compile/cook/archive Shipping. Open `CityCourier.uproject` for editor work. Run `Artifacts/Windows/Shipping/CityCourier.exe` after packaging; retain its entire directory. Build before running tests. Run UE builds, editor scripts, tests, and packaging sequentially.
 
+### Agent Execution Policy
+
+Do not automatically compile, package, or launch the game after making changes. Perform these actions only when the user explicitly requests them for the current task; an earlier build/run request does not authorize them for later changes. Otherwise, finish the edits and report what changed without rebuilding or restarting the game.
+
 ## Coding Style & Naming Conventions
 
 Use four-space indentation and match neighboring code. Follow Unreal prefixes: `A` actors, `U` objects, `F` structs, `E` enums, and `b` booleans. Match class/header filenames and keep features in their subsystem directories. Assets use patterns such as `BP_`, `ABP_`, `IA_`, `IMC_`, `A_`, and `L_`; Python scripts use snake_case. Respect `.gitattributes` line endings. No repository-wide formatter or linter configuration is present.
