@@ -56,4 +56,29 @@ bool FActionInterruptTest::RunTest(const FString&)
     TestEqual(TEXT("Invalid time does not advance"),S.GetElapsed(),0.);
     return true;
 }
+IMPLEMENT_SIMPLE_AUTOMATION_TEST(FActionRecoveryTest,"CityCourier.CharacterActions.Timeline.LibraryKnockdownRecovery",EAutomationTestFlags::EditorContext|EAutomationTestFlags::EngineFilter)
+bool FActionRecoveryTest::RunTest(const FString&)
+{
+    FCourierActionTimeline S;
+    S.ConfigureRecovery(2.17,1.5);
+    S.ReceiveHit(true); S.Advance(.1); S.ReceiveHit(false);
+    TestFalse(TEXT("Ordinary hits remain standing"),S.IsRecovering());
+    S.Advance(.1); S.ReceiveHit(true);
+    TestTrue(TEXT("Third consecutive hit starts full fall"),S.GetAction()==ECourierAction::Knockdown);
+    TestFalse(TEXT("Recovery blocks attack input"),S.RequestAttack(false));
+    S.ReceiveHit(false); S.Advance(2.17+.01);
+    TestTrue(TEXT("Fall completes into ground hold"),S.GetAction()==ECourierAction::GroundHold);
+    S.Advance(.6);
+    TestTrue(TEXT("Hold automatically starts real get-up"),S.GetAction()==ECourierAction::GetUp);
+    S.Advance(1.5);
+    TestTrue(TEXT("Get-up releases all action locks"),S.GetAction()==ECourierAction::None);
+    S.ReceiveHit(true); S.Advance(1.201); S.ReceiveHit(true); S.ReceiveHit(true);
+    TestFalse(TEXT("Expired streak does not knock down"),S.IsRecovering());
+    S.Cancel(); S.ReceiveHit(true);
+    TestFalse(TEXT("Cancellation clears streak"),S.IsRecovering());
+    S.ReceiveHit(true); S.ReceiveHit(true);
+    TestEqual(TEXT("Large frame crosses complete recovery without striking"),S.Advance(20).Num(),0);
+    TestTrue(TEXT("Large frame ends recovery"),S.GetAction()==ECourierAction::None);
+    return true;
+}
 #endif

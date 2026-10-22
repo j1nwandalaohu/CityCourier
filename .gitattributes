@@ -1,5 +1,8 @@
 # Keep downloaded asset bytes identical to the retained source checksums.
 AssetsSource/CityCourier/External/** -text
+# Retained motion downloads include original CRLF and trailing spaces; preserve
+# their source bytes and checksums rather than reformatting third-party data.
+AssetsSource/CityCourier/External/CombatRecovery/** whitespace=-blank-at-eol,-blank-at-eof,-space-before-tab,cr-at-eol
 # Portrait provenance contains byte-level source checksums, including its
 # generator. Keep these bytes stable across Windows and Unix checkouts.
 AssetsSource/CityCourier/portrait*.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
@@ -20,4 +23,7 @@ Source/CityCourier/Buildings/CourierInteriorFinish.* text eol=lf
 Source/CityCourier/Tests/InteriorFinishTests.cpp text eol=lf
 Content/Python/*city_finish.py text eol=lf
 tools/interiors/build_city_finish.py text eol=lf
-Content/CityCourier/Art/Characters/SK_Courier.uasset filter=lfs diff=lfs merge=lfs -text
+# Only gameplay assets allowed by .gitignore are versioned; their binary bytes
+# live in LFS. Large art and third-party libraries stay local.
+*.uasset filter=lfs diff=lfs merge=lfs -text
+*.umap filter=lfs diff=lfs merge=lfs -text

@@ -40,6 +40,8 @@ public:
     void DeactivateFarDoors(FVector Position);
     TArray<ACourierDoor*> GetNearbyDoors(FVector Position,double Radius=500) const;
     TArray<AActor*> GetInteractionCandidates(FVector Position,double Radius=500) const;
+    bool RegisterInteractable(AActor* Actor);
+    void UnregisterInteractable(AActor* Actor);
     ADeliveryLocation* GetManagedLocation(FName LocationId) const;
     int32 GetReadyCount() const;
     int32 GetActiveDoorCount() const { return ActiveDoors.Num(); }

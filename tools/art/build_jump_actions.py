@@ -157,4 +157,4 @@ def main():
 
 
 if __name__ == '__main__':
-    main()
+    raise RuntimeError('Retired pose-edited jumps. Use tools/art/build_library_actions.py instead.')

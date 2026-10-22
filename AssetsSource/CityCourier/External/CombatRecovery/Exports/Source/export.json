@@ -1,0 +1,90 @@
+{
+  "source_project": "../../../../../UnrealProjects/ContentExamples/",
+  "source_assets_saved": false,
+  "clips": [
+    {
+      "source_package": "/Game/Characters/Mannequins/Animations/Manny/MM_Death_Back_01",
+      "source_skeleton": "/Game/Characters/Mannequins/Meshes/SK_Mannequin.SK_Mannequin",
+      "duration_seconds": 1.100000023841858,
+      "path": "AssetsSource/CityCourier/External/CombatRecovery/Exports/Source/MM_Death_Back_01.fbx",
+      "sha256": "f218dda7da47a50d0fca6db5e7b92c0e670b992e6d8711c2556d883910ea3cf9"
+    },
+    {
+      "source_package": "/Game/Characters/Mannequins/Animations/Manny/MM_Death_Front_01",
+      "source_skeleton": "/Game/Characters/Mannequins/Meshes/SK_Mannequin.SK_Mannequin",
+      "duration_seconds": 1.100000023841858,
+      "path": "AssetsSource/CityCourier/External/CombatRecovery/Exports/Source/MM_Death_Front_01.fbx",
+      "sha256": "52f6d61ce0d32dee9031d852c0c8c4e1a3b7933b30425a88eac7e3435e73f0fe"
+    },
+    {
+      "source_package": "/Game/Characters/Mannequins/Animations/Manny/MM_Death_Front_02",
+      "source_skeleton": "/Game/Characters/Mannequins/Meshes/SK_Mannequin.SK_Mannequin",
+      "duration_seconds": 1.1333333253860474,
+      "path": "AssetsSource/CityCourier/External/CombatRecovery/Exports/Source/MM_Death_Front_02.fbx",
+      "sha256": "3f016e9b6fdafb2c5df7e61c052a84f7eaf43890b19a2e2abd83b66095b75187"
+    },
+    {
+      "source_package": "/Game/Characters/Mannequins/Animations/Manny/MM_Death_Front_03",
+      "source_skeleton": "/Game/Characters/Mannequins/Meshes/SK_Mannequin.SK_Mannequin",
+      "duration_seconds": 0.9333333373069763,
+      "path": "AssetsSource/CityCourier/External/CombatRecovery/Exports/Source/MM_Death_Front_03.fbx",
+      "sha256": "e2abc65b5aab067f8b523f85d3598f1e105d5e7c8e246858f7dccd95f2cabdca"
+    },
+    {
+      "source_package": "/Game/Characters/Mannequins/Animations/Manny/MM_Death_Front_03_ExtractedRM",
+      "source_skeleton": "/Game/Characters/Mannequins/Meshes/SK_Mannequin.SK_Mannequin",
+      "duration_seconds": 0.9333333373069763,
+      "path": "AssetsSource/CityCourier/External/CombatRecovery/Exports/Source/MM_Death_Front_03_ExtractedRM.fbx",
+      "sha256": "544928f4f8ad818f970559cf6a77fa4b456daeeca34ef4f04012afed54b90ba1"
+    },
+    {
+      "source_package": "/Game/Characters/Mannequins/Animations/Manny/MM_Death_Front_03_NoRM",
+      "source_skeleton": "/Game/Characters/Mannequins/Meshes/SK_Mannequin.SK_Mannequin",
+      "duration_seconds": 0.9333333373069763,
+      "path": "AssetsSource/CityCourier/External/CombatRecovery/Exports/Source/MM_Death_Front_03_NoRM.fbx",
+      "sha256": "bab078500d55494aa5c4e37504d299a786cf42b94275bdecc56b97454a344378"
+    },
+    {
+      "source_package": "/Game/Characters/Mannequins/Animations/Manny/MM_Death_Left_01",
+      "source_skeleton": "/Game/Characters/Mannequins/Meshes/SK_Mannequin.SK_Mannequin",
+      "duration_seconds": 0.9666666388511658,
+      "path": "AssetsSource/CityCourier/External/CombatRecovery/Exports/Source/MM_Death_Left_01.fbx",
+      "sha256": "8495a859ecc6c56952bf807d46ed53ad46ba1563c0fa5b0c1fa9547a8504b75d"
+    },
+    {
+      "source_package": "/Game/Characters/Mannequins/Animations/Manny/MM_Death_Right_01",
+      "source_skeleton": "/Game/Characters/Mannequins/Meshes/SK_Mannequin.SK_Mannequin",
+      "duration_seconds": 1.100000023841858,
+      "path": "AssetsSource/CityCourier/External/CombatRecovery/Exports/Source/MM_Death_Right_01.fbx",
+      "sha256": "49f555879f7e36a1c3c01405a00dafa43414df6f12a5280774d3202ccea6ce77"
+    },
+    {
+      "source_package": "/Game/Characters/Mannequins/Animations/Manny/MM_HitReact_Back_Med_01",
+      "source_skeleton": "/Game/Characters/Mannequins/Meshes/SK_Mannequin.SK_Mannequin",
+      "duration_seconds": 0.8666666746139526,
+      "path": "AssetsSource/CityCourier/External/CombatRecovery/Exports/Source/MM_HitReact_Back_Med_01.fbx",
+      "sha256": "945e78f1317f762a5ea919c18445c0b2a9ff198cd9454350359e882afaeab649"
+    },
+    {
+      "source_package": "/Game/Characters/Mannequins/Animations/Manny/MM_HitReact_Front_Med_01",
+      "source_skeleton": "/Game/Characters/Mannequins/Meshes/SK_Mannequin.SK_Mannequin",
+      "duration_seconds": 0.7666666507720947,
+      "path": "AssetsSource/CityCourier/External/CombatRecovery/Exports/Source/MM_HitReact_Front_Med_01.fbx",
+      "sha256": "2eac1389a32032ccefe2e4c2908d4a26560ef0a347fb79d5f78c01ee64ab6508"
+    },
+    {
+      "source_package": "/Game/ExampleContent/ControlRig/Animations/MontageExample_Punch_1",
+      "source_skeleton": "/Game/Characters/Mannequins/Meshes/SK_Mannequin.SK_Mannequin",
+      "duration_seconds": 0.4000000059604645,
+      "path": "AssetsSource/CityCourier/External/CombatRecovery/Exports/Source/MontageExample_Punch_1.fbx",
+      "sha256": "ad2354f2ec57194ca7fdd1d4e4b9ada3401f1485c603528ccb281fa0bb803936"
+    },
+    {
+      "source_package": "/Game/ExampleContent/ControlRig/Animations/MontageExample_Punch_2",
+      "source_skeleton": "/Game/Characters/Mannequins/Meshes/SK_Mannequin.SK_Mannequin",
+      "duration_seconds": 0.4000000059604645,
+      "path": "AssetsSource/CityCourier/External/CombatRecovery/Exports/Source/MontageExample_Punch_2.fbx",
+      "sha256": "e8e9763ebc73965c31da18a2278654db6775ee028e33aa7500ffc85f7f8799b3"
+    }
+  ]
+}

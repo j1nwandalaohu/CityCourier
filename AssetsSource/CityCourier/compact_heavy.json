@@ -1,0 +1,11 @@
+{
+  "source_library": "Mesh2Motion",
+  "source_action": "Punch_Cross",
+  "license": "CC0-1.0",
+  "source_clip": "A_LightPunch_R",
+  "pose_authoring": "unchanged library poses; piecewise time retiming only",
+  "duration_s": 0.95,
+  "contact_seconds": 0.4,
+  "fbx_sha256": "24f3d40d310047170cdb97a4975493f651a09ac41cac862b1b613acc2bd4e6ec",
+  "runtime_import": "pending"
+}

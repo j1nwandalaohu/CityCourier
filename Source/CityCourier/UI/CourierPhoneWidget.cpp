@@ -50,12 +50,12 @@ void UCourierPhoneWidget::RefreshFromState()
     if(bHistory && !bWasHistory) History->ResetPage(); bWasHistory=bHistory;
     if(bHistory) { History->RefreshFromState(); return; }
     const FString IdleStatus=D->GetOffers().IsEmpty()?TEXT("路线暂不可用，请返回道路后刷新订单"):FString::Printf(TEXT("附近有 %d 个待接订单"),D->GetOffers().Num());
-    Status->SetText(FText::FromString(S.IsActive()?FString::Printf(TEXT("%s\n%s → %s\n请先收起手机，再到门口按 E。"),S.Status==EDeliveryStatus::AwaitingPickup?TEXT("正在前往取餐"):TEXT("正在配送"),*Name(S.Offer.MerchantId),*Name(S.Offer.DestinationId)):IdleStatus));
+    Status->SetText(FText::FromString(S.IsActive()?FString::Printf(TEXT("%s\n%s → %s\n收起手机，停车下车后，靠近目标按 E。"),S.Status==EDeliveryStatus::AwaitingPickup?TEXT("正在前往取餐"):TEXT("正在配送"),*Name(S.Offer.MerchantId),*Name(S.Offer.DestinationId)):IdleStatus));
     for(int32 I=0;I<Cards.Num();++I)
     {
         const bool Visible=!S.IsActive() && D->GetOffers().IsValidIndex(I); Cards[I]->SetVisibility(Visible?ESlateVisibility::Visible:ESlateVisibility::Collapsed);
         DisplayedIds[I]=Visible?D->GetOffers()[I].InstanceId:FGuid();
-        if(Visible) { const auto& O=D->GetOffers()[I]; OfferText[I]->SetText(FText::FromString(FString::Printf(TEXT("%s → %s\n%s · 限时 %.0f 秒\n取餐 %s + 送餐 %s = %s\n按刷新时位置估算"),*Name(O.MerchantId),*Name(O.DestinationId),*CourierUI::Money(O.BaseFeeCents),O.DeadlineSeconds,*CourierUI::Distance(O.PickupRoute.LengthMeters),*CourierUI::Distance(O.DeliveryRoute.LengthMeters),*CourierUI::Distance(O.PickupRoute.LengthMeters+O.DeliveryRoute.LengthMeters)))); }
+        if(Visible) { const auto& O=D->GetOffers()[I]; OfferText[I]->SetText(FText::FromString(FString::Printf(TEXT("%s → %s\n%s · 预计限时 %.0f 秒\n取餐 %s + 送餐 %s = %s\n接单时按当前位置更新路线和限时"),*Name(O.MerchantId),*Name(O.DestinationId),*CourierUI::Money(O.BaseFeeCents),O.DeadlineSeconds,*CourierUI::Distance(O.PickupRoute.LengthMeters),*CourierUI::Distance(O.DeliveryRoute.LengthMeters),*CourierUI::Distance(O.PickupRoute.LengthMeters+O.DeliveryRoute.LengthMeters)))); }
     }
     if(!PC->GetActionFeedback().IsEmpty()) Status->SetText(FText::FromString(Status->GetText().ToString()+TEXT("\n")+PC->GetActionFeedback().ToString()));
     RefreshButton->SetVisibility(S.IsActive()?ESlateVisibility::Collapsed:ESlateVisibility::Visible);

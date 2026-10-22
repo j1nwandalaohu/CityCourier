@@ -9,6 +9,8 @@ from pathlib import Path
 
 import unreal
 
+raise RuntimeError('Retired hand-authored pose importer. Use replace_all_character_actions.py; helper definitions remain for posture imports.')
+
 
 def digest(path):
     return hashlib.sha256(path.read_bytes()).hexdigest()

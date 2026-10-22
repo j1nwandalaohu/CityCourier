@@ -1,9 +1,12 @@
 #include "Delivery/DeliveryNavigationSubsystem.h"
 #include "Delivery/DeliverySubsystem.h"
+#include "Delivery/NavigationGuidance.h"
 #include "World/CityDefinition.h"
 #include "GameFramework/PlayerController.h"
 #include "EngineUtils.h"
 #include "GameFramework/Pawn.h"
+#include "GameFramework/Character.h"
+#include "Components/CapsuleComponent.h"
 #include "Vehicles/ScooterPawn.h"
 #include "Ambient/AmbientVehicle.h"
 #include "Buildings/CourierBuildingSubsystem.h"
@@ -16,6 +19,7 @@ void UDeliveryNavigationSubsystem::Configure(UDeliverySubsystem* System)
         const auto& S=Delivery->GetState();
         if(S.IsActive() && S.Offer.InstanceId!=ObservedOrder)
         { ObservedOrder=S.Offer.InstanceId; Mode=ECourierNavigationMode::Order; RefreshRoute(RiderPosition()); }
+        else if(Mode==ECourierNavigationMode::Order && ResolveTarget()!=Target) RefreshRoute(RiderPosition());
     });
 }
 FVector UDeliveryNavigationSubsystem::RiderPosition() const
@@ -55,7 +59,7 @@ void UDeliveryNavigationSubsystem::Tick(float Delta)
 }
 bool UDeliveryNavigationSubsystem::RefreshRoute(FVector Position)
 {
-    Route={}; Target=ResolveTarget(); CheckSeconds=0; RemainingMeters=0; TargetPosition=FVector::ZeroVector; bArrived=false; OriginRoom=NAME_None;
+    Route={}; RouteSegment=0; Target=ResolveTarget(); CheckSeconds=0; RemainingMeters=0; TargetPosition=FVector::ZeroVector; bArrived=false; OriginRoom=NAME_None;
     if (!Delivery || !Delivery->GetCity() || Target.IsNone() || Position.ContainsNaN()) return false;
     if(Mode==ECourierNavigationMode::ParkedBike)
     { TargetPosition=Delivery->GetScooter()->GetActorLocation(); Route=Delivery->GetCity()->FindRouteToPosition(Position,TargetPosition); }
@@ -80,16 +84,10 @@ void UDeliveryNavigationSubsystem::UpdateRemaining(FVector Position)
     // Arrival uses a clear final approach, never the outward connector's progress.
     if(Mode==ECourierNavigationMode::ParkedBike && FinalMeters<=2 && IsRouteClear({Position,TargetPosition}))
     { RemainingMeters=FinalMeters; bArrived=true; return; }
-    double Closest=MAX_dbl,Total=0,Progress=0,Traversed=0;
-    for(int32 I=1;I<Route.Points.Num();++I) Total+=FVector::Distance(Route.Points[I-1],Route.Points[I]);
-    for(int32 I=1;I<Route.Points.Num();++I)
-    {
-        const auto A=Route.Points[I-1],B=Route.Points[I]; const auto P=FMath::ClosestPointOnSegment(Position,A,B);
-        const double Distance=FVector::DistSquared(Position,P);
-        if(Distance<Closest) { Closest=Distance; Progress=Traversed+FVector::Distance(A,P); }
-        Traversed+=FVector::Distance(A,B);
-    }
-    if(Total>UE_SMALL_NUMBER) RemainingMeters=FMath::Max(0.0,Route.LengthMeters*(1-Progress/Total))+FMath::Sqrt(Closest)/100;
+    const auto Projection=FNavigationRouteProjection::FromRoute(Route,GetRouteGroundPosition(Position),RouteSegment);
+    if(Projection.Segment!=INDEX_NONE) RouteSegment=Projection.Segment;
+    if(Projection.LengthCentimeters>UE_SMALL_NUMBER && Projection.Segment!=INDEX_NONE)
+        RemainingMeters=FMath::Max(0.0,Route.LengthMeters*(1-Projection.ProgressCentimeters/Projection.LengthCentimeters))+Projection.DistanceCentimeters/100;
     else RemainingMeters=FVector::Distance(Position,TargetPosition)/100;
     if(Route.bHasInteriors) RemainingMeters=FMath::Max(RemainingMeters,FinalMeters);
     bArrived=RemainingMeters<=2 && FinalMeters<=2;
@@ -99,21 +97,32 @@ void UDeliveryNavigationSubsystem::UpdateRemaining(FVector Position)
         bArrived=Address.IsValid() && Interiors->GetCatalog()->Buildings[Address.Building].Rooms[Address.Room].Id==Route.TargetRoom;
     }
 }
+FVector UDeliveryNavigationSubsystem::GetRouteGroundPosition(FVector Position) const
+{
+    // Use the same ground position for the distance, deviation and UI arrow.
+    if(const auto* PC=GetWorld()->GetFirstPlayerController())
+    {
+        if(const auto* Character=Cast<ACharacter>(PC->GetPawn()))
+        { Position.Z-=Character->GetCapsuleComponent()->GetScaledCapsuleHalfHeight(); return Position; }
+        if(Cast<AScooterPawn>(PC->GetPawn())) { Position.Z=0; return Position; }
+    }
+    // Interior journey callers without a possessed pawn use standing capsule centers.
+    if(Route.bHasInteriors) Position.Z-=88.;
+    return Position;
+}
+
 double UDeliveryNavigationSubsystem::DistanceFromRoute(FVector Position) const
 {
-    double Distance=MAX_dbl; if(!Route.bHasInteriors) Position.Z=0;
-    for(int32 I=1;I<Route.Points.Num();++I)
-    {
-        FVector A=Route.Points[I-1],B=Route.Points[I]; if(!Route.bHasInteriors) A.Z=B.Z=0;
-        Distance=FMath::Min(Distance,FVector::Distance(Position,FMath::ClosestPointOnSegment(Position,A,B)));
-    }
-    return Distance;
+    const auto Projection=FNavigationRouteProjection::FromRoute(Route,GetRouteGroundPosition(Position),RouteSegment);
+    return Projection.Segment==INDEX_NONE?MAX_dbl:Projection.DistanceCentimeters;
 }
 void UDeliveryNavigationSubsystem::UpdateNavigation(FVector Position,double Delta)
 {
-    if (!Delivery) return;
+    if (!Delivery || Position.ContainsNaN() || !FMath::IsFinite(Delta)) return;
     if(Mode==ECourierNavigationMode::ParkedBike && (!IsValid(Delivery->GetScooter()) || Delivery->GetScooter()->GetRider())) Mode=ECourierNavigationMode::Order;
     if (ResolveTarget()!=Target) { RefreshRoute(Position); return; }
+    // Only route planning is throttled; distance and arrival follow every frame.
+    UpdateRemaining(Position);
     CheckSeconds+=FMath::Max(0.0,Delta);
     if (CheckSeconds<.5) return;
     CheckSeconds=0;
@@ -121,8 +130,7 @@ void UDeliveryNavigationSubsystem::UpdateNavigation(FVector Position,double Delt
     bool RoomChanged=false;
     if(const auto* Interiors=GetWorld()->GetSubsystem<UCourierBuildingSubsystem>(); Interiors && Interiors->IsEnabled())
     { const auto A=Interiors->Locate(Position); const FName Room=A.IsValid()?Interiors->GetCatalog()->Buildings[A.Building].Rooms[A.Room].Id:NAME_None; RoomChanged=Room!=OriginRoom; }
-    if (!Target.IsNone() && (!Route.bReachable || DistanceFromRoute(Position)>1500 || BikeMoved || RoomChanged)) RefreshRoute(Position);
-    else UpdateRemaining(Position);
+    if (!Target.IsNone() && (!Route.bReachable || DistanceFromRoute(Position)>250 || BikeMoved || RoomChanged)) RefreshRoute(Position);
 }
 bool UDeliveryNavigationSubsystem::IsRouteClear(const FRouteResult& Candidate) const
 {

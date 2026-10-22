@@ -505,4 +505,7 @@ def bake(rig, rest, name, samples):
 
 
 if __name__ == '__main__':
-    inspect() if '--inspect' in sys.argv else build()
+    if '--inspect' in sys.argv:
+        inspect()
+    else:
+        raise RuntimeError('Retired hand-authored poses. Use tools/art/build_library_actions.py instead.')

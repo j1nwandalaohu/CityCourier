@@ -1,4 +1,4 @@
-"""Generate only the independent citizen's five behavior clips, preserving reactions."""
+"""Generate the citizen's five behavior clips using unedited library motion."""
 import sys
 from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parent))

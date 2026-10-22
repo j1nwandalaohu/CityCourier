@@ -22,6 +22,8 @@ public:
     virtual void Tick(float DeltaSeconds) override;
     void Configure(UDeliverySubsystem* System);
     const FRouteResult& GetActiveRoute() const { return Route; }
+    int32 GetRouteSegment() const { return RouteSegment; }
+    FVector GetRouteGroundPosition(FVector Position) const;
     bool RefreshRoute(FVector RiderLocation);
     void UpdateNavigation(FVector RiderLocation,double DeltaSeconds);
     double DistanceFromRoute(FVector Position) const;
@@ -37,6 +39,7 @@ private:
     double RemainingMeters=0;
     UPROPERTY() TObjectPtr<UDeliverySubsystem> Delivery;
     FRouteResult Route;
+    int32 RouteSegment=0;
     FName Target;
     double CheckSeconds=0;
     FName OriginRoom;

@@ -68,6 +68,9 @@ bool FCharacterReceiverTest::RunTest(const FString&)
     TestFalse(TEXT("Attack ID deduplicated"),A->ReceiveStrike(Id,FVector(100,0,90)));
     A->TickComponent(.2f,LEVELTICK_All,nullptr); A->ReceiveStrike(FGuid::NewGuid(),FVector(-100,0,90)); A->TickComponent(.201f,LEVELTICK_All,nullptr);
     TestTrue(TEXT("Repeated hits do not restart stun timer"),A->GetTimeline().GetAction()==ECourierAction::None);
+    // Directional standing recoil is a separate strike after the combo gap.
+    // A third hit inside 1.2 seconds intentionally enters knockdown now.
+    A->TickComponent(1.201f,LEVELTICK_All,nullptr);
     A->ReceiveStrike(FGuid::NewGuid(),FVector(-100,0,90));
     TestTrue(TEXT("Back reaction selected"),A->GetTimeline().GetAction()==ECourierAction::HitBack);
     A->Cancel(); A->ActionAnimations.Empty();
@@ -111,8 +114,9 @@ bool FCharacterActionBridgeTest::RunTest(const FString&)
     TestTrue(TEXT("Named right fist attachment persists"),Mesh->DoesSocketExist(TEXT("PunchTrace_R")));
     Step(.1f);
     TestTrue(TEXT("Imported rig scaling keeps fist socket five centimeters from the hand"),FMath::IsNearlyEqual(FVector::Distance(Mesh->GetSocketLocation(TEXT("PunchTrace_L")),Mesh->GetBoneLocation(TEXT("hand_l"))),5.,.1));
-    F.Rider->GetActions()->QueueAttack(false); F.Rider->GetActions()->TickComponent(.15f,LEVELTICK_All,nullptr);
-    Step(.05f);
+    // Let the 0.10s attack blend finish, while still sampling contact at 0.20s.
+    F.Rider->GetActions()->QueueAttack(false); F.Rider->GetActions()->TickComponent(.09f,LEVELTICK_All,nullptr);
+    Step(.11f);
     auto* Anim=Cast<UCourierAnimInstance>(Mesh->GetAnimInstance());
     if(TestNotNull(TEXT("Native action animation bridge"),Anim))
     {

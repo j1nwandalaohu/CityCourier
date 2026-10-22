@@ -11,6 +11,7 @@ public:
     void ResetDialog() { bConfirmQuit=false; bConfirmReset=false; bExitWarned=false; PendingUpgrade=-1; ServiceMessage.Empty(); }
 private:
     UFUNCTION() void Resume();
+    UFUNCTION() void ContinueOrders();
     UFUNCTION() void RetrySave();
     UFUNCTION() void ResetSave();
     UFUNCTION() void Quit();
@@ -36,6 +37,7 @@ private:
     UPROPERTY() TObjectPtr<class USlider> Volume;
     UPROPERTY() TObjectPtr<class UButton> RetryButton;
     UPROPERTY() TObjectPtr<class UButton> ResetButton;
+    UPROPERTY() TObjectPtr<class UButton> ContinueOrdersButton;
     bool bConfirmQuit=false,bConfirmReset=false,bExitWarned=false;
     int32 PendingUpgrade=-1;
     FString ServiceMessage;

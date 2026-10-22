@@ -181,4 +181,4 @@ def main():
 
 
 if __name__ == '__main__':
-    main()
+    raise RuntimeError('Retired hand-edited idle. Use tools/art/build_library_actions.py instead.')

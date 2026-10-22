@@ -1,0 +1,168 @@
+<html>
+
+<head>
+
+<title>Carnegie Mellon University - CMU Graphics Lab - motion capture library</title>
+
+<!-- Last updated by Bonnie Jang - December 2002 -->
+
+<meta name="description" content="Search through the CMU Graphics Lab online motion capture database to find free mocap data for your research needs.">
+
+<meta name="keywords" content="motion capture, motion capture data, motion capture lab, motion capture database, motion capture library, mocap, mocap data, mocap lab, cmu mocap lab, cmu graphics, graphics cmu, cmu graphics lab, carnegie mellon university">
+</head>
+
+<body>
+
+
+<!-- OUTERMOST TABLE - CONTAINER FOR ALIGNMENT PURPOSES -->
+<table width="100%" border="0" cellpadding="0" cellspacing="0"><tr><td align="center">
+
+	<!-- WEB-SITE NAME, MAIN MENU LINKS -->
+
+	<table border="0" cellpadding="2" cellspacing="0"><tr><td align="center">
+		<font size="5"><b>CMU Graphics Lab Motion Capture Database</b></font> <BR>
+		<a href="/" target="_top">Home</a> &nbsp; | &nbsp;<a href="search.php">Search</A>&nbsp; | &nbsp;<a href="tools.php">Tools</A>&nbsp; | &nbsp; <a href="info.php">Info</a>&nbsp; | &nbsp;<a href="faqs.php">FAQs</a>&nbsp; | &nbsp;<a href="movies.php">Rendered Movies</a>&nbsp; | &nbsp;<a href="resources.php">Resources</a>
+	</td></tr></table>
+
+	<br clear="all">
+
+	<!-- SEARCH TYPE OPTIONS:  1) ALL SUBJECTS  2) ALL MOTIONS  3) ALL MOTION CATEGORIES  4) SUBJECT NUMBER AND/OR MOTION  -->
+
+
+	<table width="600" border="1" cellpadding="0" cellspacing="0" align="center">
+		<tr>
+
+			<td>
+				<table width="100%" border="0" cellpadding="0" cellspacing="0">
+					<tr>
+						<td valign="bottom" align="center"><b><font color="red">View All:</font></b></td>
+					</tr>
+					<tr>
+						<td valign="top" align="center"><a href="subjects.php">Subjects</a> | <a href="search.php?subjectnumber=%&motion=%">Motions</a></td>
+					</tr>
+				</table>
+			</td> 
+
+			<td>
+				<table width="100%" border="0" cellpadding="0" cellspacing="0">
+					<tr>
+						<td valign="bottom" align="center"><b><font color="red">Browse:</font></b></td>
+					</tr>
+					<tr>
+						<td valign="top" align="center"><a href="motcat.php">Motion Categories</a></td>
+					</tr>
+				</table>
+			</td>
+
+			<td>
+				<table width="100%" border="0" cellpadding="0" cellspacing="0">
+				<form action="/search.php" method="post">
+					<tr>
+						<td width="2%">&nbsp;</td>						
+						<td align="left" valign="bottom">
+							<a href="searchhelp.php"><font size="-1">Search Help</font></a>
+						</td>
+					</tr>
+					<tr>
+						<td width="2%">&nbsp;</td>						
+						<td align="left" valign="bottom">
+							<input type="text" name="subjectnumber" value="" size="10">
+							<input type="text" name="motion" value="" size="16"> &nbsp;
+							<input type="submit" value="SEARCH">
+							<input type="hidden" name="searchtype" value="subjectnumberandormotion">
+						</td>
+					</tr>
+					<tr> 
+						<td width="2%">&nbsp;</td>						
+						<td align="left" valign="top">
+							<font size="-1">
+								&nbsp;subject number&nbsp; | &nbsp;motion or keyword  <br>
+				  			</font>
+						</td>
+					</tr>
+					<tr> 
+						<td width="2%">&nbsp;</td>						
+						<td align="left" valign="top">
+							<font size="-1">
+								&nbsp;(e.g. 41)&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; (e.g. run)  <br>
+				  			</font>
+						</td>
+					</tr>
+				</form>	
+				</table>
+			</td>
+
+		</tr>
+	</table>
+
+
+<br />
+<h3>Welcome to the Carnegie Mellon University Motion Capture Database!<br /> This dataset of motions is free for all uses. Search above by subject # or motion category. Check out the "Info" tab for information on the mocap process, the "FAQs" for miscellaneous questions about our dataset, or the "Tools" page for code to work with mocap data. Enjoy!</h3>
+        <br clear="all">
+        <i>The collection of the data in this database was supported by NSF Grant #0196217.</i>
+        <br clear="all"><br clear="all">
+	<p align="left"><font color="red">NEW!</font>
+	<b>More easy-to-use motion capture formats!</b> Bruce Hahn has released both 3D Studio Max and MotionBuilder bvh's, hosted at <a href="http://sites.google.com/a/cgspeed.com/cgspeed/motion-capture">cgspeed</a>.
+<br />The site includes links to our data in other formats, too. See the <b>"Resources" tab</b> above.
+</p>
+	<p align="left"><font color="red">NEW!</font>
+	<b>The Quality of Life Grand Challenge: Kitchen Capture</b> dataset is now up.<br />This capture of kitchen activities includes mocap, microphones, accelerometers, and more: <a href="http://kitchen.cs.cmu.edu">http://kitchen.cs.cmu.edu</a>.
+	</p>
+	<p align="left"><font color="red">NEW!</font>
+	More data formats are here! See the <b>"Resources" tab</b> for a list of external sites that have converted our data into numerous other formats.<br />Check out the <b>"Info" tab</b> above for an extended explanation of motion capture file formats, and our motion capture setup.<br />We've also added <b>new "Tools"</b> for working with both .asf/.amc and Vicon's .vsk/.v files.
+	</p>
+
+        <p align="left"><font color="blue">Please don't crawl this database!</font> Check out our <a href="faqs.php">FAQs</a>.
+        </p>
+
+
+        <p align="left">
+                This data is free for use in research projects.<br />
+You may include this data in commercially-sold products,
+<br />but you may not resell this data directly, even in converted form.<br />
+If you publish results obtained using this data, we would appreciate it<br />
+if you would send the citation to your published paper to jkh+mocap@cs.cmu.edu,<br />
+and also would add this text to your acknowledgments section:<br />
+        <i>The data used in this project was obtained from mocap.cs.cmu.edu.<br clear="all">
+        The database was created with funding from NSF EIA-0196217.</i>
+	</p>
+
+<br />
+
+        <p align="left">
+		<b>Note:</b> In this database, the same person may appear under more than one subject number.<br clear="all">
+	 	Each subject, however, has its own calibrated skeleton.
+        </p>
+        <p align="left">
+		<b>Note:</b> When browsing for motions, start with the <i>higher numbered</i> subjects first.<br clear="all">
+		The lower numbers contain some of our earliest motion capture sessions, and may not be as high quality.<br clear="all">
+	</p>
+        <p align="left">
+		<b>Note:</b> The "toe" and "hand" joints in our motions tend to be noisy, and may require some smoothing.<br clear="all" />
+		 The "finger" and "thumb" joints are added to the skeleton for editing convenience <br clear="all" />
+		- we do not actually capture these joints' motions and any such data should be ignored.<br clear="all" />
+	</p>
+
+        <br clear="all"><br clear="all">
+
+There are <B> 2605 </B> trials in <B> 6 </B> categories and <B> 23 </B> subcategories.
+<TABLE WIDTH="100%" BORDER=0>
+		  <TR><TD><br></td></tr>
+		  <TR>
+			<td width=30>&nbsp;</td><TD><font size=+2><A HREF="motcat.php?maincat=1">Human Interaction</A></font><br>			&nbsp;&nbsp;&nbsp;			
+		<a href='search.php?maincat=1&subcat=1'>two subjects</a> </td></tr> 		  <TR><TD><br></td></tr>
+		  <TR>
+			<td width=30>&nbsp;</td><TD><font size=+2><A HREF="motcat.php?maincat=2">Interaction with Environment</A></font><br>			&nbsp;&nbsp;&nbsp;			
+		<a href='search.php?maincat=2&subcat=1'>playground</a>, <a href='search.php?maincat=2&subcat=2'>uneven terrain</a>, ... </td></tr> 		  <TR><TD><br></td></tr>
+		  <TR>
+			<td width=30>&nbsp;</td><TD><font size=+2><A HREF="motcat.php?maincat=3">Locomotion</A></font><br>			&nbsp;&nbsp;&nbsp;			
+		<a href='search.php?maincat=3&subcat=1'>running</a>, <a href='search.php?maincat=3&subcat=2'>walking</a>, ... </td></tr> 		  <TR><TD><br></td></tr>
+		  <TR>
+			<td width=30>&nbsp;</td><TD><font size=+2><A HREF="motcat.php?maincat=4">Physical Activities & Sports</A></font><br>			&nbsp;&nbsp;&nbsp;			
+		<a href='search.php?maincat=4&subcat=1'>basketball</a>, <a href='search.php?maincat=4&subcat=2'>dance</a>, ... </td></tr> 		  <TR><TD><br></td></tr>
+		  <TR>
+			<td width=30>&nbsp;</td><TD><font size=+2><A HREF="motcat.php?maincat=5">Situations & Scenarios</A></font><br>			&nbsp;&nbsp;&nbsp;			
+		<a href='search.php?maincat=5&subcat=1'>common behaviors and expressions</a>, <a href='search.php?maincat=5&subcat=2'>pantomime</a>, ... </td></tr> 		  <TR><TD><br></td></tr>
+		  <TR>
+			<td width=30>&nbsp;</td><TD><font size=+2><A HREF="motcat.php?maincat=6">Test Motions</A></font><br>			&nbsp;&nbsp;&nbsp;			
+		 </td></tr> </TABLE>

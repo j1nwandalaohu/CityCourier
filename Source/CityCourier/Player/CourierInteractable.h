@@ -1,5 +1,6 @@
 #pragma once
 #include "UObject/Interface.h"
+#include "Player/Epic/CourierInteractionPose.h"
 #include "CourierInteractable.generated.h"
 class ACourierCharacter;
 
@@ -14,4 +15,5 @@ public:
     virtual int32 GetInteractionPriority() const = 0;
     virtual FVector GetInteractionLocation() const = 0;
     virtual FText GetInteractionText() const { return FText::FromString(TEXT("E  Interact")); }
+    virtual bool GetInteractionPose(const ACourierCharacter* Courier,FCourierInteractionPose& OutPose) const { return false; }
 };

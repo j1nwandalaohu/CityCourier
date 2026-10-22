@@ -136,8 +136,15 @@ FCourierActionResult UDeliverySubsystem::TryAcceptWithFeedback(FGuid InstanceId)
     if (!bConfigured || Profile->NeedsReset() || Finished.Contains(InstanceId)) return FCourierActionResult::Failure(TEXT("订单已失效，请刷新后重试"));
     const auto* Offer = Offers.FindByPredicate([&](const FDeliveryOffer& O) { return O.InstanceId == InstanceId; });
     if(!Offer) return FCourierActionResult::Failure(TEXT("订单已失效，请刷新后重试"));
-    if(!AreRoutesClear(*Offer)) return FCourierActionResult::Failure(TEXT("路线暂不可用，请返回道路后刷新订单"));
-    if(!FDeliveryRules::Accept(State,*Offer)) return FCourierActionResult::Failure(TEXT("订单已失效，请刷新后重试"));
+    FDeliveryOffer CurrentOffer=*Offer;
+    CurrentOffer.EstimateOrigin=CurrentRiderLocation();
+    const auto* Buildings=GetBuildings();
+    CurrentOffer.PickupRoute=Buildings?City->FindJourneyFrom(CurrentOffer.EstimateOrigin,CurrentOffer.MerchantId,*Buildings):City->FindRouteFrom(CurrentOffer.EstimateOrigin,CurrentOffer.MerchantId);
+    CurrentOffer.DeadlineSeconds=Buildings?FDeliveryRules::CalculateDeadline(CurrentOffer.PickupRoute,CurrentOffer.DeliveryRoute):
+        FDeliveryRules::CalculateDeadline(CurrentOffer.PickupRoute.LengthMeters+CurrentOffer.DeliveryRoute.LengthMeters);
+    if(!AreRoutesClear(CurrentOffer)) return FCourierActionResult::Failure(TEXT("路线暂不可用，请返回道路后刷新订单"));
+    if(!FDeliveryRules::Accept(State,CurrentOffer)) return FCourierActionResult::Failure(TEXT("订单已失效，请刷新后重试"));
+    LastRiderLocation=CurrentOffer.EstimateOrigin;
     LastClock = ReadClock(); UpdateTargets(); OnDeliveryChanged.Broadcast(); return FCourierActionResult::Success();
 }
 ADeliveryLocation* UDeliverySubsystem::FindLocationActor(FName Id) const

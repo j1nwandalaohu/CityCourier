@@ -17,6 +17,9 @@ bool FCourierInteractionTest::RunTest(const FString& Parameters)
     auto* Target = Fixture.World->SpawnActor<ADeliveryLocation>(FVector(199,0,100), FRotator::ZeroRotator);
     int32 Interactions = 0;
     Target->OnInteraction.BindLambda([&](ACourierCharacter*) { ++Interactions; return true; });
+    TestFalse(TEXT("Unrelated delivery point cannot consume interaction"),Courier->TryInteract());
+    TestEqual(TEXT("Unrelated point never calls handler"),Interactions,0);
+    Target->bActiveOrderTarget = true;
     TestTrue(TEXT("199cm can interact"), Courier->TryInteract());
     TestEqual(TEXT("Handler called once"), Interactions, 1);
     Target->SetActorLocation(FVector(201,0,100));
@@ -28,11 +31,13 @@ bool FCourierInteractionTest::RunTest(const FString& Parameters)
     TestFalse(TEXT("Solid wall blocks interaction"), Courier->TryInteract());
     Wall->Destroy();
     auto* Near = Fixture.World->SpawnActor<ADeliveryLocation>(FVector(100,20,100), FRotator::ZeroRotator);
+    Near->bActiveOrderTarget = true;
     Near->OnInteraction.BindLambda([](ACourierCharacter*) { return true; });
     Courier->RefreshInteraction();
     TestTrue(TEXT("Equal priority chooses nearest"), Courier->GetInteractionTarget() == Near);
     Target->bActiveOrderTarget = true;
     Near->LocationKind = EDeliveryLocationKind::Station;
+    Near->bActiveOrderTarget = false;
     Courier->RefreshInteraction();
     TestTrue(TEXT("Order beats nearer station"), Courier->GetInteractionTarget() == Target);
     Target->bActiveOrderTarget = false;

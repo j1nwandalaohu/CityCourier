@@ -11,7 +11,10 @@ class CITYCOURIER_API ACourierCharacter : public ACharacter,public ICourierStrik
     GENERATED_BODY()
 public:
     ACourierCharacter();
+    FCourierActionResult TryEnableEpicAnimation(class UCourierEpicAnimationConfig* Config);
+    UPROPERTY(EditDefaultsOnly,Category="Courier|Epic") TObjectPtr<class UCourierEpicAnimationConfig> EpicAnimationConfig;
     virtual void BeginPlay() override;
+    virtual void UnPossessed() override;
     virtual void Tick(float DeltaSeconds) override;
     virtual void SetupPlayerInputComponent(UInputComponent* Input) override;
     virtual void OnMovementModeChanged(EMovementMode PrevMovementMode,uint8 PreviousCustomMode=0) override;
@@ -19,6 +22,9 @@ public:
     FCourierActionResult TryJumpWithFeedback();
     bool CanPerformGroundAction(FText& Reason,bool bAllowAttack=false) const;
     class UCourierActionComponent* GetActions() const { return Actions; }
+    class UCourierTraversalComponent* GetTraversal() const { return Traversal; }
+    class UCourierObjectInteractionComponent* GetObjectInteraction() const { return ObjectInteraction; }
+    class UCourierPhysicalReactionComponent* GetPhysicalReaction() const { return PhysicalReaction; }
     void UpdateActionMovement();
     virtual bool ReceiveCourierStrike(FGuid InstanceId,const FVector& Origin,ECourierAction Action) override;
     UFUNCTION(BlueprintCallable) bool TryInteract();
@@ -57,6 +63,11 @@ private:
     void LightPressed();
     void HeavyPressed();
     UPROPERTY(VisibleAnywhere) TObjectPtr<class UCourierActionComponent> Actions;
+    UPROPERTY(VisibleAnywhere) TObjectPtr<class UCourierTraversalComponent> Traversal;
+    UPROPERTY(VisibleAnywhere) TObjectPtr<class UMotionWarpingComponent> MotionWarping;
+    UPROPERTY(VisibleAnywhere) TObjectPtr<class UCourierObjectInteractionComponent> ObjectInteraction;
+    UPROPERTY(VisibleAnywhere) TObjectPtr<class UPhysicsHandleComponent> PhysicsHandle;
+    UPROPERTY(VisibleAnywhere) TObjectPtr<class UCourierPhysicalReactionComponent> PhysicalReaction;
     UPROPERTY() TArray<TObjectPtr<class UInputAction>> InputActions;
     TWeakObjectPtr<AActor> InteractionTarget;
     FText InteractionPrompt;
@@ -67,4 +78,6 @@ private:
     bool bProne = false;
     bool bProneHeld = false;
     float InteractionRefreshTime = 0;
+    float EpicRetryElapsed = 0;
+    bool bEpicAnimationPending = false;
 };

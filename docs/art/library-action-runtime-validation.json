@@ -1,0 +1,84 @@
+{
+  "native_build": {
+    "succeeded": true,
+    "log": "Saved/Validation/Build-Editor-20261022-210500-0e75c81c/build.log"
+  },
+  "graph_version": 9,
+  "asset_fingerprint": "ae67bb16baa64dd9e8ca8d4b0248c4e4f571fe80c3ca22d4d3a911f2cab4e76b",
+  "automation": [
+    {
+      "report": "Saved/Validation/Automation-20261022-210220-689cf7e9/Report/index.json",
+      "passed": 9,
+      "tests": [
+        "CityCourier.EpicAnimation.Assets.IncompleteSetupRejected",
+        "CityCourier.EpicAnimation.Assets.RootUnitsMatchCourier",
+        "CityCourier.EpicAnimation.Assets.SourceAndDependencyClosure",
+        "CityCourier.EpicAnimation.Contact.FootContactStateWeights",
+        "CityCourier.EpicAnimation.Contact.FootSwingAndSlope",
+        "CityCourier.EpicAnimation.Contact.HandGoalOrientation",
+        "CityCourier.EpicAnimation.Contact.HandReach",
+        "CityCourier.EpicAnimation.Graph.ActionsRemainAuthoritative",
+        "CityCourier.EpicAnimation.Graph.UsesRetargetedLocomotion"
+      ]
+    },
+    {
+      "report": "Saved/Validation/Automation-20261022-210645-77abe81b/Report/index.json",
+      "passed": 29,
+      "tests": [
+        "CityCourier.CharacterActions.Contact.AnimationBridge",
+        "CityCourier.CharacterActions.Contact.FrameFacingRangeAndDedup",
+        "CityCourier.CharacterActions.Contact.ReactionsAndMissingAssets",
+        "CityCourier.CharacterActions.Contact.TrajectoryAndOcclusion",
+        "CityCourier.CharacterActions.Continuity.AirbornePoseCoverage",
+        "CityCourier.CharacterActions.Continuity.DescendingPose",
+        "CityCourier.CharacterActions.Continuity.GaitCycle",
+        "CityCourier.CharacterActions.Continuity.MovingLandingMomentum",
+        "CityCourier.CharacterActions.Continuity.RunningLandingPose",
+        "CityCourier.CharacterActions.Posture.FullBodyClearance",
+        "CityCourier.CharacterActions.Posture.InterfaceTransitions",
+        "CityCourier.CharacterActions.Posture.ProneHeadroomAndActions",
+        "CityCourier.CharacterActions.Posture.RenderedCrawl",
+        "CityCourier.CharacterActions.Posture.ShiftMapping",
+        "CityCourier.CharacterActions.Production.NewLocomotion",
+        "CityCourier.CharacterActions.Production.PunchContactPoses",
+        "CityCourier.CharacterActions.Production.RealPlaybackAndContact",
+        "CityCourier.CharacterActions.Review.InitialOverlapThinWall",
+        "CityCourier.CharacterActions.Review.InterruptDuringContact",
+        "CityCourier.CharacterActions.Review.PlaybackFailure",
+        "CityCourier.CharacterActions.Timeline.ComboBoundaries",
+        "CityCourier.CharacterActions.Timeline.Interruptions",
+        "CityCourier.CharacterActions.Timeline.LibraryKnockdownRecovery",
+        "CityCourier.CharacterActions.Timeline.WindowsAndFrameSkips",
+        "CityCourier.CharacterActions.World.ConsecutiveHitsUseLibraryRecovery",
+        "CityCourier.CharacterActions.World.CrouchAndCrawl",
+        "CityCourier.CharacterActions.World.JumpAndHeadroom",
+        "CityCourier.CharacterActions.World.JumpPunch",
+        "CityCourier.CharacterActions.World.ModesAndInterruptions"
+      ]
+    },
+    {
+      "report": "Saved/Validation/Automation-20261022-210407-499857d2/Report/index.json",
+      "passed": 6,
+      "tests": [
+        "CityCourier.Ambient.Combat.AuthoredVisiblePoses",
+        "CityCourier.Ambient.Combat.FallSpace",
+        "CityCourier.Ambient.Combat.InputPoolingAndClearance",
+        "CityCourier.Ambient.Combat.ProductionFistAndWall",
+        "CityCourier.Ambient.Combat.ReactionLifecycle",
+        "CityCourier.Ambient.Combat.StrikeReceiver"
+      ]
+    }
+  ],
+  "tests_passed": 44,
+  "tests_failed": 0,
+  "game": {
+    "pid": 13568,
+    "process": "UnrealEditor.exe -game",
+    "map": "/Game/CityCourier/Maps/L_CourierCity",
+    "window_title": "CityCourier (64-bit Development PCD3D_SM6)",
+    "observed_responding": true,
+    "log": "Saved/Logs/CityCourier-Rebuilt-20261022.log"
+  },
+  "visual_review": "interactive window launched; no new PIE screenshot or human visual acceptance recorded",
+  "packaging": "not_requested"
+}

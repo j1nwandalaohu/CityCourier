@@ -61,3 +61,7 @@ report=json.loads((SOURCE/'production_actions.json').read_text())
 report.update(experimental=False,fps=60,contact_alignment=checks,locomotion={'A_Jog':{'source':'A_M2M_Jog','natural_speed_cm_s':473.2},'A_Sprint':{'source':'A_M2M_Run','natural_speed_cm_s':715.9}})
 (SOURCE/'production_actions.json').write_text(json.dumps(report,indent=2)+'\n',encoding='utf-8')
 print('PRODUCTION ACTIONS EXPORTED',json.dumps(checks),flush=True)
+# The broad hook is reference material; active heavy attacks use the compact
+# library cross at the same authoritative heavy contact time.
+import runpy
+runpy.run_path(str(Path(__file__).with_name('build_compact_heavy.py')), run_name='__main__')

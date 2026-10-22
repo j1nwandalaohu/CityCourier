@@ -1,0 +1,265 @@
+{
+  "sources": {
+    "gasp": true,
+    "stack_o_bot": true,
+    "content_examples": true
+  },
+  "assets": {
+    "complete": true,
+    "source_packages": 1397,
+    "generated_packages": 930,
+    "conflicts": []
+  },
+  "code": {
+    "complete": true
+  },
+  "build": {
+    "status": "passed",
+    "log": "Saved\\Validation\\Build-Editor-20261022-182724-605ececf\\build.log"
+  },
+  "runtime": {
+    "status": "passed",
+    "expected_tests": 57,
+    "missing_or_failed": [],
+    "tests": {
+      "CityCourier.EpicCharacterIntegration.JumpLanding": {
+        "state": "Success",
+        "report": "Saved\\Validation\\Automation-20261022-182825-09edbf37\\Report\\index.json"
+      },
+      "CityCourier.EpicCharacterIntegration.RealPlayerFlow": {
+        "state": "Success",
+        "report": "Saved\\Validation\\Automation-20261022-182825-09edbf37\\Report\\index.json"
+      },
+      "CityCourier.EpicAnimation.Assets.IncompleteSetupRejected": {
+        "state": "Success",
+        "report": "Saved\\Validation\\Automation-20261022-182847-8494038b\\Report\\index.json"
+      },
+      "CityCourier.EpicAnimation.Assets.RootUnitsMatchCourier": {
+        "state": "Success",
+        "report": "Saved\\Validation\\Automation-20261022-182847-8494038b\\Report\\index.json"
+      },
+      "CityCourier.EpicAnimation.Assets.SourceAndDependencyClosure": {
+        "state": "Success",
+        "report": "Saved\\Validation\\Automation-20261022-182847-8494038b\\Report\\index.json"
+      },
+      "CityCourier.EpicAnimation.Contact.FootContactStateWeights": {
+        "state": "Success",
+        "report": "Saved\\Validation\\Automation-20261022-182847-8494038b\\Report\\index.json"
+      },
+      "CityCourier.EpicAnimation.Contact.FootSwingAndSlope": {
+        "state": "Success",
+        "report": "Saved\\Validation\\Automation-20261022-182847-8494038b\\Report\\index.json"
+      },
+      "CityCourier.EpicAnimation.Contact.HandGoalOrientation": {
+        "state": "Success",
+        "report": "Saved\\Validation\\Automation-20261022-182847-8494038b\\Report\\index.json"
+      },
+      "CityCourier.EpicAnimation.Contact.HandReach": {
+        "state": "Success",
+        "report": "Saved\\Validation\\Automation-20261022-182847-8494038b\\Report\\index.json"
+      },
+      "CityCourier.EpicAnimation.Contact.RenderedHandContact": {
+        "state": "Success",
+        "report": "Saved\\Validation\\Automation-20261022-182847-8494038b\\Report\\index.json"
+      },
+      "CityCourier.EpicAnimation.Graph.ActionsRemainAuthoritative": {
+        "state": "Success",
+        "report": "Saved\\Validation\\Automation-20261022-182847-8494038b\\Report\\index.json"
+      },
+      "CityCourier.EpicAnimation.Graph.UsesRetargetedLocomotion": {
+        "state": "Success",
+        "report": "Saved\\Validation\\Automation-20261022-182847-8494038b\\Report\\index.json"
+      },
+      "CityCourier.EpicInteraction.CancellationRestoresObject": {
+        "state": "Success",
+        "report": "Saved\\Validation\\Automation-20261022-182915-12a55ce2\\Report\\index.json"
+      },
+      "CityCourier.EpicInteraction.ContactRevalidation": {
+        "state": "Success",
+        "report": "Saved\\Validation\\Automation-20261022-182915-12a55ce2\\Report\\index.json"
+      },
+      "CityCourier.EpicInteraction.GrabRelease": {
+        "state": "Success",
+        "report": "Saved\\Validation\\Automation-20261022-182915-12a55ce2\\Report\\index.json"
+      },
+      "CityCourier.Traversal.MovingBaseAndBlockedExit": {
+        "state": "Success",
+        "report": "Saved\\Validation\\Automation-20261022-182930-dcec8602\\Report\\index.json"
+      },
+      "CityCourier.Traversal.RootMotionMovesCapsule": {
+        "state": "Success",
+        "report": "Saved\\Validation\\Automation-20261022-182930-dcec8602\\Report\\index.json"
+      },
+      "CityCourier.Traversal.ValidObstacleAndLanding": {
+        "state": "Success",
+        "report": "Saved\\Validation\\Automation-20261022-182930-dcec8602\\Report\\index.json"
+      },
+      "CityCourier.PhysicalReaction.InterruptionsRestorePriorState": {
+        "state": "Success",
+        "report": "Saved\\Validation\\Automation-20261022-182944-98f00d3d\\Report\\index.json"
+      },
+      "CityCourier.PhysicalReaction.LocalImpulseAndRecovery": {
+        "state": "Success",
+        "report": "Saved\\Validation\\Automation-20261022-182944-98f00d3d\\Report\\index.json"
+      },
+      "CityCourier.CharacterActions.Contact.AnimationBridge": {
+        "state": "Success",
+        "report": "Saved\\Validation\\Automation-20261022-182958-7b4a03fd\\Report\\index.json"
+      },
+      "CityCourier.CharacterActions.Contact.FrameFacingRangeAndDedup": {
+        "state": "Success",
+        "report": "Saved\\Validation\\Automation-20261022-182958-7b4a03fd\\Report\\index.json"
+      },
+      "CityCourier.CharacterActions.Contact.ReactionsAndMissingAssets": {
+        "state": "Success",
+        "report": "Saved\\Validation\\Automation-20261022-182958-7b4a03fd\\Report\\index.json"
+      },
+      "CityCourier.CharacterActions.Contact.TrajectoryAndOcclusion": {
+        "state": "Success",
+        "report": "Saved\\Validation\\Automation-20261022-182958-7b4a03fd\\Report\\index.json"
+      },
+      "CityCourier.CharacterActions.Continuity.AirbornePoseCoverage": {
+        "state": "Success",
+        "report": "Saved\\Validation\\Automation-20261022-182958-7b4a03fd\\Report\\index.json"
+      },
+      "CityCourier.CharacterActions.Continuity.DescendingPose": {
+        "state": "Success",
+        "report": "Saved\\Validation\\Automation-20261022-182958-7b4a03fd\\Report\\index.json"
+      },
+      "CityCourier.CharacterActions.Continuity.GaitCycle": {
+        "state": "Success",
+        "report": "Saved\\Validation\\Automation-20261022-182958-7b4a03fd\\Report\\index.json"
+      },
+      "CityCourier.CharacterActions.Continuity.MovingLandingMomentum": {
+        "state": "Success",
+        "report": "Saved\\Validation\\Automation-20261022-182958-7b4a03fd\\Report\\index.json"
+      },
+      "CityCourier.CharacterActions.Continuity.RunningLandingPose": {
+        "state": "Success",
+        "report": "Saved\\Validation\\Automation-20261022-182958-7b4a03fd\\Report\\index.json"
+      },
+      "CityCourier.CharacterActions.Posture.FullBodyClearance": {
+        "state": "Success",
+        "report": "Saved\\Validation\\Automation-20261022-182958-7b4a03fd\\Report\\index.json"
+      },
+      "CityCourier.CharacterActions.Posture.InterfaceTransitions": {
+        "state": "Success",
+        "report": "Saved\\Validation\\Automation-20261022-182958-7b4a03fd\\Report\\index.json"
+      },
+      "CityCourier.CharacterActions.Posture.ProneHeadroomAndActions": {
+        "state": "Success",
+        "report": "Saved\\Validation\\Automation-20261022-182958-7b4a03fd\\Report\\index.json"
+      },
+      "CityCourier.CharacterActions.Posture.RenderedCrawl": {
+        "state": "Success",
+        "report": "Saved\\Validation\\Automation-20261022-182958-7b4a03fd\\Report\\index.json"
+      },
+      "CityCourier.CharacterActions.Posture.ShiftMapping": {
+        "state": "Success",
+        "report": "Saved\\Validation\\Automation-20261022-182958-7b4a03fd\\Report\\index.json"
+      },
+      "CityCourier.CharacterActions.Production.NewLocomotion": {
+        "state": "Success",
+        "report": "Saved\\Validation\\Automation-20261022-182958-7b4a03fd\\Report\\index.json"
+      },
+      "CityCourier.CharacterActions.Production.PunchContactPoses": {
+        "state": "Success",
+        "report": "Saved\\Validation\\Automation-20261022-182958-7b4a03fd\\Report\\index.json"
+      },
+      "CityCourier.CharacterActions.Production.RealPlaybackAndContact": {
+        "state": "Success",
+        "report": "Saved\\Validation\\Automation-20261022-182958-7b4a03fd\\Report\\index.json"
+      },
+      "CityCourier.CharacterActions.Review.InitialOverlapThinWall": {
+        "state": "Success",
+        "report": "Saved\\Validation\\Automation-20261022-182958-7b4a03fd\\Report\\index.json"
+      },
+      "CityCourier.CharacterActions.Review.InterruptDuringContact": {
+        "state": "Success",
+        "report": "Saved\\Validation\\Automation-20261022-182958-7b4a03fd\\Report\\index.json"
+      },
+      "CityCourier.CharacterActions.Review.PlaybackFailure": {
+        "state": "Success",
+        "report": "Saved\\Validation\\Automation-20261022-182958-7b4a03fd\\Report\\index.json"
+      },
+      "CityCourier.CharacterActions.Timeline.ComboBoundaries": {
+        "state": "Success",
+        "report": "Saved\\Validation\\Automation-20261022-182958-7b4a03fd\\Report\\index.json"
+      },
+      "CityCourier.CharacterActions.Timeline.Interruptions": {
+        "state": "Success",
+        "report": "Saved\\Validation\\Automation-20261022-182958-7b4a03fd\\Report\\index.json"
+      },
+      "CityCourier.CharacterActions.Timeline.WindowsAndFrameSkips": {
+        "state": "Success",
+        "report": "Saved\\Validation\\Automation-20261022-182958-7b4a03fd\\Report\\index.json"
+      },
+      "CityCourier.CharacterActions.World.CrouchAndCrawl": {
+        "state": "Success",
+        "report": "Saved\\Validation\\Automation-20261022-182958-7b4a03fd\\Report\\index.json"
+      },
+      "CityCourier.CharacterActions.World.JumpAndHeadroom": {
+        "state": "Success",
+        "report": "Saved\\Validation\\Automation-20261022-182958-7b4a03fd\\Report\\index.json"
+      },
+      "CityCourier.CharacterActions.World.JumpPunch": {
+        "state": "Success",
+        "report": "Saved\\Validation\\Automation-20261022-182958-7b4a03fd\\Report\\index.json"
+      },
+      "CityCourier.CharacterActions.World.ModesAndInterruptions": {
+        "state": "Success",
+        "report": "Saved\\Validation\\Automation-20261022-182958-7b4a03fd\\Report\\index.json"
+      },
+      "CityCourier.Interaction.DistanceOcclusionPriority": {
+        "state": "Success",
+        "report": "Saved\\Validation\\Automation-20261022-183015-801f0d19\\Report\\index.json"
+      },
+      "CityCourier.Interaction.WalkingRunningCamera": {
+        "state": "Success",
+        "report": "Saved\\Validation\\Automation-20261022-183015-801f0d19\\Report\\index.json"
+      },
+      "CityCourier.Scooter.AuthoredRoadSurfaces": {
+        "state": "Success",
+        "report": "Saved\\Validation\\Automation-20261022-183029-54da8c2a\\Report\\index.json"
+      },
+      "CityCourier.Scooter.DrivingBatteryImpact": {
+        "state": "Success",
+        "report": "Saved\\Validation\\Automation-20261022-183029-54da8c2a\\Report\\index.json"
+      },
+      "CityCourier.Scooter.MountAndSafeDismount": {
+        "state": "Success",
+        "report": "Saved\\Validation\\Automation-20261022-183029-54da8c2a\\Report\\index.json"
+      },
+      "CityCourier.VehicleTraversal.AuthoredSurfaces": {
+        "state": "Success",
+        "report": "Saved\\Validation\\Automation-20261022-183048-d17d0e1e\\Report\\index.json"
+      },
+      "CityCourier.VehicleTraversal.CarriesStandingPassenger": {
+        "state": "Success",
+        "report": "Saved\\Validation\\Automation-20261022-183048-d17d0e1e\\Report\\index.json"
+      },
+      "CityCourier.VehicleTraversal.GroundHoodRoof": {
+        "state": "Success",
+        "report": "Saved\\Validation\\Automation-20261022-183048-d17d0e1e\\Report\\index.json"
+      },
+      "CityCourier.VehicleTraversal.OrdinaryJumpUnchanged": {
+        "state": "Success",
+        "report": "Saved\\Validation\\Automation-20261022-183048-d17d0e1e\\Report\\index.json"
+      },
+      "CityCourier.VehicleTraversal.TurningStillBlocksRoadPedestrians": {
+        "state": "Success",
+        "report": "Saved\\Validation\\Automation-20261022-183048-d17d0e1e\\Report\\index.json"
+      }
+    },
+    "offscreen_contact": {
+      "initial": "X=-21.117 Y=26.471 Z=92.234",
+      "target": "X=4.756 Y=16.742 Z=99.083",
+      "hand": "X=1.324 Y=17.206 Z=98.426",
+      "error_cm": 3.5245,
+      "press_count": 1
+    }
+  },
+  "packaging": "not_requested",
+  "game_window": "not_launched",
+  "complete": true
+}

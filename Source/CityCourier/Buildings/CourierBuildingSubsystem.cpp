@@ -181,6 +181,13 @@ int32 UCourierBuildingSubsystem::GetReadyCount() const
 { int32 N=0; for(auto S:DetailStates) N+=S==ECourierBuildingDetailState::Ready; return N; }
 void UCourierBuildingSubsystem::CacheActor(AActor* A)
 { if(IsValid(A) && !A->IsA<ACourierDoor>() && Cast<ICourierInteractable>(A)) OtherInteractables.AddUnique(A); }
+bool UCourierBuildingSubsystem::RegisterInteractable(AActor* Actor)
+{
+    if(!IsValid(Actor) || Actor->GetWorld()!=GetWorld() || !Cast<ICourierInteractable>(Actor)) return false;
+    CacheActor(Actor); return true;
+}
+void UCourierBuildingSubsystem::UnregisterInteractable(AActor* Actor)
+{ OtherInteractables.RemoveAll([Actor](const TWeakObjectPtr<AActor>& Weak) { return !Weak.IsValid() || Weak.Get()==Actor; }); }
 void UCourierBuildingSubsystem::BindLocations()
 {
     for(const auto& Binding:Catalog->Bindings)

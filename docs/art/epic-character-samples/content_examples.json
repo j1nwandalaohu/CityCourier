@@ -1,0 +1,41 @@
+{
+  "source": "content_examples",
+  "project": "D:\\UnrealProjects\\ContentExamples\\ContentExamples.uproject",
+  "engine": "5.6",
+  "assets": [
+    {
+      "package": "/Game/ExampleContent/Physics/Blueprints/PhysicsAnimationBlendingHittReaction",
+      "file": "D:\\UnrealProjects\\ContentExamples\\Content\\ExampleContent\\Physics\\Blueprints\\PhysicsAnimationBlendingHittReaction.uasset",
+      "sha256": "02b1a02d477644ad8d1a60d080f0d664b0ff21938b02b5a905bd52e1ffe3d8e2",
+      "class": "Blueprint",
+      "skeleton": "",
+      "hard_dependencies": [
+        "/Game/Characters/Mannequins/Animations/Quinn/MF_Run_Fwd",
+        "/Game/Characters/Mannequins/Meshes/SKM_Manny_Simple",
+        "/Game/Global/Interactable/BPI_HitReaction",
+        "/Script/ClothingSystemRuntimeNv"
+      ],
+      "soft_dependencies": [],
+      "migrate": false
+    },
+    {
+      "package": "/Game/ExampleContent/Physics/Blueprints/PhysicsAnimationBlendingPhysicalAnimationComponent",
+      "file": "D:\\UnrealProjects\\ContentExamples\\Content\\ExampleContent\\Physics\\Blueprints\\PhysicsAnimationBlendingPhysicalAnimationComponent.uasset",
+      "sha256": "57a0b6fc8c0c20b4f90a5bea126d248f0f500fc3d5e1a95afbd5e5d8b9f052c0",
+      "class": "Blueprint",
+      "skeleton": "",
+      "hard_dependencies": [
+        "/Game/Characters/Mannequins/Animations/Quinn/MF_Run_Fwd",
+        "/Game/Characters/Mannequins/Meshes/SKM_Manny_Simple",
+        "/Game/Global/Blueprints/BP_Slider",
+        "/Script/ClothingSystemRuntimeNv"
+      ],
+      "soft_dependencies": [],
+      "migrate": false
+    }
+  ],
+  "missing": [],
+  "excluded": [],
+  "closure_complete": true,
+  "selection": []
+}

@@ -22,6 +22,9 @@ void ADeliveryLocation::EndPlay(const EEndPlayReason::Type Reason)
 { if(auto* D=GetWorld()->GetSubsystem<UDeliverySubsystem>()) D->UnregisterLocation(this); Super::EndPlay(Reason); }
 bool ADeliveryLocation::CanInteract(ACourierCharacter* Courier, FText& OutReason) const
 {
+    OutReason=FText::GetEmpty();
+    if(LocationKind!=EDeliveryLocationKind::Station && !bActiveOrderTarget)
+    { OutReason=FText::FromString(TEXT("这里不是当前订单的取送餐点")); return false; }
     if(IsValid(Courier)) if(const auto* S=GetWorld()->GetSubsystem<UCourierBuildingSubsystem>(); S && S->IsEnabled())
         if(!S->CanUseLocation(LocationId,Courier->GetActorLocation(),OutReason)) return false;
     return IsValid(Courier) && Courier->CanReachInteraction(this, GetInteractionLocation(), OutReason);

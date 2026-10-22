@@ -15,11 +15,23 @@
 #include "Buildings/CourierBuildingSubsystem.h"
 #include "Ambient/AmbientVehicle.h"
 #include "Components/BoxComponent.h"
+#include "Player/Epic/CourierEpicAnimationConfig.h"
+#include "Player/Epic/CourierTraversalComponent.h"
+#include "MotionWarpingComponent.h"
+#include "Player/Epic/CourierObjectInteractionComponent.h"
+#include "PhysicsEngine/PhysicsHandleComponent.h"
+#include "PhysicsEngine/PhysicsAsset.h"
+#include "Player/Epic/CourierPhysicalReactionComponent.h"
 
 ACourierCharacter::ACourierCharacter()
 {
     PrimaryActorTick.bCanEverTick = true;
     Actions=CreateDefaultSubobject<UCourierActionComponent>(TEXT("CharacterActions"));
+    Traversal=CreateDefaultSubobject<UCourierTraversalComponent>(TEXT("Traversal"));
+    MotionWarping=CreateDefaultSubobject<UMotionWarpingComponent>(TEXT("MotionWarping"));
+    ObjectInteraction=CreateDefaultSubobject<UCourierObjectInteractionComponent>(TEXT("ObjectInteraction"));
+    PhysicsHandle=CreateDefaultSubobject<UPhysicsHandleComponent>(TEXT("ObjectPhysicsHandle"));
+    PhysicalReaction=CreateDefaultSubobject<UCourierPhysicalReactionComponent>(TEXT("PhysicalReaction"));
     GetCapsuleComponent()->InitCapsuleSize(34, 88);
     GetCapsuleComponent()->SetCollisionResponseToChannel(ECC_Visibility,ECR_Overlap);
     GetMesh()->SetRelativeLocation(FVector(0,0,-88));
@@ -60,10 +72,38 @@ void ACourierCharacter::BeginPlay()
         GetMesh()->SetAnimInstanceClass(LoadClass<UAnimInstance>(nullptr,TEXT("/Game/CityCourier/Blueprints/ABP_Courier.ABP_Courier_C")));
         for(UStaticMeshComponent* Part:PrototypeParts) Part->SetVisibility(false);
     }
+    if(EpicAnimationConfig)
+    {
+        const auto Result=TryEnableEpicAnimation(EpicAnimationConfig);
+        bEpicAnimationPending=!Result.bSucceeded && !EpicAnimationConfig->ValidationFingerprint.IsEmpty();
+        if(!Result.bSucceeded) UE_LOG(LogTemp,Warning,TEXT("Courier Epic animation disabled: %s"),*Result.Reason.ToString());
+    }
+}
+FCourierActionResult ACourierCharacter::TryEnableEpicAnimation(UCourierEpicAnimationConfig* Config)
+{
+    FText Reason;
+    if(!Config) return FCourierActionResult::Failure(TEXT("Epic animation config is missing"));
+    if(!Config->ValidateFor(GetMesh()->GetSkeletalMeshAsset(),Reason)) return {false,Reason};
+    Actions->Cancel();
+    EpicAnimationConfig=Config;
+    PhysicalReaction->Cancel();
+    GetMesh()->SetPhysicsAsset(Config->PhysicsAsset.LoadSynchronous());
+    GetMesh()->SetAnimInstanceClass(Config->AnimationClass.LoadSynchronous());
+    bEpicAnimationPending=false;
+    return FCourierActionResult::Success();
 }
 void ACourierCharacter::Tick(float DeltaSeconds)
 {
     Super::Tick(DeltaSeconds);
+    if(bEpicAnimationPending && EpicAnimationConfig)
+    {
+        EpicRetryElapsed+=DeltaSeconds;
+        if(EpicRetryElapsed>=1.f)
+        {
+            EpicRetryElapsed=0; FText Reason;
+            if(CanPerformGroundAction(Reason)) TryEnableEpicAnimation(EpicAnimationConfig);
+        }
+    }
     if(bProne && !bProneHeld) SetProne(false);
     if(bProne && !HasProneClearance(GetActorLocation(),GetActorRotation(),GetVelocity()*DeltaSeconds))
     { GetCharacterMovement()->Velocity.X=0; GetCharacterMovement()->Velocity.Y=0; ConsumeMovementInputVector(); }
@@ -113,7 +153,7 @@ void ACourierCharacter::SetupPlayerInputComponent(UInputComponent* Input)
 }
 void ACourierCharacter::Move(const FInputActionValue& Value)
 {
-    if (bInputSuppressed || bMounted || !Controller || Actions->IsMovementLocked()) return;
+    if (bInputSuppressed || bMounted || !Controller || Actions->IsMovementLocked() || Traversal->IsActive()) return;
     const FVector2D Axis = Value.Get<FVector2D>(); const FRotator Yaw(0, Controller->GetControlRotation().Yaw, 0);
     if(bProne)
     {
@@ -217,10 +257,10 @@ void ACourierCharacter::SetCrouching(bool bValue)
 void ACourierCharacter::UpdateActionMovement()
 {
     const auto& State=Actions->GetTimeline();
-    const float Limit=Actions->IsMovementLocked()?0.f:bProne?60.f:State.IsAttacking()?120.f:(IsCrouched()||bCrouchHeld)?100.f:bSprintHeld && !bMounted && !bInputSuppressed?700.f:420.f;
+    const float Limit=Actions->IsMovementLocked()?0.f:bProne?60.f:(IsCrouched()||bCrouchHeld)?100.f:bSprintHeld && !bMounted && !bInputSuppressed?700.f:420.f;
     auto* Movement=GetCharacterMovement(); Movement->MaxWalkSpeed=Limit;
     Movement->MaxWalkSpeedCrouched=bProne?60.f:100.f; Movement->MaxStepHeight=bProne?10.f:35.f;
-    if(State.IsAttacking() || Actions->IsMovementLocked() || bProne)
+    if(Actions->IsMovementLocked() || bProne)
     {
         FVector Horizontal=Movement->Velocity; Horizontal.Z=0;
         Horizontal=Horizontal.GetClampedToMaxSize(Limit); Horizontal.Z=Movement->Velocity.Z; Movement->Velocity=Horizontal;
@@ -236,9 +276,11 @@ void ACourierCharacter::ClearMovementInput()
     StopJumping(); SetSprinting(false);
 }
 void ACourierCharacter::SetMounted(bool bValue)
-{ bMounted=bValue; bCrouchHeld=false; SetProne(false); UnCrouch(); Actions->Cancel(); ClearMovementInput(); RefreshInteraction(); }
+{ Traversal->Cancel(); ObjectInteraction->Cancel(); PhysicalReaction->Cancel(); bMounted=bValue; bCrouchHeld=false; SetProne(false); UnCrouch(); Actions->Cancel(); ClearMovementInput(); RefreshInteraction(); }
 void ACourierCharacter::SetInputSuppressed(bool bValue,bool bPreserveAction)
-{ bInputSuppressed=bValue; if(bValue && !bPreserveAction) { bCrouchHeld=false; SetProne(false); if(!bProne) UnCrouch(); } Actions->SetSuppressed(bValue,bPreserveAction); ClearMovementInput(); RefreshInteraction(); }
+{ if(bValue) { Traversal->Cancel(); ObjectInteraction->Cancel(); PhysicalReaction->Cancel(); } bInputSuppressed=bValue; if(bValue && !bPreserveAction) { bCrouchHeld=false; SetProne(false); if(!bProne) UnCrouch(); } Actions->SetSuppressed(bValue,bPreserveAction); ClearMovementInput(); RefreshInteraction(); }
+void ACourierCharacter::UnPossessed()
+{ Actions->Cancel(); Traversal->Cancel(); ObjectInteraction->Cancel(); PhysicalReaction->Cancel(); Super::UnPossessed(); }
 void ACourierCharacter::OnMovementModeChanged(EMovementMode Prev,uint8 Custom)
 {
     Super::OnMovementModeChanged(Prev,Custom);
@@ -248,6 +290,8 @@ void ACourierCharacter::OnJumped_Implementation()
 { Super::OnJumped_Implementation(); Actions->JumpStarted(); }
 bool ACourierCharacter::CanPerformGroundAction(FText& Reason,bool bAllowAttack) const
 {
+    if(Traversal->IsActive()) { Reason=FText::FromString(TEXT("Traversal in progress")); return false; }
+    if(ObjectInteraction->IsBusy()) { Reason=FText::FromString(TEXT("请先结束当前交互或放下物体")); return false; }
     if(bProne) { Reason=FText::FromString(TEXT("请先起身")); return false; }
     if(bMounted || bInputSuppressed) { Reason=FText::FromString(TEXT("请先下车并关闭界面")); return false; }
     if(!GetCharacterMovement()->IsMovingOnGround()) { Reason=FText::FromString(TEXT("请落地后再操作")); return false; }
@@ -257,6 +301,7 @@ bool ACourierCharacter::CanPerformGroundAction(FText& Reason,bool bAllowAttack) 
 }
 FCourierActionResult ACourierCharacter::TryJumpWithFeedback()
 {
+    if(Traversal->TryStart().bSucceeded) return FCourierActionResult::Success();
     FText Reason; if(!CanPerformGroundAction(Reason)) return {false,Reason};
     FHitResult Hit; FCollisionQueryParams Params(SCENE_QUERY_STAT(CourierJumpHeadroom),false,this);
     const auto* Capsule=GetCapsuleComponent();
@@ -288,10 +333,11 @@ void ACourierCharacter::JumpReleased() { StopJumping(); }
 void ACourierCharacter::LightPressed() { Actions->QueueAttack(false); }
 void ACourierCharacter::HeavyPressed() { Actions->QueueAttack(true); }
 bool ACourierCharacter::ReceiveCourierStrike(FGuid Id,const FVector& Origin,ECourierAction Action)
-{ return Actions->ReceiveStrike(Id,Origin); }
+{ const bool bAccepted=Actions->ReceiveStrike(Id,Origin); if(bAccepted) { Traversal->Cancel(); ObjectInteraction->Cancel(); PhysicalReaction->ApplyLocalImpulse(TEXT("chest"),(GetActorLocation()-Origin).GetSafeNormal()*1200); } return bAccepted; }
 bool ACourierCharacter::CanReachInteraction(const AActor* Target, FVector Point, FText& Reason, bool bAllowSuppressed) const
 {
     Reason = FText::GetEmpty();
+    if(Traversal->IsActive()) { Reason=FText::FromString(TEXT("Traversal in progress")); return false; }
     if(bProne) { Reason=FText::FromString(TEXT("请先起身")); return false; }
     if(GetCharacterMovement()->IsFalling() || Actions->IsGroundActionBlocked()) { Reason=FText::FromString(TEXT("请落地并等待当前动作结束")); return false; }
     if (!IsValid(Target) || bMounted || (bInputSuppressed && !bAllowSuppressed)) { Reason = FText::FromString(TEXT("请先下车并关闭界面")); return false; }
@@ -313,6 +359,8 @@ void ACourierCharacter::RefreshInteraction()
 {
     InteractionTarget.Reset(); InteractionPrompt = FText::GetEmpty();
     if (bMounted || bInputSuppressed || !GetWorld()) return;
+    if(ObjectInteraction->IsHolding()) { InteractionPrompt=FText::FromString(TEXT("E  放下")); return; }
+    if(ObjectInteraction->IsBusy()) { InteractionPrompt=FText::FromString(TEXT("正在操作…")); return; }
     int32 BestPriority = MIN_int32; double BestDistance = MAX_dbl;
     for (AActor* Candidate:InteractionCandidates())
     {
@@ -331,6 +379,8 @@ bool ACourierCharacter::TryInteract()
 { return TryInteractWithFeedback().bSucceeded; }
 FCourierActionResult ACourierCharacter::TryInteractWithFeedback()
 {
+    if(ObjectInteraction->IsHolding()) { ObjectInteraction->Release(); RefreshInteraction(); return FCourierActionResult::Success(); }
+    if(ObjectInteraction->IsBusy()) return FCourierActionResult::Failure(TEXT("请等待当前交互完成"));
     RefreshInteraction(); auto* Target = Cast<ICourierInteractable>(InteractionTarget.Get());
     FText Reason;
     if(Target)

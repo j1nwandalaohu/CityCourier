@@ -6,6 +6,8 @@ import types
 from pathlib import Path
 import unreal
 
+raise RuntimeError('Retired pose-edited jump importer. Use replace_all_character_actions.py instead.')
+
 root = Path(unreal.Paths.project_dir()).resolve()
 source = root/'AssetsSource/CityCourier'
 report_path = source/'jump_actions.json'

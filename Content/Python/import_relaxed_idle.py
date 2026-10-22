@@ -4,6 +4,8 @@ import json
 from pathlib import Path
 import unreal
 
+raise RuntimeError('Retired hand-edited idle importer. Use replace_all_character_actions.py instead.')
+
 root = Path(unreal.Paths.project_dir()).resolve()
 source = root/'AssetsSource/CityCourier'
 report_path = source/'relaxed_idle.json'

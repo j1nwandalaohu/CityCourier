@@ -1,0 +1,166 @@
+{
+  "upstream": "https://github.com/Mesh2Motion/mesh2motion-app",
+  "license": "CC0-1.0",
+  "source_revision": "653a9698f5f315523072f1c3ff3496100401317b",
+  "source_sha256": "406eb0a8dc4ab366e623b79b6e3005a4951392e1bda78ae39c1099d31147733c",
+  "clips": {
+    "A_IdleRelaxed": {
+      "source_action": "Idle_A",
+      "duration_s": 3.12,
+      "loop": true,
+      "fbx_sha256": "e01f9d4671a0de2eb5b6101d6f968c008d2c541ddda7abc276588e5b32e493d2",
+      "endpoint_heights_m": [
+        {
+          "pelvis": 0.8992786407470703,
+          "head": 1.5511982440948486
+        },
+        {
+          "pelvis": 0.8992786407470703,
+          "head": 1.5511982440948486
+        }
+      ],
+      "root_motion": false
+    },
+    "A_Ride": {
+      "source_action": "Driving",
+      "duration_s": 2.08,
+      "loop": true,
+      "fbx_sha256": "7ddf0248551ae475a89e977385c5240a04469207d3d2a93d22cfbeb478635d35",
+      "endpoint_heights_m": [
+        {
+          "pelvis": 0.5540058612823486,
+          "head": 1.2074896097183228
+        },
+        {
+          "pelvis": 0.5540058612823486,
+          "head": 1.2074896097183228
+        }
+      ],
+      "root_motion": false
+    },
+    "A_JumpStart": {
+      "source_action": "Jump_Start",
+      "duration_s": 0.18,
+      "loop": false,
+      "fbx_sha256": "ad61f38a7bca758c461637c7d2f3579205498b011d33ee2c1a09f1a3e1bf3805",
+      "endpoint_heights_m": [
+        {
+          "pelvis": 0.9396917819976807,
+          "head": 1.4073044061660767
+        },
+        {
+          "pelvis": 0.9396917819976807,
+          "head": 1.5544660091400146
+        }
+      ],
+      "root_motion": false
+    },
+    "A_JumpLoop": {
+      "source_action": "Jump_air",
+      "duration_s": 0.4,
+      "loop": true,
+      "fbx_sha256": "752d90dd36a551c08f53b8603185b610e71d5a63312177d1ebfa81596381e598",
+      "endpoint_heights_m": [
+        {
+          "pelvis": 0.9396917819976807,
+          "head": 1.5544660091400146
+        },
+        {
+          "pelvis": 0.9396917819976807,
+          "head": 1.5544660091400146
+        }
+      ],
+      "root_motion": false
+    },
+    "A_JumpFall": {
+      "source_action": "Jump_air",
+      "duration_s": 0.2,
+      "loop": false,
+      "fbx_sha256": "dbbf705e9e59b4d09409800b3152257375db34f8b0c37e4a95f20a8e021a9c2f",
+      "endpoint_heights_m": [
+        {
+          "pelvis": 0.9396917819976807,
+          "head": 1.5529534816741943
+        },
+        {
+          "pelvis": 0.9396917819976807,
+          "head": 1.5544660091400146
+        }
+      ],
+      "root_motion": false
+    },
+    "A_Land": {
+      "source_action": "Jump_Land",
+      "duration_s": 0.25,
+      "loop": false,
+      "fbx_sha256": "05e791e57da351330ef57facb4ee962ccad434f12d9332ce48fadf46a7a9d7b0",
+      "endpoint_heights_m": [
+        {
+          "pelvis": 0.9498206973075867,
+          "head": 1.5536048412322998
+        },
+        {
+          "pelvis": 0.8992348313331604,
+          "head": 1.5540361404418945
+        }
+      ],
+      "root_motion": false
+    },
+    "A_Knockdown": {
+      "source_action": "Death_D",
+      "duration_s": 2.17,
+      "loop": false,
+      "fbx_sha256": "1b78b02cebcca0d75ead1dadcb6df96534b1cd2fe63abcec555b53511c9b16ad",
+      "endpoint_heights_m": [
+        {
+          "pelvis": 0.8992347121238708,
+          "head": 1.5540361404418945
+        },
+        {
+          "pelvis": 0.06022161245346069,
+          "head": 0.14557476341724396
+        }
+      ],
+      "root_motion": false
+    },
+    "A_GetUp": {
+      "source_action": "LayToIdle",
+      "duration_s": 1.5,
+      "loop": false,
+      "fbx_sha256": "2bb2770e7e74b327e0790b05317f182d8a588926165513f4ce688d7848ab95a2",
+      "endpoint_heights_m": [
+        {
+          "pelvis": 0.04703950881958008,
+          "head": 0.07103226333856583
+        },
+        {
+          "pelvis": 0.8923887610435486,
+          "head": 1.5438666343688965
+        }
+      ],
+      "root_motion": false
+    },
+    "A_HitReact_Front": {
+      "source_action": "MM_HitReact_Front_Med_01",
+      "source_library": "Epic Content Examples",
+      "license": "Fab/Epic content license; see retained sample provenance",
+      "source_fbx_sha256": "2eac1389a32032ccefe2e4c2908d4a26560ef0a347fb79d5f78c01ee64ab6508",
+      "duration_s": 0.4,
+      "loop": false,
+      "root_motion": false,
+      "fbx_sha256": "cba930dfc8f1fe7bf2a15119c98674a624cd5f4202fc6431c59672fb9d1176f0"
+    },
+    "A_HitReact_Back": {
+      "source_action": "MM_HitReact_Back_Med_01",
+      "source_library": "Epic Content Examples",
+      "license": "Fab/Epic content license; see retained sample provenance",
+      "source_fbx_sha256": "945e78f1317f762a5ea919c18445c0b2a9ff198cd9454350359e882afaeab649",
+      "duration_s": 0.4,
+      "loop": false,
+      "root_motion": false,
+      "fbx_sha256": "3503cc0addaf9e00f1a73e89482245e70c98e802270b1d75affa3eb76e360edb"
+    }
+  },
+  "fps": 100,
+  "skeleton_reference_unchanged": true
+}

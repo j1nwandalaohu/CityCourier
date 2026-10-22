@@ -109,7 +109,7 @@ void UCourierHUDWidget::RefreshFromState()
     }
     if(const auto* Nav=GetWorld()->GetSubsystem<UDeliveryNavigationSubsystem>()) if(!Nav->GetTargetLabel().IsEmpty())
     {
-        const FString RouteInfo=Nav->GetActiveRoute().bReachable?(Nav->HasArrived()?FString(TEXT("已到达，请按 E 交互")):CourierUI::Distance(Nav->GetRemainingMeters())):FString(TEXT("无法规划路线，请返回道路"));
+        const FString RouteInfo=Nav->GetActiveRoute().bReachable?(Nav->HasArrived()?FString(TEXT("已到达目标附近")):CourierUI::Distance(Nav->GetRemainingMeters())):FString(TEXT("无法规划路线，请返回道路"));
         Clock+=TEXT("\n导航：")+Nav->GetTargetLabel().ToString()+TEXT(" · ")+RouteInfo;
         if(Nav->GetActiveRoute().bReachable && !Nav->HasArrived() && PC->GetPawn())
         {

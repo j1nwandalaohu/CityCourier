@@ -14,11 +14,16 @@
 #include "EdGraph/EdGraph.h"
 #include "EdGraph/EdGraphSchema.h"
 #include "Player/CourierAnimInstance.h"
+#include "Player/CourierActionAnimation.h"
 #endif
 bool UCourierArtBuilder::BuildAnimationBlueprint(UAnimBlueprint* Blueprint)
 {
 #if WITH_EDITOR
     if(!Blueprint || !Blueprint->TargetSkeleton) return false;
+    // Epic graphs have their own generator. Never erase a motion matching/rig graph.
+    if(Blueprint->GetName().StartsWith(TEXT("ABP_CourierEpic")) ||
+       (Blueprint->GeneratedClass && Cast<UCourierAnimInstance>(Blueprint->GeneratedClass->GetDefaultObject()) &&
+        Cast<UCourierAnimInstance>(Blueprint->GeneratedClass->GetDefaultObject())->IsEpicAnimationEnabled())) return false;
     // Preserve any artist-adjusted offsets when rebuilding the functional graph.
     for(const auto& Pair:{TPair<FName,FName>(TEXT("PunchTrace_L"),TEXT("hand_l")),TPair<FName,FName>(TEXT("PunchTrace_R"),TEXT("hand_r"))})
     {
@@ -63,7 +68,7 @@ bool UCourierArtBuilder::BuildAnimationBlueprint(UAnimBlueprint* Blueprint)
     const TCHAR* Names[]={TEXT("IdleRelaxed"),TEXT("Jog"),TEXT("Sprint"),TEXT("Ride")};
     for(int32 I=0;I<4;++I)
     {
-        auto* Sequence=LoadObject<UAnimSequence>(nullptr,*FString::Printf(TEXT("/Game/CityCourier/Art/Characters/A_%s.A_%s"),Names[I],Names[I]));
+        auto* Sequence=FCourierActionAnimation::Load(FName(*FString::Printf(TEXT("A_%s"),Names[I])));
         if(!Sequence) return false;
         FGraphNodeCreator<UAnimGraphNode_SequencePlayer> PlayerCreator(*Graph);
         auto* Player=PlayerCreator.CreateNode(); Player->Node.SetSequence(Sequence); PlayerCreator.Finalize();

@@ -1,0 +1,11 @@
+{
+  "stages": {
+    "build_retarget_assets": "unchanged",
+    "build_graph": "unchanged",
+    "build_physics": "unchanged",
+    "build_validation": "unchanged"
+  },
+  "asset_count": 932,
+  "asset_fingerprint": "6206a52c38c4e4f19d421b44b34e3a892d59559b2c08130179da8b74d0d60c38",
+  "identical": true
+}

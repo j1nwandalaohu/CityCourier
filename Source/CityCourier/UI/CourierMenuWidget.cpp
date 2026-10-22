@@ -35,6 +35,8 @@ void UCourierMenuWidget::NativeOnInitialized()
         if(I==1) B->OnClicked.AddDynamic(this,&UCourierMenuWidget::UpgradeHandling);
         if(I==2) B->OnClicked.AddDynamic(this,&UCourierMenuWidget::UpgradeBattery);
     }
+    ContinueOrdersButton=CourierUI::Button(WidgetTree,TEXT("继续接单"));
+    ContinueOrdersButton->OnClicked.AddDynamic(this,&UCourierMenuWidget::ContinueOrders); CourierUI::Add(Column,ContinueOrdersButton,14);
     auto* Continue=CourierUI::Button(WidgetTree,TEXT("返回街区")); Continue->OnClicked.AddDynamic(this,&UCourierMenuWidget::Resume); CourierUI::Add(Column,Continue,14);
     RetryButton=CourierUI::Button(WidgetTree,TEXT("重试保存")); RetryButton->OnClicked.AddDynamic(this,&UCourierMenuWidget::RetrySave); CourierUI::Add(Column,RetryButton);
     UTextBlock* Label=nullptr; ResetButton=CourierUI::Button(WidgetTree,TEXT("创建新进度"),&Label); ResetText=Label;
@@ -77,6 +79,7 @@ void UCourierMenuWidget::RefreshFromState()
     StationActions->SetVisibility(Station && !P->NeedsReset() && !bConfirmQuit?ESlateVisibility::Visible:ESlateVisibility::Collapsed);
     RetryButton->SetVisibility(P->HasUnsavedChanges() && !P->NeedsReset()?ESlateVisibility::Visible:ESlateVisibility::Collapsed);
     ResetButton->SetVisibility(P->NeedsReset()?ESlateVisibility::Visible:ESlateVisibility::Collapsed);
+    ContinueOrdersButton->SetVisibility(Settlement && !P->NeedsReset() && !bConfirmQuit && !bConfirmReset?ESlateVisibility::Visible:ESlateVisibility::Collapsed);
     ResetText->SetText(FText::FromString(bConfirmReset?TEXT("确认创建：余额与升级归零"):TEXT("创建新进度")));
     QuitText->SetText(FText::FromString(bConfirmQuit?TEXT("确认退出游戏"):TEXT("退出游戏")));
 }
@@ -86,6 +89,12 @@ void UCourierMenuWidget::Resume()
     if(!GetGameInstance()->GetSubsystem<UProfileSubsystem>()->NeedsReset()) if(auto* PC=Cast<ACourierController>(GetOwningPlayer())) PC->SetInterfaceMode(ECourierInterfaceMode::Gameplay);
 }
 void UCourierMenuWidget::RetrySave() { GetGameInstance()->GetSubsystem<UProfileSubsystem>()->SaveProfile(); RefreshFromState(); }
+void UCourierMenuWidget::ContinueOrders()
+{
+    if(bConfirmQuit || bConfirmReset || GetGameInstance()->GetSubsystem<UProfileSubsystem>()->NeedsReset()) return;
+    if(auto* PC=Cast<ACourierController>(GetOwningPlayer()))
+        if(PC->GetInterfaceMode()==ECourierInterfaceMode::Settlement) PC->SetInterfaceMode(ECourierInterfaceMode::Phone);
+}
 void UCourierMenuWidget::ResetSave()
 {
     if(!bConfirmReset) { bConfirmReset=true; RefreshFromState(); return; }

@@ -57,4 +57,23 @@ bool FNavigationArrowFloorsTest::RunTest(const FString&)
     TestFalse(TEXT("Nonfinite camera heading is rejected"),FNavigationGuidance::FromRoute(R,FVector::ZeroVector,std::numeric_limits<double>::quiet_NaN()).bHasDirection);
     return true;
 }
+
+IMPLEMENT_SIMPLE_AUTOMATION_TEST(FNavigationArrowProgressTest,"CityCourier.Navigation.Arrow.OverlappingRouteProgress",
+    EAutomationTestFlags::EditorContext|EAutomationTestFlags::EngineFilter)
+bool FNavigationArrowProgressTest::RunTest(const FString&)
+{
+    FRouteResult R; R.bReachable=true;
+    R.Points={FVector(0,0,0),FVector(1000,0,0),FVector(1000,1000,0),FVector(1000,0,0),FVector(0,0,0)};
+    const auto Outbound=FNavigationGuidance::FromRoute(R,FVector(500,0,0),0);
+    TestTrue(TEXT("First pass follows outbound road"),Outbound.NextPoint.Equals(FVector(1000,0,0)));
+    const auto Returning=FNavigationGuidance::FromRoute(R,FVector(500,0,0),0,3);
+    TestTrue(TEXT("Return pass never selects the already completed overlapping road"),Returning.NextPoint.Equals(FVector::ZeroVector));
+    TestTrue(TEXT("Return bearing points toward the destination"),FMath::IsNearlyEqual(FMath::Abs(Returning.HeadingDegrees),180.));
+    const auto Projection=FNavigationRouteProjection::FromRoute(R,FVector(500,0,0),3);
+    TestEqual(TEXT("Distance progress agrees with arrow on return leg"),Projection.Segment,3);
+    TestTrue(TEXT("Only five metres remain on the return leg"),FMath::IsNearlyEqual(Projection.LengthCentimeters-Projection.ProgressCentimeters,500.));
+    const auto Backtracking=FNavigationGuidance::FromRoute(RightTurn(),FVector(800,0,0),0,1);
+    TestTrue(TEXT("Backing away from an advanced corner recovers previous road without cutting diagonally"),Backtracking.NextPoint.Equals(FVector(1000,0,0)));
+    return true;
+}
 #endif

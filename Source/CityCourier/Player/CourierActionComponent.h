@@ -54,5 +54,5 @@ private:
     FRotator AttackFacing;
     uint8 PendingEdges=0;
     bool bSuppressed=false,bPreserve=false,bJumpStarted=false;
-    float JumpElapsed=0,FallElapsed=0,LandingElapsed=1;
+    float JumpElapsed=0,FallElapsed=0,LandingElapsed=1,JumpStartSpeed=0;
 };

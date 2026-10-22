@@ -3,8 +3,8 @@
 #include "Delivery/DeliveryNavigationSubsystem.h"
 #include "Delivery/DeliverySubsystem.h"
 #include "Player/CourierController.h"
-#include "GameFramework/Character.h"
-#include "Components/CapsuleComponent.h"
+#include "Player/CourierCharacter.h"
+#include "World/DeliveryLocation.h"
 #include "Components/CanvasPanel.h"
 #include "Camera/PlayerCameraManager.h"
 #include "Framework/Application/SlateApplication.h"
@@ -32,16 +32,30 @@ void UCourierNavigationArrowWidget::NativeTick(const FGeometry& Geometry,float D
     Title=Nav->GetNavigationMode()==ECourierNavigationMode::Station?TEXT("返回驿站"):Nav->GetNavigationMode()==ECourierNavigationMode::ParkedBike?TEXT("寻找电动车"):
         PC->GetDeliverySystem()->GetState().Status==EDeliveryStatus::AwaitingPickup?TEXT("取餐导航"):TEXT("送餐导航");
     Distance=CourierUI::Distance(Nav->GetRemainingMeters());
-    FVector Ground=Pawn->GetActorLocation();
-    if(const auto* Character=Cast<ACharacter>(Pawn))Ground.Z-=Character->GetCapsuleComponent()->GetScaledCapsuleHalfHeight();
+    const FVector Ground=Nav->GetRouteGroundPosition(Pawn->GetActorLocation());
     const double ViewYaw=PC->PlayerCameraManager?PC->PlayerCameraManager->GetCameraRotation().Yaw:PC->GetControlRotation().Yaw;
-    Cue=FNavigationGuidance::FromRoute(Nav->GetActiveRoute(),Ground,ViewYaw);
+    Cue=FNavigationGuidance::FromRoute(Nav->GetActiveRoute(),Ground,ViewYaw,Nav->GetRouteSegment());
     if(Cue.bHasDirection)
     {
         Heading=bHeadingInitialized?FMath::UnwindDegrees(Heading+FMath::FindDeltaAngleDegrees(Heading,Cue.HeadingDegrees)*(1-FMath::Exp(-12.*FMath::Max(0.f,Delta)))):Cue.HeadingDegrees;
         bHeadingInitialized=true;
     }
-    if(bArrived)Instruction=TEXT("已到达 · 按 E 交互");
+    const auto* Courier=PC->GetCourier();
+    if(bReachable && Nav->GetRemainingMeters()<=12 && Courier && Courier->IsMounted())Instruction=TEXT("减速停车 · 按 E 下车");
+    else if(bArrived)
+    {
+        if(Nav->GetNavigationMode()==ECourierNavigationMode::ParkedBike)Instruction=TEXT("靠近车辆 · 按 E 上车");
+        else
+        {
+            auto* Delivery=PC->GetDeliverySystem();
+            const FName TargetId=Nav->GetNavigationMode()==ECourierNavigationMode::Station?
+                Delivery->GetCity()->Station.LocationId:Delivery->GetTargetId();
+            auto* Location=Delivery->FindLocationActor(TargetId);
+            FText Reason;
+            if(Location && Location->CanInteract(PC->GetCourier(),Reason))Instruction=Location->GetInteractionText().ToString();
+            else Instruction=Reason.IsEmpty()?TEXT("靠近目标交互点"):Reason.ToString();
+        }
+    }
     else if(!bReachable || !Cue.bHasDirection)Instruction=TEXT("请返回道路");
     else if(Cue.bUpstairs)Instruction=TEXT("上楼 · 沿楼梯前进");
     else if(Cue.bDownstairs)Instruction=TEXT("下楼 · 沿楼梯前进");

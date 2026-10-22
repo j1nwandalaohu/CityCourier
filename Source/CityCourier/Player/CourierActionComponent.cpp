@@ -7,6 +7,8 @@
 #include "Animation/AnimInstance.h"
 #include "Animation/AnimMontage.h"
 #include "Animation/AnimSequence.h"
+#include "Player/CourierAnimInstance.h"
+#include "Player/Epic/CourierEpicAnimationConfig.h"
 #include "Components/SkeletalMeshComponent.h"
 
 UCourierActionComponent::UCourierActionComponent()
@@ -14,10 +16,25 @@ UCourierActionComponent::UCourierActionComponent()
 void UCourierActionComponent::BeginPlay()
 {
     Super::BeginPlay();
-    for(auto Action:{ECourierAction::LightL,ECourierAction::LightR,ECourierAction::Heavy,ECourierAction::HitFront,ECourierAction::HitBack})
-        if(!ActionAnimations.Contains(Action)) if(auto* Sequence=FCourierActionAnimation::Load(FCourierActionAnimation::SequenceName(Action))) ActionAnimations.Add(Action,Sequence);
+    for(auto Action:{ECourierAction::LightL,ECourierAction::LightR,ECourierAction::Heavy,ECourierAction::HitFront,ECourierAction::HitBack,ECourierAction::Knockdown,ECourierAction::GroundHold,ECourierAction::GetUp})
+    {
+        ActionAnimations.Remove(Action);
+        if(auto* Sequence=FCourierActionAnimation::Load(FCourierActionAnimation::SequenceName(Action))) ActionAnimations.Add(Action,Sequence);
+    }
     for(FName Name:{FName(TEXT("A_JumpStart")),FName(TEXT("A_JumpLoop")),FName(TEXT("A_JumpFall")),FName(TEXT("A_Land")),FName(TEXT("A_RunStart")),FName(TEXT("A_RunStop"))})
-        if(!MovementAnimations.Contains(Name)) if(auto* Sequence=FCourierActionAnimation::Load(Name)) MovementAnimations.Add(Name,Sequence);
+    {
+        MovementAnimations.Remove(Name);
+        if(auto* Sequence=FCourierActionAnimation::Load(Name)) MovementAnimations.Add(Name,Sequence);
+    }
+    for(const TCHAR* Name:{TEXT("Jump_F_Start_Stand_Lfoot"),TEXT("Jump_F_Start_Run_Lfoot"),TEXT("Jump_F_Start_Sprint_Lfoot"),TEXT("Jump_F_Off_Run_Lfoot"),TEXT("Jump_Loop_Fall")})
+    {
+        const FString Clip=FString(TEXT("CC_M_Neutral_"))+Name;
+        const FString Package=TEXT("/Game/CityCourier/Animation/Epic/Clips/")+Clip;
+        if(auto* Sequence=LoadObject<UAnimSequence>(nullptr,*(Package+TEXT(".")+Clip))) MovementAnimations.Add(FName(Name),Sequence);
+    }
+    auto* Fall=ActionAnimations.FindRef(ECourierAction::Knockdown).Get();
+    auto* Rise=ActionAnimations.FindRef(ECourierAction::GetUp).Get();
+    if(Fall && Rise) Timeline.ConfigureRecovery(Fall->GetPlayLength(),Rise->GetPlayLength());
 }
 void UCourierActionComponent::Feedback(const FText& Message) const
 { if(auto* Rider=Cast<ACourierCharacter>(GetOwner())) if(auto* PC=Cast<ACourierController>(Rider->GetController())) PC->ShowActionFeedback(Message); }
@@ -76,7 +93,7 @@ void UCourierActionComponent::MovementModeChanged(bool bAirborne)
     else { bJumpStarted=false; LandingElapsed=0; }
 }
 void UCourierActionComponent::JumpStarted()
-{ bJumpStarted=true; JumpElapsed=0; }
+{ bJumpStarted=true; JumpElapsed=0; JumpStartSpeed=GetOwner()->GetVelocity().Size2D(); }
 bool UCourierActionComponent::IsGroundActionBlocked() const
 { return Timeline.GetAction()!=ECourierAction::None || LandingElapsed<.12; }
 void UCourierActionComponent::TickComponent(float Delta,ELevelTick TickType,FActorComponentTickFunction* Function)
@@ -131,7 +148,7 @@ bool UCourierActionComponent::ReceiveStrike(FGuid Id,const FVector& Origin)
     auto* Rider=Cast<ACourierCharacter>(GetOwner());
     const double Now=GetWorld()?GetWorld()->GetTimeSeconds():0;
     for(auto It=Received.CreateIterator();It;++It)if(Now-It.Value()>10)It.RemoveCurrent();
-    if(!Id.IsValid() || Received.Contains(Id) || Origin.ContainsNaN() || !Rider || bSuppressed || Rider->IsMounted()) return false;
+    if(!Id.IsValid() || Received.Contains(Id) || Origin.ContainsNaN() || !Rider || bSuppressed || Rider->IsMounted() || Timeline.IsRecovering()) return false;
     if(Received.Num()>=256)
     {
         FGuid Oldest;double Time=MAX_dbl;
@@ -159,14 +176,15 @@ void UCourierActionComponent::TraceSlice(const FActionSlice& Slice,uint64 Genera
     auto* Ptr=ActionAnimations.Find(Slice.Action); if(!Ptr) return;
     const double Reach=Slice.Action==ECourierAction::Heavy?160:130;
     const bool bLeft=Slice.Action==ECourierAction::LightL;
+    const bool bMoving=Rider->GetVelocity().Size2D()>10 || Rider->GetCharacterMovement()->IsFalling();
     const int32 Steps=FMath::Max(1,FMath::CeilToInt((Slice.End-Slice.Start)*120));
-    FVector Previous; if(!FCourierActionAnimation::SampleFist(Rider->GetMesh(),Ptr->Get(),bLeft,Slice.Start,Previous)) return;
+    FVector Previous; if(!FCourierActionAnimation::SampleFist(Rider->GetMesh(),Ptr->Get(),bLeft,Slice.Start,Previous,bMoving)) return;
     FCollisionQueryParams Params(SCENE_QUERY_STAT(CourierFist),false,Rider);
     for(int32 I=1;I<=Steps;++I)
     {
         if(!CanProcessStrike(Generation)) return;
         FVector Next;
-        if(!FCourierActionAnimation::SampleFist(Rider->GetMesh(),Ptr->Get(),bLeft,FMath::Lerp(Slice.Start,Slice.End,double(I)/Steps),Next)) return;
+        if(!FCourierActionAnimation::SampleFist(Rider->GetMesh(),Ptr->Get(),bLeft,FMath::Lerp(Slice.Start,Slice.End,double(I)/Steps),Next,bMoving)) return;
         if(FVector::DistSquared2D(Rider->GetActorLocation(),Previous)<=Reach*Reach && FVector::DistSquared2D(Rider->GetActorLocation(),Next)<=Reach*Reach)
         {
             TArray<FHitResult> Hits;
@@ -210,17 +228,44 @@ void UCourierActionComponent::SyncAnimation(float Delta)
     UAnimSequence* Desired=nullptr; FName Movement; float Time=0; bool bLoop=false;
     const auto Action=Timeline.GetAction();
     if(Action!=ECourierAction::None)
-    { if(auto* P=ActionAnimations.Find(Action)) Desired=P->Get(); Time=Timeline.GetElapsed(); }
-    else if(!Rider->IsMounted())
+    { if(auto* P=ActionAnimations.Find(Action)) Desired=P->Get(); Time=Action==ECourierAction::GroundHold && Desired?FMath::Max(0.f,Desired->GetPlayLength()-.001f):Timeline.GetElapsed(); }
+    else if(!Rider->IsMounted() && !bSuppressed && Rider->GetCharacterMovement()->IsFalling())
     {
-        if(Rider->GetCharacterMovement()->IsFalling())
+        // Both animation paths use the same physical takeoff/ascent/descent
+        // clock. Searching a mixed jump/landing bank cannot order these phases.
+        const bool bDescending=FallElapsed>0;
+        Movement=IsJumpStart()?TEXT("A_JumpStart"):bDescending?TEXT("A_JumpFall"):TEXT("A_JumpLoop");
+        Time=IsJumpStart()?JumpElapsed:bDescending?FallElapsed:FMath::Max(0.f,JumpElapsed-.18f);
+        if(auto* P=MovementAnimations.Find(Movement)) Desired=P->Get();
+        if(const auto* CourierAnim=Cast<UCourierAnimInstance>(Anim); CourierAnim && CourierAnim->IsEpicAnimationEnabled())
         {
-            const bool bDescending=FallElapsed>0;
-            Movement=IsJumpStart()?TEXT("A_JumpStart"):bDescending?TEXT("A_JumpFall"):TEXT("A_JumpLoop");
-            Time=IsJumpStart()?JumpElapsed:bDescending?FallElapsed:FMath::Max(0.f,JumpElapsed-.18f);
-            bLoop=Movement==TEXT("A_JumpLoop");
+            const FName EpicClip=IsJumpStart()?
+                (JumpStartSpeed>500?TEXT("Jump_F_Start_Sprint_Lfoot"):JumpStartSpeed>10?TEXT("Jump_F_Start_Run_Lfoot"):TEXT("Jump_F_Start_Stand_Lfoot")):
+                bDescending?TEXT("Jump_Loop_Fall"):TEXT("Jump_F_Off_Run_Lfoot");
+            Desired=MovementAnimations.FindRef(EpicClip).Get();
+            // Source start clips include a long grounded anticipation. The
+            // capsule has already taken off: sample only their final lift.
+            if(Desired && IsJumpStart())
+            {
+                const float Tail=FMath::Min(.45f,Desired->GetPlayLength());
+                Time=Desired->GetPlayLength()-Tail+JumpElapsed/.18f*Tail;
+            }
         }
-        else if(LandingElapsed<.25f && !Rider->IsProne() && !Rider->IsCrouched()) { Movement=TEXT("A_Land"); Time=LandingElapsed; }
+    }
+    else if(!Rider->IsMounted() && !bSuppressed && !Rider->IsProne() && !Rider->IsCrouched()
+        && !Rider->GetCharacterMovement()->IsFalling() && LandingElapsed<.35f
+        && Cast<UCourierAnimInstance>(Anim) && Cast<UCourierAnimInstance>(Anim)->IsEpicAnimationEnabled() && Rider->EpicAnimationConfig)
+    {
+        // Keep a grounded continuation after the airborne database releases.
+        // Once started, preserve the selected clip through this landing window.
+        Movement=TEXT("EpicLanding"); Time=LandingElapsed;
+        auto* Config=Rider->EpicAnimationConfig.Get();
+        Desired=PlayingMovement==Movement?PlayingSequence.Get():
+            (Rider->GetVelocity().Size2D()>100?Config->MovingLanding:Config->StandingLanding).LoadSynchronous();
+    }
+    else if(!Rider->IsMounted() && !(Cast<UCourierAnimInstance>(Anim) && Cast<UCourierAnimInstance>(Anim)->IsEpicAnimationEnabled()))
+    {
+        if(!Rider->GetCharacterMovement()->IsFalling() && LandingElapsed<.25f && !Rider->IsProne() && !Rider->IsCrouched()) { Movement=TEXT("A_Land"); Time=LandingElapsed; }
         else if(!Rider->IsProne() && !Rider->IsCrouched())
         {
             const float Speed=Rider->GetVelocity().Size2D(); const bool bMoving=!Rider->GetLastMovementInputVector().IsNearlyZero() || !Rider->GetPendingMovementInputVector().IsNearlyZero();
@@ -235,6 +280,8 @@ void UCourierActionComponent::SyncAnimation(float Delta)
             bWasMoving=bMoving; PreviousSpeed=Speed;
         }
         if(auto* P=MovementAnimations.Find(Movement)) Desired=P->Get();
+        if(Desired && (Movement==TEXT("A_RunStart") || Movement==TEXT("A_RunStop")))
+            Time=Time/(Movement==TEXT("A_RunStart")?.2f:.25f)*Desired->GetPlayLength();
     }
     if(!FCourierActionAnimation::Compatible(Mesh,Desired))
     {
@@ -248,14 +295,14 @@ void UCourierActionComponent::SyncAnimation(float Delta)
     {
         TGuardValue<bool> Changing(bChangingMontage,true);
         bPlaybackFinishedNaturally=false;
-        const float BlendIn=Movement.IsNone()?.03f:Movement==TEXT("A_RunStop")?.15f:.10f;
+        const float BlendIn=Timeline.IsAttacking()?.10f:Movement.IsNone()?.03f:Movement==TEXT("A_RunStop")?.15f:.10f;
         const float BlendOutTime=Movement.IsNone()?.06f:.12f;
         PlayingMontage=Anim->PlaySlotAnimationAsDynamicMontage(Desired,TEXT("FullBodyAction"),BlendIn,BlendOutTime,1,bLoop?100000:1,-1,bLoop?FMath::Fmod(Time,Desired->GetPlayLength()):FMath::Min(Time,Desired->GetPlayLength()));
         if(!PlayingMontage) { Cancel(); Feedback(FText::FromString(TEXT("动作播放失败，请检查动画资源"))); return; }
         // Hold the short takeoff until the flight state replaces it. Automatic
         // blend-out otherwise starts before takeoff has even finished blending
         // in, briefly exposing the running pose while the character is airborne.
-        if(Movement==TEXT("A_JumpStart") || Movement==TEXT("A_JumpFall"))
+        if(Movement==TEXT("A_JumpStart") || Movement==TEXT("A_JumpLoop") || Movement==TEXT("A_JumpFall") || Timeline.IsRecovering())
         {
             PlayingMontage->bEnableAutoBlendOut=false;
             if(auto* Playback=Anim->GetActiveInstanceForMontage(PlayingMontage)) Playback->bEnableAutoBlendOut=false;

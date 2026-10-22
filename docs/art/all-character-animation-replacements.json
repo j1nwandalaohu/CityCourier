@@ -1,0 +1,268 @@
+{
+  "scope": "player_and_npc",
+  "assets": {
+    "/Game/CityCourier/Animation/Library/A_IdleRelaxed": {
+      "source_action": "Idle_A",
+      "source_fbx_sha256": "e01f9d4671a0de2eb5b6101d6f968c008d2c541ddda7abc276588e5b32e493d2",
+      "operation": "library_import",
+      "runtime_package_sha256": "2f710e58d1d0067290dc738902a98d1fba168058dbb1f800736f5edac8c5c0ce"
+    },
+    "/Game/CityCourier/Animation/Library/A_Ride": {
+      "source_action": "Driving",
+      "source_fbx_sha256": "7ddf0248551ae475a89e977385c5240a04469207d3d2a93d22cfbeb478635d35",
+      "operation": "library_import",
+      "runtime_package_sha256": "8474934e9b95698366e81b6b3526398558ebd1dc92e94dfe58fb06843ea7dd59"
+    },
+    "/Game/CityCourier/Animation/Library/A_JumpStart": {
+      "source_action": "Jump_Start",
+      "source_fbx_sha256": "ad61f38a7bca758c461637c7d2f3579205498b011d33ee2c1a09f1a3e1bf3805",
+      "operation": "library_import",
+      "runtime_package_sha256": "547fc722a10074b2aed78efa34807304fde47f657b58458592b11099366d2775"
+    },
+    "/Game/CityCourier/Animation/Library/A_JumpLoop": {
+      "source_action": "Jump_air",
+      "source_fbx_sha256": "752d90dd36a551c08f53b8603185b610e71d5a63312177d1ebfa81596381e598",
+      "operation": "library_import",
+      "runtime_package_sha256": "0a9c297cab973aa513da4645499c69ffc41daf6436d5bc51e9ba99520351c972"
+    },
+    "/Game/CityCourier/Animation/Library/A_JumpFall": {
+      "source_action": "Jump_air",
+      "source_fbx_sha256": "dbbf705e9e59b4d09409800b3152257375db34f8b0c37e4a95f20a8e021a9c2f",
+      "operation": "library_import",
+      "runtime_package_sha256": "0ac431f0ae5e5b01feb8fc3337e631edcb6d8c4a796eab3b0ecba1a07aa74712"
+    },
+    "/Game/CityCourier/Animation/Library/A_Land": {
+      "source_action": "Jump_Land",
+      "source_fbx_sha256": "05e791e57da351330ef57facb4ee962ccad434f12d9332ce48fadf46a7a9d7b0",
+      "operation": "library_import",
+      "runtime_package_sha256": "0abd730341c879b1b3d57fc8a015a9ad5e730f2a9d17fe59f26362fd7e026219"
+    },
+    "/Game/CityCourier/Animation/Library/A_Knockdown": {
+      "source_action": "Death_D",
+      "source_fbx_sha256": "1b78b02cebcca0d75ead1dadcb6df96534b1cd2fe63abcec555b53511c9b16ad",
+      "operation": "library_import",
+      "runtime_package_sha256": "aaa52697bdd1336c3767082f64b46ff78be7ff66a783deac4f1e053abf593075"
+    },
+    "/Game/CityCourier/Animation/Library/A_GetUp": {
+      "source_action": "LayToIdle",
+      "source_fbx_sha256": "2bb2770e7e74b327e0790b05317f182d8a588926165513f4ce688d7848ab95a2",
+      "operation": "library_import",
+      "runtime_package_sha256": "6f88e318c44bd4c41022e5c85988c196f598b1e1d54c48ee56417e1bf46b968d"
+    },
+    "/Game/CityCourier/Animation/Library/A_HitReact_Front": {
+      "source_action": "MM_HitReact_Front_Med_01",
+      "source_fbx_sha256": "cba930dfc8f1fe7bf2a15119c98674a624cd5f4202fc6431c59672fb9d1176f0",
+      "operation": "library_import",
+      "runtime_package_sha256": "f39c16f1b703701ee7c4520ffbdd4977cb540f49da9e7d318efd7f142242d79b"
+    },
+    "/Game/CityCourier/Animation/Library/A_HitReact_Back": {
+      "source_action": "MM_HitReact_Back_Med_01",
+      "source_fbx_sha256": "3503cc0addaf9e00f1a73e89482245e70c98e802270b1d75affa3eb76e360edb",
+      "operation": "library_import",
+      "runtime_package_sha256": "f48c91c71b8a7930cd8c91c9b204a3433f145b49443ecb2860ad9ed55841bacc"
+    },
+    "/Game/CityCourier/Art/Characters/A_IdleRelaxed": {
+      "source_action": "Idle_A",
+      "source_fbx": "AssetsSource/CityCourier/Exports/LibraryActions/A_IdleRelaxed.fbx",
+      "source_fbx_sha256": "e01f9d4671a0de2eb5b6101d6f968c008d2c541ddda7abc276588e5b32e493d2",
+      "duration_s": 3.119999885559082,
+      "operation": "existing_animation_reimport",
+      "runtime_package_sha256": "3f865b3856a48f3ad0de2a1070ee8aa20d5bd5cba02ae744b6561c35d03e490d"
+    },
+    "/Game/CityCourier/Art/Characters/A_Ride": {
+      "source_action": "Driving",
+      "source_fbx": "AssetsSource/CityCourier/Exports/LibraryActions/A_Ride.fbx",
+      "source_fbx_sha256": "7ddf0248551ae475a89e977385c5240a04469207d3d2a93d22cfbeb478635d35",
+      "duration_s": 2.0799999237060547,
+      "operation": "existing_animation_reimport",
+      "runtime_package_sha256": "e0efcfa1329ef46d54d7e15fcde3c2a620c63759705bf8bbbff3546298d27c68"
+    },
+    "/Game/CityCourier/Art/Characters/A_JumpStart": {
+      "source_action": "Jump_Start",
+      "source_fbx": "AssetsSource/CityCourier/Exports/LibraryActions/A_JumpStart.fbx",
+      "source_fbx_sha256": "ad61f38a7bca758c461637c7d2f3579205498b011d33ee2c1a09f1a3e1bf3805",
+      "duration_s": 0.18000000715255737,
+      "operation": "existing_animation_reimport",
+      "runtime_package_sha256": "064c31d0395c4f22e94424f6b936d7421f566a057bfb5fd79f6e6e88c7098bea"
+    },
+    "/Game/CityCourier/Art/Characters/A_JumpLoop": {
+      "source_action": "Jump_air",
+      "source_fbx": "AssetsSource/CityCourier/Exports/LibraryActions/A_JumpLoop.fbx",
+      "source_fbx_sha256": "752d90dd36a551c08f53b8603185b610e71d5a63312177d1ebfa81596381e598",
+      "duration_s": 0.4000000059604645,
+      "operation": "existing_animation_reimport",
+      "runtime_package_sha256": "0f73aea012885d255c79cde1c22bec4dc9708e86cfbd30c0470c0e3829040401"
+    },
+    "/Game/CityCourier/Art/Characters/A_JumpFall": {
+      "source_action": "Jump_air",
+      "source_fbx": "AssetsSource/CityCourier/Exports/LibraryActions/A_JumpFall.fbx",
+      "source_fbx_sha256": "dbbf705e9e59b4d09409800b3152257375db34f8b0c37e4a95f20a8e021a9c2f",
+      "duration_s": 0.20000000298023224,
+      "operation": "existing_animation_reimport",
+      "runtime_package_sha256": "7b3dd0021cef2f185abe451402a4672c4cbcd34f7703cbf24d874f8bc6bf230a"
+    },
+    "/Game/CityCourier/Art/Characters/A_Land": {
+      "source_action": "Jump_Land",
+      "source_fbx": "AssetsSource/CityCourier/Exports/LibraryActions/A_Land.fbx",
+      "source_fbx_sha256": "05e791e57da351330ef57facb4ee962ccad434f12d9332ce48fadf46a7a9d7b0",
+      "duration_s": 0.25,
+      "operation": "existing_animation_reimport",
+      "runtime_package_sha256": "4172ec5dcb795064945a720acc8300873ce98bc7e48006e22f7c85c71e7f4dfd"
+    },
+    "/Game/CityCourier/Art/Characters/A_HitReact_Front": {
+      "source_action": "MM_HitReact_Front_Med_01",
+      "source_fbx": "AssetsSource/CityCourier/Exports/LibraryActions/A_HitReact_Front.fbx",
+      "source_fbx_sha256": "cba930dfc8f1fe7bf2a15119c98674a624cd5f4202fc6431c59672fb9d1176f0",
+      "duration_s": 0.4000000059604645,
+      "operation": "existing_animation_reimport",
+      "runtime_package_sha256": "1d51f5fc7f9048c45f743aef0464666c4fbc07cd3fc80c72cd8b956ae7915c66"
+    },
+    "/Game/CityCourier/Art/Characters/A_HitReact_Back": {
+      "source_action": "MM_HitReact_Back_Med_01",
+      "source_fbx": "AssetsSource/CityCourier/Exports/LibraryActions/A_HitReact_Back.fbx",
+      "source_fbx_sha256": "3503cc0addaf9e00f1a73e89482245e70c98e802270b1d75affa3eb76e360edb",
+      "duration_s": 0.4000000059604645,
+      "operation": "existing_animation_reimport",
+      "runtime_package_sha256": "016ee2b03b5840ba4d72271f0680cc33116df80f2c02f45ce89f98852c7d79f8"
+    },
+    "/Game/CityCourier/Art/Characters/A_Idle": {
+      "source_action": "Idle_A",
+      "source_fbx": "AssetsSource/CityCourier/Exports/LibraryActions/A_IdleRelaxed.fbx",
+      "source_fbx_sha256": "e01f9d4671a0de2eb5b6101d6f968c008d2c541ddda7abc276588e5b32e493d2",
+      "duration_s": 3.119999885559082,
+      "operation": "existing_animation_reimport",
+      "runtime_package_sha256": "39acc9b975ee6ec57d57e0927c2a90e5a4a6095a63601f116cb85c88632af723"
+    },
+    "/Game/CityCourier/Art/Characters/A_Walk": {
+      "source_action": "Walk",
+      "source_fbx": "AssetsSource/CityCourier/Exports/MotionProbe/A_M2M_Walk.fbx",
+      "source_fbx_sha256": "df4d43e920464abd2413f9446afa92a3b45ca5f8952a894f03d98211bc8df296",
+      "duration_s": 1.6666666269302368,
+      "operation": "existing_animation_reimport",
+      "runtime_package_sha256": "51ded780c0dbb3dbba3d4b08b9ccbbf31ddf66e7b95410731d196f2ca1f09fcc"
+    },
+    "/Game/CityCourier/Art/Characters/A_Run": {
+      "source_action": "Sprint",
+      "source_fbx": "AssetsSource/CityCourier/Exports/ProductionActions/A_Sprint.fbx",
+      "source_fbx_sha256": "5e226a6340d91b0cddd0a654be19609c8926ae96e0bf3db27f8d97fa2f5f8763",
+      "duration_s": 0.8333333134651184,
+      "operation": "existing_animation_reimport",
+      "runtime_package_sha256": "36ec3c793618817970e1a954b3278b8e368e6f78bff4eb372565a5c514acf741"
+    },
+    "/Game/CityCourier/Art/Ambient/CharMorph/Reactions/A_CitizenIdle": {
+      "source_action": "Idle_A",
+      "source_fbx": "AssetsSource/CityCourier/Ambient/CharMorph/Reactions/A_CitizenIdle.fbx",
+      "source_fbx_sha256": "eb5a0318572ad05f3105505fe55d9b0aa4b99ed0c58a96205b46370a397d82ad",
+      "duration_s": 2.0,
+      "operation": "existing_animation_reimport",
+      "runtime_package_sha256": "fadf726b97e96bd54ccd1581cd02df5257cb26c68980b34619266a78ef1a7b8b"
+    },
+    "/Game/CityCourier/Art/Ambient/CharMorph/Reactions/A_CitizenWalk": {
+      "source_action": "Walk",
+      "source_fbx": "AssetsSource/CityCourier/Ambient/CharMorph/Reactions/A_CitizenWalk.fbx",
+      "source_fbx_sha256": "ffef1cc618c866dd1fa6cd228b7138ff49ba430f99cc97242d076d89c5afa50c",
+      "duration_s": 1.0,
+      "operation": "existing_animation_reimport",
+      "runtime_package_sha256": "9999b9a1c57524606e1a359077e416a6648729f32324d97be287b5755ed8f78c"
+    },
+    "/Game/CityCourier/Art/Ambient/CharMorph/Reactions/A_CitizenHit": {
+      "source_action": "Hit_Chest",
+      "source_fbx": "AssetsSource/CityCourier/Ambient/CharMorph/Reactions/A_CitizenHit.fbx",
+      "source_fbx_sha256": "7d13f66a6c632cb6d7c63fe8f5f373c3c09ddc6542138ea90139f5db5ef70c8b",
+      "duration_s": 0.4833333194255829,
+      "operation": "existing_animation_reimport",
+      "runtime_package_sha256": "d79c86876c579eb29d2029836b264db6061663590852ff50e1b5380978a9e454"
+    },
+    "/Game/CityCourier/Art/Ambient/CharMorph/Reactions/A_CitizenFall": {
+      "source_action": "Death_D",
+      "source_fbx": "AssetsSource/CityCourier/Ambient/CharMorph/Reactions/A_CitizenFall.fbx",
+      "source_fbx_sha256": "f427258497891a2f015c0d3edb5626bf7e249be01b6e1415db3378eeebe2cf51",
+      "duration_s": 1.0499999523162842,
+      "operation": "existing_animation_reimport",
+      "runtime_package_sha256": "4c8eafb4c9c8068fbb2f5b53179bcfdf348e8f19f615966398573301837bc22e"
+    },
+    "/Game/CityCourier/Art/Ambient/CharMorph/Reactions/A_CitizenGetUp": {
+      "source_action": "LayToIdle",
+      "source_fbx": "AssetsSource/CityCourier/Ambient/CharMorph/Reactions/A_CitizenGetUp.fbx",
+      "source_fbx_sha256": "dc49159e76113bffd00f02ef1047689c1b9300135674990e1b954b69c80cb7bd",
+      "duration_s": 2.700000047683716,
+      "operation": "existing_animation_reimport",
+      "runtime_package_sha256": "f42d3759e3404589f5618b4e916dcbc23eecb1fa9e7f1cd76eebe3cfdda13c03"
+    },
+    "/Game/CityCourier/Art/Ambient/CharMorph/Behavior/A_CitizenGuard": {
+      "source_action": "Fighting Idle",
+      "source_fbx": "AssetsSource/CityCourier/Ambient/CharMorph/Behavior/A_CitizenGuard.fbx",
+      "source_fbx_sha256": "07e92367bb97a706c639be35d965dba9158e7c2a1213f127f9371767c856cc39",
+      "duration_s": 2.0,
+      "operation": "existing_animation_reimport",
+      "runtime_package_sha256": "d409b600b6e1ec85d04189fa3a1bf092a03bf9d919ef08aa6415f3889707e458"
+    },
+    "/Game/CityCourier/Art/Ambient/CharMorph/Behavior/A_CitizenPunchL": {
+      "source_action": "Punch_Jab",
+      "source_fbx": "AssetsSource/CityCourier/Ambient/CharMorph/Behavior/A_CitizenPunchL.fbx",
+      "source_fbx_sha256": "fc838c821a0bcf845d32a2832d5a95c2ce8da68ad111f50ca893ccb6a735ef36",
+      "duration_s": 0.800000011920929,
+      "operation": "existing_animation_reimport",
+      "runtime_package_sha256": "5308b5c0384c7ebafc94a50d910e0a5e8bdf6c3779fecbf6f4197ae79b8b1057"
+    },
+    "/Game/CityCourier/Art/Ambient/CharMorph/Behavior/A_CitizenPunchR": {
+      "source_action": "Punch_Cross",
+      "source_fbx": "AssetsSource/CityCourier/Ambient/CharMorph/Behavior/A_CitizenPunchR.fbx",
+      "source_fbx_sha256": "0c69ac0833fb05624ba6407af69f4edff756ff90bd9bcee9328bdc2a24918779",
+      "duration_s": 0.800000011920929,
+      "operation": "existing_animation_reimport",
+      "runtime_package_sha256": "12969134820bb1251cfb9d52cd8f09d8abd2ed3d48298f238c24d1e6764ab498"
+    },
+    "/Game/CityCourier/Art/Ambient/CharMorph/Behavior/A_CitizenRun": {
+      "source_action": "Sprint",
+      "source_fbx": "AssetsSource/CityCourier/Ambient/CharMorph/Behavior/A_CitizenRun.fbx",
+      "source_fbx_sha256": "bdc48b5c23e8d005d9ba93de1efeb5c32eabd8db27fc8275350b3feb72c0f505",
+      "duration_s": 0.6499999761581421,
+      "operation": "existing_animation_reimport",
+      "runtime_package_sha256": "990b11a5f329ddb4f40f7ff40075d299d0534479b7e64b69ce3316280c5b8c4c"
+    },
+    "/Game/CityCourier/Art/Ambient/CharMorph/Behavior/A_CitizenCower": {
+      "source_action": "Shivering",
+      "source_fbx": "AssetsSource/CityCourier/Ambient/CharMorph/Behavior/A_CitizenCower.fbx",
+      "source_fbx_sha256": "f5b7494a350d26c45dd66a9da3d10e2c5b600a790c4ee0ea50998e7f0c3d0bcc",
+      "duration_s": 1.5,
+      "operation": "existing_animation_reimport",
+      "runtime_package_sha256": "91da1bf2bd39ab31abcf7004682349af88ba84d328e853af7050301986914c33"
+    },
+    "/Game/CityCourier/Art/Ambient/Citizen/A_Walk": {
+      "source_action": "Walk",
+      "source_fbx": "AssetsSource/CityCourier/Exports/MotionProbe/A_M2M_Walk.fbx",
+      "source_fbx_sha256": "df4d43e920464abd2413f9446afa92a3b45ca5f8952a894f03d98211bc8df296",
+      "duration_s": 1.6666666269302368,
+      "operation": "existing_animation_reimport",
+      "runtime_package_sha256": "7583b78619fde338f85b9b45d954b512582d7d24b9d423923120cae376e08fa3"
+    },
+    "/Game/CityCourier/Art/Characters/A_RunStart": {
+      "source_action": "CC_M_Neutral_Sprint_Start_F_Lfoot",
+      "source_package": "/Game/CityCourier/Animation/Epic/Clips/CC_M_Neutral_Sprint_Start_F_Lfoot.CC_M_Neutral_Sprint_Start_F_Lfoot",
+      "duration_s": 0.20000000298023224,
+      "operation": "library_pose_track_resampling",
+      "runtime_package_sha256": "4b2a97b28d72d5b6de8229469761c992782cdf2c826a49cb52a6c2bfe25e5086"
+    },
+    "/Game/CityCourier/Art/Characters/A_RunStop": {
+      "source_action": "CC_M_Neutral_Sprint_Stop_F_Lfoot",
+      "source_package": "/Game/CityCourier/Animation/Epic/Clips/CC_M_Neutral_Sprint_Stop_F_Lfoot.CC_M_Neutral_Sprint_Stop_F_Lfoot",
+      "duration_s": 0.25,
+      "operation": "library_pose_track_resampling",
+      "runtime_package_sha256": "4b6a259211c0ca9913ba4e5f217aa90ff784576c7ed6603273eec932abba1564"
+    }
+  },
+  "status": "animation_resources_replaced",
+  "native_build": "passed",
+  "blueprint_generation": "version_9_connected",
+  "tests": {
+    "passed": 44,
+    "failed": 0
+  },
+  "game_window": "launched_pid_13568",
+  "replaced_count": 34,
+  "protected_character_packages_unchanged": true,
+  "pending": [
+    "interactive visual acceptance"
+  ]
+}

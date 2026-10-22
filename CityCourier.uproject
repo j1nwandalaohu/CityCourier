@@ -9,6 +9,13 @@
   "Plugins": [
     { "Name": "AndroidFileServer", "Enabled": false },
     { "Name": "EnhancedInput", "Enabled": true },
+    { "Name": "PoseSearch", "Enabled": true },
+    { "Name": "Chooser", "Enabled": true },
+    { "Name": "MotionWarping", "Enabled": true },
+    { "Name": "AnimationWarping", "Enabled": true },
+    { "Name": "AnimationLocomotionLibrary", "Enabled": true, "TargetAllowList": ["Editor"] },
+    { "Name": "IKRig", "Enabled": true },
+    { "Name": "ControlRig", "Enabled": true },
     { "Name": "PythonScriptPlugin", "Enabled": true, "TargetAllowList": ["Editor"] },
     { "Name": "EditorScriptingUtilities", "Enabled": true, "TargetAllowList": ["Editor"] }
   ]

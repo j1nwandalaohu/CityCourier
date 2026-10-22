@@ -79,9 +79,9 @@ bool FProductionPunchPlaybackTest::RunTest(const FString&)
         {
             Actions->TickComponent(.2f,LEVELTICK_All,nullptr);Step(.04f);
             TestTrue(TEXT("Second light click queues actual right punch"),Actions->QueueAttack(false));
-            Actions->TickComponent(.34f,LEVELTICK_All,nullptr);Step(.08f);
+            Actions->TickComponent(.30f,LEVELTICK_All,nullptr);Step(.12f);
         }
-        else {Actions->TickComponent(Heavy?.30f:.10f,LEVELTICK_All,nullptr);Step(Heavy?.10f:.08f);}
+        else {Actions->TickComponent(Heavy?.28f:.06f,LEVELTICK_All,nullptr);Step(.12f);}
         TestTrue(TEXT("Correct real attack state"),Actions->GetTimeline().GetAction()==Action);
         auto* Clip=FCourierActionAnimation::Load(FCourierActionAnimation::SequenceName(Action));FVector Expected;
         TestTrue(TEXT("Production contact sample"),FCourierActionAnimation::SampleFist(Mesh,Clip,Left,Heavy?.40:.18,Expected));

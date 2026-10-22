@@ -1,0 +1,176 @@
+<html>
+
+<head>
+
+<title>Carnegie Mellon University - CMU Graphics Lab - motion capture library</title>
+
+<!-- Last updated by Bonnie Jang - December 2002 -->
+
+<meta name="description" content="Search through the CMU Graphics Lab online motion capture database to find free mocap data for your research needs.">
+
+<meta name="keywords" content="motion capture, motion capture data, motion capture lab, motion capture database, motion capture library, mocap, mocap data, mocap lab, cmu mocap lab, cmu graphics, graphics cmu, cmu graphics lab, carnegie mellon university">
+</head>
+
+<body>
+
+
+<!-- OUTERMOST TABLE - CONTAINER FOR ALIGNMENT PURPOSES -->
+<table width="100%" border="0" cellpadding="0" cellspacing="0"><tr><td align="center">
+
+	<!-- WEB-SITE NAME, MAIN MENU LINKS -->
+
+	<table border="0" cellpadding="2" cellspacing="0"><tr><td align="center">
+		<font size="5"><b>CMU Graphics Lab Motion Capture Database</b></font> <BR>
+		<a href="/" target="_top">Home</a> &nbsp; | &nbsp;<a href="search.php">Search</A>&nbsp; | &nbsp;<a href="tools.php">Tools</A>&nbsp; | &nbsp; <a href="info.php">Info</a>&nbsp; | &nbsp;<a href="faqs.php">FAQs</a>&nbsp; | &nbsp;<a href="movies.php">Rendered Movies</a>&nbsp; | &nbsp;<a href="resources.php">Resources</a>
+	</td></tr></table>
+
+	<br clear="all">
+
+	<!-- SEARCH TYPE OPTIONS:  1) ALL SUBJECTS  2) ALL MOTIONS  3) ALL MOTION CATEGORIES  4) SUBJECT NUMBER AND/OR MOTION  -->
+
+
+	<table width="600" border="1" cellpadding="0" cellspacing="0" align="center">
+		<tr>
+
+			<td>
+				<table width="100%" border="0" cellpadding="0" cellspacing="0">
+					<tr>
+						<td valign="bottom" align="center"><b><font color="red">View All:</font></b></td>
+					</tr>
+					<tr>
+						<td valign="top" align="center"><a href="subjects.php">Subjects</a> | <a href="search.php?subjectnumber=%&motion=%">Motions</a></td>
+					</tr>
+				</table>
+			</td> 
+
+			<td>
+				<table width="100%" border="0" cellpadding="0" cellspacing="0">
+					<tr>
+						<td valign="bottom" align="center"><b><font color="red">Browse:</font></b></td>
+					</tr>
+					<tr>
+						<td valign="top" align="center"><a href="motcat.php">Motion Categories</a></td>
+					</tr>
+				</table>
+			</td>
+
+			<td>
+				<table width="100%" border="0" cellpadding="0" cellspacing="0">
+				<form action="/search.php" method="post">
+					<tr>
+						<td width="2%">&nbsp;</td>						
+						<td align="left" valign="bottom">
+							<a href="searchhelp.php"><font size="-1">Search Help</font></a>
+						</td>
+					</tr>
+					<tr>
+						<td width="2%">&nbsp;</td>						
+						<td align="left" valign="bottom">
+							<input type="text" name="subjectnumber" value="" size="10">
+							<input type="text" name="motion" value="" size="16"> &nbsp;
+							<input type="submit" value="SEARCH">
+							<input type="hidden" name="searchtype" value="subjectnumberandormotion">
+						</td>
+					</tr>
+					<tr> 
+						<td width="2%">&nbsp;</td>						
+						<td align="left" valign="top">
+							<font size="-1">
+								&nbsp;subject number&nbsp; | &nbsp;motion or keyword  <br>
+				  			</font>
+						</td>
+					</tr>
+					<tr> 
+						<td width="2%">&nbsp;</td>						
+						<td align="left" valign="top">
+							<font size="-1">
+								&nbsp;(e.g. 41)&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; (e.g. run)  <br>
+				  			</font>
+						</td>
+					</tr>
+				</form>	
+				</table>
+			</td>
+
+		</tr>
+	</table>
+
+
+
+<!-- FAQS:  SEARCHING THROUGH MOTION CAPTURE DATABASE, ACCESSING AND USING MOTION CAPTURE DATA -->
+
+<br />
+<h2>Frequently Asked Questions</h2>
+<br />
+
+<p align="left">
+<b>How do I convert the lengths used in the asf/amc files into meters?</b><br />
+The bone length and the root position data for asf/amc files that are in the database should be multiplied by this scale to convert to meters:<br />
+<br />
+(1.0/0.45)*2.54/100.0 = 0.056444<br />
+<br />
+0.45 is the scale from ASF file (define in the header)<br />
+2.54/100 to convert from inches to meters because the data is in inches<br />
+</p>
+
+<p align="left">
+<b>What marker set are you using?</b><br />
+<a href="marker_images/frontmarkers1000.png" ><img src="marker_images/frontmarkers200.png" /></a>
+<a href="marker_images/backmarkers1000.png" ><img src="marker_images/backmarkers200.png" /></a>
+<a href="marker_images/footmarkers1000.png" ><img src="marker_images/footmarkers200.png" /></a>
+<a href="marker_images/handmarkers1000.png" ><img src="marker_images/handmarkers200.png" /></a><br />
+These pictures accurately show marker placement. (Thanks to Elise for creating these!) <br />
+This <a href="markerPlacementGuide.pdf">document</a> also describes the marker set. Correction to guide: We place the LFIN/RFIN markers on the knuckle of the middle finger.
+</p>
+
+<p align="left">
+<b>How is this data captured?</b><br />
+We have a Vicon motion capture system consisting of 12 infrared MX-40 cameras, each of which is capable of recording at 120 Hz with images of 4 megapixel resolution. Motions are captured in a working volume of approximately 3m x 8m. The capture subject wears 41 markers and a stylish black garment.
+</p>
+
+<p align="left">
+<b>May I have a copy of the entire database?</b><br />
+Sure! Please don't crawl this database for all motions. Here is a <a href="allasfamc.zip">zipfile</a> of <b>all asf's and amc's</b>. Here are <b>all the c3d's</b> - they sum to over 4GB so the files were split up by subject number: <a href="allc3d_0.zip">zipfile 0</a>, <a href="allc3d_1a.zip">zipfile 1a</a>, <a href="allc3d_1b.zip">zipfile1b</a>, <a href="allc3d_234.zip">zipfile 2,3,4</a>, and <a href="allc3d_56789.zip">zipfile 5,6,7,8,9</a>. <b>Zipfiles of the mpg's</b> can be found <a href="allmpg/">here</a>, and a zipfile of <b>the avi's</b> is <a href="allavi.zip">here</a>. If you need some other combination of file types, drop us an email at jkh+mocap@cs.cmu.edu and we will be happy to help.<br />
+<i>If these links give a server error, please wait a minute and then try reloading the page - we're still trying to debug this issue. You may also try removing the ":8080" from the link, if the link contains it. If you still get an error please email us.</i>
+You can also try these links:
+<a href="allasfamc.zip">allasfamc.zip</a>,
+<a href="allc3d_0.zip">allc3d_0.zip</a>,
+<a href="allc3d_1a.zip">allc3d_1a.zip</a>,
+<a href="allc3d_1b.zip">allc3d_1b.zip</a>,
+<a href="allc3d_234.zip">allc3d_234.zip</a>,
+<a href="allc3d_56789.zip">allc3d_56789.zip</a>
+<a href="allavi.zip">allavi.zip</a>
+</p>
+
+<p align="left">
+<b>Markers and file formats, oh my?</b><br />
+The AMC file does not contain any information on the actual markers we used to capture, it only contains joint angles. The corresponding c3d file has a very large number of markers, because when we do the conversion process to ASF/AMC, the Vicon software (Vicon Bodybuilder) adds a bunch of model output markers that were not deleted before saving to the c3d again. Every file in the database should contain at least 41 markers, which is how many we use to capture data. The other 3 files, ast, mod, and mp, are the files Vicon Bodybuilder needs to convert the c3d to ASF/AMC. They are given to us by Vicon. If you take a look at them, they may show the relationship of the 1 AMC head point to the 4 captured markers in the c3d, and likewise with other markers the software groups together.
+</p>
+
+<p align="left">
+<b>Why don't you use some other format, like bvh? How do I use this format?</b><br />
+Asf/amc is easy to parse and work with. Check out our <a href="tools.php">Tools</a> section for C++ code to begin projects, and links to other tools. That said, several external sites have converted our data into other formats; see the <a href="resources.php">Resources</a> page.
+</p>
+
+<p align="left">
+<b>How can I use this data?</b><br />
+The motion capture data may be copied, modified, or redistributed 
+without permission.
+</p>
+
+<p align="left">
+<b>Disclaimers...?</b><br />
+Disclaimer 1: We do not guarantee the quality of the data.<br />
+Disclaimer 2: Data classification is provided to assist users. The sincerest efforts have been to describe and categorize our motion data, so as to be generally helpful to all motion capture data seekers. However, as all motions are subject to individual interpretation, we cannot be held responsible for inaccuracies or mispresentations of data, arising from our classification.
+</p>
+
+<p align="left">
+<b>To the person who requested more capture of spiderman moves:</b><br />
+We're sorry, none of us will admit to knowing how to fly or climb sheer walls.
+</p>
+
+<p align="left">
+<b>I have another question...?</b><br />
+Please contact us at jkh+mocap@cs.cmu.edu and we will be happy to help.
+</p>
+

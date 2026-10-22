@@ -1,4 +1,4 @@
-"""CC0 MakeHuman body/wardrobe with original headgear, rig and animation."""
+"""CC0 MakeHuman body/wardrobe and rig; animations reuse retained library retargets."""
 import bpy
 import math
 import re
@@ -8,7 +8,7 @@ sys.path.insert(0,str(Path(__file__).resolve().parent))
 from collections import defaultdict
 from mathutils import Vector,Matrix
 from art_common import *
-from rider_details import fitted_garment,headgear,facial_details,finger_bones,curl_fingers,orient_grip
+from rider_details import fitted_garment,headgear,facial_details,finger_bones
 from rider_cloth import tag_garment_panels,refine_workwear
 
 def read_body():
@@ -151,54 +151,28 @@ def build():
     mesh=join(objects,'SK_Courier');mesh.parent=rig
     mod=mesh.modifiers.new('Courier skin','ARMATURE');mod.object=rig
     export('SK_Courier',[mesh,rig],'Characters')
-    scene=bpy.context.scene;scene.render.fps=30
-    def direction(name,target):
-        pb=rig.pose.bones[name];rest=pb.bone
-        head=pb.parent.matrix @ pb.parent.bone.matrix_local.inverted() @ rest.head_local if pb.parent else rest.head_local
-        rotation=(rest.tail_local-rest.head_local).rotation_difference(Vector(target))
-        matrix=rotation.to_matrix().to_4x4() @ rest.matrix_local.to_quaternion().to_matrix().to_4x4();matrix.translation=head
-        pb.matrix=matrix;bpy.context.view_layer.update()
-    def solve_limb(upper,lower,target,pole):
-        a=rig.pose.bones[upper];b=rig.pose.bones[lower]
-        root=a.matrix.translation;delta=Vector(target)-root
-        length_a=a.bone.length;length_b=b.bone.length
-        distance=min(delta.length,length_a+length_b-.001);axis=delta.normalized()
-        bend=Vector(pole);bend=(bend-axis*bend.dot(axis)).normalized()
-        along=(length_a**2-length_b**2+distance**2)/(2*distance)
-        elbow=root+axis*along+bend*math.sqrt(max(0,length_a**2-along**2))
-        direction(upper,elbow-root);direction(lower,Vector(target)-elbow)
-    for name,frames in [('A_Idle',60),('A_Walk',30),('A_Run',22),('A_Ride',60)]:
-        action=bpy.data.actions.new(name);rig.animation_data_create();rig.animation_data.action=action
-        scene.frame_start=1;scene.frame_end=frames+1
-        for frame in range(1,frames+2):
-            scene.frame_set(frame);phase=(frame-1)/frames*math.tau
-            for pb in rig.pose.bones:pb.matrix_basis=Matrix.Identity(4);pb.rotation_mode='QUATERNION'
-            ride=name=='A_Ride';moving=name in ['A_Walk','A_Run'];run=name=='A_Run'
-            height=.69-j['joint-pelvis'].z if ride else (.012*(1-math.cos(phase*2)) if moving else .002*math.sin(phase))
-            root=rig.pose.bones['root']
-            root.matrix=Matrix.Translation(Vector((0,0,height))) @ root.bone.matrix_local
-            bpy.context.view_layer.update()
-            if ride:direction('spine',(0,-.22,1))
-            direction('chest',(0,-.35 if ride else -.035 if run else 0,1))
-            for s,sign in [('l',1),('r',-1)]:
-                swing=math.sin(phase)*sign*(.65 if run else .43) if moving else 0
-                direction('thigh_'+s,(sign*.025,-.95 if ride else swing,-.12 if ride else -1))
-                direction('shin_'+s,(0,.12 if ride else max(0,-swing)*1.3,-1))
-                direction('foot_'+s,(0,-1,-.03))
-                direction('upperarm_'+s,(sign*.14,-.65 if ride else -swing*.7,-.72 if ride else -1))
-                direction('forearm_'+s,(0,-1 if ride else -.65 if run else -.16,-.02 if ride else -.75))
-                direction('hand_'+s,(sign*.08,-.2,-1))
-                if ride:
-                    solve_limb('thigh_'+s,'shin_'+s,(sign*.20,-.13,.17),(0,-1,0))
-                    direction('foot_'+s,(0,-1,-.03))
-                    solve_limb('upperarm_'+s,'forearm_'+s,(sign*.34,-.45,.88),(sign*.5,.2,-1))
-                    direction('hand_'+s,(0,-1,-.2))
-                    orient_grip(rig,j,s)
-                curl_fingers(rig,j,s,ride,moving)
-            for pb in rig.pose.bones:
-                pb.keyframe_insert('location',frame=frame);pb.keyframe_insert('rotation_quaternion',frame=frame)
-        scene.frame_set(1);export(name,[rig],'Characters',True)
-    rig.animation_data.action=bpy.data.actions['A_Idle'];scene.frame_set(1)
+    scene=bpy.context.scene
+    # Never recreate the former sine-wave walks, hand-positioned idle or ride.
+    # Geometry regeneration reuses actions from the same courier skeleton.
+    profiles=[('CourierLibraryActions.blend','A_IdleRelaxed','A_Idle',100),
+              ('Mesh2MotionProbe.blend','A_M2M_Walk','A_Walk',30),
+              ('Mesh2MotionProbe.blend','A_M2M_Run','A_Run',30),
+              ('CourierLibraryActions.blend','A_Ride','A_Ride',100)]
+    generated={}
+    for filename,source_name,name,fps in profiles:
+        path=SOURCE/'Blender'/filename
+        if not path.is_file():raise RuntimeError('Generate library retargets before rebuilding the rider: '+str(path))
+        with bpy.data.libraries.load(str(path),link=False) as (available,loaded):
+            if source_name not in available.actions:raise RuntimeError('Missing library action: '+source_name)
+            loaded.actions=[source_name]
+        action=loaded.actions[0];action.name=name;action.use_fake_user=True
+        rig.animation_data_create();rig.animation_data.action=action
+        if getattr(action,'slots',None):rig.animation_data.action_slot=action.slots[0]
+        scene.render.fps=fps
+        scene.frame_start,scene.frame_end=map(round,action.frame_range)
+        scene.frame_set(scene.frame_start);export(name,[rig],'Characters',True)
+        generated[name]=action
+    rig.animation_data.action=generated['A_Idle'];scene.render.fps=100;scene.frame_set(1)
     save('CourierRider')
 
 if __name__=='__main__':build()
