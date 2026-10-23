@@ -12,3 +12,44 @@ Build/*/FileOpenOrder/
 *.VC.db
 *.suo
 *.blend1
+
+# Large art stays on the developer's machine, at its existing paths.
+# Keep source/provenance text, not binary source art or downloaded libraries.
+/AssetsSource/**
+!/AssetsSource/**/
+!/AssetsSource/**/*.json
+!/AssetsSource/**/*.csv
+!/AssetsSource/**/*.md
+!/AssetsSource/**/*.txt
+!/AssetsSource/**/*.html
+!/AssetsSource/**/*.htm
+!/AssetsSource/**/*.xml
+!/AssetsSource/**/*.yaml
+!/AssetsSource/**/*.yml
+!/AssetsSource/**/*.py
+!/AssetsSource/**/LICENSE*
+!/AssetsSource/**/COPYING*
+/AssetsSource/**/lfs-pointers/
+
+# Runtime art is local. Only project-owned gameplay assets are versioned.
+/Content/**
+!/Content/**/
+!/Content/Python/**/*.py
+!/Content/CityCourier/Blueprints/*.uasset
+!/Content/CityCourier/Input/*.uasset
+!/Content/CityCourier/Maps/*.umap
+!/Content/CityCourier/Data/DA_CityDefinition.uasset
+!/Content/CityCourier/Animation/Epic/*.uasset
+
+# Full visual evidence remains local; retain one existing README illustration.
+/docs/**/*.png
+/docs/**/*.jpg
+/docs/**/*.jpeg
+/docs/**/*.gif
+/docs/**/*.webp
+/docs/**/*.mp4
+/docs/**/*.webm
+/docs/**/*.mov
+/docs/**/*.pdf
+!/docs/testing/evidence/task12/gameplay.png
+/*.lnk
