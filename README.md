@@ -62,3 +62,7 @@ powershell -NoProfile -ExecutionPolicy Bypass -File tests/Tooling.Tests.ps1
 - [已确认实施计划](docs/superpowers/plans/2026-10-17-city-courier-implementation.md)
 - [本机环境](docs/environment.md)
 - [验证记录](docs/testing/acceptance.md)
+
+## 源码与本地素材
+
+大型美术素材和第三方样例保留在本机原路径。仓库只跟踪代码、文字记录和少量 LFS 玩法资源。单独克隆源码不能恢复完整美术环境；换电脑需另行复制素材。不使用本地素材包、版本号或锁文件。详见 [素材存储规则](docs/asset-storage.md)。
