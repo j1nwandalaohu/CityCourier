@@ -20,4 +20,7 @@ Source/CityCourier/Buildings/CourierInteriorFinish.* text eol=lf
 Source/CityCourier/Tests/InteriorFinishTests.cpp text eol=lf
 Content/Python/*city_finish.py text eol=lf
 tools/interiors/build_city_finish.py text eol=lf
-Content/CityCourier/Art/Characters/SK_Courier.uasset filter=lfs diff=lfs merge=lfs -text
+
+# Only explicitly allowed gameplay assets are versioned.
+*.uasset filter=lfs diff=lfs merge=lfs -text
+*.umap filter=lfs diff=lfs merge=lfs -text

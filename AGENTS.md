@@ -41,4 +41,9 @@ Use Unreal Automation (`IMPLEMENT_SIMPLE_AUTOMATION_TEST`) with hierarchical nam
 
 ## Commit & Pull Request Guidelines
 
-History uses concise imperative subjects with `feat:`, `fix:`, and scoped forms such as `feat(art):`. Stage related files explicitly. Include required imported assets, editable sources, generators, and provenance; exclude generated packages and unrelated work. PRs should describe behavior, link relevant issues/design notes, list validation commands/results, and attach screenshots for visual changes. Record external art licensing in `docs/art/asset-manifest.csv`.
+History uses concise imperative subjects with `feat:`, `fix:`, and scoped forms such as `feat(art):`. Stage related files explicitly. Keep imported art and editable art sources local; commit generators and textual provenance. Follow docs/asset-storage.md and the explicit gameplay LFS allowlist. PRs should describe behavior, link relevant issues/design notes, list validation commands/results, and attach screenshots for visual changes. Record external art licensing in `docs/art/asset-manifest.csv`.
+
+
+## Asset Storage
+
+Follow `docs/asset-storage.md`. Large art stays local. Do not force-add ignored art or introduce local asset packs, asset version archives or asset lock files. Only the gameplay allowlist belongs in Git LFS.
